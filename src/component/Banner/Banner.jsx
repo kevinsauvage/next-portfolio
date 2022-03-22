@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import styles from "./Banner.module.scss";
 import portrait from "../../images/banner.svg";
 import SlideUpAndFadeIn from "../../component/SlideUpAndFadeIn/SlideUpAndFadeIn";
