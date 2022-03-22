@@ -55,13 +55,9 @@
     z-index: 999999;
 
     &-img {
-      width: 60px;
-      height: 60px;
       border-radius: 50%;
-      border: 3px solid $color_2;
-      margin-right: 10px;
-      box-shadow: $shadow_2;
-      object-fit: cover;
+      border: 3px solid $color_2 !important;
+      box-shadow: $shadow_2 !important;
     }
 
 
@@ -69,6 +65,7 @@
       font-size: 30px;
       font-weight: 700;
       color: white;
+      margin-left: 10px;
 
       @include respond(laptop_l) {
         font-size: 20px;

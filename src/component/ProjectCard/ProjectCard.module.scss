@@ -59,16 +59,6 @@
     }
   }
 
-  &__images {
-    border-radius: $radius_1;
-
-    img {
-      width: 100%;
-      display: block;
-      height: auto;
-    }
-  }
-
   &__title {
     color: $color_2;
     margin-top: 20px;

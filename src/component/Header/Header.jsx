@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import styles from "./Header.module.scss";
 import { RiMenu4Fill } from "react-icons/ri";
@@ -6,6 +5,7 @@ import { IoMdCloseCircle } from "react-icons/io";
 import portrait from "../../images/portrait.png";
 import ReactGA from "react-ga";
 import getdateAndTime from "../../helpers/getDateAndTime";
+import Image from "next/image";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -74,7 +74,13 @@ const Header = () => {
   return (
     <div className={`${styles["Header"]} ${scrolled ? styles["Header--scrolled"] : ""}`}>
       <div className={styles["Header__logo"]}>
-        <img className={styles["Header__logo-img"]} src={portrait.src} alt="profil" />
+        <Image
+          className={styles["Header__logo-img"]}
+          src={portrait.src}
+          alt="profil"
+          width={60}
+          height={60}
+        />
         <p className={styles["Header__logo-name"]}>Kévin S.</p>
       </div>
       <nav className={`${styles["Header__nav"]} ${menuIsOpen ? styles["Header__nav--open"] : ""}`}>

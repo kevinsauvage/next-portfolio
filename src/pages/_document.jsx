@@ -8,7 +8,6 @@ export default function Document() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
-
         <meta property="og:url" content="https://www.kevin-sauvage.com/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Kévin Sauvage Portfolio" />
@@ -20,7 +19,6 @@ export default function Document() {
           property="og:image"
           content="https://res.cloudinary.com/kevincloudname/image/upload/v1647285290/portfolio/portfolio_home_3_ahmilj.png"
         />
-
         <meta name="twitter:card" content="/portfolio_home.png" />
         <meta property="twitter:domain" content="kevin-sauvage.com" />
         <meta property="twitter:url" content="https://www.kevin-sauvage.com/" />
@@ -33,13 +31,6 @@ export default function Document() {
           name="twitter:image"
           content="https://res.cloudinary.com/kevincloudname/image/upload/v1647285290/portfolio/portfolio_home_3_ahmilj.png"
         />
-
-        <title>Kévin Sauvage Portfolio</title>
-        <meta
-          name="description"
-          content="I'm Kévin Sauvage. The main area of my expertise is front-end development, HTML, CSS, JS and I also have experience in back end using Node.js, Express.js."
-        />
-
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

@@ -4,7 +4,7 @@
   align-items: center;
   grid-template-columns: 1.3fr 1fr;
 
-  @include respond(tablet) {
+  @include respond(laptop_s) {
     display: flex;
     flex-direction: column;
     padding-top: 180px;
@@ -83,21 +83,12 @@
   }
 
   &__aside {
-    &-img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      fill: $color_2;
-      background-color: $color_1;
+    @include respond(laptop_s) {
+      margin-top: 60px;
+    }
 
-      @include respond(tablet) {
-        margin-top: 60px;
-      }
-
-      @include respond(mobile_l) {
-        max-height: 400px;
-      }
+    @include respond(tablet) {
+      margin-top: 100px;
     }
   }
 }

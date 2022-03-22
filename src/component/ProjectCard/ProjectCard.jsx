@@ -4,6 +4,7 @@ import { FiExternalLink } from "react-icons/fi";
 import SlideUpAndFadeIn from "../SlideUpAndFadeIn/SlideUpAndFadeIn";
 import ReactGA from "react-ga";
 import getdateAndTime from "../../helpers/getDateAndTime";
+import Image from "next/image";
 
 const ProjectCard = ({ item }) => {
   const handleClickSourceCode = () => {
@@ -31,7 +32,13 @@ const ProjectCard = ({ item }) => {
   return (
     <SlideUpAndFadeIn className={styles["ProjectCard"]}>
       <div className={styles["ProjectCard__images"]}>
-        <img src={item.img.laptop} alt={item.title} width="352" height="199" />
+        <Image
+          src={item.img.laptop}
+          alt={item.title}
+          width="800"
+          height="344"
+          layout="responsive"
+        />
       </div>
       <div className={styles["ProjectCard__detail"]}>
         <p className={styles["ProjectCard__title"]}>{item.title}</p>

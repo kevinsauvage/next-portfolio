@@ -5,17 +5,14 @@
   align-items: center;
 
   &__img {
-    width: 60px;
-    height: 60px;
     border-radius: 50%;
-    border: 3px solid $color_2;
-    margin-bottom: 10px;
-    object-fit: cover;
+    border: 3px solid $color_2 !important;
   }
 
   &__name {
     font-weight: 700;
     font-size: 30px;
+    margin-top: 10Px;
 
     @include respond(laptop_l) {
       font-size: 20px;

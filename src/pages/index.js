@@ -10,6 +10,13 @@ import Contact from "../component/Contact/Contact";
 export default function Home() {
   return (
     <div id="app" className={styles["App"]}>
+      <Head>
+        <title>Kévin Sauvage Portfolio</title>
+        <meta
+          name="description"
+          content="I'm Kévin Sauvage. The main area of my expertise is front-end development, HTML, CSS, JS and I also have experience in back end using Node.js, Express.js."
+        />
+      </Head>
       <PageLayout>
         <div className={styles["App__container"]}>
           <Banner />

@@ -20,9 +20,9 @@ const Banner = () => {
       <aside className={styles["Banner__aside"]}>
         <SlideUpAndFadeIn>
           <Image
-            width="555"
-            height="484"
-            className={styles["Banner__aside-img"]}
+            width="851"
+            height="741"
+            layout="responsive"
             src={portrait.src}
             alt="illustrtion"
           />
