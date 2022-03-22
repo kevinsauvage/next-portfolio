@@ -1,0 +1,16 @@
+.What {
+  &__title {
+    margin-top: 1rem;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+
+
+    @include respond(mobile_l) {
+      gap: 60px;
+    }
+  }
+}

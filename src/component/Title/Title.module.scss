@@ -1,0 +1,22 @@
+.Title {
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 60px;
+  letter-spacing: 4px;
+  color: white;
+
+  @include respond(laptop_l) {
+    font-size: 60px;
+  }
+
+  @include respond(laptop_s) {
+    font-size: 44px;
+    margin-bottom: 50px;
+  }
+
+  @include respond(mobile_l) {
+    font-size: 34px;
+    margin-bottom: 40px;
+  }
+}

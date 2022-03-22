@@ -1,0 +1,103 @@
+.Banner {
+  display: grid;
+  min-height: 100vh;
+  align-items: center;
+  grid-template-columns: 1.3fr 1fr;
+
+  @include respond(tablet) {
+    display: flex;
+    flex-direction: column;
+    padding-top: 180px;
+    align-items: unset;
+  }
+
+  &__main {
+    &-header {
+      letter-spacing: 6px;
+      font-size: 20px;
+      font-weight: 500;
+      color: $color_2;
+
+      @include respond(laptop_l) {
+        font-size: 14px;
+      }
+    }
+
+    &-title {
+      font-size: 110px;
+      color: whitesmoke;
+      margin: 20px 0 10px 0;
+
+      @include respond(laptop_l) {
+        font-size: 70px;
+      }
+
+      @include respond(laptop_s) {
+        font-size: 60px;
+      }
+
+      @include respond(mobile_l) {
+        font-size: 36px;
+        line-height: 40px;
+      }
+
+      &-b {
+        font-size: 80px;
+        margin-bottom: 30px;
+
+
+        @include respond(laptop_l) {
+          font-size: 50px;
+        }
+
+        @include respond(laptop_s) {
+          font-size: 40px;
+        }
+
+        @include respond(mobile_l) {
+          font-size: 30px;
+        }
+
+        @include respond(mobile_m) {
+          font-size: 26px;
+        }
+      }
+    }
+
+    &-subtitle {
+      font-size: 30px;
+      line-height: 30px;
+      font-weight: 600;
+      opacity: 0.5;
+      max-width: 1000px;
+
+      @include respond(laptop_l) {
+        font-size: 18px;
+        max-width: 570px;
+      }
+
+      @include respond(laptop_s) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__aside {
+    &-img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      fill: $color_2;
+      background-color: $color_1;
+
+      @include respond(tablet) {
+        margin-top: 60px;
+      }
+
+      @include respond(mobile_l) {
+        max-height: 400px;
+      }
+    }
+  }
+}

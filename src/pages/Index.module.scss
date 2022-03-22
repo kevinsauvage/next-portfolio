@@ -1,0 +1,24 @@
+.App {
+    background-color: $color_1;
+    overflow: hidden;
+    position: relative;
+
+    &__container {
+        padding: 0 100px;
+
+        @include respond(laptop_l) {
+            padding: 0 20px;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 60px;
+
+        @include respond(laptop_s) {
+            grid-template-columns: 1fr;
+
+        }
+    }
+}
