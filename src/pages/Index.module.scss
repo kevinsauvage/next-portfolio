@@ -18,7 +18,7 @@
 
         @include respond(laptop_s) {
             grid-template-columns: 1fr;
-
+            gap: 0;
         }
     }
 }

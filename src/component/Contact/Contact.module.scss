@@ -102,6 +102,7 @@
       @include respond(laptop_l) {
         font-size: 28px;
       }
+
     }
   }
 
@@ -111,11 +112,15 @@
     width: 100%;
     gap: 15px;
     margin-top: 30px;
+
+    @include respond(mobile_l) {
+      gap: 8px;
+    }
   }
 
   &__social-icon {
     width: 100%;
-    padding: 15px 0;
+    padding: 15px 5px;
     border-radius: $radius_2;
     text-decoration: none;
     display: flex;
@@ -127,16 +132,24 @@
 
     svg {
       font-size: 36px;
-      margin-right: 10px;
+      margin-right: 6px;
+      color: $color_2;
 
       @include respond(laptop_l) {
         font-size: 24px;
       }
 
+      @include respond(laptop_s) {
+        font-size: 20px;
+      }
+
+      @include respond(mobile_l) {
+        font-size: 18px;
+      }
+
     }
 
     span {
-      margin-left: 8px;
       line-height: 24px;
       font-size: 22px;
       font-weight: 500;

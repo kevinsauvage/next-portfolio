@@ -1,7 +1,6 @@
 .CompetenceCard {
   min-width: 300px;
 
-
   @include respond(tablet) {
     max-width: 100%;
   }
@@ -19,7 +18,7 @@
     margin-bottom: 40px;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       bottom: -8px;
@@ -42,49 +41,33 @@
   &__items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-
     gap: 20px;
 
     @include respond(laptop_l) {
       grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 18px;
     }
 
     @include respond(laptop_s) {
       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 16px;
     }
-
 
     @include respond(mobile_l) {
       grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 12px;
     }
   }
 
   &__item {
     padding: 40px;
-    width: 160px;
-    height: 160px;
+    width: 100%;
+    height: auto;
     border-radius: $radius_1;
     box-shadow: $shadow_2;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    @include respond(laptop_l) {
-      width: 110px;
-      height: 110px;
-    }
-
-
-    @include respond(laptop_s) {
-      width: 100px;
-      height: 100px;
-    }
-
-
-    @include respond(mobile_l) {
-      width: 80px;
-      height: 80px;
-    }
 
     i {
       font-size: 90px;
@@ -94,7 +77,6 @@
         font-size: 60px;
       }
     }
-
 
     span {
       opacity: 0.6;

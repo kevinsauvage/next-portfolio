@@ -2,7 +2,7 @@ import styles from "./ProjectCard.module.scss";
 import { AiOutlineGithub } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
 import SlideUpAndFadeIn from "../SlideUpAndFadeIn/SlideUpAndFadeIn";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import getdateAndTime from "../../helpers/getDateAndTime";
 import Image from "next/image";
 
@@ -45,14 +45,18 @@ const ProjectCard = ({ item }) => {
         <p className={styles["ProjectCard__description"]}>{item.description}</p>
         <p className={styles["ProjectCard__languages"]}>{item.languages}</p>
       </div>
-      <div className={styles["ProjectCard__hover"]}>
-        <div>
-          <AiOutlineGithub onClick={() => handleClickSourceCode()} />
-          Source code
+      <div className={styles["ProjectCard__btns"]}>
+        <div
+          onClick={() => handleClickSourceCode()}
+          className={styles["ProjectCard__btn"] + " " + styles["ProjectCard__btn-git"]}>
+          <AiOutlineGithub />
+          <p>Source code</p>
         </div>
-        <div>
-          <FiExternalLink onClick={() => handleClickVisit()} />
-          Visit website
+        <div
+          onClick={() => handleClickVisit()}
+          className={styles["ProjectCard__btn"] + "  " + styles["ProjectCard__btn-link"]}>
+          <FiExternalLink />
+          <p>Visit website</p>
         </div>
       </div>
     </SlideUpAndFadeIn>

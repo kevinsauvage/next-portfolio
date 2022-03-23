@@ -24,12 +24,19 @@
       line-height: 38px;
 
       @include respond(laptop_l) {
-        padding: 40px 60px;
+        padding: 40px;
+        line-height: 34px;
 
       }
 
       @include respond(tablet) {
-        padding: 40px 30px;
+        padding: 20px;
+        line-height: 30px;
+      }
+
+      @include respond(mobile_l) {
+        padding: 20px;
+        line-height: 24px;
       }
     }
   }

@@ -3,7 +3,7 @@ import styles from "./Header.module.scss";
 import { RiMenu4Fill } from "react-icons/ri";
 import { IoMdCloseCircle } from "react-icons/io";
 import portrait from "../../images/portrait.png";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import getdateAndTime from "../../helpers/getDateAndTime";
 import Image from "next/image";
 

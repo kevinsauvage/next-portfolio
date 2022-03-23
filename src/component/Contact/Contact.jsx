@@ -13,7 +13,7 @@ import { MdLocationOn, MdMail } from "react-icons/md";
 import SlideUpAndFadeIn from "../SlideUpAndFadeIn/SlideUpAndFadeIn";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import getdateAndTime from "../../helpers/getDateAndTime";
 
 const Contact = () => {
