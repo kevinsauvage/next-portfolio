@@ -14,7 +14,7 @@
   &__main {
     &-header {
       letter-spacing: 6px;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 500;
       color: $color_2;
       @include gradientText;
@@ -36,7 +36,7 @@
       }
 
       @include respond(laptop_s) {
-        font-size: 60px;
+        font-size: 65px;
       }
 
       @include respond(mobile_l) {
@@ -54,11 +54,11 @@
         }
 
         @include respond(laptop_s) {
-          font-size: 40px;
+          font-size: 46px;
         }
 
         @include respond(mobile_l) {
-          font-size: 30px;
+          font-size: 25px;
         }
 
         @include respond(mobile_m) {
@@ -79,12 +79,12 @@
         max-width: 670px;
       }
 
-      @include respond(laptop_s) {
+      @include respond(mobile_l) {
         font-size: 16px;
       }
 
       @include respond(mobile_m) {
-        font-size: 12px;
+        font-size: 13px;
       }
     }
   }
@@ -99,7 +99,7 @@
     }
 
     @include respond(mobile_l) {
-      margin-top: 40px;
+      margin-top: 60px;
     }
   }
 }
