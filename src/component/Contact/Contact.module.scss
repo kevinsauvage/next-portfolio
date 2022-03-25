@@ -53,18 +53,18 @@
     margin-bottom: 1rem;
     min-height: 50px;
     background: $color_1;
-    border: 1px solid #e9ecef;
+    border: 1px solid $color_3;
     border-radius: $radius_2;
     padding-left: 10px;
     width: 100%;
     font-weight: 600;
     box-shadow: $shadow_2;
-    color: #e9ecef;
+    color: $color_3;
   }
 
   &__form-text-area {
     background: $color_1;
-    border: 1px solid #e9ecef;
+    border: 1px solid $color_3;
     border-radius: $radius_2;
     padding-left: 10px;
     padding-top: 10px;
@@ -74,7 +74,7 @@
     resize: none;
     font-weight: 600;
     box-shadow: $shadow_2;
-    color: #e9ecef;
+    color: $color_3;
 
 
     @include respond(laptop_l) {
