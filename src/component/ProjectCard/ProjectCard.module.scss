@@ -16,7 +16,6 @@
     padding: 1rem;
   }
 
-
   &__title {
     color: $color_2;
     margin-top: 20px;
@@ -77,6 +76,18 @@
     font-size: 26px;
     border: none;
     background-color: transparent;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.03);
+    }
+
+    @include respond(laptop_s) {
+      &:hover {
+        transform: unset;
+      }
+    }
+
 
 
     @include respond(laptop_l) {

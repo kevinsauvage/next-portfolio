@@ -10,7 +10,7 @@ const PageLayout = ({ children }) => {
       <Footer />
       <svg
         style={{ width: "0", height: "0", position: "absolute" }}
-        ariaHidden="true"
+        aria-hidden="true"
         focusable="false">
         <linearGradient id="my-cool-gradient" x2="1" y2="1">
           <stop offset="0%" stopColor="#42378f " />

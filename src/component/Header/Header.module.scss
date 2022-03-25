@@ -104,7 +104,6 @@
     &-list {
       display: flex;
       align-items: center;
-      margin-right: 30px;
 
       @include respond(laptop_s) {
         flex-direction: column;
@@ -130,20 +129,6 @@
       @include respond(laptop_l) {
         font-size: 18px;
       }
-
-      @include respond(laptop_s) {
-        opacity: 0;
-        transform: translateX(100px);
-
-        &--open {
-          margin-left: 0;
-          animation: slideLeft;
-          animation-duration: 0.1s * 6;
-          animation-delay: 0.1s * 6;
-          animation-fill-mode: forwards;
-        }
-      }
-
     }
 
     &-item {
@@ -165,7 +150,7 @@
 
 
         &--open {
-          @for $i from 1 through 5 {
+          @for $i from 1 through 6 {
             &:nth-child(#{$i}) {
               animation: slideLeft;
               animation-duration: (0.1s * $i);

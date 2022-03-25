@@ -2,32 +2,11 @@ import styles from "./ProjectCard.module.scss";
 import { AiOutlineGithub } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
 import SlideUpAndFadeIn from "../SlideUpAndFadeIn/SlideUpAndFadeIn";
-import ReactGA from "react-ga4";
-import getdateAndTime from "../../helpers/getDateAndTime";
 import Image from "next/image";
+import ProjectCardFunctions from "./ProjectCardFunctions";
 
 const ProjectCard = ({ item }) => {
-  const handleClickSourceCode = () => {
-    ReactGA.event({
-      category: "Links",
-      action: `GitHub project click : ${item.title} the ${getdateAndTime().date} at time ${
-        getdateAndTime().time
-      } `,
-      label: "GitHub button clicked!",
-    });
-    window.open(item.githubLink);
-  };
-
-  const handleClickVisit = () => {
-    ReactGA.event({
-      category: "Links",
-      action: `Visit: ${item.title}, the ${getdateAndTime().date} at time : ${
-        getdateAndTime().time
-      }`,
-      label: "Project website opening",
-    });
-    window.open(item.websiteLink);
-  };
+  const { handleClickSourceCode, handleClickVisit } = ProjectCardFunctions(item);
 
   return (
     <SlideUpAndFadeIn className={styles["ProjectCard"]}>
