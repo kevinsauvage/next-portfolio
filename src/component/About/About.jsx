@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import styles from "./About.module.scss";
 import Section from "../Section/Section";
 import Title from "../Title/Title";
