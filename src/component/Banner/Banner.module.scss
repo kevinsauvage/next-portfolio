@@ -62,7 +62,7 @@
         }
 
         @include respond(mobile_m) {
-          font-size: 26px;
+          font-size: 23px;
         }
       }
     }
@@ -82,6 +82,10 @@
       @include respond(laptop_s) {
         font-size: 16px;
       }
+
+      @include respond(mobile_m) {
+        font-size: 12px;
+      }
     }
   }
 
@@ -92,6 +96,10 @@
 
     @include respond(tablet) {
       margin-top: 100px;
+    }
+
+    @include respond(mobile_l) {
+      margin-top: 40px;
     }
   }
 }
