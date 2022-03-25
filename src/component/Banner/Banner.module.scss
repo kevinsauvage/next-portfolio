@@ -19,6 +19,7 @@
       color: $color_2;
       @include gradientText;
       width: fit-content;
+      white-space: nowrap;
 
       @include respond(laptop_l) {
         font-size: 16px;

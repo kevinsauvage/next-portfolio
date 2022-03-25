@@ -4,6 +4,7 @@
   letter-spacing: 6px;
   margin-bottom: 1rem;
   width: fit-content;
+  white-space: nowrap;
   @include gradientText;
 
   @include respond(laptop_l) {
