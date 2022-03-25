@@ -52,17 +52,18 @@
   &__form-input {
     margin-bottom: 1rem;
     min-height: 50px;
-    background: #e9ecef;
+    background: $color_1;
     border: 1px solid #e9ecef;
     border-radius: $radius_2;
     padding-left: 10px;
     width: 100%;
     font-weight: 600;
     box-shadow: $shadow_2;
+    color: #e9ecef;
   }
 
   &__form-text-area {
-    background: #e9ecef;
+    background: $color_1;
     border: 1px solid #e9ecef;
     border-radius: $radius_2;
     padding-left: 10px;
@@ -73,6 +74,8 @@
     resize: none;
     font-weight: 600;
     box-shadow: $shadow_2;
+    color: #e9ecef;
+
 
     @include respond(laptop_l) {
       max-height: 220px;
