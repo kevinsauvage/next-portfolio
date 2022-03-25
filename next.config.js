@@ -9,6 +9,7 @@ const nextConfig = {
     @import "variables.scss"; 
     @import "responsive.scss"; 
     @import "colors.scss"; 
+    @import "mixins.scss"; 
     @import "animation.scss";`,
   },
   webpack: (config, options) => {

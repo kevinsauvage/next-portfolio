@@ -3,7 +3,8 @@
   font-size: 18px;
   letter-spacing: 6px;
   margin-bottom: 1rem;
-
+  width: fit-content;
+  @include gradientText;
 
   @include respond(laptop_l) {
     font-size: 15px;

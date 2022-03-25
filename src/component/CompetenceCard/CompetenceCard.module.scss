@@ -72,6 +72,7 @@
     i {
       font-size: 90px;
       color: $color_2;
+      @include gradientText;
 
       @include respond(laptop_l) {
         font-size: 60px;

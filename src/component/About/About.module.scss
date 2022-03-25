@@ -5,7 +5,7 @@
     text-align: justify;
 
     @include respond(laptop_l) {
-      font-size: 20px;
+      font-size: 18px;
     }
 
     @include respond(laptop_s) {
@@ -26,7 +26,6 @@
       @include respond(laptop_l) {
         padding: 40px;
         line-height: 34px;
-
       }
 
       @include respond(tablet) {

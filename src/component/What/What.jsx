@@ -9,7 +9,7 @@ const What = () => {
   return (
     <Section id="what" className={styles["What"]}>
       <UpTitle text="FEATURES" />
-      <Title>What I Do</Title>
+      <Title>Skills</Title>
       <div className={styles["What__cards"]}>
         {competences.map((item, i) => (
           <CompetenceCard item={item} key={i} />

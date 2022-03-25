@@ -89,6 +89,7 @@
     font-weight: 700;
     border: none;
     box-shadow: $shadow_2;
+    background-image: $gradient_1;
 
 
     @include respond(laptop_l) {
@@ -134,6 +135,8 @@
       font-size: 36px;
       margin-right: 6px;
       color: $color_2;
+      fill: url(#my-cool-gradient) $color_2;
+
 
       @include respond(laptop_l) {
         font-size: 24px;
@@ -225,7 +228,7 @@
       svg {
         margin-right: 1rem;
         font-size: 50px;
-        color: $color_2;
+        fill: url(#my-cool-gradient) $color_2;
 
         @include respond(laptop_l) {
           font-size: 30px;

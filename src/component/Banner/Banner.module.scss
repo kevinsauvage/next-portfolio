@@ -17,6 +17,8 @@
       font-size: 20px;
       font-weight: 500;
       color: $color_2;
+      @include gradientText;
+      width: fit-content;
 
       @include respond(laptop_l) {
         font-size: 16px;

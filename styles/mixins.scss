@@ -1,0 +1,23 @@
+@mixin gradientText {
+    background: -webkit-linear-gradient(315deg, #42378f 0%, #f53844 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin gradientBorder {
+    &::before {
+        content: "";
+        position: absolute !important;
+        z-index: -1 !important;
+        inset: 0 !important;
+        padding: 2px !important;
+        border-radius: $radius_2 !important;
+        background: $gradient_1 !important;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box,
+            linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+}

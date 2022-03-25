@@ -6,6 +6,7 @@ import portrait from "../../images/portrait.png";
 import ReactGA from "react-ga4";
 import getdateAndTime from "../../helpers/getDateAndTime";
 import Image from "next/image";
+import GradientBorder from "../GradientBorder/GradientBorder";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -47,7 +48,7 @@ const Header = () => {
   const links = [
     { to: scrollToTop, text: "HOME" },
     { to: scrollToAbout, text: "ABOUT" },
-    { to: scrollToWhat, text: "WHAT" },
+    { to: scrollToWhat, text: "SKILLS" },
     { to: scrollToProjects, text: "PROJECTS" },
     { to: scrollToContact, text: "CONTACT" },
   ];
@@ -74,13 +75,15 @@ const Header = () => {
   return (
     <div className={`${styles["Header"]} ${scrolled ? styles["Header--scrolled"] : ""}`}>
       <div className={styles["Header__logo"]}>
-        <Image
-          className={styles["Header__logo-img"]}
-          src={portrait.src}
-          alt="profil"
-          width={60}
-          height={60}
-        />
+        <GradientBorder radius="50%">
+          <Image
+            className={styles["Header__logo-img"]}
+            src={portrait.src}
+            alt="profil"
+            width={60}
+            height={60}
+          />
+        </GradientBorder>
         <p className={styles["Header__logo-name"]}>Kévin S.</p>
       </div>
       <nav className={`${styles["Header__nav"]} ${menuIsOpen ? styles["Header__nav--open"] : ""}`}>
@@ -95,6 +98,8 @@ const Header = () => {
               {link.text}
             </li>
           ))}
+        </ul>
+        <GradientBorder radius="5px">
           <button
             onClick={() => handleDowloadCv()}
             className={`${styles["Header__nav-cv"]} ${
@@ -102,7 +107,7 @@ const Header = () => {
             }`}>
             CV
           </button>
-        </ul>
+        </GradientBorder>
         <IoMdCloseCircle
           className={styles["Header__close"]}
           onClick={() => setMenuIsOpen((prev) => !prev)}

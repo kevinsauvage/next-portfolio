@@ -46,18 +46,18 @@ const ProjectCard = ({ item }) => {
         <p className={styles["ProjectCard__languages"]}>{item.languages}</p>
       </div>
       <div className={styles["ProjectCard__btns"]}>
-        <div
+        <button
           onClick={() => handleClickSourceCode()}
           className={styles["ProjectCard__btn"] + " " + styles["ProjectCard__btn-git"]}>
           <AiOutlineGithub />
           <p>Source code</p>
-        </div>
-        <div
+        </button>
+        <button
           onClick={() => handleClickVisit()}
           className={styles["ProjectCard__btn"] + "  " + styles["ProjectCard__btn-link"]}>
           <FiExternalLink />
           <p>Visit website</p>
-        </div>
+        </button>
       </div>
     </SlideUpAndFadeIn>
   );
