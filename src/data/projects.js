@@ -7,7 +7,7 @@ const projects = [
     title: "LIGHTING",
     description:
       "Lighting — the collective of creatives and managers committed to re-thinking your business in a radically better way.",
-    languages: "HTML | SASS | React.js",
+    languages: "React.js | SASS",
     websiteLink: "https://lighting-agency.vercel.app/",
     githubLink: "https://github.com/kevinsauvage/LIGHTING",
   },
@@ -19,9 +19,9 @@ const projects = [
     title: "Streamy",
     description:
       "Stream full seasons of exclusive series, current-season episodes, hit movies and more.",
-    languages: "HTML | SASS | React.js | TMDB API",
-    websiteLink: "https://streamy.vercel.app/",
-    githubLink: "https://github.com/kevinsauvage/streamy",
+    languages: "React.js | SASS | TMDB API | Express.js | Mongoose",
+    websiteLink: "https://streamy-v2-client.vercel.app/",
+    githubLink: "https://github.com/kevinsauvage/streamyV2-client",
   },
   {
     img: {
@@ -31,7 +31,7 @@ const projects = [
     title: "Socialize",
     description:
       "Log in to Socialize to start sharing and communicating with your friends, family and people you know.",
-    languages: "HTML | SASS | React.js | Mongoose | Express.js",
+    languages: "React.js | SASS | Express.js | Mongoose",
     websiteLink: "https://socialize-puce.vercel.app/",
     githubLink: "https://github.com/kevinsauvage/socialize",
   },
@@ -43,7 +43,7 @@ const projects = [
     title: "Jobify",
     description:
       "With Jobify, you can search millions of jobs online to find the next step in your career.",
-    languages: "HTML | SASS | React.js | Express.js | Adzuna API",
+    languages: "React.js | SASS | Express.js | Adzuna API",
     websiteLink: "https://jobify-jade.vercel.app/",
     githubLink: "https://github.com/kevinsauvage/jobify",
   },
