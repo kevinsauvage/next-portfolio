@@ -18,7 +18,7 @@ const projects = [
     },
     title: "Streamy",
     description:
-      "Streamy is here help you find movie and show that you may like, add them to your watch list, read and add a comment about them and help other users discover what they may like. (test account: test@test.com, password: test1234).",
+      "Streamy is here to help you find movie and show that you may like, add them to your watch list, read and add a comment about them and help other users discover what they may like. (test account: test@test.com, password: test1234).",
     languages: "React.js | SASS |  Express.js | Mongoose | TMDB API | JWT",
     websiteLink: "https://streamy-v2-client.vercel.app/",
     githubLink: [
