@@ -10,7 +10,9 @@ const ProjectCardFunctions = (item) => {
       } `,
       label: "GitHub button clicked!",
     });
-    window.open(item.githubLink);
+    item.githubLink.forEach((element) => {
+      window.open(element);
+    });
   };
 
   const handleClickVisit = () => {
