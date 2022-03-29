@@ -79,7 +79,7 @@
     transition: transform 0.3s ease;
 
     &:hover {
-      transform: scale(1.03);
+      transform: scale(1.01);
     }
 
     @include respond(laptop_s) {
@@ -122,8 +122,12 @@
     &-git {
       color: $color_2;
       position: relative;
-      @include gradientText;
-      @include gradientBorder;
+      background-color: $color_1;
+      height: 44px;
+
+      p {
+        @include gradientText;
+      }
 
       svg {
         fill: url(#my-cool-gradient) $color_2;

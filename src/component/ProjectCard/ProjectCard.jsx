@@ -4,6 +4,7 @@ import { FiExternalLink } from "react-icons/fi";
 import SlideUpAndFadeIn from "../SlideUpAndFadeIn/SlideUpAndFadeIn";
 import Image from "next/image";
 import ProjectCardFunctions from "./ProjectCardFunctions";
+import GradientBorder from "../GradientBorder/GradientBorder";
 
 const ProjectCard = ({ item }) => {
   const { handleClickSourceCode, handleClickVisit } = ProjectCardFunctions(item);
@@ -31,12 +32,14 @@ const ProjectCard = ({ item }) => {
         <p className={styles["ProjectCard__languages"]}>{item.languages}</p>
       </div>
       <div className={styles["ProjectCard__btns"]}>
-        <button
-          onClick={() => handleClickSourceCode()}
-          className={styles["ProjectCard__btn"] + " " + styles["ProjectCard__btn-git"]}>
-          <AiOutlineGithub />
-          <p>Source code</p>
-        </button>
+        <GradientBorder radius="8px">
+          <button
+            onClick={() => handleClickSourceCode()}
+            className={styles["ProjectCard__btn"] + " " + styles["ProjectCard__btn-git"]}>
+            <AiOutlineGithub />
+            <p>Source code</p>
+          </button>
+        </GradientBorder>
         <button
           onClick={() => handleClickVisit()}
           className={styles["ProjectCard__btn"] + "  " + styles["ProjectCard__btn-link"]}>
