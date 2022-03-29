@@ -9,7 +9,7 @@ const Projects = () => {
   return (
     <Section id="projects" className={styles["Projects"]}>
       <UpTitle text="REALIZATIONS" />
-      <Title>My Portfolio</Title>
+      <Title>My Projects</Title>
       <div className={styles["Projects__cards"]}>
         {projects.map((item, i) => (
           <ProjectCard key={i} item={item} />
