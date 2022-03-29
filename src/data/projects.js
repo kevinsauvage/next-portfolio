@@ -20,7 +20,7 @@ const projects = [
     description:
       "Streamy is here to help you find movie and show that you may like, watch trailer, add them to your watch list, read and add comments.",
     languages: "React.js | SASS |  Express.js | Mongoose | TMDB API | JWT",
-    websiteLink: "https://streamy-v2-client.vercel.app/",
+    websiteLink: "https://streamy.fun/",
     githubLink: [
       "https://github.com/kevinsauvage/streamyV2-client",
       "https://github.com/kevinsauvage/streamyV2-server",
