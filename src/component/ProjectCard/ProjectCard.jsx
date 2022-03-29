@@ -22,6 +22,12 @@ const ProjectCard = ({ item }) => {
       <div className={styles["ProjectCard__detail"]}>
         <p className={styles["ProjectCard__title"]}>{item.title}</p>
         <p className={styles["ProjectCard__description"]}>{item.description}</p>
+        {item.testAccount && (
+          <p>
+            Test credentials: Email = {item.testAccount.email} Password ={" "}
+            {item.testAccount.password}
+          </p>
+        )}
         <p className={styles["ProjectCard__languages"]}>{item.languages}</p>
       </div>
       <div className={styles["ProjectCard__btns"]}>
