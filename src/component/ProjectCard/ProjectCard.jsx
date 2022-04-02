@@ -32,7 +32,7 @@ const ProjectCard = ({ item }) => {
         <p className={styles["ProjectCard__languages"]}>{item.languages}</p>
       </div>
       <div className={styles["ProjectCard__btns"]}>
-        <GradientBorder radius="8px">
+        <GradientBorder radius="10px">
           <button
             onClick={() => handleClickSourceCode()}
             className={styles["ProjectCard__btn"] + " " + styles["ProjectCard__btn-git"]}>

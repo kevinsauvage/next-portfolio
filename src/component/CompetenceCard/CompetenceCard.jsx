@@ -1,13 +1,15 @@
 import styles from "./CompetenceCard.module.scss";
 import SlideUpAndFadeIn from "../SlideUpAndFadeIn/SlideUpAndFadeIn";
+import competences from "../../data/competences";
 
-const CompetenceCard = ({ item }) => {
+const CompetenceCard = () => {
   return (
     <SlideUpAndFadeIn className={styles["CompetenceCard"]}>
       <div className={styles["CompetenceCard__items"]}>
-        {item.description.map((item, i) => (
+        {competences.map((item, i) => (
           <div className={styles["CompetenceCard__item"]} key={i}>
-            <i className={item}></i>
+            <i className={item.icon}></i>
+            <p>{item.description}</p>
           </div>
         ))}
       </div>

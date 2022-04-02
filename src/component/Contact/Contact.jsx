@@ -104,7 +104,7 @@ const Contact = () => {
             )}
             <button className={styles["Contact__btn"]}>
               {isLoading ? (
-                <ClipLoader color="white" />
+                <ClipLoader />
               ) : (
                 <>
                   SEND <BiMailSend />

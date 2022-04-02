@@ -36,7 +36,7 @@
     text-align: center;
     width: 100%;
     font-size: 20px;
-    color: $color_2;
+    color: var(--color-2);
 
     @include respond(laptop_l) {
       font-size: 16px;
@@ -52,19 +52,24 @@
   &__form-input {
     margin-bottom: 1rem;
     min-height: 50px;
-    background: $color_1;
-    border: 1px solid $color_3;
+    background: var(--color-1);
+    border: 1px solid var(--color-3);
     border-radius: $radius_2;
     padding-left: 10px;
     width: 100%;
     font-weight: 600;
     box-shadow: $shadow_2;
-    color: $color_3;
+    color: var(--color-3);
+    border-width: 0.1px;
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &__form-text-area {
-    background: $color_1;
-    border: 1px solid $color_3;
+    background: var(--color-1);
+    border: 1px solid var(--color-3);
     border-radius: $radius_2;
     padding-left: 10px;
     padding-top: 10px;
@@ -74,7 +79,12 @@
     resize: none;
     font-weight: 600;
     box-shadow: $shadow_2;
-    color: $color_3;
+    color: var(--color-3);
+    border-width: 0.1px;
+
+    &:focus {
+      outline: none;
+    }
 
 
     @include respond(laptop_l) {
@@ -85,8 +95,8 @@
   &__btn {
     width: 100%;
     padding: 15px 0;
-    background: $color_2;
-    color: $color_1;
+    background: var(--color-2);
+    color: var(--color-1);
     border-radius: $radius_2;
     display: flex;
     align-items: center;
@@ -112,6 +122,7 @@
     svg {
       margin-left: 8px;
       font-size: 36px;
+      color: var(--color-1);
 
       @include respond(laptop_l) {
         font-size: 28px;
@@ -142,7 +153,7 @@
     justify-content: center;
     cursor: pointer;
     box-shadow: $shadow_1;
-    color: $color_3;
+    color: var(--color-3);
     transition: transform 0.3s ease;
 
     &:hover {
@@ -158,8 +169,8 @@
     svg {
       font-size: 36px;
       margin-right: 6px;
-      color: $color_2;
-      fill: url(#my-cool-gradient) $color_2;
+      color: var(--color-2);
+      fill: url(#my-cool-gradient) var(--color-2);
 
 
       @include respond(laptop_l) {
@@ -228,7 +239,7 @@
       margin-bottom: 30px;
       text-align: center;
       opacity: 0.7;
-      color: whitesmoke;
+      color: var(--color-5);
 
       @include respond(laptop_l) {
         font-size: 20px;
@@ -255,7 +266,7 @@
       svg {
         margin-right: 1rem;
         font-size: 50px;
-        fill: url(#my-cool-gradient) $color_2;
+        fill: url(#my-cool-gradient) var(--color-2);
 
         @include respond(laptop_l) {
           font-size: 30px;

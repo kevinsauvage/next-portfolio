@@ -6,6 +6,7 @@ import Link from "next/link";
 import portrait from "../../images/portrait.png";
 import GradientBorder from "../GradientBorder/GradientBorder";
 import HeaderFunction from "./HeaderFunction";
+import ToggleTheme from "../ToggleTheme/ToggleTheme";
 
 const Header = () => {
   const { links, scrolled, setMenuIsOpen, menuIsOpen, handleDowloadCv } = HeaderFunction();
@@ -45,7 +46,13 @@ const Header = () => {
             className={`${styles["Header__nav-item"]} ${
               menuIsOpen ? styles["Header__nav-item--open"] : ""
             }`}>
-            <GradientBorder radius="5px">
+            <ToggleTheme />
+          </li>
+          <li
+            className={`${styles["Header__nav-item"]} ${
+              menuIsOpen ? styles["Header__nav-item--open"] : ""
+            }`}>
+            <GradientBorder radius="8px">
               <button
                 onClick={() => handleDowloadCv()}
                 className={`${styles["Header__nav-cv"]} ${

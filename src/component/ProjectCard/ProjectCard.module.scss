@@ -17,7 +17,7 @@
   }
 
   &__title {
-    color: $color_2;
+    color: var(--color-2);
     margin-top: 20px;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -120,9 +120,9 @@
     }
 
     &-git {
-      color: $color_2;
+      color: var(--color-2);
       position: relative;
-      background-color: $color_1;
+      background-color: var(--color-1);
       height: 44px;
 
       p {
@@ -130,17 +130,17 @@
       }
 
       svg {
-        fill: url(#my-cool-gradient) $color_2;
+        fill: url(#my-cool-gradient) var(--color-2);
       }
     }
 
     &-link {
-      background-color: $color_2;
+      background-color: var(--color-2);
       background-image: $gradient_1;
-      color: $color_1;
+      color: var(--color-1);
 
       svg {
-        color: $color_1;
+        color: var(--color-1);
       }
     }
   }

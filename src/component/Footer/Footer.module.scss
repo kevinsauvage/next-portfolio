@@ -12,7 +12,7 @@
     font-weight: 700;
     font-size: 30px;
     margin-top: 10Px;
-    color: whitesmoke;
+    color:  var(--color-5);
 
     @include respond(laptop_l) {
       font-size: 20px;

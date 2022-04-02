@@ -16,7 +16,7 @@
       letter-spacing: 6px;
       font-size: 22px;
       font-weight: 500;
-      color: $color_2;
+      color: var(--color-2);
       @include gradientText;
       width: fit-content;
       white-space: nowrap;
@@ -28,7 +28,7 @@
 
     &-title {
       font-size: 110px;
-      color: whitesmoke;
+      color: var(--color-5);
       margin: 20px 0 10px 0;
 
       @include respond(laptop_l) {
@@ -47,6 +47,7 @@
       &-b {
         font-size: 80px;
         margin-bottom: 30px;
+        color: var(--color-4);
 
 
         @include respond(laptop_l) {

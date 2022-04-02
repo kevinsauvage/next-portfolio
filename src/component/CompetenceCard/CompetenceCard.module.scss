@@ -6,13 +6,13 @@
   }
 
   svg {
-    color: $color_2;
+    color: var(--color-2);
   }
 
   &__title {
     font-weight: 500;
     font-size: 32px;
-    color: white;
+    color:  var(--color-5);
     position: relative;
     width: fit-content;
     margin-bottom: 40px;
@@ -24,7 +24,7 @@
       bottom: -8px;
       width: 50%;
       height: 3px;
-      background-color: $color_2;
+      background-color: var(--color-2);
       border-radius: 4px;
     }
 
@@ -60,7 +60,7 @@
   }
 
   &__item {
-    padding: 40px;
+    padding: 20px 40px;
     width: 100%;
     height: auto;
     border-radius: $radius_1;
@@ -68,10 +68,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     i {
       font-size: 90px;
-      color: $color_2;
+      color: var(--color-2);
+      margin-bottom: 8px;
       @include gradientText;
 
       @include respond(laptop_l) {

@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: $color_1;
-  color: $color_3;
+  background: var(--color-1);
+  color: var(--color-3);
   padding: 50px 100px;
   width: 100%;
   z-index: 999999;
@@ -32,7 +32,7 @@
       top: 2rem;
       z-index: 9999;
       font-size: 40px;
-      color: $color_2;
+      color: var(--color-2);
     }
   }
 
@@ -42,11 +42,9 @@
     left: 0;
     right: 0;
     height: 100px;
-    background: rgba(33, 36, 40, 0.65);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
     animation: fadeIn 1s ease-in forwards;
     box-shadow: $shadow_2;
+
   }
 
   &__logo {
@@ -57,13 +55,14 @@
     &-img {
       border-radius: 50%;
       box-shadow: $shadow_2 !important;
+      overflow: hidden;
     }
 
 
     &-name {
       font-size: 30px;
       font-weight: 700;
-      color: whitesmoke;
+      color: var(--color-5);
       margin-left: 10px;
 
       @include respond(laptop_l) {
@@ -91,8 +90,9 @@
 
       &--open {
         right: 0;
-        background: rgba(33, 36, 40, 0.98);
+        background: var(--color-1);
         backdrop-filter: blur(10px);
+        box-shadow: $shadow_1;
       }
     }
 
@@ -117,14 +117,14 @@
     &-cv {
       padding: 8px 20px;
       border-radius: 5px;
-      color: $color_2;
+      color: var(--color-2);
       border: none;
       background-color: transparent;
       box-shadow: $shadow_2;
       font-weight: 800;
       font-size: 24px;
       cursor: pointer;
-      background-color: $color_1;
+      background-color: var(--color-1);
 
       @include respond(laptop_l) {
         font-size: 18px;
@@ -150,7 +150,7 @@
 
 
         &--open {
-          @for $i from 1 through 6 {
+          @for $i from 1 through 7 {
             &:nth-child(#{$i}) {
               animation: slideLeft;
               animation-duration: (0.1s * $i);
@@ -167,12 +167,9 @@
       }
 
       a {
-        color: $color_3;
+        color: var(--color-5);
       }
 
-      .active {
-        color: whitesmoke;
-      }
     }
   }
 }
