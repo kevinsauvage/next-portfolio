@@ -1,5 +1,5 @@
 @mixin gradientText {
-    background: -webkit-linear-gradient(315deg, #42378f 0%, #f53844 100%);
+    background: $gradient_1;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

@@ -48,6 +48,7 @@
         font-size: 80px;
         margin-bottom: 30px;
         color: var(--color-4);
+        @include gradientText;
 
 
         @include respond(laptop_l) {

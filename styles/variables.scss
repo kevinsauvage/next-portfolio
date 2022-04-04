@@ -3,4 +3,4 @@ $shadow_2: rgba(0, 0, 0, 0.19) 0px 10px 20px,
 rgba(0, 0, 0, 0.23) 0px 6px 6px;
 $radius_1: 20px;
 $radius_2: 8px;
-$gradient_1: linear-gradient(315deg, #42378f 0%, #f53844 74%);
+$gradient_1: linear-gradient(315deg, var(--color-4) 0%, var(--color-2) 100%);

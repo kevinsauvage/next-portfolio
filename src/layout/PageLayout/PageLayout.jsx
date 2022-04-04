@@ -13,8 +13,8 @@ const PageLayout = ({ children }) => {
         aria-hidden="true"
         focusable="false">
         <linearGradient id="my-cool-gradient" x2="1" y2="1">
-          <stop offset="0%" stopColor="#42378f " />
-          <stop offset="74%" stopColor="#f53844" />
+          <stop offset="0%" stopColor="#f53844" />
+          <stop offset="100%" stopColor="#42378f" />
         </linearGradient>
       </svg>
     </div>
