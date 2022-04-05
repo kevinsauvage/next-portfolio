@@ -36,7 +36,10 @@ const projects = [
       "Log in to Socialize to start sharing and communicating with your friends, family and people you know.",
     languages: "React.js | SASS | Express.js | Mongoose",
     websiteLink: "https://socialize-puce.vercel.app/",
-    githubLink: ["https://github.com/kevinsauvage/socialize"],
+    githubLink: [
+      "https://github.com/kevinsauvage/socialize",
+      "https://github.com/kevinsauvage/socialize_server",
+    ],
   },
   {
     img: {
