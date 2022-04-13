@@ -15,7 +15,7 @@ export default function Document() {
         />
         <meta
           property="og:image"
-          content="https://res.cloudinary.com/kevincloudname/image/upload/v1647285290/portfolio/portfolio_home_3_ahmilj.png"
+          content="https://res.cloudinary.com/kevincloudname/image/upload/v1649841116/portfolio/K%C3%A9vin-Sauvage-Portfolio_bthtru.png"
         />
         <meta name="twitter:card" content="/portfolio_home.png" />
         <meta property="twitter:domain" content="kevin-sauvage.com" />
