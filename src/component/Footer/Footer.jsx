@@ -4,9 +4,10 @@ import portrait from "../../images/portrait.png";
 import Image from "next/image";
 import GradientBorder from "../GradientBorder/GradientBorder";
 import Link from "next/link";
+
 const Footer = () => {
   return (
-    <Section>
+    <Section className={styles.FooterContainer}>
       <footer className={styles["Footer"]}>
         <Link href="/#app" passHref>
           <a>

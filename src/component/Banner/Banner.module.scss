@@ -50,7 +50,6 @@
         color: var(--color-4);
         @include gradientText;
 
-
         @include respond(laptop_l) {
           font-size: 50px;
         }

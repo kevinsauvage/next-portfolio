@@ -23,10 +23,8 @@ export default function Home() {
       <PageLayout>
         <div className={styles["App__container"]}>
           <Banner />
-          <div className={styles["App__wrapper"]}>
-            <About />
-            <What />
-          </div>
+          <About />
+          <What />
           <Projects />
           <Contact />
         </div>

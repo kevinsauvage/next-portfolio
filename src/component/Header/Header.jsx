@@ -48,20 +48,6 @@ const Header = () => {
             }`}>
             <ToggleTheme />
           </li>
-          <li
-            className={`${styles["Header__nav-item"]} ${
-              menuIsOpen ? styles["Header__nav-item--open"] : ""
-            }`}>
-            <GradientBorder radius="8px">
-              <button
-                onClick={() => handleDowloadCv()}
-                className={`${styles["Header__nav-cv"]} ${
-                  menuIsOpen ? styles["Header__nav-cv--open"] : ""
-                }`}>
-                CV
-              </button>
-            </GradientBorder>
-          </li>
         </ul>
         <IoMdCloseCircle
           className={styles["Header__close"]}

@@ -12,7 +12,7 @@
   &__title {
     font-weight: 500;
     font-size: 32px;
-    color:  var(--color-5);
+    color: var(--color-5);
     position: relative;
     width: fit-content;
     margin-bottom: 40px;
@@ -40,21 +40,21 @@
 
   &__items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
     gap: 20px;
 
     @include respond(laptop_l) {
-      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
       gap: 18px;
     }
 
     @include respond(laptop_s) {
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
       gap: 16px;
     }
 
     @include respond(mobile_l) {
-      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
       gap: 12px;
     }
   }

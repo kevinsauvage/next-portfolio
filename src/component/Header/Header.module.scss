@@ -57,7 +57,6 @@
       overflow: hidden;
     }
 
-
     &-name {
       font-size: 30px;
       font-weight: 700;
@@ -67,7 +66,6 @@
       @include respond(laptop_l) {
         font-size: 20px;
       }
-
     }
   }
 
@@ -113,23 +111,6 @@
       }
     }
 
-    &-cv {
-      padding: 8px 20px;
-      border-radius: 5px;
-      color: var(--color-2);
-      border: none;
-      background-color: transparent;
-      box-shadow: $shadow_2;
-      font-weight: 800;
-      font-size: 24px;
-      cursor: pointer;
-      background-color: var(--color-1);
-
-      @include respond(laptop_l) {
-        font-size: 18px;
-      }
-    }
-
     &-item {
       font-size: 18px;
       margin-left: 60px;
@@ -147,9 +128,8 @@
         opacity: 0;
         transform: translateX(100px);
 
-
         &--open {
-          @for $i from 1 through 7 {
+          @for $i from 1 through 6 {
             &:nth-child(#{$i}) {
               animation: slideLeft;
               animation-duration: (0.1s * $i);
@@ -158,7 +138,6 @@
             }
           }
         }
-
       }
 
       @include respond(mobile_l) {
@@ -168,7 +147,6 @@
       a {
         color: var(--color-5);
       }
-
     }
   }
 }

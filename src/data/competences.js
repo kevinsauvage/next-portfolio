@@ -36,7 +36,6 @@ const competences = [
     description: "Firebase",
   },
   { icon: "devicon-mongodb-plain", description: "MongoDB" },
-  { icon: "devicon-npm-original-wordmark", description: "NPM" },
 ];
 
 export default competences;
