@@ -20,7 +20,7 @@ const projects = [
     },
     description:
       "Streamy is here to help you find movie and show that you may like, watch trailer, add them to your watch list, read and add comments.",
-    languages: "React.js | SASS |  Express.js | Mongoose | TMDB API | JWT",
+    languages: "React.js | SASS |  Express.js | Mongoose | TMDB API | JWT | React router",
     websiteLink: "https://streamy.fun/",
     githubLink: [
       "https://github.com/kevinsauvage/streamyV2-client",
@@ -35,7 +35,7 @@ const projects = [
     },
     description:
       "Log in to Socialize to start sharing and communicating with your friends, family and people you know.",
-    languages: "React.js | SASS | Express.js | Mongoose",
+    languages: "React.js | SASS | Express.js | Mongoose | React router",
     websiteLink: "https://socialize-puce.vercel.app/",
     githubLink: [
       "https://github.com/kevinsauvage/socialize",
