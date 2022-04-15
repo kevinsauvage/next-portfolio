@@ -1,16 +1,17 @@
 const projects = [
   {
-    title: "LIGHTING",
+    title: "UpToGo",
     img: {
       laptop:
-        "https://res.cloudinary.com/kevincloudname/image/upload/v1647724153/portfolio/lighting_bfvloh.png",
+        "https://res.cloudinary.com/kevincloudname/image/upload/v1650017753/portfolio/UpToGo_1_ibghai.png",
     },
     description:
-      "Lighting — the collective of creatives and managers committed to re-thinking your business in a radically better way.",
-    languages: "React.js | SASS",
-    websiteLink: "https://lighting-agency.vercel.app/",
-    githubLink: ["https://github.com/kevinsauvage/LIGHTING"],
+      "UpToGo is an online food delivery platform connecting consumers and local restaurants to enable quick and easy ordering and delivery.",
+    languages: "Next.js | SASS | MongoDB | Redux | Redux persist | Stripe | Jsonwebtoken | Bcrypt",
+    websiteLink: "https://uptogo.vercel.app/",
+    githubLink: ["https://github.com/kevinsauvage/restaurant_e-commerce"],
   },
+
   {
     title: "Streamy",
     img: {
@@ -42,19 +43,16 @@ const projects = [
     ],
   },
   {
-    title: "Jobify",
+    title: "LIGHTING",
     img: {
       laptop:
-        "https://res.cloudinary.com/kevincloudname/image/upload/v1647795320/portfolio/jobify_jqaa8w.png",
+        "https://res.cloudinary.com/kevincloudname/image/upload/v1647724153/portfolio/lighting_bfvloh.png",
     },
     description:
-      "With Jobify, you can search millions of jobs online to find the next step in your career.",
-    languages: "React.js | SASS | Express.js | Puppeteer | Cheerio",
-    websiteLink: "https://jobify-jade.vercel.app/",
-    githubLink: [
-      "https://github.com/kevinsauvage/jobify",
-      "https://github.com/kevinsauvage/jobify_server",
-    ],
+      "Lighting — the collective of creatives and managers committed to re-thinking your business in a radically better way.",
+    languages: "React.js | SASS",
+    websiteLink: "https://lighting-agency.vercel.app/",
+    githubLink: ["https://github.com/kevinsauvage/LIGHTING"],
   },
 ];
 
