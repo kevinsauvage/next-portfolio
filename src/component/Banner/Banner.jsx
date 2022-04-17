@@ -11,10 +11,10 @@ const Banner = () => {
         <SlideUpAndFadeIn>
           <p className={styles["Banner__main-header"]}>Hi, my name is</p>
           <h1 className={styles["Banner__main-title"]}>Kévin Sauvage.</h1>
-          <h2 className={styles["Banner__main-title-b"]}> I'm a front end developer.</h2>
+          <h2 className={styles["Banner__main-title-b"]}> I'm a developer.</h2>
           <p className={styles["Banner__main-subtitle"]}>
-            I’m a front end developer, specialized in building and occasionally designing
-            exceptional digital experiences.
+            I create intuitive, dynamic user experiences that are responsive, load blazing fast, and
+            are crafted with pixel-perfect code.
           </p>
         </SlideUpAndFadeIn>
       </main>

@@ -35,12 +35,12 @@ const About = () => {
           <div className={styles["About__wrapper"]}>
             <p>
               Hello! The main area of my expertise is front-end development using Html, CSS, the
-              DOM, SASS, JavaScript (ES5, ES6), React.js (hooks, react-router, context api) and
+              DOM, SASS, JavaScript (ES5, ES6), React.js (hooks, react-router, context API), and
               Next.js, but I also enjoy the back-end using Node.js and Express.js. <br />
               <br />
-              To describe me, I would say that I'm passionate about what I do, naturally curious,
-              autonomous, committed and always enthusiastic about learning new things. My past
-              experience in the commerce industry brings me powerful communication skills, and the
+              To describe myself, I would say that I'm passionate about what I do, naturally
+              curious, autonomous, committed, and always enthusiastic about learning new things. My
+              experience in the commerce industry brings me powerful communication skills and the
               ability to create strong working relationships.
             </p>
             <div className={styles["About__btns"]}>

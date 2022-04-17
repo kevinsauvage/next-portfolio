@@ -51,7 +51,7 @@ const projects = [
     },
     description:
       "Lighting — the collective of creatives and managers committed to re-thinking your business in a radically better way.",
-    languages: "React.js | SASS",
+    languages: "React.js | SASS | React router",
     websiteLink: "https://lighting-agency.vercel.app/",
     githubLink: ["https://github.com/kevinsauvage/LIGHTING"],
   },
