@@ -5,7 +5,9 @@ import styles from "./ProjectBtns.module.scss";
 import ReactGA from "react-ga4";
 
 export default function ProjectBtns({ item }) {
-  const handleClickSourceCode = () => {
+  const handleClickSourceCode = (e) => {
+    e.stopPropagation();
+
     ReactGA.event({
       category: "Links",
       action: `GitHub project click : ${item.title}`,
@@ -15,7 +17,9 @@ export default function ProjectBtns({ item }) {
     });
   };
 
-  const handleClickVisit = () => {
+  const handleClickVisit = (e) => {
+    e.stopPropagation();
+
     ReactGA.event({
       category: "Links",
       action: `Visit: ${item.title}`,
@@ -27,13 +31,17 @@ export default function ProjectBtns({ item }) {
     <div className={styles.ProjectBtns}>
       <GradientBorder radius="10px">
         <button
-          onClick={() => handleClickSourceCode()}
+          onClick={handleClickSourceCode}
+          type="button"
           className={styles.btn + " " + styles.btnGit}>
           <AiOutlineGithub />
           <p>Source code</p>
         </button>
       </GradientBorder>
-      <button onClick={() => handleClickVisit()} className={styles.btn + "  " + styles.btnLink}>
+      <button
+        onClick={handleClickVisit}
+        type="button"
+        className={styles.btn + "  " + styles.btnLink}>
         <FiExternalLink />
         <p>Visit website</p>
       </button>
