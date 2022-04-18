@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const setSmoothScroll = (isSmooth) => {
   document.documentElement.style.scrollBehavior = isSmooth ? "smooth" : "auto";
@@ -7,7 +8,7 @@ const setSmoothScroll = (isSmooth) => {
 export function useSmoothScroll() {
   const router = useRouter();
 
-  React.useEffect(() => {
+  useEffect(() => {
     setSmoothScroll(true);
     const handleStart = () => setSmoothScroll(false);
     const handleStop = () => setSmoothScroll(true);
