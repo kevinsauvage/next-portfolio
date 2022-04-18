@@ -35,6 +35,9 @@
   width: 500px;
   position: relative;
   background-color: var(--color-1);
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
 
   @include respond(laptop_S) {
     width: 300px;
@@ -43,6 +46,7 @@
 
 .detailReverse {
   text-align: end;
+  align-items: flex-end;
 }
 
 .title {
@@ -54,6 +58,7 @@
   font-size: 16px;
   letter-spacing: 6px;
   white-space: nowrap;
+  width: fit-content;
   @include gradientText;
 }
 
