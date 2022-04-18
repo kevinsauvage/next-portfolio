@@ -32,7 +32,8 @@
 .detail {
   height: fit-content;
   border-radius: $radius_2;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   position: relative;
   background-color: var(--color-1);
   padding: 0 10px;
