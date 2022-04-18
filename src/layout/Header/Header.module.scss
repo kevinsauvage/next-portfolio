@@ -38,9 +38,9 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 100px;
     animation: fadeIn 1s ease-in forwards;
     box-shadow: $shadow_2;
+    opacity: 0.7;
   }
 
   &__logo {
