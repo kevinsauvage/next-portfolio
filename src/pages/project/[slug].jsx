@@ -6,8 +6,6 @@ import ProjectSection from "../../layout/ProjectSection/ProjectSection";
 import { useEffect } from "react";
 
 export default function Index({ project }) {
-  useEffect(() => window.scroll({ top: 0 }), []);
-
   return (
     <PageLayout>
       <Head>
