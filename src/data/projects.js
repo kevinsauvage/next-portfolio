@@ -32,19 +32,19 @@ const projects = [
         },
         {
           title: "User account page",
-          description: "User last orders.",
+          description: "User can see his last orders.",
           image:
             "https://res.cloudinary.com/kevincloudname/image/upload/v1650275649/portfolio/UpToGo-User-account_wb285z.png",
         },
         {
           title: "Register page",
-          description: "User register page.",
+          description: "User can create an account.",
           image:
             "https://res.cloudinary.com/kevincloudname/image/upload/v1650275684/portfolio/UpToGo-Register_zqmrrs.png",
         },
         {
           title: "Login page",
-          description: "User login page.",
+          description: "User can login to an account.",
           image:
             "https://res.cloudinary.com/kevincloudname/image/upload/v1650275681/portfolio/UpToGo-Login_yhtzw8.png",
         },
@@ -113,13 +113,13 @@ const projects = [
         },
         {
           title: "Register page",
-          description: "User register page.",
+          description: "User can create an account.",
           image:
             "https://res.cloudinary.com/kevincloudname/image/upload/v1650287740/portfolio/StreamyRegister_c0swk7.png",
         },
         {
           title: "Login page",
-          description: "User login page.",
+          description: "User can connect to an account.",
           image:
             "https://res.cloudinary.com/kevincloudname/image/upload/v1650287740/portfolio/StreamyLogin_ssoyxu.png",
         },
