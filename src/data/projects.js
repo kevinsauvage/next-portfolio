@@ -84,7 +84,7 @@ const projects = [
           title: "Filering",
           description: "The user can filter movies and series by years, ratings, and genres.",
           image:
-            "https://res.cloudinary.com/kevincloudname/image/upload/v1650287739/portfolio/StreamyMylist_jhqhsd.png",
+            "https://res.cloudinary.com/kevincloudname/image/upload/v1650287740/portfolio/Streamyfilter_xz0dw9.png",
         },
         {
           title: "User watch list",
