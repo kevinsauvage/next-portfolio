@@ -1,7 +1,6 @@
 import { Router } from "next/router";
 import { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
-import getdateAndTime from "../../helpers/getDateAndTime";
 
 const HeaderFunction = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +38,7 @@ const HeaderFunction = () => {
   const handleDowloadCv = () => {
     ReactGA.event({
       category: "CV",
-      action: `CV download cicked, the ${getdateAndTime().date} at time: ${getdateAndTime().time}`,
+      action: "CV download clicked",
     });
     window.open("/Kévin__sauvage__resume.pdf");
   };

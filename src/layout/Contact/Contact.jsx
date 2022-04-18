@@ -1,14 +1,14 @@
 import styles from "./Contact.module.scss";
 import Section from "../Section/Section";
-import Title from "../Title/Title";
-import UpTitle from "../UpTitle/UpTitle";
+import Title from "../../component/Title/Title";
+import UpTitle from "../../component/UpTitle/UpTitle";
 import { BiMailSend } from "react-icons/bi";
 import { SiGmail } from "react-icons/si";
 import { AiOutlineGithub } from "react-icons/ai";
 import { ImLinkedin2 } from "react-icons/im";
 import { ClipLoader } from "react-spinners";
 import { MdLocationOn, MdMail } from "react-icons/md";
-import SlideUpAndFadeIn from "../SlideUpAndFadeIn/SlideUpAndFadeIn";
+import SlideUpAndFadeIn from "../../component/SlideUpAndFadeIn/SlideUpAndFadeIn";
 import { ToastContainer } from "react-toastify";
 import ContactFunction from "./ContactFunction";
 

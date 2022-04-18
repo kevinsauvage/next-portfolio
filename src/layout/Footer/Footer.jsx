@@ -1,8 +1,8 @@
 import styles from "./Footer.module.scss";
-import Section from "../../component/Section/Section";
+import Section from "../Section/Section";
 import portrait from "../../images/portrait.png";
 import Image from "next/image";
-import GradientBorder from "../GradientBorder/GradientBorder";
+import GradientBorder from "../../component/GradientBorder/GradientBorder";
 import Link from "next/link";
 
 const Footer = () => {

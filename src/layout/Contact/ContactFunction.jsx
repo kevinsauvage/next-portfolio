@@ -2,7 +2,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import { sendMail } from "../../helpers/sendMail";
 import ReactGA from "react-ga4";
-import getdateAndTime from "../../helpers/getDateAndTime";
 import { toast } from "react-toastify";
 
 const ContactFunction = () => {
@@ -25,11 +24,7 @@ const ContactFunction = () => {
 
     ReactGA.event({
       category: "Form submit",
-      action: `Submit form with data => Subject: ${formData.subject}, Message: ${
-        formData.message
-      }, Name: ${formData.name}, Email: ${formData.email} the ${getdateAndTime().date} at time : ${
-        getdateAndTime().time
-      }`,
+      action: `Submit form with data => Subject: ${formData.subject}, Message: ${formData.message}, Name: ${formData.name}, Email: ${formData.email}`,
     });
 
     if (formData.name === "") {
@@ -83,9 +78,7 @@ const ContactFunction = () => {
   const handleClickLinkedin = () => {
     ReactGA.event({
       category: "Links",
-      action: `Contact linkedin clicked, the ${getdateAndTime().date} at time : ${
-        getdateAndTime().time
-      }`,
+      action: `Contact linkedin clicked`,
     });
     window.open("https://www.linkedin.com/in/kevin-sauvage/");
   };
@@ -93,9 +86,7 @@ const ContactFunction = () => {
   const handleClickGithub = () => {
     ReactGA.event({
       category: "Links",
-      action: `Contact github clicked, the ${getdateAndTime().date} at time : ${
-        getdateAndTime().time
-      }`,
+      action: `Contact github clicked`,
     });
     window.open("https://github.com/kevinsauvage");
   };
@@ -103,9 +94,7 @@ const ContactFunction = () => {
   const handleClickMail = () => {
     ReactGA.event({
       category: "Links",
-      action: `Contact mail clicked, the ${getdateAndTime().date} at time : ${
-        getdateAndTime().time
-      }`,
+      action: `Contact mail clicked`,
     });
     window.open("mailto:kevinsauvage@outlook.com");
   };

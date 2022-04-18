@@ -1,9 +1,9 @@
 import styles from "./Projects.module.scss";
 import projects from "../../data/projects";
-import ProjectCard from "../ProjectCard/ProjectCard";
+import ProjectCard from "../../component/ProjectCard/ProjectCard";
 import Section from "../Section/Section";
-import Title from "../Title/Title";
-import UpTitle from "../UpTitle/UpTitle";
+import Title from "../../component/Title/Title";
+import UpTitle from "../../component/UpTitle/UpTitle";
 
 const Projects = () => {
   return (

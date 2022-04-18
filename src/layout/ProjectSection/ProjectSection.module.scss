@@ -1,0 +1,68 @@
+.ProjectSection {
+  margin: 200px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  @include respond(tablet) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.ProjectSectionReverce {
+  flex-direction: row-reverse;
+
+  @include respond(tablet) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: $gradient_1;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.detail {
+  height: fit-content;
+  border-radius: $radius_2;
+  width: 500px;
+  position: relative;
+  background-color: var(--color-1);
+
+  @include respond(laptop_S) {
+    width: 300px;
+  }
+}
+
+.detailReverse {
+  text-align: end;
+}
+
+.title {
+  font-size: 20px;
+  color: var(--color-2);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 6px;
+  white-space: nowrap;
+  @include gradientText;
+}
+
+.description {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 24px;
+
+  @include respond(laptop_l) {
+    font-size: 18px;
+  }
+}

@@ -1,13 +1,12 @@
 .Banner {
   display: grid;
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   align-items: center;
   grid-template-columns: 1.3fr 1fr;
 
   @include respond(laptop_s) {
     display: flex;
     flex-direction: column;
-    padding-top: 180px;
     align-items: unset;
   }
 

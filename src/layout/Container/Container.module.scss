@@ -1,0 +1,7 @@
+.Container {
+  padding: 0 100px;
+
+  @include respond(laptop_l) {
+    padding: 0 20px;
+  }
+}

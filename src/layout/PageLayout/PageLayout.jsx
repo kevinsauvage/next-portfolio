@@ -1,12 +1,14 @@
 import React from "react";
-import Header from "../../component/Header/Header";
-import Footer from "../../component/Footer/Footer";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import Container from "../Container/Container";
+import styles from "./PageLayout.module.scss";
 
 const PageLayout = ({ children }) => {
   return (
-    <div className="PageLayout">
+    <div className={styles.PageLayout}>
       <Header />
-      {children}
+      <Container classname={styles.container}>{children}</Container>
       <Footer />
       <svg
         style={{ width: "0", height: "0", position: "absolute" }}

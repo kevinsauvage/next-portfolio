@@ -4,12 +4,11 @@ import { AiOutlineProfile } from "react-icons/ai";
 import ReactGA from "react-ga4";
 import styles from "./About.module.scss";
 import Section from "../Section/Section";
-import Title from "../Title/Title";
-import UpTitle from "../UpTitle/UpTitle";
-import SlideUpAndFadeIn from "../SlideUpAndFadeIn/SlideUpAndFadeIn";
-import GradientBorder from "../GradientBorder/GradientBorder";
+import Title from "../../component/Title/Title";
+import UpTitle from "../../component/UpTitle/UpTitle";
+import SlideUpAndFadeIn from "../../component/SlideUpAndFadeIn/SlideUpAndFadeIn";
+import GradientBorder from "../../component/GradientBorder/GradientBorder";
 import { useRouter } from "next/router";
-import getdateAndTime from "../../helpers/getDateAndTime";
 
 const About = () => {
   const router = useRouter();
@@ -17,7 +16,7 @@ const About = () => {
   const handleClickResume = () => {
     ReactGA.event({
       category: "CV",
-      action: `CV download cicked, the ${getdateAndTime().date} at time: ${getdateAndTime().time}`,
+      action: `CV download cicked`,
     });
     window.open("/Kévin__sauvage__resume.pdf");
   };

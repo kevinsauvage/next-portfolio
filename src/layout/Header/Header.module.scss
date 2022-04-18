@@ -10,7 +10,7 @@
   position: absolute;
 
   @include respond(laptop_l) {
-    padding: 20px;
+    padding: 20px 50px;
   }
 
   &__hamb {
@@ -129,7 +129,7 @@
         transform: translateX(100px);
 
         &--open {
-          @for $i from 1 through 6 {
+          @for $i from 1 through 5 {
             &:nth-child(#{$i}) {
               animation: slideLeft;
               animation-duration: (0.1s * $i);

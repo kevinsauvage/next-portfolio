@@ -1,8 +1,8 @@
 import styles from "./What.module.scss";
 import Section from "../Section/Section";
-import Title from "../Title/Title";
-import UpTitle from "../UpTitle/UpTitle";
-import CompetenceCard from "../CompetenceCard/CompetenceCard";
+import Title from "../../component/Title/Title";
+import UpTitle from "../../component/UpTitle/UpTitle";
+import CompetenceCard from "../../component/CompetenceCard/CompetenceCard";
 
 const What = () => {
   return (

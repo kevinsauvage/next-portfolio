@@ -6,9 +6,10 @@
 
 body {
   color: var(--color-3);
+  background-color: var(--color-1);
+  position: relative;
   font-family: "Montserrat", sans-serif;
 }
-
 
 li {
   list-style: none;
@@ -16,6 +17,7 @@ li {
 
 a {
   text-decoration: none;
+  color: var(--color-3);
 }
 
 .color-red {
@@ -33,18 +35,10 @@ textarea {
   }
 }
 
-html[data-theme='dark'] {
-  --color-1: rgb(24, 26, 29);
+html {
+  --color-1: #181a1d;
   --color-2: #f53844;
   --color-3: rgb(156, 172, 179);
   --color-4: #42378f;
   --color-5: rgb(245, 245, 245);
-}
-
-html[data-theme='light'] {
-  --color-1: rgb(255, 255, 255);
-  --color-2: #f53844;
-  --color-3: rgb(41, 44, 46);
-  --color-4: #42378f;
-  --color-5: rgb(33, 36, 40);
 }

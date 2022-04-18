@@ -1,0 +1,87 @@
+.ProjectBtns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 30px;
+  height: 60px;
+  width: 100%;
+
+  @include respond(laptop_l) {
+    height: 50px;
+  }
+  @include respond(tablet) {
+    height: 45px;
+  }
+}
+.btn {
+  width: 100%;
+  height: 100%;
+  border-radius: $radius_2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 26px;
+  border: none;
+  background-color: transparent;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.01);
+  }
+
+  @include respond(laptop_s) {
+    &:hover {
+      transform: unset;
+    }
+  }
+
+  @include respond(laptop_l) {
+    font-size: 18px;
+  }
+
+  @include respond(laptop_S) {
+    font-size: 16px;
+  }
+
+  @include respond(mobile_l) {
+    font-size: 14px;
+  }
+
+  svg {
+    font-size: 26px;
+    margin-right: 6px;
+
+    @include respond(laptop_S) {
+      font-size: 20px;
+    }
+
+    @include respond(mobile_l) {
+      font-size: 18px;
+    }
+  }
+}
+
+.btnGit {
+  color: var(--color-2);
+  position: relative;
+  background-color: var(--color-1);
+
+  p {
+    @include gradientText;
+  }
+
+  svg {
+    fill: var(--color-2);
+  }
+}
+.btnLink {
+  background-color: var(--color-2);
+  background-image: $gradient_1;
+  color: whitesmoke;
+
+  svg {
+    color: whitesmoke;
+  }
+}
