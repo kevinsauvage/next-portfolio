@@ -11,23 +11,22 @@ import { MdLocationOn, MdMail } from "react-icons/md";
 import SlideUpAndFadeIn from "../../component/SlideUpAndFadeIn/SlideUpAndFadeIn";
 import { ToastContainer } from "react-toastify";
 import ContactFunction from "./ContactFunction";
+import Link from "next/link";
 
 const Contact = () => {
-  const {
-    handleChange,
-    handleClickGithub,
-    handleClickMail,
-    handleClickLinkedin,
-    handleSubmit,
-    userFeedback,
-    isLoading,
-    formData,
-  } = ContactFunction();
+  const { handleChange, handleSubmit, userFeedback, isLoading, formData } = ContactFunction();
+
+  const socialBtn = [
+    { href: "https://www.linkedin.com/in/kevin-sauvage/", icon: <ImLinkedin2 />, text: "Linkedin" },
+    { href: "https://github.com/kevinsauvage/", icon: <AiOutlineGithub />, text: "Github" },
+    { href: "mailto:kevinsauvage@outlook.com", icon: <SiGmail />, text: "E-mail" },
+  ];
 
   return (
     <Section id="contact" className={styles["Contact"]}>
       <UpTitle text="SOMETHING TO SAY" />
       <Title>Get in touch</Title>
+
       <div className={styles["Contact__container"]}>
         <SlideUpAndFadeIn className={styles["Contact__info"]}>
           <div>
@@ -43,26 +42,24 @@ const Contact = () => {
             <p>Barcelona, SPAIN</p>
           </div>
           <div className={styles["Contact__social"]}>
-            <div onClick={() => handleClickLinkedin()} className={styles["Contact__social-icon"]}>
-              <ImLinkedin2 />
-              <span>Linkedin</span>
-            </div>
-            <div className={styles["Contact__social-icon"]} onClick={() => handleClickGithub()}>
-              <AiOutlineGithub />
-              <span>Github</span>
-            </div>
-            <div onClick={() => handleClickMail()} className={styles["Contact__social-icon"]}>
-              <SiGmail />
-              <span>E-mail</span>
-            </div>
+            {socialBtn.map((item) => (
+              <Link href={item.href} key={item.href}>
+                <a className={styles["Contact__social-icon"]} target="_blank">
+                  {item.icon}
+                  <span>{item.text}</span>
+                </a>
+              </Link>
+            ))}
           </div>
         </SlideUpAndFadeIn>
-        <form
-          action="submit"
-          className={styles["Contact__form"]}
-          onSubmit={handleSubmit}
-          autoComplete="off">
-          <SlideUpAndFadeIn className={styles["Contact__form-input-container"]}>
+
+        {/* contact form */}
+        <SlideUpAndFadeIn className={styles["Contact__form-input-container"]}>
+          <form
+            action="submit"
+            className={styles["Contact__form"]}
+            onSubmit={handleSubmit}
+            autoComplete="off">
             <div className={styles["Contact__form-row"]}>
               <input
                 className={styles["Contact__form-input"]}
@@ -111,9 +108,10 @@ const Contact = () => {
                 </>
               )}
             </button>
-          </SlideUpAndFadeIn>
-        </form>
+          </form>
+        </SlideUpAndFadeIn>
       </div>
+
       <ToastContainer
         position="bottom-right"
         autoClose={5000}

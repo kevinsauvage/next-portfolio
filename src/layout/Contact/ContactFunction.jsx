@@ -75,35 +75,8 @@ const ContactFunction = () => {
     });
   };
 
-  const handleClickLinkedin = () => {
-    ReactGA.event({
-      category: "Links",
-      action: `Contact linkedin clicked`,
-    });
-    window.open("https://www.linkedin.com/in/kevin-sauvage/");
-  };
-
-  const handleClickGithub = () => {
-    ReactGA.event({
-      category: "Links",
-      action: `Contact github clicked`,
-    });
-    window.open("https://github.com/kevinsauvage");
-  };
-
-  const handleClickMail = () => {
-    ReactGA.event({
-      category: "Links",
-      action: `Contact mail clicked`,
-    });
-    window.open("mailto:kevinsauvage@outlook.com");
-  };
-
   return {
     handleChange,
-    handleClickGithub,
-    handleClickMail,
-    handleClickLinkedin,
     handleSubmit,
     userFeedback,
     isLoading,
