@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <meta
           name='description'
-          content='Freelance developer Kévin specializes in front-end development, skilled in HTML, CSS, JS, React/Next, Svelte, and full-stack dev. Committed to delivering high-quality, cutting-edge solutions that exceed client expectations.'
+          content='Full-stack developer with proficiency in HTML, CSS, JS, React/Next, Svelte. Providing superior digital solutions to meet client needs.'
         />
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='theme-color' content='#ffffff' />
@@ -15,7 +15,7 @@ export default function Document() {
         <meta property='og:title' content='Kévin Sauvage Portfolio' />
         <meta
           property='og:description'
-          content='Freelance developer Kévin specializes in front-end development, skilled in HTML, CSS, JS, React/Next, Svelte, and full-stack dev. Committed to delivering high-quality, cutting-edge solutions that exceed client expectations.'
+          content='Full-stack developer with proficiency in HTML, CSS, JS, React/Next, Svelte. Providing superior digital solutions to meet client needs.'
         />
         <meta
           property='og:image'
@@ -27,7 +27,7 @@ export default function Document() {
         <meta name='twitter:title' content='Kévin Sauvage Portfolio' />
         <meta
           name='twitter:description'
-          content='Freelance developer Kévin specializes in front-end development, skilled in HTML, CSS, JS, React/Next, Svelte, and full-stack dev. Committed to delivering high-quality, cutting-edge solutions that exceed client expectations.'
+          content='Full-stack developer with proficiency in HTML, CSS, JS, React/Next, Svelte. Providing superior digital solutions to meet client needs.'
         />
         <meta
           name='twitter:image'
