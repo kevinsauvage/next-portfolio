@@ -11,7 +11,7 @@ export default function Home() {
   ReactGA.initialize("G-5JKFZLHFH1");
 
   return (
-    <div id="app">
+    <div id='app'>
       <Head>
         <title>Kévin Sauvage Portfolio</title>
       </Head>

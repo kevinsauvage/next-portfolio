@@ -1,10 +1,16 @@
-import axios from 'axios'
-import config from './../config'
-
-export const sendMail = async (data) => {
+export const sendMail = async (body) => {
   try {
-    return await axios.post(`${config.apiUrl}/send-mail`, data)
+    const response = await fetch(`/api/email`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (response) return response.json();
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};

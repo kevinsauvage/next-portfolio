@@ -47,7 +47,8 @@ const ContactFunction = () => {
 
     sendMail(formData).then((res) => {
       setIsLoading(false);
-      if (res && res?.statusText === "OK") {
+
+      if (res?.ok) {
         setFormData({ subject: "", message: "", name: "", email: "" });
 
         return toast.success("Email correctly sent, I will get back to you as soon as i can.", {
