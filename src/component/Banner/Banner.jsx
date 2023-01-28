@@ -13,20 +13,14 @@ const Banner = () => {
           <h1 className={styles["Banner__main-title"]}>Kévin Sauvage.</h1>
           <h2 className={styles["Banner__main-title-b"]}> I'm a developer.</h2>
           <p className={styles["Banner__main-subtitle"]}>
-            I create intuitive, dynamic user experiences that are responsive, load blazing fast, and
-            are crafted with pixel-perfect code.
+            I create intuitive, dynamic user experiences that are responsive, load blazing fast, and are crafted with
+            pixel-perfect code.
           </p>
         </SlideUpAndFadeIn>
       </main>
       <aside className={styles["Banner__aside"]}>
         <SlideUpAndFadeIn>
-          <Image
-            width="851"
-            height="741"
-            layout="responsive"
-            src={portrait.src}
-            alt="illustrtion"
-          />
+          <Image width='851' height='741' layout='responsive' src={portrait.src} alt='illustration' priority />
         </SlideUpAndFadeIn>
       </aside>
     </section>

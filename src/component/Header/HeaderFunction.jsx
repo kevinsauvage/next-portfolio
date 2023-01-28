@@ -35,15 +35,7 @@ const HeaderFunction = () => {
     return () => window.removeEventListener("scroll", listenToScroll);
   }, []);
 
-  const handleDowloadCv = () => {
-    ReactGA.event({
-      category: "CV",
-      action: "CV download clicked",
-    });
-    window.open("/Kévin__sauvage__resume.pdf");
-  };
-
-  return { links, scrolled, setMenuIsOpen, menuIsOpen, handleDowloadCv };
+  return { links, scrolled, setMenuIsOpen, menuIsOpen };
 };
 
 export default HeaderFunction;

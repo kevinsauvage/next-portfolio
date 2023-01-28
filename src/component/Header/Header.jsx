@@ -6,54 +6,40 @@ import Link from "next/link";
 import portrait from "../../images/portrait.png";
 import GradientBorder from "../../component/GradientBorder/GradientBorder";
 import HeaderFunction from "./HeaderFunction";
-import Container from "../Container/Container";
+import Container from "../../component/Container/Container";
 
 const Header = () => {
-  const { links, scrolled, setMenuIsOpen, menuIsOpen, handleDowloadCv } = HeaderFunction();
+  const { links, scrolled, setMenuIsOpen, menuIsOpen } = HeaderFunction();
 
   return (
     <div className={`${styles["Header"]} ${scrolled ? styles["Header--scrolled"] : ""}`}>
       <Container classname={styles.container}>
         <div className={styles["Header__logo"]}>
-          <Link href="/" passHref>
+          <Link href='/' passHref>
             <a>
-              <GradientBorder radius="50%">
-                <Image
-                  className={styles["Header__logo-img"]}
-                  src={portrait.src}
-                  alt="profil"
-                  width={60}
-                  height={60}
-                />
+              <GradientBorder radius='50%'>
+                <Image className={styles["Header__logo-img"]} src={portrait.src} alt='profile' width={60} height={60} />
               </GradientBorder>
             </a>
           </Link>
           <p className={styles["Header__logo-name"]}>Kévin S.</p>
         </div>
-        <nav
-          className={`${styles["Header__nav"]} ${menuIsOpen ? styles["Header__nav--open"] : ""}`}>
+        <nav className={`${styles["Header__nav"]} ${menuIsOpen ? styles["Header__nav--open"] : ""}`}>
           <ul className={styles["Header__nav-list"]}>
             {links.map((link, i) => (
               <li
                 key={i}
-                className={`${styles["Header__nav-item"]} ${
-                  menuIsOpen ? styles["Header__nav-item--open"] : ""
-                }`}>
+                className={`${styles["Header__nav-item"]} ${menuIsOpen ? styles["Header__nav-item--open"] : ""}`}
+              >
                 <Link href={`/${link.hash}`} onClick={() => link.to()}>
                   {link.text}
                 </Link>
               </li>
             ))}
           </ul>
-          <IoMdCloseCircle
-            className={styles["Header__close"]}
-            onClick={() => setMenuIsOpen((prev) => !prev)}
-          />
+          <IoMdCloseCircle className={styles["Header__close"]} onClick={() => setMenuIsOpen((prev) => !prev)} />
         </nav>
-        <RiMenu4Fill
-          className={styles["Header__hamb"]}
-          onClick={() => setMenuIsOpen((prev) => !prev)}
-        />
+        <RiMenu4Fill className={styles["Header__hamb"]} onClick={() => setMenuIsOpen((prev) => !prev)} />
       </Container>
     </div>
   );

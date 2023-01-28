@@ -28,50 +28,30 @@ const ContactFunction = () => {
     });
 
     if (formData.name === "") {
-      return setUserFeedback("Name is missing, please add a name to perfom this action.");
+      return setUserFeedback("Name is missing, please add a name to perform this action.");
     }
 
     if (formData.email === "") {
-      return setUserFeedback("Email is missing, please add a email to perfom this action.");
+      return setUserFeedback("Email is missing, please add a email to perform this action.");
     }
 
     if (formData.subject === "") {
-      return setUserFeedback("Subject is missing, please add a subject to perfom this action.");
+      return setUserFeedback("Subject is missing, please add a subject to perform this action.");
     }
 
     if (formData.message === "") {
-      return setUserFeedback("Message is missing, please add a message to perfom this action.");
+      return setUserFeedback("Message is missing, please add a message to perform this action.");
     }
 
     setIsLoading(true);
 
     sendMail(formData).then((res) => {
       setIsLoading(false);
-
       if (res?.ok) {
         setFormData({ subject: "", message: "", name: "", email: "" });
-
-        return toast.success("Email correctly sent, I will get back to you as soon as i can.", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        return toast.success("Email correctly sent, I will get back to you as soon as i can.");
       } else {
-        return toast.error("Oups, something went wrong, please try again.", {
-          position: "bottom-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        return toast.error("Something went wrong, please try again.");
       }
     });
   };

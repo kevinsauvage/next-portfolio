@@ -1,10 +1,9 @@
-import Head from "next/head";
 import PageLayout from "../layout/PageLayout/PageLayout";
-import Banner from "../layout/Banner/Banner";
-import About from "../layout/About/About";
-import What from "../layout/What/What";
-import Projects from "../layout/Projects/Projects";
-import Contact from "../layout/Contact/Contact";
+import Banner from "../component/Banner/Banner";
+import About from "../component/About/About";
+import What from "../component/What/What";
+import Projects from "../component/Projects/Projects";
+import Contact from "../component/Contact/Contact";
 import ReactGA from "react-ga4";
 
 export default function Home() {
@@ -12,10 +11,7 @@ export default function Home() {
 
   return (
     <div id='app'>
-      <Head>
-        <title>Kévin Sauvage Portfolio</title>
-      </Head>
-      <PageLayout>
+      <PageLayout title='Home'>
         <Banner />
         <About />
         <What />

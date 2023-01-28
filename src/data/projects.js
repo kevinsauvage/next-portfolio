@@ -2,8 +2,7 @@ const projects = [
   {
     title: "UpToGo",
     img: {
-      laptop:
-        "https://res.cloudinary.com/kevincloudname/image/upload/v1650017753/portfolio/UpToGo_1_ibghai.png",
+      laptop: "https://res.cloudinary.com/kevincloudname/image/upload/v1650017753/portfolio/UpToGo_1_ibghai.png",
     },
     description:
       "UpToGo is an online food delivery platform connecting consumers and local restaurants to enable quick and easy ordering and delivery.",
@@ -12,8 +11,7 @@ const projects = [
     githubLink: ["https://github.com/kevinsauvage/uptogo"],
     page: {
       banner: {
-        image:
-          "https://res.cloudinary.com/kevincloudname/image/upload/v1650275448/portfolio/UpToGo_home_kkiu9o.png",
+        image: "https://res.cloudinary.com/kevincloudname/image/upload/v1650275448/portfolio/UpToGo_home_kkiu9o.png",
       },
       blocs: [
         {
@@ -27,8 +25,7 @@ const projects = [
           title: "Order page",
           description:
             "The user can change products quantity, remove the product and confirm the order to go to the Stripe checkout page.",
-          image:
-            "https://res.cloudinary.com/kevincloudname/image/upload/v1650275618/portfolio/UpToGo-Order_yljvox.png",
+          image: "https://res.cloudinary.com/kevincloudname/image/upload/v1650275618/portfolio/UpToGo-Order_yljvox.png",
         },
         {
           title: "User account page",
@@ -45,8 +42,7 @@ const projects = [
         {
           title: "Login page",
           description: "User can login to an account.",
-          image:
-            "https://res.cloudinary.com/kevincloudname/image/upload/v1650275681/portfolio/UpToGo-Login_yhtzw8.png",
+          image: "https://res.cloudinary.com/kevincloudname/image/upload/v1650275681/portfolio/UpToGo-Login_yhtzw8.png",
         },
       ],
     },
@@ -55,13 +51,11 @@ const projects = [
   {
     title: "Streamy",
     img: {
-      laptop:
-        "https://res.cloudinary.com/kevincloudname/image/upload/v1649842243/portfolio/streamy_1_vhtlxy.png",
+      laptop: "https://res.cloudinary.com/kevincloudname/image/upload/v1649842243/portfolio/streamy_1_vhtlxy.png",
     },
     description:
       "Streamy is here to help you find movie and show that you may like, watch trailer, add them to your watch list, read and add comments.",
-    languages:
-      "React.js | SASS |  Express.js | Mongoose | TMDB API | JWT | React router | Bcrypt | Uuid",
+    languages: "React.js | SASS |  Express.js | Mongoose | TMDB API | JWT | React router | Bcrypt | Uuid",
     websiteLink: "https://streamy.fun/",
     githubLink: [
       "https://github.com/kevinsauvage/streamyV2-client",
@@ -69,8 +63,7 @@ const projects = [
     ],
     page: {
       banner: {
-        image:
-          "https://res.cloudinary.com/kevincloudname/image/upload/v1650287689/portfolio/Streamy_iamvxu.png",
+        image: "https://res.cloudinary.com/kevincloudname/image/upload/v1650287689/portfolio/Streamy_iamvxu.png",
       },
       blocs: [
         {
@@ -120,8 +113,7 @@ const projects = [
         {
           title: "Login page",
           description: "User can connect to an account.",
-          image:
-            "https://res.cloudinary.com/kevincloudname/image/upload/v1650287740/portfolio/StreamyLogin_ssoyxu.png",
+          image: "https://res.cloudinary.com/kevincloudname/image/upload/v1650287740/portfolio/StreamyLogin_ssoyxu.png",
         },
       ],
     },

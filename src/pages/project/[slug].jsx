@@ -1,16 +1,11 @@
-import Head from "next/head";
 import PageLayout from "../../layout/PageLayout/PageLayout";
 import projects from "../../data/projects";
-import ProjectBanner from "../../layout/ProjectBanner/ProjectBanner";
-import ProjectSection from "../../layout/ProjectSection/ProjectSection";
-import { useEffect } from "react";
+import ProjectBanner from "../../component/ProjectBanner/ProjectBanner";
+import ProjectSection from "../../component/ProjectSection/ProjectSection";
 
 export default function Index({ project }) {
   return (
-    <PageLayout>
-      <Head>
-        <title>Kevin sauvage | Project: {project.title}</title>
-      </Head>
+    <PageLayout title={`Project: ${project.title}`}>
       <ProjectBanner project={project} />
       {project.page.blocs.map((item, i) => (
         <ProjectSection
@@ -26,19 +21,11 @@ export default function Index({ project }) {
 }
 
 export async function getStaticPaths() {
-  const paths = projects.map((item) => ({
-    params: { slug: item.title },
-  }));
-
-  return {
-    paths,
-    fallback: false,
-  };
+  const paths = projects.map((item) => ({ params: { slug: item.title } }));
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
   const project = projects.filter((item) => item.title === params.slug);
-  return {
-    props: { project: project[0] },
-  };
+  return { props: { project: project[0] } };
 }

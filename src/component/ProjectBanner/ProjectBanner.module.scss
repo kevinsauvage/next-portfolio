@@ -1,7 +1,6 @@
 .banner {
   height: 100%;
   position: relative;
-  padding: 100px 160px;
 
   @include respond(tablet) {
     padding: 0;

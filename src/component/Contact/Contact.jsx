@@ -1,5 +1,5 @@
 import styles from "./Contact.module.scss";
-import Section from "../Section/Section";
+import Section from "../../component/Section/Section";
 import Title from "../../component/Title/Title";
 import UpTitle from "../../component/UpTitle/UpTitle";
 import { BiMailSend } from "react-icons/bi";
@@ -23,10 +23,9 @@ const Contact = () => {
   ];
 
   return (
-    <Section id="contact" className={styles["Contact"]}>
-      <UpTitle text="SOMETHING TO SAY" />
+    <Section id='contact' className={styles["Contact"]}>
+      <UpTitle text='SOMETHING TO SAY' />
       <Title>Get in touch</Title>
-
       <div className={styles["Contact__container"]}>
         <SlideUpAndFadeIn className={styles["Contact__info"]}>
           <div>
@@ -44,7 +43,7 @@ const Contact = () => {
           <div className={styles["Contact__social"]}>
             {socialBtn.map((item) => (
               <Link href={item.href} key={item.href}>
-                <a className={styles["Contact__social-icon"]} target="_blank">
+                <a className={styles["Contact__social-icon"]} target='_blank'>
                   {item.icon}
                   <span>{item.text}</span>
                 </a>
@@ -52,48 +51,43 @@ const Contact = () => {
             ))}
           </div>
         </SlideUpAndFadeIn>
-
-        {/* contact form */}
         <SlideUpAndFadeIn className={styles["Contact__form-input-container"]}>
-          <form
-            action="submit"
-            className={styles["Contact__form"]}
-            onSubmit={handleSubmit}
-            autoComplete="off">
+          <form action='submit' className={styles["Contact__form"]} onSubmit={handleSubmit} autoComplete='off'>
             <div className={styles["Contact__form-row"]}>
               <input
                 className={styles["Contact__form-input"]}
-                type="text"
-                name="name"
+                type='text'
+                name='name'
                 value={formData.name}
-                placeholder="Name"
+                placeholder='Name'
                 onChange={handleChange}
               />
               <input
                 className={styles["Contact__form-input"]}
-                type="email"
-                name="email"
+                type='email'
+                name='email'
                 value={formData.email}
-                placeholder="Email"
+                placeholder='Email'
                 onChange={handleChange}
               />
             </div>
             <input
               className={styles["Contact__form-input"]}
-              type="text"
-              name="subject"
+              type='text'
+              name='subject'
               value={formData.subject}
-              placeholder="Subject"
+              placeholder='Subject'
               onChange={handleChange}
             />
             <textarea
               className={styles["Contact__form-text-area"]}
-              name="message"
-              cols="30"
-              rows="10"
+              name='message'
+              cols='30'
+              rows='10'
               value={formData.message}
-              placeholder="Message"
-              onChange={handleChange}></textarea>
+              placeholder='Message'
+              onChange={handleChange}
+            ></textarea>
             {userFeedback && (
               <div className={styles["Contact__form-feedback"]}>
                 <p>{userFeedback}</p>
@@ -113,7 +107,7 @@ const Contact = () => {
       </div>
 
       <ToastContainer
-        position="bottom-right"
+        position='bottom-right'
         autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -122,6 +116,7 @@ const Contact = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
+        theme='dark'
       />
     </Section>
   );

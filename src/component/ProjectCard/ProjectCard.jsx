@@ -1,7 +1,6 @@
 import styles from "./ProjectCard.module.scss";
 import SlideUpAndFadeIn from "../SlideUpAndFadeIn/SlideUpAndFadeIn";
 import Image from "next/image";
-import Link from "next/link";
 import ProjectBtns from "../ProjectBtns/ProjectBtns";
 import { useRouter } from "next/router";
 
@@ -11,13 +10,7 @@ const ProjectCard = ({ item }) => {
     <SlideUpAndFadeIn>
       <div className={styles["ProjectCard"]} onClick={() => router.push(`/project/${item.title}`)}>
         <div className={styles["ProjectCard__images"]}>
-          <Image
-            src={item.img.laptop}
-            alt={item.title}
-            width="800"
-            height="344"
-            layout="responsive"
-          />
+          <Image src={item.img.laptop} alt={item.title} width='800' height='344' layout='responsive' />
         </div>
         <div className={styles["ProjectCard__detail"]}>
           <p className={styles["ProjectCard__title"]}>{item.title}</p>

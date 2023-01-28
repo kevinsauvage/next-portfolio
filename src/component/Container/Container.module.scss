@@ -1,0 +1,15 @@
+.Container {
+  padding: 0 100px;
+
+  @include respond(laptop_l) {
+    padding: 0 80px;
+  }
+
+  @include respond(tablet) {
+    padding: 0 40px;
+  }
+
+  @include respond(mobile_l) {
+    padding: 0 16px;
+  }
+}

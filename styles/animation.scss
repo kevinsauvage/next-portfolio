@@ -1,16 +1,16 @@
 @mixin slideUpAndFadeIn {
   opacity: 0;
-  transform: translateY(100px) scale(0.8);
+  transform: translateY(40px) scale(0.95);
 
   &--onScreen {
-    animation: slideUpAndFadeIn 0.5s ease-in-out forwards;
+    animation: slideUpAndFadeIn 0.3s ease-in-out forwards;
   }
 }
 
 @keyframes slideUpAndFadeIn {
   0% {
     opacity: 0;
-    transform: translateY(100px) scale(0.8);
+    transform: translateY(40px) scale(0.95);
   }
 
   100% {
@@ -22,7 +22,7 @@
 @keyframes slideLeft {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(60px);
   }
 
   100% {

@@ -7,8 +7,8 @@ import UpTitle from "../../component/UpTitle/UpTitle";
 
 const Projects = () => {
   return (
-    <Section id="projects" className={styles["Projects"]}>
-      <UpTitle text="REALIZATIONS" />
+    <Section id='projects' className={styles["Projects"]}>
+      <UpTitle text='REALIZATIONS' />
       <Title>My Projects</Title>
       <div className={styles["Projects__cards"]}>
         {projects.map((item, i) => (

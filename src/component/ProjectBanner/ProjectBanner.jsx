@@ -8,10 +8,11 @@ export default function ProjectBanner({ project }) {
       <div className={styles.imageContainer}>
         <Image
           src={project.page.banner.image}
-          layout="responsive"
+          layout='responsive'
           width={1482}
           height={867}
-          alt="project home"
+          alt='project home'
+          priority
         />
       </div>
       <div className={styles.detail}>

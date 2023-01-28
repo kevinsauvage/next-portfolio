@@ -1,17 +1,18 @@
 .Banner {
-  display: grid;
+  display: flex;
   min-height: calc(100vh - 120px);
   align-items: center;
-  grid-template-columns: 1.3fr 1fr;
+  justify-content: center;
+  gap: 30px;
 
   @include respond(laptop_s) {
     display: flex;
     flex-direction: column;
     align-items: unset;
-    margin-top: 60px;
   }
 
   &__main {
+    flex: 1;
     &-header {
       letter-spacing: 6px;
       font-size: 22px;
@@ -91,6 +92,7 @@
   }
 
   &__aside {
+    flex: 1;
     @include respond(laptop_s) {
       margin-top: 60px;
     }
