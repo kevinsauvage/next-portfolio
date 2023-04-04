@@ -1,22 +1,16 @@
 .Title {
-  font-size: 80px;
-  font-weight: 700;
-  line-height: 1.2;
   margin-bottom: 60px;
-  letter-spacing: 4px;
   color: var(--color-5);
-
-  @include respond(laptop_l) {
-    font-size: 60px;
-  }
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1.2;
+  @include font-size(3rem, 4rem);
 
   @include respond(laptop_s) {
-    font-size: 44px;
     margin-bottom: 50px;
   }
 
   @include respond(mobile_l) {
-    font-size: 34px;
     margin-bottom: 40px;
   }
 }

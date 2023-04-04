@@ -9,71 +9,42 @@
     color: var(--color-2);
   }
 
-  &__title {
-    font-weight: 500;
-    font-size: 32px;
-    color: var(--color-5);
-    position: relative;
-    width: fit-content;
-    margin-bottom: 40px;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 50%;
-      height: 3px;
-      background-color: var(--color-2);
-      border-radius: 4px;
-    }
-
-    @include respond(laptop_l) {
-      font-size: 24px;
-    }
-
-    svg {
-      font-size: 40px;
-      margin-right: 20px;
-    }
-  }
-
   &__items {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
     gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
 
     @include respond(laptop_l) {
-      grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
       gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
     }
 
     @include respond(laptop_s) {
-      grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
       gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
     }
 
     @include respond(mobile_l) {
-      grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
       gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
     }
   }
 
   &__item {
-    padding: 20px 40px;
+    display: flex;
     width: 100%;
     height: auto;
-    border-radius: $radius_1;
-    box-shadow: $shadow_2;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: $radius_1;
+    box-shadow: $shadow_2;
 
     i {
-      font-size: 90px;
-      color: var(--color-2);
       margin-bottom: 8px;
+      color: var(--color-2);
+      font-size: 90px;
       @include gradientText;
 
       @include respond(laptop_l) {
@@ -86,8 +57,8 @@
     }
 
     svg {
-      font-size: 26px;
       margin-right: 20px;
+      font-size: 26px;
     }
   }
 }

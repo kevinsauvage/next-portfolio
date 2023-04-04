@@ -1,16 +1,18 @@
-export const sendMail = async (body) => {
+const sendMail = async (body) => {
   try {
     const response = await fetch(`/api/email`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
       body: JSON.stringify(body),
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
     });
 
     if (response) return response.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
+
+export default sendMail;

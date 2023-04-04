@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useOnScreen = (ref, rootMargin = "0px") => {
+const useOnScreen = (reference, rootMargin = "0px") => {
   const [isIntersecting, setIntersecting] = useState(false);
 
   useEffect(() => {
@@ -11,9 +11,9 @@ const useOnScreen = (ref, rootMargin = "0px") => {
       { rootMargin }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    if (reference.current) observer.observe(reference.current);
 
-    return () => observer.disconnect(ref);
+    return () => observer.disconnect(reference);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -1,8 +1,8 @@
-.ProjectSection {
-  margin: 200px 0;
+.section {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 200px 0;
   gap: 20px;
 
   @include respond(tablet) {
@@ -11,7 +11,7 @@
   }
 }
 
-.ProjectSectionReverce {
+.reverse {
   flex-direction: row-reverse;
 
   @include respond(tablet) {
@@ -20,55 +20,50 @@
   }
 }
 
-.imageContainer {
+.image {
   position: relative;
   width: 100%;
   height: 100%;
-  background: $gradient_1;
   padding: 8px;
   border-radius: 4px;
+  background: $gradient_1;
 }
 
 .detail {
-  height: fit-content;
-  border-radius: $radius_2;
-  max-width: 500px;
-  width: 100%;
   position: relative;
-  background-color: var(--color-1);
-  padding: 0 10px;
   display: flex;
+  width: 100%;
+  max-width: 500px;
+  height: fit-content;
   flex-direction: column;
+  padding: 0 10px;
+  border-radius: $radius_2;
+  background-color: var(--color-1);
 
   @include respond(laptop_S) {
     width: 300px;
   }
-}
 
-.detailReverse {
-  text-align: end;
-  align-items: flex-end;
+  &.reverse {
+    align-items: flex-end;
+    text-align: end;
+  }
 }
 
 .title {
-  font-size: 20px;
-  color: var(--color-2);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 6px;
-  white-space: nowrap;
   width: fit-content;
+  margin-bottom: 10px;
+  color: var(--color-2);
+  font-size: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  white-space: nowrap;
   @include gradientText;
 }
 
 .description {
   margin-top: 10px;
-  font-weight: 600;
-  font-size: 24px;
-
-  @include respond(laptop_l) {
-    font-size: 18px;
-  }
+  @include font-size(1rem, 1.1rem);
 }

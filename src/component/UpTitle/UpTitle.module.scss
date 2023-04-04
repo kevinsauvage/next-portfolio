@@ -1,9 +1,9 @@
 .UpTitle {
+  width: fit-content;
+  margin-bottom: 1rem;
   color: var(--color-2);
   font-size: 18px;
   letter-spacing: 6px;
-  margin-bottom: 1rem;
-  width: fit-content;
   white-space: nowrap;
   @include gradientText;
 

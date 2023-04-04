@@ -1,11 +1,11 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const setSmoothScroll = (isSmooth) => {
   document.documentElement.style.scrollBehavior = isSmooth ? "smooth" : "auto";
 };
 
-export function useSmoothScroll() {
+function useSmoothScroll() {
   const router = useRouter();
 
   useEffect(() => {
@@ -24,3 +24,6 @@ export function useSmoothScroll() {
     };
   }, [router]);
 }
+
+
+export default useSmoothScroll

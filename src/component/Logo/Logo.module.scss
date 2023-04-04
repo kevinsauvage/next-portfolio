@@ -1,0 +1,18 @@
+.logo {
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+}
+
+.logoImg {
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: $shadow_2 !important;
+}
+
+.logoName {
+  margin-left: 10px;
+  color: var(--color-5);
+  font-weight: 700;
+  @include font-size(1.4rem, 2rem);
+}

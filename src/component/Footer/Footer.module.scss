@@ -4,31 +4,23 @@
 .Footer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   &__img {
     border-radius: 50%;
   }
 
   &__name {
-    font-weight: 700;
-    font-size: 30px;
     margin-top: 10px;
     color: var(--color-5);
-
-    @include respond(laptop_l) {
-      font-size: 20px;
-    }
+    font-weight: 700;
+    @include font-size(1rem, 1.5rem);
   }
 
   &__copyright {
-    font-weight: 500;
     margin-top: 40px;
-    font-size: 24px;
-
-    @include respond(laptop_l) {
-      font-size: 16px;
-    }
+    font-weight: 500;
+    @include font-size(0.8rem, 1rem);
   }
 }

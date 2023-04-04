@@ -1,6 +1,8 @@
-import styles from "./SlideUpAndFadeIn.module.scss";
-import { useEffect, useRef, useState } from "react";
-import useOnScreen from "../../hooks/useOnScreen";
+import { useEffect, useRef, useState } from 'react';
+
+import useOnScreen from '../../hooks/useOnScreen';
+
+import styles from './SlideUpAndFadeIn.module.scss';
 
 const SlideUpAndFadeIn = ({ children, className }) => {
   const container = useRef(null);
@@ -12,9 +14,11 @@ const SlideUpAndFadeIn = ({ children, className }) => {
   return (
     <div
       ref={container}
-      className={`${styles["SlideUpAndFadeIn"]} ${
-        executed ? styles["SlideUpAndFadeIn--onScreen"] : ""
-      } ${className ? className : ""}`}>
+      className={`${styles.container} ${
+        // eslint-disable-next-line css-modules/no-undef-class
+        executed ? styles['container--onScreen'] : ''
+      } ${className || ''}`}
+    >
       {children}
     </div>
   );

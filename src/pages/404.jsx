@@ -1,12 +1,14 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
-export default function Custom404() {
+const Custom404 = () => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/");
+    router.push('/');
   });
 
-  return null;
-}
+  return <div />;
+};
+
+export default Custom404;

@@ -1,15 +1,9 @@
-.What {
-  &__title {
-    margin-top: 1rem;
-  }
+.cards {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 
-  &__cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-
-    @include respond(mobile_l) {
-      gap: 60px;
-    }
+  @include respond(mobile_l) {
+    gap: 60px;
   }
 }

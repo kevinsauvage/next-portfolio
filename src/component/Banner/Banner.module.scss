@@ -9,100 +9,60 @@
     display: flex;
     flex-direction: column;
     align-items: unset;
+    margin-top: 2rem;
+  }
+}
+
+.main {
+  flex: 1;
+
+  p:first-of-type {
+    width: fit-content;
+    color: var(--color-2);
+    font-weight: 500;
+    letter-spacing: 6px;
+    white-space: nowrap;
+    @include gradientText;
+    @include font-size(1rem, 1.5rem);
   }
 
-  &__main {
-    flex: 1;
-    &-header {
-      letter-spacing: 6px;
-      font-size: 22px;
-      font-weight: 500;
-      color: var(--color-2);
-      @include gradientText;
-      width: fit-content;
-      white-space: nowrap;
-
-      @include respond(laptop_l) {
-        font-size: 16px;
-      }
-    }
-
-    &-title {
-      font-size: 110px;
-      color: var(--color-5);
-      margin: 20px 0 10px 0;
-
-      @include respond(laptop_l) {
-        font-size: 70px;
-      }
-
-      @include respond(laptop_s) {
-        font-size: 65px;
-      }
-
-      @include respond(mobile_l) {
-        font-size: 36px;
-        line-height: 40px;
-      }
-
-      &-b {
-        font-size: 80px;
-        margin-bottom: 30px;
-        color: var(--color-4);
-        @include gradientText;
-
-        @include respond(laptop_l) {
-          font-size: 50px;
-        }
-
-        @include respond(laptop_s) {
-          font-size: 46px;
-        }
-
-        @include respond(mobile_l) {
-          font-size: 25px;
-        }
-
-        @include respond(mobile_m) {
-          font-size: 23px;
-        }
-      }
-    }
-
-    &-subtitle {
-      font-size: 30px;
-      line-height: 30px;
-      font-weight: 600;
-      opacity: 0.5;
-      max-width: 1000px;
-
-      @include respond(laptop_l) {
-        font-size: 18px;
-        max-width: 670px;
-      }
-
-      @include respond(mobile_l) {
-        font-size: 16px;
-      }
-
-      @include respond(mobile_m) {
-        font-size: 13px;
-      }
-    }
+  h1 {
+    margin: 20px 0 10px 0;
+    color: var(--color-5);
+    font-size: 4rem;
+    @include font-size(3rem, 5rem);
   }
 
-  &__aside {
-    flex: 1;
-    @include respond(laptop_s) {
-      margin-top: 60px;
-    }
+  h2 {
+    margin-bottom: 30px;
+    color: var(--color-4);
+    @include gradientText;
+    @include font-size(2rem, 4rem);
+  }
 
-    @include respond(tablet) {
-      margin-top: 100px;
+  .subtitle {
+    max-width: 1000px;
+    font-size: 30px;
+    font-weight: 400;
+    opacity: 0.5;
+    @include font-size(1rem, 2rem);
+    @include respond(laptop_l) {
+      max-width: 670px;
     }
+  }
+}
 
-    @include respond(mobile_l) {
-      margin-top: 60px;
-    }
+.aside {
+  flex: 0.9;
+  @include respond(laptop_s) {
+    margin-top: 60px;
+  }
+
+  @include respond(tablet) {
+    margin-top: 100px;
+  }
+
+  @include respond(mobile_l) {
+    margin-top: 60px;
   }
 }

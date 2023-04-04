@@ -1,0 +1,89 @@
+.nav {
+  display: flex;
+  align-items: center;
+
+  @include respond(laptop_s) {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 80%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
+    transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+
+    .open {
+      right: 0;
+      backdrop-filter: blur(10px);
+      background: var(--color-1);
+      box-shadow: $shadow_1;
+    }
+  }
+
+  @include respond(tablet) {
+    width: 100%;
+    max-width: unset;
+  }
+
+  .list {
+    display: flex;
+    align-items: center;
+
+    @include respond(laptop_s) {
+      height: 100%;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 60px 0;
+      margin-right: 0px;
+    }
+  }
+
+  .item {
+    margin-left: 60px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    @include respond(laptop_s) {
+      margin-left: 0;
+      font-weight: 600;
+      opacity: 0;
+      transform: translateX(100px);
+
+      .open {
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}) {
+            animation: slideLeft;
+            animation-delay: (0.1s * $i);
+            animation-duration: (0.1s * $i);
+            animation-fill-mode: forwards;
+          }
+        }
+      }
+    }
+
+    @include respond(mobile_l) {
+      font-size: 20px;
+    }
+
+    a {
+      color: var(--color-5);
+    }
+  }
+}
+
+.close {
+  display: none;
+
+  @include respond(laptop_s) {
+    position: absolute;
+    z-index: 9999;
+    top: 2rem;
+    right: 2rem;
+    display: inline;
+    color: var(--color-2);
+    font-size: 40px;
+  }
+}

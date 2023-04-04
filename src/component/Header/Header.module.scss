@@ -1,160 +1,42 @@
 .Header {
+  position: absolute;
+  z-index: 999999;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 0px;
   background: var(--color-1);
   color: var(--color-3);
-  padding: 50px 0px;
-  width: 100%;
-  z-index: 999999;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
 
   @include respond(laptop_l) {
-    padding: 20px 0px;
+    padding: 1rem 0px;
   }
+}
 
-  &__hamb {
-    display: none;
-    font-size: 30px;
-
-    @include respond(laptop_s) {
-      display: inline;
-    }
-  }
-
-  &__close {
-    display: none;
-
-    @include respond(laptop_s) {
-      display: inline;
-      position: absolute;
-      right: 2rem;
-      top: 2rem;
-      z-index: 9999;
-      font-size: 40px;
-      color: var(--color-2);
-    }
-  }
-
-  &--scrolled {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    animation: fadeIn 1s ease-in forwards;
-    box-shadow: $shadow_2;
-    opacity: 0.7;
-  }
-
-  &__logo {
-    display: flex;
-    align-items: center;
-    z-index: 999999;
-
-    &-img {
-      border-radius: 50%;
-      box-shadow: $shadow_2 !important;
-      overflow: hidden;
-    }
-
-    &-name {
-      font-size: 30px;
-      font-weight: 700;
-      color: var(--color-5);
-      margin-left: 10px;
-
-      @include respond(laptop_l) {
-        font-size: 20px;
-      }
-    }
-  }
-
-  &__nav {
-    display: flex;
-    align-items: center;
-
-    @include respond(laptop_s) {
-      position: absolute;
-      height: 100vh;
-      flex-direction: column;
-      justify-content: center;
-      max-width: 80%;
-      width: 100%;
-      right: -100%;
-      top: 0;
-      transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
-      padding-top: 100px;
-
-      &--open {
-        right: 0;
-        background: var(--color-1);
-        backdrop-filter: blur(10px);
-        box-shadow: $shadow_1;
-      }
-    }
-
-    @include respond(tablet) {
-      max-width: unset;
-      width: 100%;
-    }
-
-    &-list {
-      display: flex;
-      align-items: center;
-
-      @include respond(laptop_s) {
-        flex-direction: column;
-        height: 100%;
-        justify-content: space-evenly;
-        padding: 60px 0;
-        margin-right: 0px;
-      }
-    }
-
-    &-item {
-      font-size: 18px;
-      margin-left: 60px;
-      font-weight: 600;
-      cursor: pointer;
-
-      @include respond(laptop_l) {
-        font-size: 13px;
-      }
-
-      @include respond(laptop_s) {
-        font-size: 25px;
-        font-weight: 600;
-        margin-left: 0;
-        opacity: 0;
-        transform: translateX(100px);
-
-        &--open {
-          @for $i from 1 through 5 {
-            &:nth-child(#{$i}) {
-              animation: slideLeft;
-              animation-duration: (0.1s * $i);
-              animation-delay: (0.1s * $i);
-              animation-fill-mode: forwards;
-            }
-          }
-        }
-      }
-
-      @include respond(mobile_l) {
-        font-size: 20px;
-      }
-
-      a {
-        color: var(--color-5);
-      }
-    }
-  }
+.scrolled {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  animation: fadeIn 1s ease-in forwards;
+  box-shadow: $shadow_2;
+  opacity: 0.7;
 }
 
 .container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+}
+
+.hamb {
+  display: none;
+  font-size: 30px;
+
+  @include respond(laptop_s) {
+    display: inline;
+  }
 }
 
 @keyframes fadeIn {

@@ -1,28 +1,18 @@
-import { Router } from "next/router";
-import { useEffect, useState } from "react";
-import ReactGA from "react-ga4";
+import { useEffect, useState } from 'react';
+import { Router } from 'next/router';
 
 const HeaderFunction = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
-  Router.events.on("hashChangeStart", () => {
-    menuIsOpen && setMenuIsOpen(false);
+  Router.events.on('hashChangeStart', () => {
+    if (menuIsOpen) setMenuIsOpen(false);
   });
 
   useEffect(() => {
-    const body = document.querySelector("body");
-    if (menuIsOpen) body.style.overflow = "hidden";
-    else body.style.overflow = "auto";
+    const body = document.querySelector('body');
+    body.style.overflow = menuIsOpen ? 'hidden' : 'auto';
   }, [menuIsOpen]);
-
-  const links = [
-    { hash: "#app", text: "HOME" },
-    { hash: "#about", text: "ABOUT" },
-    { hash: "#skills", text: "SKILLS" },
-    { hash: "#projects", text: "PROJECTS" },
-    { hash: "#contact", text: "CONTACT" },
-  ];
 
   const listenToScroll = () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -31,11 +21,11 @@ const HeaderFunction = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
-    return () => window.removeEventListener("scroll", listenToScroll);
+    window.addEventListener('scroll', listenToScroll);
+    return () => window.removeEventListener('scroll', listenToScroll);
   }, []);
 
-  return { links, scrolled, setMenuIsOpen, menuIsOpen };
+  return { menuIsOpen, scrolled, setMenuIsOpen };
 };
 
 export default HeaderFunction;

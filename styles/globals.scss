@@ -1,14 +1,27 @@
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+}
+
+html {
+  --color-1: #292929;
+  --color-2: #f53844;
+  --color-3: rgb(198, 211, 216);
+  --color-4: #42378f;
+  --color-5: rgb(245, 245, 245);
+
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-size-adjust: 100%;
 }
 
 body {
-  color: var(--color-3);
-  background-color: var(--color-1);
   position: relative;
-  font-family: "Montserrat", sans-serif;
+  background-color: var(--color-1);
+  color: var(--color-3);
+  font-family: 'Montserrat', sans-serif;
 }
 
 li {
@@ -16,8 +29,8 @@ li {
 }
 
 a {
-  text-decoration: none;
   color: var(--color-3);
+  text-decoration: none;
 }
 
 .color-red {
@@ -27,18 +40,10 @@ a {
 button,
 input,
 textarea {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 26px;
 
   @include respond(laptop_l) {
     font-size: 18px;
   }
-}
-
-html {
-  --color-1: #181a1d;
-  --color-2: #f53844;
-  --color-3: rgb(156, 172, 179);
-  --color-4: #42378f;
-  --color-5: rgb(245, 245, 245);
 }

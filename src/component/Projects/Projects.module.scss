@@ -1,21 +1,19 @@
-.Projects {
-  &__cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+.cards {
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr;
+
+  @include respond(laptop_s) {
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  }
+
+  @include respond(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @include respond(mobile_l) {
     gap: 40px;
-
-    @include respond(laptop_s) {
-      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    }
-
-    @include respond(tablet) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    @include respond(mobile_l) {
-      gap: 40px;
-    }
   }
 }
