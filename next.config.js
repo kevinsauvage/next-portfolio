@@ -20,7 +20,6 @@ const nextConfig = {
       test: /\.pdf$/i,
       type: 'asset/source',
     });
-
     return config;
   },
 };

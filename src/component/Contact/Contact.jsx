@@ -1,11 +1,9 @@
-import { AiOutlineGithub } from 'react-icons/ai';
 import { BiMailSend } from 'react-icons/bi';
-import { ImLinkedin2 } from 'react-icons/im';
 import { MdLocationOn, MdMail } from 'react-icons/md';
-import { SiGmail } from 'react-icons/si';
 import { ToastContainer } from 'react-toastify';
 import Link from 'next/link';
 
+import { github, linkedin, mail } from '../../data/svg';
 import Button from '../Button/Button';
 import GradientBorder from '../GradientBorder/GradientBorder';
 import Section from '../Section/Section';
@@ -21,9 +19,9 @@ const Contact = () => {
   const { handleChange, handleSubmit, userFeedback, isLoading, formData } = ContactFunction();
 
   const socialButton = [
-    { href: 'https://www.linkedin.com/in/kevin-sauvage/', icon: <ImLinkedin2 />, text: 'Linkedin' },
-    { href: 'https://github.com/kevinsauvage/', icon: <AiOutlineGithub />, text: 'Github' },
-    { href: 'mailto:kevinsauvage@outlook.com', icon: <SiGmail />, text: 'E-mail' },
+    { href: 'https://www.linkedin.com/in/kevin-sauvage/', icon: linkedin, text: 'Linkedin' },
+    { href: 'https://github.com/kevinsauvage/', icon: github, text: 'Github' },
+    { href: 'mailto:kevinsauvage@outlook.com', icon: mail, text: 'E-mail' },
   ];
 
   return (
