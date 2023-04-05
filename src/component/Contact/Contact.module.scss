@@ -56,6 +56,7 @@
       margin-bottom: 1rem;
       background: var(--surface-800);
       box-shadow: $shadow_2;
+      color: var(--on-surface-100);
       @include font-size(1rem, 1.2rem);
 
       @include respond(mobile_l) {
@@ -79,6 +80,7 @@
       margin-bottom: 1rem;
       background: var(--surface-800);
       box-shadow: $shadow_2;
+      color: var(--on-surface-100);
       resize: none;
       @include font-size(1rem, 1.2rem);
 
