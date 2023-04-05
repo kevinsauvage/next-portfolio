@@ -4,4 +4,8 @@
   margin-top: 30px;
   gap: 1rem;
   grid-template-columns: 1fr 1fr;
+
+  @include respond(mobile_l) {
+    grid-template-columns: 1fr;
+  }
 }

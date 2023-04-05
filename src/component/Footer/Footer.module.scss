@@ -1,6 +1,7 @@
 .FooterContainer {
   border-top: 0.1px solid var(--on-surface-100);
 }
+
 .Footer {
   display: flex;
   flex-direction: column;
@@ -13,7 +14,6 @@
 
   &__name {
     margin-top: 10px;
-
     font-weight: 700;
     @include font-size(1rem, 1.5rem);
   }

@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const setSmoothScroll = (isSmooth) => {
-  document.documentElement.style.scrollBehavior = isSmooth ? "smooth" : "auto";
+  document.documentElement.style.scrollBehavior = isSmooth ? 'smooth' : 'auto';
 };
 
 function useSmoothScroll() {
@@ -13,17 +13,16 @@ function useSmoothScroll() {
     const handleStart = () => setSmoothScroll(false);
     const handleStop = () => setSmoothScroll(true);
 
-    router.events.on("routeChangeStart", handleStart);
-    router.events.on("routeChangeComplete", handleStop);
-    router.events.on("routeChangeError", handleStop);
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleStop);
+    router.events.on('routeChangeError', handleStop);
 
     return () => {
-      router.events.off("routeChangeStart", handleStart);
-      router.events.off("routeChangeComplete", handleStop);
-      router.events.off("routeChangeError", handleStop);
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleStop);
+      router.events.off('routeChangeError', handleStop);
     };
   }, [router]);
 }
 
-
-export default useSmoothScroll
+export default useSmoothScroll;

@@ -13,20 +13,11 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "ignorePatterns": [
-    "node_modules/",
-    ".next/"
-  ],
+  "ignorePatterns": ["node_modules/", ".next/"],
   "globals": {
     "React": "writable"
   },
-  "plugins": [
-    "react",
-    "simple-import-sort",
-    "css-modules",
-    "sonarjs",
-    "sort-keys"
-  ],
+  "plugins": ["react", "simple-import-sort", "css-modules", "sonarjs", "sort-keys"],
   "extends": [
     "airbnb",
     "prettier",
@@ -51,33 +42,17 @@
       {
         "groups": [
           // Packages `react` related packages come first.
-          [
-            "^react",
-            "^@?\\w"
-          ],
+          ["^react", "^@?\\w"],
           // Internal packages.
-          [
-            "^(@|components)(/.*|$)"
-          ],
+          ["^(@|components)(/.*|$)"],
           // Side effect imports.
-          [
-            "^\\u0000"
-          ],
+          ["^\\u0000"],
           // Parent imports. Put `..` last.
-          [
-            "^\\.\\.(?!/?$)",
-            "^\\.\\./?$"
-          ],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
           // Other relative imports. Put same-folder imports and `.` last.
-          [
-            "^\\./(?=.*/)(?!/?$)",
-            "^\\.(?!/?$)",
-            "^\\./?$"
-          ],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
           // Style imports.
-          [
-            "^.+\\.?(css)$"
-          ]
+          ["^.+\\.?(css)$"]
         ]
       }
     ],
@@ -85,10 +60,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "react/prop-types": 0,
@@ -121,15 +93,9 @@
     "jsx-a11y/label-has-associated-control": [
       2,
       {
-        "labelComponents": [
-          "CustomInputLabel"
-        ],
-        "labelAttributes": [
-          "label"
-        ],
-        "controlComponents": [
-          "CustomInput"
-        ],
+        "labelComponents": ["CustomInputLabel"],
+        "labelAttributes": ["label"],
+        "controlComponents": ["CustomInput"],
         "depth": 3
       }
     ]
