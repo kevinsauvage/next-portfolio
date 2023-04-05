@@ -26,7 +26,7 @@
   @return $remValue;
 }
 
-@mixin font-size($min, $max, $min-vw: 768px, $max-vw: 1600px, $fallback: false) {
+@mixin font-size($min, $max, $min-vw: 320px, $max-vw: 1600px, $fallback: false, $line-height: 1.5) {
   $min-no-unit: strip-units($min);
   $max-no-unit: strip-units($max);
 
@@ -49,12 +49,15 @@
     font-size: $max;
   }
   font-size: $responsive;
+  line-height: calc(#{$responsive} * #{$line-height});
 
   @media screen and (max-width: #{$min-vw}) {
     font-size: $min;
+    line-height: calc(#{$min} * #{$line-height});
   }
   @media screen and (min-width: #{$max-vw}) {
     font-size: $max;
+    line-height: calc(#{$max} * #{$line-height});
   }
 }
 

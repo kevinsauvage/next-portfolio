@@ -14,8 +14,8 @@ const Banner = () => (
         <h1>Kévin Sauvage.</h1>
         <h2> I'm a developer.</h2>
         <p className={styles.subtitle}>
-          I create intuitive, dynamic user experiences that are responsive, load blazing fast, and
-          are crafted with pixel-perfect code.
+          Bridging technology and creativity to build remarkable digital experiences that inspire,
+          engage, and transform.
         </p>
       </SlideUpAndFadeIn>
     </main>

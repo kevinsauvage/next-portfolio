@@ -1,16 +1,8 @@
 .Title {
-  margin-bottom: 60px;
+  margin-bottom: 2rem;
   color: var(--color-5);
   font-weight: 700;
   letter-spacing: 4px;
   line-height: 1.2;
-  @include font-size(3rem, 4rem);
-
-  @include respond(laptop_s) {
-    margin-bottom: 50px;
-  }
-
-  @include respond(mobile_l) {
-    margin-bottom: 40px;
-  }
+  @include font-size(2rem, 4rem);
 }

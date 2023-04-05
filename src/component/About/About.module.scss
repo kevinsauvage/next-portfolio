@@ -1,9 +1,9 @@
 .container {
-  font-weight: 500;
-  @include font-size(1rem, 1.4rem);
+  font-weight: 300;
 
   p {
     text-align: center;
+    @include font-size(1rem, 1.2rem);
   }
 }
 
@@ -49,10 +49,9 @@
   border-radius: $radius_2;
   background-color: transparent;
   cursor: pointer;
-  font-size: 26px;
-  font-weight: 600;
+  font-weight: 500;
   transition: transform 0.3s ease;
-  @include font-size(1rem, 1.5rem);
+  @include font-size(1rem, 1.2rem);
 
   &:hover {
     transform: scale(1.01);
@@ -66,12 +65,9 @@
 
   svg {
     margin-right: 6px;
-    font-size: 26px;
-
-    @include respond(laptop_S) {
-      font-size: 20px;
-    }
+    @include font-size(1.3rem, 1.6rem);
   }
+
   &-resume {
     position: relative;
     background-color: var(--color-1);

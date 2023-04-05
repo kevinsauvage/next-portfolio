@@ -1,20 +1,23 @@
 .Banner {
-  display: flex;
+  display: grid;
   min-height: calc(100vh - 120px);
-  align-items: center;
-  justify-content: center;
+  align-content: center;
   gap: 30px;
+  grid-template-columns: 1.2fr 1fr;
 
   @include respond(laptop_s) {
     display: flex;
     flex-direction: column;
     align-items: unset;
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
 }
 
 .main {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   p:first-of-type {
     width: fit-content;
@@ -23,29 +26,26 @@
     letter-spacing: 6px;
     white-space: nowrap;
     @include gradientText;
-    @include font-size(1rem, 1.5rem);
+    @include font-size(1rem, 1.1rem);
   }
 
   h1 {
-    margin: 20px 0 10px 0;
     color: var(--color-5);
-    font-size: 4rem;
-    @include font-size(3rem, 5rem);
+    @include font-size(2.3rem, 5rem);
   }
 
   h2 {
     margin-bottom: 30px;
     color: var(--color-4);
     @include gradientText;
-    @include font-size(2rem, 4rem);
+    @include font-size(1.8rem, 3rem);
   }
 
   .subtitle {
     max-width: 1000px;
-    font-size: 30px;
     font-weight: 400;
     opacity: 0.5;
-    @include font-size(1rem, 2rem);
+    @include font-size(1rem, 1.2rem);
     @include respond(laptop_l) {
       max-width: 670px;
     }

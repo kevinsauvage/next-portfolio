@@ -1,17 +1,8 @@
 .UpTitle {
   width: fit-content;
-  margin-bottom: 1rem;
   color: var(--color-2);
-  font-size: 18px;
   letter-spacing: 6px;
   white-space: nowrap;
   @include gradientText;
-
-  @include respond(laptop_l) {
-    font-size: 15px;
-  }
-
-  @include respond(mobile_l) {
-    font-size: 13px;
-  }
+  @include font-size(0.8rem, 1rem);
 }

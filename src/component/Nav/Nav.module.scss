@@ -14,7 +14,7 @@
     padding-top: 100px;
     transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 
-    .open {
+    &.open {
       right: 0;
       backdrop-filter: blur(10px);
       background: var(--color-1);
@@ -41,7 +41,7 @@
   }
 
   .item {
-    margin-left: 60px;
+    margin-left: 2.5rem;
     cursor: pointer;
     font-size: 0.8rem;
     font-weight: 600;
@@ -52,7 +52,7 @@
       opacity: 0;
       transform: translateX(100px);
 
-      .open {
+      &.open {
         @for $i from 1 through 5 {
           &:nth-child(#{$i}) {
             animation: slideLeft;

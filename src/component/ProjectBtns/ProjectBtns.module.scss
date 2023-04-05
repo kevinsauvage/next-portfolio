@@ -16,9 +16,9 @@
   border-radius: $radius_2;
   background-color: transparent;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 500;
   transition: transform 0.3s ease;
-  @include font-size(1rem, 1.5rem);
+  @include font-size(0.8rem, 1.1rem);
 
   &:hover {
     transform: scale(1.01);

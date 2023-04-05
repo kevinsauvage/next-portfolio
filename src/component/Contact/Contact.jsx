@@ -35,13 +35,15 @@ const Contact = () => {
             <p className={styles.name}>Kévin Sauvage</p>
             <p className={styles.job}>- Front end developer -</p>
           </div>
-          <div className={styles.row}>
-            <MdMail />
-            <p>kevinsauvage@outlook.com</p>
-          </div>
-          <div className={styles.row}>
-            <MdLocationOn />
-            <p>Barcelona, SPAIN</p>
+          <div>
+            <div className={styles.row}>
+              <MdMail />
+              <p>kevinsauvage@outlook.com</p>
+            </div>
+            <div className={styles.row}>
+              <MdLocationOn />
+              <p>Barcelona, SPAIN</p>
+            </div>
           </div>
           <div className={styles.social}>
             {socialButton.map((item) => (

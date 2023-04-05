@@ -1,12 +1,14 @@
 .banner {
   position: relative;
   height: 100%;
+  padding-top: 2rem;
 
   @include respond(tablet) {
     padding: 0;
     padding-top: 30px;
   }
 }
+
 .imageContainer {
   position: relative;
   width: 100%;
@@ -54,7 +56,7 @@
 .description {
   margin-bottom: 20px;
   font-weight: 400;
-  @include font-size(1rem, 1.5rem);
+  @include font-size(1rem, 1.2rem);
 }
 
 .buttons {

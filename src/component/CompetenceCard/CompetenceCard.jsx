@@ -5,9 +5,9 @@ import styles from './CompetenceCard.module.scss';
 
 const CompetenceCard = () => (
   <SlideUpAndFadeIn className={styles.CompetenceCard}>
-    <div className={styles.CompetenceCard__items}>
+    <div className={styles.items}>
       {competences.map((item) => (
-        <div className={styles.CompetenceCard__item} key={item.description}>
+        <div className={styles.item} key={item.description}>
           <i className={item.icon} />
           <p>{item.description}</p>
         </div>

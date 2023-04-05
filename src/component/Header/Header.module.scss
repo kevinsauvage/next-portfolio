@@ -4,14 +4,13 @@
   top: 0;
   right: 0;
   left: 0;
+  display: flex;
   width: 100%;
-  padding: 2rem 0px;
+  height: $header-height;
+  align-items: center;
+  justify-content: space-between;
   background: var(--color-1);
   color: var(--color-3);
-
-  @include respond(laptop_l) {
-    padding: 1rem 0px;
-  }
 }
 
 .scrolled {
@@ -26,6 +25,7 @@
 
 .container {
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
 }

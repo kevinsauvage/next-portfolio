@@ -1,5 +1,7 @@
 .Container {
+  max-width: 1440px;
   padding: 0 120px;
+  margin: 0 auto;
 
   @include respond(laptop_l) {
     padding: 0 80px;

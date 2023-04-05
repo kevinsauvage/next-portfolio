@@ -4,61 +4,48 @@
   @include respond(tablet) {
     max-width: 100%;
   }
+}
 
-  svg {
-    color: var(--color-2);
+.items {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
+
+  @include respond(laptop_l) {
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
   }
 
-  &__items {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
+  @include respond(laptop_s) {
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  }
+
+  @include respond(mobile_l) {
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+  }
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  border-radius: $radius_1;
+  box-shadow: $shadow_2;
+
+  i {
+    margin-bottom: 8px;
+    color: var(--color-2);
+    font-size: 90px;
+    @include gradientText;
 
     @include respond(laptop_l) {
-      gap: 18px;
-      grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
-    }
-
-    @include respond(laptop_s) {
-      gap: 16px;
-      grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-    }
-
-    @include respond(mobile_l) {
-      gap: 12px;
-      grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
-    }
-  }
-
-  &__item {
-    display: flex;
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px 40px;
-    border-radius: $radius_1;
-    box-shadow: $shadow_2;
-
-    i {
-      margin-bottom: 8px;
-      color: var(--color-2);
-      font-size: 90px;
-      @include gradientText;
-
-      @include respond(laptop_l) {
-        font-size: 60px;
-      }
-    }
-
-    span {
-      opacity: 0.6;
-    }
-
-    svg {
-      margin-right: 20px;
-      font-size: 26px;
+      font-size: 60px;
     }
   }
 }
