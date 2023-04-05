@@ -44,7 +44,8 @@ const About = () => {
               Since completing the bootcamp, I have gained professional experience working as a
               front-end developer for Subforce and as a developer consultant for Extia. In these
               roles, I have honed my skills in designing and developing web applications using
-              responsive design principles and popular JavaScript libraries such as React.
+              responsive design principles and popular JavaScript libraries such as React, Next,
+              Svelte and Express.
               <br />
               <br />
               As an experienced developer, I am passionate about delivering high-quality, efficient,
