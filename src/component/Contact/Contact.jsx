@@ -36,7 +36,7 @@ const Contact = () => {
             <p className={styles.name}>Kévin Sauvage</p>
             <p className={styles.job}>- Developer -</p>
           </div>
-          <div>
+          <div className={styles.middle}>
             <div className={styles.row}>
               <MdMail />
               <p>kevinsauvage@outlook.com</p>

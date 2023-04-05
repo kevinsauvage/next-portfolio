@@ -12,9 +12,9 @@ const Banner = () => (
       <SlideUpAndFadeIn>
         <small>Hi, my name is</small>
         <h1>Kévin Sauvage.</h1>
-        <h2> I'm a developer.</h2>
+        <h2> I'm a developer</h2>
         <p className={styles.subtitle}>
-          Bridging technology and creativity to build remarkable digital experiences that inspire,
+          bridging technology and creativity to build remarkable digital experiences that inspire,
           engage, and transform.
         </p>
       </SlideUpAndFadeIn>

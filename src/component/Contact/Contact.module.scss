@@ -170,6 +170,10 @@
       @include font-size(1rem, 1.3rem);
     }
 
+    .middle {
+      margin: 3rem 0;
+    }
+
     .row {
       display: flex;
       align-items: center;
