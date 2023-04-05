@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image';
 
-import portrait from '../../images/banner_home.png';
+import portrait from '../../images/banner.svg';
 import SlideUpAndFadeIn from '../SlideUpAndFadeIn/SlideUpAndFadeIn';
 
 import styles from './Banner.module.scss';

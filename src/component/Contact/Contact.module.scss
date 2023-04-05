@@ -134,8 +134,8 @@
       svg {
         margin-right: 6px;
         color: var(--primary);
-        fill: url(#my-cool-gradient) var(--primary);
         @include font-size(1rem, 1.2rem);
+        @include gradientText;
       }
 
       span {
@@ -187,7 +187,7 @@
 
       svg {
         margin-right: 1rem;
-        fill: url(#my-cool-gradient) var(--primary);
+        color: var(--primary);
         @include font-size(1.3rem, 2rem);
       }
     }

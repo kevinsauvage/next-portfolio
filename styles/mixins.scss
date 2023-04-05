@@ -32,18 +32,19 @@
   $min-vw-no-unit: strip-units($min-vw);
   $max-vw-no-unit: strip-units($max-vw);
 
-  @if getUnit($min)=='rem'or getUnit($min)=='em' {
+  @if getUnit($min) == 'rem' or getUnit($min) == 'em' {
     $min-no-unit: strip-units($min) * 16;
     $max-no-unit: strip-units($max) * 16;
   }
 
-  $responsive: calc(#{$min-no-unit}px + (#{$max-no-unit} - #{$min-no-unit}) * ((100vw - #{$min-vw}) / (#{$max-vw-no-unit} - #{$min-vw-no-unit})));
+  $responsive: calc(
+    #{$min-no-unit}px + (#{$max-no-unit} - #{$min-no-unit}) *
+      ((100vw - #{$min-vw}) / (#{$max-vw-no-unit} - #{$min-vw-no-unit}))
+  );
 
   @if $fallback {
     font-size: $fallback;
-  }
-
-  @else {
+  } @else {
     font-size: $max;
   }
 
@@ -70,7 +71,7 @@
 }
 
 @mixin padding {
-  padding: 1.5rem;
+  padding: 2rem;
 
   @include respond(tablet) {
     padding: 1rem;
