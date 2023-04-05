@@ -29,27 +29,39 @@ const About = () => {
         <SlideUpAndFadeIn>
           <div className={styles.wrapper}>
             <p className={styles.about}>
-              Hello, my name is Kévin and I am a highly skilled and experienced freelance developer
-              with a passion for staying current with the latest technologies and best practices. I
-              specialize in front-end development and have extensive knowledge in HTML, CSS, SASS,
-              JavaScript, React/Next, and Svelte. My years of professional experience and constant
-              self-study have honed my skills, making me proficient in creating visually appealing,
-              responsive, and user-friendly websites that meet the needs of any project.
+              Hi there! My name is Kévin Sauvage, and I am a skilled developer with expertise in
+              Javascript, React.js, Next.js, Svelte.js, Node.js, and Express.js. As someone who made
+              a career change to pursue my passion for programming, I bring a unique perspective to
+              my work and am always eager to learn and grow.
               <br />
               <br />
-              In addition to front-end development, I also have a keen interest in back-end
-              development and have been working with Node.js and Express.js for some time. This has
-              allowed me to gain a well-rounded understanding of the web development process and I
-              have valuable experience in full-stack development.
+              In addition to my technical skills, I hold a certification in full-stack web
+              development from Le Wagon, During the 9-week program, I learned a variety of
+              programming languages and tools, including HTML, CSS, Bootstrap, JavaScript, SQL, Git,
+              GitHub, Heroku, and Ruby on Rails.
               <br />
-              <br />I am driven by a natural curiosity and willingness to learn, which has led me to
-              continuously expand my skill set and knowledge base. This enables me to stay ahead of
-              industry trends and adapt quickly to new technologies. I am confident in my ability to
-              deliver high-quality, cutting-edge solutions that meet the needs of any project. My
-              expertise in various technologies and ability to understand client's requirements
-              makes me the perfect fit for your next project. Whether you need a new website, web
-              application or any other digital solution, I am committed to delivering results that
-              exceed your expectations.
+              <br />
+              Since completing the bootcamp, I have gained professional experience working as a
+              front-end developer for Subforce and as a developer consultant for Extia. In these
+              roles, I have honed my skills in designing and developing web applications using
+              responsive design principles and popular JavaScript libraries such as React.
+              <br />
+              <br />
+              As an experienced developer, I am passionate about delivering high-quality, efficient,
+              and reliable code that meets my clients' needs. Over the years, I have worked on a
+              diverse range of projects, sharpening my technical skills and building my expertise in
+              various programming languages and technologies. In addition to my technical
+              proficiency, I am deeply committed to continuous learning and staying up-to-date with
+              the latest industry trends and best practices.
+              <br />
+              <br />
+              In my free time, I enjoy exploring the beautiful city of Barcelona, where I currently
+              reside, and staying active through hiking and running. My personal interests and
+              hobbies also include music, movies, and trying out new restaurants and cuisines.
+              <br />
+              <br />I am excited to connect with potential clients and employers who are seeking a
+              skilled and enthusiastic developer to join their team. Thank you for visiting my
+              website, and I look forward to hearing from you!
             </p>
             <div className={styles.btns}>
               <GradientBorder radius="10px">
