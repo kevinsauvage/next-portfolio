@@ -1,6 +1,7 @@
 import { AiOutlineGithub } from 'react-icons/ai';
 import { FiExternalLink } from 'react-icons/fi';
 
+import Button from '../Button/Button';
 import GradientBorder from '../GradientBorder/GradientBorder';
 
 import styles from './ProjectBtns.module.scss';
@@ -19,23 +20,14 @@ const ProjectBtns = ({ item }) => {
   return (
     <div className={styles.ProjectBtns}>
       <GradientBorder radius="10px">
-        <button
+        <Button
           onClick={handleClickSourceCode}
-          type="button"
-          className={`${styles.btn} ${styles.btnGit}`}
-        >
-          <AiOutlineGithub />
-          <p>Source code</p>
-        </button>
+          svg={<AiOutlineGithub />}
+          label="Source code"
+          variant="outlined"
+        />
       </GradientBorder>
-      <button
-        onClick={handleClickVisit}
-        type="button"
-        className={`${styles.btn}  ${styles.btnLink}`}
-      >
-        <FiExternalLink />
-        <p>Visit website</p>
-      </button>
+      <Button onClick={handleClickVisit} svg={<FiExternalLink />} label="Visit website" />
     </div>
   );
 };

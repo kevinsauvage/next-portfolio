@@ -1,14 +1,14 @@
 /* eslint-disable unicorn/prefer-module */
 /** @type {import('next').NextConfig} */
-const path = require("node:path");
+const path = require('node:path');
 
 const nextConfig = {
   images: {
-    domains: ["res.cloudinary.com"],
+    domains: ['res.cloudinary.com'],
   },
   reactStrictMode: true,
   sassOptions: {
-    includePaths: [path.join(__dirname, "./styles/")],
+    includePaths: [path.join(__dirname, './styles/')],
     prependData: `
     @import "variables.scss"; 
     @import "responsive.scss"; 
@@ -18,7 +18,7 @@ const nextConfig = {
   webpack: (config) => {
     config.module.rules.push({
       test: /\.pdf$/i,
-      type: "asset/source",
+      type: 'asset/source',
     });
 
     return config;

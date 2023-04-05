@@ -17,7 +17,7 @@
     &.open {
       right: 0;
       backdrop-filter: blur(10px);
-      background: var(--color-1);
+      background: var(--surface-900);
       box-shadow: $shadow_1;
     }
   }
@@ -67,10 +67,6 @@
     @include respond(mobile_l) {
       font-size: 20px;
     }
-
-    a {
-      color: var(--color-5);
-    }
   }
 }
 
@@ -83,7 +79,7 @@
     top: 2rem;
     right: 2rem;
     display: inline;
-    color: var(--color-2);
+    color: var(--primary);
     font-size: 40px;
   }
 }

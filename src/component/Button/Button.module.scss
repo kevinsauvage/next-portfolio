@@ -1,0 +1,43 @@
+.button {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: $radius_2;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 500;
+  @include font-size(1rem, 1rem);
+
+  svg {
+    margin-right: 6px;
+    @include font-size(1.3rem, 1.6rem);
+  }
+
+  &.default {
+    background-color: var(--primary);
+    background-image: $gradient_1;
+    color: whitesmoke;
+
+    svg {
+      color: whitesmoke;
+    }
+  }
+
+  &.outlined {
+    position: relative;
+    background: var(--surface-700);
+
+    color: var(--primary);
+
+    p {
+      @include gradientText;
+    }
+
+    svg {
+      fill: var(--primary);
+    }
+  }
+}

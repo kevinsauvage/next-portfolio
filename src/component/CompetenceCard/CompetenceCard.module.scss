@@ -5,7 +5,6 @@
     max-width: 100%;
   }
 }
-
 .items {
   display: grid;
   gap: 20px;
@@ -35,12 +34,15 @@
   align-items: center;
   justify-content: center;
   padding: 20px 40px;
+  border: 1px solid var(--surface-700);
   border-radius: $radius_1;
+  background: var(--surface-800);
   box-shadow: $shadow_2;
+  color: var(--on-surface-200);
 
   i {
     margin-bottom: 8px;
-    color: var(--color-2);
+    color: var(--primary);
     font-size: 90px;
     @include gradientText;
 

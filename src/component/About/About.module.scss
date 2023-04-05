@@ -1,6 +1,5 @@
 .container {
   font-weight: 300;
-
   p {
     text-align: center;
     @include font-size(1rem, 1.2rem);
@@ -13,9 +12,12 @@
   align-items: center;
   justify-content: center;
   padding: 60px;
+  border: 1px solid var(--surface-700);
   border-radius: $radius_1;
+  border-radius: $radius_2;
+  background: var(--surface-800);
   box-shadow: $shadow_1;
-
+  color: var(--on-surface-200);
   @include respond(tablet) {
     padding: 20px;
   }
@@ -35,59 +37,5 @@
 
   @include respond(mobile_l) {
     grid-template-columns: 1fr;
-  }
-}
-
-.btn {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: $radius_2;
-  background-color: transparent;
-  cursor: pointer;
-  font-weight: 500;
-  transition: transform 0.3s ease;
-  @include font-size(1rem, 1.2rem);
-
-  &:hover {
-    transform: scale(1.01);
-  }
-
-  @include respond(laptop_s) {
-    &:hover {
-      transform: unset;
-    }
-  }
-
-  svg {
-    margin-right: 6px;
-    @include font-size(1.3rem, 1.6rem);
-  }
-
-  &-resume {
-    position: relative;
-    background-color: var(--color-1);
-    color: var(--color-2);
-
-    p {
-      @include gradientText;
-    }
-
-    svg {
-      fill: var(--color-2);
-    }
-  }
-
-  &-contact {
-    background-color: var(--color-2);
-    background-image: $gradient_1;
-    color: whitesmoke;
-
-    svg {
-      color: whitesmoke;
-    }
   }
 }

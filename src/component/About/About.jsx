@@ -5,6 +5,7 @@ import { MdOutgoingMail } from 'react-icons/md';
 import { useRouter } from 'next/router';
 
 import about from '../../data/about';
+import Button from '../Button/Button';
 import GradientBorder from '../GradientBorder/GradientBorder';
 import Section from '../Section/Section';
 import SlideUpAndFadeIn from '../SlideUpAndFadeIn/SlideUpAndFadeIn';
@@ -16,9 +17,10 @@ import styles from './About.module.scss';
 const About = () => {
   const router = useRouter();
 
-  const handleClickResume = () => window.open('/Kévin__sauvage__resume.pdf');
+  const handleClickResume = () =>
+    typeof window !== 'undefined' && window.open('/Kévin__sauvage__resume.pdf');
 
-  const handleClickContact = () => router.push('/#contact');
+  const handleClickContact = () => typeof window !== 'undefined' && router.push('/#contact');
 
   return (
     <Section id="about">
@@ -30,23 +32,14 @@ const About = () => {
             {about}
             <div className={styles.btns}>
               <GradientBorder radius="10px">
-                <button
-                  type="button"
+                <Button
                   onClick={handleClickResume}
-                  className={`${styles.btn} ${styles['btn-resume']}`}
-                >
-                  <AiOutlineProfile />
-                  <p>Resume</p>
-                </button>
+                  svg={<AiOutlineProfile />}
+                  label="Resume"
+                  variant="outlined"
+                />
               </GradientBorder>
-              <button
-                type="button"
-                onClick={handleClickContact}
-                className={`${styles.btn}  ${styles['btn-contact']}`}
-              >
-                <MdOutgoingMail />
-                <p>Contact me</p>
-              </button>
+              <Button onClick={handleClickContact} svg={<MdOutgoingMail />} label="Contact me" />
             </div>
           </div>
         </SlideUpAndFadeIn>

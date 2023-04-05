@@ -3,10 +3,11 @@ import { BiMailSend } from 'react-icons/bi';
 import { ImLinkedin2 } from 'react-icons/im';
 import { MdLocationOn, MdMail } from 'react-icons/md';
 import { SiGmail } from 'react-icons/si';
-import { ClipLoader } from 'react-spinners';
 import { ToastContainer } from 'react-toastify';
 import Link from 'next/link';
 
+import Button from '../Button/Button';
+import GradientBorder from '../GradientBorder/GradientBorder';
 import Section from '../Section/Section';
 import SlideUpAndFadeIn from '../SlideUpAndFadeIn/SlideUpAndFadeIn';
 import Title from '../Title/Title';
@@ -33,7 +34,7 @@ const Contact = () => {
         <SlideUpAndFadeIn className={styles.info}>
           <div>
             <p className={styles.name}>Kévin Sauvage</p>
-            <p className={styles.job}>- Front end developer -</p>
+            <p className={styles.job}>- Developer -</p>
           </div>
           <div>
             <div className={styles.row}>
@@ -98,15 +99,16 @@ const Contact = () => {
                 <p>{userFeedback}</p>
               </div>
             )}
-            <button type="button" className={styles.btn}>
-              {isLoading ? (
-                <ClipLoader />
-              ) : (
-                <>
-                  SEND <BiMailSend />
-                </>
-              )}
-            </button>
+
+            <GradientBorder radius="10px">
+              <Button
+                type="submit"
+                loading={isLoading}
+                label="Send"
+                svg={<BiMailSend />}
+                variant="outlined"
+              />
+            </GradientBorder>
           </form>
         </SlideUpAndFadeIn>
       </div>

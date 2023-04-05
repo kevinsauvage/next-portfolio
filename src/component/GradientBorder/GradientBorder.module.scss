@@ -5,17 +5,6 @@
   height: fit-content;
   align-items: center;
   justify-content: center;
-  padding: 3px;
+  padding: 2px;
   background-image: $gradient_1;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.03);
-  }
-
-  @include respond(laptop_s) {
-    &:hover {
-      transform: unset;
-    }
-  }
 }
