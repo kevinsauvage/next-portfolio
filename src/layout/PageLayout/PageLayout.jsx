@@ -16,7 +16,7 @@ const PageLayout = ({ children, title }) => {
         <title>{titleSeo}</title>
       </Head>
       <Header />
-      <Container className={styles.container}>{children}</Container>
+      <Container>{children}</Container>
       <Footer />
       <svg
         style={{ height: '0', position: 'absolute', width: '0' }}
