@@ -17,6 +17,7 @@
     border: 1px solid var(--surface-700);
     border-radius: $radius_1;
     @include padding;
+    background-color: var(--surface-800);
 
     .row {
       display: grid;
@@ -50,11 +51,11 @@
       width: 100%;
       height: 60px;
       padding-left: 10px;
-      border: 1px solid var(--surface-700);
+      border: 1px solid var(--surface-400);
       border-width: 0.1px;
       border-radius: $radius_2;
       margin-bottom: 1rem;
-      background: var(--surface-800);
+      background: var(--surface-700);
       box-shadow: $shadow_2;
       color: var(--on-surface-100);
       @include font-size(1rem, 1.2rem);
@@ -74,11 +75,11 @@
       max-height: 260px;
       padding-top: 10px;
       padding-left: 10px;
-      border: 1px solid var(--surface-600);
+      border: 1px solid var(--surface-400);
       border-width: 0.1px;
       border-radius: $radius_2;
       margin-bottom: 1rem;
-      background: var(--surface-800);
+      background: var(--surface-700);
       box-shadow: $shadow_2;
       color: var(--on-surface-100);
       resize: none;
