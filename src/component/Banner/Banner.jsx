@@ -10,12 +10,11 @@ const Banner = () => (
   <section className={styles.Banner}>
     <main className={styles.main}>
       <SlideUpAndFadeIn>
-        <small>Hi, my name is</small>
+        <small>Hello, I'm</small>
         <h1>Kévin Sauvage.</h1>
         <h2> I'm a developer</h2>
         <p className={styles.subtitle}>
-          bridging technology and creativity to build remarkable digital experiences that inspire,
-          engage, and transform.
+          Crafting unique visual experiences that inspire, communicate, and delight.
         </p>
       </SlideUpAndFadeIn>
     </main>

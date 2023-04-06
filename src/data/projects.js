@@ -1,7 +1,7 @@
 const projects = [
   {
     description:
-      'UpToGo is an online food delivery platform connecting consumers and local restaurants to enable quick and easy ordering and delivery.',
+      'UpToGo is a fast and user-friendly food delivery platform connecting customers with local restaurants. Order, enjoy a wide range of cuisines, and experience convenience today.',
     githubLink: ['https://github.com/kevinsauvage/uptogo'],
     img: {
       laptop:
@@ -9,7 +9,7 @@ const projects = [
     },
     languages: 'Next.js | SASS | MongoDB | Redux | Redux persist | Stripe | Jsonwebtoken | Bcrypt',
     largeDescription:
-      "UpToGo is a cutting-edge online food delivery platform that seamlessly connects customers with a wide range of local restaurants. Our platform allows users to browse menus, place orders, and receive fast and convenient deliveries right to their doorstep. With an intuitive user interface and a vast selection of culinary options, UpToGo offers a one-stop-shop for all your food delivery needs. Whether you're in the mood for something spicy, sweet, or savory, we've got you covered. So why wait? Sign up today and start enjoying delicious meals from your favorite local restaurants, delivered directly to you in no time!",
+      'UpToGo is an online food delivery platform that seamlessly connects customers with local restaurants. With an intuitive user interface, customers can browse menus, place orders, and receive fast and convenient deliveries right to their doorstep. Our platform offers a vast selection of culinary options from a wide range of cuisines and flavors, and boasts a sleek and modern design that enhances its overall functionality. As a skilled developer, I take pride in creating innovative and reliable solutions that deliver a seamless and satisfying experience for both customers and restaurant partners. Sign up today and discover the convenience and deliciousness of UpToGo!',
     page: {
       banner: {
         image:
@@ -59,7 +59,7 @@ const projects = [
 
   {
     description:
-      'Streamy is here to help you find movie and show that you may like, watch trailer, add them to your watch list, read and add comments.',
+      'Streamy offers a personalized entertainment experience for movie and TV enthusiasts. Discover new titles, watch trailers, and join the conversation with a community-based approach.',
     githubLink: [
       'https://github.com/kevinsauvage/streamyV2-client',
       'https://github.com/kevinsauvage/streamyV2-server',
@@ -71,7 +71,7 @@ const projects = [
     languages:
       'React.js | SASS |  Express.js | Mongoose | TMDB API | JWT | React router | Bcrypt | Uuid',
     largeDescription:
-      'Streamy is the ultimate destination for movie and TV show enthusiasts. Our platform makes it easy to discover new titles, watch trailers, and add them to your personal watch list. With Streamy, you can also join the conversation by reading and adding comments about your favorite titles. Our user-friendly interface and powerful recommendation engine provide a personalized experience that ensures you never miss out on the latest and greatest in entertainment. Join the Streamy community today and experience a new level of entertainment discovery.',
+      'Streamy is a user-friendly platform for movie and TV enthusiasts. It offers a personalized experience with features such as personalized recommendations and a community-based approach to entertainment discovery. Customers can easily discover new titles, watch trailers, and add them to their personal watch list. With Streamy, they can also join the conversation by adding comments about their favorite titles. Experience the ultimate entertainment destination with Streamy today!',
     page: {
       banner: {
         image:
@@ -80,7 +80,7 @@ const projects = [
       blocs: [
         {
           description:
-            'Streamy uses Accordion Slider, a popular design pattern, to create a collapsible, accordion-style display for its menus and FAQs. This design pattern is customized using HTML, CSS, and JavaScript to provide an engaging and intuitive user experience. With Accordion Slider, Streamy makes it easy for users to navigate and interact with its content, ensuring an enjoyable and informative entertainment discovery experience.',
+            'Streamy uses Accordion Slider, a popular design pattern. This design pattern is customized using HTML, CSS, and JavaScript to provide an engaging and intuitive user experience. With Accordion Slider, Streamy makes it easy for users to navigate and interact with its content, ensuring an enjoyable and informative entertainment discovery experience.',
           image:
             'https://res.cloudinary.com/kevincloudname/image/upload/v1650287741/portfolio/StreamyMoviepage_qjtzs4.png',
           title: 'Accordion slider',
