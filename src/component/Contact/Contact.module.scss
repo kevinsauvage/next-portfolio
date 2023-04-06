@@ -61,6 +61,8 @@
       color: var(--on-surface-100);
       @include font-size(0.9rem, 1rem);
 
+      @include placeholder-color(var(--surface-100));
+
       @include respond(mobile_l) {
         height: 50px;
       }
@@ -84,14 +86,15 @@
       box-shadow: $shadow_1;
       color: var(--on-surface-100);
       resize: none;
+
       @include font-size(0.9rem, 1rem);
+      @include placeholder-color(var(--surface-100));
+      @include respond(laptop_l) {
+        max-height: 220px;
+      }
 
       &:focus {
         outline: none;
-      }
-
-      @include respond(laptop_l) {
-        max-height: 220px;
       }
     }
   }
