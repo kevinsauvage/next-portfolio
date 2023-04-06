@@ -1,4 +1,5 @@
-$surface: #383838;
+$surface: #322a58;
+$surface-light: #c0c0c0;
 
 $colors-dark: (
   primary: #ff1f0b,
@@ -17,6 +18,25 @@ $colors-dark: (
   on-surface-300: lighten($surface, 40%),
   on-surface-400: lighten($surface, 30%),
   on-surface-500: lighten($surface, 20%),
+);
+
+$colors-light: (
+  primary: #ff1f0b,
+  secondary: #42378f,
+  surface-100: darken($surface-light, 20%),
+  surface-200: darken($surface-light, 15%),
+  surface-300: darken($surface-light, 10%),
+  surface-400: darken($surface-light, 5%),
+  surface-500: $surface-light,
+  surface-600: lighten($surface-light, 5%),
+  surface-700: lighten($surface-light, 10%),
+  surface-800: lighten($surface-light, 15%),
+  surface-900: lighten($surface-light, 20%),
+  on-surface-100: darken($surface-light, 60%),
+  on-surface-200: darken($surface-light, 50%),
+  on-surface-300: darken($surface-light, 40%),
+  on-surface-400: darken($surface-light, 30%),
+  on-surface-500: darken($surface-light, 20%),
 );
 
 @function hex-to-rgb($hex) {
@@ -43,4 +63,8 @@ $colors-dark: (
 
 html {
   @include generate-colors($colors-dark);
+}
+
+.theme-light {
+  @include generate-colors($colors-light);
 }

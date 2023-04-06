@@ -1,21 +1,22 @@
 @mixin slideUpAndFadeIn {
   opacity: 0;
-  transform: translateY(40px) scale(0.95);
+  transform: translateY(300px);
+  will-change: transform, opacity;
 
   &--onScreen {
-    animation: slideUpAndFadeIn 0.3s ease-in-out forwards;
+    animation: slideUpAndFadeIn 1s cubic-bezier(0.075, 0.82, 0.165, 1) both;
   }
 }
 
 @keyframes slideUpAndFadeIn {
   0% {
     opacity: 0;
-    transform: translateY(40px) scale(0.95);
+    transform: translateY(300px);
   }
 
   100% {
     opacity: 1;
-    transform: translateY(0px) scale(1);
+    transform: translateY(0px);
   }
 }
 
