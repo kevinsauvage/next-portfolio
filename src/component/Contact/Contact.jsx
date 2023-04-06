@@ -98,7 +98,7 @@ const Contact = () => {
               </div>
             )}
 
-            <GradientBorder radius="10px">
+            <GradientBorder radius="8px">
               <Button
                 type="submit"
                 loading={isLoading}

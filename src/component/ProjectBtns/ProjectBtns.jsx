@@ -1,6 +1,6 @@
-import { AiOutlineGithub } from 'react-icons/ai';
 import { FiExternalLink } from 'react-icons/fi';
 
+import { github } from '../../data/svg';
 import Button from '../Button/Button';
 import GradientBorder from '../GradientBorder/GradientBorder';
 
@@ -19,10 +19,10 @@ const ProjectBtns = ({ item }) => {
 
   return (
     <div className={styles.ProjectBtns}>
-      <GradientBorder radius="10px">
+      <GradientBorder radius="8px">
         <Button
           onClick={handleClickSourceCode}
-          svg={<AiOutlineGithub />}
+          svg={github}
           label="Source code"
           variant="outlined"
         />

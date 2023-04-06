@@ -46,15 +46,16 @@
 .languages {
   max-width: 600px;
   margin-bottom: 20px;
-  color: var(--on-surface-400);
-  font-weight: 500;
-  @include font-size(0.8rem, 0.9rem);
+  color: var(--on-surface-500);
+  font-weight: 300;
+  @include font-size(0.8rem, 0.8rem);
 }
 
 .description {
   margin-bottom: 20px;
+  color: var(--on-surface-200);
   font-weight: 400;
-  @include font-size(1rem, 1.2rem);
+  @include font-size(1rem, 1.1rem);
 }
 
 .buttons {

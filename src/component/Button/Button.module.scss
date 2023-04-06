@@ -12,7 +12,9 @@
   @include font-size(1rem, 1rem);
 
   svg {
-    margin-right: 6px;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 1rem;
     @include font-size(1.3rem, 1.6rem);
   }
 
@@ -37,6 +39,10 @@
 
     svg {
       fill: var(--primary);
+
+      path {
+        fill: var(--primary);
+      }
     }
   }
 }

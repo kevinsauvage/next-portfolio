@@ -1,12 +1,10 @@
-.FooterContainer {
-  border-top: 0.1px solid var(--on-surface-100);
-}
-
 .Footer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 3rem 0 0 0;
+  border-top: 0.1px solid var(--surface-600);
 
   &__img {
     border-radius: 50%;
@@ -19,8 +17,14 @@
   }
 
   &__copyright {
-    margin-top: 40px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    border-top: 0.1px solid var(--surface-600);
+    margin-top: 3rem;
+    @include font-size(0.8rem, 0.8rem);
     font-weight: 500;
-    @include font-size(0.8rem, 1rem);
   }
 }
