@@ -1,6 +1,6 @@
 .cards {
   display: grid;
-  gap: 40px;
+  gap: 2rem;
   grid-template-columns: 1fr 1fr;
 
   @include respond(laptop_s) {
@@ -11,9 +11,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }
-
-  @include respond(mobile_l) {
-    gap: 40px;
   }
 }

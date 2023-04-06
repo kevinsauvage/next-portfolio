@@ -73,7 +73,7 @@
 @mixin padding {
   padding: 2rem;
 
-  @include respond(tablet) {
+  @include respond(laptop_s) {
     padding: 1rem;
   }
 }

@@ -1,7 +1,7 @@
 .Contact {
   .container {
     display: grid;
-    gap: 60px;
+    gap: 2rem;
     grid-template-columns: 1fr 1fr;
 
     @include respond(laptop_s) {
@@ -99,7 +99,7 @@
     display: grid;
     width: 100%;
     margin-top: 30px;
-    gap: 15px;
+    gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
 
     @include respond(mobile_l) {
@@ -134,8 +134,8 @@
 
       svg {
         width: 30px;
-        height: 40px;
-        margin-right: 1rem;
+        height: 30px;
+        margin-right: 0.5rem;
         @include font-size(1rem, 1.2rem);
         @include gradientText;
 

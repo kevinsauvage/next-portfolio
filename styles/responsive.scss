@@ -10,33 +10,23 @@ $laptop_l: 1440px;
     @media (max-width: $mobile_s) {
       @content;
     }
-  }
-
-  @else if $media==mobile_m {
+  } @else if $media==mobile_m {
     @media (max-width: $mobile_m) {
       @content;
     }
-  }
-
-  @else if $media==mobile_l {
+  } @else if $media==mobile_l {
     @media (max-width: $mobile_l) {
       @content;
     }
-  }
-
-  @else if $media==tablet {
+  } @else if $media==tablet {
     @media (max-width: $tablet) {
       @content;
     }
-  }
-
-  @else if $media==laptop_s {
+  } @else if $media==laptop_s {
     @media (max-width: $laptop_s) {
       @content;
     }
-  }
-
-  @else if $media==laptop_l {
+  } @else if $media==laptop_l {
     @media (max-width: $laptop_l) {
       @content;
     }

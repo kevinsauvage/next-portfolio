@@ -8,21 +8,19 @@
 
 .items {
   display: grid;
-  gap: 20px;
+  gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
 
   @include respond(laptop_l) {
-    gap: 18px;
     grid-template-columns: repeat(auto-fit, minmax(18%, 1fr));
   }
 
   @include respond(laptop_s) {
-    gap: 16px;
+    gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   }
 
   @include respond(mobile_l) {
-    gap: 12px;
     grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
   }
 }
