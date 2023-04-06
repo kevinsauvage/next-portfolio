@@ -31,8 +31,8 @@ const PageLayout = ({ children, title }) => {
           y2="0%"
           gradientTransform="rotate(60)"
         >
-          <stop offset="0%" stop-color="var(--primary)" />
-          <stop offset="100%" stop-color="var(--secondary)" />
+          <stop offset="0%" stopColor="var(--primary)" />
+          <stop offset="100%" stopColor="var(--secondary)" />
         </linearGradient>
       </svg>
     </div>

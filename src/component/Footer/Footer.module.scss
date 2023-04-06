@@ -24,7 +24,8 @@
     padding: 1rem 0;
     border-top: 0.1px solid var(--surface-600);
     margin-top: 3rem;
-    @include font-size(0.8rem, 0.8rem);
+    color: var(--on-surface-300);
     font-weight: 500;
+    @include font-size(0.8rem, 0.8rem);
   }
 }
