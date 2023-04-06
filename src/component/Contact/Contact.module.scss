@@ -36,10 +36,10 @@
       width: 100%;
       align-items: center;
       justify-content: center;
-      margin-top: 5px;
+      margin-bottom: 10px;
       color: var(--primary);
       text-align: center;
-      @include font-size(1rem, 1.4rem);
+      @include font-size(0.7rem, 0.8rem);
     }
 
     .container {
