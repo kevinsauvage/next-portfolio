@@ -2,7 +2,7 @@
   z-index: 999999;
   display: flex;
   align-items: center;
-  color: var(--on-surface-200);
+  color: var(--on-surface-100);
 }
 
 .logoImg {
@@ -14,5 +14,5 @@
 .logoName {
   margin-left: 10px;
   font-weight: 700;
-  @include font-size(1.4rem, 2rem);
+  @include font-size(1.3rem, 1.6rem);
 }
