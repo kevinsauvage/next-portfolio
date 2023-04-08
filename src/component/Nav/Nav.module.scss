@@ -47,9 +47,6 @@
     font-size: 0.8rem;
     font-weight: 600;
 
-    a {
-      color: var(--on-surface-200);
-    }
     @include respond(laptop_s) {
       margin-left: 0;
       font-weight: 600;
