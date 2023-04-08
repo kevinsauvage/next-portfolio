@@ -1,4 +1,3 @@
-import { BiMailSend } from 'react-icons/bi';
 import { MdLocationOn, MdMail } from 'react-icons/md';
 import { ToastContainer } from 'react-toastify';
 import Link from 'next/link';
@@ -99,13 +98,7 @@ const Contact = () => {
             )}
 
             <GradientBorder radius="8px">
-              <Button
-                type="submit"
-                loading={isLoading}
-                label="Send"
-                svg={<BiMailSend />}
-                variant="outlined"
-              />
+              <Button type="submit" loading={isLoading} label="Send" variant="outlined" />
             </GradientBorder>
           </form>
         </SlideUpAndFadeIn>
