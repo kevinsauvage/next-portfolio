@@ -2,7 +2,7 @@
   display: grid;
   min-height: calc(100vh - 120px);
   align-content: center;
-  gap: 30px;
+  gap: 2rem;
   grid-template-columns: 1.2fr 1fr;
 
   @include respond(laptop_s) {

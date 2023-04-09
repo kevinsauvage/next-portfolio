@@ -37,9 +37,4 @@ button,
 input,
 textarea {
   font-family: 'Montserrat', sans-serif;
-  font-size: 26px;
-
-  @include respond(laptop_l) {
-    font-size: 18px;
-  }
 }

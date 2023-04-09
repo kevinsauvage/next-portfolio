@@ -1,9 +1,0 @@
-.cards {
-  display: grid;
-  gap: 40px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-  @include respond(mobile_l) {
-    gap: 60px;
-  }
-}

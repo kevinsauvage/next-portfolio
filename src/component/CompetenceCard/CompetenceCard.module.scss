@@ -21,7 +21,7 @@
   }
 
   @include respond(mobile_l) {
-    grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(42%, 1fr));
   }
 }
 

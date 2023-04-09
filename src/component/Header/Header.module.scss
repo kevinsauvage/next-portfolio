@@ -32,7 +32,7 @@
 
 .hamb {
   display: none;
-  font-size: 30px;
+  font-size: 3rem;
 
   @include respond(laptop_s) {
     display: inline;
