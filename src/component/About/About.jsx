@@ -9,7 +9,6 @@ import GradientBorder from '../GradientBorder/GradientBorder';
 import Section from '../Section/Section';
 import SlideUpAndFadeIn from '../SlideUpAndFadeIn/SlideUpAndFadeIn';
 import Title from '../Title/Title';
-import UpTitle from '../UpTitle/UpTitle';
 
 import styles from './About.module.scss';
 
@@ -23,7 +22,6 @@ const About = () => {
 
   return (
     <Section id="about">
-      <UpTitle text="ABOUT ME" />
       <Title>Who am I</Title>
       <div>
         <SlideUpAndFadeIn>

@@ -8,7 +8,6 @@ import GradientBorder from '../GradientBorder/GradientBorder';
 import Section from '../Section/Section';
 import SlideUpAndFadeIn from '../SlideUpAndFadeIn/SlideUpAndFadeIn';
 import Title from '../Title/Title';
-import UpTitle from '../UpTitle/UpTitle';
 
 import ContactFunction from './ContactFunction';
 
@@ -25,7 +24,6 @@ const Contact = () => {
 
   return (
     <Section id="contact" className={styles.Contact}>
-      <UpTitle text="SOMETHING TO SAY" />
       <Title>Get in touch</Title>
       <div className={styles.container}>
         <SlideUpAndFadeIn className={styles.info}>
