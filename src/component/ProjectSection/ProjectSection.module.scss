@@ -39,8 +39,8 @@
   padding: 0 1rem;
   border-radius: $radius_2;
 
-  @include respond(laptop_S) {
-    width: 300px;
+  @include respond(laptop_s) {
+    padding: 0;
   }
 
   &.reverse {
