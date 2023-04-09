@@ -13,6 +13,7 @@
   .about {
     @include padding;
     @include font-size(0.9rem, 1.2rem);
+    font-weight: 300;
     text-align: center;
   }
 }
