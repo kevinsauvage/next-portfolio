@@ -28,8 +28,8 @@ const ProjectCard = ({ item }) => {
         </div>
         <div>
           <p className={styles.title}>{item.title}</p>
-          <p className={styles.description}>{item.description}</p>
           <p className={styles.languages}>{item.languages}</p>
+          <p className={styles.description}>{item.description}</p>
         </div>
         <ProjectBtns item={item} />
       </div>
