@@ -6,7 +6,7 @@ import styles from './ProjectBanner.module.scss';
 
 const ProjectBanner = ({ project }) => (
   <div className={styles.banner}>
-    <div className={styles.imageContainer}>
+    <div className={styles.image}>
       <Image
         src={project.page.banner.image}
         layout="responsive"
