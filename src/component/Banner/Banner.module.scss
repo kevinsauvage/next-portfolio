@@ -60,7 +60,11 @@
 
 .aside {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   flex: 0.9;
   margin: 0 auto;
+
+  @include respond(tablet) {
+    margin-top: 2rem;
+  }
 }
