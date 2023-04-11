@@ -27,14 +27,14 @@
 
 .description {
   margin-bottom: 1rem;
-  color: var(--on-surface-200);
+  color: var(--on-surface-100);
   font-weight: 400;
   @include font-size(0.9rem, 1rem);
 }
 
 .languages {
   margin-bottom: 1rem;
-  color: var(--on-surface-500);
+  color: var(--on-surface-300);
   font-weight: 300;
   @include font-size(0.8rem, 0.8rem);
 }
