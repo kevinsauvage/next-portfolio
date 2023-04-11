@@ -17,13 +17,13 @@ const ProjectCard = ({ item }) => {
         onClick={() => router.push(`/project/${item.title}`)}
         onKeyDown={(event) => event.key === 'Enter' && router.push(`/project/${item.title}`)}
       >
-        <div>
+        <div className={styles.image}>
           <Image
             src={item.img.laptop}
             alt={item.title}
-            width="800"
-            height="344"
             layout="responsive"
+            width={2050}
+            height={1200}
           />
         </div>
         <div>
