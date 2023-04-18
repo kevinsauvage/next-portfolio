@@ -7,7 +7,7 @@ import styles from './Banner.module.scss';
 
 const Banner = () => (
   <section className={styles.Banner}>
-    <main className={styles.main}>
+    <div className={styles.main}>
       <small>Hello, I'm</small>
       <h1>Kévin Sauvage.</h1>
       <h2> I'm a developer</h2>
@@ -16,14 +16,14 @@ const Banner = () => (
         <br /> that inspire, communicate,
         <br /> and delight.
       </p>
-    </main>
+    </div>
     <aside className={styles.aside}>
       <Image
         width="851"
         height="741"
         layout="responsive"
         src={portrait.src}
-        alt="illustration"
+        alt="banner illustration of a man and a computer"
         priority
       />
     </aside>

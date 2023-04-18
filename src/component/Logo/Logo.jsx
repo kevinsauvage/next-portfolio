@@ -14,7 +14,7 @@ const Logo = () => (
           <Image
             className={styles.logoImg}
             src={portrait.src}
-            alt="profile"
+            alt="portrait of kevin sauvage"
             width={60}
             height={60}
           />

@@ -14,7 +14,7 @@ const Footer = () => (
           <Image
             className={styles.Footer__img}
             src={portrait.src}
-            alt="portrait"
+            alt="portrait of kevin sauvage"
             width={60}
             height={60}
           />

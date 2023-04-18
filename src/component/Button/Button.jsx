@@ -15,7 +15,7 @@ const Button = ({ onClick, label, type = 'button', variant = 'default', svg, loa
     ) : (
       <>
         {svg}
-        <p>{label}</p>
+        <span>{label}</span>
       </>
     )}
   </button>
