@@ -24,9 +24,10 @@
     border: 1px solid var(--secondary);
     background-color: var(--primary);
     background-image: $gradient_1;
-    color: whitesmoke;
+    color: var(--surface-900);
+    font-weight: 600;
     svg {
-      color: whitesmoke;
+      color: var(--surface-900);
     }
   }
 
