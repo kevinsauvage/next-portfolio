@@ -15,11 +15,11 @@
   i {
     margin-bottom: 8px;
     color: var(--primary);
-    font-size: 90px;
+    font-size: 5rem;
     @include gradientText;
 
     @include respond(laptop_l) {
-      font-size: 60px;
+      font-size: 4rem;
     }
   }
 
