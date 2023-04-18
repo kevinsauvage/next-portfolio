@@ -76,6 +76,10 @@
   @include respond(laptop_s) {
     padding: 1rem;
   }
+
+  @include respond(mobile_l) {
+    padding: 0.7rem;
+  }
 }
 
 @mixin placeholder-color($color) {
