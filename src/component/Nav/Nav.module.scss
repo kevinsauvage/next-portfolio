@@ -48,6 +48,21 @@
     font-size: 0.8rem;
     font-weight: 600;
 
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    svg {
+      width: 0.9rem;
+      height: 0.9rem;
+      margin-right: 4px;
+    }
+
+    path {
+      stroke: var(--primary);
+    }
+
     @include respond(laptop_s) {
       margin-left: 0;
       font-weight: 600;
@@ -67,7 +82,7 @@
     }
 
     @include respond(mobile_l) {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
   }
 }

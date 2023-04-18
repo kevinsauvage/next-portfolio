@@ -32,3 +32,104 @@ export const mail = (
     />
   </svg>
 );
+
+export const projects = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
+    <path
+      stroke="#000001"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12.5.5h-11a1 1 0 00-1 1v11a1 1 0 001 1h11a1 1 0 001-1v-11a1 1 0 00-1-1zM.5 4h13"
+    />
+    <path
+      stroke="#000001"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4.5 7L3 8.5 4.5 10M10 7l1.5 1.5L10 10M6.5 10.5L8 6"
+    />
+  </svg>
+);
+
+export const aboutIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
+    <path
+      stroke="#000001"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M7 13.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"
+    />
+    <path
+      stroke="#000001"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M3.7 8c.5 1.8 2.5 2.9 4.3 2.4 1.1-.4 2-1.3 2.3-2.4M4.8 5.4a.2.2 0 110-.4M4.8 5.4a.2.2 0 100-.4M9.2 5.4a.2.2 0 110-.4M9.2 5.4a.2.2 0 100-.4"
+    />
+  </svg>
+);
+
+export const arrowbase = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
+    <path
+      stroke="#000001"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M10.05 7a3 3 0 11-6 0 3 3 0 016 0v0z"
+    />
+    <path
+      stroke="#000001"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M10.05 7v1.3c0 3.49 5.47.2 2.6-4.54A6.59 6.59 0 007 .5 6.5 6.5 0 109.52 13"
+    />
+  </svg>
+);
+
+export const homeIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
+    <path
+      stroke="#000001"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M.5 7L7 .5 13.5 7M2.5 8.5v5h9v-5"
+    />
+  </svg>
+);
+
+export const skillsIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
+    <g
+      stroke="#000001"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      filter="url(#filter0_d_4_13569)"
+    >
+      <path d="M5.23 2.25l.43-1.11A1 1 0 016.59.5h.82a1 1 0 01.93.64l.43 1.11 1.46.84 1.18-.18a1 1 0 011 .49l.4.7a1 1 0 01-.08 1.13l-.73.93v1.68l.75.93a1 1 0 01.08 1.13l-.4.7a1 1 0 01-1 .49l-1.18-.18-1.46.84-.43 1.11a1 1 0 01-.93.64h-.84a1 1 0 01-.93-.64l-.43-1.11-1.46-.84-1.18.18a1 1 0 01-1-.49l-.4-.7a1 1 0 01.08-1.13L2 7.84V6.16l-.75-.93a1 1 0 01-.08-1.13l.4-.7a1 1 0 011-.49l1.18.18 1.48-.84z" />
+      <path d="M7 10a3 3 0 100-6 3 3 0 000 6z" />
+      <path d="M7 4v3h3M7 7L4.88 9.12" />
+    </g>
+    <defs>
+      <filter
+        id="filter0_d_4_13569"
+        width="20.936"
+        height="22"
+        x="-3.468"
+        y="0"
+        colorInterpolationFilters="sRGB"
+        filterUnits="userSpaceOnUse"
+      >
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
+        <feColorMatrix
+          in="SourceAlpha"
+          result="hardAlpha"
+          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+        />
+        <feOffset dy="4" />
+        <feGaussianBlur stdDeviation="2" />
+        <feComposite in2="hardAlpha" operator="out" />
+        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_4_13569" />
+        <feBlend in="SourceGraphic" in2="effect1_dropShadow_4_13569" result="shape" />
+      </filter>
+    </defs>
+  </svg>
+);

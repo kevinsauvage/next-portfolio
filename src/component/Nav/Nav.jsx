@@ -1,15 +1,17 @@
 import { IoMdCloseCircle } from 'react-icons/io';
 import Link from 'next/link';
 
+import { aboutIcon, arrowbase, homeIcon, projects, skillsIcon } from '../../data/svg';
+
 import styles from './Nav.module.scss';
 
 const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
   const links = [
-    { hash: '#app', text: 'HOME' },
-    { hash: '#about', text: 'ABOUT' },
-    { hash: '#skills', text: 'SKILLS' },
-    { hash: '#projects', text: 'PROJECTS' },
-    { hash: '#contact', text: 'CONTACT' },
+    { hash: '#app', icon: homeIcon, text: 'HOME' },
+    { hash: '#about', icon: aboutIcon, text: 'ABOUT' },
+    { hash: '#skills', icon: skillsIcon, text: 'SKILLS' },
+    { hash: '#projects', icon: projects, text: 'PROJECTS' },
+    { hash: '#contact', icon: arrowbase, text: 'CONTACT' },
   ];
 
   return (
@@ -17,8 +19,10 @@ const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
       <ul className={styles.list}>
         {links.map((link) => (
           <li key={link.hash} className={`${styles.item} ${menuIsOpen ? styles.open : ''}`}>
-            <Link href={`/${link.hash}`} onClick={() => link.to()}>
-              {link.text}
+            <Link href={`/${link.hash}`} onClick={() => link.to()} passHref>
+              <a>
+                {link.icon} {link.text}
+              </a>
             </Link>
           </li>
         ))}
