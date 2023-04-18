@@ -43,14 +43,14 @@ const About = () => {
               hands-on experience with a range of programming languages and tools. I have
               professional experience as a front-end developer for Subforce and as a developer
               consultant for Extia, where I've honed my skills in designing and developing web
-              applications using responsive design principles and popular JavaScript libraries.
+              applications.
               <br />
               <br />
               My commitment to delivering efficient, reliable, and top-notch code is unwavering. I
-              enjoy solving complex problems and building user-friendly applications that exceed my
-              clients' expectations. In my free time, I like to explore the vibrant city of
-              Barcelona where I currently reside, and stay active through hiking and working out. I
-              also have a passion for music, movies, and trying out new restaurants and cuisines.
+              enjoy solving complex problems and building user-friendly applications. In my free
+              time, I like to explore the vibrant city of Barcelona where I currently reside, and
+              stay active through hiking and working out. I also have a passion for music, movies,
+              and trying out new restaurants and cuisines.
               <br />
               <br />
               If you're looking for a skilled and enthusiastic developer to join your team, I would
