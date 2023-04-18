@@ -59,7 +59,7 @@ const projects = [
     ],
     img: {
       laptop:
-        'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/Streamy/laptop.png',
+        'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/Streamy/laptop_streamy.png',
     },
     languages:
       'React.js | SASS |  Express.js | Mongoose | TMDB API | JWT | React router | Bcrypt | Uuid',
@@ -68,42 +68,42 @@ const projects = [
     page: {
       banner: {
         image:
-          'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/home.png',
+          'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/home_streamy.png',
       },
       blocs: [
         {
           description:
             'Streamy uses Accordion Slider, a popular design pattern. This design pattern is customized using HTML, CSS, and JavaScript to provide an engaging and intuitive user experience. With Accordion Slider, Streamy makes it easy for users to navigate and interact with its content, ensuring an enjoyable and informative entertainment discovery experience.',
           image:
-            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/acordeon.png',
+            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/acordeon_streamy.png',
           title: 'Accordion slider',
         },
         {
           description:
             "Streamy's filtering feature enables easy navigation through its vast collection of movies and TV shows. Users can filter content by release year, ratings, and genre using custom search algorithms. The user-friendly interface ensures easy discovery of new content that matches user interests and preferences.",
           image:
-            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/filters.png',
+            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/filters_streamy.png',
           title: 'Filtering',
         },
         {
           description:
             "Streamy's Movie and TV Show Page provides users with detailed information about movies and TV shows. Users can view trailers, add titles to their watch list, and read reviews from other users. This feature enhances the overall entertainment discovery experience and helps users make informed decisions about what to watch next.",
           image:
-            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/slug.png',
+            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/slug_streamy.png',
           title: 'Movie and tv show page',
         },
         {
           description:
             "Streamy's Trailer feature allows users to view the trailer for each movie or TV show in the library. This feature provides a quick and easy way for users to preview titles and decide whether they want to add them to their watch list. With Trailers, Streamy enhances the overall entertainment discovery experience and helps users find new content to enjoy.",
           image:
-            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/trailer.png',
+            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/trailer_streamy.png',
           title: 'Trailer',
         },
         {
           description:
             "Streamy's Slideshow component allows users to cycle through movies and TV shows in an engaging and dynamic way. This feature is designed to showcase the latest and most popular titles, providing users with a quick and easy way to discover new content. With Slideshow, Streamy enhances the overall entertainment discovery experience and helps users find content they'll love.",
           image:
-            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/slideshow.png',
+            'https://res.cloudinary.com/kevincloudname/image/upload/v1681235571/portfolio/Streamy/slideshow_streamy.png',
           title: 'Slideshow',
         },
       ],
