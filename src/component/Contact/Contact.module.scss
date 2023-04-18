@@ -164,7 +164,7 @@
     @include padding;
 
     .name {
-      color: var(--on-surface-300);
+      color: var(--on-surface-200);
       font-weight: 600;
       text-align: center;
       @include font-size(2rem, 2.3rem);
@@ -172,7 +172,7 @@
 
     .job {
       margin-bottom: 2rem;
-      color: var(--on-surface-500);
+      color: var(--on-surface-100);
       text-align: center;
       @include font-size(1rem, 1.3rem);
     }
