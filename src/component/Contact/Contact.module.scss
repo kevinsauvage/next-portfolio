@@ -58,9 +58,9 @@
       margin-bottom: 1rem;
       background: var(--surface-700);
       color: var(--on-surface-100);
-      @include font-size(0.9rem, 1rem);
 
-      @include placeholder-color(var(--surface-400));
+      @include font-size(0.9rem, 1rem);
+      @include placeholder-color(var(--on-surface-400));
 
       @include respond(mobile_l) {
         height: 50px;
@@ -86,7 +86,8 @@
       resize: none;
 
       @include font-size(0.9rem, 1rem);
-      @include placeholder-color(var(--surface-400));
+      @include placeholder-color(var(--on-surface-400));
+
       @include respond(laptop_l) {
         max-height: 220px;
       }
