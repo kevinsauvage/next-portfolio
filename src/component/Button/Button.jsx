@@ -11,7 +11,7 @@ const Button = ({ onClick, label, type = 'button', variant = 'default', svg, loa
     type={type}
   >
     {loading ? (
-      <ClipLoader />
+      <ClipLoader color="var(--primary)" />
     ) : (
       <>
         {svg}
