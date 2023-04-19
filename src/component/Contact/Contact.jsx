@@ -95,8 +95,14 @@ const Contact = () => {
               </div>
             )}
 
-            <GradientBorder radius="8px">
-              <Button type="submit" loading={isLoading} label="Send" variant="outlined" />
+            <GradientBorder radius="8px" styles={{ width: 'fit-content' }}>
+              <Button
+                className={styles.button}
+                type="submit"
+                loading={isLoading}
+                label="Send"
+                variant="outlined"
+              />
             </GradientBorder>
           </form>
         </SlideUpAndFadeIn>

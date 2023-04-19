@@ -1,7 +1,10 @@
 import styles from './GradientBorder.module.scss';
 
-const GradientBorder = ({ children, radius, width, height }) => (
-  <div style={{ borderRadius: radius, height, width }} className={styles.GradientBorder}>
+const GradientBorder = ({ children, radius, width, height, styles: stylesProperties }) => (
+  <div
+    style={{ borderRadius: radius, height, width, ...stylesProperties }}
+    className={styles.GradientBorder}
+  >
     {children}
   </div>
 );
