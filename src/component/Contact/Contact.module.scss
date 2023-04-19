@@ -32,13 +32,8 @@
     }
 
     .feedback {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      justify-content: center;
       margin-bottom: 1rem;
       color: var(--primary);
-      text-align: center;
       @include font-size(0.7rem, 0.8rem);
     }
 
@@ -64,7 +59,7 @@
       color: var(--on-surface-100);
 
       @include font-size(0.9rem, 1rem);
-      @include placeholder-color(var(--on-surface-400));
+      @include placeholder-color(var(--on-surface-300));
 
       @include respond(mobile_l) {
         height: 50px;
@@ -90,7 +85,7 @@
       resize: none;
 
       @include font-size(0.9rem, 1rem);
-      @include placeholder-color(var(--on-surface-400));
+      @include placeholder-color(var(--on-surface-300));
 
       @include respond(laptop_l) {
         max-height: 220px;
