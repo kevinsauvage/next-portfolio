@@ -9,18 +9,15 @@ const handler = async (request, response) => {
     const { subject, message, name, email } = request.body;
 
     if (!subject) {
-      const error = new Error('Missing subject');
-      return response.status(401).send(error);
+      return response.status(401).send({ error: 'Missing subject' });
     }
 
     if (!message) {
-      const error = new Error('Missing message');
-      return response.status(401).send(error);
+      return response.status(401).send({ error: 'Missing message' });
     }
 
     if (!email) {
-      const error = new Error('Missing email');
-      return response.status(401).send(error);
+      return response.status(401).send({ error: 'Missing email' });
     }
 
     const mailOptions = {
