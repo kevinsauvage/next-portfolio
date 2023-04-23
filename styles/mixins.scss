@@ -49,16 +49,13 @@
   }
 
   font-size: $responsive;
-  line-height: calc(#{$responsive} * #{$line-height});
 
   @media screen and (max-width: #{$min-vw}) {
     font-size: $min;
-    line-height: calc(#{$min} * #{$line-height});
   }
 
   @media screen and (min-width: #{$max-vw}) {
     font-size: $max;
-    line-height: calc(#{$max} * #{$line-height});
   }
 }
 
