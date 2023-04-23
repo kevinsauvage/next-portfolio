@@ -27,36 +27,23 @@ const About = () => {
         <SlideUpAndFadeIn>
           <div className={styles.wrapper}>
             <p className={styles.about}>
-              Hello there! My name is Kévin Sauvage, and I'm a passionate developer with a talent
-              for creating exceptional user experiences. My expertise lies in a variety of popular
-              programming languages and frameworks, including Javascript, React.js, Next.js,
-              Svelte.js, Node.js, and Express.js.
+              Hello, I'm Kévin Sauvage - a full-stack web developer with expertise in popular
+              programming languages and frameworks like Javascript, React.js, Next.js, Svelte.js,
+              Node.js, and Express.js. I have a certification in full-stack web development from Le
+              Wagon and have worked professionally as a front-end developer for Subforce and as a
+              developer consultant for Extia.
               <br />
               <br />
-              What sets me apart is that I made a bold career change to pursue my passion for
-              programming, which has given me a unique perspective and dedication to my craft. I'm
-              always eager to learn and grow, and I stay up-to-date with the latest industry trends
-              and best practices to ensure my work is cutting-edge and of the highest quality.
+              What sets me apart is my passion for programming and my dedication to delivering
+              efficient, reliable, and top-notch code. I take pride in building user-friendly
+              applications that are both visually appealing and functional. I'm always eager to
+              learn and stay up-to-date with the latest industry trends and best practices.
               <br />
               <br />
-              I hold a certification in full-stack web development from Le Wagon, where I gained
-              hands-on experience with a range of programming languages and tools. I have
-              professional experience as a front-end developer for Subforce and as a developer
-              consultant for Extia, where I've honed my skills in designing and developing web
-              applications.
-              <br />
-              <br />
-              My commitment to delivering efficient, reliable, and top-notch code is unwavering. I
-              enjoy solving complex problems and building user-friendly applications. In my free
-              time, I like to explore the vibrant city of Barcelona where I currently reside, and
-              stay active through hiking and working out. I also have a passion for music, movies,
-              and trying out new restaurants and cuisines.
-              <br />
-              <br />
-              If you're looking for a skilled and enthusiastic developer to join your team, I would
-              be delighted to hear from you. Please don't hesitate to contact me or view my
-              portfolio to learn more about my experience and skills. Thank you for visiting my
-              website, and I look forward to the opportunity to work with you!
+              In my free time, I enjoy exploring the vibrant city of Barcelona where I'm currently
+              based, hiking, working out, and trying out new restaurants and cuisines. If you're
+              interested in learning more about my experience and skills, please visit my portfolio
+              or reach out to me directly. I look forward to the opportunity to work with you.
             </p>
             <div className={styles.btns}>
               <GradientBorder radius="10px">
