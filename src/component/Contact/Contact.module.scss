@@ -10,14 +10,12 @@
   }
 
   .form {
-    display: flex;
     width: 100%;
     height: 100%;
-    flex-direction: column;
     border: 1px solid var(--surface-700);
     border-radius: $radius_1;
     background-color: var(--surface-800);
-    box-shadow: $shadow_2;
+    box-shadow: $shadow_3;
     @include padding;
 
     .row {
@@ -56,6 +54,7 @@
       border-radius: $radius_2;
       margin-bottom: 1rem;
       background: var(--surface-700);
+      box-shadow: $shadow_1;
       color: var(--on-surface-100);
 
       @include font-size(0.9rem, 1rem);
@@ -81,6 +80,7 @@
       border-radius: $radius_2;
       margin-bottom: 1rem;
       background: var(--surface-700);
+      box-shadow: $shadow_1;
       color: var(--on-surface-100);
       resize: none;
 
@@ -118,7 +118,7 @@
       border: 1px solid var(--surface-600);
       border-radius: $radius_2;
       background: var(--surface-700);
-      box-shadow: $shadow_1;
+      box-shadow: $shadow_4;
       cursor: pointer;
       text-decoration: none;
       transition: transform 0.3s ease;
@@ -160,7 +160,7 @@
     border: 1px solid var(--surface-700);
     border-radius: $radius_1;
     background: var(--surface-800);
-    box-shadow: $shadow_1;
+    box-shadow: $shadow_3;
     @include padding;
 
     .name {
