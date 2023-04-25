@@ -12,9 +12,10 @@ const ProjectSection = ({ image, title, description, direction }) => (
         <Image
           src={image}
           layout="responsive"
-          width={1482}
-          height={867}
+          width={1000}
+          height={625}
           alt={title}
+          objectFit="cover"
           objectPosition={direction === 'row' ? 'right' : 'left'}
         />
       </div>

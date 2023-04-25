@@ -10,9 +10,10 @@ const ProjectBanner = ({ project }) => (
       <Image
         src={project.page.banner.image}
         layout="responsive"
-        width={1482}
-        height={867}
+        width={750}
+        height={470}
         alt="project home"
+        objectFit="cover"
         priority
       />
     </div>
