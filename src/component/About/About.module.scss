@@ -45,19 +45,3 @@
     }
   }
 }
-
-.btns {
-  display: grid;
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  gap: 2rem;
-  grid-template-columns: 1fr 1fr;
-
-  @include respond(mobile_l) {
-    gap: 1rem;
-    grid-template-columns: 1fr;
-  }
-}
