@@ -10,8 +10,8 @@ const Home = () => (
     <PageLayout title="Home">
       <Banner />
       <About />
-      <What />
       <Projects />
+      <What />
       <Contact />
     </PageLayout>
   </div>
