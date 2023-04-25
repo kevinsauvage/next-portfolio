@@ -8,9 +8,9 @@ import styles from './Nav.module.scss';
 const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
   const links = [
     { hash: '', icon: homeIcon, text: 'HOME' },
-    { hash: '#about', icon: aboutIcon, text: 'ABOUT' },
-    { hash: '#skills', icon: skillsIcon, text: 'SKILLS' },
     { hash: '#projects', icon: projects, text: 'PROJECTS' },
+    { hash: '#skills', icon: skillsIcon, text: 'SKILLS' },
+    { hash: '#about', icon: aboutIcon, text: 'ABOUT' },
     { hash: '#contact', icon: arrowbase, text: 'CONTACT' },
   ];
 
