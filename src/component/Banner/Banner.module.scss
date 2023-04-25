@@ -34,8 +34,9 @@
   h2 {
     width: fit-content;
     color: var(--primary);
+    color: rgba(var(--rgb-primary), 0.8);
     font-weight: 700;
-    @include gradientText;
+
     @include font-size(1.9rem, 4rem);
   }
 

@@ -9,9 +9,9 @@ const Home = () => (
   <div id="app">
     <PageLayout title="Home">
       <Banner />
-      <About />
       <Projects />
       <What />
+      <About />
       <Contact />
     </PageLayout>
   </div>
