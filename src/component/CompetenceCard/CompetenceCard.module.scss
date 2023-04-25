@@ -12,14 +12,15 @@
   color: var(--on-surface-200);
   @include padding;
 
-  i {
+  svg {
+    width: 5rem;
+    height: 5rem;
     margin-bottom: 8px;
-    color: var(--primary);
-    font-size: 5rem;
     @include gradientText;
 
-    @include respond(laptop_l) {
-      font-size: 4rem;
+    path,
+    circle {
+      fill: url(#my-cool-gradient) var(--primary);
     }
   }
 
