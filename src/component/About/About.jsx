@@ -30,15 +30,19 @@ const About = () => {
               <li>
                 <h3>About me</h3>
                 <p>
-                  Hello there! My name is Kévin Sauvage, and I'm a passionate full-stack web
-                  developer with a talent for creating exceptional user experiences.
+                  Hello there! I'm Kévin Sauvage, a dedicated full-stack web developer with two
+                  years of experience under my belt. With a passion for creating seamless and
+                  responsive user experiences, I have honed my skills in various programming
+                  languages and frameworks, making me capable of delivering top-notch web solutions.
                 </p>
               </li>
               <li>
                 <h3>Expertise</h3>
                 <p>
-                  My expertise lies in a variety of popular programming languages and frameworks,
-                  including Javascript, React.js, Next.js, Svelte.js, Node.js, and Express.js.
+                  With proficiency in various in-demand programming languages and frameworks, I am
+                  well-versed in Javascript, React.js, Next.js, Svelte.js, Node.js, and Express.js.
+                  These tools enable me to develop dynamic and efficient web applications, providing
+                  clients with high-quality solutions to meet their business needs.
                 </p>
               </li>
               <li>
@@ -54,11 +58,11 @@ const About = () => {
               <li>
                 <h3>Certification & Professional Experience</h3>
                 <p>
-                  I hold a certification in full-stack web development from Le Wagon, where I gained
-                  hands-on experience with a range of programming languages and tools. I have
-                  professional experience as a front-end developer for Subforce and as a developer
-                  consultant for Extia, where I've honed my skills in designing and developing web
-                  applications using responsive design principles and popular JavaScript libraries.
+                  My certification in full-stack web development from Le Wagon has provided me with
+                  hands-on expertise in various programming languages and tools. I've further
+                  refined my skills as a front-end developer for Subforce and developer consultant
+                  for Extia, utilizing responsive design principles and popular JavaScript libraries
+                  to design and develop high-quality web applications
                 </p>
               </li>
               <li>
