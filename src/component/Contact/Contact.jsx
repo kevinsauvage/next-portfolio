@@ -6,7 +6,6 @@ import { github, linkedin, mail } from '../../data/svg';
 import Button from '../Button/Button';
 import GradientBorder from '../GradientBorder/GradientBorder';
 import Section from '../Section/Section';
-import SlideUpAndFadeIn from '../SlideUpAndFadeIn/SlideUpAndFadeIn';
 import Title from '../Title/Title';
 
 import ContactFunction from './ContactFunction';
@@ -26,7 +25,7 @@ const Contact = () => {
     <Section id="contact" className={styles.Contact}>
       <Title>Get in touch</Title>
       <div className={styles.container}>
-        <SlideUpAndFadeIn className={styles.info}>
+        <div className={styles.info}>
           <div>
             <p className={styles.name}>Kévin Sauvage</p>
             <p className={styles.job}>- Developer -</p>
@@ -51,61 +50,59 @@ const Contact = () => {
               </Link>
             ))}
           </div>
-        </SlideUpAndFadeIn>
-        <SlideUpAndFadeIn className={styles.form}>
-          <form action="submit" onSubmit={handleSubmit} autoComplete="off">
-            <div className={styles.row}>
-              <input
-                className={styles.input}
-                type="text"
-                name="name"
-                value={formData.name}
-                placeholder="Name"
-                onChange={handleChange}
-              />
-              <input
-                className={styles.input}
-                type="email"
-                name="email"
-                value={formData.email}
-                placeholder="Email"
-                onChange={handleChange}
-              />
-            </div>
+        </div>
+        <form className={styles.form} action="submit" onSubmit={handleSubmit} autoComplete="off">
+          <div className={styles.row}>
             <input
               className={styles.input}
               type="text"
-              name="subject"
-              value={formData.subject}
-              placeholder="Subject"
+              name="name"
+              value={formData.name}
+              placeholder="Name"
               onChange={handleChange}
             />
-            <textarea
-              className={styles['text-area']}
-              name="message"
-              cols="30"
-              rows="10"
-              value={formData.message}
-              placeholder="Message"
+            <input
+              className={styles.input}
+              type="email"
+              name="email"
+              value={formData.email}
+              placeholder="Email"
               onChange={handleChange}
             />
-            {userFeedback && (
-              <div className={styles.feedback}>
-                <p>{userFeedback}</p>
-              </div>
-            )}
+          </div>
+          <input
+            className={styles.input}
+            type="text"
+            name="subject"
+            value={formData.subject}
+            placeholder="Subject"
+            onChange={handleChange}
+          />
+          <textarea
+            className={styles['text-area']}
+            name="message"
+            cols="30"
+            rows="10"
+            value={formData.message}
+            placeholder="Message"
+            onChange={handleChange}
+          />
+          {userFeedback && (
+            <div className={styles.feedback}>
+              <p>{userFeedback}</p>
+            </div>
+          )}
 
-            <GradientBorder radius="8px" styles={{ width: 'fit-content' }}>
-              <Button
-                className={styles.button}
-                type="submit"
-                loading={isLoading}
-                label="Send"
-                variant="outlined"
-              />
-            </GradientBorder>
-          </form>
-        </SlideUpAndFadeIn>
+          <GradientBorder radius="8px" styles={{ width: 'fit-content' }}>
+            <Button
+              className={styles.button}
+              type="submit"
+              loading={isLoading}
+              label="Send"
+              variant="outlined"
+            />
+          </GradientBorder>
+        </form>
       </div>
 
       <ToastContainer

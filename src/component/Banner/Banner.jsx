@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import portrait from '../../images/banner.svg';
+import illustration from '../../images/banner.svg';
 import Button from '../Button/Button';
 
 import styles from './Banner.module.scss';
@@ -31,7 +31,7 @@ const Banner = () => {
           width="851"
           height="741"
           layout="responsive"
-          src={portrait.src}
+          src={illustration.src}
           alt="banner illustration of a man and a computer"
           priority
         />
