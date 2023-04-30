@@ -23,11 +23,6 @@
       height: 2.5rem;
       @include gradientText;
 
-      @include respond(tablet) {
-        width: 2rem;
-        height: 2rem;
-      }
-
       path {
         fill: url(#my-cool-gradient) var(--primary);
       }
@@ -59,7 +54,8 @@
 
     @include respond(laptop_s) {
       &:hover {
-        display: none;
+        display: block;
+        opacity: 1;
         transform: unset;
       }
     }
