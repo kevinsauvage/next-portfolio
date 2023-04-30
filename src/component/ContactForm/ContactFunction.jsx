@@ -42,8 +42,6 @@ const ContactFunction = () => {
     setIsLoading(true);
 
     sendMail(formData).then((response) => {
-      console.log('🚀 ~ file: ContactFunction.jsx:46 ~ sendMail ~ response:', response);
-
       setIsLoading(false);
       if (response?.ok) {
         setFormData({ email: '', message: '', name: '', subject: '' });
