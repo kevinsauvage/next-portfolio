@@ -1,57 +1,6 @@
 const projects = [
   {
     description:
-      'UpToGo is a fast and user-friendly food delivery platform connecting customers with local restaurants. Order, enjoy a wide range of cuisines, and experience convenience today.',
-    githubLink: ['https://github.com/kevinsauvage/uptogo'],
-    img: {
-      laptop:
-        'https://res.cloudinary.com/kevincloudname/image/upload/v1681232730/portfolio/uptogo/laptop.png',
-    },
-    languages: 'Next.js | SASS | MongoDB | Redux | Redux persist | Stripe | Jsonwebtoken | Bcrypt',
-    largeDescription:
-      'UpToGo is an online food delivery platform that seamlessly connects customers with local restaurants. With an intuitive user interface, customers can browse menus, place orders, and receive fast and convenient deliveries right to their doorstep. Our platform offers a vast selection of culinary options from a wide range of cuisines and flavors, and boasts a sleek and modern design that enhances its overall functionality. As a skilled developer, I take pride in creating innovative and reliable solutions that deliver a seamless and satisfying experience for both customers and restaurant partners. Sign up today and discover the convenience and deliciousness of UpToGo!',
-    page: {
-      banner: {
-        image:
-          'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/home.webp',
-      },
-      blocs: [
-        {
-          description:
-            "At UpToGo, we've made it easy to discover and order from your favorite local restaurants. On the restaurant page, simply click on a menu item to open the product modal, where you can view the item description, select quantity, and add it to your cart. When you're ready to place your order, simply click the order button to proceed to the checkout page. Enjoy a hassle-free and convenient way to order delicious meals from your favorite restaurants on UpToGo's restaurant page.",
-          image:
-            'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/restaurant.png',
-          title: 'Restaurant page',
-        },
-        {
-          description:
-            "Easily customize your order on UpToGo's order page by adjusting quantities, removing items, and adding special instructions. Once you're satisfied, confirm your order and proceed to our secure Stripe checkout page to complete your payment. Enjoy a seamless ordering experience with UpToGo!",
-          image:
-            'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/cart.png',
-          title: 'Cart page',
-        },
-        {
-          description:
-            "The user page allows you to conveniently track your order history with just a few clicks. With easy access to your previous orders, you can quickly reorder your favorite meals or review your past purchases. Stay on top of your food delivery game and never miss out on a delicious meal with UpToGo's user page.",
-          image:
-            'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/account.png',
-          title: 'User account page',
-        },
-        {
-          description:
-            "UpToGo's Login page features secure password hashing, salting, and server-side token validation to provide a seamless and secure user experience. The page interfaces with our backend API, which stores user information in a secure database and generates unique access tokens for authentication and authorization. Join the technical revolution of food delivery with UpToGo's Login page.",
-          image:
-            'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/login.png',
-          title: 'Login page',
-        },
-      ],
-    },
-    title: 'UpToGo',
-    websiteLink: 'https://uptogo.vercel.app/',
-  },
-
-  {
-    description:
       'Streamy offers a personalized entertainment experience for movie and TV enthusiasts. Discover new titles, watch trailers, and join the conversation with a community-based approach.',
     githubLink: [
       'https://github.com/kevinsauvage/streamyV2-client',
@@ -110,6 +59,56 @@ const projects = [
     },
     title: 'Streamy',
     websiteLink: 'https://streamy.fun/',
+  },
+  {
+    description:
+      'UpToGo is a fast and user-friendly food delivery platform connecting customers with local restaurants. Order, enjoy a wide range of cuisines, and experience convenience today.',
+    githubLink: ['https://github.com/kevinsauvage/uptogo'],
+    img: {
+      laptop:
+        'https://res.cloudinary.com/kevincloudname/image/upload/v1681232730/portfolio/uptogo/laptop.png',
+    },
+    languages: 'Next.js | SASS | MongoDB | Redux | Redux persist | Stripe | Jsonwebtoken | Bcrypt',
+    largeDescription:
+      'UpToGo is an online food delivery platform that seamlessly connects customers with local restaurants. With an intuitive user interface, customers can browse menus, place orders, and receive fast and convenient deliveries right to their doorstep. Our platform offers a vast selection of culinary options from a wide range of cuisines and flavors, and boasts a sleek and modern design that enhances its overall functionality. As a skilled developer, I take pride in creating innovative and reliable solutions that deliver a seamless and satisfying experience for both customers and restaurant partners. Sign up today and discover the convenience and deliciousness of UpToGo!',
+    page: {
+      banner: {
+        image:
+          'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/home.webp',
+      },
+      blocs: [
+        {
+          description:
+            "At UpToGo, we've made it easy to discover and order from your favorite local restaurants. On the restaurant page, simply click on a menu item to open the product modal, where you can view the item description, select quantity, and add it to your cart. When you're ready to place your order, simply click the order button to proceed to the checkout page. Enjoy a hassle-free and convenient way to order delicious meals from your favorite restaurants on UpToGo's restaurant page.",
+          image:
+            'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/restaurant.png',
+          title: 'Restaurant page',
+        },
+        {
+          description:
+            "Easily customize your order on UpToGo's order page by adjusting quantities, removing items, and adding special instructions. Once you're satisfied, confirm your order and proceed to our secure Stripe checkout page to complete your payment. Enjoy a seamless ordering experience with UpToGo!",
+          image:
+            'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/cart.png',
+          title: 'Cart page',
+        },
+        {
+          description:
+            "The user page allows you to conveniently track your order history with just a few clicks. With easy access to your previous orders, you can quickly reorder your favorite meals or review your past purchases. Stay on top of your food delivery game and never miss out on a delicious meal with UpToGo's user page.",
+          image:
+            'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/account.png',
+          title: 'User account page',
+        },
+        {
+          description:
+            "UpToGo's Login page features secure password hashing, salting, and server-side token validation to provide a seamless and secure user experience. The page interfaces with our backend API, which stores user information in a secure database and generates unique access tokens for authentication and authorization. Join the technical revolution of food delivery with UpToGo's Login page.",
+          image:
+            'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/uptogo/login.png',
+          title: 'Login page',
+        },
+      ],
+    },
+    title: 'UpToGo',
+    websiteLink: 'https://uptogo.vercel.app/',
   },
 ];
 
