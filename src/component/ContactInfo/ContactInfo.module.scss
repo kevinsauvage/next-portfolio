@@ -1,0 +1,67 @@
+.info {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+
+  .icon {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--surface-700);
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+
+    svg {
+      width: 2.5rem;
+      height: 2.5rem;
+      @include gradientText;
+
+      @include respond(tablet) {
+        width: 2rem;
+        height: 2rem;
+      }
+
+      path {
+        fill: url(#my-cool-gradient) var(--primary);
+      }
+    }
+
+    span {
+      position: absolute;
+      right: 110%;
+      display: none;
+      padding: 0.4rem 0.6rem;
+      border: 1px solid var(--surface-400);
+      border-radius: $radius_2;
+      background-color: var(--surface-600);
+      color: var(--on-surface-200);
+      font-weight: 500;
+      opacity: 0;
+      white-space: nowrap;
+      @include font-size(0.8rem, 0.8rem);
+    }
+
+    &:hover {
+      transform: scale(1.06);
+
+      span {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    @include respond(laptop_s) {
+      &:hover {
+        display: none;
+        transform: unset;
+      }
+    }
+  }
+}

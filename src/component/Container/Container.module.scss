@@ -1,10 +1,10 @@
 .Container {
   max-width: 1440px;
-  padding: 0 2rem;
+  padding: 0 3rem;
   margin: 0 auto;
 
   @include respond(tablet) {
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
 
   @include respond(mobile_l) {

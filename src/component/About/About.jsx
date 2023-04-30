@@ -43,9 +43,7 @@ const About = () => (
             <p>
               My certification in full-stack web development from Le Wagon has provided me with
               hands-on expertise in various programming languages and tools. I've further refined my
-              skills as a front-end developer for Subforce and developer consultant for Extia,
-              utilizing responsive design principles and popular JavaScript libraries to design and
-              develop high-quality web applications
+              skills as a front-end developer for Subforce and developer consultant for Extia.
             </p>
           </li>
           <li>
@@ -54,15 +52,6 @@ const About = () => (
               In my free time, I like to explore the vibrant city of Barcelona where I currently
               reside, and stay active through hiking and working out. I also have a passion for
               music, movies, and trying out new restaurants and cuisines.
-            </p>
-          </li>
-          <li>
-            <h3>Get In Touch</h3>
-            <p>
-              If you're looking for a skilled and enthusiastic developer to join your team, I would
-              be delighted to hear from you. Please don't hesitate to contact me or view my
-              portfolio to learn more about my experience and skills. Thank you for visiting my
-              website, and I look forward to the opportunity to work with you!
             </p>
           </li>
         </ul>

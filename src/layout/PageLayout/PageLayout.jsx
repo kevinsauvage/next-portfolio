@@ -1,6 +1,8 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 import Head from 'next/head';
 
+import ContactInfo from '../../component/ContactInfo/ContactInfo';
 import Container from '../../component/Container/Container';
 import Footer from '../../component/Footer/Footer';
 import Header from '../../component/Header/Header';
@@ -35,6 +37,21 @@ const PageLayout = ({ children, title }) => {
           <stop offset="100%" stopColor="var(--secondary)" />
         </linearGradient>
       </svg>
+
+      <ContactInfo />
+
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 };
