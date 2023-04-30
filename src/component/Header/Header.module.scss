@@ -26,6 +26,7 @@
 .container {
   display: flex;
   width: 100%;
+  max-width: unset;
   align-items: center;
   justify-content: space-between;
 }
