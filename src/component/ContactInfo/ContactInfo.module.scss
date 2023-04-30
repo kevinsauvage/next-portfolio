@@ -57,19 +57,9 @@
     }
 
     &:hover {
-      transform: scale(1.06);
-
       span {
         display: block;
         opacity: 1;
-      }
-    }
-
-    @include respond(laptop_s) {
-      &:hover {
-        display: block;
-        opacity: 1;
-        transform: unset;
       }
     }
   }
