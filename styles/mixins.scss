@@ -1,25 +1,4 @@
 /* stylelint-disable scss/operator-no-newline-after */
-@mixin gradientText {
-  background: $gradient_1;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-@mixin gradientBorder {
-  &::before {
-    position: absolute !important;
-    z-index: -1 !important;
-    padding: 2px !important;
-    border-radius: $radius_2 !important;
-    background: $gradient_1 !important;
-    content: '';
-    inset: 0 !important;
-    -webkit-mask: linear-gradient(#ffffff 0 0) content-box, linear-gradient(#ffffff 0 0);
-    mask: linear-gradient(#ffffff 0 0) content-box, linear-gradient(#ffffff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-  }
-}
 
 @function toRem($value) {
   $remValue: ($value / 16) + rem;

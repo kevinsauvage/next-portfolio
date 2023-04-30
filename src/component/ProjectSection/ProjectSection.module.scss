@@ -27,7 +27,10 @@
   height: 100%;
   padding: 0.2rem;
   border-radius: 4px;
-  background: $gradient_1;
+
+  img {
+    border: 2px solid var(--primary) !important;
+  }
 }
 
 .detail {
@@ -58,7 +61,6 @@
   letter-spacing: 6px;
   text-transform: uppercase;
   white-space: nowrap;
-  @include gradientText;
   @include font-size(1.2rem, 1.4rem);
 }
 

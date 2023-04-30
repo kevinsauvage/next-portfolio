@@ -1,8 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-import illustration from '../../images/banner.svg';
 import Button from '../Button/Button';
 
 import styles from './Banner.module.scss';
@@ -12,30 +10,18 @@ const Banner = () => {
   return (
     <section className={styles.Banner}>
       <div className={styles.main}>
-        <small>
-          {'< '}Greetings, I'm {'/>'}
-        </small>
+        <small>Greetings, my name is</small>
         <h1>Kévin Sauvage</h1>
-        <h2>Expert Developer.</h2>
+        <h2>Full stack Developer.</h2>
         <p className={styles.subtitle}>
-          I specialize in creating distinctive and captivating visual experiences
-          <br /> that spark imagination, convey information,
-          <br /> and evoke emotion.
+          I create visually stunning and user-friendly web applications that are both functional and
+          engaging. My expertise in web development allows me to deliver top-notch solutions that
+          exceed expectations.
         </p>
         <div className={styles.button}>
-          <Button label="Hire me" onClick={() => push('/#contact')} />
+          <Button label="Contact me!" variant="outlined" onClick={() => push('/#contact')} />
         </div>
       </div>
-      <aside className={styles.aside}>
-        <Image
-          width="851"
-          height="741"
-          layout="responsive"
-          src={illustration.src}
-          alt="banner illustration of a man and a computer"
-          priority
-        />
-      </aside>
     </section>
   );
 };

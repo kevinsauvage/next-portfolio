@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Button from '../Button/Button';
-import GradientBorder from '../GradientBorder/GradientBorder';
 
 import ContactFunction from './ContactFunction';
 
@@ -69,15 +68,13 @@ const ContactForm = () => {
           </div>
         )}
 
-        <GradientBorder radius="8px" styles={{ width: 'fit-content' }}>
-          <Button
-            className={styles.button}
-            type="submit"
-            loading={isLoading}
-            label="Send"
-            variant="outlined"
-          />
-        </GradientBorder>
+        <Button
+          className={styles.button}
+          type="submit"
+          loading={isLoading}
+          label="Send message"
+          variant="outlined"
+        />
       </form>
     </>
   );

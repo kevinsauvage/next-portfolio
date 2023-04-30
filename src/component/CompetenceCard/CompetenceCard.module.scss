@@ -16,11 +16,10 @@
     width: 4rem;
     height: 4rem;
     margin-bottom: 8px;
-    @include gradientText;
 
     path,
     circle {
-      fill: url(#my-cool-gradient) var(--primary);
+      fill: var(--primary);
     }
   }
 

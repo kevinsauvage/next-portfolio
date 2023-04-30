@@ -1,11 +1,18 @@
 .info {
   position: fixed;
-  right: 1rem;
-  bottom: 1rem;
+  right: 3rem;
+  bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.5rem;
+
+  @include respond(tablet) {
+    position: static;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 2rem;
+  }
 
   .icon {
     display: flex;
@@ -18,13 +25,15 @@
     text-decoration: none;
     transition: transform 0.3s ease;
 
+    @include respond(tablet) {
+      background: transparent;
+    }
     svg {
-      width: 2.5rem;
-      height: 2.5rem;
-      @include gradientText;
+      width: 2rem;
+      height: 2rem;
 
       path {
-        fill: url(#my-cool-gradient) var(--primary);
+        fill: var(--primary);
       }
     }
 
@@ -41,6 +50,10 @@
       opacity: 0;
       white-space: nowrap;
       @include font-size(0.8rem, 0.8rem);
+
+      @include respond(tablet) {
+        display: none;
+      }
     }
 
     &:hover {

@@ -2,7 +2,6 @@ import { FiExternalLink } from 'react-icons/fi';
 
 import { github } from '../../data/svg';
 import Button from '../Button/Button';
-import GradientBorder from '../GradientBorder/GradientBorder';
 
 import styles from './ProjectBtns.module.scss';
 
@@ -19,14 +18,7 @@ const ProjectBtns = ({ item }) => {
 
   return (
     <div className={styles.ProjectBtns}>
-      <GradientBorder radius="8px">
-        <Button
-          onClick={handleClickSourceCode}
-          svg={github}
-          label="Source code"
-          variant="outlined"
-        />
-      </GradientBorder>
+      <Button onClick={handleClickSourceCode} svg={github} label="Source code" variant="outlined" />
       <Button onClick={handleClickVisit} svg={<FiExternalLink />} label="Visit website" />
     </div>
   );

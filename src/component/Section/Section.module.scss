@@ -1,8 +1,12 @@
 .Section {
-  padding: 120px 0;
+  padding: 5rem;
 
-  @include respond(laptop_l) {
-    padding: 80px 0;
+  @include respond(tablet) {
+    padding: 3rem 2rem;
+  }
+
+  @include respond(mobile_l) {
+    padding: 3rem 0rem;
   }
 }
 
