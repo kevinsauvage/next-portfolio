@@ -9,7 +9,8 @@ import Header from '../../component/Header/Header';
 import styles from './PageLayout.module.scss';
 
 const PageLayout = ({ children, title }) => {
-  const titleSeo = `Kévin Sauvage Portfolio | ${title}`;
+  // eslint-disable-next-line sonarjs/no-nested-template-literals
+  const titleSeo = `Kévin Sauvage ${title ? `|  ${title}` : ''}`;
 
   return (
     <div className={styles.PageLayout}>

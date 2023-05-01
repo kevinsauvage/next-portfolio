@@ -7,7 +7,7 @@ import PageLayout from '../layout/PageLayout/PageLayout';
 
 const Home = () => (
   <div id="app">
-    <PageLayout title="Home">
+    <PageLayout>
       <Banner />
       <About />
       <Projects />
