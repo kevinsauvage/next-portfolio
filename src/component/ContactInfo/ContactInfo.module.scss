@@ -37,6 +37,11 @@
       margin-top: 2rem;
     }
 
+    li {
+      display: flex;
+      align-items: center;
+    }
+
     .popover {
       position: absolute;
       display: none;
@@ -86,6 +91,7 @@
       path {
         fill: var(--primary);
       }
+
       .popover {
         display: block;
         opacity: 1;
@@ -94,6 +100,7 @@
 
     @include respond(tablet) {
       background: transparent;
+      font-size: 1.5rem;
     }
   }
 }

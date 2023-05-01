@@ -15,6 +15,7 @@ const ContactInfo = () => {
     { href: `/kevin-sauvage-cv.pdf`, icon: <>CV</>, text: 'Curriculum' },
     { href: 'mailto:kevinsauvage@outlook.com', icon: arrowbase2, text: 'E-mail' },
   ];
+
   return (
     <div className={styles.info}>
       <ul className={styles.left}>

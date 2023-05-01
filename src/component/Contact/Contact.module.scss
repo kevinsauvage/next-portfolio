@@ -8,6 +8,8 @@
 .subtitle {
   max-width: 600px;
   text-align: center;
+
+  @include font-size(0.9rem, 1rem);
 }
 
 .button {
