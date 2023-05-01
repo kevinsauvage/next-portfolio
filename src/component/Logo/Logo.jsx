@@ -7,10 +7,10 @@ import FadeIn from '../FadeIn/FadeIn';
 import styles from './Logo.module.scss';
 
 const Logo = () => (
-  <FadeIn>
-    <div className={styles.logo}>
-      <Link href="/" passHref>
-        <a>
+  <div className={styles.logo}>
+    <Link href="/" passHref>
+      <a>
+        <FadeIn>
           <Image
             className={styles.logoImg}
             src={portrait.src}
@@ -18,11 +18,13 @@ const Logo = () => (
             width={45}
             height={45}
           />
-        </a>
-      </Link>
+        </FadeIn>
+      </a>
+    </Link>
+    <FadeIn>
       <p className={styles.logoName}>Kévin S.</p>
-    </div>
-  </FadeIn>
+    </FadeIn>
+  </div>
 );
 
 export default Logo;
