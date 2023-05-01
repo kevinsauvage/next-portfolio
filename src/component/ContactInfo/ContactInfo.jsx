@@ -20,9 +20,9 @@ const ContactInfo = () => {
   return (
     <div className={styles.info}>
       <ul className={styles.left}>
-        {socialButtonLeft.map((item) => (
+        {socialButtonLeft.map((item, index) => (
           <li key={item.href}>
-            <FadeIn>
+            <FadeIn delay={`${0.5 * index + 0.5}s`}>
               <Link href={item.href}>
                 <a className={styles.icon} target="_blank">
                   {item.icon}
@@ -34,9 +34,9 @@ const ContactInfo = () => {
         ))}
       </ul>
       <ul className={styles.right}>
-        {socialButtonRight.map((item) => (
+        {socialButtonRight.map((item, index) => (
           <li key={item.href}>
-            <FadeIn>
+            <FadeIn delay={`${0.5 * index + 0.5}s`}>
               <Link href={item.href}>
                 <a className={styles.icon} target="_blank">
                   {item.icon}
