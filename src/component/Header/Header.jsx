@@ -17,11 +17,8 @@ const Header = () => {
       <Container classname={styles.container}>
         <Logo />
         <Navigation links={links} setMenuIsOpen={setMenuIsOpen} menuIsOpen={menuIsOpen} />
-        <FadeIn>
-          <RiMenu4Fill
-            className={styles.hamb}
-            onClick={() => setMenuIsOpen((previous) => !previous)}
-          />
+        <FadeIn className={styles.hamb}>
+          <RiMenu4Fill onClick={() => setMenuIsOpen((previous) => !previous)} />
         </FadeIn>
       </Container>
     </div>
