@@ -1,0 +1,16 @@
+.contact {
+  display: flex;
+  min-height: 80vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.subtitle {
+  max-width: 600px;
+  text-align: center;
+}
+
+.button {
+  width: fit-content;
+  margin-top: 3rem;
+}

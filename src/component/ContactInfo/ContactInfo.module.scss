@@ -1,47 +1,46 @@
 .info {
-  position: fixed;
-  right: 3rem;
-  bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1.5rem;
-
   @include respond(tablet) {
-    position: static;
-    width: 100%;
-    flex-direction: row;
-    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
   }
 
-  .icon {
+  .left {
+    left: 3rem;
+
+    .popover {
+      left: 125%;
+    }
+  }
+
+  .right {
+    right: 3rem;
+
+    .popover {
+      right: 125%;
+    }
+  }
+
+  .left,
+  .right {
+    position: fixed;
+    bottom: 2rem;
     display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: var(--surface-700);
-    cursor: pointer;
-    text-decoration: none;
-    transition: transform 0.3s ease;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
 
     @include respond(tablet) {
-      background: transparent;
-    }
-    svg {
-      width: 2rem;
-      height: 2rem;
-
-      path {
-        fill: var(--primary);
-      }
+      position: static;
+      width: 100%;
+      flex-direction: row;
+      margin-top: 2rem;
     }
 
-    span {
+    .popover {
       position: absolute;
-      right: 110%;
       display: none;
-      padding: 0.4rem 0.6rem;
+      padding: 0.2rem 0.4rem;
       border: 1px solid var(--surface-400);
       border-radius: $radius_2;
       background-color: var(--surface-600);
@@ -55,12 +54,46 @@
         display: none;
       }
     }
+  }
+
+  .icon {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--on-surface-200);
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+
+    svg {
+      width: 1.3rem;
+      height: 1.3rem;
+
+      path {
+        fill: var(--on-surface-200);
+      }
+    }
 
     &:hover {
-      span {
+      color: var(--primary);
+      transform: scale(1.1);
+
+      path {
+        fill: var(--primary);
+      }
+      .popover {
         display: block;
         opacity: 1;
       }
+    }
+
+    @include respond(tablet) {
+      background: transparent;
     }
   }
 }

@@ -7,7 +7,7 @@ import styles from './Projects.module.scss';
 
 const Projects = () => (
   <Section id="projects">
-    <Title>My Projects</Title>
+    <Title>Featured Projects</Title>
     <div className={styles.cards}>
       {projects.map((item) => (
         <ProjectCard key={item?.title} item={item} />

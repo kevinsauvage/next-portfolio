@@ -1,17 +1,16 @@
 import { IoMdCloseCircle } from 'react-icons/io';
 import Link from 'next/link';
 
-import { aboutIcon, arrowbase, homeIcon, projects, skillsIcon } from '../../data/svg';
+import { aboutIcon, arrowbase, projects, skillsIcon } from '../../data/svg';
 
 import styles from './Nav.module.scss';
 
 const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
   const links = [
-    { hash: '', icon: homeIcon, text: 'HOME' },
-    { hash: '#projects', icon: projects, text: 'PROJECTS' },
-    { hash: '#skills', icon: skillsIcon, text: 'SKILLS' },
-    { hash: '#about', icon: aboutIcon, text: 'ABOUT' },
-    { hash: '#contact', icon: arrowbase, text: 'CONTACT' },
+    { hash: '#about', icon: aboutIcon, text: 'About' },
+    { hash: '#projects', icon: projects, text: 'Project' },
+    { hash: '#skills', icon: skillsIcon, text: 'Skills' },
+    { hash: '#contact', icon: arrowbase, text: 'Contact' },
   ];
 
   return (

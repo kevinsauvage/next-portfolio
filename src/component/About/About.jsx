@@ -14,10 +14,11 @@ const About = () => (
           <li>
             <h3>About me</h3>
             <p>
-              Hello there! I'm Kévin Sauvage, a dedicated full-stack web developer with two years of
-              experience under my belt. With a passion for creating seamless and responsive user
-              experiences, I have honed my skills in various programming languages and frameworks,
-              making me capable of delivering top-notch web solutions.
+              Hello there! I'm Kévin Sauvage, a dedicated front-end developer with back-end
+              knowledge and two years of experience under my belt. With a passion for creating
+              seamless and responsive user experiences, I have honed my skills in various
+              programming languages and frameworks, making me capable of delivering top-notch web
+              solutions.
             </p>
           </li>
           <li>
