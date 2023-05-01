@@ -1,0 +1,18 @@
+.uptitle {
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  font-weight: 600;
+  gap: 0.3rem;
+  text-transform: uppercase;
+  @include font-size(0.7rem, 0.8rem);
+
+  svg {
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-right: 4px;
+    path {
+      stroke: var(--primary);
+    }
+  }
+}
