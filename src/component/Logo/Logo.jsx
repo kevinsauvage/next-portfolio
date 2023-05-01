@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import portrait from '../../images/portrait.png';
+import portrait from '../../images/me.jpg';
 
 import styles from './Logo.module.scss';
 
@@ -13,8 +13,8 @@ const Logo = () => (
           className={styles.logoImg}
           src={portrait.src}
           alt="portrait of kevin sauvage"
-          width={60}
-          height={60}
+          width={45}
+          height={45}
         />
       </a>
     </Link>
