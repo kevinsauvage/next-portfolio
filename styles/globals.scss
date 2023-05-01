@@ -19,6 +19,14 @@ body {
   background-color: var(--surface-900);
   color: var(--on-surface-100);
   font-family: 'Montserrat', sans-serif;
+  &::-webkit-scrollbar {
+    width: 0.3rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 99rem;
+    background-color: var(--on-surface-200);
+  }
 }
 
 li {
