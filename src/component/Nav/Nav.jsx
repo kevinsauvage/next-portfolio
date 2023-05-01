@@ -29,12 +29,10 @@ const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
           </li>
         ))}
       </ul>
-      <FadeIn>
-        <IoMdCloseCircle
-          className={styles.close}
-          onClick={() => setMenuIsOpen((previous) => !previous)}
-        />
-      </FadeIn>
+      <IoMdCloseCircle
+        className={styles.close}
+        onClick={() => setMenuIsOpen((previous) => !previous)}
+      />
     </nav>
   );
 };
