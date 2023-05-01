@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 
 import { arrowbase2, github, linkedin } from '../../data/svg';
+import FadeIn from '../FadeIn/FadeIn';
 
 import styles from './ContactInfo.module.scss';
 
@@ -21,24 +22,28 @@ const ContactInfo = () => {
       <ul className={styles.left}>
         {socialButtonLeft.map((item) => (
           <li key={item.href}>
-            <Link href={item.href}>
-              <a className={styles.icon} target="_blank">
-                {item.icon}
-                <span className={styles.popover}>{item.text}</span>
-              </a>
-            </Link>
+            <FadeIn>
+              <Link href={item.href}>
+                <a className={styles.icon} target="_blank">
+                  {item.icon}
+                  <span className={styles.popover}>{item.text}</span>
+                </a>
+              </Link>
+            </FadeIn>
           </li>
         ))}
       </ul>
       <ul className={styles.right}>
         {socialButtonRight.map((item) => (
           <li key={item.href}>
-            <Link href={item.href}>
-              <a className={styles.icon} target="_blank">
-                {item.icon}
-                <span className={styles.popover}>{item.text}</span>
-              </a>
-            </Link>
+            <FadeIn>
+              <Link href={item.href}>
+                <a className={styles.icon} target="_blank">
+                  {item.icon}
+                  <span className={styles.popover}>{item.text}</span>
+                </a>
+              </Link>
+            </FadeIn>
           </li>
         ))}
       </ul>

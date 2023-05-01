@@ -1,7 +1,11 @@
+import FadeIn from '../FadeIn/FadeIn';
+
 import styles from './Title.module.scss';
 
 const Title = ({ children, className }) => (
-  <h2 className={`${styles.Title} ${className || ''}`}>{children}</h2>
+  <FadeIn>
+    <h2 className={`${styles.Title} ${className || ''}`}>{children}</h2>
+  </FadeIn>
 );
 
 export default Title;
