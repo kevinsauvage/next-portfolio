@@ -1,7 +1,7 @@
 import { IoMdCloseCircle } from 'react-icons/io';
 import Link from 'next/link';
 
-import { aboutIcon, arrowbase, projectsIcon, skillsIcon } from '../../data/svg';
+import { aboutIcon, arrowbase, experienceIcon, projectsIcon, skillsIcon } from '../../data/svg';
 import FadeIn from '../FadeIn/FadeIn';
 
 import styles from './Nav.module.scss';
@@ -9,6 +9,7 @@ import styles from './Nav.module.scss';
 const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
   const links = [
     { hash: '#about', icon: aboutIcon, text: 'About' },
+    { hash: '#experience', icon: experienceIcon, text: 'Experience' },
     { hash: '#projects', icon: projectsIcon, text: 'Work' },
     { hash: '#what', icon: skillsIcon, text: 'What' },
     { hash: '#contact', icon: arrowbase, text: 'Contact' },

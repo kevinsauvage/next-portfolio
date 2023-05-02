@@ -9,7 +9,6 @@
   border-radius: $radius_1;
   background: var(--surface-800);
   box-shadow: $shadow_3;
-  color: var(--on-surface-100);
   @include padding;
 
   svg {

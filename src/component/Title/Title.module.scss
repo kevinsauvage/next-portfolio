@@ -1,7 +1,9 @@
 .Title {
   position: relative;
   width: fit-content;
-  margin-bottom: 2rem;
+  width: 100%;
+  margin-bottom: 3rem;
   font-weight: 700;
+  text-align: center;
   @include font-size(1.8rem, 3.5rem);
 }

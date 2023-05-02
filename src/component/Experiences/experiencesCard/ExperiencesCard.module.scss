@@ -1,0 +1,40 @@
+.card {
+  width: 50%;
+  margin-bottom: 1rem;
+
+  &:nth-child(even) {
+    margin-left: auto;
+  }
+
+  &:nth-child(odd) {
+    text-align: right;
+  }
+
+  @include respond(tablet) {
+    width: 100%;
+    &:nth-child(even) {
+      margin-left: unset;
+    }
+
+    &:nth-child(odd) {
+      text-align: unset;
+    }
+  }
+}
+
+.title {
+  margin-bottom: 0.5rem;
+  @include font-size(1.2rem, 1.3rem);
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.period {
+  @include font-size(0.7rem, 0.8rem);
+  color: var(--on-surface-300);
+}
+
+.description {
+  @include font-size(0.9rem, 1rem);
+  margin-top: 1rem;
+}

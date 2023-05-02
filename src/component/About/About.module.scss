@@ -11,14 +11,29 @@
     font-weight: 300;
 
     li {
-      width: 100%;
-      max-width: 600px;
+      width: 50%;
       height: auto;
       border-radius: $radius_1;
       margin-bottom: 1rem;
 
+      &:nth-child(even) {
+        margin-left: auto;
+      }
+
+      &:nth-child(odd) {
+        text-align: right;
+      }
+
       @include respond(tablet) {
-        max-width: 500px;
+        width: 100%;
+
+        &:nth-child(even) {
+          margin-left: unset;
+        }
+
+        &:nth-child(odd) {
+          text-align: unset;
+        }
       }
     }
 
@@ -30,7 +45,6 @@
     }
 
     p {
-      margin-bottom: 2rem;
       @include font-size(0.9rem, 1rem);
       color: var(--on-surface-100);
       font-weight: 400;

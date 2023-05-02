@@ -60,10 +60,6 @@
       margin-right: 4px;
     }
 
-    path {
-      stroke: var(--primary);
-    }
-
     @include respond(laptop_s) {
       margin-left: 0;
       font-weight: 600;

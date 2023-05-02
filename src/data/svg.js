@@ -42,13 +42,13 @@ export const mail = (
 export const projectsIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
     <path
-      stroke="#000001"
+      stroke="var(--primary)"
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M12.5.5h-11a1 1 0 00-1 1v11a1 1 0 001 1h11a1 1 0 001-1v-11a1 1 0 00-1-1zM.5 4h13"
     />
     <path
-      stroke="#000001"
+      stroke="var(--primary)"
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M4.5 7L3 8.5 4.5 10M10 7l1.5 1.5L10 10M6.5 10.5L8 6"
@@ -59,13 +59,13 @@ export const projectsIcon = (
 export const aboutIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
     <path
-      stroke="#000001"
+      stroke="var(--primary)"
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M7 13.5a6.5 6.5 0 100-13 6.5 6.5 0 000 13z"
     />
     <path
-      stroke="#000001"
+      stroke="var(--primary)"
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M3.7 8c.5 1.8 2.5 2.9 4.3 2.4 1.1-.4 2-1.3 2.3-2.4M4.8 5.4a.2.2 0 110-.4M4.8 5.4a.2.2 0 100-.4M9.2 5.4a.2.2 0 110-.4M9.2 5.4a.2.2 0 100-.4"
@@ -76,13 +76,13 @@ export const aboutIcon = (
 export const arrowbase = (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
     <path
-      stroke="#000001"
+      stroke="var(--primary)"
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M10.05 7a3 3 0 11-6 0 3 3 0 016 0v0z"
     />
     <path
-      stroke="#000001"
+      stroke="var(--primary)"
       strokeLinecap="round"
       strokeLinejoin="round"
       d="M10.05 7v1.3c0 3.49 5.47.2 2.6-4.54A6.59 6.59 0 007 .5 6.5 6.5 0 109.52 13"
@@ -107,21 +107,10 @@ export const arrowbase2 = (
   </svg>
 );
 
-export const homeIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
-    <path
-      stroke="#000001"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M.5 7L7 .5 13.5 7M2.5 8.5v5h9v-5"
-    />
-  </svg>
-);
-
 export const skillsIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" viewBox="0 0 14 14">
     <g
-      stroke="#000001"
+      stroke="var(--primary)"
       strokeLinecap="round"
       strokeLinejoin="round"
       filter="url(#filter0_d_4_13569)"
@@ -301,5 +290,26 @@ export const curriculum = (
         <path fill="#fff" d="M0 0H24V24H0z" />
       </clipPath>
     </defs>
+  </svg>
+);
+
+export const experienceIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <path
+      stroke="var(--primary)"
+      strokeWidth="1.5"
+      d="M3 12c0 3.771 0 7.657 1.318 8.828C5.636 22 7.758 22 12 22c4.243 0 6.364 0 7.682-1.172C21 19.657 21 15.771 21 12"
+    />
+    <path
+      stroke="var(--primary)"
+      strokeWidth="1.5"
+      d="M14.66 14.202l6.008-1.802c.595-.179.893-.268 1.082-.482a.996.996 0 00.1-.134c.15-.243.15-.553.15-1.175 0-2.45 0-3.675-.673-4.502a2.997 2.997 0 00-.434-.434C20.066 5 18.841 5 16.391 5H7.61c-2.45 0-3.675 0-4.502.673-.16.13-.305.275-.434.434C2 6.934 2 8.159 2 10.609c0 .622 0 .932.15 1.175.03.047.063.092.1.134.19.214.487.303 1.082.482l6.008 1.802M6.5 5c.823-.02 1.66-.545 1.94-1.32l.035-.103L8.5 3.5c.042-.127.064-.19.086-.246a2 2 0 011.735-1.25C10.38 2 10.448 2 10.58 2h2.838c.133 0 .2 0 .26.004a2 2 0 011.735 1.25c.023.056.044.12.086.246l.026.077c.018.053.026.08.035.103.28.775 1.116 1.3 1.939 1.32"
+    />
+    <path
+      stroke="var(--primary)"
+      strokeLinecap="round"
+      strokeWidth="1.5"
+      d="M14 12.5h-4a.5.5 0 00-.5.5v2.162a.5.5 0 00.314.464l.7.28a4 4 0 002.972 0l.7-.28a.5.5 0 00.314-.464V13a.5.5 0 00-.5-.5z"
+    />
   </svg>
 );

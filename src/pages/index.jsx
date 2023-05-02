@@ -1,6 +1,7 @@
 import About from '../component/About/About';
 import Banner from '../component/Banner/Banner';
 import Contact from '../component/Contact/Contact';
+import Experiences from '../component/Experiences/Experiences';
 import Projects from '../component/Projects/Projects';
 import What from '../component/What/What';
 import PageLayout from '../layout/PageLayout/PageLayout';
@@ -10,6 +11,7 @@ const Home = () => (
     <PageLayout>
       <Banner />
       <About />
+      <Experiences />
       <Projects />
       <What />
       <Contact />
