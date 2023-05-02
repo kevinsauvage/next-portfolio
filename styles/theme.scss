@@ -1,18 +1,18 @@
-$surface: #15417e;
+$surface: #1a2d6b;
 $surface-light: #c0c0c0;
 
 $colors-dark: (
-  primary: #22f7c9,
+  primary: #00f895,
   secondary: #3bfbf5,
-  surface-100: lighten($surface, 20%),
-  surface-200: lighten($surface, 15%),
-  surface-300: lighten($surface, 10%),
-  surface-400: lighten($surface, 5%),
+  surface-100: lighten($surface, 16%),
+  surface-200: lighten($surface, 12%),
+  surface-300: lighten($surface, 8%),
+  surface-400: lighten($surface, 4%),
   surface-500: $surface,
-  surface-600: darken($surface, 5%),
-  surface-700: darken($surface, 10%),
-  surface-800: darken($surface, 15%),
-  surface-900: darken($surface, 20%),
+  surface-600: darken($surface, 4%),
+  surface-700: darken($surface, 8%),
+  surface-800: darken($surface, 12%),
+  surface-900: darken($surface, 16%),
   on-surface-100: lighten($surface, 60%),
   on-surface-200: lighten($surface, 50%),
   on-surface-300: lighten($surface, 40%),
