@@ -11,7 +11,7 @@ import styles from './Projects.module.scss';
 const Projects = () => (
   <Section id="projects">
     <UpTitle text="Work" icon={projectsIcon} />
-    <Title>Featured Projects</Title>
+    <Title>Things I’ve Built</Title>
     <div className={styles.cards}>
       {projects.map((item, index) => (
         <FadeIn key={item?.title} delay={`${0.3 * index}s`}>

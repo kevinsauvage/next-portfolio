@@ -1,5 +1,4 @@
-import { RiMenu4Fill } from 'react-icons/ri';
-
+import { hamburgerMenuIcon } from '../../data/svg';
 import Container from '../Container/Container';
 import FadeIn from '../FadeIn/FadeIn';
 import Logo from '../Logo/Logo';
@@ -18,7 +17,9 @@ const Header = () => {
         <Logo />
         <Navigation links={links} setMenuIsOpen={setMenuIsOpen} menuIsOpen={menuIsOpen} />
         <FadeIn className={styles.hamb}>
-          <RiMenu4Fill onClick={() => setMenuIsOpen((previous) => !previous)} />
+          <button type="button" onClick={() => setMenuIsOpen((previous) => !previous)}>
+            {hamburgerMenuIcon}
+          </button>
         </FadeIn>
       </Container>
     </div>

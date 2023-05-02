@@ -34,7 +34,19 @@
 .hamb {
   z-index: 0;
   display: none;
-  font-size: 3rem;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
 
   @include respond(laptop_s) {
     display: inline;

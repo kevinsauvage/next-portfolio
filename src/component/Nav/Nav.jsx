@@ -1,7 +1,13 @@
-import { IoMdCloseCircle } from 'react-icons/io';
 import Link from 'next/link';
 
-import { aboutIcon, arrowbase, experienceIcon, projectsIcon, skillsIcon } from '../../data/svg';
+import {
+  aboutIcon,
+  arrowbase,
+  closeIcon,
+  experienceIcon,
+  projectsIcon,
+  skillsIcon,
+} from '../../data/svg';
 import FadeIn from '../FadeIn/FadeIn';
 
 import styles from './Nav.module.scss';
@@ -30,10 +36,13 @@ const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
           </li>
         ))}
       </ul>
-      <IoMdCloseCircle
+      <button
+        type="button"
         className={styles.close}
         onClick={() => setMenuIsOpen((previous) => !previous)}
-      />
+      >
+        {closeIcon}
+      </button>
     </nav>
   );
 };

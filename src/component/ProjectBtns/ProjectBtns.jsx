@@ -1,7 +1,4 @@
-import { FiExternalLink } from 'react-icons/fi';
-
-import { github } from '../../data/svg';
-import Button from '../Button/Button';
+import { externalLink, github } from '../../data/svg';
 
 import styles from './ProjectBtns.module.scss';
 
@@ -18,8 +15,12 @@ const ProjectBtns = ({ item }) => {
 
   return (
     <div className={styles.ProjectBtns}>
-      <Button onClick={handleClickSourceCode} svg={github} label="Source code" variant="outlined" />
-      <Button onClick={handleClickVisit} svg={<FiExternalLink />} label="Visit website" />
+      <button type="button" onClick={handleClickSourceCode}>
+        {github}
+      </button>
+      <button type="button" onClick={handleClickVisit}>
+        {externalLink}
+      </button>
     </div>
   );
 };
