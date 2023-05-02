@@ -14,7 +14,7 @@ const What = () => (
     <Title>Languages & Skills</Title>
     <div className={styles.items}>
       {competences.map((item, index) => (
-        <FadeIn key={item.description} delay={`${0.1 * index}s`}>
+        <FadeIn key={item.description}>
           <CompetenceCard item={item} />
         </FadeIn>
       ))}

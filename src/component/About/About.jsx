@@ -18,8 +18,6 @@ const About = () => (
           <li>
             <FadeIn>
               <h3>About me</h3>
-            </FadeIn>
-            <FadeIn>
               <p>
                 Hello there! I'm Kévin Sauvage, a dedicated front-end developer with back-end
                 knowledge and two years of experience under my belt. With a passion for creating
@@ -32,8 +30,6 @@ const About = () => (
           <li>
             <FadeIn>
               <h3>Expertise</h3>
-            </FadeIn>
-            <FadeIn>
               <p>
                 With proficiency in various in-demand programming languages and frameworks, I am
                 well-versed in Javascript, React.js, Next.js, Svelte.js, Node.js, and Express.js.
@@ -45,8 +41,6 @@ const About = () => (
           <li>
             <FadeIn>
               <h3>Unique Perspective</h3>
-            </FadeIn>
-            <FadeIn>
               <p>
                 What sets me apart is that I made a bold career change to pursue my passion for
                 programming, which has given me a unique perspective and dedication to my craft. I'm
@@ -59,8 +53,6 @@ const About = () => (
           <li>
             <FadeIn>
               <h3>Certification & Professional Experience</h3>
-            </FadeIn>
-            <FadeIn>
               <p>
                 My certification in full-stack web development from Le Wagon has provided me with
                 hands-on expertise in various programming languages and tools. I've further refined
@@ -71,8 +63,6 @@ const About = () => (
           <li>
             <FadeIn>
               <h3>Interests</h3>
-            </FadeIn>
-            <FadeIn>
               <p>
                 In my free time, I like to explore the vibrant city of Barcelona where I currently
                 reside, and stay active through hiking and working out. I also have a passion for

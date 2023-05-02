@@ -1,3 +1,5 @@
+import FadeIn from '../../FadeIn/FadeIn';
+
 import styles from './ExperiencesCard.module.scss';
 
 const ExperiencesCard = ({ experience }) => {
@@ -5,9 +7,11 @@ const ExperiencesCard = ({ experience }) => {
 
   return (
     <li className={styles.card}>
-      <h4 className={styles.title}>{title}</h4>
-      <p className={styles.period}>{period}</p>
-      <p className={styles.description}>{description}</p>
+      <FadeIn>
+        <h4 className={styles.title}>{title}</h4>
+        <p className={styles.period}>{period}</p>
+        <p className={styles.description}>{description}</p>
+      </FadeIn>
     </li>
   );
 };
