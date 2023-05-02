@@ -23,9 +23,9 @@
 }
 
 .title {
-  @include font-size(1.2rem, 1.3rem);
+  @include font-size(1.1rem, 1.2rem);
   color: var(--primary);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .period {
