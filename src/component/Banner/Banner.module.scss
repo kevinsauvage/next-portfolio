@@ -62,14 +62,9 @@
   .subtitle {
     max-width: 600px;
     margin-top: 1rem;
+    margin-bottom: 2rem;
     color: var(--on-surface-200);
     font-weight: 400;
     @include font-size(0.8rem, 1rem);
   }
-}
-
-.button {
-  width: fit-content;
-  margin-top: 2rem;
-  box-shadow: $shadow_4;
 }

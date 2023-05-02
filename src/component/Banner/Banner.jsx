@@ -24,9 +24,7 @@ const Banner = () => (
       </FadeIn>
       <FadeIn delay="0.4s">
         <Button
-          className={styles.button}
           label="Contact me!"
-          variant="outlined"
           onClick={() => window.open('mailto:kevinsauvage@outlook.com')}
         />
       </FadeIn>

@@ -5,14 +5,10 @@
   align-items: center;
   justify-content: center;
 }
+
 .subtitle {
   max-width: 600px;
+  margin-bottom: 3rem;
   text-align: center;
-
   @include font-size(0.9rem, 1rem);
-}
-
-.button {
-  width: fit-content;
-  margin-top: 3rem;
 }

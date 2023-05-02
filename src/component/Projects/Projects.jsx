@@ -1,10 +1,11 @@
 import projects from '../../data/projects';
 import { projectsIcon } from '../../data/svg';
 import FadeIn from '../FadeIn/FadeIn';
-import ProjectCard from '../ProjectCard/ProjectCard';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
 import UpTitle from '../Uptitle/UpTitle';
+
+import ProjectCard from './ProjectCard/ProjectCard';
 
 import styles from './Projects.module.scss';
 

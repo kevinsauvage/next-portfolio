@@ -20,12 +20,7 @@ const Contact = () => (
       </p>
     </FadeIn>
     <FadeIn>
-      <Button
-        className={styles.button}
-        label="Contact me!"
-        variant="outlined"
-        onClick={() => window.open('mailto:kevinsauvage@outlook.com')}
-      />
+      <Button label="Contact me!" onClick={() => window.open('mailto:kevinsauvage@outlook.com')} />
     </FadeIn>
   </Section>
 );
