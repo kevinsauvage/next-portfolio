@@ -21,7 +21,7 @@ const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
         {links.map((link, index) => (
           <li key={link.hash} className={`${styles.item} ${menuIsOpen ? styles.open : ''}`}>
             <FadeIn delay={`${index * 0.05}s`}>
-              <Link href={`/${link.hash}`} onClick={() => link.to()} passHref>
+              <Link href={`/${link.hash}`} passHref>
                 <a>
                   {link.icon} {link.text}
                 </a>
