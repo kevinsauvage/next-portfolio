@@ -1,17 +1,52 @@
 .card {
+  position: relative;
   width: 50%;
   margin-bottom: 2rem;
 
-  &:nth-child(even) {
-    margin-left: auto;
+  &::after {
+    position: absolute;
+    z-index: 99;
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--surface-500);
+    content: '';
+
+    @include respond(tablet) {
+      display: none;
+    }
   }
 
   &:nth-child(odd) {
+    right: 2.25rem;
     text-align: right;
+
+    &::after {
+      right: -3rem;
+    }
+
+    @include respond(tablet) {
+      right: 0;
+    }
+  }
+
+  &:nth-child(even) {
+    left: 2.25rem;
+    margin-left: auto;
+
+    &::after {
+      left: -3rem;
+    }
+
+    @include respond(tablet) {
+      left: 0;
+    }
   }
 
   @include respond(tablet) {
     width: 100%;
+
     &:nth-child(even) {
       margin-left: unset;
     }
