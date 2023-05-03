@@ -2,9 +2,9 @@ import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import Head from 'next/head';
 
-import Container from '../../component/Container/Container';
-import Footer from '../../component/Footer/Footer';
-import Header from '../../component/Header/Header';
+import Container from '../Container/Container';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
 
 import styles from './PageLayout.module.scss';
 
