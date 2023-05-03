@@ -50,7 +50,6 @@
     @include font-size(1.7rem, 5.5rem);
     width: fit-content;
     color: var(--primary);
-    color: rgba(var(--rgb-primary), 0.8);
     font-weight: 700;
     line-height: 1.3;
 
@@ -63,7 +62,7 @@
     max-width: 600px;
     margin-top: 1rem;
     margin-bottom: 2rem;
-    color: var(--on-surface-200);
+    color: var(--on-surface-100);
     font-weight: 400;
     @include font-size(0.8rem, 1rem);
   }
