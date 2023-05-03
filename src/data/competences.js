@@ -1,5 +1,6 @@
 import {
   css,
+  eslintIcon,
   express,
   git,
   githubIcon,
@@ -30,6 +31,7 @@ const competences = [
   { description: 'Redux', icon: redux },
   { description: 'Git', icon: git },
   { description: 'Github', icon: githubIcon },
+  { description: 'Eslint', icon: eslintIcon },
 ];
 
 export default competences;
