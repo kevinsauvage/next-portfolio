@@ -2,8 +2,20 @@
   position: relative;
   width: fit-content;
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
   font-weight: 700;
   text-align: center;
   @include font-size(1.8rem, 3rem);
+
+  &::after {
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    width: 4rem;
+    height: 2px;
+    border-radius: 10px;
+    background-color: var(--primary);
+    content: '';
+    transform: translateX(-50%);
+  }
 }

@@ -1,0 +1,30 @@
+.services {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @include respond(laptop_s) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include respond(mobile_l) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  width: 100%;
+  border-radius: $radius_1;
+  background-color: var(--surface-800);
+  @include padding;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 2rem;
+  color: var(--primary);
+  @include font-size(1rem, 1.1rem);
+}
+.content {
+  @include font-size(0.8rem, 0.9rem);
+}

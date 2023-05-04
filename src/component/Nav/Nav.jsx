@@ -6,6 +6,7 @@ import {
   closeIcon,
   experienceIcon,
   projectsIcon,
+  servicesIcon,
   skillsIcon,
 } from '../../data/svg';
 import FadeIn from '../FadeIn/FadeIn';
@@ -14,6 +15,7 @@ import styles from './Nav.module.scss';
 
 const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
   const links = [
+    { hash: '#services', icon: servicesIcon, text: 'Services' },
     { hash: '#about', icon: aboutIcon, text: 'About' },
     { hash: '#experience', icon: experienceIcon, text: 'Experience' },
     { hash: '#projects', icon: projectsIcon, text: 'Work' },
