@@ -45,7 +45,7 @@
     }
 
     p {
-      @include font-size(0.9rem, 1rem);
+      @include font-size(0.8rem, 0.9rem);
       color: var(--on-surface-100);
       font-weight: 400;
     }
