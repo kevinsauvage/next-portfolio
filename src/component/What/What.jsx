@@ -12,7 +12,9 @@ import styles from './What.module.scss';
 const What = () => (
   <Section id="what">
     <UpTitle text="What" icon={skillsIcon} />
-    <Title>Languages & Skills</Title>
+    <Title subtitle="Discover the languages and skills I offer, showcasing my expertise and the tools I use to bring projects to life.">
+      Languages & Skills
+    </Title>
     <div className={styles.items}>
       {competences.map((item) => (
         <FadeIn key={item.description}>

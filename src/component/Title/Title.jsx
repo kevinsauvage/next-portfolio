@@ -2,9 +2,12 @@ import FadeIn from '../FadeIn/FadeIn';
 
 import styles from './Title.module.scss';
 
-const Title = ({ children, className }) => (
+const Title = ({ children, subtitle, className }) => (
   <FadeIn>
-    <h2 className={`${styles.Title} ${className || ''}`}>{children}</h2>
+    <div className={`${styles.Title} ${className || ''}`}>
+      <h2>{children}</h2>
+      {subtitle && <p>{subtitle}</p>}
+    </div>
   </FadeIn>
 );
 

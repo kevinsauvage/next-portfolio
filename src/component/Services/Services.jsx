@@ -10,7 +10,9 @@ import styles from './Services.module.scss';
 const Services = () => (
   <Section id="services">
     <UpTitle text="Services" icon={servicesIcon} />
-    <Title>What I offer</Title>
+    <Title subtitle="Discover my range of services designed to help you achieve your business goals and elevate your brand.">
+      What I offer
+    </Title>
     <ul className={styles.services}>
       {services.map((service, index) => (
         <li key={service?.title}>

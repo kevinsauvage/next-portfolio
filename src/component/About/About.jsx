@@ -10,7 +10,9 @@ import styles from './About.module.scss';
 const About = () => (
   <Section id="about">
     <UpTitle text="About" icon={aboutIcon} />
-    <Title>Who am I</Title>
+    <Title subtitle="Discover the person behind the work: my passion, expertise, and experience that drive my creative vision.">
+      Who am I
+    </Title>
     <div>
       <div className={styles.wrapper}>
         <ul className={styles.about}>

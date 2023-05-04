@@ -26,6 +26,7 @@
   color: var(--primary);
   @include font-size(1rem, 1.1rem);
 }
+
 .content {
   @include font-size(0.8rem, 0.9rem);
 }

@@ -13,7 +13,9 @@ import styles from './Experiences.module.scss';
 const Experiences = () => (
   <Section id="experience">
     <UpTitle text="Experience" icon={experienceIcon} />
-    <Title>Work history</Title>
+    <Title subtitle="Explore my work history and achievements in the related field, showcasing my professional journey and expertise.">
+      Work history
+    </Title>
     <ul className={styles.list}>
       {experiences.map((experience) => (
         <ExperiencesCard key={experience.period} experience={experience} />
