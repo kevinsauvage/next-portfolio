@@ -67,7 +67,7 @@
       transform: translateX(100px);
 
       &.open {
-        @for $i from 1 through 5 {
+        @for $i from 1 through 6 {
           &:nth-child(#{$i}) {
             animation: slideLeft;
             animation-delay: (0.1s * $i);
