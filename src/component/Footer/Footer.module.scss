@@ -6,9 +6,8 @@
 
   &__copyright {
     width: fit-content;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     margin-top: 2rem;
-    color: var(--on-surface-200);
     font-weight: 500;
     @include font-size(0.8rem, 0.8rem);
   }
