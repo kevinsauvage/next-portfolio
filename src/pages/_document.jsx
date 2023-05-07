@@ -5,14 +5,14 @@ const Document = () => (
     <Head>
       <meta
         name="description"
-        content="Welcome to my portfolio! I'm Kévin Sauvage, a passionate full-stack web developer with expertise in Javascript, React.js, Next.js, Svelte.js, Node.js, and Express.js. With a certification in full-stack web development from Le Wagon and professional experience at Subforce and Extia, I pride myself on delivering efficient, reliable, and visually appealing applications. Let's work together to create something amazing. Explore my portfolio and get in touch today"
+        content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring expert-level skills in Javascript, React.js, and Next.js. Let's create something amazing together"
       />
       <meta property="og:url" content="https://www.kevin-sauvage.com/" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Kévin Sauvage Portfolio" />
       <meta
         property="og:description"
-        content="Welcome to my portfolio! I'm Kévin Sauvage, a passionate full-stack web developer with expertise in Javascript, React.js, Next.js, Svelte.js, Node.js, and Express.js. With a certification in full-stack web development from Le Wagon and professional experience at Subforce and Extia, I pride myself on delivering efficient, reliable, and visually appealing applications. Let's work together to create something amazing. Explore my portfolio and get in touch today"
+        content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring expert-level skills in Javascript, React.js, and Next.js. Let's create something amazing together"
       />
       <meta
         property="og:image"
@@ -24,7 +24,7 @@ const Document = () => (
       <meta name="twitter:title" content="Kévin Sauvage Portfolio" />
       <meta
         name="twitter:description"
-        content="Welcome to my portfolio! I'm Kévin Sauvage, a passionate full-stack web developer with expertise in Javascript, React.js, Next.js, Svelte.js, Node.js, and Express.js. With a certification in full-stack web development from Le Wagon and professional experience at Subforce and Extia, I pride myself on delivering efficient, reliable, and visually appealing applications. Let's work together to create something amazing. Explore my portfolio and get in touch today"
+        content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring expert-level skills in Javascript, React.js, and Next.js. Let's create something amazing together"
       />
       <meta
         name="twitter:image"
