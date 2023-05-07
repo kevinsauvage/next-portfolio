@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Router } from 'next/router';
 
 const HeaderFunction = () => {
@@ -14,13 +14,10 @@ const HeaderFunction = () => {
     body.style.overflow = menuIsOpen ? 'hidden' : 'auto';
   }, [menuIsOpen]);
 
-  const previousScrollPos = useRef(0);
-
   const listenToScroll = () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const isScrollingUp = winScroll < previousScrollPos.current && winScroll > 0;
-    setScrolled(isScrollingUp);
-    previousScrollPos.current = winScroll;
+    if (winScroll > 50) setScrolled(true);
+    else setScrolled(false);
   };
 
   useEffect(() => {
