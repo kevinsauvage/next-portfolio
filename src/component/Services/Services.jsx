@@ -10,7 +10,7 @@ import styles from './Services.module.scss';
 const Services = () => (
   <Section id="services">
     <UpTitle text="Services" icon={servicesIcon} />
-    <Title subtitle="Discover my comprehensive range of skills and services, tailored to meet your unique needs and exceed your expectations.">
+    <Title subtitle="Discover a diverse range of services and skills tailored to exceed your expectations and meet your unique needs.">
       What I offer
     </Title>
     <ul className={styles.services}>
