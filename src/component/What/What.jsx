@@ -12,7 +12,7 @@ import styles from './What.module.scss';
 const What = () => (
   <Section id="what">
     <UpTitle text="What" icon={skillsIcon} />
-    <Title subtitle="Discover the languages and skills I offer, showcasing my expertise and the tools I use to bring projects to life.">
+    <Title subtitle="Discover the range of skills and tools I utilize to bring projects to life and achieve outstanding results.">
       Languages & Skills
     </Title>
     <div className={styles.items}>

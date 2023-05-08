@@ -11,7 +11,7 @@ const Services = () => (
   <Section id="services">
     <UpTitle text="Services" icon={servicesIcon} />
     <Title subtitle="Discover a diverse range of services and skills tailored to exceed your expectations and meet your unique needs.">
-      What I offer
+      What I do
     </Title>
     <ul className={styles.services}>
       {services.map((service, index) => (

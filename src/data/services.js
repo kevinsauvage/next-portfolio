@@ -6,12 +6,12 @@ const services = [
   },
   {
     content:
-      'I specialize in building powerful and scalable server-side applications that provide efficient and reliable performance for web-based solutions. With my expertise, websites can handle high traffic volumes and complex business logic.',
+      'I create powerful and scalable server-side applications that provide efficient and reliable performance for web-based solutions. With my expertise, websites can handle high traffic volumes and complex business logic.',
     title: 'Back-end Development',
   },
   {
     content:
-      'I provide custom solutions that cater to the unique needs of businesses. From ideation to launch, I work closely with clients to create secure, responsive, and scalable solutions that align with their business goals.',
+      'Empowering businesses with custom solutions that cater to their unique needs, I provide end-to-end support from ideation to launch to create secure, responsive, and scalable solutions that align with business goals.',
     title: 'Web App Development',
   },
   {
@@ -21,12 +21,12 @@ const services = [
   },
   {
     content:
-      'I provide website optimization services to enhance website speed, performance, and user experience. By analyzing and improving key metrics, such as page load time and site speed, I can help websites rank higher on search engines and increase user engagement.',
+      'With a focus on website optimization, I analyze and improve key metrics such as page load time and site speed to enhance website speed, performance, and user experience. This helps websites rank higher on search engines and increase user engagement.',
     title: 'Performance Optimization',
   },
   {
     content:
-      'I provide ongoing website maintenance and support to ensure that websites are always up-to-date and running smoothly. With my expertise, clients can rest assured that their websites are secure, reliable, and optimized for optimal performance.',
+      'I specialize in providing ongoing website maintenance and support to keep websites up-to-date and running at optimal performance. With my expertise, businesses can trust their websites are secure, reliable, and performing at their best.',
     title: 'Website Maintenance',
   },
 ];
