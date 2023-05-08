@@ -27,7 +27,7 @@ const ProjectCard = ({ item }) => {
         />
       </div>
       <div>
-        <p className={styles.title}>{item.title}</p>
+        <h6 className={styles.title}>{item.title}</h6>
         <p className={styles.languages}>{item.languages}</p>
         <p className={styles.description}>{item.description}</p>
       </div>

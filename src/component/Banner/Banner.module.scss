@@ -55,6 +55,7 @@
 
     @include respond(mobile_l) {
       left: -1px;
+      line-height: 1.6;
     }
   }
 

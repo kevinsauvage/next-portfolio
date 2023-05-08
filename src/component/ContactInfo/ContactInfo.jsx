@@ -7,13 +7,13 @@ import FadeIn from '../FadeIn/FadeIn';
 import styles from './ContactInfo.module.scss';
 
 const socialButtonRight = [
-  { href: 'https://www.linkedin.com/in/kevin-sauvage/', icon: linkedin, text: 'Linkedin' },
-  { href: 'https://github.com/kevinsauvage/', icon: github, text: 'Github' },
+  { href: 'https://www.linkedin.com/in/kevin-sauvage/', icon: linkedin, text: 'Visit my Linkedin' },
+  { href: 'https://github.com/kevinsauvage/', icon: github, text: 'Visit my Github' },
 ];
 
 const socialButtonLeft = [
-  { href: `/kevin-sauvage-cv.pdf`, icon: <>CV</>, text: 'Curriculum' },
-  { href: 'mailto:kevinsauvage@outlook.com', icon: arrowbase2, text: 'E-mail' },
+  { href: `/kevin-sauvage-cv.pdf`, icon: <>CV</>, text: 'Download my curriculum' },
+  { href: 'mailto:kevinsauvage@outlook.com', icon: arrowbase2, text: 'Send me an e-mail' },
 ];
 
 const ContactInfo = () => (
