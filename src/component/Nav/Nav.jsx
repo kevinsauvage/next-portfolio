@@ -15,8 +15,8 @@ import styles from './Nav.module.scss';
 
 const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
   const links = [
-    { hash: '#services', icon: servicesIcon, text: 'Services' },
     { hash: '#about', icon: aboutIcon, text: 'About' },
+    { hash: '#services', icon: servicesIcon, text: 'Services' },
     { hash: '#experience', icon: experienceIcon, text: 'Experience' },
     { hash: '#projects', icon: projectsIcon, text: 'Projects' },
     { hash: '#what', icon: skillsIcon, text: 'What' },

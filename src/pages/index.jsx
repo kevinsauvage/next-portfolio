@@ -10,8 +10,8 @@ import What from '../component/What/What';
 const Home = () => (
   <PageLayout>
     <Banner />
-    <Services />
     <About />
+    <Services />
     <Experiences />
     <Projects />
     <What />
