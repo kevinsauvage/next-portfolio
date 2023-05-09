@@ -18,7 +18,7 @@ const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
     { hash: '#services', icon: servicesIcon, text: 'Services' },
     { hash: '#about', icon: aboutIcon, text: 'About' },
     { hash: '#experience', icon: experienceIcon, text: 'Experience' },
-    { hash: '#projects', icon: projectsIcon, text: 'Work' },
+    { hash: '#projects', icon: projectsIcon, text: 'Projects' },
     { hash: '#what', icon: skillsIcon, text: 'What' },
     { hash: '#contact', icon: arrowbase, text: 'Contact' },
   ];

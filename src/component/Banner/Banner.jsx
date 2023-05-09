@@ -17,9 +17,9 @@ const Banner = () => (
       </FadeIn>
       <FadeIn delay="0.35s">
         <p className={styles.subtitle}>
-          I create visually stunning and user-friendly web applications that are both functional and
-          engaging. My expertise in web development allows me to deliver top-notch solutions that
-          exceed expectations.
+          Building engaging and visually stunning web applications is what I do best. As an
+          experienced web developer, I take pride in creating functional and user-friendly solutions
+          that exceed expectations.
         </p>
       </FadeIn>
       <FadeIn delay="0.4s">

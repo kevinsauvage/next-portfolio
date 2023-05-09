@@ -48,6 +48,10 @@
       @include font-size(0.8rem, 0.9rem);
       color: var(--on-surface-100);
       font-weight: 400;
+      strong {
+        color: var(--primary);
+        font-weight: 400;
+      }
     }
   }
 }

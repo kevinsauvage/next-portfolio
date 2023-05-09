@@ -11,7 +11,7 @@ import styles from './Projects.module.scss';
 
 const Projects = () => (
   <Section id="projects">
-    <UpTitle text="Work" icon={projectsIcon} />
+    <UpTitle text="Projects" icon={projectsIcon} />
     <Title subtitle="Take a tour of my development projects, featuring a diverse range of creations that showcase my skills and creativity.">
       Things I’ve Built
     </Title>
