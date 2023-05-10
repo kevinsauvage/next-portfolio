@@ -1,6 +1,5 @@
 import projects from '../../data/projects';
 import { projectsIcon } from '../../data/svg';
-import FadeIn from '../FadeIn/FadeIn';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
 import UpTitle from '../Uptitle/UpTitle';
@@ -16,10 +15,8 @@ const Projects = () => (
       Things I’ve Built
     </Title>
     <div className={styles.cards}>
-      {projects.map((item, index) => (
-        <FadeIn key={item?.title} delay={`${0.3 * index}s`}>
-          <ProjectCard item={item} />
-        </FadeIn>
+      {projects.map((item) => (
+        <ProjectCard key={item.title} item={item} />
       ))}
     </div>
   </Section>

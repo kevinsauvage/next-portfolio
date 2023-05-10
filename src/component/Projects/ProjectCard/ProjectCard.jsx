@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { externalLink, github } from '../../../data/svg';
+import FadeIn from '../../FadeIn/FadeIn';
 
 import styles from './ProjectCard.module.scss';
 
@@ -16,7 +17,7 @@ const ProjectCard = ({ item }) => {
   };
 
   return (
-    <div className={styles.card}>
+    <FadeIn className={styles.card}>
       <div className={styles.image}>
         <Image
           src={item.img.laptop}
@@ -26,20 +27,22 @@ const ProjectCard = ({ item }) => {
           height={1200}
         />
       </div>
-      <div>
-        <h6 className={styles.title}>{item.title}</h6>
-        <p className={styles.languages}>{item.languages}</p>
-        <p className={styles.description}>{item.description}</p>
+      <div className={styles.content}>
+        <div>
+          <h6 className={styles.title}>{item.title}</h6>
+          <p className={styles.languages}>{item.languages}</p>
+          <p className={styles.description}>{item.description}</p>
+        </div>
+        <div className={styles.buttons}>
+          <button type="button" onClick={handleClickSourceCode}>
+            {github}
+          </button>
+          <button type="button" onClick={handleClickVisit}>
+            {externalLink}
+          </button>
+        </div>
       </div>
-      <div className={styles.buttons}>
-        <button type="button" onClick={handleClickSourceCode}>
-          {github}
-        </button>
-        <button type="button" onClick={handleClickVisit}>
-          {externalLink}
-        </button>
-      </div>
-    </div>
+    </FadeIn>
   );
 };
 
