@@ -7,6 +7,7 @@ const Document = () => (
         name="description"
         content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring expert-level skills in Javascript, React.js, and Next.js. Let's create something amazing together"
       />
+      <meta name="google-site-verification" content="oklUq91tpHdbyYCySQE3l3LtgKkzC-WA8pgnt0vqlbc" />
       <meta property="og:url" content="https://www.kevin-sauvage.com/" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="Kévin Sauvage Portfolio" />
