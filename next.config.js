@@ -3,6 +3,19 @@
 const path = require('node:path');
 
 const nextConfig = {
+  async headers() {
+    return [
+      {
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+        source: '/',
+      },
+    ];
+  },
   images: {
     domains: ['res.cloudinary.com'],
   },
