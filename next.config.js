@@ -20,7 +20,7 @@ const nextConfig = {
             value: 'max-age=63072000; includeSubDomains; preload',
           },
         ],
-        source: '/',
+        source: '/*',
       },
     ];
   },
