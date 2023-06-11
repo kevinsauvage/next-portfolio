@@ -4,10 +4,10 @@ import styles from './UpTitle.module.scss';
 
 const UpTitle = ({ text, icon }) => (
   <FadeIn>
-    <span className={styles.uptitle}>
+    <div className={styles.uptitle}>
       {icon}
       <p>{text}</p>
-    </span>
+    </div>
   </FadeIn>
 );
 

@@ -115,7 +115,6 @@ export const skillsIcon = (
     </g>
     <defs>
       <filter
-        id="filter0_d_4_13569"
         width="20.936"
         height="22"
         x="-3.468"
