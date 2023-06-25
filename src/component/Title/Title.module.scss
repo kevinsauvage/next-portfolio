@@ -5,6 +5,10 @@
   margin-bottom: 6rem;
   text-align: center;
 
+  @include respond(mobile_l) {
+    margin-bottom: 3rem;
+  }
+
   .borderBottom {
     display: block;
     width: 6rem;
