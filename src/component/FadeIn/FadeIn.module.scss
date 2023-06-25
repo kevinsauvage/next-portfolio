@@ -1,4 +1,5 @@
 @mixin slideUpAndFadeIn {
+  display: inherit;
   opacity: 0;
   transform: translateY(40px);
   will-change: transform, opacity;

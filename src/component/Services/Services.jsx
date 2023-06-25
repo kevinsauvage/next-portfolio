@@ -18,7 +18,7 @@ const Services = () => (
         <li key={service?.title}>
           <FadeIn delay={`${0.3 * index}s`} className={styles.card}>
             <h2 className={styles.title}>{service.title}</h2>
-            <p className={styles.content}>{service.content}</p>
+            <p>{service.content}</p>
           </FadeIn>
         </li>
       ))}

@@ -8,7 +8,7 @@ const MyApp = ({ Component, pageProps }) => {
   useSmoothScroll();
   return (
     <>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
       <Analytics />
     </>
   );

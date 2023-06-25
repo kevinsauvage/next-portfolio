@@ -38,7 +38,7 @@
       flex-direction: column;
       justify-content: space-evenly;
       border-top: 0.1px solid var(--surface-500);
-      margin-top: 90px;
+      margin-top: $header-height;
       margin-right: 0px;
     }
   }
@@ -90,15 +90,15 @@
   @include respond(laptop_s) {
     position: absolute;
     z-index: 9999;
-    top: 1.8rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
     display: inline;
     border: none;
     background-color: transparent;
 
     svg {
-      width: 1.7rem;
-      height: 1.7rem;
+      width: 2.5rem;
+      height: 2.5rem;
 
       path {
         fill: var(--primary);

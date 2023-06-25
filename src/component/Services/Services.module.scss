@@ -25,9 +25,4 @@
   margin-bottom: 1rem;
   color: var(--primary);
   @include font-size(1rem, 1.1rem);
-  font-weight: 600;
-}
-
-.content {
-  @include font-size(0.8rem, 0.9rem);
 }

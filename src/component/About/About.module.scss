@@ -8,7 +8,6 @@
 
   .about {
     width: 100%;
-    font-weight: 300;
 
     li {
       width: 50%;
@@ -41,16 +40,12 @@
       margin-bottom: 0.5rem;
       @include font-size(1.1rem, 1.2rem);
       color: var(--primary);
-      font-weight: 600;
     }
 
     p {
-      @include font-size(0.8rem, 0.9rem);
       color: var(--on-surface-100);
-      font-weight: 400;
       strong {
         color: var(--primary);
-        font-weight: 400;
       }
     }
   }
