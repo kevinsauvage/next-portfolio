@@ -1,9 +1,10 @@
-$surface: #1a2d6b;
+$surface: #00416f;
 $surface-light: #c0c0c0;
 
 $colors-dark: (
-  primary: #00f895,
-  secondary: #3bfbf5,
+  primary: #71ffd3,
+  secondary: #7da6ff,
+  black: #000000,
   surface-100: lighten($surface, 16%),
   surface-200: lighten($surface, 12%),
   surface-300: lighten($surface, 8%),

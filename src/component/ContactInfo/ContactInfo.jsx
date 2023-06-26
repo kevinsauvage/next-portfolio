@@ -1,19 +1,30 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { arrowbase2, github, linkedin } from '../../data/svg';
+import IconGithub from '../../svg/IconGithub';
+import IconLinkedinCircled from '../../svg/IconLinkedinCircled';
+import IconMail from '../../svg/IconMail';
+import IconProfile from '../../svg/IconProfile';
 import FadeIn from '../FadeIn/FadeIn';
 
 import styles from './ContactInfo.module.scss';
 
 const socialButtonRight = [
-  { href: 'https://www.linkedin.com/in/kevin-sauvage/', icon: linkedin, text: 'Visit my Linkedin' },
-  { href: 'https://github.com/kevinsauvage/', icon: github, text: 'Visit my Github' },
+  {
+    href: 'https://www.linkedin.com/in/kevin-sauvage/',
+    icon: <IconLinkedinCircled />,
+    text: 'Visit my Linkedin',
+  },
+  { href: 'https://github.com/kevinsauvage/', icon: <IconGithub />, text: 'Visit my Github' },
 ];
 
 const socialButtonLeft = [
-  { href: `/kevin-sauvage-cv.pdf`, icon: <>CV</>, text: 'Download my curriculum' },
-  { href: 'mailto:kevinsauvage@outlook.com', icon: arrowbase2, text: 'Send me an e-mail' },
+  { href: `/kevin-sauvage-cv.pdf`, icon: <IconProfile />, text: 'Download my curriculum' },
+  {
+    href: 'mailto:kevinsauvage@outlook.com',
+    icon: <IconMail />,
+    text: 'Send me an e-mail',
+  },
 ];
 
 const ContactInfo = () => (

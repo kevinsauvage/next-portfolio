@@ -7,7 +7,7 @@ const Banner = () => (
   <section className={styles.Banner}>
     <div className={styles.main}>
       <FadeIn delay="0.2s">
-        <small>Greetings, my name is</small>
+        <p className={styles.intro}>Greetings, my name is</p>
       </FadeIn>
       <FadeIn delay="0.25s">
         <h1>Kévin Sauvage</h1>

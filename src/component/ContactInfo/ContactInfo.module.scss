@@ -9,7 +9,12 @@
     left: 3rem;
 
     .popover {
-      left: 125%;
+      left: 2.2rem;
+      &::before {
+        left: -6px; /* Adjust this value to position the arrow */
+        border-width: 8px 8px 8px 0px; /* Adjust the border width to change the size of the arrow */
+        border-color: transparent var(--surface-600) transparent transparent; /* Adjust the last value to change the arrow color */
+      }
     }
   }
 
@@ -18,6 +23,11 @@
 
     .popover {
       right: 125%;
+      &::before {
+        right: -6px; /* Adjust this value to position the arrow */
+        border-width: 8px 0 8px 8px; /* Adjust the border width to change the size of the arrow */
+        border-color: transparent transparent transparent var(--surface-600); /* Adjust the last value to change the arrow color */
+      }
     }
   }
 
@@ -46,15 +56,23 @@
     .popover {
       position: absolute;
       display: none;
-      padding: 0.2rem 0.4rem;
-      border: 1px solid var(--surface-400);
+      padding: 0.4rem 0.5rem;
       border-radius: $radius_2;
       background-color: var(--surface-600);
+      box-shadow: $shadow_2;
       color: var(--primary);
-      font-weight: 500;
       opacity: 0;
       white-space: nowrap;
-      @include font-size(0.8rem, 0.8rem);
+
+      &::before {
+        position: absolute;
+        top: 50%;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        content: '';
+        transform: translateY(-50%);
+      }
 
       @include respond(tablet) {
         display: none;
@@ -69,27 +87,17 @@
     justify-content: center;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.2rem;
     line-height: 1;
     text-decoration: none;
     transition: transform 0.3s ease;
 
     svg {
-      width: 1.3rem;
-      height: 1.3rem;
-
-      path {
-        fill: var(--on-surface-100);
-      }
+      font-size: 1.7rem;
     }
 
     &:hover {
       color: var(--primary);
       transform: scale(1.1);
-
-      path {
-        fill: var(--primary);
-      }
 
       .popover {
         display: block;
