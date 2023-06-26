@@ -8,15 +8,7 @@
   }
 }
 
-.logoImg {
-  overflow: hidden;
-  border: 2px solid var(--primary) !important;
-  border-radius: 50%;
-  box-shadow: $shadow_2 !important;
-}
-
 .logoName {
-  margin-left: 1rem;
   font-family: 'Yeseva One', cursive;
   @include font-size(1.3rem, 1.6rem);
 }

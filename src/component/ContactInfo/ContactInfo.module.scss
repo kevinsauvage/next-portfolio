@@ -13,7 +13,19 @@
       &::before {
         left: -6px; /* Adjust this value to position the arrow */
         border-width: 8px 8px 8px 0px; /* Adjust the border width to change the size of the arrow */
-        border-color: transparent var(--surface-600) transparent transparent; /* Adjust the last value to change the arrow color */
+        border-color: transparent var(--surface-700) transparent transparent; /* Adjust the last value to change the arrow color */
+      }
+    }
+
+    li {
+      @include respond(tablet) {
+        order: 2;
+      }
+    }
+
+    .line {
+      @include respond(tablet) {
+        order: 1;
       }
     }
   }
@@ -23,10 +35,11 @@
 
     .popover {
       right: 125%;
+
       &::before {
         right: -6px; /* Adjust this value to position the arrow */
         border-width: 8px 0 8px 8px; /* Adjust the border width to change the size of the arrow */
-        border-color: transparent transparent transparent var(--surface-600); /* Adjust the last value to change the arrow color */
+        border-color: transparent transparent transparent var(--surface-700); /* Adjust the last value to change the arrow color */
       }
     }
   }
@@ -37,6 +50,7 @@
     bottom: 2rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: space-between;
     gap: 1.5rem;
 
@@ -44,7 +58,7 @@
       position: static;
       width: 100%;
       flex-direction: row;
-      margin-top: 2rem;
+      margin: 1rem 0;
     }
 
     li {
@@ -58,7 +72,7 @@
       display: none;
       padding: 0.4rem 0.5rem;
       border-radius: $radius_2;
-      background-color: var(--surface-600);
+      background-color: var(--surface-700);
       box-shadow: $shadow_2;
       color: var(--primary);
       opacity: 0;
@@ -78,6 +92,19 @@
         display: none;
       }
     }
+    .line {
+      span {
+        width: 2px;
+        height: 5rem;
+        background-color: var(--primary);
+      }
+      @include respond(tablet) {
+        span {
+          width: 3rem;
+          height: 2px;
+        }
+      }
+    }
   }
 
   .icon {
@@ -92,7 +119,7 @@
     transition: transform 0.3s ease;
 
     svg {
-      font-size: 1.7rem;
+      font-size: 1.8rem;
     }
 
     &:hover {

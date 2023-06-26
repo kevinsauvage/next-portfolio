@@ -1,6 +1,7 @@
 .button {
   position: relative;
   display: flex;
+  overflow: hidden;
   width: fit-content;
   align-items: center;
   justify-content: center;
@@ -15,6 +16,33 @@
   cursor: pointer;
   font-weight: 500;
   @include font-size(1rem, 1rem);
+  transition: all 0.3s linear;
+
+  span {
+    position: relative;
+    z-index: 9;
+    display: block;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 120%;
+    height: 120%;
+    background-color: var(--primary);
+    content: '';
+    transform: skewX(-20deg);
+    transition: all 0.3s linear;
+  }
+
+  &:hover {
+    color: var(--surface-900);
+    &::after {
+      left: -15%;
+      clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    }
+  }
 
   svg {
     width: 1.6rem;
@@ -25,5 +53,9 @@
     path {
       fill: var(--primary);
     }
+  }
+
+  .clicked {
+    transform: scale(0.8);
   }
 }

@@ -42,6 +42,10 @@ const ContactInfo = () => (
           </FadeIn>
         </li>
       ))}
+
+      <FadeIn delay="1.5s" className={styles.line}>
+        <span />
+      </FadeIn>
     </ul>
     <ul className={styles.right}>
       {socialButtonRight.map((item, index) => (
@@ -56,6 +60,9 @@ const ContactInfo = () => (
           </FadeIn>
         </li>
       ))}
+      <FadeIn delay="1.5s" className={styles.line}>
+        <span />
+      </FadeIn>
     </ul>
   </div>
 );
