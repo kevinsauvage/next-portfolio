@@ -11,18 +11,8 @@
 }
 
 @mixin slideUpAndFadeIn {
-  display: inherit;
+  animation: slideUpAndFadeIn 0.2s ease-in both;
   opacity: 0;
-  transform: translateY(40px);
-  will-change: transform, opacity;
-
-  &--onScreen {
-    animation: slideUpAndFadeIn 1s cubic-bezier(0.075, 0.82, 0.165, 1) both;
-  }
-
-  @include respond(tablet) {
-    animation-delay: 0ms !important;
-  }
 }
 
 @keyframes slideUpAndFadeIn {

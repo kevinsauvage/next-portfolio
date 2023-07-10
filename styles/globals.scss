@@ -57,6 +57,10 @@ h6 {
   font-family: 'Yeseva One', cursive;
 }
 
-.slideUpAndFadeIn {
-  @include slideUpAndFadeIn;
+.fade-in {
+  opacity: 0;
+
+  &--active {
+    @include slideUpAndFadeIn;
+  }
 }

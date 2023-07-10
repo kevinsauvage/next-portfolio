@@ -6,7 +6,15 @@ import { ClipLoader } from 'react-spinners';
 // eslint-disable-next-line css-modules/no-unused-class
 import styles from './Button.module.scss';
 
-const Button = ({ onClick, label, className = '', type = 'button', svg, loading = false }) => {
+const Button = ({
+  onClick,
+  label,
+  className = '',
+  type = 'button',
+  svg,
+  loading = false,
+  ...rest
+}) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const handleClick = () => {
@@ -18,6 +26,7 @@ const Button = ({ onClick, label, className = '', type = 'button', svg, loading 
   };
   return (
     <button
+      {...rest}
       onMouseUp={handleRelease}
       onClick={(event) => {
         onClick?.(event);

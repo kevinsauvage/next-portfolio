@@ -16,7 +16,7 @@ const Header = () => {
         <Logo />
         <Navigation links={links} setMenuIsOpen={setMenuIsOpen} menuIsOpen={menuIsOpen} />
         <button
-          className={styles.hamb}
+          className={`${styles.hamb} fade-in--active`}
           type="button"
           onClick={() => setMenuIsOpen((previous) => !previous)}
         >

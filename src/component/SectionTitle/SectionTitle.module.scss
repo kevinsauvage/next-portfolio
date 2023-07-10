@@ -1,0 +1,9 @@
+.Title {
+  position: relative;
+  width: fit-content;
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--on-surface-400);
+  text-align: center;
+  @include font-size(1.8rem, 3rem);
+}

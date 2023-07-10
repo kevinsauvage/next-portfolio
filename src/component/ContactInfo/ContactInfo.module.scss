@@ -52,6 +52,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    animation-delay: 0.4s;
     gap: 1.5rem;
 
     @include respond(tablet) {

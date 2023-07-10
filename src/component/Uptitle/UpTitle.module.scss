@@ -1,19 +1,11 @@
 .uptitle {
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: center;
   color: var(--primary);
-  font-weight: 600;
-  gap: 0.3rem;
-  text-align: center;
-  text-transform: uppercase;
-
-  @include font-size(0.7rem, 0.8rem);
 
   svg {
-    width: 0.9rem;
-    height: 0.9rem;
-    margin-right: 4px;
+    width: 1.4rem;
+    height: 1.4rem;
   }
 }

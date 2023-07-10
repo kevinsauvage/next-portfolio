@@ -28,7 +28,7 @@ const socialButtonLeft = [
 
 const ContactInfo = () => (
   <div className={styles.info}>
-    <ul className={styles.left}>
+    <ul className={`${styles.left} fade-in--active`}>
       {socialButtonLeft.map((item) => (
         <li key={item.href}>
           <Link href={item.href}>
@@ -42,7 +42,7 @@ const ContactInfo = () => (
 
       <span className={styles.line} />
     </ul>
-    <ul className={styles.right}>
+    <ul className={`${styles.right} fade-in--active`}>
       {socialButtonRight.map((item) => (
         <li key={item.href}>
           <Link href={item.href}>
