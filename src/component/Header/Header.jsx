@@ -1,6 +1,5 @@
 import { hamburgerMenuIcon } from '../../data/svg';
 import Container from '../Container/Container';
-import FadeIn from '../FadeIn/FadeIn';
 import Logo from '../Logo/Logo';
 import Navigation from '../Nav/Nav';
 
@@ -16,11 +15,13 @@ const Header = () => {
       <Container classname={styles.container}>
         <Logo />
         <Navigation links={links} setMenuIsOpen={setMenuIsOpen} menuIsOpen={menuIsOpen} />
-        <FadeIn className={styles.hamb}>
-          <button type="button" onClick={() => setMenuIsOpen((previous) => !previous)}>
-            {hamburgerMenuIcon}
-          </button>
-        </FadeIn>
+        <button
+          className={styles.hamb}
+          type="button"
+          onClick={() => setMenuIsOpen((previous) => !previous)}
+        >
+          {hamburgerMenuIcon}
+        </button>
       </Container>
     </div>
   );

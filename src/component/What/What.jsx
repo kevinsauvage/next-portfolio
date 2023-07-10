@@ -17,9 +17,7 @@ const What = () => (
     </Title>
     <div className={styles.items}>
       {competences.map((item) => (
-        <FadeIn key={item.description}>
-          <CompetenceCard item={item} />
-        </FadeIn>
+        <CompetenceCard item={item} key={item.description} />
       ))}
     </div>
   </Section>

@@ -1,6 +1,5 @@
 import about from '../../data/about';
 import { aboutIcon } from '../../data/svg';
-import FadeIn from '../FadeIn/FadeIn';
 import Section from '../Section/Section';
 import Title from '../Title/Title';
 import UpTitle from '../Uptitle/UpTitle';
@@ -18,10 +17,8 @@ const About = () => (
         <ul className={styles.about}>
           {about.map((item) => (
             <li key={item.title}>
-              <FadeIn>
-                <h3>{item.title}</h3>
-                <p>{item.content}</p>
-              </FadeIn>
+              <h3>{item.title}</h3>
+              <p>{item.content}</p>
             </li>
           ))}
         </ul>

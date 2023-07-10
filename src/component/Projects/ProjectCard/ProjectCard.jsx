@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
-import { externalLink, github } from '../../../data/svg';
-import FadeIn from '../../FadeIn/FadeIn';
+import IconBxLinkExternal from '../../../svg/IconBxLinkExternal';
+import IconGithub from '../../../svg/IconGithub';
 
 import styles from './ProjectCard.module.scss';
 
@@ -17,7 +17,7 @@ const ProjectCard = ({ item }) => {
   };
 
   return (
-    <FadeIn className={styles.card}>
+    <div className={styles.card}>
       <div className={styles.image}>
         <Image
           src={item.img.laptop}
@@ -35,14 +35,14 @@ const ProjectCard = ({ item }) => {
         </div>
         <div className={styles.buttons}>
           <button type="button" onClick={handleClickSourceCode}>
-            {github}
+            <IconGithub />
           </button>
           <button type="button" onClick={handleClickVisit}>
-            {externalLink}
+            <IconBxLinkExternal />
           </button>
         </div>
       </div>
-    </FadeIn>
+    </div>
   );
 };
 

@@ -9,7 +9,6 @@ import {
   servicesIcon,
   skillsIcon,
 } from '../../data/svg';
-import FadeIn from '../FadeIn/FadeIn';
 
 import styles from './Nav.module.scss';
 
@@ -26,15 +25,13 @@ const Navigation = ({ setMenuIsOpen, menuIsOpen }) => {
   return (
     <nav className={`${styles.nav} ${menuIsOpen ? styles.open : ''}`}>
       <ul className={styles.list}>
-        {links.map((link, index) => (
+        {links.map((link) => (
           <li key={link.hash} className={`${styles.item} ${menuIsOpen ? styles.open : ''}`}>
-            <FadeIn delay={`${index * 0.05}s`}>
-              <Link href={`/${link.hash}`} passHref>
-                <a>
-                  {link.icon} {link.text}
-                </a>
-              </Link>
-            </FadeIn>
+            <Link href={`/${link.hash}`} passHref>
+              <a>
+                {link.icon} {link.text}
+              </a>
+            </Link>
           </li>
         ))}
       </ul>

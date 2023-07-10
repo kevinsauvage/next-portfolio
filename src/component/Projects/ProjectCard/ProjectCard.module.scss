@@ -4,14 +4,14 @@
   width: 100%;
   height: 100%;
   justify-content: space-between;
-  margin-bottom: 4rem;
+  margin-bottom: 6rem;
 
   @include respond(tablet) {
     flex-direction: column;
     border: 1px solid var(--surface-700);
     border-radius: $radius_1;
     margin-bottom: 0rem;
-    background: var(--surface-800);
+    background: var(--surface-200);
     box-shadow: $shadow_3;
     @include padding;
   }
@@ -19,15 +19,20 @@
   .content {
     position: absolute;
     top: 50%;
-    left: 52%;
-    width: 45%;
-    max-width: 400px;
+    right: 0%;
+    width: 60%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: $radius_1;
+    background-color: var(--surface-200);
+    text-align: center;
     transform: translateY(-50%);
 
     @include respond(tablet) {
       position: static;
       width: 100%;
       max-width: unset;
+      padding: 0;
       transform: none;
     }
   }
@@ -35,6 +40,7 @@
   .buttons {
     display: flex;
     width: 100%;
+    justify-content: center;
     gap: 1rem;
 
     button {
@@ -43,12 +49,8 @@
       cursor: pointer;
 
       svg {
-        width: 1.3rem;
-        height: 1.3rem;
-
-        path {
-          fill: var(--on-surface-100);
-        }
+        color: var(--on-surface-100);
+        font-size: 1.5rem;
       }
 
       &:hover {
@@ -61,7 +63,6 @@
 
   &:nth-child(even) {
     flex-direction: row-reverse;
-    text-align: end;
 
     @include respond(tablet) {
       flex-direction: column;
@@ -69,16 +70,8 @@
     }
 
     .content {
-      right: 52%;
-      left: unset;
-    }
-
-    .buttons {
-      justify-content: flex-end;
-
-      @include respond(tablet) {
-        justify-content: flex-start;
-      }
+      right: unset;
+      left: 0%;
     }
   }
 
@@ -89,9 +82,8 @@
 
 .title {
   width: 100%;
-  margin-bottom: 0.4rem;
+  margin-bottom: 1rem;
   color: var(--primary);
-  font-size: 1rem;
   @include font-size(1.1rem, 1.2rem);
 }
 
@@ -103,12 +95,13 @@
   margin-bottom: 1rem;
   color: var(--on-surface-300);
   @include font-size(0.8rem, 0.8rem);
+  font-weight: 200;
 }
 
 .image {
   position: relative;
   width: 100%;
-  width: 50%;
+  width: 60%;
   height: 100%;
 
   @include respond(tablet) {

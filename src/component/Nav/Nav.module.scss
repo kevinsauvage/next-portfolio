@@ -14,7 +14,7 @@
     height: 100vh;
     flex-direction: column;
     justify-content: center;
-    background: var(--surface-900);
+    background: var(--surface-200);
     transform: translateX(100%);
     transition: all 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
 
@@ -44,9 +44,8 @@
   }
 
   .item {
-    margin-left: 2.5rem;
+    margin-left: 2rem;
     cursor: pointer;
-    font-size: 0.8rem;
 
     a {
       display: flex;
@@ -55,8 +54,8 @@
     }
 
     svg {
-      width: 1.3em;
-      height: 1.3em;
+      width: 1.2em;
+      height: 1.2em;
       margin-right: 4px;
     }
 
@@ -76,10 +75,6 @@
           }
         }
       }
-    }
-
-    @include respond(mobile_l) {
-      font-size: 1rem;
     }
   }
 }

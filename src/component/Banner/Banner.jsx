@@ -1,33 +1,18 @@
 import Button from '../Button/Button';
-import FadeIn from '../FadeIn/FadeIn';
 
 import styles from './Banner.module.scss';
 
 const Banner = () => (
   <section className={styles.Banner}>
     <div className={styles.main}>
-      <FadeIn delay="0.2s">
-        <p className={styles.intro}>Greetings, my name is</p>
-      </FadeIn>
-      <FadeIn delay="0.25s">
-        <h1>Kévin Sauvage</h1>
-      </FadeIn>
-      <FadeIn delay="0.3s">
-        <h2>Front end Developer.</h2>
-      </FadeIn>
-      <FadeIn delay="0.35s">
-        <p className={styles.subtitle}>
-          I am a highly skilled web developer with a proven track record of creating engaging and
-          visually stunning web applications. I take pride in creating functional and user-friendly
-          solutions that exceed expectations.
-        </p>
-      </FadeIn>
-      <FadeIn delay="0.4s">
-        <Button
-          label="Contact me!"
-          onClick={() => window.open('mailto:kevinsauvage@outlook.com')}
-        />
-      </FadeIn>
+      <h1>Looking for a Web Developer?</h1>
+      <p className={styles.subtitle}>
+        Are you in need of a skilled web developer who can transform your ideas into captivating and
+        functional web applications? Look no further! With a proven track record of delivering
+        engaging and visually stunning websites, I am committed to exceeding your expectations and
+        bringing your vision to life.
+      </p>
+      <Button label="Contact me!" onClick={() => window.open('mailto:kevinsauvage@outlook.com')} />
     </div>
   </section>
 );

@@ -10,7 +10,7 @@
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    background-color: var(--surface-500);
+    background-color: var(--on-surface-400);
     content: '';
 
     @include respond(tablet) {
@@ -63,8 +63,9 @@
 }
 
 .period {
-  @include font-size(0.7rem, 0.8rem);
-  color: var(--on-surface-300);
+  color: var(--on-surface-500);
+  font-size: 0.8rem;
+  font-weight: 200;
 }
 
 .description {

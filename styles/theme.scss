@@ -1,43 +1,39 @@
-$surface: #00416f;
-$surface-light: #c0c0c0;
+$surface-dark: #0c1953;
+$on-surface-dark: #dae8ff;
+$surface-light: #ececec;
+$on-surface-light: #2c2c2c;
+
+$step-dark: 3%;
+$step-light: 4%;
 
 $colors-dark: (
-  primary: #71ffd3,
-  secondary: #7da6ff,
+  primary: #0084ff,
   black: #000000,
-  surface-100: lighten($surface, 16%),
-  surface-200: lighten($surface, 12%),
-  surface-300: lighten($surface, 8%),
-  surface-400: lighten($surface, 4%),
-  surface-500: $surface,
-  surface-600: darken($surface, 4%),
-  surface-700: darken($surface, 8%),
-  surface-800: darken($surface, 12%),
-  surface-900: darken($surface, 16%),
-  on-surface-100: lighten($surface, 60%),
-  on-surface-200: lighten($surface, 50%),
-  on-surface-300: lighten($surface, 40%),
-  on-surface-400: lighten($surface, 30%),
-  on-surface-500: lighten($surface, 20%),
+  white: #f2f2f2,
+  surface-100: $surface-dark,
+  surface-200: darken($surface-dark, $step-dark),
+  surface-300: darken($surface-dark, $step-dark * 2),
+  surface-400: darken($surface-dark, $step-dark * 3),
+  on-surface-100: $on-surface-dark,
+  on-surface-200: darken($on-surface-dark, $step-dark),
+  on-surface-300: darken($on-surface-dark, $step-dark * 2),
+  on-surface-400: darken($on-surface-dark, $step-dark * 3),
+  on-surface-500: darken($on-surface-dark, $step-dark * 4),
 );
 
 $colors-light: (
-  primary: #ff1f0b,
-  secondary: #42378f,
-  surface-100: darken($surface-light, 20%),
-  surface-200: darken($surface-light, 15%),
-  surface-300: darken($surface-light, 10%),
-  surface-400: darken($surface-light, 5%),
-  surface-500: $surface-light,
-  surface-600: lighten($surface-light, 5%),
-  surface-700: lighten($surface-light, 10%),
-  surface-800: lighten($surface-light, 15%),
-  surface-900: lighten($surface-light, 20%),
-  on-surface-100: darken($surface-light, 60%),
-  on-surface-200: darken($surface-light, 50%),
-  on-surface-300: darken($surface-light, 40%),
-  on-surface-400: darken($surface-light, 30%),
-  on-surface-500: darken($surface-light, 20%),
+  primary: #0073ff,
+  black: #000000,
+  white: #f2f2f2,
+  surface-100: $surface-light,
+  surface-200: darken($surface-light, $step-light),
+  surface-300: darken($surface-light, $step-light * 2),
+  surface-400: darken($surface-light, $step-light * 3),
+  on-surface-100: $on-surface-light,
+  on-surface-200: darken($on-surface-light, $step-light),
+  on-surface-300: darken($on-surface-light, $step-light * 2),
+  on-surface-400: darken($on-surface-light, $step-light * 3),
+  on-surface-500: darken($on-surface-light, $step-light * 4),
 );
 
 @function hex-to-rgb($hex) {

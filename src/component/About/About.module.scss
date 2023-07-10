@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   border-radius: $radius_1;
-  color: var(--on-surface-100);
 
   .about {
     width: 100%;
@@ -43,7 +42,6 @@
     }
 
     p {
-      color: var(--on-surface-100);
       strong {
         color: var(--primary);
       }

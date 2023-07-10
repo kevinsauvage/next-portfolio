@@ -9,7 +9,7 @@
   height: $header-height;
   align-items: center;
   justify-content: space-between;
-  background: var(--surface-900);
+  background: var(--surface-100);
 }
 
 .scrolled {
@@ -33,22 +33,18 @@
 .hamb {
   z-index: 0;
   display: none;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: transparent;
 
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background-color: transparent;
-
-    svg {
-      width: 2.5rem;
-      height: 2.5rem;
-    }
+  svg {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   @include respond(laptop_s) {
-    display: inline;
+    display: flex;
   }
 }
 
