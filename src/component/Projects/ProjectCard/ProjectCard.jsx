@@ -7,7 +7,6 @@ import IconGithub from '../../../svg/IconGithub';
 import styles from './ProjectCard.module.scss';
 
 const ProjectCard = ({ item }) => {
-  const imgReference = useOnScreen('fade-in', 'fade-in--active');
   const reference = useOnScreen('fade-in', 'fade-in--active');
 
   const handleClickSourceCode = (event) => {
@@ -21,8 +20,8 @@ const ProjectCard = ({ item }) => {
   };
 
   return (
-    <div className={styles.card}>
-      <div className={styles.image} ref={imgReference}>
+    <div className={styles.card} ref={reference}>
+      <div className={styles.image}>
         <Image
           src={item.img.laptop}
           alt={item.title}
@@ -32,7 +31,7 @@ const ProjectCard = ({ item }) => {
         />
       </div>
       <div className={styles.content}>
-        <div ref={reference}>
+        <div>
           <div>
             <h6 className={styles.title}>{item.title}</h6>
             <p className={styles.languages}>{item.languages}</p>

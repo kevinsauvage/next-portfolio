@@ -4,7 +4,6 @@
   width: 100%;
   height: 100%;
   justify-content: space-between;
-  margin-bottom: 6rem;
 
   @include respond(tablet) {
     flex-direction: column;
@@ -59,24 +58,6 @@
         }
       }
     }
-  }
-
-  &:nth-child(even) {
-    flex-direction: row-reverse;
-
-    @include respond(tablet) {
-      flex-direction: column;
-      text-align: start;
-    }
-
-    .content {
-      right: unset;
-      left: 0%;
-    }
-  }
-
-  &:last-child {
-    margin-bottom: 0;
   }
 }
 

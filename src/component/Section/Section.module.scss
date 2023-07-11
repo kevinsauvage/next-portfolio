@@ -1,8 +1,8 @@
 .Section {
-  padding: 4rem 8rem;
+  padding: 8rem;
 
   @include respond(laptop_s) {
-    padding: 4rem 5rem;
+    padding: 5rem;
   }
   @include respond(tablet) {
     padding: 3rem 2rem;
