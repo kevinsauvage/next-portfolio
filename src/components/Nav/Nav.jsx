@@ -10,8 +10,6 @@ import styles from './Nav.module.scss';
 const Navigation = () => {
   const states = useGlobalContext();
 
-  console.log('🚀 ~  file: Nav.jsx:13 ~  Navigation ~  states:', states);
-
   const { menuIsOpen, updateMenuOpen, scrollToSection, activeSection } = states;
 
   return (
