@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import ContactInfo from '@/components/ContactInfo/ContactInfo';
 import Logo from '@/components/Logo/Logo';
 import { useGlobalContext } from '@/contexts/GlobalContext';
