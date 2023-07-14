@@ -88,15 +88,23 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  border: $border-l;
+  border: $border-s;
   border-color: var(--on-surface-500);
   border-radius: 50%;
   color: var(--on-surface-500);
+  cursor: pointer;
   transition: $transition;
 
   &:hover {
     padding: 1.5rem;
+    border-width: 2px;
     border-color: var(--on-surface-100);
     color: var(--on-surface-100);
+
+    @include respond(laptop_s) {
+      padding: 1rem;
+      border: $border-s;
+      border-color: var(--on-surface-500);
+    }
   }
 }

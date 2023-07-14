@@ -123,13 +123,8 @@
   z-index: 9999;
   top: 2rem;
   right: 2rem;
-  border: none;
-  border: $border-l;
   border-radius: 50%;
   background-color: var(--surface-200);
-  color: var(--on-surface-500);
-  cursor: pointer;
   font-size: 2.5rem;
-  transform-origin: center;
   @include hover-animation;
 }
