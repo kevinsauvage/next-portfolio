@@ -5,11 +5,9 @@
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid var(--surface-700);
+  border: $border-s;
   border-radius: $radius_1;
   margin-bottom: 2rem;
-  background: var(--surface-200);
-  box-shadow: $shadow_3;
   @include padding;
 
   .content {
@@ -17,7 +15,6 @@
     width: 100%;
     padding: 0;
     border-radius: $radius_1;
-    background-color: var(--surface-200);
     text-align: center;
   }
 

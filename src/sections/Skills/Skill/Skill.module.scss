@@ -5,11 +5,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--surface-700);
+  border: $border-s;
   border-radius: $radius_1;
   aspect-ratio: 1/1;
-  background: var(--surface-200);
-  box-shadow: $shadow_3;
   @include padding;
 
   svg {
