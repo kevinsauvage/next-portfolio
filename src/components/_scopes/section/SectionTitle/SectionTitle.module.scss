@@ -1,0 +1,6 @@
+.Title {
+  position: relative;
+  width: fit-content;
+  width: 100%;
+  @include font-size(1.8rem, 3rem);
+}

@@ -1,0 +1,22 @@
+.Section {
+  min-height: 100vh;
+  padding: 0rem 0rem 8rem 3rem;
+  margin: 0 auto;
+
+  header {
+    margin-bottom: 4rem;
+  }
+
+  @include respond(tablet) {
+    padding: 3rem 2rem;
+  }
+
+  @include respond(mobile_l) {
+    padding: 3rem 1rem;
+  }
+}
+
+.anchor {
+  padding-top: 3rem;
+  margin-bottom: 1rem;
+}

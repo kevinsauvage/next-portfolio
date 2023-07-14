@@ -1,0 +1,73 @@
+.card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--surface-700);
+  border-radius: $radius_1;
+  margin-bottom: 2rem;
+  background: var(--surface-200);
+  box-shadow: $shadow_3;
+  @include padding;
+
+  .content {
+    position: static;
+    width: 100%;
+    padding: 0;
+    border-radius: $radius_1;
+    background-color: var(--surface-200);
+    text-align: center;
+  }
+
+  .buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+
+    button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      svg {
+        color: var(--on-surface-100);
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        path {
+          fill: var(--primary);
+        }
+      }
+    }
+  }
+}
+
+.title {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  @include font-size(1.1rem, 1.2rem);
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+.languages {
+  margin-bottom: 1rem;
+  color: var(--on-surface-300);
+  @include font-size(0.8rem, 0.8rem);
+  font-weight: 200;
+}
+
+.image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  margin-bottom: 1rem;
+}

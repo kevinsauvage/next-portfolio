@@ -1,0 +1,15 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    display: flex;
+  }
+}
+
+.logoName {
+  font-family: 'Yeseva One', cursive;
+  @include font-size(1.3rem, 3rem);
+  text-align: center;
+}

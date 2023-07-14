@@ -1,17 +1,25 @@
+import { ToastContainer } from 'react-toastify';
 import { Analytics } from '@vercel/analytics/react';
 
-import useSmoothScroll from '../hooks/useSmoothScroll';
+import '@/styles/globals.scss';
 
-import '../../styles/globals.scss';
-
-const MyApp = ({ Component, pageProps }) => {
-  useSmoothScroll();
-  return (
-    <>
-      <Component {...pageProps} />
-      <Analytics />
-    </>
-  );
-};
+const MyApp = ({ Component, pageProps }) => (
+  <>
+    <Component {...pageProps} />
+    <Analytics />
+    <ToastContainer
+      position="bottom-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark"
+    />
+  </>
+);
 
 export default MyApp;

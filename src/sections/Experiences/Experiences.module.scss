@@ -1,0 +1,17 @@
+.list {
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background-color: var(--on-surface-400);
+    content: '';
+
+    @include respond(tablet) {
+      display: none;
+    }
+  }
+}

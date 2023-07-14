@@ -1,21 +1,11 @@
-import About from '../component/About/About';
-import Banner from '../component/Banner/Banner';
-import Contact from '../component/Contact/Contact';
-import Experiences from '../component/Experiences/Experiences';
-import PageLayout from '../component/PageLayout/PageLayout';
-import Projects from '../component/Projects/Projects';
-import Services from '../component/Services/Services';
-import What from '../component/What/What';
+import PageLayout from '@/components/PageLayout/PageLayout';
+import config from '@/config';
 
 const Home = () => (
   <PageLayout>
-    <Banner />
-    <About />
-    <Services />
-    <Experiences />
-    <Projects />
-    <What />
-    <Contact />
+    {config.sections.map((section) => (
+      <section.component key={section.label} {...section} />
+    ))}
   </PageLayout>
 );
 

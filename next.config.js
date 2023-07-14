@@ -35,10 +35,10 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, './styles/')],
     prependData: `
-    @import "variables.scss"; 
-    @import "responsive.scss"; 
-    @import "mixins.scss"; 
-    @import "animation.scss";`,
+    @import "@/styles/variables.scss"; 
+    @import "@/styles/responsive.scss"; 
+    @import "@/styles/mixins.scss"; 
+    @import "@/styles/animation.scss";`,
   },
   webpack: (config) => {
     config.module.rules.push({

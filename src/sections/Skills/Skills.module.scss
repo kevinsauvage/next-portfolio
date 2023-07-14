@@ -1,0 +1,14 @@
+.items {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+
+  @include respond(laptop_s) {
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  }
+
+  @include respond(mobile_l) {
+    grid-template-columns: repeat(auto-fit, minmax(42%, 1fr));
+  }
+}

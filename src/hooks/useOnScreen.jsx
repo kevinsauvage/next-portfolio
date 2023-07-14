@@ -18,6 +18,7 @@ const useOnScreen = (className, activeClass, remove) => {
   }, [reference]);
 
   useEffect(() => {
+    if (!className) return;
     reference?.current?.classList.add(className);
     if (isIntersecting) {
       reference.current.classList.add(activeClass);
@@ -26,7 +27,7 @@ const useOnScreen = (className, activeClass, remove) => {
     }
   }, [isIntersecting, className, remove, activeClass]);
 
-  return reference;
+  return { isIntersecting, reference };
 };
 
 export default useOnScreen;
