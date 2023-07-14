@@ -37,6 +37,12 @@ $offset: 3rem;
     animation-delay: 0.1s;
   }
 
+  .copyright {
+    margin: 2rem 0;
+    color: var(--on-surface-500);
+    text-align: center;
+  }
+
   .text {
     max-width: 500px;
     flex: 2;

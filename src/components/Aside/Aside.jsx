@@ -12,7 +12,7 @@ const Aside = () => (
       I&apos;m Kévin Sauvage, a passionate front-end developer with 2 years of experience. I
       specialize in creating captivating user experiences and delivering exceptional web solutions.
     </p>
-
+    <p className={styles.copyright}>&copy; - Kévin Sauvage - {new Date().getFullYear()}</p>
     <ContactInfo />
     <div className={styles.button}>
       <Link href="/#Contact">Hire me !</Link>

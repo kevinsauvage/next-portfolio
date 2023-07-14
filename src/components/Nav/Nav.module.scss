@@ -42,7 +42,12 @@
       align-items: center;
       border: none;
       background-color: transparent;
+
+      color: var(--on-surface-400);
       cursor: pointer;
+      &:hover {
+        color: var(--on-surface-100);
+      }
 
       p {
         position: relative;
@@ -62,7 +67,12 @@
     }
 
     &.active {
-      a {
+      button {
+        p {
+          color: var(--primary);
+        }
+      }
+      svg {
         color: var(--primary);
       }
     }
