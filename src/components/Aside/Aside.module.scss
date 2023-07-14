@@ -70,8 +70,8 @@ $offset: 3rem;
     margin: 0 auto;
     margin-top: auto;
     background-color: var(--primary);
+    cursor: pointer;
     text-transform: uppercase;
-
     @include respond(laptop_s) {
       margin-top: 0;
     }
