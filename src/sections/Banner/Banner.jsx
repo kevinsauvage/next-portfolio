@@ -5,7 +5,9 @@ import styles from './Banner.module.scss';
 const Banner = ({ ...rest }) => (
   <Section {...rest}>
     <div className={styles.Banner}>
-      <h1 className="fade-in--active">Looking for a Web Developer?</h1>
+      <h1 className="fade-in--active">
+        Looking for a <strong>Web Developer?</strong>
+      </h1>
       <p className={`${styles.subtitle} fade-in--active`}>
         Are you in need of a skilled web developer who can transform your ideas into captivating and
         functional web applications? Look no further! With a proven track record of delivering

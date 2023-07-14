@@ -21,7 +21,7 @@ const sections = [
     label: 'About Me',
     subtitle:
       'Discover the person behind the work: my passion, expertise, and experience that drive my creative vision.',
-    title: 'Who am I',
+    title: 'Who <strong>am I</strong>',
   },
   {
     component: Expertise,
@@ -29,7 +29,7 @@ const sections = [
     label: 'My Expertise',
     subtitle:
       'Discover a diverse range of services and skills tailored to exceed your expectations and meet your unique needs.',
-    title: 'My Expertise',
+    title: 'My <strong>Expertise</strong>',
   },
   {
     component: Experiences,
@@ -37,7 +37,7 @@ const sections = [
     label: 'My Experience',
     subtitle:
       'Explore my work history and achievements in the related field, showcasing my professional journey and expertise.',
-    title: 'Work history',
+    title: 'Work <strong>history</strong>',
   },
   {
     component: Projects,
@@ -45,7 +45,7 @@ const sections = [
     label: 'My Projects',
     subtitle:
       'Take a tour of my development projects, featuring a diverse range of creations that showcase my skills and creativity.',
-    title: 'Things I’ve Built',
+    title: 'Things I’ve <strong>Built</strong>',
   },
   {
     component: Skills,
@@ -53,7 +53,7 @@ const sections = [
     label: 'My Skills',
     subtitle:
       'Discover the range of skills and tools I utilize to bring projects to life and achieve outstanding results.',
-    title: 'Languages & Skills',
+    title: 'My Range of <strong>Skills</strong>',
   },
   {
     component: Contact,
@@ -62,7 +62,7 @@ const sections = [
     showSubtitle: true,
     subtitle:
       "Although I am not currently seeking new opportunities, I value building meaningful connections and expanding my network. Please feel free to reach out if you have any questions or just want to say hello. I'll do my best to respond as soon as possible. Thank you for your interest!",
-    title: 'Get in touch',
+    title: 'Get <strong>in touch</strong>',
   },
 ];
 

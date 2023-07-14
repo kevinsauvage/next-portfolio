@@ -4,6 +4,10 @@
     margin-bottom: 1rem;
     animation-delay: 0.1s;
 
+    strong {
+      color: var(--primary);
+    }
+
     @include respond(mobile_l) {
       left: -1px;
     }
