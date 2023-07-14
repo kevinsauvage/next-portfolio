@@ -30,13 +30,13 @@
 }
 
 .title {
-  @include font-size(1.1rem, 1.2rem);
   color: var(--primary);
+  font-size: 1.2rem;
 }
 
 .period {
   color: var(--on-surface-500);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 200;
 }
 
