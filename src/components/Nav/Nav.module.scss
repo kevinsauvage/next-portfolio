@@ -23,13 +23,29 @@
 
   .inner {
     position: relative;
+    display: flex;
     width: 100%;
-    max-width: 465px;
+    max-width: 425px;
     height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 8rem 4rem 2rem 6rem;
     margin-left: auto;
     background: var(--surface-200);
     transform: translateX(100%);
     transition: $transition;
+    @include respond(mobile_l) {
+      padding: 8rem 3rem 0rem 3rem;
+    }
+  }
+
+  .list {
+    display: flex;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    border-top: 0.1px solid var(--surface-500);
+    margin-right: 0px;
   }
 
   .item {
@@ -45,28 +61,27 @@
       align-items: center;
       border: none;
       background-color: transparent;
-
       color: var(--on-surface-400);
       cursor: pointer;
-      &:hover {
-        color: var(--on-surface-100);
-      }
 
+      svg {
+        width: 1.2em;
+        height: 1.2em;
+        margin-right: 4px;
+        color: var(--on-surface-400);
+      }
       p {
         position: relative;
         top: 2px;
-        color: var(--on-surface-400);
-        &:hover {
+      }
+
+      &:hover {
+        color: var(--on-surface-100);
+
+        svg {
           color: var(--on-surface-100);
         }
       }
-    }
-
-    svg {
-      width: 1.2em;
-      height: 1.2em;
-      margin-right: 4px;
-      color: var(--on-surface-400);
     }
 
     &.active {
@@ -74,9 +89,9 @@
         p {
           color: var(--primary);
         }
-      }
-      svg {
-        color: var(--primary);
+        svg {
+          color: var(--primary);
+        }
       }
     }
   }
@@ -105,26 +120,28 @@
       }
     }
   }
-
-  .list {
-    display: flex;
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-    padding: 6rem;
-    border-top: 0.1px solid var(--surface-500);
-    margin-right: 0px;
-  }
 }
 
 .close,
 .hamb {
   position: absolute;
   z-index: 9999;
-  top: 2rem;
-  right: 2rem;
   border-radius: 50%;
   background-color: var(--surface-200);
   font-size: 2.5rem;
-  @include hover-animation;
+  @include hover-animation(1.3);
+}
+
+.close {
+  top: 2rem;
+  right: 2rem;
+}
+
+.hamb {
+  top: 0rem;
+
+  @include respond(laptop_s) {
+    top: 2rem;
+    right: 2rem;
+  }
 }

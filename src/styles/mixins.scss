@@ -83,7 +83,7 @@
   }
 }
 
-@mixin hover-animation {
+@mixin hover-animation($scale: 1.1) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,10 +96,10 @@
   transition: $transition;
 
   &:hover {
-    padding: 1.5rem;
     border-width: 2px;
     border-color: var(--on-surface-100);
     color: var(--on-surface-100);
+    transform: scale($scale);
 
     @include respond(laptop_s) {
       padding: 1rem;
