@@ -16,7 +16,7 @@ const Banner = ({ ...rest }) => (
         animationKeyframes={['slide', 'fadeIn']}
         initialStyle={{ opacity: 0, transform: 'translate(0px, 400px)' }}
       >
-        <h1>Showcasing the Artistry of a Front End Developer</h1>
+        <h1>Showcasing the Artistry of a Front End <strong>Developer</strong></h1>
       </Animation>
       <Animation
         duration={400}
