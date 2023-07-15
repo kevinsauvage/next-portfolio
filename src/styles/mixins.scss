@@ -47,7 +47,11 @@
 }
 
 @mixin padding {
-  padding: 2rem;
+  padding: 3rem;
+
+  @include respond(laptop_l) {
+    padding: 2rem;
+  }
 
   @include respond(laptop_s) {
     padding: 1.5rem;

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import Animation from '@/components/Animation/Animation';
 import useOnScreen from '@/hooks/useOnScreen';
 import IconBxLinkExternal from '@/svg/IconBxLinkExternal';
 import IconGithub from '@/svg/IconGithub';
@@ -20,23 +21,29 @@ const Project = ({ item }) => {
   };
 
   return (
-    <div className={styles.card} ref={reference}>
-      <div className={styles.image}>
-        <Image
-          src={item.img.laptop}
-          alt={item.title}
-          layout="responsive"
-          width={2050}
-          height={1200}
-        />
-      </div>
-      <div className={styles.content}>
-        <div>
-          <div>
-            <h6 className={styles.title}>{item.title}</h6>
-            <p className={styles.languages}>{item.languages}</p>
-            <p className={styles.description}>{item.description}</p>
-          </div>
+    <Animation
+      duration={400}
+      delay={0}
+      iterationCount="1"
+      timingFunction="ease-in-out"
+      fillMode="forwards"
+      animationKeyframes={['slide', 'fadeIn']}
+      initialStyle={{ opacity: 0, transform: 'translate(0px, 500px)' }}
+    >
+      <div className={styles.card} ref={reference}>
+        <div className={styles.image}>
+          <Image
+            src={item.img.laptop}
+            alt={item.title}
+            layout="responsive"
+            width={2050}
+            height={1200}
+          />
+        </div>
+        <div className={styles.content}>
+          <h6 className={styles.title}>{item.title}</h6>
+          <p className={styles.languages}>{item.languages}</p>
+          <p className={styles.description}>{item.description}</p>
           <div className={styles.buttons}>
             <button type="button" onClick={handleClickSourceCode}>
               <IconGithub />
@@ -47,7 +54,7 @@ const Project = ({ item }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Animation>
   );
 };
 

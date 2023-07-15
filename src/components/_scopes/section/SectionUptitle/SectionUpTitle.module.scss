@@ -3,22 +3,21 @@
   width: fit-content;
   align-items: center;
   justify-content: center;
-  padding: 8px 1rem;
+  padding: 6px 1rem;
   border: $border-m;
   border-radius: 99em;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
   color: var(--on-surface-300);
+  font-size: 1rem;
   gap: 0.5rem;
 
   svg {
     color: var(--on-surface-500);
-    font-size: 1.1rem;
   }
 
   p {
     position: relative;
     top: 2px;
-    font-size: 1rem;
     letter-spacing: -1px;
   }
 }

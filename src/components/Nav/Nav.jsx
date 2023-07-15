@@ -3,6 +3,7 @@ import { useGlobalContext } from '@/contexts/GlobalContext';
 import IconCloseOutline from '@/svg/IconCloseOutline';
 import IconMenu from '@/svg/IconMenu';
 
+import Animation from '../Animation/Animation';
 import ContactInfo from '../ContactInfo/ContactInfo';
 
 import styles from './Nav.module.scss';
@@ -29,38 +30,55 @@ const Navigation = () => {
             {config.sections.map((section, index) => (
               <li
                 key={section.label}
-                style={{ animationDelay: `${index * 0.05}s` }}
                 className={`${styles.item} ${activeSection === section.label ? styles.active : ''}`}
               >
-                <button
-                  type="button"
-                  onClick={() => {
-                    updateMenuOpen(false);
-                    scrollToSection(section.label);
-                  }}
+                <Animation
+                  replay
+                  duration={200}
+                  delay={index * 70}
+                  iterationCount="1"
+                  timingFunction="ease-in-out"
+                  fillMode="forwards"
+                  animationKeyframes={['slide', 'fadeIn']}
+                  initialStyle={{ opacity: 0, transform: 'translate(200px, 0px)' }}
                 >
-                  {section.icon} <p>{section.label}</p>
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      updateMenuOpen(false);
+                      scrollToSection(section.label);
+                    }}
+                  >
+                    {section.icon} <p>{section.label}</p>
+                  </button>
+                </Animation>
               </li>
             ))}
           </ul>
-          <ContactInfo />
-          <button
-            type="button"
-            className={styles.close}
-            onClick={() => updateMenuOpen(!menuIsOpen)}
+          <ContactInfo replay />
+          <Animation
+            replay
+            duration={400}
+            iterationCount="1"
+            timingFunction="ease-in-out"
+            fillMode="forwards"
+            animationKeyframes={['fadeIn', 'slide']}
+            initialStyle={{ opacity: 0, transform: 'translate(100px, 0px)' }}
           >
-            <IconCloseOutline />
-          </button>
+            <div className={styles.close}>
+              <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
+                <IconCloseOutline />
+              </button>
+            </div>
+          </Animation>
         </div>
       </nav>
-      <button
-        className={`${styles.hamb}`}
-        type="button"
-        onClick={() => updateMenuOpen(!menuIsOpen)}
-      >
-        <IconMenu />
-      </button>
+
+      <div className={`${styles.hamb}`}>
+        <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
+          <IconMenu />
+        </button>
+      </div>
     </>
   );
 };

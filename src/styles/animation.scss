@@ -1,29 +1,15 @@
-@keyframes slideLeft {
+@keyframes slide {
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+@keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateX(60px);
   }
 
   100% {
     opacity: 1;
-    transform: translateX(0px);
-  }
-}
-
-@mixin slideUpAndFadeIn {
-  animation: slideUpAndFadeIn 0.5s $cubic-bezier both;
-  opacity: 0;
-  transform: translateY(0px);
-}
-
-@keyframes slideUpAndFadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(80px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
   }
 }

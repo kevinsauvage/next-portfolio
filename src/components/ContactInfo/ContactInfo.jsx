@@ -6,6 +6,8 @@ import IconGithub from '@/svg/IconGithub';
 import IconLinkedinCircled from '@/svg/IconLinkedinCircled';
 import IconUser from '@/svg/IconUser';
 
+import Animation from '../Animation/Animation';
+
 import styles from './ContactInfo.module.scss';
 
 const socialButton = [
@@ -23,20 +25,30 @@ const socialButton = [
   },
 ];
 
-const ContactInfo = () => (
-  <div className={styles.info}>
-    <ul className={`${styles.list}`}>
-      {socialButton.map((item) => (
-        <li key={item.href}>
-          <Link href={item.href}>
-            <a className={styles.icon} target="_blank">
-              {item.icon}
-            </a>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </div>
+const ContactInfo = ({ replay }) => (
+  <Animation
+    replay={replay}
+    duration={400}
+    iterationCount="1"
+    timingFunction="ease-in-out"
+    fillMode="forwards"
+    animationKeyframes={['fadeIn']}
+    initialStyle={{ opacity: 0 }}
+  >
+    <div className={styles.info}>
+      <ul className={`${styles.list}`}>
+        {socialButton.map((item) => (
+          <li key={item.href}>
+            <Link href={item.href}>
+              <a className={styles.icon} target="_blank">
+                {item.icon}
+              </a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Animation>
 );
 
 export default ContactInfo;

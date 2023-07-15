@@ -41,7 +41,7 @@ const Button = ({
       ) : (
         <span>
           {svg}
-          <span>{label}</span>
+          {label}
         </span>
       )}
     </button>

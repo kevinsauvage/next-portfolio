@@ -1,16 +1,18 @@
 .nav {
   width: fit-content;
-
   @include respond(laptop_s) {
     display: none;
   }
 }
 
 .list {
+  padding: 1rem 0;
   border: $border-s;
   border-radius: 99em;
+  animation: fadeIn 0.3s $cubic-bezier forwards;
+  animation: slide 0.3s $cubic-bezier forwards;
   background-color: var(--surface-200);
-  padding: 1rem 0;
+  transform: translate(500px, 500px) scale(0);
 
   .item {
     white-space: nowrap;
@@ -24,9 +26,7 @@
       @include hover-animation;
       /* stylelint-disable-next-line order/properties-order */
       border: none;
-      &:hover {
-        padding: 1rem;
-      }
+      padding: 1.1em;
     }
 
     &.active {

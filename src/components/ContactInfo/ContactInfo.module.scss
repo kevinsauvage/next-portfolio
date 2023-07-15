@@ -1,8 +1,7 @@
 .info {
   display: flex;
-
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin: 2rem 0;
   gap: 1.5rem;
 
   .list {
@@ -17,7 +16,7 @@
 
     li {
       a {
-        @include hover-animation(1.2);
+        @include hover-animation(1.1);
       }
     }
   }

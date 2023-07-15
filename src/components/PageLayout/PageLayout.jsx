@@ -20,7 +20,7 @@ const PageLayout = ({ children, title }) => {
 
         <Container classname={styles.container}>
           <Aside />
-          <div>{children}</div>
+          <div className={styles.children}>{children}</div>
           <Header />
         </Container>
       </div>

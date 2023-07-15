@@ -1,15 +1,10 @@
-import useOnScreen from '../../../hooks/useOnScreen';
-
 import styles from './Skill.module.scss';
 
-const Skill = ({ item }) => {
-  const { reference } = useOnScreen('fade-in', 'fade-in--active');
-  return (
-    <div ref={reference} className={styles.item}>
-      {item?.icon}
-      <p>{item?.description}</p>
-    </div>
-  );
-};
+const Skill = ({ item }) => (
+  <li className={styles.item}>
+    {item?.icon}
+    <p>{item?.description}</p>
+  </li>
+);
 
 export default Skill;
