@@ -7,7 +7,7 @@
 }
 
 html {
-  @include font-size(1rem, 1.1rem);
+  @include font-size(1rem, 1.2rem);
   height: 100%;
   font-weight: 300;
   letter-spacing: 0px;
@@ -68,6 +68,6 @@ h1 {
 }
 
 p {
-  max-width: 500px;
+  max-width: 600px;
   font-size: 1.1rem;
 }
