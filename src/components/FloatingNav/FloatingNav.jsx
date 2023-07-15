@@ -1,7 +1,6 @@
+import Popover from '@/components/Popover/Popover';
 import config from '@/config';
 import { useGlobalContext } from '@/contexts/GlobalContext';
-
-import Popover from '../Popover/Popover';
 
 import styles from './FloatingNav.module.scss';
 

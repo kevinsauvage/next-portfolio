@@ -1,12 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
+import Animation from '@/components/Animation/Animation';
 import IconEmailOutline from '@/svg/IconEmailOutline';
 import IconGithub from '@/svg/IconGithub';
 import IconLinkedinCircled from '@/svg/IconLinkedinCircled';
 import IconUser from '@/svg/IconUser';
-
-import Animation from '../Animation/Animation';
 
 import styles from './ContactInfo.module.scss';
 

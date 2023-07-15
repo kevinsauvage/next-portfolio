@@ -1,15 +1,12 @@
 import Image from 'next/image';
 
 import Animation from '@/components/Animation/Animation';
-import useOnScreen from '@/hooks/useOnScreen';
 import IconBxLinkExternal from '@/svg/IconBxLinkExternal';
 import IconGithub from '@/svg/IconGithub';
 
 import styles from './Project.module.scss';
 
 const Project = ({ item }) => {
-  const { reference } = useOnScreen('fade-in', 'fade-in--active');
-
   const handleClickSourceCode = (event) => {
     event.stopPropagation();
     item.githubLink.forEach((element) => window.open(element));
@@ -30,7 +27,7 @@ const Project = ({ item }) => {
       animationKeyframes={['slide', 'fadeIn']}
       initialStyle={{ opacity: 0, transform: 'translate(0px, 500px)' }}
     >
-      <div className={styles.card} ref={reference}>
+      <div className={styles.card}>
         <div className={styles.image}>
           <Image
             src={item.img.laptop}

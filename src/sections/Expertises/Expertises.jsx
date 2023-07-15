@@ -1,32 +1,27 @@
 import Section from '@/components/_scopes/section/Section/Section';
 import Animation from '@/components/Animation/Animation';
 import services from '@/data/expertises';
-import useOnScreen from '@/hooks/useOnScreen';
 
 import styles from './Expertises.module.scss';
 
-const Expertise = ({ service, index }) => {
-  const { reference } = useOnScreen('fade-in', 'fade-in--active');
-
-  return (
-    <Animation
-      duration={400}
-      delay={0}
-      iterationCount="1"
-      timingFunction="ease-in-out"
-      fillMode="forwards"
-      animationKeyframes={['slide', 'fadeIn']}
-      initialStyle={{ opacity: 0, transform: `translate(${index * 300}px, ${index * 300}px)` }}
-    >
-      <li key={service?.title} ref={reference}>
-        <div className={styles.card}>
-          <h2 className={styles.title}>{service.title}</h2>
-          <p>{service.content}</p>
-        </div>
-      </li>
-    </Animation>
-  );
-};
+const Expertise = ({ service, index }) => (
+  <Animation
+    duration={400}
+    delay={0}
+    iterationCount="1"
+    timingFunction="ease-in-out"
+    fillMode="forwards"
+    animationKeyframes={['slide', 'fadeIn']}
+    initialStyle={{ opacity: 0, transform: `translate(${index * 300}px, ${index * 300}px)` }}
+  >
+    <li key={service?.title}>
+      <div className={styles.card}>
+        <h2 className={styles.title}>{service.title}</h2>
+        <p>{service.content}</p>
+      </div>
+    </li>
+  </Animation>
+);
 
 const Expertises = ({ ...rest }) => (
   <Section {...rest}>
