@@ -19,41 +19,33 @@ const sections = [
     component: About,
     icon: <IconUser />,
     label: 'About Me',
-    subtitle:
-      'Discover the person behind the work: my passion, expertise, and experience that drive my creative vision.',
-    title: 'Who <strong>am I</strong>',
+    title:
+      'Discover the person behind the work: <strong>my passion</strong>, <strong>expertise</strong>, and <strong>experience</strong>.',
   },
   {
     component: Expertise,
     icon: <IconHandExtendedOutline />,
     label: 'My Expertise',
-    subtitle:
-      'Discover a diverse range of services and skills tailored to exceed your expectations and meet your unique needs.',
-    title: 'My <strong>Expertise</strong>',
+    title: 'Discover my diverse range of <strong>services and skills</strong>.',
   },
   {
     component: Experiences,
     icon: <IconSuitcase />,
     label: 'My Experience',
-    subtitle:
-      'Explore my work history and achievements in the related field, showcasing my professional journey and expertise.',
-    title: 'Work <strong>history</strong>',
+    title:
+      'Explore my <strong>work history</strong> and <strong>achievements</strong> in the related field.',
   },
   {
     component: Projects,
     icon: <IconCodeSlash />,
     label: 'My Projects',
-    subtitle:
-      'Take a tour of my development projects, featuring a diverse range of creations that showcase my skills and creativity.',
-    title: 'Things I’ve <strong>Built</strong>',
+    title: 'Take a tour of my personal <strong>projects</strong>.',
   },
   {
     component: Skills,
     icon: <IconShapeOutline />,
     label: 'My Skills',
-    subtitle:
-      'Discover the range of skills and tools I utilize to bring projects to life and achieve outstanding results.',
-    title: 'My Range of <strong>Skills</strong>',
+    title: 'Discover the range of <strong>skills</strong> and <strong>tools</strong> I use.',
   },
   {
     component: Contact,
