@@ -1,11 +1,12 @@
 import Popover from '@/components/Popover/Popover';
 import config from '@/config';
 import { useGlobalContext } from '@/contexts/GlobalContext';
+import { scrollToSection } from '@/utils';
 
 import styles from './FloatingNav.module.scss';
 
 const FloatingNav = () => {
-  const { scrollToSection, activeSection } = useGlobalContext();
+  const { activeSection } = useGlobalContext();
 
   return (
     <nav className={styles.nav}>

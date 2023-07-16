@@ -87,26 +87,29 @@
   }
 }
 
-@mixin hover-animation($scale: 1.1) {
+@mixin button-animation($scale: 1.1) {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
   border: $border-s;
-  border-radius: 50%;
-  cursor: pointer;
   transition: $transition;
 
   &:hover {
     border-width: 2px;
     border-color: var(--on-surface-100);
     color: var(--on-surface-100);
-    transform: scale($scale);
 
     @include respond(laptop_s) {
       padding: 1rem;
       border: $border-s;
-      border-color: var(--on-surface-500);
     }
+  }
+}
+
+@mixin scale($scale: 1.1) {
+  transition: $transition;
+  &:hover {
+    transform: scale($scale);
   }
 }

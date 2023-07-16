@@ -1,15 +1,12 @@
 .nav {
   position: fixed;
   z-index: 9999999;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   justify-content: flex-end;
-  background-color: rgba(var(--rgb-on-surface-500), 0.1);
+  background-color: rgba(black, 0.5);
+  inset: 0;
   opacity: 0;
   transition: $transition;
   visibility: hidden;
@@ -71,7 +68,7 @@
     p {
       position: relative;
       top: 2px;
-      font-size: 1.2rem;
+      font-size: 1rem;
     }
 
     &:hover {
@@ -82,6 +79,25 @@
       }
     }
   }
+
+  &.active {
+    button {
+      cursor: initial;
+    }
+    p {
+      color: var(--primary);
+    }
+
+    svg {
+      color: var(--primary);
+    }
+
+    &:hover {
+      svg {
+        color: var(--primary);
+      }
+    }
+  }
 }
 
 .close,
@@ -89,8 +105,11 @@
   button {
     border-radius: 50%;
     background-color: var(--surface-200);
+    cursor: pointer;
     font-size: 2.5rem;
-    @include hover-animation(1.2);
+
+    @include scale(1.2);
+    @include button-animation;
   }
 }
 
@@ -120,14 +139,5 @@
 
   .inner {
     transform: translateX(0%);
-  }
-}
-
-.item.active {
-  p {
-    color: var(--primary);
-  }
-  svg {
-    color: var(--primary);
   }
 }

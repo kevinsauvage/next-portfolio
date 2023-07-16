@@ -18,15 +18,18 @@
     white-space: nowrap;
 
     button {
+      padding: 1rem;
+      border: none;
       background-color: transparent;
       cursor: pointer;
       font-size: 1.3rem;
       transition: $transition;
       white-space: nowrap;
-      @include hover-animation;
-      /* stylelint-disable-next-line order/properties-order */
-      border: none;
-      padding-bottom: 1rem;
+      @include scale;
+
+      &:hover {
+        color: var(--on-surface-100);
+      }
     }
 
     &.active {

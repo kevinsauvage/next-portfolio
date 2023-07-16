@@ -15,12 +15,6 @@ export const GlobalProvider = ({ children }) => {
     setActiveSection(section);
   }, []);
 
-  const scrollToSection = useCallback((sectionLabel) => {
-    const sectionId = `#${sectionLabel.split(' ').join('-')}`;
-    const sectionElement = document.querySelector(sectionId);
-    sectionElement?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
-
   const updateMenuOpen = useCallback((isOpen) => {
     setMenuIsOpen(isOpen);
   }, []);
@@ -29,11 +23,10 @@ export const GlobalProvider = ({ children }) => {
     () => ({
       activeSection,
       menuIsOpen,
-      scrollToSection,
       updateActiveSection,
       updateMenuOpen,
     }),
-    [activeSection, updateActiveSection, updateMenuOpen, menuIsOpen, scrollToSection]
+    [activeSection, updateActiveSection, updateMenuOpen, menuIsOpen]
   );
 
   // Return the provider with the state values

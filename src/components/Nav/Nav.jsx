@@ -2,6 +2,7 @@ import config from '@/config';
 import { useGlobalContext } from '@/contexts/GlobalContext';
 import IconCloseOutline from '@/svg/IconCloseOutline';
 import IconMenu from '@/svg/IconMenu';
+import { scrollToSection } from '@/utils';
 
 import Animation from '../Animation/Animation';
 import ContactInfo from '../ContactInfo/ContactInfo';
@@ -11,7 +12,7 @@ import styles from './Nav.module.scss';
 const Navigation = () => {
   const states = useGlobalContext();
 
-  const { menuIsOpen, updateMenuOpen, scrollToSection, activeSection } = states;
+  const { menuIsOpen, updateMenuOpen, activeSection } = states;
 
   return (
     <>
@@ -59,6 +60,7 @@ const Navigation = () => {
                 >
                   <button
                     type="button"
+                    disabled={activeSection === section.label}
                     onClick={() => {
                       updateMenuOpen(false);
                       scrollToSection(section.label);
