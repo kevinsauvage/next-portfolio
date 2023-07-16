@@ -26,6 +26,21 @@ const Navigation = () => {
           />
         )}
         <div className={styles.inner}>
+          <Animation
+            replay
+            duration={400}
+            iterationCount="1"
+            timingFunction="ease-in-out"
+            fillMode="forwards"
+            animationKeyframes={['fadeIn', 'slide']}
+            initialStyle={{ opacity: 0, transform: 'translate(100px, 0px)' }}
+          >
+            <div className={styles.close}>
+              <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
+                <IconCloseOutline />
+              </button>
+            </div>
+          </Animation>
           <ul className={styles.list}>
             {config.sections.map((section, index) => (
               <li
@@ -56,21 +71,6 @@ const Navigation = () => {
             ))}
           </ul>
           <ContactInfo replay />
-          <Animation
-            replay
-            duration={400}
-            iterationCount="1"
-            timingFunction="ease-in-out"
-            fillMode="forwards"
-            animationKeyframes={['fadeIn', 'slide']}
-            initialStyle={{ opacity: 0, transform: 'translate(100px, 0px)' }}
-          >
-            <div className={styles.close}>
-              <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
-                <IconCloseOutline />
-              </button>
-            </div>
-          </Animation>
         </div>
       </nav>
 

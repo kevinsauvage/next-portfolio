@@ -5,7 +5,7 @@
   @return $remValue;
 }
 
-@mixin font-size($min, $max, $min-vw: 320px, $max-vw: 1600px, $fallback: false, $line-height: 1.5) {
+@mixin font-size($min, $max, $min-vw: 320px, $max-vw: 1980px, $fallback: false, $line-height: 1.5) {
   $min-no-unit: strip-units($min);
   $max-no-unit: strip-units($max);
   $min-vw-no-unit: strip-units($min-vw);
@@ -93,7 +93,6 @@
   justify-content: center;
   padding: 1rem;
   border: $border-s;
-  border-color: var(--on-surface-500);
   border-radius: 50%;
   color: var(--on-surface-500);
   cursor: pointer;

@@ -1,10 +1,23 @@
 $offset: 3rem;
 
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin-left: 2rem;
+
+  @include respond(laptop_s) {
+    position: static;
+    max-width: 100%;
+    min-height: 100vh;
+    margin-left: 0;
+  }
+}
+
 .aside {
-  position: sticky;
-  top: 2rem;
+  position: fixed;
+  top: 50%;
   bottom: $offset;
-  left: 2rem;
   display: flex;
   width: 100%;
   max-width: 400px;
@@ -15,11 +28,12 @@ $offset: 3rem;
   margin-right: 2rem;
   animation: fadeIn 0.3s $cubic-bezier forwards;
   background-color: var(--surface-200);
+  transform: translateY(-50%);
+
   @include padding;
 
   @include respond(laptop_s) {
     position: static;
-    width: 100%;
     max-width: 100%;
     height: unset;
     min-height: 100vh;
@@ -27,57 +41,53 @@ $offset: 3rem;
     padding: 3rem;
     border: none;
     border-radius: 0;
+    transform: unset;
   }
 
-  @include respond(mobile_m) {
-    padding: 6rem 2rem 2rem 2rem;
+  @include respond(mobile_l) {
+    padding: 6rem 2rem 6rem 2rem;
   }
+}
 
-  h1 {
+.copyright {
+  margin: 1rem auto;
+  color: var(--on-surface-500);
+  opacity: 0.7;
+  text-align: center;
+}
+
+.subtitle {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  color: var(--on-surface-400);
+  text-align: center;
+
+  @include respond(mobile_l) {
+    margin-top: 1rem;
     margin-bottom: 1rem;
-    animation-delay: 0.1s;
-    font-size: 3rem;
   }
+}
 
-  .copyright {
-    margin: 1rem auto;
-    color: var(--on-surface-500);
-    opacity: 0.7;
-    text-align: center;
-  }
+.button {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  border: none;
+  border-radius: $radius;
+  margin: 0 auto;
+  margin-top: auto;
+  background-color: var(--primary);
+  color: var(--on-surface-100);
+  cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
 
-  .text {
-    max-width: 500px;
-    margin: 0 auto;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    color: var(--on-surface-400);
-    text-align: center;
-
-    @include respond(laptop_s) {
-      flex: 0;
-    }
-  }
-
-  .button {
-    display: flex;
-    width: 100%;
-    max-width: 400px;
-    align-items: center;
-    justify-content: center;
-    padding: 1.2rem;
-    border: none;
-    border-radius: $radius;
-    margin: 0 auto;
-    margin-top: auto;
-    background-color: var(--primary);
-    color: var(--on-surface-100);
-    cursor: pointer;
-    font-size: 1rem;
-    text-transform: uppercase;
-
-    @include respond(laptop_s) {
-      margin-top: 0;
-    }
+  @include respond(laptop_s) {
+    margin-top: 0;
   }
 }

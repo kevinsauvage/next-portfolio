@@ -8,111 +8,85 @@
   display: flex;
   width: 100%;
   height: 100vh;
+  justify-content: flex-end;
   background-color: rgba(var(--rgb-on-surface-500), 0.1);
   opacity: 0;
   transition: $transition;
   visibility: hidden;
+}
 
-  .overlay {
-    width: 100%;
-    height: 100%;
-    @include respond(mobile_l) {
-      display: none;
-    }
+.overlay {
+  width: 100%;
+  height: 100%;
+
+  @include respond(mobile_l) {
+    display: none;
   }
+}
 
-  .inner {
-    position: relative;
+.inner {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 465px;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--surface-200);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transform: translateX(100%);
+  transition: $transition;
+
+  @include padding;
+}
+
+.list {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  border-top: 0.1px solid var(--surface-500);
+  margin: 3rem 0;
+}
+
+.item {
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-left: 0;
+  cursor: pointer;
+
+  button {
     display: flex;
-    width: 100%;
-    max-width: 425px;
-    height: 100vh;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 3rem;
-    padding-top: 8rem;
-    margin-left: auto;
-    background: var(--surface-200);
-    transform: translateX(100%);
-    transition: $transition;
-    @include respond(mobile_l) {
-      padding: 8rem 3rem 0rem 3rem;
-    }
-  }
-
-  .list {
-    display: flex;
-    width: 100%;
-    height: auto;
-    flex-direction: column;
-    border-top: 0.1px solid var(--surface-500);
-    margin-right: 0px;
-  }
-
-  .item {
-    margin-bottom: 2rem;
-    margin-left: 2rem;
-    margin-left: 0;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    color: var(--on-surface-400);
     cursor: pointer;
 
-    button {
-      display: flex;
-      align-items: center;
-      border: none;
-      background-color: transparent;
+    svg {
+      margin-right: 8px;
       color: var(--on-surface-400);
-      cursor: pointer;
+      font-size: 1.2rem;
+    }
+    p {
+      position: relative;
+      top: 2px;
+      font-size: 1.2rem;
+    }
+
+    &:hover {
+      color: var(--on-surface-100);
 
       svg {
-        margin-right: 8px;
-        color: var(--on-surface-400);
-        font-size: 1.2rem;
-      }
-      p {
-        position: relative;
-        top: 2px;
-        font-size: 1.2rem;
-      }
-
-      &:hover {
         color: var(--on-surface-100);
-
-        svg {
-          color: var(--on-surface-100);
-        }
       }
-    }
-
-    &.active {
-      button {
-        p {
-          color: var(--primary);
-        }
-        svg {
-          color: var(--primary);
-        }
-      }
-    }
-  }
-
-  &.open {
-    box-shadow: $shadow_3;
-    opacity: 1;
-    visibility: visible;
-
-    .inner {
-      overflow-x: hidden;
-      overflow-y: auto;
-      transform: translateX(0%);
     }
   }
 }
 
 .close,
 .hamb {
-  position: absolute;
-  z-index: 9999;
-
   button {
     border-radius: 50%;
     background-color: var(--surface-200);
@@ -122,11 +96,14 @@
 }
 
 .close {
-  top: 2rem;
-  right: 2rem;
+  button {
+    margin-left: auto;
+  }
 }
 
 .hamb {
+  position: absolute;
+  z-index: 9999;
   top: 0rem;
   animation: fadeIn 0.3s $cubic-bezier forwards;
   animation: slide 0.3s $cubic-bezier forwards;
@@ -135,5 +112,23 @@
   @include respond(laptop_s) {
     top: 2rem;
     right: 2rem;
+  }
+}
+
+.nav.open {
+  opacity: 1;
+  visibility: visible;
+
+  .inner {
+    transform: translateX(0%);
+  }
+}
+
+.item.active {
+  p {
+    color: var(--primary);
+  }
+  svg {
+    color: var(--primary);
   }
 }
