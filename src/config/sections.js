@@ -20,39 +20,39 @@ const sections = [
     icon: <IconUser />,
     label: 'About Me',
     title:
-      'Discover the person behind the work: <strong>my passion</strong>, <strong>expertise</strong>, and <strong>experience</strong>.',
+      "Lifelong learner embracing technology's evolution to deliver <strong>high-quality results</strong>.",
   },
   {
     component: Expertise,
     icon: <IconHandExtendedOutline />,
     label: 'My Expertise',
-    title: 'Discover my diverse range of <strong>services and skills</strong>.',
+    title:
+      'Create  <strong>engaging</strong> user interfaces and <strong>interactive experiences</strong>.',
   },
   {
     component: Experiences,
     icon: <IconSuitcase />,
     label: 'My Experience',
-    title:
-      'Explore my <strong>work history</strong> and <strong>achievements</strong> in the related field.',
+    title: 'Explore my <strong>work history</strong> and <strong>achievements</strong>.',
   },
   {
     component: Projects,
     icon: <IconCodeSlash />,
     label: 'My Projects',
-    title: 'Take a tour of my personal <strong>projects</strong>.',
+    title: 'Immerse yourself in a gallery of my <strong>handcrafted digital solutions</strong>.',
   },
   {
     component: Skills,
     icon: <IconShapeOutline />,
     label: 'My Skills',
-    title: 'Discover the range of <strong>skills</strong> and <strong>tools</strong> I use.',
+    title: 'Witness <strong>my coding skills</strong> and <strong>craftsmanship</strong>.',
   },
   {
     component: Contact,
     icon: <IconEmailOutline />,
     label: 'Contact Me',
     subtitle: '',
-    title: 'Get <strong>in touch</strong>',
+    title: 'Reach out to explore how we can <strong>work together</strong>.',
   },
 ];
 
