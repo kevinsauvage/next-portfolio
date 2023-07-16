@@ -30,7 +30,7 @@
     }
 
     &:hover {
-      color: var(--on-surface-100);
+      color: var(--white);
       &::after {
         left: -15%;
         clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
