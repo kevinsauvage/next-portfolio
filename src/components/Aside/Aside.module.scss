@@ -51,7 +51,7 @@ $offset: 3rem;
 
 .copyright {
   margin: 1rem auto;
-  color: var(--on-surface-500);
+  color: var(--on-surface-400);
   opacity: 0.7;
   text-align: center;
 }
@@ -61,7 +61,7 @@ $offset: 3rem;
   margin: 0 auto;
   margin-top: 2rem;
   margin-bottom: 3rem;
-  color: var(--on-surface-400);
+  color: var(--on-surface-300);
   text-align: center;
 
   @include respond(mobile_l) {

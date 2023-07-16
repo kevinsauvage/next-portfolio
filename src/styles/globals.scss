@@ -20,7 +20,7 @@ body {
   position: relative;
   height: 100%;
   background-color: var(--surface-100);
-  color: var(--on-surface-400);
+  color: var(--on-surface-200);
   font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -40,8 +40,9 @@ li {
   list-style: none;
 }
 
-a {
-  color: var(--on-surface-100);
+a,
+button {
+  color: var(--on-surface-200);
   text-decoration: none;
 }
 
