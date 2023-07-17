@@ -1,6 +1,6 @@
 import Section from '@/components/_scopes/section/Section/Section';
 import Animation from '@/components/Animation/Animation';
-import services from '@/data/expertises';
+import services from '@/config/expertises';
 
 import styles from './Expertises.module.scss';
 

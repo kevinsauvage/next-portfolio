@@ -10,8 +10,7 @@ const projects = [
       laptop:
         'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/Streamy/laptop_streamy.png',
     },
-    languages:
-      'React.js | SASS |  Express.js | Mongoose | TMDB API | JWT | React router | Bcrypt | Uuid',
+    languages: 'React.js | SASS |  Express.js | Mongoose | TMDB API | JWT | React router | Bcrypt',
     title: 'Streamy',
     websiteLink: 'https://streamy.fun/',
   },

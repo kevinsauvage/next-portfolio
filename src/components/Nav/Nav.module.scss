@@ -120,14 +120,14 @@
 }
 
 .hamb {
-  position: absolute;
-  z-index: 9999;
-  top: 0rem;
   animation: fadeIn 0.3s $cubic-bezier forwards;
   animation: slide 0.3s $cubic-bezier forwards;
   transform: translate(500px, -500px) scale(0);
 
   @include respond(laptop_s) {
+    position: absolute;
+    z-index: 9999;
+    top: 0rem;
     top: 2rem;
     right: 2rem;
   }

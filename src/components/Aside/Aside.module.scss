@@ -3,8 +3,8 @@ $offset: 3rem;
 .container {
   position: relative;
   width: 100%;
-  max-width: 400px;
-  margin-left: 2rem;
+  max-width: 420px;
+  margin-left: 1rem;
 
   @include respond(laptop_s) {
     position: static;
@@ -20,15 +20,17 @@ $offset: 3rem;
   bottom: $offset;
   display: flex;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   height: fit-content;
   flex-direction: column;
+  align-items: center;
   border: $border-s;
   border-radius: $radius;
   margin-right: 2rem;
   animation: fadeIn 0.3s $cubic-bezier forwards;
   background-color: var(--surface-200);
   transform: translateY(-50%);
+  transition: $transition;
 
   @include padding;
 

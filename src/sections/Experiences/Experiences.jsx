@@ -1,5 +1,5 @@
 import Section from '@/components/_scopes/section/Section/Section';
-import experiences from '@/data/experiences';
+import experiences from '@/config/experiences';
 
 import Experience from './Experience/Experience';
 

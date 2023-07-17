@@ -1,5 +1,5 @@
 import Popover from '@/components/Popover/Popover';
-import config from '@/config';
+import sections from '@/config/sections';
 import { useGlobalContext } from '@/contexts/GlobalContext';
 import { scrollToSection } from '@/utils';
 
@@ -11,7 +11,7 @@ const FloatingNav = () => {
   return (
     <nav className={styles.nav}>
       <ul className={`${styles.list} `}>
-        {config.sections.map((section) => (
+        {sections.map((section) => (
           <li
             key={section.label}
             className={`${styles.item} ${activeSection === section.label && styles.active}`}

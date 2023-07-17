@@ -1,25 +1,25 @@
-$primary-dark: #00d7e6;
+$primary-dark: #20b7c2;
 $surface-dark: #191a1b;
 $on-surface-dark: #f4f4f4;
 
 $primary-light: #0073ff;
-$surface-light: #e4e4e4;
+$surface-light: #eff1f7;
 $on-surface-light: #000000;
 
 $step-surface-dark: 2%;
 $step-on-surface-dark: 10%;
 
 $step-surface-light: 4%;
-$step-on-surface-light: 10%;
+$step-on-surface-light: 8%;
 
 $globals: (
   black: #000000,
-  white: #f2f2f2,
+  white: #fcfcfc,
 );
 
 $colors-dark: (
   primary-100: $primary-dark,
-  primary-200: darken($primary-dark, 20%),
+  primary-200: darken($primary-dark, 10%),
   surface-100: $surface-dark,
   surface-200: darken($surface-dark, $step-surface-dark),
   surface-300: darken($surface-dark, $step-surface-dark * 2),

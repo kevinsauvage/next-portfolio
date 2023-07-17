@@ -1,6 +1,6 @@
 import Section from '@/components/_scopes/section/Section/Section';
 import Animation from '@/components/Animation/Animation';
-import about from '@/data/about';
+import about from '@/config/about';
 
 import styles from './About.module.scss';
 

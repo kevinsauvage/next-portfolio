@@ -1,5 +1,5 @@
 import Section from '@/components/_scopes/section/Section/Section';
-import projects from '@/data/projects';
+import projects from '@/config/projects';
 
 import ProjectCard from './Project/Project';
 

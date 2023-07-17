@@ -1,6 +1,6 @@
 import Section from '@/components/_scopes/section/Section/Section';
 import Animation from '@/components/Animation/Animation';
-import competences from '@/data/skills';
+import competences from '@/config/skills';
 
 import Skill from './Skill/Skill';
 

@@ -1,4 +1,4 @@
-import { css, express, html, javascript, jest, next, react, sass, svelte } from './svg';
+import { css, express, html, javascript, jest, next, react, sass, svelte } from '../data/svg';
 
 const competences = [
   { description: 'Html', icon: html },

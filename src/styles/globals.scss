@@ -7,7 +7,7 @@
 }
 
 html {
-  @include font-size(1rem, 1.2rem);
+  @include font-size(1rem, 1.3rem);
   height: 100%;
   font-weight: 300;
   letter-spacing: 0px;
@@ -22,17 +22,19 @@ body {
   background-color: var(--surface-100);
   color: var(--on-surface-200);
   font-family: 'Josefin Sans', sans-serif;
+  transition: background-color 0.4px ease-in-out;
 }
 
 body,
 div {
   &::-webkit-scrollbar {
     width: 0.3rem;
+    background-color: var(--on-surface-300);
   }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: 99rem;
-    background-color: var(--on-surface-200);
+    border-radius: 0;
+    background-color: var(--surface-300);
   }
 }
 
@@ -63,7 +65,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Yeseva One', cursive;
+  font-family: 'Julius Sans One', sans-serif;
+
   font-weight: 500;
 }
 

@@ -1,9 +1,9 @@
 import PageLayout from '@/components/PageLayout/PageLayout';
-import config from '@/config';
+import sections from '@/config/sections';
 
 const Home = () => (
   <PageLayout>
-    {config.sections.map((section) => (
+    {sections.map((section) => (
       <section.component key={section.label} {...section} />
     ))}
   </PageLayout>

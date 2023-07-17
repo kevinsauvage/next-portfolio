@@ -12,11 +12,11 @@
     position: absolute;
     z-index: 99;
     top: 0;
-    left: -11px;
+    left: -14px;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
-    background-color: var(--on-surface-400);
+    background-color: var(--primary-100);
     content: '';
 
     @include respond(tablet) {

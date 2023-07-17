@@ -32,7 +32,11 @@ const Animation = ({
 
   const mergedStyles = { ...animationStyle, ...initialStyle };
 
-  return <div ref={reference}>{cloneElement(children, { style: mergedStyles })}</div>;
+  return (
+    <div style={{ position: 'relative' }} ref={reference}>
+      {cloneElement(children, { style: mergedStyles })}
+    </div>
+  );
 };
 
 export default Animation;

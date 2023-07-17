@@ -7,7 +7,7 @@
     left: 0;
     width: 2px;
     height: 100%;
-    background-color: var(--on-surface-400);
+    background-color: var(--primary-100);
     content: '';
 
     @include respond(tablet) {

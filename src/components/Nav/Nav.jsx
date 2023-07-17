@@ -1,4 +1,4 @@
-import config from '@/config';
+import sections from '@/config/sections';
 import { useGlobalContext } from '@/contexts/GlobalContext';
 import IconCloseOutline from '@/svg/IconCloseOutline';
 import IconMenu from '@/svg/IconMenu';
@@ -6,6 +6,7 @@ import { scrollToSection } from '@/utils';
 
 import Animation from '../Animation/Animation';
 import ContactInfo from '../ContactInfo/ContactInfo';
+import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 import styles from './Nav.module.scss';
 
@@ -36,14 +37,17 @@ const Navigation = () => {
             animationKeyframes={['fadeIn', 'slide']}
             initialStyle={{ opacity: 0, transform: 'translate(100px, 0px)' }}
           >
-            <div className={styles.close}>
-              <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
-                <IconCloseOutline />
-              </button>
+            <div>
+              <ThemeSwitcher />
+              <div className={styles.close}>
+                <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
+                  <IconCloseOutline />
+                </button>
+              </div>
             </div>
           </Animation>
           <ul className={styles.list}>
-            {config.sections.map((section, index) => (
+            {sections.map((section, index) => (
               <li
                 key={section.label}
                 className={`${styles.item} ${activeSection === section.label ? styles.active : ''}`}
