@@ -9,8 +9,3 @@
   @include button-animation;
   @include scale(1.05);
 }
-
-.dark .toggle {
-  left: 100%;
-  transform: translate(-100%, -50%);
-}
