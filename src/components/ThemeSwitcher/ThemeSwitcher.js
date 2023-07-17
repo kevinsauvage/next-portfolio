@@ -34,7 +34,7 @@ const ThemeSwitcher = () => {
     <button
       type="button"
       onClick={() => (isDarkTheme ? setLightTheme() : setDarkTheme())}
-      className={`${styles.button} ${isDarkTheme ? styles.dark : ''}`}
+      className={styles.button}
     >
       {isDarkTheme ? <IconSun /> : <IconMoonOutline />}
     </button>
