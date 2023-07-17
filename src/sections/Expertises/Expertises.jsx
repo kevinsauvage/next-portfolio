@@ -5,22 +5,22 @@ import services from '@/data/expertises';
 import styles from './Expertises.module.scss';
 
 const Expertise = ({ service, index }) => (
-  <Animation
-    duration={400}
-    delay={0}
-    iterationCount="1"
-    timingFunction="ease-in-out"
-    fillMode="forwards"
-    animationKeyframes={['slide', 'fadeIn']}
-    initialStyle={{ opacity: 0, transform: `translate(${index * 300}px, ${index * 300}px)` }}
-  >
-    <li key={service?.title}>
+  <li>
+    <Animation
+      duration={400}
+      delay={0}
+      iterationCount="1"
+      timingFunction="ease-in-out"
+      fillMode="forwards"
+      animationKeyframes={['slide', 'fadeIn']}
+      initialStyle={{ opacity: 0, transform: `translate(${index * 300}px, ${index * 300}px)` }}
+    >
       <div className={styles.card}>
         <h2 className={styles.title}>{service.title}</h2>
         <p>{service.content}</p>
       </div>
-    </li>
-  </Animation>
+    </Animation>
+  </li>
 );
 
 const Expertises = ({ ...rest }) => (
