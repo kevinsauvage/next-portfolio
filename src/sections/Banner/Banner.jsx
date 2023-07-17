@@ -29,10 +29,10 @@ const Banner = ({ ...rest }) => (
         initialStyle={{ opacity: 0, transform: 'translate(0px, 400px)' }}
       >
         <p className={styles.subtitle}>
-          Are you in need of a skilled web developer who can transform your ideas into captivating
-          and functional web applications? Look no further! With a proven track record of delivering
-          engaging and visually stunning websites, I am committed to exceeding your expectations and
-          bringing your vision to life.
+          Are you in need of a web developer who can bring your ideas to life? Look no further! I
+          have a track record of delivering captivating and functional web applications. I am
+          committed to exceeding your expectations and creating visually stunning websites that
+          engage your audience.
         </p>
       </Animation>
     </div>
