@@ -1,9 +1,9 @@
 import { css, express, html, javascript, jest, next, react, sass, svelte } from './svg';
 
 const competences = [
-  { description: 'HTML', icon: html },
-  { description: 'CSS', icon: css },
-  { description: 'SASS', icon: sass },
+  { description: 'Html', icon: html },
+  { description: 'Css', icon: css },
+  { description: 'Sass', icon: sass },
   { description: 'JavaScript', icon: javascript },
   { description: 'React.js', icon: react },
   { description: 'Next.js', icon: next },
