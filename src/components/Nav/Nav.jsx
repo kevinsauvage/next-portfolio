@@ -60,6 +60,7 @@ const Navigation = () => {
                 >
                   <button
                     type="button"
+                    aria-label="Close menu"
                     disabled={activeSection === section.label}
                     onClick={() => {
                       updateMenuOpen(false);
@@ -77,7 +78,7 @@ const Navigation = () => {
       </nav>
 
       <div className={`${styles.hamb}`}>
-        <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
+        <button aria-label="Open menu" type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
           <IconMenu />
         </button>
       </div>

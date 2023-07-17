@@ -39,7 +39,7 @@ const ContactInfo = ({ replay }) => (
         {socialButton.map((item) => (
           <li key={item.href}>
             <Link href={item.href}>
-              <a className={styles.icon} target="_blank">
+              <a className={styles.icon} aria-label={item.text} target="_blank">
                 {item.icon}
               </a>
             </Link>

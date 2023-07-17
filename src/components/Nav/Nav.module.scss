@@ -85,16 +85,16 @@
       cursor: initial;
     }
     p {
-      color: var(--primary);
+      color: var(--primary-100);
     }
 
     svg {
-      color: var(--primary);
+      color: var(--primary-100);
     }
 
     &:hover {
       svg {
-        color: var(--primary);
+        color: var(--primary-100);
       }
     }
   }

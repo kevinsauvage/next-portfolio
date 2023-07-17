@@ -36,7 +36,7 @@
 
         &:hover {
           path {
-            fill: var(--primary);
+            fill: var(--primary-100);
           }
         }
       }
@@ -45,7 +45,7 @@
     .title {
       width: 100%;
       margin: 1rem 0;
-      color: var(--primary);
+      color: var(--primary-100);
       font-size: 1.3rem;
     }
 

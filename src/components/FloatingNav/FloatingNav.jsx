@@ -17,7 +17,11 @@ const FloatingNav = () => {
             className={`${styles.item} ${activeSection === section.label && styles.active}`}
           >
             <Popover text={section.label}>
-              <button type="button" onClick={() => scrollToSection(section.label)}>
+              <button
+                type="button"
+                aria-label={section.label}
+                onClick={() => scrollToSection(section.label)}
+              >
                 {section.icon}
               </button>
             </Popover>

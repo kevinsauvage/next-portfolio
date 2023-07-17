@@ -37,7 +37,7 @@ const Button = ({
       type={type}
     >
       {loading ? (
-        <ClipLoader color="var(--primary)" />
+        <ClipLoader color="var(--primary-100)" />
       ) : (
         <span>
           {svg}

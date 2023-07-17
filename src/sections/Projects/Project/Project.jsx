@@ -42,10 +42,10 @@ const Project = ({ item }) => {
           <p className={styles.languages}>{item.languages}</p>
           <p className={styles.description}>{item.description}</p>
           <div className={styles.buttons}>
-            <button type="button" onClick={handleClickSourceCode}>
+            <button type="button" aria-label="Open Github" onClick={handleClickSourceCode}>
               <IconGithub />
             </button>
-            <button type="button" onClick={handleClickVisit}>
+            <button type="button" aria-label="Open Linkedin" onClick={handleClickVisit}>
               <IconBxLinkExternal />
             </button>
           </div>
