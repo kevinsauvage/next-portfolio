@@ -7,10 +7,12 @@
     right: 100%;
     padding: 4px 8px;
     border: $border-m;
-    background-color: var(--surface-200);
     color: var(--on-surface-100);
+    white-space: nowrap;
+    background-color: var(--surface-200);
     transform: translateY(-50%);
   }
+
   .arrow {
     position: absolute;
     top: 50%;

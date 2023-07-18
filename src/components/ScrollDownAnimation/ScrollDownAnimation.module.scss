@@ -6,10 +6,10 @@
   height: 90px;
   border: 3px solid var(--primary-100);
   border-radius: 60px;
-  opacity: 1;
   transform: translateX(-50%);
-  transition: all 0.3s $cubic-bezier;
   visibility: visible;
+  opacity: 1;
+  transition: all 0.3s $cubic-bezier;
 
   @include respond(mobile_l) {
     bottom: 1rem;
@@ -22,18 +22,18 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
+    background-color: var(--primary-100);
+    transform: translateX(-50%);
+    opacity: 1;
     -webkit-animation: wheel 2s infinite;
     animation: wheel 2s infinite;
-    background-color: var(--primary-100);
     content: '';
-    opacity: 1;
-    transform: translateX(-50%);
   }
 }
 
 .mouse.scrolled {
-  opacity: 0;
   visibility: hidden;
+  opacity: 0;
 }
 
 @keyframes wheel {

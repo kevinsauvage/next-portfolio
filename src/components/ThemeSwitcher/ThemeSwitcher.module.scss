@@ -6,6 +6,8 @@
   border-radius: 50%;
   background-color: var(--surface-200);
   cursor: pointer;
+
   @include button-animation;
+
   @include scale(1.05);
 }

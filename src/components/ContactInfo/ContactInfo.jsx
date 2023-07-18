@@ -16,11 +16,11 @@ const ContactInfo = ({ replay, className }) => (
     initialStyle={{ opacity: 0 }}
   >
     <div className={`${styles.info} ${className}`}>
-      <ul className={`${styles.list}`}>
+      <ul className={styles.list}>
         {socialButton.map((item) => (
           <li key={item.href}>
             <Link href={item.href}>
-              <a className={styles.icon} aria-label={item.text} target="_blank">
+              <a className={styles.link} aria-label={item.text} target="_blank">
                 {item.icon}
               </a>
             </Link>

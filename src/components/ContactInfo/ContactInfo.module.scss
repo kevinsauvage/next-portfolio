@@ -7,30 +7,27 @@
 .list {
   position: relative;
   display: flex;
+  align-items: center;
+  gap: 1rem;
   width: 100%;
   height: 90px;
-  align-items: center;
   animation-delay: 0.4s;
-  gap: 1rem;
-
-  li {
-    a {
-      @include button-animation(1.1);
-      @include scale;
-    }
-  }
 }
 
-.icon {
+.link {
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: center;
+  width: 100%;
   border-radius: 50%;
-  cursor: pointer;
   font-size: 1.4rem;
   text-decoration: none;
+  cursor: pointer;
   transition: transform 0.3s ease;
+
+  @include button-animation(1.1);
+
+  @include scale;
 
   &:hover {
     border-color: var(--on-surface-100);

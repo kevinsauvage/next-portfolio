@@ -2,6 +2,7 @@
 
 @function toRem($value) {
   $remValue: ($value / 16) + rem;
+
   @return $remValue;
 }
 
@@ -63,24 +64,29 @@
     /* WebKit, Blink, Edge */
     color: $color;
   }
+
   &:-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     color: $color;
     opacity: 1;
   }
+
   &::-moz-placeholder {
     /* Mozilla Firefox 19+ */
     color: $color;
     opacity: 1;
   }
+
   &:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: $color;
   }
+
   &::-ms-input-placeholder {
     /* Microsoft Edge */
     color: $color;
   }
+
   &::placeholder {
     /* Most modern browsers support this now. */
     color: $color;
@@ -108,6 +114,7 @@
 
 @mixin scale($scale: 1.1) {
   transition: $transition;
+
   &:hover {
     transform: scale($scale);
   }

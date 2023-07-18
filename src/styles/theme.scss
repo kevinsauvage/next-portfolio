@@ -67,6 +67,7 @@ $colors-light: (
 
 html {
   @include generate-colors($globals);
+
   @include generate-colors($colors-dark);
 }
 

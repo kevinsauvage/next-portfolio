@@ -2,26 +2,27 @@
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html {
   @include font-size(1rem, 1.3rem);
+
   height: 100%;
-  font-weight: 300;
-  letter-spacing: 0px;
-  line-height: 1.5;
   overflow-x: hidden;
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0px;
   text-size-adjust: 100%;
 }
 
 body {
   position: relative;
   height: 100%;
-  background-color: var(--surface-100);
   color: var(--on-surface-200);
   font-family: 'Josefin Sans', sans-serif;
+  background-color: var(--surface-100);
   transition: background-color 0.4px ease-in-out;
 }
 
@@ -55,8 +56,8 @@ button {
 button,
 input,
 textarea {
-  font-family: 'Josefin Sans', sans-serif;
   font-size: 1rem;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 h1,
@@ -65,9 +66,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Julius Sans One', sans-serif;
-
   font-weight: 500;
+  font-family: 'Julius Sans One', sans-serif;
 }
 
 h1 {

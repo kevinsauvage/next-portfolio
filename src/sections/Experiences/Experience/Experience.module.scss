@@ -1,8 +1,8 @@
 .card {
   position: relative;
   width: 100%;
-  padding-left: 3rem;
   margin-bottom: 3rem;
+  padding-left: 3rem;
 
   @include respond(tablet) {
     padding-left: 0;
@@ -10,9 +10,9 @@
 
   &::after {
     position: absolute;
-    z-index: 99;
     top: 0;
     left: -14px;
+    z-index: 99;
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;
@@ -36,8 +36,8 @@
 
 .period {
   color: var(--on-surface-400);
-  font-size: 1rem;
   font-weight: 200;
+  font-size: 1rem;
 }
 
 .description {

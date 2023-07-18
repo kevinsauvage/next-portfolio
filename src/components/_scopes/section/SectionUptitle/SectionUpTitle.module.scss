@@ -1,16 +1,16 @@
 .uptitle {
   display: flex;
-  width: fit-content;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 4rem 0;
   padding: 6px 1rem;
   border: $border-s;
   border-radius: 99em;
-  margin: 4rem 0;
-  background-color: var(--surface-200);
   color: var(--on-surface-300);
   font-size: 1rem;
-  gap: 0.5rem;
+  background-color: var(--surface-200);
 
   svg {
     color: var(--on-surface-400);

@@ -1,92 +1,50 @@
 import sections from '@/config/sections';
 import { useGlobalContext } from '@/contexts/GlobalContext';
-import IconCloseOutline from '@/svg/IconCloseOutline';
-import IconMenu from '@/svg/IconMenu';
 import { scrollToSection } from '@/utils';
 
 import Animation from '../Animation/Animation';
-import ContactInfo from '../ContactInfo/ContactInfo';
-import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 import styles from './Nav.module.scss';
 
 const Navigation = () => {
   const states = useGlobalContext();
 
-  const { menuIsOpen, updateMenuOpen, activeSection } = states;
+  const { updateMenuOpen, activeSection } = states;
 
   return (
-    <>
-      <nav className={`${styles.nav} ${menuIsOpen ? styles.open : ''}`}>
-        {menuIsOpen && (
-          <div
-            className={styles.overlay}
-            role="button"
-            onClick={() => updateMenuOpen(false)}
-            tabIndex={0}
-            onKeyDown={(event) => event.key === 'Enter' && updateMenuOpen(false)}
-          />
-        )}
-        <div className={styles.inner}>
-          <Animation
-            replay
-            duration={400}
-            iterationCount="1"
-            timingFunction="ease-in-out"
-            fillMode="forwards"
-            animationKeyframes={['fadeIn', 'slide']}
-            initialStyle={{ opacity: 0, transform: 'translate(100px, 0px)' }}
+    <nav>
+      <ul className={styles.list}>
+        {sections.map((section, index) => (
+          <li
+            key={section.label}
+            className={`${styles.item} ${activeSection === section.label ? styles.active : ''}`}
           >
-            <div className={styles.header}>
-              <ThemeSwitcher />
-              <div className={styles.close}>
-                <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
-                  <IconCloseOutline />
-                </button>
-              </div>
-            </div>
-          </Animation>
-          <ul className={styles.list}>
-            {sections.map((section, index) => (
-              <li
-                key={section.label}
-                className={`${styles.item} ${activeSection === section.label ? styles.active : ''}`}
+            <Animation
+              replay
+              duration={200}
+              delay={index * 70}
+              iterationCount="1"
+              timingFunction="ease-in-out"
+              fillMode="forwards"
+              animationKeyframes={['slide', 'fadeIn']}
+              initialStyle={{ opacity: 0, transform: 'translate(200px, 0px)' }}
+            >
+              <button
+                type="button"
+                aria-label="Close menu"
+                disabled={activeSection === section.label}
+                onClick={() => {
+                  updateMenuOpen(false);
+                  scrollToSection(section.label);
+                }}
               >
-                <Animation
-                  replay
-                  duration={200}
-                  delay={index * 70}
-                  iterationCount="1"
-                  timingFunction="ease-in-out"
-                  fillMode="forwards"
-                  animationKeyframes={['slide', 'fadeIn']}
-                  initialStyle={{ opacity: 0, transform: 'translate(200px, 0px)' }}
-                >
-                  <button
-                    type="button"
-                    aria-label="Close menu"
-                    disabled={activeSection === section.label}
-                    onClick={() => {
-                      updateMenuOpen(false);
-                      scrollToSection(section.label);
-                    }}
-                  >
-                    {section.icon} <p>{section.label}</p>
-                  </button>
-                </Animation>
-              </li>
-            ))}
-          </ul>
-          <ContactInfo replay />
-        </div>
-      </nav>
-
-      <div className={`${styles.hamb}`}>
-        <button aria-label="Open menu" type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
-          <IconMenu />
-        </button>
-      </div>
-    </>
+                {section.icon} <p>{section.label}</p>
+              </button>
+            </Animation>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };
 

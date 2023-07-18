@@ -4,11 +4,11 @@
   right: 0rem;
   bottom: 2rem;
   display: flex;
-  width: 120px;
-  height: calc(100vh - 4rem);
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  width: 120px;
+  height: calc(100vh - 4rem);
   padding-right: 2rem;
 
   @include respond(laptop_s) {
