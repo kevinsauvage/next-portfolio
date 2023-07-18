@@ -29,13 +29,13 @@
   height: 100vh;
   flex-direction: column;
   justify-content: space-between;
+
+  padding: 2rem 2rem 2rem 3rem;
   background: var(--surface-200);
   overflow-x: hidden;
   overflow-y: auto;
   transform: translateX(100%);
   transition: $transition;
-
-  @include padding;
 }
 
 .list {

@@ -17,13 +17,10 @@ const Button = ({
 }) => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleClick = () => {
-    setIsClicked(true);
-  };
+  const handleClick = () => setIsClicked(true);
 
-  const handleRelease = () => {
-    setIsClicked(false);
-  };
+  const handleRelease = () => setIsClicked(false);
+
   return (
     <button
       {...rest}

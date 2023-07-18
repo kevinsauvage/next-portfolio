@@ -13,7 +13,7 @@ const Aside = () => (
         solutions.
       </p>
       <p className={styles.copyright}>&copy; Kévin Sauvage - {new Date().getFullYear()}</p>
-      <ContactInfo />
+      <ContactInfo className={styles.contactInfo} />
       <button
         className={styles.button}
         type="button"
