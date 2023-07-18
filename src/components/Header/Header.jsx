@@ -9,7 +9,7 @@ const Header = () => (
   <header className={styles.header}>
     <Navigation />
     <FloatingNav />
-    <ThemeSwitcher />
+    <ThemeSwitcher className={styles.ThemeSwitcher} />
   </header>
 );
 

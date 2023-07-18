@@ -37,7 +37,7 @@ const Navigation = () => {
             animationKeyframes={['fadeIn', 'slide']}
             initialStyle={{ opacity: 0, transform: 'translate(100px, 0px)' }}
           >
-            <div>
+            <div className={styles.header}>
               <ThemeSwitcher />
               <div className={styles.close}>
                 <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>

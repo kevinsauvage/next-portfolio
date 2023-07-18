@@ -17,3 +17,9 @@
     right: 0rem;
   }
 }
+
+.ThemeSwitcher {
+  @include respond(laptop_s) {
+    display: none;
+  }
+}
