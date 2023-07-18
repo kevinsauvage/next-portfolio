@@ -12,8 +12,19 @@
   border-radius: 99em;
   background-color: var(--surface-200);
   transform: translate(500px, 500px) scale(0);
-  animation: fadeIn 0.3s $cubic-bezier forwards;
+  animation: fade-in 0.3s $cubic-bezier forwards;
   animation: slide 0.3s $cubic-bezier forwards;
+
+  li {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 0.07s;
+      }
+    }
+  }
 
   .item {
     padding: 0.6rem 1rem;

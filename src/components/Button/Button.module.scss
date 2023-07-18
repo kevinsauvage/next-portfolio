@@ -11,10 +11,10 @@
   color: var(--primary-100);
   font-weight: 500;
   font-size: 1rem;
-  background-color: var(--surface-200);
+  background-color: transparent;
   box-shadow: $shadow_3;
   cursor: pointer;
-  transition: all 0.3s linear;
+  transition: all 0.1s linear;
 
   @include respond-gt(tablet) {
     &::after {

@@ -12,7 +12,7 @@ const FloatingNav = () => {
     <nav className={styles.nav}>
       <ul className={`${styles.list} `}>
         {sections.map((section) => (
-          <li key={section.label}>
+          <li key={section.label} className="fade-in slide">
             <Popover text={section.label}>
               <button
                 className={`${styles.item} ${activeSection === section.label && styles.active}`}

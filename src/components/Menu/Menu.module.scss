@@ -59,7 +59,7 @@
 
 .hamb {
   transform: translate(500px, -500px) scale(0);
-  animation: fadeIn 0.3s $cubic-bezier forwards;
+  animation: fade-in 0.3s $cubic-bezier forwards;
   animation: slide 0.3s $cubic-bezier forwards;
 
   @include respond(laptop_s) {
@@ -84,4 +84,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  opacity: 0;
+  animation-duration: 1s !important;
 }

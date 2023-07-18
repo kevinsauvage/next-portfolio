@@ -13,12 +13,7 @@ const AboutItem = ({ item, ...rest }) => (
 const About = ({ ...rest }) => (
   <Section {...rest}>
     <Animation
-      duration={400}
-      delay={0}
-      iterationCount="1"
-      timingFunction="ease-in-out"
-      fillMode="forwards"
-      animationKeyframes={['slide', 'fadeIn']}
+      animationKeyframes={['slide', 'fade-in']}
       initialStyle={{ opacity: 0, transform: 'translate(1000px, 0px)' }}
     >
       <ul className={styles.about}>

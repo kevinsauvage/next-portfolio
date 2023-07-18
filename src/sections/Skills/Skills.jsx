@@ -14,7 +14,7 @@ const Skills = ({ ...rest }) => (
       iterationCount="1"
       timingFunction="ease-in-out"
       fillMode="forwards"
-      animationKeyframes={['slide', 'fadeIn']}
+      animationKeyframes={['slide', 'fade-in']}
       initialStyle={{ opacity: 0, transform: 'translate(0px, 500px)' }}
     >
       <ul className={styles.items}>

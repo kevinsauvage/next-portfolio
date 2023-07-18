@@ -10,7 +10,16 @@
   margin-bottom: 2rem;
   margin-left: 2rem;
   margin-left: 0;
+  transform: translate(100px, 0px);
   cursor: pointer;
+  opacity: 0;
+  animation-duration: 0.1s;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.05s;
+    }
+  }
 
   button {
     display: flex;

@@ -4,13 +4,8 @@ import styles from './SectionTitle.module.scss';
 
 const SectionTitle = ({ title, className }) => (
   <Animation
-    duration={400}
-    delay={0}
-    iterationCount="1"
-    timingFunction="ease-in-out"
-    fillMode="forwards"
-    animationKeyframes={['slide', 'fadeIn']}
-    initialStyle={{ opacity: 0, transform: 'translate(300px, -100px)' }}
+    animationKeyframes={['slide', 'fade-in']}
+    initialStyle={{ opacity: 0, transform: 'translate(200px, 0px)' }}
   >
     <h2
       className={`${styles.Title} ${className || ''}`}

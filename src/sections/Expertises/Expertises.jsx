@@ -12,7 +12,7 @@ const Expertise = ({ service, index }) => (
       iterationCount="1"
       timingFunction="ease-in-out"
       fillMode="forwards"
-      animationKeyframes={['slide', 'fadeIn']}
+      animationKeyframes={['slide', 'fade-in']}
       initialStyle={{ opacity: 0, transform: `translate(${index * 300}px, ${index * 300}px)` }}
     >
       <div className={styles.card}>

@@ -30,7 +30,7 @@ $offset: 3rem;
   background-color: var(--surface-200);
   transform: translateY(-50%);
   transition: $transition;
-  animation: fadeIn 0.3s $cubic-bezier forwards;
+  animation: fade-in 0.3s $cubic-bezier forwards;
 
   @include padding;
 
