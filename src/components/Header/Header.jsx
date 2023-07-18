@@ -8,7 +8,7 @@ const Header = () => (
   <header className={styles.header}>
     <Menu />
     <FloatingNav />
-    <ThemeSwitcher className={styles.ThemeSwitcher} />
+    <ThemeSwitcher className={`${styles.ThemeSwitcher} slide fade-in`} />
   </header>
 );
 

@@ -11,7 +11,7 @@
   border: $border-s;
   border-radius: 99em;
   background-color: var(--surface-200);
-  transform: translate(500px, 500px) scale(0);
+  transform: translate(0px, 500px);
   animation: fade-in 0.3s $cubic-bezier forwards;
   animation: slide 0.3s $cubic-bezier forwards;
 

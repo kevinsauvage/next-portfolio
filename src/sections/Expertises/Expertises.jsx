@@ -4,7 +4,7 @@ import services from '@/config/expertises';
 
 import styles from './Expertises.module.scss';
 
-const Expertise = ({ service, index }) => (
+const Expertise = ({ service }) => (
   <li>
     <Animation
       duration={400}
@@ -13,7 +13,7 @@ const Expertise = ({ service, index }) => (
       timingFunction="ease-in-out"
       fillMode="forwards"
       animationKeyframes={['slide', 'fade-in']}
-      initialStyle={{ opacity: 0, transform: `translate(${index * 300}px, ${index * 300}px)` }}
+      initialStyle={{ opacity: 0, transform: `translate(100%, 0px) scale(0)` }}
     >
       <div className={styles.card}>
         <h2 className={styles.title}>{service.title}</h2>
@@ -26,8 +26,8 @@ const Expertise = ({ service, index }) => (
 const Expertises = ({ ...rest }) => (
   <Section {...rest}>
     <ul className={styles.Expertise}>
-      {services.map((service, index) => (
-        <Expertise service={service} key={service.title} index={index} />
+      {services.map((service) => (
+        <Expertise service={service} key={service.title} />
       ))}
     </ul>
   </Section>

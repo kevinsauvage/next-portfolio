@@ -58,7 +58,7 @@
 }
 
 .hamb {
-  transform: translate(500px, -500px) scale(0);
+  transform: translate(0px, -100%) scale(0) rotate(180deg);
   animation: fade-in 0.3s $cubic-bezier forwards;
   animation: slide 0.3s $cubic-bezier forwards;
 
