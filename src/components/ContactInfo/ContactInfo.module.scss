@@ -3,10 +3,6 @@
   flex-direction: column;
   margin: 2rem 0;
   gap: 1.5rem;
-
-  @include respond(mobile_l) {
-    margin: 1rem 0;
-  }
 }
 
 .list {
