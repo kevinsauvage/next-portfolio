@@ -11,20 +11,19 @@ export const ThemeProvider = ({ children }) => {
     const htmlElement = document.querySelector('html');
     htmlElement.classList.add(THEME_LIGHT);
     setIsDarkTheme(false);
+    localStorage.setItem('isDarkTheme', false);
   };
 
   const setDarkTheme = () => {
     const htmlElement = document.querySelector('html');
     htmlElement.classList.remove(THEME_LIGHT);
     setIsDarkTheme(true);
+    localStorage.setItem('isDarkTheme', true);
   };
 
   useEffect(() => {
-    const htmlElement = document.querySelector('html');
-
-    if (htmlElement.classList.contains(THEME_LIGHT)) {
-      setIsDarkTheme(false);
-    }
+    const themeDark = localStorage.getItem('isDarkTheme');
+    if (themeDark !== 'true') setLightTheme();
   }, []);
 
   const state = useMemo(

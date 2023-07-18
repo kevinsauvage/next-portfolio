@@ -4,16 +4,17 @@ $on-surface-dark: #f4f4f4;
 
 $primary-light: #0073ff;
 $surface-light: #eff1f7;
-$on-surface-light: #000000;
+$on-surface-light: #333333;
 
 $step-surface-dark: 2%;
-$step-on-surface-dark: 10%;
+$step-on-surface-dark: 8%;
 
 $step-surface-light: 4%;
-$step-on-surface-light: 8%;
+$step-on-surface-light: 5%;
 
 $globals: (
   black: #000000,
+  rgb_black: #000000,
   white: #fcfcfc,
 );
 
@@ -38,9 +39,9 @@ $colors-light: (
   surface-300: darken($surface-light, $step-surface-light * 2),
   surface-400: darken($surface-light, $step-surface-light * 3),
   on-surface-100: $on-surface-light,
-  on-surface-200: lighten($on-surface-light, $step-on-surface-light),
-  on-surface-300: lighten($on-surface-light, $step-on-surface-light * 2),
-  on-surface-400: lighten($on-surface-light, $step-on-surface-light * 3),
+  on-surface-200: darken($on-surface-light, $step-on-surface-light),
+  on-surface-300: darken($on-surface-light, $step-on-surface-light * 2),
+  on-surface-400: darken($on-surface-light, $step-on-surface-light * 3),
 );
 
 @function hex-to-rgb($hex) {
@@ -60,7 +61,7 @@ $colors-light: (
     @if str-slice(#{$value}, 1, 1) == '#' {
       --rgb-#{$color}: #{hex-to-rgb($value)};
     } @else {
-      --rgb-#{$color}: var(--RGB_#{$value});
+      --rgb-#{$color}: var(--rgb_#{$value});
     }
   }
 }
