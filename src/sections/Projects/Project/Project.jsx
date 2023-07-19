@@ -42,9 +42,11 @@ const Project = ({ item }) => {
           <p className={styles.languages}>{item.languages}</p>
           <p className={styles.description}>{item.description}</p>
           <div className={styles.buttons}>
-            <button type="button" aria-label="Open Github" onClick={handleClickSourceCode}>
-              <IconGithub />
-            </button>
+            {item.githubLink?.length > 0 && (
+              <button type="button" aria-label="Open Github" onClick={handleClickSourceCode}>
+                <IconGithub />
+              </button>
+            )}
             <button type="button" aria-label="Open Linkedin" onClick={handleClickVisit}>
               <IconBxLinkExternal />
             </button>
