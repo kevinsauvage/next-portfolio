@@ -23,6 +23,7 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     const themeDark = localStorage.getItem('isDarkTheme');
+    if (!themeDark) return;
     if (themeDark !== 'true') setLightTheme();
   }, []);
 
