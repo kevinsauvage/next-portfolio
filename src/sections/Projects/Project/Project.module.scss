@@ -5,7 +5,7 @@
   width: 100%;
   height: fit-content;
   margin-bottom: 2rem;
-  padding: 2rem;
+  overflow: hidden;
   border: $border-s;
   border-radius: $radius_1;
 
@@ -14,8 +14,7 @@
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    padding: 0;
-    border-radius: $radius_1;
+    padding: 0 1.5rem 1.5rem;
     text-align: center;
 
     .buttons {
@@ -44,7 +43,7 @@
 
     .title {
       width: 100%;
-      margin: 1rem 0;
+      margin: 0 0 1rem 0;
       color: var(--primary-100);
       font-size: 1.3rem;
     }
@@ -59,13 +58,17 @@
       font-weight: 200;
       font-size: 0.9rem;
     }
+  }
 
-    .image {
-      position: relative;
+  .image {
+    position: relative;
+    margin: 2rem;
+
+    img {
       width: 100%;
       max-width: 500px;
+      height: 100%;
       margin: 0 auto;
-      margin-bottom: 1rem;
     }
   }
 }

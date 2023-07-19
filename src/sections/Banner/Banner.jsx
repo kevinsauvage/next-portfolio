@@ -16,7 +16,9 @@ const Banner = ({ ...rest }) => (
         initialStyle={{ opacity: 0, transform: 'translate(0px, 400px)' }}
       >
         <h1>
-          Showcasing the Artistry of a Front End <strong>Developer</strong>
+          Fueled by <strong>curiosity</strong>
+          <br /> and inspired by endless
+          <strong> possibilities</strong>.
         </h1>
       </Animation>
       <Animation
@@ -29,10 +31,9 @@ const Banner = ({ ...rest }) => (
         initialStyle={{ opacity: 0, transform: 'translate(0px, 400px)' }}
       >
         <p className={styles.subtitle}>
-          Are you in need of a web developer who can bring your ideas to life? Look no further! I
-          have a track record of delivering captivating and functional web applications. I am
-          committed to exceeding your expectations and creating visually stunning websites that
-          engage your audience.
+          For every problem, there&apos;s a code-driven solution waiting to be discovered. As a
+          problem-solving enthusiast, I enjoy the challenge of coding, transforming ideas into
+          reality with ingenuity and technical finesse.
         </p>
       </Animation>
     </div>
