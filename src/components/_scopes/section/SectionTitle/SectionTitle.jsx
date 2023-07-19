@@ -17,6 +17,8 @@ const SectionTitle = ({ title, className, tagLevel = 2 }) => {
   const HeadingTag = tagName;
   return (
     <Animation
+      duration={1000}
+      delay={100}
       animationKeyframes={['slide', 'fade-in']}
       initialStyle={{ opacity: 0, transform: 'translate(200px, 0px)' }}
     >

@@ -38,6 +38,11 @@
   font-size: 1rem;
 }
 
-.description {
+.list {
   margin-top: 1rem;
+
+  li {
+    max-width: 600px;
+    list-style: inside;
+  }
 }

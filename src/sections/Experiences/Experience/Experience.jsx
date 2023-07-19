@@ -3,23 +3,24 @@ import Animation from '@/components/Animation/Animation';
 import styles from './Experience.module.scss';
 
 const Experience = ({ experience }) => {
-  const { title, description, period } = experience;
+  const { title, period, listItem } = experience;
 
   return (
     <li>
       <Animation
-        duration={400}
-        delay={0}
-        iterationCount="1"
-        timingFunction="ease-in-out"
-        fillMode="forwards"
+        duration={1000}
+        delay={100}
         animationKeyframes={['slide', 'fade-in']}
-        initialStyle={{ opacity: 0, transform: 'translate(0px, 500px)' }}
+        initialStyle={{ opacity: 0, transform: 'translate(0px, 100px)' }}
       >
         <div className={styles.card}>
           <p className={styles.title}>{title}</p>
           <p className={styles.period}>{period}</p>
-          <p className={styles.description}>{description}</p>
+          <ul className={styles.list}>
+            {listItem.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
       </Animation>
     </li>

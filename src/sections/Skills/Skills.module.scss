@@ -12,4 +12,16 @@
   @include respond(mobile_l) {
     grid-template-columns: repeat(auto-fit, minmax(42%, 1fr));
   }
+
+  li {
+    transform: translate(0, 100px) scale(0.5);
+    opacity: 0;
+    transition-duration: 0.5s;
+
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-delay: $i * 0.2s;
+      }
+    }
+  }
 }

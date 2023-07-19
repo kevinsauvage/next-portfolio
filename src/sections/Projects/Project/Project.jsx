@@ -19,11 +19,8 @@ const Project = ({ item }) => {
 
   return (
     <Animation
-      duration={400}
+      duration={1000}
       delay={0}
-      iterationCount="1"
-      timingFunction="ease-in-out"
-      fillMode="forwards"
       animationKeyframes={['slide', 'fade-in']}
       initialStyle={{ opacity: 0, transform: 'translate(0px, 500px)' }}
     >

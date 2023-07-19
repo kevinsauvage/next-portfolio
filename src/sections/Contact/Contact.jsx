@@ -6,13 +6,10 @@ import styles from './Contact.module.scss';
 const Contact = () => (
   <div className={styles.contact}>
     <Animation
-      duration={400}
-      delay={0}
-      iterationCount="1"
-      timingFunction="ease-in-out"
-      fillMode="forwards"
+      duration={600}
+      delay={200}
       animationKeyframes={['slide', 'fade-in']}
-      initialStyle={{ opacity: 0, transform: 'translate(500px, 0px)' }}
+      initialStyle={{ opacity: 0, transform: 'translate(200px, 0px)' }}
     >
       <p className={styles.text}>
         Although I am not currently seeking new opportunities, I value building meaningful
@@ -22,13 +19,10 @@ const Contact = () => (
       </p>
     </Animation>
     <Animation
-      duration={400}
-      delay={0}
-      iterationCount="1"
-      timingFunction="ease-in-out"
-      fillMode="forwards"
+      duration={800}
+      delay={200}
       animationKeyframes={['slide', 'fade-in']}
-      initialStyle={{ opacity: 0, transform: 'translate(200px, 200px)' }}
+      initialStyle={{ opacity: 0, transform: 'translate(0px, 200px)' }}
     >
       <Button label="Contact me!" onClick={() => window.open('mailto:kevinsauvage@outlook.com')} />
     </Animation>

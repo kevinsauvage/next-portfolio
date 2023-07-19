@@ -1,26 +1,23 @@
-import Animation from '@/components/Animation/Animation';
 import competences from '@/config/skills';
+import useOnScreen from '@/hooks/useOnScreen';
 
 import Skill from './Skill/Skill';
 
 import styles from './Skills.module.scss';
 
-const Skills = () => (
-  <Animation
-    duration={400}
-    delay={0}
-    iterationCount="1"
-    timingFunction="ease-in-out"
-    fillMode="forwards"
-    animationKeyframes={['slide', 'fade-in']}
-    initialStyle={{ opacity: 0, transform: 'translate(0px, 500px)' }}
-  >
-    <ul className={styles.items}>
+const Skills = () => {
+  const { reference, isIntersecting } = useOnScreen(false);
+  return (
+    <ul className={styles.items} ref={reference}>
       {competences.map((item) => (
-        <Skill item={item} key={item.description} />
+        <Skill
+          item={item}
+          key={item.description}
+          className={isIntersecting ? 'fade-in slide' : ''}
+        />
       ))}
     </ul>
-  </Animation>
-);
+  );
+};
 
 export default Skills;
