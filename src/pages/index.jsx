@@ -1,4 +1,3 @@
-import Footer from '@/components/Footer/Footer';
 import PageLayout from '@/components/PageLayout/PageLayout';
 import sections from '@/config/sections';
 
@@ -7,7 +6,6 @@ const Home = () => (
     {sections.map((section) => (
       <section.component key={section.label} {...section} />
     ))}
-    <Footer />
   </PageLayout>
 );
 

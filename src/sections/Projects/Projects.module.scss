@@ -2,4 +2,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(365px, 1fr));
   gap: 1rem;
+
+  @include respond(mobile_l) {
+    display: block;
+  }
 }

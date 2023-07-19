@@ -4,7 +4,7 @@
   .container {
     display: flex;
 
-    @include respond(laptop_s) {
+    @include respond(tablet) {
       display: block;
     }
   }
