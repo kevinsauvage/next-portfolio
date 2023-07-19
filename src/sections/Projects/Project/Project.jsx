@@ -38,7 +38,7 @@ const Project = ({ item }) => {
           />
         </div>
         <div className={styles.content}>
-          <h6 className={styles.title}>{item.title}</h6>
+          <p className={styles.title}>{item.title}</p>
           <p className={styles.languages}>{item.languages}</p>
           <p className={styles.description}>{item.description}</p>
           <div className={styles.buttons}>

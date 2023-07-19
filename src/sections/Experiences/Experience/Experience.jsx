@@ -17,7 +17,7 @@ const Experience = ({ experience }) => {
         initialStyle={{ opacity: 0, transform: 'translate(0px, 500px)' }}
       >
         <div className={styles.card}>
-          <h4 className={styles.title}>{title}</h4>
+          <p className={styles.title}>{title}</p>
           <p className={styles.period}>{period}</p>
           <p className={styles.description}>{description}</p>
         </div>

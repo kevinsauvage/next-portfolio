@@ -43,19 +43,15 @@ li {
   list-style: none;
 }
 
-a,
-button {
-  color: var(--on-surface-200);
+a {
   text-decoration: none;
 }
 
-.color-primary {
-  color: var(--primary-100);
-}
-
+a,
 button,
 input,
 textarea {
+  color: var(--on-surface-200);
   font-size: 1rem;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -69,11 +65,8 @@ h6 {
   font-family: 'Julius Sans One', sans-serif;
 }
 
-h1 {
-  line-height: 1.2;
-}
-
-p {
+p,
+b {
   max-width: 600px;
   font-size: 1.1rem;
 }

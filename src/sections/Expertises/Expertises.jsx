@@ -15,7 +15,7 @@ const Expertise = ({ service }) => (
       initialStyle={{ opacity: 0, transform: `translate(100%, 0px) scale(0)` }}
     >
       <div className={styles.card}>
-        <h2 className={styles.title}>{service.title}</h2>
+        <p className={styles.title}>{service.title}</p>
         <p>{service.content}</p>
       </div>
     </Animation>
