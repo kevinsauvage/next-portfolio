@@ -36,7 +36,6 @@ $offset: 3rem;
 }
 
 .copyright {
-  margin: 1rem auto;
   color: var(--on-surface-400);
   text-align: center;
   opacity: 0.7;
@@ -68,9 +67,9 @@ $offset: 3rem;
   border-radius: $radius;
   color: var(--surface-100);
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
-  background-color: var(--primary-200);
+  background-color: var(--primary-100);
   cursor: pointer;
 
   @include scale(1.05);

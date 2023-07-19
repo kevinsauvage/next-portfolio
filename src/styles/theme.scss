@@ -1,8 +1,8 @@
-$primary-dark: #20b7c2;
+$primary-dark: #18a4e0;
 $surface-dark: #191a1b;
 $on-surface-dark: #f4f4f4;
 
-$primary-light: #0073ff;
+$primary-light: #0061e8;
 $surface-light: #eff1f7;
 $on-surface-light: #333333;
 
@@ -20,7 +20,7 @@ $globals: (
 
 $colors-dark: (
   primary-100: $primary-dark,
-  primary-200: darken($primary-dark, 10%),
+  primary-200: lighten($primary-dark, 15%),
   surface-100: $surface-dark,
   surface-200: darken($surface-dark, $step-surface-dark),
   surface-300: darken($surface-dark, $step-surface-dark * 2),

@@ -27,7 +27,11 @@ const Menu = () => {
           <div className={`${styles.header} ${menuIsOpen ? 'fade-in' : ''}`}>
             <ThemeSwitcher />
             <div className={`${styles.close} ${menuIsOpen ? 'slide' : ''} `}>
-              <button type="button" onClick={() => updateMenuOpen(!menuIsOpen)}>
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={() => updateMenuOpen(!menuIsOpen)}
+              >
                 <IconCloseOutline />
               </button>
             </div>

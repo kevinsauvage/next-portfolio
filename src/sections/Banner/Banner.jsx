@@ -30,8 +30,8 @@ const Banner = () => (
     >
       <p className={styles.subtitle}>
         For every problem, there&apos;s a code-driven solution waiting to be discovered. As a
-        problem-solving enthusiast, I enjoy the challenge of coding, transforming ideas into reality
-        with ingenuity and technical finesse.
+        problem-solving enthusiast, I enjoy the challenge of coding, transforming ideas into
+        reality.
       </p>
     </Animation>
   </div>
