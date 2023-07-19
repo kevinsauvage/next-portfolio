@@ -10,6 +10,7 @@ const ThemeSwitcher = ({ className = '' }) => {
   return (
     <button
       type="button"
+      aria-label={`Switch theme to ${isDarkTheme ? 'light' : 'dark'}`}
       onClick={() => (isDarkTheme ? setLightTheme() : setDarkTheme())}
       className={`${styles.button} ${className}`}
     >

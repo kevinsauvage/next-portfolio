@@ -22,13 +22,13 @@ const sections = [
     title:
       "Lifelong learner embracing technology's evolution to deliver <strong>high-quality results</strong>.",
   },
-  {
+  /*   {
     component: Expertise,
     icon: <IconHandExtendedOutline />,
     label: 'My Expertise',
     title:
       'Create  <strong>engaging</strong> user interfaces and <strong>interactive experiences</strong>.',
-  },
+  }, */
   {
     component: Experiences,
     icon: <IconSuitcase />,

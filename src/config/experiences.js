@@ -2,6 +2,13 @@ const experiences = [
   {
     description:
       'As a Developer Consultant at Extia in Barcelona, I developed responsive web applications, delivering high-quality results on time and within budget. I implemented process improvements for maximum efficiency and effectiveness, contributing to the success of the company and its projects. Through my contributions, I helped drive business growth and achieve outstanding outcomes.',
+    listItem: [
+      'Key contributor to an e-commerce website with a staggering monthly traffic of over 18 million visitors.',
+      "Implemented performance optimization strategies, enhancing the platform's scalability and contributing to its success.",
+      'Collaborated closely with cross-functional teams, driving continuous improvements to meet the demands.',
+      ' Conducted comprehensive code reviews and provided constructive feedback, leading to higher code quality and adherence to best practices.',
+      'Collaborated with product owners to prioritize and manage the product backlog, ensuring that development efforts aligned with business goals and objectives.',
+    ],
     location: 'Barcelona - Spain',
     period: 'May 2022 - present',
     title: 'Consultant developer',
