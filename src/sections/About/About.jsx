@@ -1,4 +1,3 @@
-import Section from '@/components/_scopes/section/Section/Section';
 import Animation from '@/components/Animation/Animation';
 import about from '@/config/about';
 
@@ -10,19 +9,17 @@ const AboutItem = ({ item, ...rest }) => (
   </li>
 );
 
-const About = ({ ...rest }) => (
-  <Section {...rest}>
-    <Animation
-      animationKeyframes={['slide', 'fade-in']}
-      initialStyle={{ opacity: 0, transform: 'translate(1000px, 0px)' }}
-    >
-      <ul className={styles.about}>
-        {about.map((item) => (
-          <AboutItem key={item.content} item={item} />
-        ))}
-      </ul>
-    </Animation>
-  </Section>
+const About = () => (
+  <Animation
+    animationKeyframes={['slide', 'fade-in']}
+    initialStyle={{ opacity: 0, transform: 'translate(1000px, 0px)' }}
+  >
+    <ul className={styles.about}>
+      {about.map((item) => (
+        <AboutItem key={item.content} item={item} />
+      ))}
+    </ul>
+  </Animation>
 );
 
 export default About;

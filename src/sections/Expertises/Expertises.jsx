@@ -1,4 +1,3 @@
-import Section from '@/components/_scopes/section/Section/Section';
 import Animation from '@/components/Animation/Animation';
 import services from '@/config/expertises';
 
@@ -23,14 +22,12 @@ const Expertise = ({ service }) => (
   </li>
 );
 
-const Expertises = ({ ...rest }) => (
-  <Section {...rest}>
-    <ul className={styles.Expertise}>
-      {services.map((service) => (
-        <Expertise service={service} key={service.title} />
-      ))}
-    </ul>
-  </Section>
+const Expertises = () => (
+  <ul className={styles.Expertise}>
+    {services.map((service) => (
+      <Expertise service={service} key={service.title} />
+    ))}
+  </ul>
 );
 
 export default Expertises;

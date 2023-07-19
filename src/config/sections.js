@@ -19,6 +19,7 @@ const sections = [
     component: About,
     icon: <IconUser />,
     label: 'About Me',
+    tagLevel: 2,
     title:
       "Lifelong learner embracing technology's evolution to deliver <strong>high-quality results</strong>.",
   },
@@ -33,25 +34,31 @@ const sections = [
     component: Experiences,
     icon: <IconSuitcase />,
     label: 'My Experience',
+    tagLevel: 3,
     title: 'Explore my <strong>work history</strong> and <strong>achievements</strong>.',
   },
   {
     component: Projects,
     icon: <IconCodeSlash />,
     label: 'My Projects',
+    tagLevel: 4,
     title: 'Immerse yourself in a gallery of my <strong>handcrafted digital solutions</strong>.',
   },
   {
     component: Skills,
     icon: <IconShapeOutline />,
     label: 'My Skills',
+
+    tagLevel: 5,
     title: 'Witness <strong>my coding skills</strong> and <strong>craftsmanship</strong>.',
   },
   {
     component: Contact,
     icon: <IconEmailOutline />,
     label: 'Contact Me',
+
     subtitle: '',
+    tagLevel: 6,
     title: 'Reach out to explore how we can <strong>work together</strong>.',
   },
 ];

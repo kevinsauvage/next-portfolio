@@ -10,7 +10,7 @@ import SectionUpTitle from '../SectionUptitle/SectionUpTitle';
 
 import styles from './Section.module.scss';
 
-const Section = ({ children, label, icon, title, subtitle, showSubtitle }) => {
+const Section = ({ children, label, icon, title, subtitle, showSubtitle, tagLevel }) => {
   const { isIntersecting, reference } = useOnScreen();
   const { activeSection, updateActiveSection } = useGlobalContext();
 
@@ -21,15 +21,15 @@ const Section = ({ children, label, icon, title, subtitle, showSubtitle }) => {
   }, [activeSection, debouncedUpdateActive, isIntersecting, label, updateActiveSection]);
 
   return (
-    <section className={styles.Section} id={label?.split(' ')?.join('-')}>
+    <div className={styles.Section} id={label?.split(' ')?.join('-')}>
       <header>
         {label && <SectionUpTitle icon={icon} text={label} />}
-        {title && <SectionTitle title={title} />}
+        {title && <SectionTitle title={title} tagLevel={tagLevel} />}
         {subtitle && showSubtitle && <SectionSubtitle subtitle={subtitle} />}
       </header>
       <div ref={reference} />
       {children}
-    </section>
+    </div>
   );
 };
 
