@@ -11,13 +11,13 @@ $offset: 3rem;
   width: 28%;
   min-width: 370px;
   height: 100vh;
+  min-height: 100vh;
   background-color: var(--surface-200);
 
   @include respond(tablet) {
     position: static;
     width: 100%;
     max-width: 100%;
-    min-height: 100vh;
     margin-left: 0;
   }
 }
