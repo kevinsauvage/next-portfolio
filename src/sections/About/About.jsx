@@ -12,7 +12,7 @@ const AboutItem = ({ item, ...rest }) => (
 const About = () => (
   <Animation
     animationKeyframes={['slide', 'fade-in']}
-    initialStyle={{ opacity: 0, transform: 'translate(1000px, 0px)' }}
+    initialStyle={{ opacity: 0, transform: 'translate(200px, 0px)' }}
   >
     <ul className={styles.about}>
       {about.map((item) => (

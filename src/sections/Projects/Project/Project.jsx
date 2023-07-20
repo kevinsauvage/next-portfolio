@@ -20,9 +20,9 @@ const Project = ({ item }) => {
   return (
     <Animation
       duration={1000}
-      delay={0}
+      delay={100}
       animationKeyframes={['slide', 'fade-in']}
-      initialStyle={{ opacity: 0, transform: 'translate(0px, 500px)' }}
+      initialStyle={{ opacity: 0, transform: 'translate(0px, 200px)' }}
     >
       <div className={styles.card}>
         <div className={styles.image}>
