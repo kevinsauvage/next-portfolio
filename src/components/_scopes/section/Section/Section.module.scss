@@ -14,6 +14,7 @@
   }
 
   @include respond(laptop_s) {
+    margin-left: unset;
     padding: 3rem 2rem;
   }
 

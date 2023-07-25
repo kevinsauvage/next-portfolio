@@ -6,6 +6,11 @@
     align-items: center;
     gap: 3rem;
     width: 100%;
+
+    @include respond(mobile_l) {
+      flex-direction: column;
+      gap: 0rem;
+    }
   }
 
   .button {
