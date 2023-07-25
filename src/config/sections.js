@@ -59,7 +59,7 @@ const sections = [
 
     subtitle: '',
     tagLevel: 6,
-    title: 'Reach out to explore how we can <strong>work together</strong>.',
+    title: "Let's <strong>work together</strong>.",
   },
 ];
 

@@ -1,0 +1,40 @@
+.container {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+
+.notification {
+  position: relative;
+  min-width: 10rem;
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+  border: $border-s;
+  border-radius: $radius 0 $radius $radius;
+  background-color: var(--surface-300);
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: transparent;
+  font-size: 1.5rem;
+  background-color: var(--surface-300);
+  cursor: pointer;
+}
+
+.error {
+  border-color: red;
+}
+
+.warn {
+  border-color: orange;
+}
+
+.success {
+  border-color: green;
+}

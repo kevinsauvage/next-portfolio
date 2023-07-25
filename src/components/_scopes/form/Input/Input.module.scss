@@ -1,0 +1,16 @@
+.input {
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+  padding: 0.5rem 0;
+  border: none;
+  font-weight: 300;
+  font-size: 1.2rem;
+  background-color: transparent;
+
+  @include placeholder(rgba(var(--rgb-on-surface-400), 0.5));
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}

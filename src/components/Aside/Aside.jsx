@@ -1,5 +1,6 @@
 import ContactInfo from '@/components/ContactInfo/ContactInfo';
 import Logo from '@/components/Logo/Logo';
+import { scrollToSection } from '@/utils';
 
 import styles from './Aside.module.scss';
 
@@ -14,11 +15,7 @@ const Aside = () => (
       </p>
       <p className={styles.copyright}>&copy; Kévin Sauvage - {new Date().getFullYear()}</p>
       <ContactInfo className={styles.contactInfo} />
-      <button
-        className={styles.button}
-        type="button"
-        onClick={() => window.open('mailto:kevinsauvage@outlook.com')}
-      >
+      <button className={styles.button} type="button" onClick={() => scrollToSection('Contact-Me')}>
         Hire me !
       </button>
     </aside>

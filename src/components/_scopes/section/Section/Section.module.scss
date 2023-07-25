@@ -6,10 +6,11 @@
   height: fit-content;
   min-height: 100vh;
   margin: 0 auto;
+  margin-left: 4rem;
   padding: 3rem;
 
   header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   @include respond(laptop_s) {

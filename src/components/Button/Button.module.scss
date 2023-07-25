@@ -56,7 +56,22 @@
     }
   }
 
-  .clicked {
+  &.clicked {
     transform: scale(0.8);
+  }
+
+  &.loading {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  .loader {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-300);
+    inset: 0;
   }
 }
