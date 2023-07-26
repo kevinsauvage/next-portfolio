@@ -1,16 +1,10 @@
 $primary-dark: #18a4e0;
 $surface-dark: #1a1a1a;
-$on-surface-dark: #f4f4f4;
+$on-surface-dark: #e9e9e9;
 
 $primary-light: #0057d0;
-$surface-light: #e5e5e5;
+$surface-light: #fdfdfd;
 $on-surface-light: #333333;
-
-$step-surface-dark: 2%;
-$step-on-surface-dark: 8%;
-
-$step-surface-light: 4%;
-$step-on-surface-light: 5%;
 
 $globals: (
   black: #000000,
@@ -20,28 +14,28 @@ $globals: (
 
 $colors-dark: (
   primary-100: $primary-dark,
-  primary-200: lighten($primary-dark, 15%),
+  // Surface
   surface-100: $surface-dark,
-  surface-200: darken($surface-dark, $step-surface-dark),
-  surface-300: darken($surface-dark, $step-surface-dark * 2),
-  surface-400: darken($surface-dark, $step-surface-dark * 4),
+  surface-200: scale-color($surface-dark, $lightness: -10%),
+  surface-300: scale-color($surface-dark, $lightness: -20%),
+  // On surface
   on-surface-100: $on-surface-dark,
-  on-surface-200: darken($on-surface-dark, $step-on-surface-dark),
-  on-surface-300: darken($on-surface-dark, $step-on-surface-dark * 2),
-  on-surface-400: darken($on-surface-dark, $step-on-surface-dark * 3),
+  on-surface-200: scale-color($on-surface-dark, $lightness: -10%),
+  on-surface-300: scale-color($on-surface-dark, $lightness: -20%),
+  on-surface-400: scale-color($on-surface-dark, $lightness: -30%),
 );
 
 $colors-light: (
   primary-100: $primary-light,
-  primary-200: darken($primary-light, 20%),
+  // Surface
   surface-100: $surface-light,
-  surface-200: darken($surface-light, $step-surface-light),
-  surface-300: darken($surface-light, $step-surface-light * 2),
-  surface-400: darken($surface-light, $step-surface-light * 3),
+  surface-200: scale-color($surface-light, $lightness: -5%),
+  surface-300: scale-color($surface-light, $lightness: -10%),
+  // On surface
   on-surface-100: $on-surface-light,
-  on-surface-200: darken($on-surface-light, $step-on-surface-light),
-  on-surface-300: darken($on-surface-light, $step-on-surface-light * 2),
-  on-surface-400: darken($on-surface-light, $step-on-surface-light * 3),
+  on-surface-200: scale-color($on-surface-light, $lightness: -10%),
+  on-surface-300: scale-color($on-surface-light, $lightness: -20%),
+  on-surface-400: scale-color($on-surface-light, $lightness: -30%),
 );
 
 @function hex-to-rgb($hex) {
