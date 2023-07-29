@@ -8,6 +8,7 @@
   border: $border-s;
   border-radius: $radius_1;
   aspect-ratio: 1;
+  background-color: var(--color-surface-3);
 
   .icon {
     display: flex;
@@ -33,8 +34,7 @@
   p {
     width: 100%;
     padding: 0.5rem;
-    color: var(--on-surface-200);
+    color: var(--color-text-2);
     text-align: center;
-    background-color: var(--surface-200);
   }
 }

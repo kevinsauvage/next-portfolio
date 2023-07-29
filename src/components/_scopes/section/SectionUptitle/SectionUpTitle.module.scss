@@ -8,17 +8,17 @@
   padding: 6px 1rem;
   border: $border-s;
   border-radius: 99em;
-  background-color: var(--surface-200);
+  background-color: var(--color-surface-2);
 
   svg {
-    color: var(--on-surface-400);
+    color: var(--color-text-3);
     opacity: 0.8;
   }
 
   p {
     position: relative;
     top: 2px;
-    color: var(--on-surface-300);
+    color: var(--color-text-3);
     font-weight: 300;
     font-size: 1rem;
     letter-spacing: -1px;

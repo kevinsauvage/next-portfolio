@@ -5,7 +5,8 @@
   justify-content: flex-end;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(var(--rgb-on-surface-100), 0.5);
+  background: red;
+  background-color: rgba(var(--rgb-color-text-1), 0.2);
   visibility: hidden;
   opacity: 0;
   transition: $transition;
@@ -32,7 +33,7 @@
   padding: 2rem 2rem 2rem 3rem;
   overflow-x: hidden;
   overflow-y: auto;
-  background: var(--surface-200);
+  background: var(--color-surface-1);
   transform: translateX(100%);
   transition: $transition;
 }
@@ -42,7 +43,7 @@
   button {
     border-radius: 50%;
     font-size: 2.5rem;
-    background-color: var(--surface-200);
+    background-color: var(--color-surface-2);
     cursor: pointer;
 
     @include scale(1.2);

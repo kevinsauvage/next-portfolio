@@ -1,41 +1,59 @@
-$primary-dark: #18a4e0;
-$surface-dark: #1a1a1a;
-$on-surface-dark: #e9e9e9;
-
-$primary-light: #0057d0;
-$surface-light: #fdfdfd;
-$on-surface-light: #333333;
-
-$globals: (
-  black: #000000,
-  rgb_black: #000000,
-  white: #fcfcfc,
-);
+// DARK COLORS
+$primary-dark: #18bbe0;
+$surface-dark: #101010;
+$text-dark: #e6e6e6;
 
 $colors-dark: (
   primary-100: $primary-dark,
   // Surface
-  surface-100: $surface-dark,
-  surface-200: scale-color($surface-dark, $lightness: -10%),
-  surface-300: scale-color($surface-dark, $lightness: -20%),
-  // On surface
-  on-surface-100: $on-surface-dark,
-  on-surface-200: scale-color($on-surface-dark, $lightness: -10%),
-  on-surface-300: scale-color($on-surface-dark, $lightness: -20%),
-  on-surface-400: scale-color($on-surface-dark, $lightness: -30%),
+  color-surface-1: $surface-dark,
+  color-surface-2: lighten($surface-dark, 3),
+  color-surface-3: lighten($surface-dark, 6),
+  // Text
+  color-text-1: $text-dark,
+  color-text-2: darken($text-dark, 10),
+  color-text-3: darken($text-dark, 20),
+  color-text-4: darken($text-dark, 50),
+  // Borders
+  color-border-1: #ffffff8e,
+  color-border-2: #ffffff50,
+  color-border-3: #fcfcfc21,
+  // FEEDBACK
+  color-warning: #b54708,
+  color-error: #b7192e,
+  color-success: #338213,
 );
+
+// LIGHT COLORS
+$primary-light: #0037d0;
+$surface-light: #ffffff;
+$text-light: #161616;
 
 $colors-light: (
   primary-100: $primary-light,
   // Surface
-  surface-100: $surface-light,
-  surface-200: scale-color($surface-light, $lightness: -5%),
-  surface-300: scale-color($surface-light, $lightness: -10%),
-  // On surface
-  on-surface-100: $on-surface-light,
-  on-surface-200: scale-color($on-surface-light, $lightness: -10%),
-  on-surface-300: scale-color($on-surface-light, $lightness: -20%),
-  on-surface-400: scale-color($on-surface-light, $lightness: -30%),
+  color-surface-1: $surface-light,
+  color-surface-2: darken($surface-light, 3),
+  color-surface-3: darken($surface-light, 6),
+  // Text
+  color-text-1: $text-light,
+  color-text-2: lighten($text-light, 10),
+  color-text-3: lighten($text-light, 20),
+  color-text-4: lighten($text-light, 50),
+  // Borders
+  color-border-1: #0000008e,
+  color-border-2: #00000050,
+  color-border-3: #00000021,
+  // FEEDBACK
+  color-warning: #b54200,
+  color-error: #b60b22,
+  color-success: #2d850b,
+);
+
+// GLOBAL COLORS
+$globals: (
+  black: #000000,
+  white: #fcfcfc,
 );
 
 @function hex-to-rgb($hex) {
@@ -44,19 +62,11 @@ $colors-light: (
 
 @mixin generate-colors($colors) {
   @each $color, $value in $colors {
-    @if str-slice(#{$value}, 1, 1) == '#' {
-      --#{$color}: #{$value};
-    } @else {
-      --#{$color}: var(--#{$value});
-    }
+    --#{$color}: #{$value};
   }
 
   @each $color, $value in $colors {
-    @if str-slice(#{$value}, 1, 1) == '#' {
-      --rgb-#{$color}: #{hex-to-rgb($value)};
-    } @else {
-      --rgb-#{$color}: var(--rgb_#{$value});
-    }
+    --rgb-#{$color}: #{hex-to-rgb($value)};
   }
 }
 

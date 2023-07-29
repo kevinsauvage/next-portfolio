@@ -30,8 +30,8 @@
   @include scale;
 
   &:hover {
-    border-color: var(--on-surface-100);
-    color: var(--on-surface-100);
-    background-color: var(--surface-100);
+    border-color: var(--color-text-1);
+    color: var(--color-text-1);
+    background-color: var(--color-surface-1);
   }
 }

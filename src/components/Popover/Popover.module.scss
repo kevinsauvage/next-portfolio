@@ -7,9 +7,9 @@
     right: 100%;
     padding: 4px 8px;
     border: $border-m;
-    color: var(--on-surface-100);
+    color: var(--color-text-1);
     white-space: nowrap;
-    background-color: var(--surface-200);
+    background-color: var(--color-surface-2);
     transform: translateY(-50%);
   }
 
@@ -20,7 +20,8 @@
     display: none;
     width: 10px;
     height: 10px;
-    background-color: var(--on-surface-100);
+    border: $border-m;
+    background-color: var(--color-surface-2);
     transform: translateY(-50%) rotate(45deg);
   }
 }

@@ -108,8 +108,8 @@
   transition: $transition;
 
   &:hover {
-    border-color: var(--on-surface-100);
-    color: var(--on-surface-100);
+    border-color: var(--color-text-1);
+    color: var(--color-text-1);
 
     @include respond(laptop_s) {
       padding: 1rem;

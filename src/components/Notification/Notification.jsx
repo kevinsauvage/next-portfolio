@@ -34,14 +34,16 @@ const Notification = () => {
           className={`${styles.notification} ${getStyles(currentNotification.type)}`}
           key={currentNotification.id}
         >
-          <span>{currentNotification.message}</span>
-          <button
-            type="button"
-            className={styles.close}
-            onClick={() => removeNotification(currentNotification.id)}
-          >
-            <IconCloseOutline />
-          </button>
+          <div className={styles.inner}>
+            <span>{currentNotification.message}</span>
+            <button
+              type="button"
+              className={styles.close}
+              onClick={() => removeNotification(currentNotification.id)}
+            >
+              <IconCloseOutline />
+            </button>
+          </div>
         </div>
       ))}
     </div>,

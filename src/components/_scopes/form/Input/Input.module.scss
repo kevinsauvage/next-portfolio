@@ -7,7 +7,7 @@
   font-size: 1.2rem;
   background-color: transparent;
 
-  @include placeholder(rgba(var(--rgb-on-surface-400), 0.5));
+  @include placeholder(var(--color-text-4));
 
   &:focus,
   &:active {
