@@ -10,7 +10,7 @@ const projects = [
       laptop:
         'https://res.cloudinary.com/kevincloudname/image/upload/v1681237627/portfolio/Streamy/laptop_streamy.png',
     },
-    languages: 'React.js | SASS |  Express.js | Mongoose | TMDB API | JWT | React router | Bcrypt',
+    languages: 'React.js | SASS |  Express.js | Mongoose',
     title: 'Streamy',
     websiteLink: 'https://streamy.fun/',
   },
@@ -22,7 +22,7 @@ const projects = [
       laptop:
         'https://res.cloudinary.com/kevincloudname/image/upload/v1681232730/portfolio/uptogo/laptop.png',
     },
-    languages: 'Next.js | SASS | MongoDB | Redux | Redux persist | Stripe | Jsonwebtoken | Bcrypt',
+    languages: 'Next.js | SASS | MongoDB | Redux',
     title: 'UpToGo',
     websiteLink: 'https://uptogo.vercel.app/',
   },

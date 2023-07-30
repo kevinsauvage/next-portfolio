@@ -17,10 +17,12 @@
     position: absolute;
     top: 50%;
     left: -5px;
+    z-index: 99;
     display: none;
     width: 10px;
     height: 10px;
-    border: $border-m;
+    border-top: $border-m;
+    border-right: $border-m;
     background-color: var(--color-surface-2);
     transform: translateY(-50%) rotate(45deg);
   }

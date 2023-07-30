@@ -1,14 +1,17 @@
 // DARK COLORS
 $primary-dark: #18bbe0;
-$surface-dark: #101010;
+$surface-dark: #202020;
 $text-dark: #e6e6e6;
+$color-background-dark: #121212;
 
 $colors-dark: (
   primary-100: $primary-dark,
+  // Background
+  color-background-1: $color-background-dark,
   // Surface
   color-surface-1: $surface-dark,
-  color-surface-2: lighten($surface-dark, 3),
-  color-surface-3: lighten($surface-dark, 6),
+  color-surface-2: darken($surface-dark, 3),
+  color-surface-3: darken($surface-dark, 6),
   // Text
   color-text-1: $text-dark,
   color-text-2: darken($text-dark, 10),
@@ -26,15 +29,18 @@ $colors-dark: (
 
 // LIGHT COLORS
 $primary-light: #0037d0;
-$surface-light: #ffffff;
+$surface-light: #ebebeb;
 $text-light: #161616;
+$color-background-light: #ffffff;
 
 $colors-light: (
   primary-100: $primary-light,
+  // Background
+  color-background-1: $color-background-light,
   // Surface
   color-surface-1: $surface-light,
-  color-surface-2: darken($surface-light, 3),
-  color-surface-3: darken($surface-light, 6),
+  color-surface-2: lighten($surface-light, 3),
+  color-surface-3: lighten($surface-light, 6),
   // Text
   color-text-1: $text-light,
   color-text-2: lighten($text-light, 10),

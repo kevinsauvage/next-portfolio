@@ -8,7 +8,7 @@
   overflow: hidden;
   border: $border-s;
   border-radius: $radius_1;
-  background-color: var(--color-surface-3);
+  background-color: var(--color-surface-2);
 
   .content {
     position: static;
@@ -58,7 +58,7 @@
       margin-bottom: 1rem;
       color: var(--color-text-3);
       font-weight: 200;
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
 

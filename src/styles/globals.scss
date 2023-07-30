@@ -7,7 +7,7 @@
 }
 
 html {
-  @include font-size(1rem, 1.15rem);
+  @include font-size(1rem, 1.2rem);
 
   height: 100%;
   overflow-x: hidden;
@@ -22,7 +22,7 @@ body {
   height: 100%;
   color: var(--color-text-2);
   font-family: 'Josefin Sans', sans-serif;
-  background-color: var(--color-surface-1);
+  background-color: var(--color-background-1);
   transition: background-color 0.2s ease-in-out;
 }
 
@@ -36,7 +36,7 @@ textarea {
 
   &::-webkit-scrollbar-thumb {
     border-radius: 0;
-    background-color: var(--color-surface-3);
+    background-color: var(--color-background-1);
   }
 }
 
@@ -67,9 +67,10 @@ h6 {
 }
 
 p,
-b {
+b,
+li {
   max-width: 600px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 input:-webkit-autofill,

@@ -9,7 +9,6 @@
 $animation-duraction: 0.6s;
 
 .list {
-  padding: 1rem 0;
   border: $border-s;
   border-radius: 99em;
   background-color: var(--color-surface-2);
@@ -28,22 +27,31 @@ $animation-duraction: 0.6s;
   }
 
   .item {
-    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
     border: none;
+    border-radius: 50%;
     font-size: 1.3rem;
     white-space: nowrap;
     background-color: transparent;
     cursor: pointer;
     transition: $transition;
 
-    @include scale(1.2);
-
     &:hover {
       color: var(--color-text-1);
     }
 
+    &:not(&.active) {
+      @include scale(1.2);
+    }
+
     &.active {
+      border: $border-m;
       color: var(--primary-100);
+      background-color: var(--color-background-1);
     }
   }
 }

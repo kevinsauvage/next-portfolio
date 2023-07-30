@@ -5,8 +5,6 @@ export const GlobalContext = createContext();
 export const GlobalProvider = ({ children }) => {
   const [activeSection, setActiveSection] = useState('');
 
-  console.log('🚀 ~  file: GlobalContext.js:8 ~  GlobalProvider ~  activeSection:', activeSection);
-
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   useEffect(() => {
