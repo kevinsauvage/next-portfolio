@@ -47,7 +47,6 @@
     "prettier": "^2.8.7",
     "stylelint": "^15.4.0",
     "stylelint-checkstyle-formatter": "^0.1.2",
-    "stylelint-config-idiomatic-order": "^9.0.0",
     "stylelint-config-recommended-scss": "^9.0.1",
     "stylelint-order": "^6.0.3",
     "stylelint-scss": "^4.6.0"
