@@ -38,14 +38,17 @@ jobs:
           name: lighthouse-report
           path: lighthouse-report.json
 
-      - name: Publish Lighthouse Report as Comment
-        if: always()
-        uses: peter-evans/send-comment@v1
-        with:
-          issue-number: ${{ github.event.number }}
-          message: |
-            **Lighthouse Performance Report**
+      - name: Get Lighthouse Report Content
+        id: get-report-content
+        run: echo "::set-output name=content::$(cat lighthouse-report.json)"
 
-            ```
-            $(cat lighthouse-report.json)
-            ```
+      - name: Post Lighthouse Report Comment
+        if: always()
+        run: |
+          curl -X POST \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "body": "Lighthouse Performance Report\n```\n'"${{ steps.get-report-content.outputs.content }}"'\n```"
+            }' \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.number }}/comments"
