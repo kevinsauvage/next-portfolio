@@ -31,9 +31,13 @@ jobs:
 
       - name: Upload Lighthouse Report
         uses: actions/upload-artifact@v2
+        id: download
         with:
           name: lighthouse-report
           path: lighthouse-report.json
+
+      - name: 'Echo download path'
+        run: echo ${{steps.download.outputs.download-path}}
 
       - name: Publish Lighthouse Report Link
         uses: actions/github-script@v6
