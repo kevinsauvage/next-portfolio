@@ -43,30 +43,28 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const artifactURL = `https://github.com/${process.env.GITHUB_REPOSITORY}/runs/${process.env.GITHUB_RUN_ID}/artifacts/lighthouse-report/lighthouse-report.json`;
+            const artifactURL = `https://github.com/${process.env.GITHUB_REPOSITORY}/suites/${process.env.GITHUB_RUN_ID}/artifacts/lighthouse-report.json`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: artifactURL
             })
-      - name: Generate HTML Report
-        run: npx lighthouse-reporter lighthouse-report.json
 
-      - name: Deploy HTML Report
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./lighthouse-report
+      - name: Get Artifact URL
+        id: artifact_url
+        run: |
+          echo "::set-output name=url::$(curl -X POST -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' -H 'Accept: application/vnd.github.v3+json' 'https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts' | jq -r '.artifacts[0].archive_download_url')"
 
       - name: Publish Lighthouse Report Link
         uses: actions/github-script@v6
         with:
           script: |
-            const reportURL = 'https://googlechrome.github.io/lighthouse/viewer/?psi=3&gist=' + process.env.GITHUB_SHA;
+            const artifactURL = context.payload.outputs.artifact_url;
+            const cdpURL = `chrome-devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=${encodeURIComponent(artifactURL)}`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `Lighthouse Report: ${reportURL}`
+              body: `Open the Lighthouse Report in Chrome DevTools: [Open DevTools](${cdpURL})`
             })
