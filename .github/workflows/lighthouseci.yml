@@ -37,3 +37,15 @@ jobs:
         with:
           name: lighthouse-report
           path: lighthouse-report.json
+
+      - name: Publish Lighthouse Report as Comment
+        if: always()
+        uses: peter-evans/send-comment@v1
+        with:
+          issue-number: ${{ github.event.number }}
+          message: |
+            **Lighthouse Performance Report**
+
+            ```
+            $(cat lighthouse-report.json)
+            ```
