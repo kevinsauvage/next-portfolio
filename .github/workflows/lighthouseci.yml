@@ -1,9 +1,6 @@
 name: Lighthouse Performance Test
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -20,6 +17,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 16
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
 
       - name: Install dependencies
         run: npm install
@@ -40,7 +40,7 @@ jobs:
 
       - name: Get Lighthouse Report Content
         id: get-report-content
-        run: echo "::set-output name=content::$(jq -r tostring < lighthouse-report.json)"
+        run: echo "::set-output name=content::$(cat lighthouse-report.json | jq -c -r '.')"
 
       - name: Post Lighthouse Report Comment
         if: always()
