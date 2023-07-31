@@ -38,10 +38,6 @@ jobs:
           name: lighthouse-report
           path: lighthouse-report.json
 
-      - name: Get Lighthouse Report Content
-        id: get-report-content
-        run: echo "::set-output name=content::$(cat lighthouse-report.json)"
-
       - name: Post Lighthouse Report Comment
         if: always()
         run: |
@@ -52,3 +48,5 @@ jobs:
               "body": "Lighthouse Performance Report\n```\n'"${{ steps.get-report-content.outputs.content }}"'\n```"
             }' \
             "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.number }}/comments"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
