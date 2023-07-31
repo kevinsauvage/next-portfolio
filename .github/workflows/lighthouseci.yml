@@ -24,37 +24,21 @@ jobs:
       - name: Build Next.js app
         run: npm run build
 
-      - name: Run Lighthouse Performance Test
-        run: npx lighthouse https://www.kevin-sauvage.com/ --quiet --output json --output-path lighthouse-report.json --chrome-flags="--headless"
-        env:
-          CI: true
+      - name: Run Lighthouse Performance Test and Generate JSON Report
+        run: |
+          npx lighthouse https://www.kevin-sauvage.com/ --quiet --output json --output-path lighthouse-report.json --chrome-flags="--headless"
 
       - name: Upload Lighthouse Report
         uses: actions/upload-artifact@v2
-        id: download
         with:
           name: lighthouse-report
           path: lighthouse-report.json
 
-      - name: 'Echo download path'
-        run: echo ${{steps.download.outputs.download-path}}
-
-      - name: Publish Lighthouse Report Link
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const artifactURL = `https://github.com/${process.env.GITHUB_REPOSITORY}/suites/${process.env.GITHUB_RUN_ID}/artifacts/lighthouse-report.json`;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: artifactURL
-            })
-
       - name: Get Artifact URL
         id: artifact_url
         run: |
-          echo "::set-output name=url::$(curl -X POST -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' -H 'Accept: application/vnd.github.v3+json' 'https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts' | jq -r '.artifacts[0].archive_download_url')"
+          ARTIFACT_URL=$(curl -X POST -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" | jq -r '.artifacts[0].archive_download_url')
+          echo "::set-output name=url::$ARTIFACT_URL"
 
       - name: Publish Lighthouse Report Link
         uses: actions/github-script@v6
