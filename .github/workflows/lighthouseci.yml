@@ -50,3 +50,23 @@ jobs:
               repo: context.repo.repo,
               body: artifactURL
             })
+      - name: Generate HTML Report
+        run: npx lighthouse-reporter lighthouse-report.json
+
+      - name: Deploy HTML Report
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./lighthouse-report
+
+      - name: Publish Lighthouse Report Link
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const reportURL = 'https://googlechrome.github.io/lighthouse/viewer/?psi=3&gist=' + process.env.GITHUB_SHA;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Lighthouse Report: ${reportURL}`
+            })
