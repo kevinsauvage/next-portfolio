@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic';
 
-import Banner from '@/sections/Banner/Banner';
 import Contact from '@/sections/Contact/Contact';
 import Experiences from '@/sections/Experiences/Experiences';
 // import Expertise from '@/sections/Expertises/Expertises';
@@ -15,6 +14,7 @@ import IconSuitcase from '@/svg/IconSuitcase';
 import IconUser from '@/svg/IconUser';
 
 const About = dynamic(() => import('@/sections/About/About'));
+const Banner = dynamic(() => import('@/sections/Banner/Banner'));
 
 const sections = [
   { component: Banner, icon: <IconIconHome />, label: 'Introduction' },
