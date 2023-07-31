@@ -1,48 +1,39 @@
-name: Lighthouse CI
+name: Lighthouse Performance Test
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build-deploy-test:
+  lighthouse-test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: 18.x
+          node-version: 14
 
-      - name: Install Dependencies
-        run: yarn
+      - name: Install dependencies
+        run: npm install
 
-      - name: Build App
-        run: yarn run build
+      - name: Build Next.js app
+        run: npm run build
 
-      - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v20
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: --yes
-
-      - name: Wait for Deployment
-        run: |
-          echo "Waiting for deployment to finish..."
-          preview_url=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" "<https://api.vercel.com/v6/deployments?projectId=$>{{ secrets.VERCEL_PROJECT_ID }}&limit=1" | jq -r ".deployments[0].url")
-          while [[ $(curl -sL -w "%{http_code}\\\\n" "${preview_url}" -o /dev/null) != "200" ]]; do sleep 10; done
-          echo "Deployment finished. Preview URL: $preview_url"
-          echo "PREVIEW_URL=$preview_url" >> $GITHUB_ENV
-
-      - name: Run Lighthouse Tests
-        run: |
-          npm install -g @lhci/cli@0.11.x
-          lhci autorun
+      - name: Run Lighthouse Performance Test
+        run: npx lighthouse https://www.kevin-sauvage.com/ --quiet --output json --output-path lighthouse-report.json
         env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+          CI: true
 
-      - name: Upload Lighthouse Reports
+      - name: Upload Lighthouse Report
         uses: actions/upload-artifact@v2
         with:
-          name: lhci-report
-          path: './.lighthouseci'
+          name: lighthouse-report
+          path: lighthouse-report.json
