@@ -37,7 +37,10 @@ jobs:
       - name: Get Artifact URL
         id: artifact_url
         run: |
-          ARTIFACT_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts"
+          ARTIFACT_URL=$(gh api -H "Accept: application/vnd.github+json" \
+                             -H "X-GitHub-Api-Version: 2022-11-28" \
+                             /repos/${{ github.repository }}/actions/artifacts/${{ github.run_id }} \
+                       | jq -r '.url')
           echo "artifact_url=$ARTIFACT_URL" >> $GITHUB_OUTPUT"
 
       - name: Publish Lighthouse Report Link
