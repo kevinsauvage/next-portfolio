@@ -37,7 +37,7 @@ jobs:
       - name: Get Artifact URL
         id: artifact_url
         run: |
-          ARTIFACT_URL=$(curl -X GET -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" | jq -r '.artifacts[0].archive_download_url')
+          ARTIFACT_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts"
           echo "artifact_url=$ARTIFACT_URL" >> $GITHUB_OUTPUT"
 
       - name: Publish Lighthouse Report Link
