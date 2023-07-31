@@ -1,0 +1,27 @@
+.card {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+  padding: 3rem;
+  border: $border-s;
+  border-radius: $radius_1;
+  text-align: center;
+
+  p {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+.Expertise {
+  .title {
+    margin-bottom: 1rem;
+    color: var(--primary-100);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: var(--color-text-3);
+  }
+}

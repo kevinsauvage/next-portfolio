@@ -1,20 +1,15 @@
-import About from '../component/About/About';
-import Banner from '../component/Banner/Banner';
-import Contact from '../component/Contact/Contact';
-import Projects from '../component/Projects/Projects';
-import What from '../component/What/What';
-import PageLayout from '../layout/PageLayout/PageLayout';
+import Section from '@/components/_scopes/section/Section/Section';
+import PageLayout from '@/components/PageLayout/PageLayout';
+import sections from '@/config/sections';
 
 const Home = () => (
-  <div id="app">
-    <PageLayout title="Home">
-      <Banner />
-      <Projects />
-      <What />
-      <About />
-      <Contact />
-    </PageLayout>
-  </div>
+  <PageLayout>
+    {sections.map((section, index) => (
+      <Section key={section.label} {...section} tagLevel={index + 1}>
+        <section.component {...section} />
+      </Section>
+    ))}
+  </PageLayout>
 );
 
 export default Home;

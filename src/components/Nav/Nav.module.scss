@@ -1,0 +1,72 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin: 3rem 0;
+}
+
+.item {
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  margin-left: 0;
+  transform: translate(100px, 0px);
+  cursor: pointer;
+  opacity: 0;
+  animation-duration: 0.1s;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.05s;
+    }
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    border: none;
+    color: var(--color-text-3);
+    background-color: transparent;
+    cursor: pointer;
+
+    svg {
+      margin-right: 8px;
+      color: var(--color-text-3);
+      font-size: 1.2rem;
+    }
+
+    p {
+      position: relative;
+      top: 2px;
+      font-size: 1rem;
+    }
+
+    &:hover {
+      color: var(--color-text-1);
+
+      svg {
+        color: var(--color-text-1);
+      }
+    }
+  }
+
+  &.active {
+    button {
+      cursor: initial;
+
+      svg {
+        color: var(--primary-100);
+      }
+
+      p {
+        color: var(--primary-100);
+      }
+
+      &:hover {
+        svg {
+          color: var(--primary-100);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    display: flex;
+    color: var(--color-text-1);
+  }
+}
+
+.logoName {
+  font-size: 2rem;
+  text-align: center;
+}

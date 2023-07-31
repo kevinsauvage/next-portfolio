@@ -17,8 +17,10 @@
   "globals": {
     "React": "writable"
   },
+
   "plugins": ["react", "simple-import-sort", "css-modules", "sonarjs", "sort-keys"],
   "extends": [
+    "plugin:import/errors",
     "airbnb",
     "prettier",
     "next",
@@ -28,6 +30,14 @@
     "plugin:sonarjs/recommended",
     "plugin:unicorn/recommended"
   ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "extensions": [".js", ".jsx"],
+        "map": [["@", "./src/"]]
+      }
+    }
+  },
   "rules": {
     "unicorn/no-array-reduce": 0,
     "unicorn/no-array-for-each": 0,
