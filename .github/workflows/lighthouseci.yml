@@ -18,9 +18,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
-
       - name: Install dependencies
         run: npm install
 
@@ -38,19 +35,8 @@ jobs:
           name: lighthouse-report
           path: lighthouse-report.json
 
-      - name: Get Lighthouse Report Content
-        id: get-report-content
-        run: echo "::set-output name=content::$(cat lighthouse-report.json | jq -c -r '.')"
-
-      - name: Post Lighthouse Report Comment
+      - name: Publish Lighthouse Report Link
         if: always()
         run: |
-          curl -X POST \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d '{
-              "body": "Lighthouse Performance Report\n```\n'"${{ steps.get-report-content.outputs.content }}"'\n```"
-            }' \
-            "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.number }}/comments"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "Lighthouse Performance Report artifact is available for download at:"
+          echo "${{ steps.Upload_Lighthouse_Report.outputs.artifact_url }}"
