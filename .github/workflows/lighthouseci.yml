@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Run Lighthouse Performance Test
-        run: npx lighthouse https://www.kevin-sauvage.com/ --quiet --output json --output-path lighthouse-report.json
+        run: npx lighthouse https://www.kevin-sauvage.com/ --quiet --output json --output-path lighthouse-report.json --headless
         env:
           CI: true
 
