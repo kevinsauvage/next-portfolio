@@ -1,0 +1,47 @@
+@keyframes slide {
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.slide {
+  animation: slide $cubic-bezier forwards;
+  animation-duration: 0.3s;
+}
+
+.fade-in {
+  animation: fade-in $cubic-bezier forwards;
+  animation-duration: 0.3s;
+}
+
+.slide.fade-in {
+  animation-name: slide, fade-in;
+  animation-duration: 0.3s;
+  animation-timing-function: $cubic-bezier;
+  animation-fill-mode: forwards;
+}
+
+@mixin transform($duration: 0.3s) {
+  animation: slide $cubic-bezier forwards;
+  animation-duration: $duration;
+}
+
+@mixin fadeIn($duration: 0.3s) {
+  opacity: 0;
+  animation: fade-in $cubic-bezier forwards;
+  animation-duration: $duration;
+}

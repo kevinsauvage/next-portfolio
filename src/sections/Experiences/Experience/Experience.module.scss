@@ -1,0 +1,49 @@
+.card {
+  position: relative;
+  width: 100%;
+  margin-bottom: 3rem;
+  padding-left: 3rem;
+
+  @include respond(tablet) {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: -12.5px;
+    z-index: 99;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--primary-100);
+    content: '';
+
+    @include respond(tablet) {
+      display: none;
+    }
+  }
+}
+
+.title {
+  color: var(--primary-100);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.period {
+  color: var(--color-text-3);
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+.list {
+  margin-top: 1rem;
+
+  li {
+    max-width: 600px;
+    color: var(--color-text-3);
+    list-style: inside;
+  }
+}

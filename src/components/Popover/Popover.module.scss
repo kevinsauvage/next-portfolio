@@ -1,0 +1,35 @@
+.popover {
+  position: relative;
+
+  .tooltip {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    padding: 4px 8px;
+    border: $border-m;
+    color: var(--color-text-1);
+    white-space: nowrap;
+    background-color: var(--color-surface-2);
+    transform: translateY(-50%);
+  }
+
+  .arrow {
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    z-index: 99;
+    display: none;
+    width: 10px;
+    height: 10px;
+    border-top: $border-m;
+    border-right: $border-m;
+    background-color: var(--color-surface-2);
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
+.popover.hovered {
+  .arrow {
+    display: inline;
+  }
+}

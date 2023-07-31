@@ -1,0 +1,26 @@
+.uptitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin: 1rem 0 4rem 0;
+  padding: 6px 1rem;
+  border: $border-s;
+  border-radius: 99em;
+  background-color: var(--color-surface-2);
+
+  svg {
+    color: var(--color-text-3);
+    opacity: 0.8;
+  }
+
+  p {
+    position: relative;
+    top: 2px;
+    color: var(--color-text-3);
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: -1px;
+  }
+}

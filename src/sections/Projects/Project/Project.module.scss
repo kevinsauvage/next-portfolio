@@ -1,0 +1,76 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  border: $border-s;
+  border-radius: $radius_1;
+  background-color: var(--color-surface-2);
+
+  .content {
+    position: static;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 1.5rem 1.5rem;
+    text-align: center;
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+
+      button {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        svg {
+          color: var(--color-text-1);
+          font-size: 1.5rem;
+        }
+
+        &:hover {
+          path {
+            fill: var(--primary-100);
+          }
+        }
+      }
+    }
+
+    .title {
+      width: 100%;
+      margin: 0 0 0.5rem 0;
+      color: var(--primary-100);
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .description {
+      margin-bottom: 1rem;
+    }
+
+    .languages {
+      margin-bottom: 1rem;
+      color: var(--color-text-3);
+      font-weight: 200;
+      font-size: 1rem;
+    }
+  }
+
+  .image {
+    position: relative;
+    margin: 2rem;
+
+    img {
+      width: 100%;
+      max-width: 500px;
+      height: 100%;
+      margin: 0 auto;
+    }
+  }
+}

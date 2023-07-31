@@ -1,0 +1,60 @@
+.container {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+
+.notification {
+  position: relative;
+  min-width: 10rem;
+  margin-bottom: 1rem;
+  border: $border-s;
+  border-radius: $radius 0 $radius $radius;
+  background-color: var(--color-surface-1);
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  padding: 1rem 2rem;
+  border-radius: $radius 0 $radius $radius;
+  font-size: 1.1rem;
+  background-color: var(--color-surface-3);
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: transparent;
+  font-size: 1.5rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.error {
+  border-color: var(--color-error);
+
+  .inner {
+    color: var(--color-error);
+  }
+}
+
+.warn {
+  border-color: var(--color-warning);
+
+  .inner {
+    color: var(--color-warning);
+  }
+}
+
+.success {
+  border-color: var(--color-success);
+
+  .inner {
+    color: var(--color-success);
+  }
+}

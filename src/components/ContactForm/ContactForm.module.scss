@@ -1,0 +1,19 @@
+.form {
+  margin-bottom: 4rem;
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+
+    @include respond(mobile_l) {
+      flex-direction: column;
+      gap: 0rem;
+    }
+  }
+
+  .button {
+    margin-top: 3rem;
+  }
+}

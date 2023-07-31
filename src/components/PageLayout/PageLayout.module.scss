@@ -1,0 +1,16 @@
+.PageLayout {
+  position: relative;
+
+  .container {
+    display: flex;
+
+    @include respond(tablet) {
+      display: block;
+    }
+  }
+
+  .children {
+    flex: 2;
+    overflow: hidden;
+  }
+}

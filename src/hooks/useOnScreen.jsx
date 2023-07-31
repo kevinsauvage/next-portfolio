@@ -1,23 +1,26 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-const useOnScreen = (reference, rootMargin = '0px') => {
-  const [isIntersecting, setIntersecting] = useState(false);
+const useOnScreen = (reset = true) => {
+  const reference = useRef(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIntersecting(entry.isIntersecting);
-      },
-      { rootMargin }
-    );
+    const { current } = reference;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (reset) setIsIntersecting(entry.isIntersecting);
+      else if (entry.isIntersecting) {
+        setIsIntersecting(true);
+      }
+    });
 
-    if (reference.current) observer.observe(reference.current);
+    if (current) observer.observe(current);
 
-    return () => observer.disconnect(reference);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    return () => {
+      if (current) observer.unobserve(current);
+    };
+  }, [reference, reset]);
 
-  return isIntersecting;
+  return { isIntersecting, reference };
 };
 
 export default useOnScreen;
