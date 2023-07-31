@@ -47,7 +47,7 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const artifactURL = steps.artifact_url.outputs.artifact_url;
+            const artifactURL = context.artifact_url.outputs.artifact_url;
             const cdpURL = `chrome-devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=${encodeURIComponent(artifactURL)}`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
