@@ -38,6 +38,10 @@ jobs:
           name: lighthouse-report
           path: lighthouse-report.json
 
+      - name: Get Lighthouse Report Content
+        id: get-report-content
+        run: echo "::set-output name=content::$(jq -r tostring < lighthouse-report.json)"
+
       - name: Post Lighthouse Report Comment
         if: always()
         run: |
