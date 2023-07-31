@@ -36,15 +36,12 @@ jobs:
           path: lighthouse-report.json
 
       - name: Publish Lighthouse Report Link
-        comment:
-          runs-on: ubuntu-latest
-          steps:
-            - uses: actions/github-script@v6
-              with:
-                script: |
-                  github.rest.issues.createComment({
-                    issue_number: context.issue.number,
-                    owner: context.repo.owner,
-                    repo: context.repo.repo,
-                    body: '${{ steps.Upload_Lighthouse_Report.outputs.artifact_url }}'
-                  })
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '${{ steps.Upload_Lighthouse_Report.outputs.artifact_url }}'
+            })
