@@ -41,7 +41,7 @@ jobs:
                              -H "X-GitHub-Api-Version: 2022-11-28" \
                              /repos/${{ github.repository }}/actions/artifacts/${{ github.run_id }} \
                        | jq -r '.url')
-          echo "artifact_url=$ARTIFACT_URL" >> $GITHUB_OUTPUT
+          echo "artifact_url=$ARTIFACT_URL" >> "$GITHUB_OUTPUT"
 
       - name: Publish Lighthouse Report Link
         uses: actions/github-script@v6
