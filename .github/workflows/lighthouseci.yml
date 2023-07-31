@@ -34,7 +34,7 @@ jobs:
           name: lighthouse-report
           path: lighthouse-report.json
 
-      - name: Get Artifact URL
+      - name: Get Artifact url
         id: artifact_url
         run: |
           ARTIFACT_URL=$(gh api -H "Accept: application/vnd.github+json" \
