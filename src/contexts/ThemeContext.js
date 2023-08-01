@@ -47,5 +47,5 @@ export const useThemeContext = () => {
     throw new Error('useGlobalContext must be used within a GlobalProvider');
   }
 
-  return { ...context };
+  return context;
 };
