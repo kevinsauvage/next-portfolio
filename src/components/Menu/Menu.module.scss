@@ -64,7 +64,6 @@
 
   @include respond(laptop_s) {
     position: absolute;
-    top: 0rem;
     top: 2rem;
     right: 2rem;
     z-index: 9999;
