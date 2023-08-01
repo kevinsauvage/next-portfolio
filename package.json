@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "npm": ">=8.0.0",
     "node": ">=18.0.0"
   },
   "scripts": {
@@ -50,11 +49,5 @@
     "stylelint-config-recommended-scss": "^9.0.1",
     "stylelint-order": "^6.0.3",
     "stylelint-scss": "^4.6.0"
-  },
-  "nextBundleAnalysis": {
-    "budget": null,
-    "budgetPercentIncreaseRed": 20,
-    "minimumChangeThreshold": 0,
-    "showDetails": true
   }
 }
