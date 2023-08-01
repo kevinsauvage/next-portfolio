@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  lighthouse-test:
+  code-quality-test:
     runs-on: ubuntu-latest
 
     steps:
