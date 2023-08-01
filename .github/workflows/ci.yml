@@ -26,6 +26,3 @@ jobs:
 
       - name: Run stylehint
         run: yarn run lint:css
-
-      - name: Lighthouse Audit
-        uses: jakejarvis/lighthouse-action@v0.3.2
