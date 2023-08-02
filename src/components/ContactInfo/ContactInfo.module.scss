@@ -30,8 +30,7 @@
   @include scale;
 
   &:hover {
-    border-color: var(--color-text-1);
+    border-color: var(--primary-100);
     color: var(--color-text-1);
-    background-color: var(--color-surface-1);
   }
 }
