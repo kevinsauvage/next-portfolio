@@ -43,7 +43,7 @@
   button {
     border-radius: 50%;
     font-size: 2.5rem;
-    background-color: transparent;
+    background-color: var(--color-background-1);
     cursor: pointer;
 
     @include scale(1.2);
