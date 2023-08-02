@@ -9,7 +9,7 @@ const Contact = () => (
       duration={600}
       delay={200}
       animationKeyframes={['slide', 'fade-in']}
-      initialStyle={{ opacity: 0, transform: 'translate(200px, 0px)' }}
+      initialStyle={{ opacity: 0, transform: 'translate(0px, 50px)' }}
     >
       <p className={styles.text}>Kevinsauvage@outlook.com</p>
     </Animation>

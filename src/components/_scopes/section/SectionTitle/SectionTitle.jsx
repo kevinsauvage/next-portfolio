@@ -20,7 +20,7 @@ const SectionTitle = ({ title, className, tagLevel = 2 }) => {
       duration={1000}
       delay={100}
       animationKeyframes={['slide', 'fade-in']}
-      initialStyle={{ opacity: 0, transform: 'translate(200px, 0px)' }}
+      initialStyle={{ opacity: 0, transform: 'translate(0px, 100px)' }}
     >
       <HeadingTag
         className={`${styles.Title} ${className || ''}`}

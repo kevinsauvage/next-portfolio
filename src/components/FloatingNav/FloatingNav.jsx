@@ -12,10 +12,10 @@ const FloatingNav = () => {
     <nav className={styles.nav}>
       <ul className={`${styles.list} `}>
         {sections.map((section) => (
-          <li key={section.label} className="fade-in slide">
+          <li key={section.label} className={`${styles.item} fade-in`}>
             <Popover text={section.label}>
               <button
-                className={`${styles.item} ${activeSection === section.label && styles.active}`}
+                className={`${styles.button} ${activeSection === section.label && styles.active}`}
                 type="button"
                 aria-label={section.label}
                 onClick={() => scrollToSection(section.label)}
