@@ -43,7 +43,13 @@
 
   li {
     max-width: 600px;
+    margin-bottom: 0.5rem;
     color: var(--color-text-3);
-    list-style: inside;
+    list-style: none;
+
+    &::before {
+      color: var(--primary-100);
+      content: '✽ ';
+    }
   }
 }
