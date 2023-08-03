@@ -11,8 +11,9 @@ const Banner = () => (
       initialStyle={{ opacity: 0, transform: 'translate(0px, 100px)' }}
     >
       <h1>
-        Fueled by <strong>curiosity</strong>
-        <br /> and inspired by endless
+        Fueled by <strong>curiosity</strong>,
+        <br />
+        inspired by endless
         <strong> possibilities</strong>.
       </h1>
     </Animation>

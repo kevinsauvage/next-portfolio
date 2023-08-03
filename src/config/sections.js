@@ -24,7 +24,7 @@ const sections = [
     label: 'About Me',
     tagLevel: 2,
     title:
-      "Lifelong learner embracing technology's evolution to deliver <strong>high-quality results</strong>.",
+      "Lifelong <strong>learner</strong> embracing <strong>technology's</strong> evolution to deliver <strong>high-quality results</strong>.",
   },
   /*   {
     component: Expertise,
@@ -45,7 +45,8 @@ const sections = [
     icon: <IconCodeSlash />,
     label: 'My Projects',
     tagLevel: 4,
-    title: 'Immerse yourself in a gallery of my <strong>handcrafted digital solutions</strong>.',
+    title:
+      '<strong>Immerse yourself</strong> in a gallery of my <strong>digital solutions</strong>.',
   },
   {
     component: Skills,
