@@ -11,6 +11,8 @@ const AboutItem = ({ item, ...rest }) => (
 
 const About = () => (
   <Animation
+    duration={1000}
+    delay={100}
     animationKeyframes={['slide', 'fade-in']}
     initialStyle={{ opacity: 0, transform: 'translate(0px, 200px)' }}
   >

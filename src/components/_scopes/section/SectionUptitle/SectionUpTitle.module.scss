@@ -7,12 +7,13 @@
   margin: 1rem 0 4rem 0;
   padding: 6px 1rem;
   border: $border-s;
-  border-radius: 99em;
-  background-color: var(--color-surface-2);
+  border-color: var(--primary-100);
+  border-radius: $radius-2;
+  background-color: var(--color-surface-3);
+  transform: skewX(-25deg);
 
   svg {
-    color: var(--color-text-3);
-    opacity: 0.8;
+    color: var(--primary-100);
   }
 
   p {

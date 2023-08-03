@@ -7,14 +7,14 @@
 }
 
 html {
-  @include font-size(1rem, 1.1rem);
-
-  height: 100%;
+  height: auto;
   overflow-x: hidden;
   font-weight: 300;
   line-height: 1.5;
   letter-spacing: 0px;
   text-size-adjust: 100%;
+
+  @include font-size(1rem, 1.1rem);
 }
 
 body {
@@ -22,8 +22,7 @@ body {
   height: 100%;
   color: var(--color-text-2);
   font-family: 'Josefin Sans', sans-serif;
-  background-color: var(--color-background-1);
-  transition: background-color 0.2s ease-in-out;
+  background-color: var(--color-surface-3);
 }
 
 body,
@@ -82,8 +81,8 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  border: 1px solid var(--color-surface-1);
+  border: 1px solid var(--color-surface-3);
   -webkit-text-fill-color: var(--color-text-1);
-  -webkit-box-shadow: 0 0 0px 1000px var(--color-surface-1) inset;
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-surface-3) inset;
   transition: background-color 5000s ease-in-out 0s;
 }

@@ -7,7 +7,7 @@ const SectionUpTitle = ({ text, icon }) => (
     duration={800}
     delay={100}
     animationKeyframes={['slide', 'fade-in']}
-    initialStyle={{ opacity: 0, transform: 'translate(0px, 100px)' }}
+    initialStyle={{ opacity: 0, transform: 'translate(0px, 100px) ' }}
   >
     <div className={styles.uptitle}>
       {icon}
