@@ -5,8 +5,9 @@
     position: absolute;
     top: 50%;
     right: 100%;
-    padding: 4px 8px;
+    padding: 4px 1rem;
     border: $border-m;
+    border-radius: $radius-1;
     color: var(--color-text-1);
     white-space: nowrap;
     background-color: var(--color-surface-2);
@@ -16,7 +17,7 @@
   .arrow {
     position: absolute;
     top: 50%;
-    left: -5px;
+    left: -6.7px;
     z-index: 99;
     display: none;
     width: 10px;
