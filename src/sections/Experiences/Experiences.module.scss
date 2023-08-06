@@ -1,6 +1,14 @@
 .list {
   position: relative;
 
+  & > li {
+    padding-bottom: 3rem;
+
+    &:last-child {
+      padding-bottom: 0px;
+    }
+  }
+
   &::after {
     position: absolute;
     top: 0;
