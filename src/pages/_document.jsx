@@ -5,7 +5,7 @@ const Document = () => (
     <Head>
       <meta
         name="description"
-        content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring expert-level skills in Javascript, React.js, and Next.js. Let's create something amazing together"
+        content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring skills in Javascript, React.js, Next.js and CSS/Sass."
       />
 
       <meta name="google-site-verification" content="oklUq91tpHdbyYCySQE3l3LtgKkzC-WA8pgnt0vqlbc" />
@@ -14,7 +14,7 @@ const Document = () => (
       <meta property="og:title" content="Kévin Sauvage Portfolio" />
       <meta
         property="og:description"
-        content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring expert-level skills in Javascript, React.js, and Next.js. Let's create something amazing together"
+        content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring skills in Javascript, React.js, Next.js and CSS/Sass."
       />
       <meta
         property="og:image"
@@ -26,7 +26,7 @@ const Document = () => (
       <meta name="twitter:title" content="Kévin Sauvage Portfolio" />
       <meta
         name="twitter:description"
-        content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring expert-level skills in Javascript, React.js, and Next.js. Let's create something amazing together"
+        content="Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring skills in Javascript, React.js, Next.js and CSS/Sass."
       />
       <meta
         name="twitter:image"
