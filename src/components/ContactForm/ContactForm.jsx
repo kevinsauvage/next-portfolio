@@ -69,7 +69,9 @@ const ContactForm = () => {
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <Label>
-            Full name*
+            <span>
+              Full name<span className={styles.required}>*</span>
+            </span>
             <Input
               onChange={handleInputChange}
               type="text"
@@ -79,7 +81,9 @@ const ContactForm = () => {
             />
           </Label>
           <Label>
-            Email*
+            <span>
+              Email<span className={styles.required}>*</span>
+            </span>
             <Input
               onChange={handleInputChange}
               type="email"
@@ -91,17 +95,9 @@ const ContactForm = () => {
         </div>
         <div className={styles.row}>
           <Label>
-            Phone (optional)
-            <Input
-              onChange={handleInputChange}
-              type="phone"
-              name="phone"
-              placeholder="Your Phone Number"
-              value={phone}
-            />
-          </Label>
-          <Label>
-            Subject*
+            <span>
+              Subject<span className={styles.required}>*</span>
+            </span>
             <Input
               onChange={handleInputChange}
               type="text"
@@ -110,9 +106,21 @@ const ContactForm = () => {
               value={subject}
             />
           </Label>
+          <Label>
+            <span>Phone</span>
+            <Input
+              onChange={handleInputChange}
+              type="phone"
+              name="phone"
+              placeholder="Your Phone Number"
+              value={phone}
+            />
+          </Label>
         </div>
         <Label>
-          Message*
+          <span>
+            Message<span className={styles.required}>*</span>
+          </span>
           <TextArea
             name="message"
             value={message}

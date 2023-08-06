@@ -16,4 +16,11 @@
   .button {
     margin-top: 3rem;
   }
+
+  .required {
+    position: relative;
+    bottom: 0.4rem;
+    left: 0.4rem;
+    color: var(--primary-100);
+  }
 }
