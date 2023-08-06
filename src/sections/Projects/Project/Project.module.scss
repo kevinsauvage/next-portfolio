@@ -21,12 +21,17 @@
     text-align: center;
     background-color: var(--color-surface-1);
 
+    @include respond(mobile_l) {
+      padding: 1.5rem 1rem;
+    }
+
     .title {
       width: 100%;
       margin: 0 0 0.5rem 0;
       color: var(--primary-100);
-      font-weight: 400;
+      font-weight: 700;
       font-size: 1.2rem;
+      font-family: $font-family-heading;
       text-transform: uppercase;
     }
 
@@ -35,6 +40,8 @@
       color: var(--color-text-3);
       font-weight: 200;
       font-size: 0.9rem;
+      font-style: italic;
+      opacity: 0.7;
     }
   }
 

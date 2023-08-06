@@ -21,6 +21,10 @@
 
     svg {
       width: 6rem;
+
+      @include respond(mobile_l) {
+        width: 5rem;
+      }
     }
   }
 
