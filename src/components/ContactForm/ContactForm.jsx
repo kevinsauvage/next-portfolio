@@ -32,7 +32,7 @@ const ContactForm = () => {
     const { email, fullName, subject, message, phone } = formData;
 
     if (!(email && fullName && subject && message)) {
-      enqueueNotification('Please fill in all the fields', 'warn');
+      enqueueNotification('Please fill in all required fields', 'warn');
       return false;
     }
 
