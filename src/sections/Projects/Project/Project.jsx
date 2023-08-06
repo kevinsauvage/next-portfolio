@@ -37,7 +37,7 @@ const Project = ({ item }) => {
         <div className={styles.content}>
           <p className={styles.title}>{item.title}</p>
           <p className={styles.languages}>{item.languages}</p>
-          <p className={styles.description}>{item.description}</p>
+          <p>{item.description}</p>
         </div>
         <div className={styles.buttons}>
           {item.githubLink?.length > 0 && (

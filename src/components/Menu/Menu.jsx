@@ -37,7 +37,7 @@ const Menu = () => {
             </div>
           </div>
           <Navigation />
-          <ContactInfo replay />
+          <ContactInfo replay className={styles.contactInfo} />
         </div>
       </div>
       <div className={`${styles.hamb}`}>
