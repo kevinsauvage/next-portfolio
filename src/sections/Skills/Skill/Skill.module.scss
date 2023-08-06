@@ -6,9 +6,10 @@
   padding-bottom: 0;
   overflow: hidden;
   border: $border-s;
-  aspect-ratio: 1;
   border-radius: $radius_1;
+  background-color: var(--color-surface-2);
   box-shadow: $shadow_1;
+  aspect-ratio: 1;
 
   .icon {
     display: flex;
