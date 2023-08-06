@@ -16,8 +16,10 @@
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
-    padding: 0 1.5rem 1.5rem;
+    padding: 1.5rem;
+    border-top: $border-s;
     text-align: center;
+    background-color: var(--color-surface-1);
 
     .buttons {
       display: flex;
@@ -48,6 +50,7 @@
       margin: 0 0 0.5rem 0;
       color: var(--primary-100);
       font-weight: 400;
+      font-size: 1.2rem;
       text-transform: uppercase;
     }
 
@@ -59,7 +62,7 @@
       margin-bottom: 1rem;
       color: var(--color-text-3);
       font-weight: 200;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
 

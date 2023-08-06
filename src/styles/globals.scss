@@ -13,15 +13,13 @@ html {
   line-height: 1.5;
   letter-spacing: 0px;
   text-size-adjust: 100%;
-
-  @include font-size(1rem, 1rem);
 }
 
 body {
   position: relative;
   height: 100%;
   color: var(--color-text-2);
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: $font-family-body;
   background-color: var(--color-background-1);
 }
 
@@ -53,7 +51,7 @@ input,
 textarea {
   color: var(--color-text-3);
   font-size: 1rem;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: $font-family-body;
 }
 
 h1,
@@ -62,14 +60,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Julius Sans One', sans-serif;
+  font-family: $font-family-heading;
 }
 
 p,
 b,
 li {
   max-width: 600px;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 input:-webkit-autofill,
