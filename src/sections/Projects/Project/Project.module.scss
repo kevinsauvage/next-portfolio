@@ -21,30 +21,6 @@
     text-align: center;
     background-color: var(--color-surface-1);
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      width: 100%;
-
-      button {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-
-        svg {
-          color: var(--color-text-1);
-          font-size: 1.5rem;
-        }
-
-        &:hover {
-          path {
-            fill: var(--primary-100);
-          }
-        }
-      }
-    }
-
     .title {
       width: 100%;
       margin: 0 0 0.5rem 0;
@@ -52,10 +28,6 @@
       font-weight: 400;
       font-size: 1.2rem;
       text-transform: uppercase;
-    }
-
-    .description {
-      margin-bottom: 1rem;
     }
 
     .languages {
@@ -75,6 +47,33 @@
       max-width: 500px;
       height: 100%;
       margin: 0 auto;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.7rem 1.5rem;
+    border-top: $border-s;
+    background-color: var(--color-surface-1);
+
+    button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      svg {
+        color: var(--color-text-1);
+        font-size: 1.5rem;
+      }
+
+      &:hover {
+        path {
+          fill: var(--primary-100);
+        }
+      }
     }
   }
 }

@@ -38,16 +38,16 @@ const Project = ({ item }) => {
           <p className={styles.title}>{item.title}</p>
           <p className={styles.languages}>{item.languages}</p>
           <p className={styles.description}>{item.description}</p>
-          <div className={styles.buttons}>
-            {item.githubLink?.length > 0 && (
-              <button type="button" aria-label="Open Github" onClick={handleClickSourceCode}>
-                <IconGithub />
-              </button>
-            )}
-            <button type="button" aria-label="Open Linkedin" onClick={handleClickVisit}>
-              <IconBxLinkExternal />
+        </div>
+        <div className={styles.buttons}>
+          {item.githubLink?.length > 0 && (
+            <button type="button" aria-label="Open Github" onClick={handleClickSourceCode}>
+              <IconGithub />
             </button>
-          </div>
+          )}
+          <button type="button" aria-label="Open Linkedin" onClick={handleClickVisit}>
+            <IconBxLinkExternal />
+          </button>
         </div>
       </div>
     </Animation>
