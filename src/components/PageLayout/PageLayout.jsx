@@ -1,3 +1,5 @@
+import { ToastContainer } from 'react-toastify';
+import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
 
 import Aside from '@/components/Aside/Aside';
@@ -30,6 +32,19 @@ const PageLayout = ({ children, title }) => {
             </Container>
           </div>
           <Notification multiple />
+          <Analytics />
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="dark"
+          />
         </NotificationProvider>
       </ThemeProvider>
     </GlobalProvider>

@@ -1,20 +1,20 @@
 import dynamic from 'next/dynamic';
 
-import Contact from '@/sections/Contact/Contact';
-import Experiences from '@/sections/Experiences/Experiences';
 // import Expertise from '@/sections/Expertises/Expertises';
-import Projects from '@/sections/Projects/Projects';
-import Skills from '@/sections/Skills/Skills';
+// import IconHandExtendedOutline from '@/svg/IconHandExtendedOutline';
+import Banner from '@/sections/Banner/Banner';
 import IconCodeSlash from '@/svg/IconCodeSlash';
 import IconEmailOutline from '@/svg/IconEmailOutline';
-// import IconHandExtendedOutline from '@/svg/IconHandExtendedOutline';
 import IconIconHome from '@/svg/IconIconHome';
 import IconShapeOutline from '@/svg/IconShapeOutline';
 import IconSuitcase from '@/svg/IconSuitcase';
 import IconUser from '@/svg/IconUser';
 
-const About = dynamic(() => import('@/sections/About/About'));
-const Banner = dynamic(() => import('@/sections/Banner/Banner'));
+const Skills = dynamic(() => import('@/sections/Skills/Skills'), { suspense: true });
+const Projects = dynamic(() => import('@/sections/Projects/Projects'), { suspense: true });
+const Experiences = dynamic(() => import('@/sections/Experiences/Experiences'), { suspense: true });
+const Contact = dynamic(() => import('@/sections/Contact/Contact'), { suspense: true });
+const About = dynamic(() => import('@/sections/About/About'), { suspense: true });
 
 const sections = [
   { component: Banner, icon: <IconIconHome />, label: 'Introduction' },

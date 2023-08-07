@@ -17,10 +17,8 @@ const ContactInfo = ({ replay, className }) => (
       <ul className={styles.list}>
         {socialButton.map((item) => (
           <li key={item.href}>
-            <Link href={item.href}>
-              <a className={styles.link} aria-label={item.text} target="_blank">
-                {item.icon}
-              </a>
+            <Link href={item.href} className={styles.link} aria-label={item.text} target="_blank">
+              {item.icon}
             </Link>
           </li>
         ))}
