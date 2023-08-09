@@ -1,31 +1,15 @@
 .header {
-  position: sticky;
-  top: 0rem;
-  right: 0rem;
-  bottom: 0rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  width: 120px;
-  height: 100vh;
-  padding: 2rem;
-  border: $border-s;
-  background-color: var(--color-surface-1);
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-
-  @include respond(laptop_s) {
-    position: fixed;
-    top: 0rem;
-    right: 0rem;
-    border: none;
-    background-color: transparent;
-    box-shadow: unset;
-  }
+  width: 100%;
 }
 
-.ThemeSwitcher {
-  @include respond(laptop_s) {
-    display: none;
-  }
+.subtitle {
+  margin-bottom: 1rem;
+  color: var(--color-text-1);
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+
+.content {
+  margin-bottom: 2rem;
+  color: var(--color-text-3);
 }

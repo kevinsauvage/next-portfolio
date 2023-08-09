@@ -1,9 +1,5 @@
 .Projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(365px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-
-  @include respond(mobile_l) {
-    display: block;
-  }
 }

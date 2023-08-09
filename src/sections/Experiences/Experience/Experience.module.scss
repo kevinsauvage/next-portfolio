@@ -1,58 +1,64 @@
 .card {
   position: relative;
+  display: flex;
   width: 100%;
-  padding-left: 3rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  border: $border-s;
+  border-color: transparent;
 
-  @include respond(tablet) {
+  &:hover {
+    box-shadow: $shadow_2;
+
+    @include glassEffect;
+  }
+
+  @include respond(laptop_s) {
+    flex-direction: column;
+    gap: 0.5rem;
     width: 100%;
     padding-left: 0;
   }
+}
 
-  &::after {
-    position: absolute;
-    top: 0;
-    left: -11px;
-    z-index: 99;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background-color: var(--primary-100);
-    content: '';
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-    @include respond(tablet) {
-      display: none;
-    }
+.company {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+
+  p {
+    color: var(--color-text-1);
+    font-weight: 500;
+  }
+
+  a {
+    display: flex;
+    align-items: baseline;
   }
 }
 
 .title {
-  color: var(--primary-100);
+  color: var(--color-text-1);
   font-weight: 700;
   font-size: 1.2rem;
   font-family: $font-family-heading;
+  line-height: 1.3;
+  white-space: nowrap;
   text-transform: uppercase;
 }
 
 .period {
+  margin-right: 2rem;
   color: var(--color-text-3);
-  font-weight: 200;
   font-size: 0.9rem;
-  font-style: italic;
-  opacity: 0.7;
-}
-
-.list {
-  margin-top: 1rem;
-
-  li {
-    max-width: 600px;
-    margin-bottom: 1rem;
-    color: var(--color-text-3);
-    list-style: none;
-
-    &::before {
-      color: var(--primary-100);
-      content: '✽ ';
-    }
-  }
+  letter-spacing: 0px;
+  white-space: nowrap;
+  opacity: 0.9;
 }

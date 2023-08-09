@@ -1,85 +1,23 @@
 $offset: 3rem;
 
-.container {
+.aside {
   position: sticky;
   top: 0;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
   width: fit-content;
-  width: 24%;
-  min-width: 300px;
+  max-width: 370px;
   height: 100vh;
+  padding: 5rem 0 3rem 0;
   opacity: 0;
   animation: fade-in 1s $cubic-bezier forwards;
 
   @include respond(tablet) {
     position: static;
     width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-  }
-}
-
-.aside {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  height: 100vh;
-  padding: 2rem;
-  border: $border-s;
-  background-color: var(--color-surface-1);
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-
-  @include respond(tablet) {
-    position: static;
-    width: 100%;
     height: 100%;
-    min-height: 100vh;
+    height: fit-content;
     border-radius: unset;
   }
-}
-
-.subtitle {
-  max-width: 500px;
-  margin: 0 auto;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  margin-bottom: 2rem;
-  color: var(--color-text-3);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-.copyright {
-  margin-bottom: 2rem;
-  color: var(--color-text-3);
-  font-style: italic;
-  text-align: center;
-  opacity: 0.7;
-}
-
-.button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  padding: 1.2rem;
-  border: none;
-  border-radius: $radius;
-  color: var(--color-surface-1);
-  font-weight: 500;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  background-color: var(--primary-100);
-  cursor: pointer;
-
-  @include scale(1.05);
-}
-
-.contactInfo {
-  margin-bottom: 2rem;
 }

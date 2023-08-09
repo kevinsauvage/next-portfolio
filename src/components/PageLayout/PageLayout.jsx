@@ -4,7 +4,6 @@ import Head from 'next/head';
 
 import Aside from '@/components/Aside/Aside';
 import Container from '@/components/Container/Container';
-import Header from '@/components/Header/Header';
 import { GlobalProvider } from '@/contexts/GlobalContext';
 import { NotificationProvider } from '@/contexts/NotificationContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
@@ -13,9 +12,8 @@ import Notification from '../Notification/Notification';
 
 import styles from './PageLayout.module.scss';
 
-const PageLayout = ({ children, title }) => {
-  // eslint-disable-next-line sonarjs/no-nested-template-literals
-  const titleSeo = `Kévin Sauvage ${title ? `|  ${title}` : ''}`;
+const PageLayout = ({ children }) => {
+  const titleSeo = `Kévin Sauvage`;
 
   return (
     <GlobalProvider>
@@ -27,8 +25,7 @@ const PageLayout = ({ children, title }) => {
             </Head>
             <Container classname={styles.container}>
               <Aside />
-              <div className={styles.children}>{children}</div>
-              <Header />
+              <div>{children}</div>
             </Container>
           </div>
           <Notification multiple />

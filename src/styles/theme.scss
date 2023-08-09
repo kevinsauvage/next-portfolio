@@ -1,11 +1,14 @@
 // DARK COLORS
-$primary-dark: #18bbe0;
+$primary-dark: #08e4d1;
 $surface-dark: #191919;
 $text-dark: #bfbfbf;
 $color-background-dark: #121212;
 
 $colors-dark: (
   primary-100: $primary-dark,
+  primary-200: darken($primary-dark, 10),
+  primary-300: darken($primary-dark, 20),
+  primary-400: darken($primary-dark, 30),
   // Background
   color-background-1: $color-background-dark,
   // Surface

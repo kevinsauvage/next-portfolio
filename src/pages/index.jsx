@@ -7,7 +7,7 @@ import sections from '@/config/sections';
 const Home = () => (
   <PageLayout>
     {sections.map((section, index) => (
-      <Section key={section.label} {...section} tagLevel={index + 1}>
+      <Section key={section.label} {...section} tagLevel={index + 2}>
         <Suspense>
           <section.component {...section} />
         </Suspense>

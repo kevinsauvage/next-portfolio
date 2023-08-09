@@ -1,7 +1,11 @@
 const experiences = [
   {
+    company: {
+      link: 'https://www.extia-group.com/',
+      name: 'Extia',
+    },
     description:
-      'As a Developer Consultant at Extia in Barcelona, I developed responsive web applications, delivering high-quality results on time and within budget. I implemented process improvements for maximum efficiency and effectiveness, contributing to the success of the company and its projects. Through my contributions, I helped drive business growth and achieve outstanding outcomes.',
+      'Key role in high-traffic e-commerce site (18M+ monthly visitors). Led cross-functional enhancements, rigorous code reviews, and alignment with business objectives.',
     listItem: [
       'Key contributor to an e-commerce website with a staggering monthly traffic of over 18 million visitors.',
       'Collaborated closely with cross-functional teams, driving continuous improvements to meet the demands.',
@@ -13,8 +17,12 @@ const experiences = [
     title: 'Consultant developer',
   },
   {
+    company: {
+      link: 'https://subforce.io/',
+      name: 'Subforce',
+    },
     description:
-      'As a Front-end Developer at Subforce in Barcelona, I used my expertise in responsive web design, JavaScript libraries, and React hooks to create engaging user experiences. My attention to detail and ability to anticipate user needs helped deliver high-quality results on time and within budget. I collaborated effectively with cross-functional teams to ensure projects met or exceeded client expectations, resulting in high levels of client satisfaction.',
+      'Led development of startup website, handling frontend to backend. Managed full software process: requirements, coding, testing, deployment. Enhanced site, boosting performance, conversions, and user satisfaction.',
     listItem: [
       'Led the creation of a dynamic website for a startup, taking charge of all technical aspects from frontend to backend functionality.',
       'Independently managed the entire software development process, including gathering requirements, coding, testing, and deploying.',

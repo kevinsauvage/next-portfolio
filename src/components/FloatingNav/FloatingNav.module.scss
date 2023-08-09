@@ -9,14 +9,13 @@
 $animation-duraction: 0.6s;
 
 .list {
-  border: $border-s;
-  border-radius: 99em;
-  background-color: var(--color-surface-1);
-  box-shadow: $shadow_1;
   opacity: 0;
   animation: fade-in $animation-duraction $cubic-bezier forwards;
 
   .item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     opacity: 0;
     transition: $transition;
 
@@ -30,28 +29,49 @@ $animation-duraction: 0.6s;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 3rem;
+      gap: 1rem;
       height: 3rem;
-      border: 2px solid transparent;
-      border-radius: 50%;
-      font-size: 1.3rem;
+      border: transparent;
       white-space: nowrap;
       background-color: transparent;
       cursor: pointer;
-      transition: all 1s $cubic-bezier;
 
-      &:hover {
-        color: var(--color-text-1);
+      .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        border: 2px solid transparent;
+        border-radius: 50%;
+        font-size: 1.3rem;
+        transition: $transition;
       }
 
-      &:not(&.active) {
-        @include scale(1.2);
+      .label {
+        font-size: 1rem;
+      }
+
+      &:hover {
+        .label {
+          color: var(--color-text-1);
+        }
+
+        .icon {
+          color: var(--primary-100);
+        }
       }
 
       &.active {
-        border: 0.1rem solid var(--primary-100);
-        color: var(--primary-100);
-        background-color: var(--color-background-1);
+        .icon {
+          border: 0.1rem solid var(--primary-100);
+          color: var(--primary-100);
+          background-color: var(--color-background-1);
+        }
+
+        .label {
+          color: var(--primary-100);
+        }
       }
     }
   }

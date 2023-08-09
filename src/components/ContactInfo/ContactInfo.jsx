@@ -13,7 +13,7 @@ const ContactInfo = ({ replay, className }) => (
     animationKeyframes={['fade-in']}
     initialStyle={{ opacity: 0 }}
   >
-    <div className={`${styles.info} ${className}`}>
+    <div className={`${className}`}>
       <ul className={styles.list}>
         {socialButton.map((item) => (
           <li key={item.href}>

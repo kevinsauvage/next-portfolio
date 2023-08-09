@@ -3,14 +3,11 @@
 
   .container {
     display: flex;
+    justify-content: space-evenly;
+    gap: 4rem;
 
     @include respond(tablet) {
       display: block;
     }
-  }
-
-  .children {
-    flex: 2;
-    overflow: hidden;
   }
 }

@@ -1,14 +1,17 @@
 import FloatingNav from '../FloatingNav/FloatingNav';
-import Menu from '../Menu/Menu';
-import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
+import Logo from '../Logo/Logo';
 
 import styles from './Header.module.scss';
 
 const Header = () => (
   <header className={styles.header}>
-    <Menu />
+    <Logo />
+    <p className={styles.subtitle}>Consultant Developer</p>
+    <p className={styles.content}>
+      I specialize in creating captivating user experiences and delivering exceptional web
+      solutions.
+    </p>
     <FloatingNav />
-    <ThemeSwitcher className={`${styles.ThemeSwitcher} slide fade-in`} />
   </header>
 );
 

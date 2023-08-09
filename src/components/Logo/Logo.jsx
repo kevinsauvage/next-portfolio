@@ -5,7 +5,7 @@ import styles from './Logo.module.scss';
 const Logo = () => (
   <div className={`${styles.logo}`}>
     <Link href="/">
-      <p className={styles.logoName}>Kévin Sauvage.</p>
+      <h1 className={styles.logoName}>Kévin Sauvage.</h1>
     </Link>
   </div>
 );
