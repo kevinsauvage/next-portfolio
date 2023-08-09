@@ -7,7 +7,7 @@
     gap: 3rem;
     width: 100%;
 
-    @include respond(mobile_l) {
+    @include respond(laptop_s) {
       flex-direction: column;
       gap: 0rem;
     }

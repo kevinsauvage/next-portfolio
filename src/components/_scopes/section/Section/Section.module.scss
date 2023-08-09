@@ -5,19 +5,13 @@
   max-width: 800px;
   height: fit-content;
   margin: 0 auto;
-  padding: 3rem;
+  padding: 2rem 0;
 
   header {
     margin-bottom: 2rem;
   }
 
   @include respond(laptop_s) {
-    margin-left: unset;
-    padding: 3rem 2rem;
-  }
-
-  @include respond(tablet) {
-    margin-left: unset;
-    padding: 3rem 0rem;
+    padding: 3rem 0;
   }
 }

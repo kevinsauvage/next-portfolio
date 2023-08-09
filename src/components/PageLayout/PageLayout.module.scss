@@ -4,7 +4,11 @@
   .container {
     display: flex;
     justify-content: space-evenly;
-    gap: 4rem;
+    gap: 10rem;
+
+    @include respond(laptop_s) {
+      gap: 5rem;
+    }
 
     @include respond(tablet) {
       display: block;
