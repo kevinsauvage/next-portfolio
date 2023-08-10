@@ -1,4 +1,3 @@
-import FloatingNav from '../FloatingNav/FloatingNav';
 import Logo from '../Logo/Logo';
 
 import styles from './Header.module.scss';
@@ -11,7 +10,6 @@ const Header = () => (
       I specialize in creating captivating user experiences and delivering exceptional web
       solutions.
     </p>
-    <FloatingNav />
   </header>
 );
 
