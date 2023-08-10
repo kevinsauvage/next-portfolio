@@ -17,10 +17,12 @@
     padding-left: 0;
   }
 
-  &:hover {
-    box-shadow: $shadow_2;
+  @include respond-gt(laptop_s) {
+    &:hover {
+      box-shadow: $shadow_2;
 
-    @include glassEffect;
+      @include glassEffect;
+    }
   }
 
   .content {

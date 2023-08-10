@@ -2,15 +2,16 @@
   position: relative;
   display: flex;
   width: 100%;
-  margin-bottom: 3rem;
   padding: 1.5rem;
   border: $border-s;
   border-color: transparent;
 
-  &:hover {
-    box-shadow: $shadow_2;
+  @include respond-gt(laptop_s) {
+    &:hover {
+      box-shadow: $shadow_2;
 
-    @include glassEffect;
+      @include glassEffect;
+    }
   }
 
   @include respond(laptop_s) {

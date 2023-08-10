@@ -23,8 +23,6 @@ const sections = [
     icon: <IconUser />,
     label: 'About Me',
     tagLevel: 2,
-    title:
-      "Lifelong learner</strong> embracing technology's</strong> evolution to deliver high-quality results</strong>.",
   },
 
   {
