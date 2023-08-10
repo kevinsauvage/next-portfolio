@@ -30,7 +30,7 @@ const Project = ({ item }) => {
       <Link href={item.websiteLink} target="_blank">
         <div className={styles.card}>
           <div className={styles.image}>
-            <Image src={item.img.laptop} alt={item.title} width={2050} height={1200} />
+            <Image src={item.img} alt={item.title} width={2050} height={1200} />
           </div>
           <div className={styles.content}>
             <div className={styles.header}>
