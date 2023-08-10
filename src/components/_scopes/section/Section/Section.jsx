@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 
 import { useGlobalContext } from '@/contexts/GlobalContext';
 import useOnScreen from '@/hooks/useOnScreen';
-import { debounce } from '@/utils';
 
 import SectionSubtitle from '../SectionSubtitle/SectionSubtitle';
 import SectionTitle from '../SectionTitle/SectionTitle';
@@ -15,13 +14,14 @@ const Section = ({ children, label, icon, title, subtitle, showSubtitle, tagLeve
     rootMargin: '0px',
     threshold: 0.7,
   });
-  const { activeSection, updateActiveSection } = useGlobalContext();
 
-  const debouncedUpdateActive = debounce(updateActiveSection, 200);
+  const { updateActiveSection } = useGlobalContext();
 
   useEffect(() => {
-    if (isIntersecting) debouncedUpdateActive(label);
-  }, [activeSection, debouncedUpdateActive, isIntersecting, label, updateActiveSection]);
+    if (isIntersecting) {
+      updateActiveSection(label);
+    }
+  }, [isIntersecting, label, updateActiveSection]);
 
   return (
     <section
