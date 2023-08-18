@@ -1,0 +1,16 @@
+.textArea {
+  min-height: 100px;
+  margin-top: 0.5rem;
+  border: none;
+  font-weight: 300;
+  font-size: 0.9rem;
+  background-color: transparent;
+  resize: none;
+
+  @include placeholder(rgba(var(--rgb-color-text-3), 0.3));
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}

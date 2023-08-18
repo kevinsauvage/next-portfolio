@@ -1,0 +1,28 @@
+name: Global
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  code-quality-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js 18.17.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.17.0
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Run eslint
+        run: yarn run lint
+
+      - name: Run stylehint
+        run: yarn run lint:css

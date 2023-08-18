@@ -1,0 +1,74 @@
+.button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 1rem 2rem;
+  overflow: hidden;
+  border: 1px solid var(--primary-100);
+  border-radius: $radius_2;
+  color: var(--primary-100);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  background-color: transparent;
+  box-shadow: $shadow_2;
+  cursor: pointer;
+  transition: all 0.1s linear;
+
+  span {
+    position: relative;
+    z-index: 9;
+    display: block;
+  }
+
+  svg {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+
+    path {
+      fill: var(--primary-100);
+    }
+  }
+
+  &.loading {
+    cursor: default;
+    opacity: 0.5;
+  }
+
+  .loader {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-surface-1);
+    inset: 0;
+  }
+
+  @include respond-gt(tablet) {
+    &::after {
+      position: absolute;
+      top: 0;
+      left: -130%;
+      width: 120%;
+      height: 120%;
+      background-color: var(--primary-100);
+      transform: skewX(-20deg);
+      transition: all 0.3s linear;
+      content: '';
+    }
+
+    &:hover {
+      color: var(--black);
+
+      &::after {
+        left: -15%;
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+.Banner {
+  padding-left: $padding-3;
+
+  h1 {
+    max-width: 750px;
+    margin-bottom: 1rem;
+    color: var(--color-text-1);
+    line-height: 1.2;
+    animation-delay: 0.1s;
+
+    @include font-size(2rem, 4rem);
+
+    strong {
+      color: var(--primary-100);
+    }
+  }
+
+  .subtitle {
+    margin-bottom: 2rem;
+    color: var(--color-text-3);
+    animation-delay: 0.15s;
+  }
+
+  @include respond(tablet) {
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,21 @@
+.Section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  height: fit-content;
+  padding: 5rem 0 8rem 0;
+
+  header {
+    margin-bottom: 2rem;
+    padding-left: $padding-3;
+  }
+
+  @include respond(tablet) {
+    padding-bottom: 5rem;
+
+    header {
+      padding-left: 0;
+    }
+  }
+}

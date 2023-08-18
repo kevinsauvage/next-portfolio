@@ -1,0 +1,80 @@
+.card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: flex-start;
+  justify-items: right;
+  width: 100%;
+  max-width: 600px;
+  padding: 1.5rem;
+  border: $border-s;
+  border-color: transparent;
+  transition: $transition;
+
+  @include respond-gt(laptop_s) {
+    &:hover {
+      box-shadow: $shadow_2;
+
+      @include glassEffect;
+    }
+  }
+
+  @include respond(laptop_s) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  @include respond(tablet) {
+    padding: $padding-3 0;
+  }
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+
+  p {
+    color: var(--color-text-1);
+    font-weight: 500;
+  }
+
+  a {
+    display: flex;
+    align-items: baseline;
+  }
+}
+
+.title {
+  color: var(--color-text-1);
+  font-weight: 500;
+  font-size: 1.1rem;
+  white-space: nowrap;
+}
+
+.period {
+  margin-top: 4px;
+  margin-right: 2rem;
+  color: var(--color-text-3);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0px;
+  white-space: nowrap;
+  opacity: 0.5;
+}
+
+.description {
+  color: var(--color-text-3);
+  font-size: 0.8rem;
+}

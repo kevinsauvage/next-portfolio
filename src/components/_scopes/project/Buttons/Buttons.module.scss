@@ -1,0 +1,26 @@
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    svg {
+      color: var(--color-text-1);
+      font-size: 1.3rem;
+    }
+  }
+
+  @include respond-gt(tablet) {
+    button {
+      &:hover {
+        path {
+          fill: var(--primary-100);
+        }
+      }
+    }
+  }
+}

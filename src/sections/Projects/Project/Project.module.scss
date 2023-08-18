@@ -1,0 +1,94 @@
+.card {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  min-width: 200px;
+  height: fit-content;
+  padding: $padding-3;
+  overflow: hidden;
+  border: $border-s;
+  border-color: transparent;
+  border-radius: $radius_1;
+
+  @include respond(laptop_s) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  @include respond(tablet) {
+    padding: $padding-3 0;
+  }
+
+  @include respond-gt(laptop_s) {
+    &:hover {
+      box-shadow: $shadow_2;
+
+      @include glassEffect;
+    }
+  }
+
+  .content {
+    position: static;
+    flex: 2;
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .title {
+      color: var(--color-text-1);
+      font-weight: 500;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+
+    .description {
+      max-width: 500px;
+      margin-bottom: 1rem;
+      color: var(--color-text-3);
+      font-size: 0.8rem;
+    }
+
+    .languages {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+
+      p {
+        padding: 0.2rem 0.7rem;
+        border-radius: $radius_1;
+        color: var(--primary-100);
+        font-weight: 400;
+        font-size: 0.8rem;
+        background-color: rgba(var(--rgb-primary-400), 0.5);
+      }
+    }
+  }
+
+  .image {
+    position: relative;
+    flex: 1;
+    height: fit-content;
+    cursor: zoom-in;
+
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border: $border-l;
+
+      @include respond(tablet) {
+        pointer-events: none;
+      }
+
+      @include respond(mobile_l) {
+        max-width: unset;
+      }
+    }
+  }
+}

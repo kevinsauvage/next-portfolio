@@ -1,0 +1,14 @@
+.Container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5rem;
+
+  @include respond(laptop_s) {
+    padding: 0 3rem;
+  }
+
+  @include respond(mobile_l) {
+    padding: 0 1rem;
+  }
+}

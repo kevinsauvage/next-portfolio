@@ -1,0 +1,11 @@
+.container {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+
+  @include respond(mobile_l) {
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+}
