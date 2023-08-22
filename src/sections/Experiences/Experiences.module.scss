@@ -1,10 +1,26 @@
-.list {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.experiences {
+  .list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .link {
+    padding: 1.5rem;
+    color: var(--color-text-1);
+    font-weight: 600;
+    font-size: 1.2rem;
+
+    svg {
+      margin-left: 1rem;
+    }
+  }
 
   @include respond(tablet) {
-    gap: 0;
+    .list {
+      gap: 0;
+    }
   }
 }
