@@ -22,9 +22,9 @@ const experiences = [
       name: 'Subforce',
     },
     description:
-      'Led development of startup website, handling frontend to backend. Managed full software process: requirements, coding, testing, deployment. Enhanced site, boosting performance, conversions, and user satisfaction.',
+      'Handling frontend to backend. Managed full software process: requirements, coding, testing, deployment. Enhanced site, boosting performance, conversions, and user satisfaction.',
     listItem: [
-      'Led the creation of a dynamic website for a startup, taking charge of all technical aspects from frontend to backend functionality.',
+      'Creating dynamic website for a startup, taking charge of all technical aspects from frontend to backend functionality.',
       'Independently managed the entire software development process, including gathering requirements, coding, testing, and deploying.',
       "Implemented new features and optimizations that improved the website's performance and made users happier, resulting in more conversions and increased user retention.",
     ],
