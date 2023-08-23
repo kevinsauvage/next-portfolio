@@ -50,6 +50,6 @@ export const metadata = {
     canonical: 'https://www.kevin-sauvage.com/',
   },
   description:
-    "Looking for a reliable full-stack web developer? Check out Kévin Sauvage's portfolio featuring skills in Javascript, React.js, Next.js and CSS/Sass.",
+    'Crafting high-performance, inclusive web solutions that prioritize accessibility. Proficient in JavaScript, React.js, Next.js, and CSS/Sass to deliver exceptional front-end experiences.',
   title: 'Kévin Sauvage',
 };
