@@ -89,7 +89,6 @@
 
 @mixin glassEffect {
   border: $border-s;
-  border-radius: $radius_1;
-  -webkit-backdrop-filter: blur(15px) brightness(110%);
-  backdrop-filter: blur(15px) brightness(110%);
+  -webkit-backdrop-filter: blur(30px) brightness(130%);
+  backdrop-filter: blur(30px) brightness(130%);
 }

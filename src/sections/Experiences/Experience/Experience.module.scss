@@ -9,7 +9,7 @@
   padding: 1.5rem;
   border: $border-s;
   border-color: transparent;
-  transition: $transition;
+  border-radius: $radius_1;
 
   @include respond-gt(laptop_s) {
     &:hover {
