@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 import Input from '@/components/_scopes/form/Input/Input';
 import Label from '@/components/_scopes/form/Label/Label';
 import TextArea from '@/components/_scopes/form/TextArea/TextArea';
@@ -26,14 +28,44 @@ const sendMail = async (body) => {
 
 const ContactForm = () => {
   const notification = useNotification();
+  const [missing, setMissing] = useState([]);
 
   const handleSubmitCallback = async (formData, clearInputs) => {
     const { email, fullName, subject, message, phone } = formData;
+    const errors = [];
 
-    if (!(email && fullName && subject && message)) {
-      notification.warning('Please fill in all required fields');
-      return false;
+    const required = ['email', 'fullName', 'message', 'subject'];
+
+    const missingValues = required.filter((key) => !formData[key]);
+    setMissing(missingValues);
+
+    if (missingValues.length > 0) {
+      const missingFieldMessage =
+        missingValues.length === 1
+          ? `Oops! It looks like you forgot to fill in the <strong>"${missingValues[0]}"</strong> field. Could you please provide the necessary information?`
+          : `Oops! It looks like you missed filling out some important fields:  <strong>${missingValues.join(
+              ', '
+            )}</strong>. Could you please complete them?`;
+
+      errors.push(missingFieldMessage);
     }
+
+    if (subject?.length > 0 && subject?.length < 3) {
+      errors.push(
+        `Hold on! Your subject deserves a bit more attention. It should be at least 3 characters long.`
+      );
+    }
+
+    if (message?.length > 0 && message.length < 100) {
+      errors.push(
+        `Almost there! Your message could use a little more detail. We suggest a minimum of 100 characters. Currently, your message contains ${message.length} characters.`
+      );
+    }
+
+    if (errors.length > 0) {
+      return errors.forEach((error) => notification.error(error));
+    }
+
     const response = await sendMail({ email, fullName, message, phone, subject });
 
     if (response?.ok) {
@@ -58,9 +90,9 @@ const ContactForm = () => {
   });
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit} onChange={() => setMissing([])}>
       <div className={styles.row}>
-        <Label>
+        <Label missing={missing.includes('fullName')}>
           <span>
             Full name<span className={styles.required}>*</span>
           </span>
@@ -72,7 +104,7 @@ const ContactForm = () => {
             value={fullName}
           />
         </Label>
-        <Label>
+        <Label missing={missing.includes('email')}>
           <span>
             Email<span className={styles.required}>*</span>
           </span>
@@ -86,7 +118,7 @@ const ContactForm = () => {
         </Label>
       </div>
       <div className={styles.row}>
-        <Label>
+        <Label missing={missing.includes('subject')}>
           <span>
             Subject<span className={styles.required}>*</span>
           </span>
@@ -109,7 +141,7 @@ const ContactForm = () => {
           />
         </Label>
       </div>
-      <Label>
+      <Label missing={missing.includes('message')}>
         <span>
           Message<span className={styles.required}>*</span>
         </span>

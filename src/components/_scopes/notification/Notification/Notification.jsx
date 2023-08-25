@@ -12,7 +12,7 @@ const Notification = ({ notif, removeNotification }) => {
   useEffect(() => {
     timerID.current = setTimeout(() => {
       removeNotification(notif.id);
-    }, 4000);
+    }, 6000);
 
     return () => {
       clearTimeout(timerID.current);
@@ -31,7 +31,7 @@ const Notification = ({ notif, removeNotification }) => {
   return (
     <div className={`${styles.notification} ${stylesObject[notif?.type]}`} key={notif.id}>
       <div className={styles.inner}>
-        <span>{notif.message}</span>
+        <span dangerouslySetInnerHTML={{ __html: notif?.message }} />
         <button type="button" className={styles.close} onClick={() => removeNotification(notif.id)}>
           <IconCloseOutline />
         </button>

@@ -51,6 +51,11 @@ const projects = [
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1692381047/K%C3%A9vin-Sauvage_1_1_ikxrav.png',
         },
+        {
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1692728617/K%C3%A9vin-Sauvage_2_irljlb.png',
+          thumbnail:
+            'https://res.cloudinary.com/kevincloudname/image/upload/c_thumb,w_200,g_face/v1692728617/K%C3%A9vin-Sauvage_2_irljlb.png',
+        },
       ],
       thumbnail:
         'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1692381047/K%C3%A9vin-Sauvage_1_1_ikxrav.png',
