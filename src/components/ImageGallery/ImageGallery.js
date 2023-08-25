@@ -9,8 +9,27 @@ import Carousel from '../Carousel/Carousel';
 
 import styles from './ImageGallery.module.scss';
 
+const swipeLimit = 70;
+
 const ImageGallery = ({ selectedImages, updateSelectedImages }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState();
+  const [touchEnd, setTouchEnd] = useState();
+
+  const handleTouchStart = (event) => setTouchStart(event.targetTouches[0].clientX);
+
+  const handleTouchMove = (event) => setTouchEnd(event.targetTouches[0].clientX);
+
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > swipeLimit) {
+      setSelectedImageIndex((previous) =>
+        previous >= selectedImages.length - 1 ? previous : previous + 1
+      );
+    }
+    if (touchStart - touchEnd < -swipeLimit) {
+      setSelectedImageIndex((previous) => (previous <= 0 ? 0 : previous - 1));
+    }
+  };
 
   const openImage = (event, index) => {
     event.preventDefault();
@@ -50,6 +69,9 @@ const ImageGallery = ({ selectedImages, updateSelectedImages }) => {
               <IconCloseOutline />
             </button>
             <Image
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              onTouchMove={handleTouchMove}
               key={selectedImages[selectedImageIndex].src}
               src={selectedImages[selectedImageIndex].src}
               alt="Selected image"
