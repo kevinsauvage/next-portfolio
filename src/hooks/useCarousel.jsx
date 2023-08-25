@@ -1,5 +1,7 @@
 import { Children, useCallback, useEffect, useState } from 'react';
 
+const swipeLimit = 70;
+
 const useCarousel = (children, itemToShow, slideReference, sliderReference) => {
   const [maxTranslate, setMaxTranslate] = useState(0);
   const [translate, setTranslate] = useState(0);
@@ -45,8 +47,9 @@ const useCarousel = (children, itemToShow, slideReference, sliderReference) => {
   const handleTouchMove = (event) => setTouchEnd(event.targetTouches[0].clientX);
 
   const handleTouchEnd = () => {
-    if (touchStart - touchEnd > 100) updateActive(page + 1);
-    if (touchStart - touchEnd < -100) updateActive(page - 1);
+    if (touchStart - touchEnd > swipeLimit)
+      updateActive(page + 1 >= childrensCount / itemToShow ? page : page + 1);
+    if (touchStart - touchEnd < -swipeLimit) updateActive(page - 1);
   };
 
   return {
