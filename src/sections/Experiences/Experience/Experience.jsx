@@ -9,13 +9,14 @@ const Experience = ({ experience }) => {
   const { title, period, description, company } = experience;
 
   return (
-    <InViewAnimation
-      hidden={{ opacity: 0, y: '100px' }}
-      visible={{ opacity: 1, y: '0px' }}
-      tag="li"
-    >
+    <li>
       <Link href={company.link} target="_blank">
-        <div className={styles.card}>
+        <InViewAnimation
+          hidden={{ opacity: 0, y: '100px' }}
+          visible={{ opacity: 1, y: '0px' }}
+          tag="div"
+          className={styles.card}
+        >
           <p className={styles.period}>{period}</p>
           <div>
             <div className={styles.header}>
@@ -27,9 +28,9 @@ const Experience = ({ experience }) => {
             </div>
             <p className={styles.description}>{description}</p>
           </div>
-        </div>
+        </InViewAnimation>
       </Link>
-    </InViewAnimation>
+    </li>
   );
 };
 

@@ -13,13 +13,14 @@ const Project = ({ item, updateSelectedImages }) => {
   };
 
   return (
-    <InViewAnimation
-      hidden={{ opacity: 0, y: '100px' }}
-      visible={{ opacity: 1, y: '0px' }}
-      tag="li"
-    >
+    <li>
       <Link href={item.websiteLink} target="_blank">
-        <div className={styles.card}>
+        <InViewAnimation
+          hidden={{ opacity: 0, y: '100px' }}
+          visible={{ opacity: 1, y: '0px' }}
+          tag="div"
+          className={styles.card}
+        >
           <div className={styles.image}>
             <Image
               src={item.images.thumbnail}
@@ -41,9 +42,9 @@ const Project = ({ item, updateSelectedImages }) => {
               ))}
             </div>
           </div>
-        </div>
+        </InViewAnimation>
       </Link>
-    </InViewAnimation>
+    </li>
   );
 };
 
