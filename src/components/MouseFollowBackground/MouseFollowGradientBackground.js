@@ -17,7 +17,7 @@ const MouseFollowGradientBackground = () => {
   }, []);
 
   const gradientStyle = {
-    background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, var(--color-background-2) , var(--color-background-1)) 50%`,
+    background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, var(--color-background-2) , var(--color-background-1))`,
   };
 
   return <div className={styles.background} style={gradientStyle} />;
