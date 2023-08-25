@@ -41,7 +41,6 @@
 }
 
 .carousel {
-  display: flex;
   width: 100%;
   height: fit-content;
   max-height: 200px;
@@ -49,6 +48,18 @@
   @include respond(tablet) {
     display: none;
   }
+
+  .carouselInner {
+    display: flex;
+
+    li {
+      display: inline-flex;
+    }
+  }
+}
+
+.slide {
+  display: flex;
 }
 
 .modalImage {

@@ -5,6 +5,8 @@ import Image from 'next/image';
 
 import IconCloseOutline from '@/svg/IconCloseOutline';
 
+import Carousel from '../Carousel/Carousel';
+
 import styles from './ImageGallery.module.scss';
 
 const ImageGallery = ({ selectedImages, updateSelectedImages }) => {
@@ -57,19 +59,21 @@ const ImageGallery = ({ selectedImages, updateSelectedImages }) => {
             />
 
             <div className={styles.carousel}>
-              {selectedImages.map((image, index) => (
-                <Image
-                  key={image.thumbnail}
-                  src={image.thumbnail}
-                  width={1600}
-                  height={900}
-                  alt={`Image ${index}`}
-                  className={`${styles.thumbnail} ${
-                    selectedImageIndex === index && styles.selected
-                  }`}
-                  onClick={(event) => openImage(event, index)}
-                />
-              ))}
+              <Carousel className={styles.carouselInner} slideClass={styles.slide} itemToShow={5}>
+                {selectedImages.map((image, index) => (
+                  <Image
+                    key={image.thumbnail}
+                    src={image.thumbnail}
+                    width={1600}
+                    height={900}
+                    alt={`Image ${index}`}
+                    className={`${styles.thumbnail} ${
+                      selectedImageIndex === index && styles.selected
+                    }`}
+                    onClick={(event) => openImage(event, index)}
+                  />
+                ))}
+              </Carousel>
             </div>
           </div>
         </div>
