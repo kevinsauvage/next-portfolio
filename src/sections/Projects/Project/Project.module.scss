@@ -83,10 +83,6 @@
       height: auto;
       border: $border-l;
 
-      @include respond(tablet) {
-        pointer-events: none;
-      }
-
       @include respond(mobile_l) {
         max-width: unset;
       }
