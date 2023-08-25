@@ -15,7 +15,7 @@ const projects = [
         },
       ],
       thumbnail:
-        'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1691688139/portfolio/Streamy_pj4sqb.png',
+        'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1691688139/portfolio/Streamy_pj4sqb.png',
     },
     languages: 'React.js SASS Express.js Mongoose',
     title: 'Streamy',
@@ -34,7 +34,7 @@ const projects = [
         },
       ],
       thumbnail:
-        'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1692373671/portfolio/UpToGo_o1magc.png',
+        'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1692373671/portfolio/UpToGo_o1magc.png',
     },
     languages: 'Next.js SASS MongoDB Redux',
     title: 'UpToGo',
@@ -58,7 +58,7 @@ const projects = [
         },
       ],
       thumbnail:
-        'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1692381047/K%C3%A9vin-Sauvage_1_1_ikxrav.png',
+        'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1692381047/K%C3%A9vin-Sauvage_1_1_ikxrav.png',
     },
     languages: 'Next.js SASS',
     title: 'My Portfolio',
