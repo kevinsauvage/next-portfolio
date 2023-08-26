@@ -40,12 +40,12 @@
   gap: 10px;
   width: 100%;
   max-width: 1000px;
-  padding: 20px;
+  padding: 1rem;
   background-color: var(--color-surface-1);
   aspect-ratio: 16/9;
 
   @include respond(mobile_l) {
-    padding: 8px;
+    padding: 0.5rem;
   }
 }
 
@@ -92,4 +92,25 @@
   background: none;
   background-color: rgba(var(--rgb-color-background-1), 0.8);
   cursor: pointer;
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  span {
+    &:first-child {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    &:last-child {
+      font-size: 0.9rem;
+    }
+  }
+
+  @include respond(tablet) {
+    justify-content: center;
+  }
 }

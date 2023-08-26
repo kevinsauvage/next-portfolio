@@ -18,7 +18,6 @@ const Carousel = ({ children, slideClass, itemToShow }) => {
     handleTouchStart,
     page,
     updateActive,
-    childrensCount,
     translate,
     maxTranslate,
   } = useCarousel(children, itemToShow, slideReference, sliderReference);
@@ -62,7 +61,7 @@ const Carousel = ({ children, slideClass, itemToShow }) => {
         </button>
         <button
           type="button"
-          disabled={page + 1 >= childrensCount / itemToShow}
+          disabled={translate >= maxTranslate}
           className={styles['next-button']}
           onClick={() => updateActive(page + 1)}
           aria-label="Next"

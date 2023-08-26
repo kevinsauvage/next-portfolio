@@ -97,6 +97,12 @@ const ImageGallery = ({ selectedImages, updateSelectedImages }) => {
                 ))}
               </Carousel>
             </div>
+
+            <div className={styles.indicators}>
+              <span>{selectedImageIndex + 1}</span>
+              <span>/</span>
+              <span>{selectedImages?.length}</span>
+            </div>
           </div>
         </div>
       )}

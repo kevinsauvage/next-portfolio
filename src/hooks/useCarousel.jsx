@@ -53,7 +53,6 @@ const useCarousel = (children, itemToShow, slideReference, sliderReference) => {
   };
 
   return {
-    childrensCount,
     handleTouchEnd,
     handleTouchMove,
     handleTouchStart,
