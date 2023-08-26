@@ -13,7 +13,6 @@ const Button = ({
   ...rest
 }) => (
   <motion.button
-    whileHover={{ scale: 1.15 }}
     whileTap={{ scale: 0.85 }}
     onClick={(event) => {
       onClick?.(event);

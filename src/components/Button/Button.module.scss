@@ -15,7 +15,6 @@
   background-color: transparent;
   box-shadow: $shadow_2;
   cursor: pointer;
-  transition: all 0.1s linear;
 
   span {
     position: relative;
@@ -45,6 +44,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--color-text-1);
     background-color: var(--color-surface-1);
     inset: 0;
   }
@@ -52,22 +52,22 @@
   @include respond-gt(tablet) {
     &::after {
       position: absolute;
-      top: 0;
-      left: -130%;
-      width: 120%;
-      height: 120%;
+      z-index: -1;
       background-color: var(--primary-100);
-      transform: skewX(-20deg);
-      transition: all 0.3s linear;
+      transform-origin: right;
+      transition: scale 0.3s $cubic-bezier;
       content: '';
+      inset: 0;
+      scale: 0 1;
     }
 
-    &:hover {
+    &:hover,
+    &:focus-visible {
       color: var(--black);
 
       &::after {
-        left: -15%;
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+        transform-origin: left;
+        scale: 1 1;
       }
     }
   }
