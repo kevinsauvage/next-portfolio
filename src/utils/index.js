@@ -4,3 +4,5 @@ export const scrollToSection = (sectionLabel) => {
   const sectionElement = document.querySelector(sectionId);
   sectionElement?.scrollIntoView({ behavior: 'smooth' });
 };
+
+export const capitalize = (s) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');

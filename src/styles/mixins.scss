@@ -47,16 +47,18 @@
   @return str-slice($value * 0 + '', 2, -1);
 }
 
-@mixin placeholder($color) {
+@mixin placeholder($color, $fontSize: 1rem) {
   &::-webkit-input-placeholder {
     /* WebKit, Blink, Edge */
     color: $color;
+    font-size: $fontSize;
     text-transform: capitalize;
   }
 
   &:-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     color: $color;
+    font-size: $fontSize;
     text-transform: capitalize;
     opacity: 1;
   }
@@ -64,6 +66,7 @@
   &::-moz-placeholder {
     /* Mozilla Firefox 19+ */
     color: $color;
+    font-size: $fontSize;
     text-transform: capitalize;
     opacity: 1;
   }
@@ -71,18 +74,21 @@
   &:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
     color: $color;
+    font-size: $fontSize;
     text-transform: capitalize;
   }
 
   &::-ms-input-placeholder {
     /* Microsoft Edge */
     color: $color;
+    font-size: $fontSize;
     text-transform: capitalize;
   }
 
   &::placeholder {
     /* Most modern browsers support this now. */
     color: $color;
+    font-size: $fontSize;
     text-transform: capitalize;
   }
 }

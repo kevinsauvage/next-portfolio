@@ -79,6 +79,6 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: 1px solid transparent;
-  -webkit-text-fill-color: var(--color-text-1);
-  transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 50000s ease-in-out 0s;
+  -webkit-text-fill-color: var(--color-text-3);
 }
