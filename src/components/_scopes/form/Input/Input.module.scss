@@ -2,16 +2,22 @@
   width: 100%;
   max-width: 300px;
   margin-top: 0.5rem;
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
   border: none;
+  border-radius: $radius;
   font-weight: 300;
   font-size: 0.9rem;
   background-color: transparent;
+  transition: $transition;
 
   @include placeholder(rgba(var(--rgb-color-text-3), 0.3));
 
   &:focus,
-  &:active {
+  &:active,
+  &-webkit-autofill:active,
+  &-webkit-autofill:focus {
+    padding-left: 1rem;
+    border: $border-s !important;
     outline: none;
   }
 }

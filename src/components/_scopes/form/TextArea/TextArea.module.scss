@@ -1,16 +1,22 @@
 .textArea {
-  min-height: 100px;
+  min-height: 0px;
+  min-height: 50px;
   margin-top: 0.5rem;
+  padding: 0.5rem 0;
   border: none;
+  border-radius: $radius-1;
   font-weight: 300;
   font-size: 0.9rem;
   background-color: transparent;
-  resize: none;
+  transition: $transition;
+  resize: vertical;
 
   @include placeholder(rgba(var(--rgb-color-text-3), 0.3));
 
   &:focus,
   &:active {
+    padding: 0.8rem;
+    border: $border-s;
     outline: none;
   }
 }
