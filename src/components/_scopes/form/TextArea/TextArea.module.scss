@@ -9,12 +9,12 @@
   border-radius: $radius-2;
   color: var(--color-text-2);
   font-weight: 300;
-  font-size: 0.9rem;
+  font-size: 1rem;
   background-color: transparent;
   transition: $transition;
   resize: vertical;
 
-  @include placeholder(rgba(var(--rgb-color-text-3), 0.3));
+  @include placeholder(rgba(var(--rgb-color-text-3), 0.3), 0.9rem);
 
   &:focus,
   &:active {
