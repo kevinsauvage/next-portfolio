@@ -12,7 +12,7 @@
   font-size: 1rem;
   background-color: transparent;
   transition: $transition;
-  resize: vertical;
+  resize: none;
 
   @include placeholder(rgba(var(--rgb-color-text-3), 0.3), 0.9rem);
 
@@ -21,10 +21,7 @@
     padding-left: 1rem;
     border: $border-s;
     outline: none;
-  }
-
-  &::first-letter {
-    text-transform: capitalize;
+    resize: vertical;
   }
 
   @include respond(tablet) {

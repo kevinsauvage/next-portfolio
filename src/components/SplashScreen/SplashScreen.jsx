@@ -25,21 +25,9 @@ const SplashScreen = () => {
       {isVisible && (
         <motion.div
           key="splashScreen"
-          initial={{
-            background:
-              'radial-gradient(circle, rgba(var(--rgb-color-background-1),0) 0%, rgba(var(--rgb-color-background-1),1) 0%)',
-            opacity: 1,
-          }}
-          animate={{
-            background:
-              'radial-gradient(circle, rgba(var(--rgb-color-background-1),0) 0%, rgba(var(--rgb-color-background-1),1) 0%)',
-            opacity: 1,
-          }}
-          exit={{
-            background:
-              'radial-gradient(circle, rgba(var(--rgb-color-background-1),0) 100%, rgba(var(--rgb-color-background-1),1) 100%)',
-            opacity: 0,
-          }}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className={styles.splashScreen}
         >
           <Loader />
