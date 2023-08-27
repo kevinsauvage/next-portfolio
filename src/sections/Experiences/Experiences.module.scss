@@ -8,6 +8,8 @@
   }
 
   .link {
+    display: flex;
+    align-items: center;
     padding: 1.5rem;
     color: var(--color-text-1);
     font-weight: 600;
@@ -15,6 +17,13 @@
 
     svg {
       margin-left: 1rem;
+      transition: $transition;
+    }
+
+    &:hover {
+      svg {
+        margin-left: 1.5rem;
+      }
     }
   }
 

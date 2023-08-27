@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import experiences from '@/config/experiences';
-import IconArrowUpRight from '@/svg/IconArrowUpRight';
+import IconArrowRight from '@/svg/IconArrowRight';
 
 import Experience from './Experience/Experience';
 
@@ -22,7 +22,7 @@ const Experiences = () => (
       prefetch={false}
     >
       View Full Résumé
-      <IconArrowUpRight />
+      <IconArrowRight />
     </Link>
   </div>
 );
