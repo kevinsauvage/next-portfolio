@@ -13,9 +13,7 @@
   @include placeholder(rgba(var(--rgb-color-text-3), 0.3));
 
   &:focus,
-  &:active,
-  &-webkit-autofill:active,
-  &-webkit-autofill:focus {
+  &:active {
     padding-left: 1rem;
     border: $border-s !important;
     outline: none;
