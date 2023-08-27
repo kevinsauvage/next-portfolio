@@ -16,6 +16,10 @@
   color: var(--color-text-1);
   font-weight: 400;
 
+  strong {
+    text-transform: capitalize;
+  }
+
   @include respond(mobile_l) {
     padding: 2rem;
     border-radius: 0;
