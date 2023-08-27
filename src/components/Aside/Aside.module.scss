@@ -15,6 +15,7 @@ $offset: 3rem;
   @include respond(tablet) {
     position: static;
     width: 100%;
+    max-width: unset;
     height: 100%;
     height: fit-content;
     margin-bottom: 6rem;
