@@ -1,10 +1,11 @@
 .textArea {
   min-height: 0px;
   min-height: 50px;
+  max-height: 500px;
   margin-top: 0.5rem;
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
   border: none;
-  border-radius: $radius-1;
+  border-radius: $radius-2;
   font-weight: 300;
   font-size: 0.9rem;
   background-color: transparent;
@@ -15,7 +16,7 @@
 
   &:focus,
   &:active {
-    padding: 0.8rem;
+    padding-left: 1rem;
     border: $border-s;
     outline: none;
   }
