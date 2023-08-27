@@ -3,20 +3,21 @@
   max-width: 300px;
   margin-top: 0.5rem;
   padding: 0.8rem 0;
-  border: none;
+  border: $border-s;
+  border-color: transparent;
   border-radius: $radius-2;
   color: var(--color-text-2);
   font-weight: 300;
   font-size: 1.1rem;
   background-color: transparent;
-  transition: $transition;
+  transition: padding-left 0.3s $cubic-bezier;
 
   @include placeholder(rgba(var(--rgb-color-text-3), 0.3), 0.9rem);
 
   &:focus,
   &:active {
     padding-left: 1rem;
-    border: $border-s !important;
+    border: $border-s;
     outline: none;
   }
 }
