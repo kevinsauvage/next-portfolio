@@ -6,8 +6,8 @@
 .subtitle {
   margin-bottom: 1rem;
   color: var(--color-text-1);
-  font-weight: 500;
-  font-size: 1.3rem;
+  font-weight: 400;
+  font-size: 1.4rem;
   opacity: 0.8;
 
   @include respond(tablet) {
