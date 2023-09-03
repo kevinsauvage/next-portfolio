@@ -1,6 +1,25 @@
 const projects = [
   {
     description:
+      'Showcase of Spotify API integration: User data, library, and music charts for a personalized experience.',
+    githubLink: ['https://github.com/kevinsauvage/spotify-typescript'],
+    images: {
+      gallery: [
+        {
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1693775950/Spotify-profile_ywvtt5.png',
+          thumbnail:
+            'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1693775950/Spotify-profile_ywvtt5.png',
+        },
+      ],
+      thumbnail:
+        'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1693775950/Spotify-profile_ywvtt5.png',
+    },
+    languages: 'NextJs Typescript SASS',
+    title: 'Spotify Profile',
+    websiteLink: 'https://spotify-typescript.vercel.app/',
+  },
+  {
+    description:
       'Your personalized entertainment hub. Discover new titles, watch trailers, and engage in community conversations.',
     githubLink: [
       'https://github.com/kevinsauvage/streamyV2-client',
