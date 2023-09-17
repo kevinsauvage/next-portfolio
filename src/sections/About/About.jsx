@@ -11,7 +11,7 @@ const hightlightedWords = [
   'Svelte.js',
   'Node.js',
   'Express.js',
-  'front-end development',
+  'web development',
 ];
 const AboutItem = ({ item }) => {
   const regexPattern = new RegExp(hightlightedWords.join('|'), 'gi');

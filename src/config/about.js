@@ -1,7 +1,7 @@
 const about = [
   {
     content:
-      "Hi, I'm Kévin Sauvage, and I've spent the last two years diving into front-end development. I have a real passion for creating user-friendly websites.",
+      "Hi, I'm Kévin Sauvage, and I've spent the last two years diving into web development. I have a real passion for creating user-friendly websites.",
   },
   {
     content:
