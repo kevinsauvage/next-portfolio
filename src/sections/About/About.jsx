@@ -14,7 +14,6 @@ const hightlightedWords = [
   'front-end development',
 ];
 const AboutItem = ({ item }) => {
-  // Create a regular expression pattern that matches any of the programming languages
   const regexPattern = new RegExp(hightlightedWords.join('|'), 'gi');
 
   return (
