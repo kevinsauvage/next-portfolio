@@ -5,7 +5,7 @@ const about = [
   },
   {
     content:
-      "I've learned a bunch of programming languages and tools to make sure I build great websites. I'm comfortable with JavaScript, TypeSript, React.js, Next.js, Svelte.js, Node.js, and Express.js. These are like my secret ingredients for making websites that people love to use.",
+      "I've learned a bunch of programming languages and tools to make sure I build great websites. I'm comfortable with JavaScript, TypeScript, React.js, Next.js, Svelte.js, Node.js, and Express.js. These are like my secret ingredients for making websites that people love to use.",
   },
   {
     content:

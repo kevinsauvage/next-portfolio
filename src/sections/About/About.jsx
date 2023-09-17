@@ -3,16 +3,35 @@ import about from '@/config/about';
 
 import styles from './About.module.scss';
 
-const AboutItem = ({ item }) => (
-  <InViewAnimation
-    hidden={{ opacity: 0, y: '100px' }}
-    visible={{ opacity: 1, y: '0px' }}
-    tag="li"
-    className={styles.item}
-  >
-    <p>{item.content}</p>
-  </InViewAnimation>
-);
+const hightlightedWords = [
+  'JavaScript',
+  'TypeScript',
+  'React.js',
+  'Next.js',
+  'Svelte.js',
+  'Node.js',
+  'Express.js',
+  'front-end development',
+];
+const AboutItem = ({ item }) => {
+  // Create a regular expression pattern that matches any of the programming languages
+  const regexPattern = new RegExp(hightlightedWords.join('|'), 'gi');
+
+  return (
+    <InViewAnimation
+      hidden={{ opacity: 0, y: '100px' }}
+      visible={{ opacity: 1, y: '0px' }}
+      tag="li"
+      className={styles.item}
+    >
+      <p
+        dangerouslySetInnerHTML={{
+          __html: item.content.replace(regexPattern, '<strong>$&</strong>'),
+        }}
+      />
+    </InViewAnimation>
+  );
+};
 
 const About = () => (
   <ul className={styles.about}>
