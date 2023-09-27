@@ -10,7 +10,7 @@ import Section from '../Section/Section';
 const SectionPresenter = ({ label, ...rest }) => {
   const { isIntersecting, reference } = useOnScreen({
     rootMargin: '0px',
-    threshold: 0.7,
+    threshold: 0.5,
   });
 
   const { updateActiveSection } = useGlobalContext();
