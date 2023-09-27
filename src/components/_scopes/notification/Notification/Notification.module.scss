@@ -68,8 +68,9 @@
 }
 
 .success {
+  border-color: var(--color-success);
+
   .inner {
-    border-color: var(--color-success);
     background-color: rgba(var(--rgb-color-success), 0.01);
 
     strong {
