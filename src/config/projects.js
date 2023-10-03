@@ -6,13 +6,23 @@ const projects = [
     images: {
       gallery: [
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1693775950/Spotify-profile_ywvtt5.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1696360147/Spotify-profile_2_h8jape.png',
           thumbnail:
-            'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1693775950/Spotify-profile_ywvtt5.png',
+            'https://res.cloudinary.com/kevincloudname/image/upload/w_200,ar_16:9/v1696360147/Spotify-profile_2_h8jape.png',
+        },
+        {
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1696360363/Spotify-profile_3_wtzilc.png',
+          thumbnail:
+            'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1696360363/Spotify-profile_3_wtzilc.png',
+        },
+        {
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1696360530/Spotify-profile_4_ejxlxa.png',
+          thumbnail:
+            'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1696360530/Spotify-profile_4_ejxlxa.png',
         },
       ],
       thumbnail:
-        'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1693775950/Spotify-profile_ywvtt5.png',
+        'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1696360147/Spotify-profile_2_h8jape.png',
     },
     languages: 'NextJs Typescript SASS',
     title: 'Spotify Profile',
