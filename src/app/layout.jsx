@@ -6,7 +6,6 @@ import Aside from '@/components/Aside/Aside';
 import Container from '@/components/Container/Container';
 import MouseFollowGradientBackground from '@/components/MouseFollowBackground/MouseFollowGradientBackground';
 import SplashScreen from '@/components/SplashScreen/SplashScreen';
-import { GlobalProvider } from '@/contexts/GlobalContext';
 import NotificationProvider from '@/contexts/NotificationContext';
 
 import '@/styles/globals.scss';
@@ -29,14 +28,12 @@ const PageLayout = ({ children }) => (
   <html lang="en">
     <body className={`${robotoCondensed.variable} ${robotoMono.variable}`}>
       <SplashScreen />
-      <GlobalProvider>
-        <NotificationProvider>
-          <Container classname={styles.container}>
-            <Aside />
-            <div>{children}</div>
-          </Container>
-        </NotificationProvider>
-      </GlobalProvider>
+      <NotificationProvider>
+        <Container classname={styles.container}>
+          <Aside />
+          <div>{children}</div>
+        </Container>
+      </NotificationProvider>
       <MouseFollowGradientBackground />
       <Analytics />
     </body>

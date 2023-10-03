@@ -1,25 +1,26 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-import { useGlobalContext } from '@/contexts/GlobalContext';
 import useOnScreen from '@/hooks/useOnScreen';
+import { getSectionLabel } from '@/utils';
 
 import Section from '../Section/Section';
 
 const SectionPresenter = ({ label, ...rest }) => {
+  const router = useRouter();
+
   const { isIntersecting, reference } = useOnScreen({
     rootMargin: '0px',
     threshold: 0.5,
   });
 
-  const { updateActiveSection } = useGlobalContext();
-
   useEffect(() => {
     if (isIntersecting) {
-      updateActiveSection(label);
+      router.push(`/#${getSectionLabel(label)}`, { scroll: false });
     }
-  }, [isIntersecting, label, updateActiveSection]);
+  }, [isIntersecting, label, router]);
 
   return <Section {...rest} label={label} reference={reference} />;
 };

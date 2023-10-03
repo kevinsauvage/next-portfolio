@@ -1,26 +1,32 @@
 'use client';
 
-import { useGlobalContext } from '@/contexts/GlobalContext';
-import { scrollToSection } from '@/utils';
+import { useEffect, useState } from 'react';
+import { usePathname, useSearchParams } from 'next/navigation';
+
+import { getSectionLabel } from '@/utils';
 
 import styles from './NavItem.module.scss';
 
 const NavItem = ({ section }) => {
-  const { activeSection } = useGlobalContext();
+  const [hash, setHash] = useState('');
+
+  const pathname = usePathname();
+  const searchParameters = useSearchParams();
+
+  useEffect(() => {
+    setHash(window.location.hash.replace('#', ''));
+  }, [searchParameters, pathname]);
 
   return (
     <li className={styles.item}>
-      <button
-        className={`${styles.button} ${activeSection === section.label && styles.active}`}
-        type="button"
-        aria-label={section.label}
-        onClick={() => {
-          scrollToSection(section.label);
-        }}
-      >
-        <span className={styles.icon}>{section.icon}</span>
-        <p className={styles.label}>{section.label}</p>
-      </button>
+      <a href={`/#${getSectionLabel(section.label)}`}>
+        <div
+          className={`${styles.button} ${hash === getSectionLabel(section.label) && styles.active}`}
+        >
+          <span className={styles.icon}>{section.icon}</span>
+          <p className={styles.label}>{section.label}</p>
+        </div>
+      </a>
     </li>
   );
 };

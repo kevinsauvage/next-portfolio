@@ -1,3 +1,5 @@
+import { getSectionLabel } from '@/utils';
+
 import SectionSubtitle from '../SectionSubtitle/SectionSubtitle';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import SectionUpTitle from '../SectionUptitle/SectionUpTitle';
@@ -15,12 +17,7 @@ const Section = ({
   style,
   reference,
 }) => (
-  <section
-    className={styles.Section}
-    id={label?.split(' ')?.join('-')}
-    style={style}
-    ref={reference}
-  >
+  <section className={styles.Section} id={getSectionLabel(label)} style={style} ref={reference}>
     <header>
       {label && <SectionUpTitle icon={icon} text={label} />}
       {title && <SectionTitle title={title} tagLevel={tagLevel} />}
