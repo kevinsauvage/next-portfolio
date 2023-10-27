@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { track } from '@vercel/analytics';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 import { getSectionLabel } from '@/utils';
@@ -20,11 +19,9 @@ const NavItem = ({ section }) => {
 
   const { label, icon } = section || {};
 
-  const handleTrack = () => track('Click navItem', { item: label });
-
   return (
     <li className={styles.item}>
-      <a href={`/#${getSectionLabel(label)}`} onClick={handleTrack}>
+      <a href={`/#${getSectionLabel(label)}`}>
         <div className={`${styles.button} ${hash === getSectionLabel(label) && styles.active}`}>
           <span className={styles.icon}>{icon}</span>
           <p className={styles.label}>{label}</p>

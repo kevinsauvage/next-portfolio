@@ -1,9 +1,8 @@
-import { track } from '@vercel/analytics/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import Buttons from '@/components/_scopes/project/Buttons/Buttons';
 import InViewAnimation from '@/components/InViewAnimation/InViewAnimation';
-import LinkClient from '@/components/LinkClient/LinkClient';
 
 import styles from './Project.module.scss';
 
@@ -12,16 +11,11 @@ const Project = ({ item, updateSelectedImages }) => {
     event.preventDefault();
     event.stopPropagation();
     updateSelectedImages(item.images.gallery);
-    track('Click image project', { item: item.title });
   };
 
   return (
     <li>
-      <LinkClient
-        href={item.websiteLink}
-        target="_blank"
-        trackInfo={{ label: item.title, title: 'Click project' }}
-      >
+      <Link href={item.websiteLink} target="_blank">
         <InViewAnimation
           hidden={{ opacity: 0, y: '100px' }}
           visible={{ opacity: 1, y: '0px' }}
@@ -50,7 +44,7 @@ const Project = ({ item, updateSelectedImages }) => {
             </div>
           </div>
         </InViewAnimation>
-      </LinkClient>
+      </Link>
     </li>
   );
 };
