@@ -14,12 +14,8 @@ const useForm = (onSubmit, initialValues = {}) => {
   });
 
   const handleInputChange = useCallback((target) => {
-    const { type, name, value, checked } = target;
-
-    setFormData((previousFormData) => ({
-      ...previousFormData,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
+    const { name, value } = target;
+    setFormData((previousFormData) => ({ ...previousFormData, [name]: value }));
   }, []);
 
   const handleSubmit = useCallback(

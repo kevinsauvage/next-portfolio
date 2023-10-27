@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { track } from '@vercel/analytics/react';
 
 import Input from '@/components/_scopes/form/Input/Input';
 import Label from '@/components/_scopes/form/Label/Label';
@@ -32,6 +33,7 @@ const ContactForm = () => {
 
   const handleSubmitCallback = async (formData, clearInputs) => {
     const { email, fullName, subject, message, phone } = formData;
+    track('Click send message', { email, fullName, message, phone, subject });
     const errors = [];
 
     const required = ['email', 'fullName', 'message', 'subject'];
@@ -63,6 +65,7 @@ const ContactForm = () => {
     }
 
     if (errors.length > 0) {
+      track('Error send message', { errors: errors.join(', ') });
       return errors.forEach((error) => notification.error(error));
     }
 

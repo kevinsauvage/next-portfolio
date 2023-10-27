@@ -1,6 +1,5 @@
-import Link from 'next/link';
-
 import InViewAnimation from '@/components/InViewAnimation/InViewAnimation';
+import LinkClient from '@/components/LinkClient/LinkClient';
 import IconArrowUpRight from '@/svg/IconArrowUpRight';
 
 import styles from './Experience.module.scss';
@@ -10,7 +9,11 @@ const Experience = ({ experience }) => {
 
   return (
     <li>
-      <Link href={company.link} target="_blank">
+      <LinkClient
+        href={company.link}
+        target="_blank"
+        trackInfo={{ label: title, title: 'Click experience' }}
+      >
         <InViewAnimation
           hidden={{ opacity: 0, y: '100px' }}
           visible={{ opacity: 1, y: '0px' }}
@@ -29,7 +32,7 @@ const Experience = ({ experience }) => {
             <p className={styles.description}>{description}</p>
           </div>
         </InViewAnimation>
-      </Link>
+      </LinkClient>
     </li>
   );
 };

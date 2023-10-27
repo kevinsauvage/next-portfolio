@@ -1,5 +1,4 @@
-import Link from 'next/link';
-
+import LinkClient from '@/components/LinkClient/LinkClient';
 import experiences from '@/config/experiences';
 import IconArrowRight from '@/svg/IconArrowRight';
 
@@ -14,16 +13,17 @@ const Experiences = () => (
         <Experience key={experience.period} experience={experience} />
       ))}
     </ul>
-    <Link
+    <LinkClient
       href="/kevin-sauvage-cv.pdf"
       className={styles.link}
       aria-label="Download my curriculum"
       target="_blank"
       prefetch={false}
+      trackInfo={{ label: 'Download my curriculum', title: 'Click download cv' }}
     >
       View Full Résumé
       <IconArrowRight />
-    </Link>
+    </LinkClient>
   </div>
 );
 

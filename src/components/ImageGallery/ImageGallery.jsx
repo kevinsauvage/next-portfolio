@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { track } from '@vercel/analytics/react';
 import Image from 'next/image';
 
 import IconCloseOutline from '@/svg/IconCloseOutline';
@@ -22,11 +23,13 @@ const ImageGallery = ({ selectedImages, updateSelectedImages }) => {
 
   const handleTouchEnd = () => {
     if (touchStart - touchEnd > swipeLimit) {
+      track('Touch end image gallery');
       setSelectedImageIndex((previous) =>
         previous >= selectedImages.length - 1 ? previous : previous + 1
       );
     }
     if (touchStart - touchEnd < -swipeLimit) {
+      track('Touch end image gallery');
       setSelectedImageIndex((previous) => (previous <= 0 ? 0 : previous - 1));
     }
   };
@@ -35,11 +38,10 @@ const ImageGallery = ({ selectedImages, updateSelectedImages }) => {
     event.preventDefault();
     event.stopPropagation();
     setSelectedImageIndex(index);
+    track('Open image in gallery', { index });
   };
 
-  const closeImage = () => {
-    updateSelectedImages([]);
-  };
+  const closeImage = () => updateSelectedImages([]);
 
   return (
     <div className={styles.gallery}>

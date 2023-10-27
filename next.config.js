@@ -29,7 +29,14 @@ const nextConfig = {
     ];
   },
   images: {
-    domains: ['res.cloudinary.com'],
+    remotePatterns: [
+      {
+        hostname: 'res.cloudinary.com',
+        pathname: '/kevincloudname/image/upload/**',
+        port: '',
+        protocol: 'https',
+      },
+    ],
   },
   reactStrictMode: true,
   sassOptions: {
