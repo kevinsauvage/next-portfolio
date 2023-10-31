@@ -17,7 +17,7 @@ const Experiences = () => (
     <Link
       href="/kevin-sauvage-cv.pdf"
       className={styles.link}
-      aria-label="Download my curriculum"
+      aria-label="View Full Résumém"
       target="_blank"
       prefetch={false}
     >
