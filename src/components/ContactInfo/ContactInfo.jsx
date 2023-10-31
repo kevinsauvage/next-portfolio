@@ -16,6 +16,7 @@ const ContactInfo = ({ className }) => (
             aria-label={item.text}
             target="_blank"
             prefetch={false}
+            rel="noopener noreferrer"
           >
             {item.icon}
           </Link>
