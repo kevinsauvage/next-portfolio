@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  gap: 5rem;
+  gap: 3rem;
 
   @include respond(tablet) {
     display: block;

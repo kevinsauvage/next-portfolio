@@ -5,7 +5,6 @@ import { Roboto_Condensed, Roboto_Mono } from 'next/font/google';
 import Aside from '@/components/Aside/Aside';
 import Container from '@/components/Container/Container';
 import MouseFollowGradientBackground from '@/components/MouseFollowBackground/MouseFollowGradientBackground';
-import SplashScreen from '@/components/SplashScreen/SplashScreen';
 import NotificationProvider from '@/contexts/NotificationContext';
 
 import '@/styles/globals.scss';
@@ -27,7 +26,6 @@ const robotoMono = Roboto_Mono({
 const PageLayout = ({ children }) => (
   <html lang="en">
     <body className={`${robotoCondensed.variable} ${robotoMono.variable}`}>
-      <SplashScreen />
       <NotificationProvider>
         <Container classname={styles.container}>
           <Aside />
@@ -48,5 +46,5 @@ export const metadata = {
   },
   description:
     'Crafting high-performance, inclusive web solutions that prioritize accessibility. Proficient in JavaScript, React.js, Next.js, and CSS/Sass to deliver exceptional front-end experiences.',
-  title: 'Kévin Sauvage',
+  title: 'Kévin Sauvage portfolio website',
 };
