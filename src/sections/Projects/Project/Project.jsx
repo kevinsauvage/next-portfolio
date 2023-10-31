@@ -15,7 +15,7 @@ const Project = ({ item, updateSelectedImages }) => {
 
   return (
     <li>
-      <Link href={item.websiteLink} target="_blank">
+      <Link href={item.websiteLink} target="_blank" rel="noopener noreferrer">
         <InViewAnimation
           hidden={{ opacity: 0, y: '100px' }}
           visible={{ opacity: 1, y: '0px' }}

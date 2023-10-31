@@ -20,6 +20,7 @@ const Experiences = () => (
       aria-label="View Full Résumém"
       target="_blank"
       prefetch={false}
+      rel="noopener noreferrer"
     >
       View Full Résumé
       <IconArrowRight />

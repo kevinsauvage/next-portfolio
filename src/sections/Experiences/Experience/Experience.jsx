@@ -10,7 +10,7 @@ const Experience = ({ experience }) => {
 
   return (
     <li>
-      <Link href={company.link} target="_blank">
+      <Link href={company.link} target="_blank" rel="noopener noreferrer">
         <InViewAnimation
           hidden={{ opacity: 0, y: '100px' }}
           visible={{ opacity: 1, y: '0px' }}
