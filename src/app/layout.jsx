@@ -23,9 +23,28 @@ const robotoMono = Roboto_Mono({
   variable: '--font-body',
 });
 
+const jsonLd = {
+  '@context': 'http://schema.org',
+  '@type': 'Person',
+  description: 'Developing performance-focused, inclusive web products that leave no one behind.',
+  jobTitle: 'JavaScript Developer',
+  mainEntityOfPage: {
+    '@id': 'https://www.kevin-sauvage.com',
+    '@type': 'WebPage',
+  },
+  name: 'Kévin Sauvage',
+  sameAs: ['https://www.linkedin.com/in/kevin-sauvage', 'https://github.com/kevinsauvage'],
+  url: 'https://www.kevin-sauvage.com',
+};
+
 const PageLayout = ({ children }) => (
   <html lang="en">
     <body className={`${robotoCondensed.variable} ${robotoMono.variable}`}>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <NotificationProvider>
         <Container classname={styles.container}>
           <Aside />
@@ -45,6 +64,6 @@ export const metadata = {
     canonical: 'https://www.kevin-sauvage.com/',
   },
   description:
-    'Crafting high-performance, inclusive web solutions that prioritize accessibility. Proficient in JavaScript, React.js, Next.js, and CSS/Sass to deliver exceptional front-end experiences.',
+    'Crafting high-performance, inclusive web solutions that prioritize accessibility. Proficient in JavaScript, React.js, Next.js.',
   title: 'Kévin Sauvage portfolio website',
 };
