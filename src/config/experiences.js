@@ -5,7 +5,7 @@ const experiences = [
       name: 'Decathlon - (International)',
     },
     description:
-      'Promoted to an international role within Decathlon, focusing on developing a new global checkout system to serve customers across multiple countries.',
+      "Promoted to an international role at Decathlon, working on the development of a global checkout system for customers in multiple countries. Focused on transforming Decathlon's e-commerce checkout process through cross-functional collaboration to meet international customer demands.",
     listItem: [
       'Key contributor to an e-commerce website with a staggering monthly traffic of over 18 million visitors.',
       'Collaborated closely with cross-functional teams, driving continuous improvements to meet the demands.',
@@ -22,7 +22,7 @@ const experiences = [
       name: 'Decathlon - (Spain)',
     },
     description:
-      'Key role in high-traffic e-commerce site (18M+ monthly visitors). Led cross-functional enhancements, rigorous code reviews, and alignment with business objectives.',
+      "Contributed to a high-traffic e-commerce website with 18+ million monthly visitors. Improved performance and scalability, ensuring the website's success. Also, enhanced accessibility in line with WCAG guidelines.",
     listItem: [
       'Key contributor to an e-commerce website with a staggering monthly traffic of over 18 million visitors.',
       'Collaborated closely with cross-functional teams, driving continuous improvements to meet the demands.',
@@ -39,7 +39,7 @@ const experiences = [
       name: 'Subforce',
     },
     description:
-      'Handling frontend to backend. Managed full software process: requirements, coding, testing, deployment. Enhanced site, boosting performance, conversions, and user satisfaction.',
+      'Creating websites for a startup. Managed the software development process, added new features and optimizations that improved website performance, leading to more conversions and higher user retention.',
     listItem: [
       'Creating dynamic website for a startup, taking charge of all technical aspects from frontend to backend functionality.',
       'Independently managed the entire software development process, including gathering requirements, coding, testing, and deploying.',
