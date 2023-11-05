@@ -1,8 +1,25 @@
 const experiences = [
   {
     company: {
-      link: 'https://www.extia-group.com/',
-      name: 'Extia',
+      link: 'https://www.decathlon.es/es/',
+      name: 'Decathlon - (International)',
+    },
+    description:
+      'Promoted to an international role within Decathlon, focusing on developing a new global checkout system to serve customers across multiple countries.',
+    listItem: [
+      'Key contributor to an e-commerce website with a staggering monthly traffic of over 18 million visitors.',
+      'Collaborated closely with cross-functional teams, driving continuous improvements to meet the demands.',
+      'Conducted comprehensive code reviews and provided constructive feedback, leading to higher code quality and adherence to best practices.',
+      'Collaborated with product owners to prioritize and manage the product backlog, ensuring that development efforts aligned with business goals and objectives.',
+    ],
+    location: 'Barcelona - Spain',
+    period: 'Oct 2023 - present',
+    title: 'Software Developer',
+  },
+  {
+    company: {
+      link: 'https://www.decathlon.es/es/',
+      name: 'Decathlon - (Spain)',
     },
     description:
       'Key role in high-traffic e-commerce site (18M+ monthly visitors). Led cross-functional enhancements, rigorous code reviews, and alignment with business objectives.',
@@ -13,8 +30,8 @@ const experiences = [
       'Collaborated with product owners to prioritize and manage the product backlog, ensuring that development efforts aligned with business goals and objectives.',
     ],
     location: 'Barcelona - Spain',
-    period: 'May 2022 - present',
-    title: 'Consultant developer',
+    period: 'May 2022 - Oct 2023',
+    title: 'Software Developer',
   },
   {
     company: {
@@ -30,7 +47,7 @@ const experiences = [
     ],
     location: 'Barcelona - Spain',
     period: 'Jun 2021 - May 2022',
-    title: 'Front end developer',
+    title: 'Software developer',
   },
 ];
 

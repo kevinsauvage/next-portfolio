@@ -18,13 +18,11 @@ const Experience = ({ experience }) => {
           className={styles.card}
         >
           <p className={styles.period}>{period}</p>
-          <div>
-            <div className={styles.header}>
-              <p className={styles.title}>{title}</p>
-              <div className={styles.company}>
-                <p>- {company.name}</p>
-                <IconArrowUpRight />
-              </div>
+          <div className={styles.right}>
+            <p className={styles.title}>{title}</p>
+            <div className={styles.company}>
+              <p>{company.name}</p>
+              <IconArrowUpRight />
             </div>
             <p className={styles.description}>{description}</p>
           </div>
