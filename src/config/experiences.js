@@ -1,7 +1,7 @@
 const experiences = [
   {
     company: {
-      link: 'https://www.decathlon.es/es/',
+      link: 'https://www.decathlon.fr',
       name: 'Decathlon - (International)',
     },
     description:
