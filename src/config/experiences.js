@@ -1,3 +1,5 @@
+const location = 'Barcelona - Spain';
+
 const experiences = [
   {
     company: {
@@ -12,7 +14,7 @@ const experiences = [
       'Conducted comprehensive code reviews and provided constructive feedback, leading to higher code quality and adherence to best practices.',
       'Collaborated with product owners to prioritize and manage the product backlog, ensuring that development efforts aligned with business goals and objectives.',
     ],
-    location: 'Barcelona - Spain',
+    location,
     period: 'Oct 2023 - present',
     title: 'Software Developer',
   },
@@ -29,7 +31,7 @@ const experiences = [
       'Conducted comprehensive code reviews and provided constructive feedback, leading to higher code quality and adherence to best practices.',
       'Collaborated with product owners to prioritize and manage the product backlog, ensuring that development efforts aligned with business goals and objectives.',
     ],
-    location: 'Barcelona - Spain',
+    location,
     period: 'May 2022 - Oct 2023',
     title: 'Software Developer',
   },
@@ -45,7 +47,7 @@ const experiences = [
       'Independently managed the entire software development process, including gathering requirements, coding, testing, and deploying.',
       "Implemented new features and optimizations that improved the website's performance and made users happier, resulting in more conversions and increased user retention.",
     ],
-    location: 'Barcelona - Spain',
+    location,
     period: 'Jun 2021 - May 2022',
     title: 'Software developer',
   },
