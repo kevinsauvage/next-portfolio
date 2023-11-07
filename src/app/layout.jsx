@@ -48,7 +48,7 @@ const PageLayout = ({ children }) => (
       <NotificationProvider>
         <Container classname={styles.container}>
           <Aside />
-          <div>{children}</div>
+          <div className={styles.children}>{children}</div>
         </Container>
       </NotificationProvider>
       <MouseFollowGradientBackground />

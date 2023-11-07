@@ -2,12 +2,11 @@
   padding-left: $padding-3;
 
   h1 {
-    max-width: 750px;
     margin-bottom: 1rem;
     color: var(--color-text-1);
     line-height: 1.2;
 
-    @include font-size(2.5rem, 4rem);
+    @include font-size(2.5rem, 3rem);
 
     strong {
       color: var(--primary-100);
