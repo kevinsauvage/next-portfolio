@@ -39,6 +39,24 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
+  async redirects() {
+    if (process.env.NODE_ENV === 'production') {
+      return [
+        {
+          destination: '/:path*',
+          missing: [
+            {
+              type: 'host',
+              value: 'www',
+            },
+          ],
+          permanent: true,
+          source: '/:path*',
+        },
+      ];
+    }
+    return [];
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, './styles/')],
     prependData: `
