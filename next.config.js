@@ -39,19 +39,6 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
-  async redirects() {
-    if (process.env.NODE_ENV === 'production') {
-      return [
-        {
-          destination: 'https://kevin-sauvage.com/:path*',
-          has: [{ type: 'host', value: 'https://www.kevin-sauvage.com' }],
-          permanent: true,
-          source: '/:path*',
-        },
-      ];
-    }
-    return [];
-  },
   sassOptions: {
     includePaths: [path.join(__dirname, './styles/')],
     prependData: `
