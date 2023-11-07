@@ -43,7 +43,7 @@ const nextConfig = {
     if (process.env.NODE_ENV === 'production') {
       return [
         {
-          destination: '/:path*',
+          destination: 'www/:path*',
           missing: [
             {
               type: 'host',
