@@ -43,7 +43,7 @@ const nextConfig = {
     if (process.env.NODE_ENV === 'production') {
       return [
         {
-          destination: 'https://kevin-sauvage.com//:path*',
+          destination: 'https://kevin-sauvage.com/:path*',
           has: [{ type: 'host', value: 'https://www.kevin-sauvage.com' }],
           permanent: true,
           source: '/:path*',
