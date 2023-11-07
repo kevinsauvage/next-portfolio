@@ -61,9 +61,9 @@ export default PageLayout;
 
 export const metadata = {
   alternates: {
-    canonical: 'https://kevin-sauvage.com/',
+    canonical: 'https://www.kevin-sauvage.com/',
   },
   description:
     'Crafting high-performance, inclusive web solutions that prioritize accessibility. Proficient in JavaScript, React.js, Next.js.',
-  title: 'Kévin Sauvage developer portfolio website',
+  title: 'Kévin Sauvage developerportfolio website',
 };
