@@ -38,8 +38,8 @@ const jsonLd = {
 };
 
 const PageLayout = ({ children }) => (
-  <html lang="en">
-    <body className={`${robotoCondensed.variable} ${robotoMono.variable}`}>
+  <html lang="en" className={styles.html}>
+    <body className={`${robotoCondensed.variable} ${robotoMono.variable} ${styles.body}`}>
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
@@ -47,6 +47,7 @@ const PageLayout = ({ children }) => (
       />
       <NotificationProvider>
         <Container classname={styles.container}>
+          <div className={styles.backgroundImage} />
           <Aside />
           <div className={styles.children}>{children}</div>
         </Container>
