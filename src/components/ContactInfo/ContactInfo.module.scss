@@ -15,17 +15,21 @@
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.3s ease;
+    color: var(--color-text-1);
   }
+}
 
-  @include respond(tablet) {
+@include respond(tablet) {
+  .list {
     margin-top: 0;
-
     .link {
       font-size: 2.5rem;
     }
   }
+}
 
-  @include respond-gt(tablet) {
+@include respond-gt(tablet) {
+  .list {
     .link {
       &:hover {
         path {
