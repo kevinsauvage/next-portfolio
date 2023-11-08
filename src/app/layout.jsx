@@ -24,7 +24,7 @@ const robotoMono = Roboto_Mono({
 });
 
 const jsonLd = {
-  '@context': 'http://schema.org',
+  '@context': 'https://schema.org',
   '@type': 'Person',
   description: 'Developing performance-focused, inclusive web products that leave no one behind.',
   jobTitle: 'JavaScript Developer',
