@@ -1,4 +1,3 @@
-import InViewAnimation from '@/components/InViewAnimation/InViewAnimation';
 import about from '@/config/about';
 
 import styles from './About.module.scss';
@@ -17,18 +16,13 @@ const AboutItem = ({ item }) => {
   const regexPattern = new RegExp(hightlightedWords.join('|'), 'gi');
 
   return (
-    <InViewAnimation
-      hidden={{ opacity: 0, y: '100px' }}
-      visible={{ opacity: 1, y: '0px' }}
-      tag="li"
-      className={styles.item}
-    >
+    <li className={styles.item}>
       <p
         dangerouslySetInnerHTML={{
           __html: item.content.replace(regexPattern, '<strong>$&</strong>'),
         }}
       />
-    </InViewAnimation>
+    </li>
   );
 };
 

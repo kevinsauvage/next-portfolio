@@ -1,4 +1,5 @@
 /* stylelint-disable scss/operator-no-newline-after */
+@import '@/styles/animation';
 
 @function toRem($value) {
   $remValue: ($value / 16) + rem;
@@ -99,4 +100,8 @@
   box-shadow: $shadow_1;
   -webkit-backdrop-filter: blur(20px) brightness(200%);
   backdrop-filter: blur(20px) brightness(200%);
+}
+
+@mixin animate {
+  animation: fadeInSlideUp 1s ease-in-out forwards;
 }

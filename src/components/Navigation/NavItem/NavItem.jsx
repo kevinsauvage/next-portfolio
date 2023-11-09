@@ -8,7 +8,7 @@ import { getSectionLabel } from '@/utils';
 import styles from './NavItem.module.scss';
 
 const NavItem = ({ section }) => {
-  const [hash, setHash] = useState('');
+  const [hash, setHash] = useState('Introduction');
 
   const pathname = usePathname();
   const searchParameters = useSearchParams();

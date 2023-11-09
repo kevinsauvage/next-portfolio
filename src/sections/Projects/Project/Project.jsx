@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import Buttons from '@/components/_scopes/project/Buttons/Buttons';
-import InViewAnimation from '@/components/InViewAnimation/InViewAnimation';
 
 import styles from './Project.module.scss';
 
@@ -16,12 +15,7 @@ const Project = ({ item, updateSelectedImages }) => {
   return (
     <li>
       <Link href={item.websiteLink} target="_blank" rel="noopener noreferrer">
-        <InViewAnimation
-          hidden={{ opacity: 0, y: '100px' }}
-          visible={{ opacity: 1, y: '0px' }}
-          tag="div"
-          className={styles.card}
-        >
+        <div className={styles.card}>
           <div className={styles.image}>
             <Image
               src={item.images.thumbnail}
@@ -43,7 +37,7 @@ const Project = ({ item, updateSelectedImages }) => {
               ))}
             </div>
           </div>
-        </InViewAnimation>
+        </div>
       </Link>
     </li>
   );

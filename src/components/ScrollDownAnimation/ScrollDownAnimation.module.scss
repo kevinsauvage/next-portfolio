@@ -1,21 +1,30 @@
 .mouse {
-  position: relative;
-  width: 50px;
-  height: 90px;
-  margin-top: auto;
-  border: 3px solid var(--primary-100);
-  border-radius: 60px;
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-width: 160px;
+  height: fit-content;
+  min-height: 160px;
+  margin-left: auto;
+  border: 2px solid var(--primary-100);
+  border-radius: 50%;
+  font-size: 1.2rem;
   visibility: visible;
   opacity: 1;
   transition: all 0.3s $cubic-bezier;
+  aspect-ratio: 1;
 
   @include respond(mobile_l) {
-    bottom: 1rem;
+    bottom: 3rem;
   }
 
   &::before {
     position: absolute;
-    top: 10px;
+    bottom: 35%;
     left: 50%;
     width: 12px;
     height: 12px;
@@ -36,14 +45,14 @@
 
 @keyframes wheel {
   to {
-    top: 60px;
+    bottom: 0%;
     opacity: 0;
   }
 }
 
 @-webkit-keyframes wheel {
   to {
-    top: 60px;
+    bottom: 0%;
     opacity: 0;
   }
 }

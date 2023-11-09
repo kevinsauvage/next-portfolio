@@ -1,6 +1,3 @@
-// eslint-disable-next-line css-modules/no-unused-class
-import { motion } from 'framer-motion';
-
 import styles from './Button.module.scss';
 
 const Button = ({
@@ -12,7 +9,7 @@ const Button = ({
   loading = false,
   ...rest
 }) => (
-  <motion.button
+  <button
     whileTap={{ scale: 0.85 }}
     onClick={(event) => {
       onClick?.(event);
@@ -27,7 +24,7 @@ const Button = ({
       {svg}
       {label}
     </span>
-  </motion.button>
+  </button>
 );
 
 export default Button;

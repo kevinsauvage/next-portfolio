@@ -1,5 +1,7 @@
 @import './theme';
 
+@import '@/styles/animation';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -57,4 +59,13 @@ select:-webkit-autofill:focus {
   border: 1px solid transparent;
   transition: background-color 50000s ease-in-out 0s;
   -webkit-text-fill-color: var(--color-text-3);
+}
+
+.animated {
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+.animate {
+  @include animate;
 }

@@ -6,7 +6,6 @@ import Input from '@/components/_scopes/form/Input/Input';
 import Label from '@/components/_scopes/form/Label/Label';
 import TextArea from '@/components/_scopes/form/TextArea/TextArea';
 import Button from '@/components/Button/Button';
-import InViewAnimation from '@/components/InViewAnimation/InViewAnimation';
 import { useNotification } from '@/contexts/NotificationContext';
 import useForm from '@/hooks/useForm';
 
@@ -152,13 +151,8 @@ const ContactForm = () => {
           placeholder="Write Your Message here"
         />
       </Label>
-      <InViewAnimation
-        hidden={{ opacity: 0, y: '100px' }}
-        visible={{ opacity: 1, y: '0px' }}
-        tag="div"
-      >
-        <Button loading={loading} className={styles.button} label="Send Message" type="submit" />
-      </InViewAnimation>
+
+      <Button loading={loading} className={styles.button} label="Send Message" type="submit" />
     </form>
   );
 };

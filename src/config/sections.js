@@ -42,7 +42,7 @@ const sections = [
     icon: <IconEmailOutline />,
     label: 'Contact Me',
     subtitle: '',
-    tagLevel: 5,
+    tagLevel: 6,
     title: "Let's work together.",
   },
 ];
