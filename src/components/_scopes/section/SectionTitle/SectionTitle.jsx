@@ -13,7 +13,6 @@ const SectionTitle = ({ title, className, tagLevel = 6 }) => {
 
   return (
     <Tag
-      ref={reference}
       className={`${styles.Title} ${className || ''}`}
       dangerouslySetInnerHTML={{ __html: title }}
     />
