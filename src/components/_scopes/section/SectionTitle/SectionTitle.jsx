@@ -1,5 +1,3 @@
-import useOnScreen from '@/hooks/useOnScreen';
-
 import styles from './SectionTitle.module.scss';
 
 const headingProperties = {
@@ -11,14 +9,12 @@ const headingProperties = {
 };
 
 const SectionTitle = ({ title, className, tagLevel = 6 }) => {
-  const { isIntersecting, reference } = useOnScreen();
-
   const Tag = headingProperties[tagLevel].tagName;
 
   return (
     <Tag
       ref={reference}
-      className={`${styles.Title} animated ${isIntersecting ? 'animate' : ''} ${className || ''}`}
+      className={`${styles.Title} ${className || ''}`}
       dangerouslySetInnerHTML={{ __html: title }}
     />
   );
