@@ -1,6 +1,8 @@
 .Banner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding-left: $padding-3;
-  max-width: 500px;
 
   h1 {
     margin-bottom: 1rem;
