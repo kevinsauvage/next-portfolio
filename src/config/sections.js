@@ -14,7 +14,6 @@ const sections = [
     component: <Banner />,
     icon: <IconIconHome />,
     label: 'Introduction',
-    style: { height: '100vh' },
     tagLevel: 1,
   },
   {
