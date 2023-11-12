@@ -18,7 +18,7 @@ const SectionPresenter = ({ label, ...rest }) => {
 
   useEffect(() => {
     if (!isIntersecting) return;
-    router.push(`/#${getSectionLabel(label)}`, { scroll: false });
+    router.replace(`/#${getSectionLabel(label)}`, { scroll: false });
   }, [isIntersecting, label, router]);
 
   return <Section {...rest} label={label} reference={reference} />;
