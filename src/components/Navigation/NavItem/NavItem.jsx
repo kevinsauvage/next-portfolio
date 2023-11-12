@@ -22,7 +22,7 @@ const NavItem = ({ section }) => {
 
   return (
     <li className={styles.item}>
-      <Link href={`/#${getSectionLabel(label)}`} replace scroll>
+      <Link href={`/#${getSectionLabel(label)}`} replace scroll prefetch={false}>
         <div className={`${styles.button} ${hash === getSectionLabel(label) && styles.active}`}>
           <span className={styles.icon}>{icon}</span>
           <p className={styles.label}>{label}</p>
