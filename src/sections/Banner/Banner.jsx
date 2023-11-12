@@ -1,5 +1,3 @@
-import ScrollDownAnimation from '@/components/ScrollDownAnimation/ScrollDownAnimation';
-
 import styles from './Banner.module.scss';
 
 const Banner = () => (
@@ -16,7 +14,6 @@ const Banner = () => (
       Every problem is an opportunity, and I&apos;m here to craft innovative, code-driven answers
       that make a difference
     </p>
-    <ScrollDownAnimation />
   </div>
 );
 
