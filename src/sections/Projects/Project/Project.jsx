@@ -6,25 +6,22 @@ import Buttons from '@/components/_scopes/project/Buttons/Buttons';
 import styles from './Project.module.scss';
 
 const Project = ({ item, updateSelectedImages }) => {
+  const { title, description, languages, images, websiteLink } = item || {};
+
   const handleClickImage = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    updateSelectedImages(item.images.gallery);
+    updateSelectedImages(images.gallery);
   };
 
   return (
     <li>
-      <Link
-        href={item.websiteLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        title={`Go to ${item.title}`}
-      >
+      <Link href={websiteLink} target="_blank" rel="noopener noreferrer" title={`Go to ${title}`}>
         <div className={styles.card}>
           <div className={styles.image}>
             <Image
-              src={item.images.thumbnail}
-              alt={item.title}
+              src={images.thumbnail}
+              alt={title}
               width={1600}
               height={900}
               onClick={handleClickImage}
@@ -33,12 +30,12 @@ const Project = ({ item, updateSelectedImages }) => {
           </div>
           <div className={styles.content}>
             <div className={styles.header}>
-              <p className={styles.title}>{item.title}</p>
+              <p className={styles.title}>{title}</p>
               <Buttons item={item} />
             </div>
-            <p className={styles.description}>{item.description}</p>
+            <p className={styles.description}>{description}</p>
             <div className={styles.languages}>
-              {item.languages.split(' ').map((lang) => (
+              {languages.split(' ').map((lang) => (
                 <p key={lang}>{lang}</p>
               ))}
             </div>
