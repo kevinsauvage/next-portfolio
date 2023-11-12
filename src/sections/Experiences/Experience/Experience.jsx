@@ -9,7 +9,12 @@ const Experience = ({ experience }) => {
 
   return (
     <li>
-      <Link href={company.link} target="_blank" rel="noopener noreferrer">
+      <Link
+        href={company.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`Go to ${company.name} website`}
+      >
         <div className={styles.card}>
           <p className={styles.period}>{period}</p>
           <div className={styles.right}>

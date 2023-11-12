@@ -15,6 +15,7 @@ const ContactInfo = () => (
           target="_blank"
           prefetch={false}
           rel="noopener noreferrer"
+          title={`Go to my ${item.text} profile`}
         >
           {item.icon}
         </Link>

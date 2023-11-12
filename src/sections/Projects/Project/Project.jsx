@@ -14,7 +14,12 @@ const Project = ({ item, updateSelectedImages }) => {
 
   return (
     <li>
-      <Link href={item.websiteLink} target="_blank" rel="noopener noreferrer">
+      <Link
+        href={item.websiteLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`Go to ${item.title}`}
+      >
         <div className={styles.card}>
           <div className={styles.image}>
             <Image
@@ -23,6 +28,7 @@ const Project = ({ item, updateSelectedImages }) => {
               width={1600}
               height={900}
               onClick={handleClickImage}
+              title="Click to see more images"
             />
           </div>
           <div className={styles.content}>

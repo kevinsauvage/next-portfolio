@@ -21,6 +21,7 @@ const Experiences = () => (
       target="_blank"
       prefetch={false}
       rel="noopener noreferrer"
+      title="View Full Résumé"
     >
       View Full Résumé
       <IconArrowRight />

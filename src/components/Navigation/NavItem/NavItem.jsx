@@ -29,6 +29,7 @@ const NavItem = ({ section }) => {
         type="button"
         onClick={handleClick}
         className={`${styles.button} ${hash === getSectionLabel(label) && styles.active}`}
+        title={`Go to ${label}`}
       >
         <span className={styles.icon}>{icon}</span>
         <p className={styles.label}>{label}</p>
