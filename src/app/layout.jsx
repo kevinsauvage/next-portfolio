@@ -66,5 +66,5 @@ export const metadata = {
   },
   description:
     'Crafting high-performance, inclusive web solutions that prioritize accessibility. Proficient in JavaScript, React.js, Next.js.',
-  title: 'Kévin Sauvage developerportfolio website',
+  title: 'Kévin Sauvage developer portfolio website',
 };
