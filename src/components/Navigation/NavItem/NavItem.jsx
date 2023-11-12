@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 import { getSectionLabel } from '@/utils';
@@ -20,14 +19,20 @@ const NavItem = ({ section }) => {
 
   const { label, icon } = section || {};
 
+  const handleClick = () => {
+    document.querySelector(`#${getSectionLabel(label)}`).scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <li className={styles.item}>
-      <Link href={`/#${getSectionLabel(label)}`} replace scroll prefetch={false}>
-        <div className={`${styles.button} ${hash === getSectionLabel(label) && styles.active}`}>
-          <span className={styles.icon}>{icon}</span>
-          <p className={styles.label}>{label}</p>
-        </div>
-      </Link>
+      <button
+        type="button"
+        onClick={handleClick}
+        className={`${styles.button} ${hash === getSectionLabel(label) && styles.active}`}
+      >
+        <span className={styles.icon}>{icon}</span>
+        <p className={styles.label}>{label}</p>
+      </button>
     </li>
   );
 };
