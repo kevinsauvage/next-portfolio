@@ -6,17 +6,17 @@ const projects = [
     images: {
       gallery: [
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1696360147/Spotify-profile_2_h8jape.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1696360147/Spotify-profile_2_h8jape.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200,ar_16:9/v1696360147/Spotify-profile_2_h8jape.png',
         },
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1696360363/Spotify-profile_3_wtzilc.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1696360363/Spotify-profile_3_wtzilc.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1696360363/Spotify-profile_3_wtzilc.png',
         },
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1696360530/Spotify-profile_4_ejxlxa.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1696360530/Spotify-profile_4_ejxlxa.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1696360530/Spotify-profile_4_ejxlxa.png',
         },
@@ -38,27 +38,27 @@ const projects = [
     images: {
       gallery: [
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1691688139/portfolio/Streamy_pj4sqb.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1691688139/portfolio/Streamy_pj4sqb.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1691688139/portfolio/Streamy_pj4sqb.png',
         },
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1681756351/portfolio/Streamy/acordeon_streamy.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1681756351/portfolio/Streamy/acordeon_streamy.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1681756351/portfolio/Streamy/acordeon_streamy.png',
         },
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1681756274/portfolio/Streamy/slug_streamy.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1681756274/portfolio/Streamy/slug_streamy.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1681756274/portfolio/Streamy/slug_streamy.png',
         },
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1681755433/portfolio/Streamy/filters_streamy.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1681755433/portfolio/Streamy/filters_streamy.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1681755433/portfolio/Streamy/filters_streamy.png',
         },
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1681756704/portfolio/Streamy/trailer_streamy.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1681756704/portfolio/Streamy/trailer_streamy.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1681756704/portfolio/Streamy/trailer_streamy.png',
         },
@@ -77,12 +77,12 @@ const projects = [
     images: {
       gallery: [
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1692373671/portfolio/UpToGo_o1magc.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1692373671/portfolio/UpToGo_o1magc.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1692373671/portfolio/UpToGo_o1magc.png',
         },
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1681237627/portfolio/uptogo/cart.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1681237627/portfolio/uptogo/cart.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1681237627/portfolio/uptogo/cart.png',
         },
@@ -101,17 +101,17 @@ const projects = [
     images: {
       gallery: [
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1692381047/K%C3%A9vin-Sauvage_1_1_ikxrav.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.png',
           thumbnail:
-            'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1692381047/K%C3%A9vin-Sauvage_1_1_ikxrav.png',
+            'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.png',
         },
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1692728617/K%C3%A9vin-Sauvage_2_irljlb.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1692728617/K%C3%A9vin-Sauvage_2_irljlb.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1692728617/K%C3%A9vin-Sauvage_2_irljlb.png',
         },
         {
-          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9,e_sharpen/v1693067679/K%C3%A9vin-Sauvage_3_jpc8i5.png',
+          src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_1000,ar_16:9/v1693067679/K%C3%A9vin-Sauvage_3_jpc8i5.png',
           thumbnail:
             'https://res.cloudinary.com/kevincloudname/image/upload/w_200/v1693067679/K%C3%A9vin-Sauvage_3_jpc8i5.png',
         },
