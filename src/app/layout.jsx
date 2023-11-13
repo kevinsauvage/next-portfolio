@@ -39,6 +39,9 @@ const jsonLd = {
 
 const PageLayout = ({ children }) => (
   <html lang="en" className={styles.html}>
+    <head>
+      <meta name="google-site-verification" content="oklUq91tpHdbyYCySQE3l3LtgKkzC-WA8pgnt0vqlbc" />
+    </head>
     <body className={`${robotoCondensed.variable} ${robotoMono.variable} ${styles.body}`}>
       <script
         type="application/ld+json"
