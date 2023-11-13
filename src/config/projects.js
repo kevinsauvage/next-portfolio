@@ -117,7 +117,7 @@ const projects = [
         },
       ],
       thumbnail:
-        'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1692381047/K%C3%A9vin-Sauvage_1_1_ikxrav.png',
+        'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.png',
     },
     languages: 'Next.js SASS',
     title: 'My Portfolio',
