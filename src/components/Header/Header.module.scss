@@ -5,17 +5,19 @@
   align-items: center;
   padding: 0 2rem;
   background-color: transparent;
-  position: relative;
-  position: fixed;
-  top: 0;
-  left: 0;
   z-index: 99;
   transition: all 0.5s $cubic-bezier;
   height: 120px;
+  position: absolute;
 
   &.isScrolled {
     background-color: var(--color-background-1);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: slideDown 0.5s $cubic-bezier;
   }
 }
 
@@ -25,5 +27,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
