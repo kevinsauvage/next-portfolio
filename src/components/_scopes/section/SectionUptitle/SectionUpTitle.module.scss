@@ -5,11 +5,11 @@
   gap: 0.5rem;
   width: fit-content;
   margin: 1rem 0 3rem 0;
+  margin-left: $padding-3;
   padding: 6px 1rem;
   border: $border-s;
   border-color: var(--primary-100);
   border-radius: $radius-2;
-  margin-left: $padding-3;
 
   svg {
     color: var(--primary-100);

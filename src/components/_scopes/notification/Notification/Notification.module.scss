@@ -81,9 +81,9 @@
 
 @include respond(mobile_l) {
   .notification {
+    padding-top: 0.5rem;
     border-radius: 0;
     font-size: 1rem;
-    padding-top: 0.5rem;
 
     .inner {
       padding: 1rem;
