@@ -1,18 +1,18 @@
-import { cloneElement } from 'react';
+import About from '@/sections/About/About';
+import Banner from '@/sections/Banner/Banner';
+import Contact from '@/sections/Contact/Contact';
+import Experiences from '@/sections/Experiences/Experiences';
+import Projects from '@/sections/Projects/Projects';
 
-import SectionPresenter from '@/components/_scopes/section/SectionPresenter/SectionPresenter';
-import sections from '@/config/sections';
+import styles from './page.module.scss';
 
 const Home = () => (
-  <div>
-    {sections.map(
-      (section) =>
-        section.component && (
-          <SectionPresenter key={section.label} {...section} tagLevel={section.tagLevel}>
-            {cloneElement(section.component, { ...section })}
-          </SectionPresenter>
-        )
-    )}
+  <div className={styles.page} id="Home">
+    <Banner />
+    <About />
+    <Experiences />
+    <Projects />
+    <Contact />
   </div>
 );
 

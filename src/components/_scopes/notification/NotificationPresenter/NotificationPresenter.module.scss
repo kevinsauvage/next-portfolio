@@ -2,6 +2,7 @@
   position: fixed;
   top: 2rem;
   right: 2rem;
+  z-index: 999999;
 
   @include respond(mobile_l) {
     top: 0;

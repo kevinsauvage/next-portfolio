@@ -1,14 +1,12 @@
+import ContactInfo from '../ContactInfo/ContactInfo';
 import Logo from '../Logo/Logo';
 
 import styles from './Header.module.scss';
 
-const Header = () => (
-  <header className={styles.header}>
+const Header = ({ isScrolled }) => (
+  <header className={`${styles.header} ${isScrolled && styles.isScrolled}`}>
     <Logo />
-    <p className={styles.subtitle}>JavaScript Developer</p>
-    <p className={styles.content}>
-      Developing performance-focused, inclusive web products that leave no one behind.
-    </p>
+    <ContactInfo />
   </header>
 );
 

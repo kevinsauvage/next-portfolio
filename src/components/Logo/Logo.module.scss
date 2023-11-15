@@ -3,9 +3,10 @@
     display: flex;
     color: var(--color-text-1);
     font-family: var(--font-heading);
+    white-space: nowrap;
   }
 }
 
 .logoName {
-  font-size: 3rem;
+  font-size: 2rem;
 }

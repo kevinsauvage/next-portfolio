@@ -2,8 +2,8 @@
 import { Analytics } from '@vercel/analytics/react';
 import { Roboto_Condensed, Roboto_Mono } from 'next/font/google';
 
-import Aside from '@/components/Aside/Aside';
 import Container from '@/components/Container/Container';
+import HeaderPresenter from '@/components/Header/HeaderPresenter';
 import MouseFollowGradientBackground from '@/components/MouseFollowBackground/MouseFollowGradientBackground';
 import NotificationProvider from '@/contexts/NotificationContext';
 
@@ -46,13 +46,11 @@ const PageLayout = ({ children }) => (
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <NotificationProvider>
-        <Container classname={styles.container}>
-          <div className={styles.backgroundImage} />
-          <Aside />
-          <div className={styles.children}>{children}</div>
-        </Container>
+        <HeaderPresenter />
+        <Container>{children}</Container>
+        <MouseFollowGradientBackground />
+        <div className={styles.backgroundImage} />
       </NotificationProvider>
-      <MouseFollowGradientBackground />
       <Analytics />
     </body>
   </html>

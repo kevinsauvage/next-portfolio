@@ -1,34 +1,30 @@
-/* eslint-disable react/display-name */
-/* eslint-disable func-names */
-
-'use client';
-
+import Section from '@/components/_scopes/section/Section/Section';
+import SectionPresenter from '@/components/_scopes/section/SectionPresenter/SectionPresenter';
+import SectionTitle from '@/components/_scopes/section/SectionTitle/SectionTitle';
+import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionUpTitle';
 import projects from '@/config/projects';
-import { ImageGalleryProvider, useImageGalleryContext } from '@/contexts/ImageGalleryProvider';
+import sections from '@/config/sections';
 
 import ProjectCard from './Project/Project';
 
 import styles from './Projects.module.scss';
 
-const WithImageGalleryProvider = (WrappedComponent) =>
-  function () {
-    return (
-      <ImageGalleryProvider>
-        <WrappedComponent />
-      </ImageGalleryProvider>
-    );
-  };
+const label = 'My Projects';
+const section = sections.find((data) => data.label === label);
+const { icon, title, tagLevel } = section || {};
 
-const Projects = () => {
-  const { updateSelectedImages } = useImageGalleryContext();
+const Projects = () => (
+  <SectionPresenter label={label}>
+    <Section>
+      <SectionUpTitle icon={icon} text={label} />
+      <SectionTitle title={title} tagLevel={tagLevel} />
+      <ul className={styles.Projects}>
+        {projects.map((item) => (
+          <ProjectCard key={item.title} item={item} />
+        ))}
+      </ul>
+    </Section>
+  </SectionPresenter>
+);
 
-  return (
-    <ul className={styles.Projects}>
-      {projects.map((item) => (
-        <ProjectCard key={item.title} item={item} updateSelectedImages={updateSelectedImages} />
-      ))}
-    </ul>
-  );
-};
-
-export default WithImageGalleryProvider(Projects);
+export default Projects;

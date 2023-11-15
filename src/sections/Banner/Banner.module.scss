@@ -1,16 +1,14 @@
 .Banner {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100%;
-  padding-bottom: 160px;
-  padding-left: $padding-3;
+  min-height: 100vh;
 
   h1 {
     margin-bottom: 1rem;
     color: var(--color-text-1);
     line-height: 1.2;
+    text-align: center;
 
     @include font-size(2.5rem, 3.8rem);
 
@@ -21,16 +19,26 @@
 
   .subtitle {
     margin-bottom: 2rem;
-    color: var(--color-text-3);
+    color: var(--color-text-2);
     animation-delay: 0.15s;
+    text-align: center;
+    max-width: 800px;
   }
 }
 
 @include respond(tablet) {
   .Banner {
-    align-items: flex-start;
-    justify-content: start;
-    padding-bottom: 0;
-    padding-left: 0;
+    h1 {
+      text-align: left;
+    }
+    .subtitle {
+      text-align: left;
+    }
+  }
+}
+
+@include respond(mobile_s) {
+  .Banner {
+    padding-top: 120px;
   }
 }

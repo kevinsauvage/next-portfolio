@@ -1,3 +1,5 @@
+/* eslint-disable react/no-danger */
+
 'use client';
 
 import { useEffect, useRef } from 'react';

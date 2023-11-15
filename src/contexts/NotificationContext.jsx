@@ -2,7 +2,6 @@
 
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { v4 as uuidv4 } from 'uuid';
 
 const NotificationPresenter = dynamic(
@@ -65,14 +64,13 @@ const NotificationProvider = ({ children }) => {
 
   return (
     <NotificationContext.Provider value={value}>
-      {children}
-
       {notificationQueue?.length > 0 && (
         <NotificationPresenter
           removeNotification={removeNotification}
           notificationQueue={notificationQueue}
         />
       )}
+      {children}
     </NotificationContext.Provider>
   );
 };

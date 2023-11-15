@@ -1,27 +1,29 @@
 .header {
   width: 100%;
-  max-width: 500px;
-}
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: transparent;
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 0.5s $cubic-bezier;
+  height: 120px;
 
-.subtitle {
-  margin-bottom: 1rem;
-  color: var(--color-text-1);
-  font-weight: 400;
-  font-size: 1.4rem;
-  opacity: 0.8;
-
-  @include respond(tablet) {
-    font-size: 1.5rem;
+  &.isScrolled {
+    background-color: var(--color-background-1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
 
-.content {
-  margin-bottom: 2rem;
-  color: var(--color-text-3);
-  font-size: 0.9rem;
-  opacity: 0.8;
-
-  @include respond(tablet) {
-    font-size: 1.1rem;
+@include respond(laptop_s) {
+  .header {
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }

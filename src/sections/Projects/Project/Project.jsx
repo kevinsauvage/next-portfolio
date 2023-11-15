@@ -5,14 +5,8 @@ import Buttons from '@/components/_scopes/project/Buttons/Buttons';
 
 import styles from './Project.module.scss';
 
-const Project = ({ item, updateSelectedImages }) => {
+const Project = ({ item }) => {
   const { title, description, languages, images, websiteLink } = item || {};
-
-  const handleClickImage = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    updateSelectedImages(images.gallery);
-  };
 
   return (
     <li>
@@ -24,7 +18,6 @@ const Project = ({ item, updateSelectedImages }) => {
               alt={title}
               width={1600}
               height={900}
-              onClick={handleClickImage}
               title="Click to see more images"
             />
           </div>
