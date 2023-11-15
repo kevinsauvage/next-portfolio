@@ -3,7 +3,7 @@ import SectionPresenter from '@/components/_scopes/section/SectionPresenter/Sect
 import styles from './Banner.module.scss';
 
 const Banner = () => (
-  <SectionPresenter label="Home">
+  <SectionPresenter>
     <div className={styles.Banner}>
       <h1>
         Building the Future,

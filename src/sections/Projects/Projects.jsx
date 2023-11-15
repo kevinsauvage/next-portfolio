@@ -14,7 +14,7 @@ const section = sections.find((data) => data.label === label);
 const { icon, title, tagLevel } = section || {};
 
 const Projects = () => (
-  <SectionPresenter label={label}>
+  <SectionPresenter>
     <Section>
       <SectionUpTitle icon={icon} text={label} />
       <SectionTitle title={title} tagLevel={tagLevel} />
