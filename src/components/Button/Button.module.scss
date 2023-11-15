@@ -52,7 +52,6 @@
   @include respond-gt(tablet) {
     &::after {
       position: absolute;
-      z-index: -1;
       background-color: var(--primary-100);
       transform-origin: right;
       transition: scale 0.3s $cubic-bezier;

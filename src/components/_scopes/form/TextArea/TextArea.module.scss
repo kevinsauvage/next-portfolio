@@ -1,6 +1,6 @@
 .textArea {
   min-height: 0px;
-  min-height: 50px;
+  min-height: 100px;
   max-height: 500px;
   margin-top: 0.5rem;
   padding: 0.8rem 0;
@@ -13,15 +13,15 @@
   background-color: transparent;
   transition: $transition;
   resize: none;
+  padding-left: 1rem;
+  border: $border-s;
+  resize: vertical;
 
   @include placeholder(rgba(var(--rgb-color-text-3), 0.3), 0.9rem);
 
   &:focus,
   &:active {
-    padding-left: 1rem;
-    border: $border-s;
     outline: none;
-    resize: vertical;
   }
 
   @include respond(tablet) {
