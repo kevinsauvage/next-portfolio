@@ -4,10 +4,8 @@ import Contact from '@/sections/Contact/Contact';
 import Experiences from '@/sections/Experiences/Experiences';
 import Projects from '@/sections/Projects/Projects';
 
-import styles from './page.module.scss';
-
 const Home = () => (
-  <div className={styles.page} id="Home">
+  <div>
     <Banner />
     <About />
     <Experiences />
