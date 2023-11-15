@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+import { Analytics } from '@vercel/analytics/react';
 import { Roboto_Condensed, Roboto_Mono } from 'next/font/google';
 
 import styles from './LayoutWrapper.module.scss';
@@ -33,6 +34,8 @@ const jsonLd = {
 const LayoutWrapper = ({ children }) => (
   <html lang="en" className={styles.html}>
     <body className={`${robotoCondensed.variable} ${robotoMono.variable} ${styles.body}`}>
+      <Analytics />
+
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
