@@ -25,7 +25,7 @@ const sections = [
   {
     icon: <IconEmailOutline />,
     label: 'Contact Me',
-    tagLevel: 6,
+    tagLevel: 5,
     title: "Let's work together",
   },
 ];
