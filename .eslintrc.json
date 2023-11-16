@@ -2,29 +2,33 @@
   "env": {
     "browser": true,
     "es2021": true,
+    "es6": true,
     "node": true,
     "jest": true
   },
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
     "sourceType": "module"
   },
   "ignorePatterns": ["node_modules/", ".next/"],
   "globals": {
     "React": "writable"
   },
-
-  "plugins": ["react", "simple-import-sort", "css-modules", "sonarjs", "sort-keys"],
+  "plugins": [
+    "simple-import-sort",
+    "react",
+    "@typescript-eslint",
+    "css-modules",
+    "sonarjs",
+    "sort-keys",
+    "prettier"
+  ],
   "extends": [
-    "plugin:import/errors",
-    "airbnb",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier",
     "next",
-    "eslint:recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:css-modules/recommended",
     "plugin:sonarjs/recommended",
@@ -33,8 +37,8 @@
   "settings": {
     "import/resolver": {
       "alias": {
-        "extensions": [".js", ".jsx"],
-        "map": [["@", "./src/"]]
+        "extensions": [".js", ".jsx", ".tsx"],
+        "map": [["@/", "./src/"]]
       }
     }
   },
@@ -43,7 +47,7 @@
     "unicorn/no-array-for-each": 0,
     "unicorn/filename-case": 0,
     "unicorn/no-new-array": 0,
-    "sort-keys": 0, // disable default eslint sort-keys
+    "sort-keys": 0,
     "sort-keys/sort-keys-fix": 1,
     "consistent-return": 0,
     "simple-import-sort/exports": "error",
@@ -51,17 +55,12 @@
       "error",
       {
         "groups": [
-          // Packages `react` related packages come first.
-          ["^react", "^@?\\w"],
-          // Internal packages.
-          ["^(@|components)(/.*|$)"],
-          // Side effect imports.
+          ["^react"],
+          ["^next"],
+          ["^@/", "^components(/.*|$)"],
           ["^\\u0000"],
-          // Parent imports. Put `..` last.
           ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-          // Other relative imports. Put same-folder imports and `.` last.
-          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-          // Style imports.
+          ["^\\.\\/(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\.\\./?$"],
           ["^.+\\.?(css)$"]
         ]
       }
@@ -70,7 +69,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".jsx"]
+        "extensions": [".js", ".jsx", ".tsx"]
       }
     ],
     "react/prop-types": 0,
@@ -88,8 +87,10 @@
     "prefer-const": "error",
     "no-use-before-define": "error",
     "no-multi-spaces": "error",
-    "no-unused-vars": [
-      "error",
+    "import/extensions": 0,
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
       {
         "argsIgnorePattern": "^_"
       }

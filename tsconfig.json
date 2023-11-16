@@ -1,0 +1,52 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".", // Base directory to resolve non-relative module names.
+    "sourceMap": true, // Generate source maps for better debugging experience.
+    "outDir": "dist", // Output directory for compiled files.
+    "strict": true, // Enable all strict type-checking options.
+    "lib": [
+      "esnext",
+      "DOM"
+    ], // Specify the default library to use (in this case, ESNext).
+    "esModuleInterop": true, // Allow default imports from modules with no default export.
+    "target": "es6", // Specify ECMAScript target version.
+    "allowJs": false, // Disallow JavaScript files.
+    "skipLibCheck": true, // Skip type checking of declaration files.
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in file names.
+    "noEmit": true, // Do not emit output files (handled by Next.js).
+    "module": "esnext", // Specify module code generation (in this case, ESNext).
+    "moduleResolution": "node", // Specify module resolution strategy.
+    "resolveJsonModule": true, // Enable importing JSON modules.
+    "jsx": "preserve", // Preserve JSX in files passed to TypeScript (handled by Babel in Next.js).
+    "incremental": true, // Enable incremental compilation for faster builds.
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ] // Module alias for shorter import paths.
+    },
+    "typeRoots": [
+      "./node_modules/@types"
+    ] // Specify the root directory that contains type declaration files.
+    ,
+    "isolatedModules": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts", // Include Next.js environment type declarations.
+    "**/*.ts",
+    "**/*.tsx",
+    "**/**/*.ts",
+    "**/**/*.tsx",
+    "src/**/*.scss", // Include SCSS files.
+    "./globals.d.ts" // Include global type declarations.
+    ,
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ] // Exclude the node_modules directory.
+}

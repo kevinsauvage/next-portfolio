@@ -2,16 +2,6 @@
   width: 100%;
   padding-left: $padding-3;
 
-  .item {
-    margin-bottom: 2rem;
-    color: var(--color-text-3);
-
-    strong {
-      color: var(--color-text-1);
-      font-weight: 800;
-    }
-  }
-
   @include respond(tablet) {
     padding-left: 0;
   }
