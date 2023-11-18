@@ -1,7 +1,7 @@
 const about = [
   {
     content:
-      "Hello, I'm Kévin Sauvage, and my journey over the last three years has been dedicated to exploring the world of software development. I am truly passionate about crafting websites that are not only user-friendly but also high-performing and accessible.",
+      "Hello, I'm Kévin Sauvage, and my journey over the last three years has been dedicated to exploring the world of software development. I am passionate about crafting websites that are not only user-friendly but also high-performing and accessible.",
   },
   {
     content:
