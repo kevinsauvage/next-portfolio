@@ -5,6 +5,7 @@ type Properties = {
   type?: 'button' | 'submit' | 'reset';
   svg?: React.ReactNode;
   loading?: boolean;
+  title?: string;
 };
 
 import styles from './Button.module.scss';
@@ -16,12 +17,14 @@ const Button = ({
   type = 'button',
   svg,
   loading = false,
+  title,
   ...rest
 }: Properties) => (
   <button
     onClick={(event) => onClick?.(event)}
     className={`${styles.button} ${className}  ${loading ? styles.loading : ''}`}
     type={type}
+    title={title}
     {...rest}
   >
     {loading && <div className={styles.loader}>loading...</div>}

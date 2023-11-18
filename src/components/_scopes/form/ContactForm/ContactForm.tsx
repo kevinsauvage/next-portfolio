@@ -161,6 +161,7 @@ const ContactForm = () => {
         svg={<RiMailSendFill />}
         label="Send Message"
         type="submit"
+        title="Send Message"
       />
     </form>
   );
