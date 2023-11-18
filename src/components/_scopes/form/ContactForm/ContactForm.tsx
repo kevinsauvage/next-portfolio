@@ -27,12 +27,7 @@ const ContactForm = () => {
     const { email, fullName, subject, message, phone } = formData;
     const errors = [];
 
-    const requiredFields: Array<keyof typeof formData> = [
-      'email',
-      'fullName',
-      'message',
-      'subject',
-    ];
+    const requiredFields: Array<keyof typeof formData> = ['email', 'fullName', 'message'];
 
     const missingValues = requiredFields.filter((field) => !formData[field]);
 
@@ -121,9 +116,7 @@ const ContactForm = () => {
       </div>
       <div className={styles.row}>
         <Label missing={missing.includes('subject')}>
-          <span>
-            Subject<span className={styles.required}>*</span>
-          </span>
+          <span>Subject</span>
           <Input
             onChange={handleInputChange}
             type="text"

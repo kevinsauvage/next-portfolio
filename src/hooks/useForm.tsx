@@ -27,7 +27,10 @@ const useForm = ({ onSubmit, initialValues = {} }: useFormProperties) => {
   const handleInputChange = useCallback(
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       const { name, value } = event.target;
-      setFormData((previousFormData) => ({ ...previousFormData, [name]: value }));
+      setFormData((previousFormData) => ({
+        ...previousFormData,
+        [name]: value?.toString().trim(),
+      }));
     },
     [],
   );
