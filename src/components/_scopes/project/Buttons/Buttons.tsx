@@ -26,7 +26,12 @@ const Buttons = ({ item }: Properties) => {
   return (
     <div className={styles.buttons}>
       {item.githubLink?.length > 0 && (
-        <button type="button" aria-label="Open Github" onClick={handleClickSourceCode}>
+        <button
+          type="button"
+          aria-label="Open Github"
+          title="See the code on Github"
+          onClick={handleClickSourceCode}
+        >
           <FaGithub />
         </button>
       )}

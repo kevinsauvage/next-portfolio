@@ -32,13 +32,13 @@ const Experiences = () => (
         <Link
           href="/kevin-sauvage-cv.pdf"
           className={styles.link}
-          aria-label="View Full Résumém"
+          aria-label="View full resume on a new tab"
           target="_blank"
           prefetch={false}
           rel="noopener noreferrer"
-          title="View Full Résumé"
+          title="View full resume on a new tab"
         >
-          View Full Résumé
+          View Full Resume
           <FaArrowRightLong />
         </Link>
       </div>
