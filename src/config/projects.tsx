@@ -66,7 +66,7 @@ const projects = [
       thumbnail:
         'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1691688139/portfolio/Streamy_pj4sqb.png',
     },
-    languages: 'React.js SASS Express.js Mongoose',
+    languages: 'ReactJs SASS ExpressJs Mongoose',
     title: 'Streamy',
     websiteLink: 'https://streamy.fun/',
   },
@@ -90,7 +90,7 @@ const projects = [
       thumbnail:
         'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1692373671/portfolio/UpToGo_o1magc.png',
     },
-    languages: 'Next.js SASS MongoDB Redux',
+    languages: 'NextJs SASS MongoDB Redux',
     title: 'UpToGo',
     websiteLink: 'https://uptogo.vercel.app/',
   },
@@ -119,7 +119,7 @@ const projects = [
       thumbnail:
         'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.png',
     },
-    languages: 'Next.js Typescript SASS',
+    languages: 'NextJs Typescript SASS',
     title: 'My Portfolio',
     websiteLink: 'https://www.kevin-sauvage.com/',
   },

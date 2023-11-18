@@ -5,7 +5,6 @@
   padding: 0.8rem 0;
   padding-left: 1rem;
   border: $border-s;
-  border-color: transparent;
   border-radius: $radius-2;
   color: var(--color-text-2);
   font-weight: 300;
@@ -15,14 +14,15 @@
   resize: none;
   resize: vertical;
 
-  @include placeholder(rgba(var(--rgb-color-text-3), 0.3), 0.9rem);
+  @include placeholder(rgba(var(--rgb-color-text-2), 0.5), 0.9rem);
 
   &:focus,
   &:active {
     outline: none;
+    border-color: var(--primary-100);
   }
 
-  @include respond(tablet) {
-    min-height: 100px;
+  &:hover {
+    border-color: var(--primary-100);
   }
 }

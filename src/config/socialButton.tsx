@@ -1,13 +1,13 @@
-import IconGithub from '@/svg/IconGithub';
-import IconLinkedinCircled from '@/svg/IconLinkedinCircled';
+import { FaGithubSquare } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 
 const socialButton = [
   {
     href: 'https://www.linkedin.com/in/kevin-sauvage/',
-    icon: <IconLinkedinCircled />,
+    icon: <FaLinkedin />,
     text: 'Visit my Linkedin',
   },
-  { href: 'https://github.com/kevinsauvage/', icon: <IconGithub />, text: 'Visit my Github' },
+  { href: 'https://github.com/kevinsauvage/', icon: <FaGithubSquare />, text: 'Visit my Github' },
 ];
 
 export default socialButton;

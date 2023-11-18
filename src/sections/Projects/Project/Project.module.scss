@@ -81,7 +81,6 @@
     flex: 1;
     flex-grow: 2;
     height: fit-content;
-    cursor: zoom-in;
 
     img {
       width: 100%;
@@ -91,6 +90,20 @@
 
       @include respond(mobile_l) {
         max-width: unset;
+      }
+    }
+  }
+
+  @include respond-gt(tablet) {
+    &:hover {
+      .image {
+        img {
+          border-color: var(--primary-100);
+        }
+      }
+
+      button[aria-label='Open website'] {
+        color: var(--primary-100) !important;
       }
     }
   }

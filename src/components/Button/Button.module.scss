@@ -19,18 +19,12 @@
   span {
     position: relative;
     z-index: 9;
-    display: block;
+    display: flex;
   }
 
   svg {
-    width: 1.6rem;
-    height: 1.6rem;
-    margin-right: 0.5rem;
-    font-size: 1.1rem;
-
-    path {
-      fill: var(--primary-100);
-    }
+    font-size: 1.4rem;
+    margin-right: 0.3rem;
   }
 
   &.loading {

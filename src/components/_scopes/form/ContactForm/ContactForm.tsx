@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { RiMailSendFill } from 'react-icons/ri';
 
 import Input from '@/components/_scopes/form/Input/Input';
 import Label from '@/components/_scopes/form/Label/Label';
@@ -154,7 +155,13 @@ const ContactForm = () => {
         />
       </Label>
 
-      <Button loading={loading} className={styles.button} label="Send Message" type="submit" />
+      <Button
+        loading={loading}
+        className={styles.button}
+        svg={<RiMailSendFill />}
+        label="Send Message"
+        type="submit"
+      />
     </form>
   );
 };

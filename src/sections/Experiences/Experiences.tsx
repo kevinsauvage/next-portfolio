@@ -1,3 +1,5 @@
+import { FaArrowRightLong } from 'react-icons/fa6';
+
 import Link from 'next/link';
 
 import Section from '@/components/_scopes/section/Section/Section';
@@ -6,7 +8,6 @@ import SectionTitle from '@/components/_scopes/section/SectionTitle/SectionTitle
 import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionUpTitle';
 import experiences from '@/config/experiences';
 import sections, { Sections } from '@/config/sections';
-import IconArrowRight from '@/svg/IconArrowRight';
 
 import Experience from './Experience/Experience';
 
@@ -38,7 +39,7 @@ const Experiences = () => (
           title="View Full Résumé"
         >
           View Full Résumé
-          <IconArrowRight />
+          <FaArrowRightLong />
         </Link>
       </div>
     </Section>

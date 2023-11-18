@@ -1,7 +1,7 @@
 'use client';
 
-import IconBxLinkExternal from '@/svg/IconBxLinkExternal';
-import IconGithub from '@/svg/IconGithub';
+import { FaGithub } from 'react-icons/fa';
+import { FiExternalLink } from 'react-icons/fi';
 
 import styles from './Buttons.module.scss';
 
@@ -27,11 +27,11 @@ const Buttons = ({ item }: Properties) => {
     <div className={styles.buttons}>
       {item.githubLink?.length > 0 && (
         <button type="button" aria-label="Open Github" onClick={handleClickSourceCode}>
-          <IconGithub />
+          <FaGithub />
         </button>
       )}
-      <button type="button" aria-label="Open Linkedin" onClick={handleClickVisit}>
-        <IconBxLinkExternal />
+      <button type="button" aria-label="Open website" onClick={handleClickVisit}>
+        <FiExternalLink />
       </button>
     </div>
   );

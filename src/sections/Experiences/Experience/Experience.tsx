@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import { FiExternalLink } from 'react-icons/fi';
 
-import IconArrowUpRight from '@/svg/IconArrowUpRight';
+import Link from 'next/link';
 
 import styles from './Experience.module.scss';
 
@@ -33,7 +33,7 @@ const Experience = ({ experience }: Properties) => {
             <p className={styles.title}>{title}</p>
             <div className={styles.company}>
               <p>{company.name}</p>
-              <IconArrowUpRight />
+              <FiExternalLink />
             </div>
             <p className={styles.description}>{description}</p>
           </div>

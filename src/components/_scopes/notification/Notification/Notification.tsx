@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-
-import IconCloseOutline from '@/svg/IconCloseOutline';
+import { FaXmark } from 'react-icons/fa6';
 
 import styles from './Notification.module.scss';
 
@@ -49,7 +48,7 @@ const Notification = ({ notification, removeNotification }: Properties) => {
           className={styles.close}
           onClick={() => removeNotification(notification.id)}
         >
-          <IconCloseOutline />
+          <FaXmark />
         </button>
       </div>
     </div>
