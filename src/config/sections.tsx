@@ -15,13 +15,13 @@ const sections: Sections = [
     icon: <FaUser />,
     label: 'About Me',
     tagLevel: 2,
-    title: 'Beyond the Code: Getting to Know Me',
+    title: 'Getting to Know Me',
   },
   {
     icon: <FaSuitcase />,
     label: 'My Experience',
     tagLevel: 3,
-    title: 'Explore my work history and achievements',
+    title: 'Explore my work history',
   },
   {
     icon: <FaCode />,
