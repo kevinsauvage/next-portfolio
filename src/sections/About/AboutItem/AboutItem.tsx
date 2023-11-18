@@ -3,12 +3,15 @@ import styles from './AboutItem.module.scss';
 const BOLD_WORDS = [
   'JavaScript',
   'TypeScript',
-  'React.js',
-  'Next.js',
-  'Svelte.js',
-  'Node.js',
-  'Express.js',
-  'web development',
+  'ReactJS',
+  'NextJS',
+  'SvelteJS',
+  'NodeJS',
+  'ExpressJS',
+  'software development',
+  'accessible',
+  'high-performing',
+  'user-friendly',
 ];
 
 type Properties = {

@@ -1,11 +1,11 @@
 const about = [
   {
     content:
-      "Hi, I'm Kévin Sauvage, and I've spent the last three years diving into web development. I have a real passion for creating user-friendly websites.",
+      "Hello, I'm Kévin Sauvage, and my journey over the last three years has been dedicated to exploring the world of software development. I am truly passionate about crafting websites that are not only user-friendly but also high-performing and accessible.",
   },
   {
     content:
-      "I've learned a bunch of programming languages and tools to make sure I build great websites. I'm comfortable with JavaScript, TypeScript, React.js, Next.js, Svelte.js, Node.js, and Express.js. These are like my secret ingredients for making websites that people love to use.",
+      "I've learned a bunch of programming languages and tools to make sure I build great websites. I'm comfortable with JavaScript, TypeScript, ReactJS, NextJS, SvelteJS, NodeJS and ExpressJS. These are like my secret ingredients for making websites that people love to use.",
   },
   {
     content:
