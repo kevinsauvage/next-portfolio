@@ -19,7 +19,7 @@ const { icon, title, tagLevel } = section || {};
 const Contact = () => (
   <SectionPresenter>
     <Section>
-      <SectionUpTitle icon={icon} text={label} />
+      <SectionUpTitle icon={icon} text={label} id="contact" />
       <SectionTitle title={title} tagLevel={tagLevel} />
       <ContactForm />
     </Section>

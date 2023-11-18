@@ -3,6 +3,8 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 5rem;
+  z-index: 1;
+  position: relative;
 
   @include respond(laptop_s) {
     padding: 0 3rem;

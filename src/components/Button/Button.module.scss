@@ -1,20 +1,5 @@
 .button {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  padding: 1rem 2rem;
-  overflow: hidden;
-  border: 1px solid var(--primary-100);
-  border-radius: $radius_2;
-  color: var(--primary-100);
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 2px;
-  background-color: transparent;
-  box-shadow: $shadow_2;
-  cursor: pointer;
+  @include button;
 
   span {
     position: relative;

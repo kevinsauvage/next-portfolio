@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import SectionPresenter from '@/components/_scopes/section/SectionPresenter/SectionPresenter';
 
 import styles from './Banner.module.scss';
@@ -14,6 +16,9 @@ const Banner = () => (
         digital solutions. Every problem is an opportunity, and I&apos;m here to craft innovative,
         code-driven answers that make a difference
       </p>
+      <Link href="#contact" className={styles.button} scroll>
+        Get in Touch
+      </Link>
     </div>
   </SectionPresenter>
 );
