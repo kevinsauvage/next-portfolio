@@ -61,6 +61,7 @@
   @include respond-gt(tablet) {
     &:hover {
       @include glassEffect;
+
       .company {
         color: var(--primary-100);
 
