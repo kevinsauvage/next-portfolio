@@ -14,7 +14,7 @@ const Project = ({ item }: Properties) => {
 
   return (
     <li className={styles.skill}>
-      <Image src={icon} alt={name} width={100} height={100} />
+      <Image src={icon} alt={name} width={90} height={90} />
       <p>{name}</p>
     </li>
   );
