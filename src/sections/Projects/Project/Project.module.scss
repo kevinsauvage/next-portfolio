@@ -13,7 +13,6 @@
 
   @include respond(laptop_s) {
     flex-direction: column;
-    gap: 0.5rem;
   }
 
   @include respond(tablet) {
@@ -34,6 +33,7 @@
   .content {
     position: static;
     flex: 2;
+    flex-grow: 3;
 
     .header {
       display: flex;

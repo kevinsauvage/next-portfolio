@@ -2,6 +2,7 @@ import { FaUser } from 'react-icons/fa';
 import { FaSuitcase } from 'react-icons/fa';
 import { FaCode } from 'react-icons/fa';
 import { FaEnvelope } from 'react-icons/fa';
+import { FaTools } from 'react-icons/fa';
 
 export type Sections = Array<{
   icon: React.ReactNode;
@@ -12,27 +13,33 @@ export type Sections = Array<{
 
 const sections: Sections = [
   {
+    icon: <FaTools />,
+    label: 'My Skills',
+    tagLevel: 2,
+    title: 'My Technical Skills',
+  },
+  {
     icon: <FaUser />,
     label: 'About Me',
-    tagLevel: 2,
+    tagLevel: 3,
     title: 'Getting to Know Me',
   },
   {
     icon: <FaSuitcase />,
     label: 'My Experience',
-    tagLevel: 3,
+    tagLevel: 4,
     title: 'Explore my work history',
   },
   {
     icon: <FaCode />,
     label: 'My Projects',
-    tagLevel: 4,
+    tagLevel: 5,
     title: 'Dive into my digital solutions',
   },
   {
     icon: <FaEnvelope />,
     label: 'Contact Me',
-    tagLevel: 5,
+    tagLevel: 6,
     title: "Let's work together",
   },
 ];

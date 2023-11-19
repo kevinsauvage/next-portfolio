@@ -3,10 +3,12 @@ import Banner from '@/sections/Banner/Banner';
 import Contact from '@/sections/Contact/Contact';
 import Experiences from '@/sections/Experiences/Experiences';
 import Projects from '@/sections/Projects/Projects';
+import Skills from '@/sections/Skills/Skills';
 
 const Home = () => (
   <>
     <Banner />
+    <Skills />
     <About />
     <Experiences />
     <Projects />

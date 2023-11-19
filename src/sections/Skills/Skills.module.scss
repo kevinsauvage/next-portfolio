@@ -1,0 +1,14 @@
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-left: $padding-3;
+}
+
+@include respond(tablet) {
+  .skills {
+    margin-left: 0;
+  }
+}
