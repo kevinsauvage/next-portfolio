@@ -9,4 +9,10 @@
 
 .missing {
   color: var(--color-error);
+
+  input,
+  textarea,
+  select {
+    border-color: var(--color-error);
+  }
 }
