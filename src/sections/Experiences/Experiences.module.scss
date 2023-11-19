@@ -10,11 +10,11 @@
   .link {
     display: flex;
     align-items: center;
+    width: fit-content;
     padding: 1.5rem;
     color: var(--color-text-1);
     font-weight: 600;
     font-size: 1.2rem;
-    width: fit-content;
 
     svg {
       margin-left: 1rem;

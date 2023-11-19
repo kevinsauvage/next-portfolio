@@ -18,8 +18,8 @@
 
   &:focus,
   &:active {
-    outline: none;
     border-color: var(--primary-100);
+    outline: none;
   }
 
   &:hover {

@@ -7,9 +7,9 @@
   h1 {
     margin-bottom: 1rem;
     color: var(--color-text-1);
+    font-size: 3rem;
     line-height: 1.2;
     text-align: center;
-    font-size: 3rem;
 
     strong {
       color: var(--primary-100);
@@ -27,6 +27,7 @@
 
   .button {
     @include button;
+
     margin: 0 auto;
   }
 }
@@ -34,8 +35,8 @@
 @include respond(tablet) {
   .Banner {
     h1 {
-      text-align: left;
       font-size: 2.5rem;
+      text-align: left;
     }
 
     .subtitle {

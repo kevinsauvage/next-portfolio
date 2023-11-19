@@ -78,10 +78,10 @@
 
   .image {
     position: relative;
+    display: flex;
     flex: 1;
     flex-grow: 2;
     height: fit-content;
-    display: flex;
 
     img {
       width: 100%;
