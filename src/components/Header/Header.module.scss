@@ -20,7 +20,7 @@
   &.isScrollingUp {
     background-color: rgba(var(--rgb-color-background-1), 0.5);
     transform: translateY(0);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
   }
 }
 
