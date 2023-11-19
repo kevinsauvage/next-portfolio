@@ -4,11 +4,16 @@ import Logo from '../Logo/Logo';
 import styles from './Header.module.scss';
 
 type Properties = {
-  isScrolled: boolean;
+  isScrollingUp: boolean;
+  isScrollingDown: boolean;
 };
 
-const Header = ({ isScrolled }: Properties) => (
-  <header className={`${styles.header} ${isScrolled && styles.isScrolled}`}>
+const Header = ({ isScrollingUp, isScrollingDown }: Properties) => (
+  <header
+    className={`${styles.header} ${isScrollingUp && styles.isScrollingUp} ${
+      isScrollingDown && styles.isScrollingDown
+    }`}
+  >
     <Logo />
     <ContactInfo />
   </header>
