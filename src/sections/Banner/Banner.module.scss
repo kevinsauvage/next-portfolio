@@ -49,16 +49,20 @@
   }
 }
 
+@include respond(mobile_l) {
+  .Banner {
+    .subtitle {
+      line-height: normal;
+    }
+  }
+}
+
 @include respond(mobile_s) {
   .Banner {
-    padding-top: 120px;
-
-    h1 {
-      font-size: 1.9rem;
-    }
+    padding-top: 60px;
 
     .subtitle {
-      font-size: 0.9rem;
+      font-size: 1rem;
     }
   }
 }
