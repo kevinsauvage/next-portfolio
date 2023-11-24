@@ -28,25 +28,5 @@
     inset: 0;
   }
 
-  @include respond-gt(tablet) {
-    &::after {
-      position: absolute;
-      background-color: var(--primary-100);
-      transform-origin: right;
-      transition: scale 0.3s $cubic-bezier;
-      content: '';
-      inset: 0;
-      scale: 0 1;
-    }
-
-    &:hover,
-    &:focus-visible {
-      color: var(--black);
-
-      &::after {
-        transform-origin: left;
-        scale: 1 1;
-      }
-    }
-  }
+  @include buttonHover;
 }

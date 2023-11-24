@@ -58,15 +58,57 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
   overflow: hidden;
   border: 1px solid var(--primary-100);
   border-radius: $radius_2;
   color: var(--primary-100);
   font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 2px;
+  font-size: 1.1rem;
   background-color: transparent;
   box-shadow: $shadow_2;
+  border-radius: $radius;
   cursor: pointer;
+
+  @include respond(mobile_l) {
+    font-size: 1rem;
+  }
+}
+
+@mixin buttonHover {
+  @include respond-gt(tablet) {
+    &::after {
+      position: absolute;
+      background-color: var(--primary-100);
+      @include meshGradient;
+      transform-origin: right;
+      transition: scale 0.3s $cubic-bezier;
+      content: '';
+      inset: 0;
+      scale: 0 1;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--black);
+
+      &::after {
+        transform-origin: left;
+        scale: 1 1;
+      }
+    }
+  }
+}
+
+@mixin buttonPrimary {
+  @include button;
+  @include meshGradient;
+  color: var(--black);
+  box-shadow: $shadow_2;
+  font-weight: 900;
+}
+
+@mixin meshGradient {
+  background: linear-gradient(270deg, #24e4cc, #1b9ce4);
+  background-size: 100% 100%;
 }

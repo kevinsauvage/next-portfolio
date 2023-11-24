@@ -1,6 +1,9 @@
+import { FaArrowRightLong } from 'react-icons/fa6';
+
 import Link from 'next/link';
 
 import SectionPresenter from '@/components/_scopes/section/SectionPresenter/SectionPresenter';
+import Button from '@/components/Button/Button';
 
 import styles from './Banner.module.scss';
 
@@ -8,17 +11,36 @@ const Banner = () => (
   <SectionPresenter>
     <div className={styles.Banner}>
       <h1>
-        Building the Future,
+        Building the Future
         <br /> One Line of Code at a Time
       </h1>
       <p className={styles.subtitle}>
-        As a dedicated developer, I take pride in transforming visionary concepts into tangible
-        digital solutions. Every problem is an opportunity, and I&apos;m here to craft innovative,
-        code-driven answers that make a difference
+        I am a software engineer based in Barcelona, specializing in building exceptional websites.
+        With a passion for both design and functionality, I create beautiful and user-friendly
+        websites for companies of all sizes. Currently, I am dedicated to crafting accessible,
+        human-centered products at{' '}
+        <Link href="https://www.decathlon.fr/" rel="noopener noreferrer" target="_blank">
+          Decathlon
+        </Link>
+        .
       </p>
-      <Link href="#contact" className={styles.button} scroll>
-        Get in Touch
-      </Link>
+      <div className={styles.buttons}>
+        <Link href="#contact" className={styles.button} scroll>
+          Get in Touch
+        </Link>
+        <Link
+          href="/kevin-sauvage-cv.pdf"
+          className={styles.button}
+          aria-label="View full resume on a new tab"
+          target="_blank"
+          prefetch={false}
+          rel="noopener noreferrer"
+          title="View full resume on a new tab"
+          download
+        >
+          Download cv
+        </Link>
+      </div>
     </div>
   </SectionPresenter>
 );

@@ -5,9 +5,9 @@
   min-height: 100vh;
 
   h1 {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     color: var(--color-text-1);
-    font-size: 3rem;
+    font-size: 4rem;
     line-height: 1.2;
     text-align: center;
 
@@ -19,16 +19,32 @@
   .subtitle {
     max-width: 800px;
     margin: 0 auto;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     color: var(--color-text-2);
     text-align: center;
     animation-delay: 0.15s;
+
+    a {
+      color: var(--primary-100);
+      text-decoration: underline;
+      font-weight: 600;
+    }
   }
 
-  .button {
-    @include button;
+  .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
 
-    margin: 0 auto;
+    .button {
+      @include button;
+
+      &:first-child {
+        @include buttonPrimary;
+      }
+    }
   }
 }
 
@@ -43,8 +59,9 @@
       text-align: left;
     }
 
-    .button {
-      margin: 0;
+    .buttons {
+      justify-content: flex-start;
+      gap: 0.5rem;
     }
   }
 }
@@ -59,7 +76,7 @@
 
 @include respond(mobile_s) {
   .Banner {
-    padding-top: 60px;
+    padding-top: 120px;
 
     .subtitle {
       font-size: 1rem;
