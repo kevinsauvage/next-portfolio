@@ -14,10 +14,10 @@ type Properties = {
 const PageLayout = ({ children }: Properties) => (
   <LayoutWrapper>
     <NotificationProvider>
-      <HeaderPresenter />
-      <Container>{children}</Container>
       <FullBackgroundImage />
       <MouseFollowGradientBackground />
+      <HeaderPresenter />
+      <Container>{children}</Container>
     </NotificationProvider>
   </LayoutWrapper>
 );
