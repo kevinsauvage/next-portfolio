@@ -39,7 +39,6 @@ const LayoutWrapper = ({ children }: Properties) => (
   <html lang="en" className={styles.html}>
     <body className={`${robotoCondensed.variable} ${robotoMono.variable} ${styles.body}`}>
       <Analytics />
-
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
