@@ -11,11 +11,9 @@
     font-size: 1.3rem;
     background-color: transparent;
     cursor: pointer;
-  }
 
-  @include respond-gt(tablet) {
-    &:hover {
-      button {
+    @include respond-gt(tablet) {
+      &:hover {
         color: var(--primary-100);
       }
     }
