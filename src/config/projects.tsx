@@ -1,3 +1,11 @@
+import ExpressOriginal from 'devicons-react/lib/icons/ExpressOriginal';
+import MongodbOriginal from 'devicons-react/lib/icons/MongodbOriginal';
+import NextjsLine from 'devicons-react/lib/icons/NextjsLine';
+import ReactOriginal from 'devicons-react/lib/icons/ReactOriginal';
+import SassOriginal from 'devicons-react/lib/icons/SassOriginal';
+import TailwindcssPlain from 'devicons-react/lib/icons/TailwindcssPlain';
+import TypescriptPlain from 'devicons-react/lib/icons/TypescriptPlain';
+
 const SpotifyProfile = {
   description:
     'Showcase of Spotify API integration: User data, library, and music charts for a personalized experience.',
@@ -6,7 +14,20 @@ const SpotifyProfile = {
     thumbnail:
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1696360147/Spotify-profile_2_h8jape.png',
   },
-  languages: 'NextJs Typescript SASS',
+  languages: [
+    {
+      icon: <NextjsLine size={14} />,
+      name: 'NextJs',
+    },
+    {
+      icon: <TypescriptPlain size={14} />,
+      name: 'Typescript',
+    },
+    {
+      icon: <SassOriginal size={14} />,
+      name: 'SASS',
+    },
+  ],
   title: 'Spotify Profile',
   websiteLink: 'https://spotify-typescript.vercel.app/',
 };
@@ -22,7 +43,24 @@ const Streamy = {
     thumbnail:
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1691688139/portfolio/Streamy_pj4sqb.png',
   },
-  languages: 'ReactJs SASS ExpressJs Mongoose',
+  languages: [
+    {
+      icon: <ReactOriginal size={14} />,
+      name: 'ReactJs',
+    },
+    {
+      icon: <SassOriginal size={14} />,
+      name: 'SASS',
+    },
+    {
+      icon: <ExpressOriginal size={14} />,
+      name: 'ExpressJs',
+    },
+    {
+      icon: <MongodbOriginal size={14} />,
+      name: 'Mongoose',
+    },
+  ],
   title: 'Streamy',
   websiteLink: 'https://streamy.fun/',
 };
@@ -35,7 +73,20 @@ const Portfolio = {
     thumbnail:
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.png',
   },
-  languages: 'NextJs Typescript SASS',
+  languages: [
+    {
+      icon: <NextjsLine size={14} />,
+      name: 'NextJs',
+    },
+    {
+      icon: <TypescriptPlain size={14} />,
+      name: 'Typescript',
+    },
+    {
+      icon: <SassOriginal size={14} />,
+      name: 'SASS',
+    },
+  ],
   title: 'My Portfolio',
   websiteLink: 'https://www.kevin-sauvage.com/',
 };
@@ -48,7 +99,20 @@ const Calculator = {
     thumbnail:
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,h_300/v1703344125/portfolio/Create-Next-App_oetdtn.webp',
   },
-  languages: 'NextJs Typescript Tailwind',
+  languages: [
+    {
+      icon: <NextjsLine size={14} />,
+      name: 'NextJs',
+    },
+    {
+      icon: <TypescriptPlain size={14} />,
+      name: 'Typescript',
+    },
+    {
+      icon: <TailwindcssPlain size={14} />,
+      name: 'TailwindCSS',
+    },
+  ],
   title: 'Calculator App',
   websiteLink: 'https://calculator-inky-mu.vercel.app',
 };

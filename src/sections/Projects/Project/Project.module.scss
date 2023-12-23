@@ -65,13 +65,20 @@
       align-items: center;
       gap: 0.5rem;
 
-      p {
-        padding: 0.2rem 0.7rem;
+      .language {
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.1rem 0.4rem;
         border-radius: $radius_1;
         color: var(--primary-100);
         font-weight: 400;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         background-color: rgba(var(--rgb-primary-400), 0.5);
+
+        path {
+          fill: var(--primary-100);
+        }
       }
     }
   }

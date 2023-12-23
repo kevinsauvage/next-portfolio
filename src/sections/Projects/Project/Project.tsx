@@ -9,7 +9,7 @@ type Properties = {
   item: {
     title: string;
     description: string;
-    languages: string;
+    languages: Array<{ icon: JSX.Element; name: string }>;
     images: { thumbnail: string };
     websiteLink: string;
     githubLink: Array<string>;
@@ -39,8 +39,11 @@ const Project = ({ item }: Properties) => {
             </div>
             <p className={styles.description}>{description}</p>
             <div className={styles.languages}>
-              {languages.split(' ').map((lang) => (
-                <p key={lang}>{lang}</p>
+              {languages.map(({ icon, name }) => (
+                <div key={name} className={styles.language}>
+                  {icon}
+                  <p>{name}</p>
+                </div>
               ))}
             </div>
           </div>
