@@ -5,7 +5,7 @@ import styles from './Skill.module.scss';
 type Properties = {
   item: {
     name: string;
-    icon: string;
+    icon: JSX.Element;
   };
 };
 
