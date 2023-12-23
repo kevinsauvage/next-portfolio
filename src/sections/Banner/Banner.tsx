@@ -1,9 +1,6 @@
-import { FaArrowRightLong } from 'react-icons/fa6';
-
 import Link from 'next/link';
 
 import SectionPresenter from '@/components/_scopes/section/SectionPresenter/SectionPresenter';
-import Button from '@/components/Button/Button';
 
 import styles from './Banner.module.scss';
 

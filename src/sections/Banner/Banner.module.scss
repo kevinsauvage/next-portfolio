@@ -26,16 +26,16 @@
 
     a {
       color: var(--primary-100);
-      text-decoration: underline;
       font-weight: 600;
+      text-decoration: underline;
     }
   }
 
   .buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
 
     .button {

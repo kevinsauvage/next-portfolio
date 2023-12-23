@@ -62,12 +62,12 @@
   overflow: hidden;
   border: 1px solid var(--primary-100);
   border-radius: $radius_2;
+  border-radius: $radius;
   color: var(--primary-100);
   font-weight: 500;
   font-size: 1.1rem;
   background-color: transparent;
   box-shadow: $shadow_2;
-  border-radius: $radius;
   cursor: pointer;
 
   @include respond(mobile_l) {
@@ -80,7 +80,9 @@
     &::after {
       position: absolute;
       background-color: var(--primary-100);
+
       @include meshGradient;
+
       transform-origin: right;
       transition: scale 0.3s $cubic-bezier;
       content: '';
@@ -102,10 +104,12 @@
 
 @mixin buttonPrimary {
   @include button;
+
   @include meshGradient;
+
   color: var(--black);
-  box-shadow: $shadow_2;
   font-weight: 900;
+  box-shadow: $shadow_2;
 }
 
 @mixin meshGradient {
