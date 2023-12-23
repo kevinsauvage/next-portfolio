@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 import styles from './Skill.module.scss';
 
 type Properties = {
