@@ -15,14 +15,13 @@ const Banner = () => (
         <br /> One Line of Code at a Time
       </h1>
       <p className={styles.subtitle}>
-        I am a software engineer based in Barcelona, specializing in building exceptional websites.
-        With a passion for both design and functionality, I create beautiful and user-friendly
-        websites for companies of all sizes. Currently, I am dedicated to crafting accessible,
+        Hello from Barcelona! I&apos;m a Software Engineer passionate about crafting exceptional
+        websites. Currently, I&apos;m immersed in the exciting world of crafting accessible,
         human-centered products at{' '}
         <Link href="https://www.decathlon.fr/" rel="noopener noreferrer" target="_blank">
           Decathlon
-        </Link>
-        .
+        </Link>{' '}
+        ✨
       </p>
       <div className={styles.buttons}>
         <Link href="#contact" className={styles.button} scroll>
