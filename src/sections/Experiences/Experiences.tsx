@@ -1,5 +1,3 @@
-import { FaArrowRightLong } from 'react-icons/fa6';
-
 import Link from 'next/link';
 
 import Section from '@/components/_scopes/section/Section/Section';
@@ -37,9 +35,9 @@ const Experiences = () => (
           prefetch={false}
           rel="noopener noreferrer"
           title="View full resume on a new tab"
+          download
         >
-          View Full Resume
-          <FaArrowRightLong />
+          Download Full Resume
         </Link>
       </div>
     </Section>

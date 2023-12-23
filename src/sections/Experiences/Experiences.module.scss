@@ -10,16 +10,13 @@
   .link {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: fit-content;
     padding: 1.5rem;
     color: var(--color-text-1);
-    font-weight: 600;
-    font-size: 1.2rem;
-
-    svg {
-      margin-left: 1rem;
-      transition: $transition;
-    }
+    font-size: 1rem;
+    margin: 0 auto;
+    text-decoration: underline;
   }
 
   @include respond(tablet) {
@@ -36,10 +33,6 @@
     .link {
       &:hover {
         color: var(--primary-100);
-
-        svg {
-          transform: translateX(0.5rem);
-        }
       }
     }
   }

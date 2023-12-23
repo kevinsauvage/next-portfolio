@@ -113,7 +113,7 @@ const Calculator = {
       name: 'TailwindCSS',
     },
   ],
-  title: 'Calculator App',
+  title: 'Calculator',
   websiteLink: 'https://calculator-inky-mu.vercel.app',
 };
 
