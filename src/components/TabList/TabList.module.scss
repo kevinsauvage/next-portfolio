@@ -49,9 +49,9 @@
   .TabList {
     .tabs {
       width: calc(100% + 2rem);
-      margin-right: -var(--spacing-s);
+      margin-right: -1rem;
       margin-bottom: var(--spacing-xl);
-      margin-left: -var(--spacing-s);
+      margin-left: -1rem;
     }
   }
 }
