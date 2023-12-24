@@ -4,31 +4,52 @@ import { useEffect, useState } from 'react';
 
 import Header from './Header';
 
+const threshold = 350;
+
 const HeaderPresenter = () => {
-  const [isScrollingUp, setIsScrollingUp] = useState(false);
+  const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
 
+  // Control the header's scroll direction when the page loads
+  useEffect(() => {
+    const { scrollTop } = document.documentElement;
+
+    if (scrollTop > 0) {
+      setIsScrollingDown(true);
+      setIsScrollingUp(false);
+    }
+  }, []);
+
+  // Control the header's scroll direction when the user scrolls
   useEffect(() => {
     let lastScrollTop = 0;
+    let lastScrollUp = 0;
+    let lastScrollDown = 0;
 
     const handleScroll = () => {
       const { scrollTop } = document.documentElement;
 
-      if (scrollTop < 50) {
-        setIsScrollingUp(false);
-        setIsScrollingDown(false);
-        return;
+      // Handle scroll up
+      if (scrollTop < lastScrollTop) {
+        lastScrollUp = scrollTop;
+
+        if (lastScrollUp < lastScrollDown - threshold || scrollTop < 50) {
+          setIsScrollingUp(true);
+          setIsScrollingDown(false);
+        }
       }
 
+      // Handle scroll down
       if (scrollTop > lastScrollTop) {
-        setIsScrollingUp(false);
-        setIsScrollingDown(true);
-      } else {
-        setIsScrollingUp(true);
-        setIsScrollingDown(false);
+        lastScrollDown = scrollTop;
+
+        if (lastScrollDown > lastScrollUp + threshold) {
+          setIsScrollingUp(false);
+          setIsScrollingDown(true);
+        }
       }
 
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      lastScrollTop = scrollTop;
     };
 
     window.addEventListener('scroll', handleScroll);
