@@ -1,11 +1,3 @@
-import ExpressOriginal from 'devicons-react/lib/icons/ExpressOriginal';
-import MongodbOriginal from 'devicons-react/lib/icons/MongodbOriginal';
-import NextjsLine from 'devicons-react/lib/icons/NextjsLine';
-import ReactOriginal from 'devicons-react/lib/icons/ReactOriginal';
-import SassOriginal from 'devicons-react/lib/icons/SassOriginal';
-import TailwindcssPlain from 'devicons-react/lib/icons/TailwindcssPlain';
-import TypescriptPlain from 'devicons-react/lib/icons/TypescriptPlain';
-
 const SpotifyProfile = {
   description:
     'Showcase of Spotify API integration: User data, library, and music charts for a personalized experience.',
