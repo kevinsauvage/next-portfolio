@@ -9,7 +9,7 @@ type Properties = {
   item: {
     title: string;
     description: string;
-    languages: Array<{ icon: JSX.Element; name: string }>;
+    languages: Array<{ name: string }>;
     images: { thumbnail: string };
     websiteLink: string;
     githubLink: Array<string>;
