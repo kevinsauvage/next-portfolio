@@ -12,7 +12,7 @@ const SpotifyProfile = {
   githubLink: ['https://github.com/kevinsauvage/spotify-typescript'],
   images: {
     thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1696360147/Spotify-profile_2_h8jape.png',
+      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1696360147/Spotify-profile_2_h8jape.webp',
   },
   languages: [
     {
@@ -41,7 +41,7 @@ const Streamy = {
   ],
   images: {
     thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1691688139/portfolio/Streamy_pj4sqb.png',
+      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1691688139/portfolio/Streamy_pj4sqb.webp',
   },
   languages: [
     {
@@ -71,7 +71,7 @@ const Portfolio = {
   githubLink: ['https://github.com/kevinsauvage/next-portfolio'],
   images: {
     thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.png',
+      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.webp',
   },
   languages: [
     {
