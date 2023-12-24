@@ -34,7 +34,7 @@ const Experiences = () => (
         target="_blank"
         prefetch={false}
         rel="noopener noreferrer"
-        title="View full resume on a new tab"
+        title="Download full resume"
         download
       >
         Download Full Resume

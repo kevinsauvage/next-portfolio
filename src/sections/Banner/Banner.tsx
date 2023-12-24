@@ -26,11 +26,11 @@ const Banner = () => (
         <Link
           href="/kevin-sauvage-cv.pdf"
           className={styles.button}
-          aria-label="View full resume on a new tab"
+          aria-label="Download cv"
           target="_blank"
           prefetch={false}
           rel="noopener noreferrer"
-          title="View full resume on a new tab"
+          title=" Download cv"
           download
         >
           Download cv

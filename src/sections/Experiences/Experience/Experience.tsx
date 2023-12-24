@@ -19,7 +19,7 @@ const Experience = ({ experience }: Properties) => {
   const { title, period, company, listItem } = experience;
 
   return (
-    <li className={styles.card} role="tabpanel">
+    <div className={styles.card} role="tabpanel">
       <div className={styles.header}>
         <p className={styles.title}>{title}</p>
         <Link
@@ -41,7 +41,7 @@ const Experience = ({ experience }: Properties) => {
           </li>
         ))}
       </ul>
-    </li>
+    </div>
   );
 };
 
