@@ -32,11 +32,6 @@ const Accordion = ({ children, totalVisible, className, Tag = 'div' }: Accordion
     handleFindTotalVisible();
   }, [handleFindTotalVisible]);
 
-  useEffect(() => {
-    window.addEventListener('resize', handleFindTotalVisible);
-    return () => window.removeEventListener('resize', handleFindTotalVisible);
-  }, [handleFindTotalVisible]);
-
   return (
     children && (
       <>
