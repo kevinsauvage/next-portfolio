@@ -20,6 +20,7 @@ const TabList: React.FC<TabListProperties> = ({ children, items }) => {
             tabIndex={0}
             role="tab"
             key={item}
+            aria-controls={`panel-${index}`}
             className={index === activeIndex ? styles.active : ''}
             onClick={() => setActiveIndex(index)}
           >
@@ -31,6 +32,7 @@ const TabList: React.FC<TabListProperties> = ({ children, items }) => {
         isValidElement(child)
           ? cloneElement(child as React.ReactElement, {
               'aria-hidden': index === activeIndex ? 'false' : 'true',
+              id: `panel-${index}`,
               style: {
                 display: index === activeIndex ? 'block' : 'none',
               },

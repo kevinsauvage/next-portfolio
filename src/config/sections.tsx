@@ -13,16 +13,16 @@ export type Sections = Array<{
 
 const sections: Sections = [
   {
-    icon: <FaTools />,
-    label: 'My Skills',
-    tagLevel: 2,
-    title: 'My Technical Skills',
-  },
-  {
     icon: <FaUser />,
     label: 'About Me',
-    tagLevel: 3,
+    tagLevel: 2,
     title: 'Getting to Know Me',
+  },
+  {
+    icon: <FaTools />,
+    label: 'My Skills',
+    tagLevel: 3,
+    title: 'My Technical Skills',
   },
   {
     icon: <FaSuitcase />,
