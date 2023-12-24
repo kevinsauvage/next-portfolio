@@ -15,18 +15,11 @@ const SpotifyProfile = {
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1696360147/Spotify-profile_2_h8jape.webp',
   },
   languages: [
-    {
-      icon: <NextjsLine size={14} />,
-      name: 'NextJs',
-    },
-    {
-      icon: <TypescriptPlain size={14} />,
-      name: 'Typescript',
-    },
-    {
-      icon: <SassOriginal size={14} />,
-      name: 'SASS',
-    },
+    { name: 'NextJs' },
+    { name: 'Typescript' },
+    { name: 'SASS' },
+    { name: 'Spotify API' },
+    { name: 'Vercel' },
   ],
   title: 'Spotify Profile',
   websiteLink: 'https://spotify-typescript.vercel.app/',
@@ -44,22 +37,11 @@ const Streamy = {
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1691688139/portfolio/Streamy_pj4sqb.webp',
   },
   languages: [
-    {
-      icon: <ReactOriginal size={14} />,
-      name: 'ReactJs',
-    },
-    {
-      icon: <SassOriginal size={14} />,
-      name: 'SASS',
-    },
-    {
-      icon: <ExpressOriginal size={14} />,
-      name: 'ExpressJs',
-    },
-    {
-      icon: <MongodbOriginal size={14} />,
-      name: 'Mongoose',
-    },
+    { name: 'ReactJs' },
+    { name: 'SASS' },
+    { name: 'ExpressJs' },
+    { name: 'MongoDB' },
+    { name: 'Vercel' },
   ],
   title: 'Streamy',
   websiteLink: 'https://streamy.fun/',
@@ -73,20 +55,7 @@ const Portfolio = {
     thumbnail:
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.webp',
   },
-  languages: [
-    {
-      icon: <NextjsLine size={14} />,
-      name: 'NextJs',
-    },
-    {
-      icon: <TypescriptPlain size={14} />,
-      name: 'Typescript',
-    },
-    {
-      icon: <SassOriginal size={14} />,
-      name: 'SASS',
-    },
-  ],
+  languages: [{ name: 'NextJs' }, { name: 'Typescript' }, { name: 'SASS' }, { name: 'Vercel' }],
   title: 'My Portfolio',
   websiteLink: 'https://www.kevin-sauvage.com/',
 };
@@ -100,18 +69,10 @@ const Calculator = {
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1703344125/portfolio/Create-Next-App_oetdtn.webp',
   },
   languages: [
-    {
-      icon: <NextjsLine size={14} />,
-      name: 'NextJs',
-    },
-    {
-      icon: <TypescriptPlain size={14} />,
-      name: 'Typescript',
-    },
-    {
-      icon: <TailwindcssPlain size={14} />,
-      name: 'TailwindCSS',
-    },
+    { name: 'NextJs' },
+    { name: 'Typescript' },
+    { name: 'TailwindCSS' },
+    { name: 'Vercel' },
   ],
   title: 'Calculator',
   websiteLink: 'https://calculator-inky-mu.vercel.app',
