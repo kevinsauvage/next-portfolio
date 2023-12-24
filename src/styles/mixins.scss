@@ -58,25 +58,25 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: 0.8rem 1.5rem;
+  padding: var(--spacing-m) var(--spacing-l);
   overflow: hidden;
   border: 1px solid var(--primary-100);
-  border-radius: $radius_2;
-  border-radius: $radius;
+  border-radius: $radius-xs;
   color: var(--primary-100);
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: var(--fz-sm);
+  line-height: 1;
   background-color: transparent;
   box-shadow: $shadow_2;
   cursor: pointer;
 
-  @include respond(mobile_l) {
+  @include respond(small) {
     font-size: 1rem;
   }
 }
 
 @mixin buttonHover {
-  @include respond-gt(tablet) {
+  @include respond-gt(medium) {
     &::after {
       position: absolute;
       background-color: var(--primary-100);

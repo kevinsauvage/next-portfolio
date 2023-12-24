@@ -2,27 +2,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--spacing-s);
   width: fit-content;
-  margin: 1rem 0 3rem 0;
-  margin-left: $padding-3;
-  padding: 6px 1rem;
+  margin: var(--spacing-m) 0 var(--spacing-xxl) 0;
+  padding: var(--spacing-xs) var(--spacing-m);
   border: $border-s;
   border-color: var(--primary-100);
-  border-radius: $radius-2;
-
-  svg {
-    color: var(--primary-100);
-  }
+  border-radius: $radius-s;
+  color: var(--primary-100);
+  background-color: rgba(var(--rgb-primary-400), 0.3);
 
   p {
-    color: var(--color-text-2);
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: var(--fz-sm);
   }
 }
 
-@include respond(tablet) {
+@include respond(medium) {
   .uptitle {
     margin-left: 0;
   }

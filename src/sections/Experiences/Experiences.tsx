@@ -22,13 +22,11 @@ const Experiences = () => (
     <Section>
       <SectionUpTitle icon={icon} text={label} />
       <SectionTitle title={title} tagLevel={tagLevel} />
-      <div className={styles.experiences}>
-        <TabList items={experiences.map((experience) => experience.tab)}>
-          {experiences.map((experience) => (
-            <Experience key={experience.period} experience={experience} />
-          ))}
-        </TabList>
-      </div>
+      <TabList items={experiences.map((experience) => experience.tab)}>
+        {experiences.map((experience) => (
+          <Experience key={experience.period} experience={experience} />
+        ))}
+      </TabList>
       <Link
         href="/kevin-sauvage-cv.pdf"
         className={styles.link}

@@ -1,16 +1,14 @@
 .textArea {
   min-height: 100px;
   max-height: 500px;
-  margin-top: 0.5rem;
-  padding: 0.8rem 0;
-  padding-left: 1rem;
+  margin-top: var(--spacing-s);
+  padding: var(--spacing-m) 0;
+  padding-left: var(--spacing-m);
   border: $border-s;
-  border-radius: $radius-2;
+  border-radius: $radius-xs;
   color: var(--color-text-2);
   font-weight: 300;
-  font-size: 1rem;
   background-color: transparent;
-  transition: $transition;
   resize: none;
   resize: vertical;
 

@@ -1,14 +1,21 @@
 .skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-left: $padding-3;
+  gap: var(--spacing-m);
 }
 
-@include respond(tablet) {
+@include respond(medium) {
   .skills {
+    grid-template-columns: repeat(4, 1fr);
     margin-left: 0;
+  }
+}
+
+@include respond(small) {
+  .skills {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-s);
   }
 }

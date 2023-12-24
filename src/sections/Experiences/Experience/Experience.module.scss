@@ -2,30 +2,32 @@
   width: 100%;
   border: $border-s;
   border-color: transparent;
-  border-radius: $radius_1;
+  border-radius: $radius-s;
 
   .header {
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: var(--spacing-s);
     font-weight: 500;
-    font-size: 1.2rem;
     letter-spacing: -2px;
 
     .title {
       color: var(--color-text-1);
+      font-weight: 500;
+      font-size: var(--fz-xl);
       white-space: nowrap;
-      font-size: 1.2rem;
     }
 
     .company {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: var(--spacing-s);
       white-space: nowrap;
 
       p {
         color: var(--primary-100);
+        font-size: var(--fz-xl);
+
         &:hover {
           text-decoration: underline;
         }
@@ -39,42 +41,38 @@
   }
 
   .period {
+    margin-bottom: var(--spacing-m);
     color: var(--color-text-3);
     font-weight: 400;
-    font-size: 0.9rem;
+    font-size: var(--fz-sm);
     letter-spacing: 0px;
     white-space: nowrap;
     opacity: 0.7;
-    margin-bottom: 1rem;
   }
 
   .list {
-    margin-left: 2rem;
+    margin-left: var(--spacing-l);
 
     .listItem {
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
+      margin-bottom: var(--spacing-m);
+      font-size: var(--fz-sm);
 
       &::before {
-        content: '•';
-        color: var(--primary-100);
-        font-weight: 900;
         display: inline-block;
         width: 1em;
-        margin-left: -2em;
         margin-right: 1rem;
+        margin-left: -2rem;
+        color: var(--primary-100);
+        font-weight: 900;
+        content: '•';
       }
     }
   }
 
-  @include respond(laptop_s) {
+  @include respond(x-large) {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--spacing-s);
     width: 100%;
-  }
-
-  @include respond(tablet) {
-    padding: $padding-3 0;
   }
 }

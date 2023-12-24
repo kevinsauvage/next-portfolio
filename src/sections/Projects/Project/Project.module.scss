@@ -1,34 +1,15 @@
 .card {
   position: relative;
   display: flex;
-  gap: 1rem;
+  gap: var(--spacing-m);
   width: 100%;
   min-width: 200px;
   height: fit-content;
-  padding: $padding-3;
+  padding: var(--spacing-l);
   overflow: hidden;
   border: $border-s;
   border-color: transparent;
-  border-radius: $radius_1;
-
-  @include respond(laptop_s) {
-    flex-direction: column;
-  }
-
-  @include respond(tablet) {
-    flex-direction: row;
-    padding: $padding-3 0;
-  }
-
-  @include respond(mobile_l) {
-    flex-direction: column;
-  }
-
-  @include respond-gt(laptop_s) {
-    &:hover {
-      @include glassEffect;
-    }
-  }
+  border-radius: $radius-s;
 
   .content {
     position: static;
@@ -39,46 +20,48 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 0.5rem;
+      gap: var(--spacing-m);
+      margin-bottom: var(--spacing-s);
     }
 
     .title {
       color: var(--color-text-1);
       font-weight: 500;
-      font-size: 1.2rem;
+      font-size: var(--fz-xl);
       line-height: 1;
+      letter-spacing: -2px;
       white-space: nowrap;
     }
 
     .description {
-      max-width: 500px;
-      margin-bottom: 1rem;
+      margin-bottom: var(--spacing-m);
       color: var(--color-text-3);
-      font-weight: 300;
-      font-size: 0.9rem;
-      line-height: 1.5;
+      font-size: var(--fz-sm);
     }
 
     .languages {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.5rem;
+      margin-bottom: var(--spacing-m);
 
       .language {
         display: flex;
         align-items: center;
-        gap: 0.3rem;
-        padding: 0.1rem 0.4rem;
-        border-radius: $radius_1;
+        gap: var(--spacing-s);
         color: var(--primary-100);
         font-weight: 400;
-        font-size: 0.75rem;
-        background-color: rgba(var(--rgb-primary-400), 0.5);
+        font-size: var(--fz-xs);
+        line-height: 1;
+        letter-spacing: 0px;
 
-        path {
-          fill: var(--primary-100);
+        .dot {
+          display: inline-block;
+          width: 0.3rem;
+          height: 0.3rem;
+          margin-right: var(--spacing-xs);
+          border-radius: 50%;
+          background-color: var(--primary-100);
         }
       }
     }
@@ -93,19 +76,36 @@
 
     img {
       width: 100%;
-      max-width: 300px;
       height: auto;
       border: $border-l;
       aspect-ratio: 16/9;
+    }
+  }
+}
 
-      @include respond(mobile_l) {
+@include respond(medium) {
+  .card {
+    flex-direction: column;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+@include respond(small) {
+  .card {
+    .image {
+      img {
         max-width: unset;
       }
     }
   }
+}
 
-  @include respond-gt(tablet) {
+@include respond-gt(medium) {
+  .card {
     &:hover {
+      @include glassEffect;
+
       .image {
         img {
           border-color: var(--primary-100);

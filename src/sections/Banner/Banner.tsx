@@ -12,9 +12,8 @@ const Banner = () => (
         <br /> One Line of Code at a Time
       </h1>
       <p className={styles.subtitle}>
-        Hello from Barcelona! I&apos;m a Software Engineer passionate about crafting exceptional
-        websites. Currently, I&apos;m immersed in the exciting world of crafting accessible,
-        human-centered products at{' '}
+        I&apos;m a Software Engineer passionate about crafting exceptional websites. Currently,
+        I&apos;m immersed in the exciting world of crafting accessible, human-centered products at{' '}
         <Link href="https://www.decathlon.fr/" rel="noopener noreferrer" target="_blank">
           Decathlon
         </Link>{' '}

@@ -3,17 +3,17 @@
 
   .tabs {
     display: flex;
-    flex-direction: column;
     flex: 1;
-    margin-right: 1rem;
+    flex-direction: column;
+    margin-right: var(--spacing-m);
 
     button {
-      background-color: transparent;
+      padding: var(--spacing-m);
       border: none;
+      border-left: 2px solid var(--color-border-2);
       white-space: nowrap;
       text-align: left;
-      padding: 1rem;
-      border-left: 2px solid var(--color-border-2);
+      background-color: transparent;
       cursor: pointer;
 
       &.active {
@@ -23,7 +23,7 @@
   }
 }
 
-@include respond(tablet) {
+@include respond(medium) {
   .TabList {
     flex-direction: column;
 
@@ -32,47 +32,39 @@
       overflow-x: scroll;
 
       button {
-        border-left: none;
+        margin-bottom: var(--spacing-s);
         border-bottom: 2px solid var(--color-border-2);
-        margin-bottom: 0.5rem;
+        border-left: none;
 
         &.active {
-          border-left: none;
           border-bottom: 2px solid var(--primary-100);
+          border-left: none;
         }
       }
     }
   }
 }
 
-@include respond(tablet) {
-  .TabList {
-    .tabs {
-      width: calc(100% + 6rem);
-      margin-left: -3rem;
-      margin-right: -3rem;
-    }
-  }
-}
-
-@include respond(mobile_l) {
+@include respond(medium) {
   .TabList {
     .tabs {
       width: calc(100% + 2rem);
-      margin-left: -1rem;
-      margin-right: -1rem;
+      margin-right: -var(--spacing-s);
+      margin-bottom: var(--spacing-xl);
+      margin-left: -var(--spacing-s);
     }
   }
 }
 
-@include respond-gt(tablet) {
+@include respond-gt(medium) {
   .TabList {
     .tabs {
       button:not(.active) {
         &:hover {
           @include glassEffect;
-          color: var(--primary-100);
+
           border-left: 2px solid var(--color-border-2);
+          color: var(--primary-100);
         }
       }
     }

@@ -2,26 +2,26 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 1000px;
   min-height: 100vh;
+  margin: 0 auto;
 
   h1 {
-    margin-bottom: 2rem;
-    color: var(--color-text-1);
-    font-size: 4rem;
+    margin-bottom: var(--spacing-m);
+    color: var(--color-text-3);
+    font-size: 4.5rem;
     line-height: 1.2;
-    text-align: center;
 
-    strong {
-      color: var(--primary-100);
+    &::first-line {
+      color: var(--color-text-1);
+      font-weight: 600;
     }
   }
 
   .subtitle {
-    max-width: 800px;
-    margin: 0 auto;
-    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-bottom: var(--spacing-xl);
     color: var(--color-text-2);
-    text-align: center;
     animation-delay: 0.15s;
 
     a {
@@ -35,8 +35,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    gap: var(--spacing-m);
 
     .button {
       @include button;
@@ -48,7 +47,7 @@
   }
 }
 
-@include respond(tablet) {
+@include respond(medium) {
   .Banner {
     h1 {
       font-size: 2.5rem;
@@ -61,25 +60,17 @@
 
     .buttons {
       justify-content: flex-start;
-      gap: 0.5rem;
+      gap: var(--spacing-s);
     }
   }
 }
 
-@include respond(mobile_l) {
-  .Banner {
-    .subtitle {
-      line-height: normal;
-    }
-  }
-}
-
-@include respond(mobile_s) {
+@include respond(small) {
   .Banner {
     padding-top: 120px;
 
     .subtitle {
-      font-size: 0.95rem;
+      line-height: normal;
     }
   }
 }

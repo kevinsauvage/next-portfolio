@@ -1,15 +1,14 @@
 .input {
   width: 100%;
-  margin-top: 0.5rem;
-  padding: 0.8rem 0;
-  padding-left: 1rem;
+  margin-top: var(--spacing-s);
+  padding: var(--spacing-m) 0;
+  padding-left: var(--spacing-m);
   border: $border-s;
-  border-radius: $radius-2;
+  border-radius: $radius-xs;
   color: var(--color-text-2);
   font-weight: 300;
-  font-size: 1.1rem;
+  font-size: var(--fz-md);
   background-color: transparent;
-  transition: padding-left 0.3s $cubic-bezier;
 
   @include placeholder(rgba(var(--rgb-color-text-2), 0.5), 0.9rem);
 

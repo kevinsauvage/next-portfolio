@@ -1,10 +1,10 @@
 .container {
   position: fixed;
-  top: 2rem;
-  right: 2rem;
+  top: var(--spacing-xl);
+  right: var(--spacing-xl);
   z-index: 999999;
 
-  @include respond(mobile_l) {
+  @include respond(small) {
     top: 0;
     right: 0;
     left: 0;

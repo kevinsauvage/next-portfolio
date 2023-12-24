@@ -5,11 +5,13 @@
     position: relative;
     z-index: 9;
     display: flex;
+    align-items: center;
+    font-size: var(--fz-md);
   }
 
   svg {
-    margin-right: 0.3rem;
-    font-size: 1.4rem;
+    margin-right: var(--spacing-xs);
+    font-size: var(--fz-2xl);
   }
 
   &.loading {

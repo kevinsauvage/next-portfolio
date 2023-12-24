@@ -1,32 +1,32 @@
-$mobile_s: 375px;
-$mobile_m: 400px;
-$mobile_l: 520px;
-$tablet: 780px;
-$laptop_s: 1024px;
-$laptop_l: 1440px;
+$x-small: 370px;
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$x-large: 1200px;
+$xx-large: 1440px;
 
 @mixin respond($media) {
-  @if $media == mobile_s {
-    @media (max-width: $mobile_s) {
+  @if $media == x-small {
+    @media (max-width: $x-small) {
       @content;
     }
-  } @else if $media == mobile_m {
-    @media (max-width: $mobile_m) {
+  } @else if $media == small {
+    @media (max-width: $small) {
       @content;
     }
-  } @else if $media == mobile_l {
-    @media (max-width: $mobile_l) {
+  } @else if $media == medium {
+    @media (max-width: $medium) {
       @content;
     }
-  } @else if $media == tablet {
+  } @else if $media == large {
     @media (max-width: $tablet) {
       @content;
     }
-  } @else if $media == laptop_s {
-    @media (max-width: $laptop_s) {
+  } @else if $media == x-large {
+    @media (max-width: $x-large) {
       @content;
     }
-  } @else if $media == laptop_l {
+  } @else if $media == xx-large {
     @media (max-width: $laptop_l) {
       @content;
     }
@@ -34,28 +34,24 @@ $laptop_l: 1440px;
 }
 
 @mixin respond-gt($media) {
-  @if $media == mobile_s {
-    @media (min-width: $mobile_s) {
-      @content;
-    }
-  } @else if $media == mobile_m {
+  @if $media == small {
     @media (min-width: $mobile_m) {
       @content;
     }
-  } @else if $media == mobile_l {
-    @media (min-width: $mobile_l) {
+  } @else if $media == medium {
+    @media (min-width: $medium) {
       @content;
     }
-  } @else if $media == tablet {
-    @media (min-width: $tablet) {
+  } @else if $media == large {
+    @media (min-width: $large) {
       @content;
     }
-  } @else if $media == laptop_s {
-    @media (min-width: $laptop_s) {
+  } @else if $media == x-large {
+    @media (min-width: $x-large) {
       @content;
     }
-  } @else if $media == laptop_l {
-    @media (min-width: $laptop_l) {
+  } @else if $media == xx-large {
+    @media (min-width: $xx-large) {
       @content;
     }
   }

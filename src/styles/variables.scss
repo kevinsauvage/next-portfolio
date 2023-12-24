@@ -1,23 +1,11 @@
 $shadow_1: rgba(var(--rgb-color-text-4), 0.12) 0px 1px 3px;
 $shadow_2: rgba(var(--rgb-color-text-4), 0.16) 0px 3px 6px;
-$shadow_3: rgba(var(--rgb-color-text-4), 0.19) 0px 10px 20px;
-$shadow_4: rgba(var(--rgb-color-text-4), 0.25) 0px 14px 28px;
 
-$radius: 30px;
-$radius_1: 20px;
-$radius_2: 8px;
-$radius_3: 4px;
-
-$padding-1: 0.5em;
-$padding-2: 1rem;
-$padding-3: 1.5rem;
-$padding-4: 2rem;
+$radius-xs: 0.2em;
+$radius-s: 0.4em;
 
 $border-s: 0.1px solid rgba(var(--rgb-color-border-1), 0.1);
 $border-m: 0.5px solid rgba(var(--rgb-color-border-1), 0.3);
 $border-l: 1px solid rgba(var(--rgb-color-border-1), 0.8);
 
 $cubic-bezier: cubic-bezier(0.39, 0.575, 0.565, 1);
-$transition: all 0.3s $cubic-bezier;
-
-$header-height: 75px;

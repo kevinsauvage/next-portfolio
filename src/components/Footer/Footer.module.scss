@@ -6,7 +6,7 @@
 
   &__copyright {
     width: fit-content;
-    padding: 1rem 0;
-    font-size: 0.9rem;
+    padding: var(--spacing-m) 0;
+    font-size: var(--fz-sm);
   }
 }

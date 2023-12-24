@@ -5,8 +5,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  border-radius: $radius_1;
+  gap: var(--spacing-s);
+  padding: var(--spacing-m) 0;
+  border-radius: $radius-s;
   background-color: rgba(var(--rgb-color-background-1), 0.1);
+
+  svg {
+    width: 5rem !important;
+    height: 5rem !important;
+  }
+}
+
+@include respond(small) {
+  .skill {
+    svg {
+      width: 4rem !important;
+      height: 4rem !important;
+    }
+  }
+}
+
+@include respond(x-small) {
+  .skill {
+    font-size: var(--fz-sm);
+
+    svg {
+      width: 3rem !important;
+      height: 3rem !important;
+    }
+  }
 }

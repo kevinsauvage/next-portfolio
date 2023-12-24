@@ -1,18 +1,18 @@
 .buttons {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: var(--spacing-m);
 
   button {
     display: flex;
     align-items: center;
     border: none;
     color: var(--color-text-1);
-    font-size: 1.3rem;
+    font-size: var(--fz-xl);
     background-color: transparent;
     cursor: pointer;
 
-    @include respond-gt(tablet) {
+    @include respond-gt(medium) {
       &:hover {
         color: var(--primary-100);
       }

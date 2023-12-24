@@ -5,6 +5,7 @@ import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionU
 import Accordion from '@/components/Accordion/Accordion';
 import sections, { Sections } from '@/config/sections';
 import skills from '@/config/skills';
+import { breakpoints } from '@/utils/breakpoints';
 
 import SkillCard from './Skill/Skill';
 
@@ -19,7 +20,16 @@ const Skills = () => (
     <Section>
       <SectionUpTitle icon={icon} text={label} />
       <SectionTitle title={title} tagLevel={tagLevel} />
-      <Accordion className={styles.skills} Tag="ul" totalVisible={12}>
+      <Accordion
+        className={styles.skills}
+        Tag="ul"
+        totalVisible={{
+          [breakpoints.sm]: 9,
+          [breakpoints.md]: 12,
+          [breakpoints.xxl]: 15,
+          default: 15,
+        }}
+      >
         {skills.map((item) => (
           <SkillCard key={item.name} item={item} />
         ))}

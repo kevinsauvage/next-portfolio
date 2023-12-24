@@ -16,22 +16,22 @@ import TailwindcssPlain from 'devicons-react/lib/icons/TailwindcssPlain';
 import TypescriptPlain from 'devicons-react/lib/icons/TypescriptPlain';
 
 const skills = [
-  { icon: <Html5Plain size="80" />, name: 'HTML' },
-  { icon: <Css3Plain size="80" />, name: 'CSS' },
-  { icon: <SassOriginal size="80" />, name: 'SASS' },
-  { icon: <TailwindcssPlain size="80" />, name: 'Tailwind' },
-  { icon: <JavascriptPlain size="80" />, name: 'JavaScript' },
-  { icon: <TypescriptPlain size="80" />, name: 'TypeScript' },
-  { icon: <ReactOriginal size="80" />, name: 'React' },
-  { icon: <NextjsLine size="80" />, name: 'NextJs' },
-  { icon: <SveltePlain size="80" />, name: 'Svelte' },
-  { icon: <NodejsOriginal size="80" />, name: 'NodeJs' },
-  { icon: <ExpressOriginal size="80" />, name: 'Express' },
-  { icon: <ReduxOriginal size="80" />, name: 'Redux' },
-  { icon: <MongodbOriginal size="80" />, name: 'MongoDB' },
-  { icon: <JestPlain size="80" />, name: 'Jest' },
-  { icon: <GitOriginal size="80" />, name: 'Git' },
-  { icon: <GithubOriginal size="80" />, name: 'Github' },
+  { icon: <Html5Plain />, name: 'HTML' },
+  { icon: <Css3Plain />, name: 'CSS' },
+  { icon: <SassOriginal />, name: 'SASS' },
+  { icon: <TailwindcssPlain />, name: 'Tailwind' },
+  { icon: <JavascriptPlain />, name: 'JavaScript' },
+  { icon: <TypescriptPlain />, name: 'TypeScript' },
+  { icon: <ReactOriginal />, name: 'React' },
+  { icon: <NextjsLine />, name: 'NextJs' },
+  { icon: <SveltePlain />, name: 'Svelte' },
+  { icon: <NodejsOriginal />, name: 'NodeJs' },
+  { icon: <ExpressOriginal />, name: 'Express' },
+  { icon: <ReduxOriginal />, name: 'Redux' },
+  { icon: <MongodbOriginal />, name: 'MongoDB' },
+  { icon: <JestPlain />, name: 'Jest' },
+  { icon: <GitOriginal />, name: 'Git' },
+  { icon: <GithubOriginal />, name: 'Github' },
 ];
 
 export default skills;

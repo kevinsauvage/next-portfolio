@@ -34,7 +34,7 @@ const sections: Sections = [
     icon: <FaCode />,
     label: 'My Projects',
     tagLevel: 5,
-    title: 'Dive into my digital solutions',
+    title: 'My digital solutions',
   },
   {
     icon: <FaEnvelope />,

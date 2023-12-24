@@ -1,8 +1,7 @@
 .about {
   width: 100%;
-  padding-left: $padding-3;
 
-  @include respond(tablet) {
+  @include respond(medium) {
     padding-left: 0;
   }
 }

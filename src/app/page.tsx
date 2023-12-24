@@ -8,8 +8,8 @@ import Skills from '@/sections/Skills/Skills';
 const Home = () => (
   <>
     <Banner />
-    <Skills />
     <About />
+    <Skills />
     <Experiences />
     <Projects />
     <Contact />

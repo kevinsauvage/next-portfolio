@@ -37,12 +37,13 @@ const Project = ({ item }: Properties) => {
               <p className={styles.title}>{title}</p>
               <Buttons item={item} />
             </div>
+
             <p className={styles.description}>{description}</p>
             <div className={styles.languages}>
-              {languages.map(({ icon, name }) => (
+              {languages.map(({ name }, index) => (
                 <div key={name} className={styles.language}>
-                  {icon}
                   <p>{name}</p>
+                  {index < languages.length - 1 && <span className={styles.dot} />}
                 </div>
               ))}
             </div>
