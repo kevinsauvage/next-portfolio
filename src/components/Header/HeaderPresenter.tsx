@@ -9,6 +9,7 @@ const threshold = 350;
 const HeaderPresenter = () => {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
 
   // Control the header's scroll direction when the page loads
   useEffect(() => {
@@ -28,6 +29,9 @@ const HeaderPresenter = () => {
 
     const handleScroll = () => {
       const { scrollTop } = document.documentElement;
+
+      if (scrollTop === 0) setIsAtTop(true);
+      else setIsAtTop(false);
 
       // Handle scroll up
       if (scrollTop < lastScrollTop) {
@@ -57,7 +61,9 @@ const HeaderPresenter = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <Header isScrollingUp={isScrollingUp} isScrollingDown={isScrollingDown} />;
+  return (
+    <Header isScrollingUp={isScrollingUp} isScrollingDown={isScrollingDown} isAtTop={isAtTop} />
+  );
 };
 
 export default HeaderPresenter;

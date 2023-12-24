@@ -22,6 +22,11 @@
     transform: translateY(0);
     backdrop-filter: blur(6px);
   }
+
+  &.isAtTop {
+    background-color: transparent;
+    backdrop-filter: blur(0px);
+  }
 }
 
 @include respond(x-large) {
