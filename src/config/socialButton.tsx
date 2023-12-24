@@ -1,5 +1,4 @@
-import { FaGithubSquare } from 'react-icons/fa';
-import { FaLinkedin } from 'react-icons/fa';
+import { FaGithubSquare, FaLinkedin } from 'react-icons/fa';
 
 const socialButton = [
   {

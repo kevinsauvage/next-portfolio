@@ -1,8 +1,4 @@
-import { FaUser } from 'react-icons/fa';
-import { FaSuitcase } from 'react-icons/fa';
-import { FaCode } from 'react-icons/fa';
-import { FaEnvelope } from 'react-icons/fa';
-import { FaTools } from 'react-icons/fa';
+import { FaCode, FaEnvelope, FaSuitcase, FaTools, FaUser } from 'react-icons/fa';
 
 export type Sections = Array<{
   icon: React.ReactNode;

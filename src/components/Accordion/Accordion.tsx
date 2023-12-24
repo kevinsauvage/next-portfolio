@@ -23,9 +23,9 @@ const Accordion = ({ children, totalVisible, className, Tag = 'div' }: Accordion
     if (typeof totalVisible !== 'object') return;
     const keys = Object.keys(totalVisible);
     const key = keys.find((item) => window.matchMedia(`(max-width: ${item}px)`).matches);
-    const defaultVisible = totalVisible.default || childrenCount;
+    const defaultVisible = totalVisible.default ?? childrenCount;
 
-    setVisible(totalVisible[key as keyof typeof totalVisible] || defaultVisible);
+    setVisible(totalVisible[key as keyof typeof totalVisible] ?? defaultVisible);
   }, [childrenCount, totalVisible]);
 
   useEffect(() => {

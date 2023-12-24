@@ -26,7 +26,7 @@ const SectionTitle = ({ title, className, tagLevel = 6 }: Properties) => {
   const Tag = headingProperties[tagLevel].tagName;
 
   const dynamicProperties = {
-    className: `${styles.Title} ${className || ''}`,
+    className: `${styles.Title} ${className ?? ''}`,
     dangerouslySetInnerHTML: { __html: title },
   };
 
