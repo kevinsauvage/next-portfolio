@@ -1,5 +1,3 @@
-import { FiExternalLink } from 'react-icons/fi';
-
 import Link from 'next/link';
 
 import styles from './Experience.module.scss';
@@ -13,32 +11,36 @@ type Properties = {
       name: string;
       link: string;
     };
+    listItem: Array<string>;
   };
 };
 
 const Experience = ({ experience }: Properties) => {
-  const { title, period, description, company } = experience;
+  const { title, period, company, listItem } = experience;
 
   return (
-    <li>
-      <Link
-        href={company.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        title={`Go to ${company.name} website`}
-      >
-        <div className={styles.card}>
-          <p className={styles.period}>{period}</p>
-          <div className={styles.right}>
-            <p className={styles.title}>{title}</p>
-            <div className={styles.company}>
-              <p>{company.name}</p>
-              <FiExternalLink />
-            </div>
-            <p className={styles.description}>{description}</p>
+    <li className={styles.card} role="tabpanel">
+      <div className={styles.header}>
+        <p className={styles.title}>{title}</p>
+        <Link
+          href={company.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={`Go to ${company.name} website`}
+        >
+          <div className={styles.company}>
+            <p>@ {company.name}</p>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
+      <p className={styles.period}>{period}</p>
+      <ul className={styles.list}>
+        {listItem.map((item) => (
+          <li key={item} className={styles.listItem}>
+            {item}
+          </li>
+        ))}
+      </ul>
     </li>
   );
 };

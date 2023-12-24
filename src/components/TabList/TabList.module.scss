@@ -1,0 +1,80 @@
+.TabList {
+  display: flex;
+
+  .tabs {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-right: 1rem;
+
+    button {
+      background-color: transparent;
+      border: none;
+      white-space: nowrap;
+      text-align: left;
+      padding: 1rem;
+      border-left: 2px solid var(--color-border-2);
+      cursor: pointer;
+
+      &.active {
+        border-left: 2px solid var(--primary-100);
+      }
+    }
+  }
+}
+
+@include respond(tablet) {
+  .TabList {
+    flex-direction: column;
+
+    .tabs {
+      flex-direction: row;
+      overflow-x: scroll;
+
+      button {
+        border-left: none;
+        border-bottom: 2px solid var(--color-border-2);
+        margin-bottom: 0.5rem;
+
+        &.active {
+          border-left: none;
+          border-bottom: 2px solid var(--primary-100);
+        }
+      }
+    }
+  }
+}
+
+@include respond(tablet) {
+  .TabList {
+    .tabs {
+      width: calc(100% + 6rem);
+      margin-left: -3rem;
+      margin-right: -3rem;
+    }
+  }
+}
+
+@include respond(mobile_l) {
+  .TabList {
+    .tabs {
+      width: calc(100% + 2rem);
+      margin-left: -1rem;
+      margin-right: -1rem;
+    }
+  }
+}
+
+@include respond-gt(tablet) {
+  .TabList {
+    .tabs {
+      button:not(.active) {
+        &:hover {
+          @include glassEffect;
+          color: var(--primary-100);
+          border-left: 2px solid var(--color-border-2);
+        }
+      }
+    }
+  }
+}

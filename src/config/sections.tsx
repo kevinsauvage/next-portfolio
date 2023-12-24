@@ -28,7 +28,7 @@ const sections: Sections = [
     icon: <FaSuitcase />,
     label: 'My Experience',
     tagLevel: 4,
-    title: 'Explore my work history',
+    title: 'Where I’ve Worked',
   },
   {
     icon: <FaCode />,
