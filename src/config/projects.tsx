@@ -41,7 +41,7 @@ const Streamy = {
   ],
   images: {
     thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1691688139/portfolio/Streamy_pj4sqb.png',
+      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1691688139/portfolio/Streamy_pj4sqb.png',
   },
   languages: [
     {
@@ -71,7 +71,7 @@ const Portfolio = {
   githubLink: ['https://github.com/kevinsauvage/next-portfolio'],
   images: {
     thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.png',
+      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.png',
   },
   languages: [
     {
@@ -97,7 +97,7 @@ const Calculator = {
   githubLink: ['https://github.com/kevinsauvage/calculator'],
   images: {
     thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,h_300/v1703344125/portfolio/Create-Next-App_oetdtn.webp',
+      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1703344125/portfolio/Create-Next-App_oetdtn.webp',
   },
   languages: [
     {
