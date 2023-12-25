@@ -8,12 +8,15 @@ import JestPlain from 'devicons-react/lib/icons/JestPlain';
 import MongodbOriginal from 'devicons-react/lib/icons/MongodbOriginal';
 import NextjsLine from 'devicons-react/lib/icons/NextjsLine';
 import NodejsOriginal from 'devicons-react/lib/icons/NodejsOriginal';
+import NpmOriginalWordmark from 'devicons-react/lib/icons/NpmOriginalWordmark';
 import ReactOriginal from 'devicons-react/lib/icons/ReactOriginal';
 import ReduxOriginal from 'devicons-react/lib/icons/ReduxOriginal';
 import SassOriginal from 'devicons-react/lib/icons/SassOriginal';
 import SveltePlain from 'devicons-react/lib/icons/SveltePlain';
 import TailwindcssPlain from 'devicons-react/lib/icons/TailwindcssPlain';
 import TypescriptPlain from 'devicons-react/lib/icons/TypescriptPlain';
+import VscodePlain from 'devicons-react/lib/icons/VscodePlain';
+import YarnOriginal from 'devicons-react/lib/icons/YarnOriginal';
 
 const skills = [
   { icon: <Html5Plain />, name: 'HTML' },
@@ -32,6 +35,9 @@ const skills = [
   { icon: <JestPlain />, name: 'Jest' },
   { icon: <GitOriginal />, name: 'Git' },
   { icon: <GithubOriginal />, name: 'Github' },
+  { icon: <NpmOriginalWordmark />, name: 'NPM' },
+  { icon: <YarnOriginal />, name: 'Yarn' },
+  { icon: <VscodePlain />, name: 'VS Code' },
 ];
 
 export default skills;

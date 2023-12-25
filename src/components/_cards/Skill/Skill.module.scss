@@ -13,6 +13,14 @@
   svg {
     width: 5rem !important;
     height: 5rem !important;
+
+    path:not([fill='none']) {
+      fill: var(--primary-100);
+    }
+
+    g {
+      fill: var(--primary-100);
+    }
   }
 }
 
