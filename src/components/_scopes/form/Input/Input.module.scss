@@ -1,6 +1,6 @@
 .input {
   width: 100%;
-  margin-top: var(--spacing-s);
+  margin-top: var(--spacing-xs);
   padding: var(--spacing-m);
   border: $border-s;
   border-radius: $radius-xs;
@@ -8,6 +8,7 @@
   font-weight: 300;
   font-size: var(--fz-md);
   background-color: transparent;
+  transition: all 0.2s ease-in-out;
 
   @include placeholder(rgba(var(--rgb-color-text-2), 0.5), 0.9rem);
 

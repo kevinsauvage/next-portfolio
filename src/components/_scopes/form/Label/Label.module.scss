@@ -3,16 +3,5 @@
   flex-direction: column;
   color: var(--color-text-1);
   font-weight: 400;
-  font-size: var(--fz-sm);
-  text-transform: uppercase;
-}
-
-.missing {
-  color: var(--color-error);
-
-  input,
-  textarea,
-  select {
-    border-color: var(--color-error);
-  }
+  font-size: var(--fz-xs);
 }

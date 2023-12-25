@@ -1,7 +1,7 @@
 .textArea {
   min-height: 100px;
   max-height: 500px;
-  margin-top: var(--spacing-s);
+  margin-top: var(--spacing-xs);
   padding: var(--spacing-m);
   border: $border-s;
   border-radius: $radius-xs;
@@ -10,6 +10,7 @@
   background-color: transparent;
   resize: none;
   resize: vertical;
+  transition: all 0.2s ease-in-out;
 
   @include placeholder(rgba(var(--rgb-color-text-2), 0.5), 0.9rem);
 

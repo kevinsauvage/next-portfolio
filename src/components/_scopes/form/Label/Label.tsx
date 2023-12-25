@@ -5,8 +5,8 @@ type Properties = {
   missing?: boolean;
 };
 
-const Label = ({ children, missing, ...rest }: Properties) => (
-  <label className={`${styles.label} ${missing && styles.missing}`} {...rest}>
+const Label = ({ children, ...rest }: Properties) => (
+  <label className={`${styles.label}`} {...rest}>
     {children}
   </label>
 );
