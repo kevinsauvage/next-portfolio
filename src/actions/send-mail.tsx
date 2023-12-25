@@ -24,7 +24,7 @@ export async function sendMail(previousState: FormData, formData: FormData) {
   const missingValues = [];
 
   if (!templateParameters.email) missingValues.push('email');
-  if (!templateParameters.fullName) missingValues.push('fullName');
+  if (!templateParameters.fullName) missingValues.push('full name');
   if (!templateParameters.message) missingValues.push('message');
 
   if (missingValues.length > 0) {
