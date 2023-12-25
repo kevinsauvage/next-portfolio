@@ -1,4 +1,4 @@
-import { Playfair_Display, Roboto_Condensed, Source_Code_Pro } from 'next/font/google';
+import { Playfair_Display, Source_Code_Pro } from 'next/font/google';
 
 import styles from './LayoutWrapper.module.scss';
 

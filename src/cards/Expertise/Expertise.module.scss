@@ -9,6 +9,7 @@
   border-radius: $radius-s;
   font-size: var(--fz-m);
   word-spacing: -2.5px;
+
   @include glassEffect;
 
   .index {
@@ -22,8 +23,8 @@
   .title {
     margin-bottom: var(--spacing-xxs);
     color: var(--primary-100);
-    font-size: var(--fz-xl);
     font-weight: 600;
+    font-size: var(--fz-xl);
   }
 
   p {
@@ -35,9 +36,9 @@
 
     li {
       margin-bottom: var(--spacing-xs);
-      list-style: disc inside;
-      font-size: var(--fz-xs);
       color: var(--color-text-1);
+      font-size: var(--fz-xs);
+      list-style: disc inside;
     }
   }
 }
