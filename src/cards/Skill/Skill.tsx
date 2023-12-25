@@ -1,10 +1,9 @@
+import { SkillType } from './types';
+
 import styles from './Skill.module.scss';
 
 type Properties = {
-  item: {
-    name: string;
-    icon: JSX.Element;
-  };
+  item: SkillType;
 };
 
 const Project = ({ item }: Properties) => {

@@ -1,18 +1,11 @@
 import Link from 'next/link';
 
+import { ExperienceType } from './types';
+
 import styles from './Experience.module.scss';
 
 type Properties = {
-  experience: {
-    title: string;
-    period: string;
-    description: string;
-    company: {
-      name: string;
-      link: string;
-    };
-    listItem: Array<string>;
-  };
+  experience: ExperienceType;
 };
 
 const Experience = ({ experience }: Properties) => {

@@ -1,15 +1,15 @@
 .card {
   position: relative;
   display: flex;
-  gap: var(--spacing-m);
+  gap: var(--spacing-l);
   width: 100%;
   min-width: 200px;
   height: fit-content;
-  padding: var(--spacing-l);
-  overflow: hidden;
   border: $border-s;
   border-color: transparent;
   border-radius: $radius-s;
+  padding: 0rem;
+  transition: all 0.2s ease-in-out;
 
   .content {
     position: static;
@@ -26,17 +26,15 @@
 
     .title {
       color: var(--color-text-1);
-      font-weight: 500;
+      font-weight: 600;
       font-size: var(--fz-xl);
       line-height: 1;
-      letter-spacing: -2px;
       white-space: nowrap;
     }
 
     .description {
       margin-bottom: var(--spacing-m);
       color: var(--color-text-3);
-      font-size: var(--fz-sm);
     }
 
     .languages {
@@ -48,12 +46,13 @@
       .language {
         display: flex;
         align-items: center;
-        gap: var(--spacing-s);
+        gap: var(--spacing-xs);
         color: var(--primary-100);
         font-weight: 400;
-        font-size: var(--fz-xs);
+        font-size: var(--fz-sm);
         line-height: 1;
         letter-spacing: 0px;
+        margin-bottom: var(--spacing-xs);
 
         .dot {
           display: inline-block;
@@ -105,6 +104,7 @@
   .card {
     &:hover {
       @include glassEffect;
+      padding: var(--spacing-m);
 
       .image {
         img {

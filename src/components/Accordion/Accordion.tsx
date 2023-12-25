@@ -10,22 +10,38 @@ type Breakpoint = keyof typeof breakpoints;
 
 interface AccordionProperties {
   children: React.ReactNode;
-  totalVisible?: { [K in Breakpoint | 'default']?: number };
+  totalVisible?: { [K in Breakpoint]?: number };
   className: string;
   Tag: ElementType;
+  defaultVisible: number;
 }
 
-const Accordion = ({ children, totalVisible, className, Tag = 'div' }: AccordionProperties) => {
-  const [visible, setVisible] = useState(0);
+const Accordion = ({
+  children,
+  totalVisible,
+  className,
+  Tag = 'div',
+  defaultVisible,
+}: AccordionProperties) => {
+  const [visible, setVisible] = useState(defaultVisible);
   const childrenCount = Children.toArray(children).length;
 
   const handleFindTotalVisible = useCallback(() => {
     if (typeof totalVisible !== 'object') return;
     const keys = Object.keys(totalVisible);
     const key = keys.find((item) => window.matchMedia(`(max-width: ${item}px)`).matches);
-    const defaultVisible = totalVisible.default ?? childrenCount;
+    if (!key) {
+      const higherKey = keys.reduce((previous, current) => {
+        if (Number(previous) > Number(current)) return previous;
+        return current;
+      });
+      const nextVisible = totalVisible[higherKey as keyof typeof totalVisible] ?? childrenCount;
+      setVisible(nextVisible);
+      return;
+    }
+    const nextVisible = totalVisible[key as keyof typeof totalVisible] ?? childrenCount;
 
-    setVisible(totalVisible[key as keyof typeof totalVisible] ?? defaultVisible);
+    setVisible(nextVisible);
   }, [childrenCount, totalVisible]);
 
   useEffect(() => {
@@ -36,17 +52,24 @@ const Accordion = ({ children, totalVisible, className, Tag = 'div' }: Accordion
     children && (
       <>
         <Tag className={className}>{Children.toArray(children).slice(0, visible)}</Tag>
-        <button
-          title="See more content"
-          type="button"
-          className={styles.button}
-          onClick={() =>
-            visible < childrenCount ? setVisible(childrenCount) : handleFindTotalVisible()
-          }
-          aria-label="See more"
-        >
-          {visible < childrenCount ? <>See more</> : <>See less</>}
-        </button>
+        {visible <= childrenCount && (
+          <button
+            title="See more content"
+            type="button"
+            className={styles.button}
+            onClick={() => {
+              if (visible < childrenCount) {
+                setVisible(childrenCount);
+              } else {
+                handleFindTotalVisible();
+              }
+            }}
+            aria-label="See more"
+          >
+            {visible < childrenCount && <>See more</>}
+            {visible === childrenCount && <>See less</>}
+          </button>
+        )}
       </>
     )
   );

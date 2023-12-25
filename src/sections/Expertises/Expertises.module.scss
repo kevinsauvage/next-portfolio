@@ -1,27 +1,17 @@
-.card {
-  width: 100%;
-  height: 100%;
-  margin-bottom: var(--spacing-m);
-  padding: var(--spacing-xl);
-  border: $border-s;
-  border-radius: $radius-s;
-  text-align: center;
+.Expertise {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-s);
+}
 
-  p {
-    max-width: 500px;
-    margin: 0 auto;
+@include respond(medium) {
+  .Expertise {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-.Expertise {
-  .title {
-    margin-bottom: var(--spacing-m);
-    color: var(--primary-100);
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-
-  p {
-    color: var(--color-text-3);
+@include respond(small) {
+  .Expertise {
+    grid-template-columns: 1fr;
   }
 }

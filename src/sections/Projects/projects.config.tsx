@@ -6,7 +6,7 @@ const SpotifyProfile = {
     thumbnail:
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1696360147/Spotify-profile_2_h8jape.webp',
   },
-  languages: [
+  technologies: [
     { name: 'NextJs' },
     { name: 'Typescript' },
     { name: 'SASS' },
@@ -28,7 +28,7 @@ const Streamy = {
     thumbnail:
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1691688139/portfolio/Streamy_pj4sqb.webp',
   },
-  languages: [
+  technologies: [
     { name: 'ReactJs' },
     { name: 'SASS' },
     { name: 'ExpressJs' },
@@ -47,7 +47,7 @@ const Portfolio = {
     thumbnail:
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.webp',
   },
-  languages: [{ name: 'NextJs' }, { name: 'Typescript' }, { name: 'SASS' }, { name: 'Vercel' }],
+  technologies: [{ name: 'NextJs' }, { name: 'Typescript' }, { name: 'SASS' }, { name: 'Vercel' }],
   title: 'My Portfolio',
   websiteLink: 'https://www.kevin-sauvage.com/',
 };
@@ -60,7 +60,7 @@ const Calculator = {
     thumbnail:
       'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1703344125/portfolio/Create-Next-App_oetdtn.webp',
   },
-  languages: [
+  technologies: [
     { name: 'NextJs' },
     { name: 'Typescript' },
     { name: 'TailwindCSS' },

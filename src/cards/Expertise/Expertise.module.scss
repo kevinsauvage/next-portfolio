@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-xl) var(--spacing-l);
+  border: $border-s;
+  border-radius: $radius-s;
+  font-size: var(--fz-m);
+  word-spacing: -2.5px;
+  @include glassEffect;
+
+  .index {
+    margin-bottom: var(--spacing-xxs);
+    color: var(--color-text-1);
+    font-weight: 500;
+    font-size: var(--fz-2xl);
+    letter-spacing: -2px;
+  }
+
+  .title {
+    margin-bottom: var(--spacing-xxs);
+    color: var(--primary-100);
+    font-size: var(--fz-xl);
+    font-weight: 600;
+  }
+
+  p {
+    color: var(--color-text-2);
+  }
+
+  .keyPoints {
+    margin-top: var(--spacing-m);
+
+    li {
+      margin-bottom: var(--spacing-xs);
+      list-style: disc inside;
+      font-size: var(--fz-xs);
+      color: var(--color-text-1);
+    }
+  }
+}

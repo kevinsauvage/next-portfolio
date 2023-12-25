@@ -1,26 +1,43 @@
-import services, { Services } from '@/config/expertises';
+import Section from '@/components/_scopes/section/Section/Section';
+import SectionPresenter from '@/components/_scopes/section/SectionPresenter/SectionPresenter';
+import SectionTitle from '@/components/_scopes/section/SectionTitle/SectionTitle';
+import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionUpTitle';
+import Accordion from '@/components/Accordion/Accordion';
+import sections, { Sections } from '@/config/sections';
+import { breakpoints } from '@/utils/breakpoints';
+
+import Expertise from '../../cards/Expertise/Expertise';
+
+import expertise from './expertises.config';
 
 import styles from './Expertises.module.scss';
 
-type Properties = {
-  service: Services[0];
-};
+const label = 'My Expertises';
 
-const Expertise = ({ service }: Properties) => (
-  <li>
-    <div className={styles.card}>
-      <p className={styles.title}>{service.title}</p>
-      <p>{service.content}</p>
-    </div>
-  </li>
-);
+const section = sections.find((data) => data.label === label) as Sections[0];
+const { icon, title, TitleTag } = section || {};
 
 const Expertises = () => (
-  <ul className={styles.Expertise}>
-    {services.map((service) => (
-      <Expertise service={service} key={service.title} />
-    ))}
-  </ul>
+  <SectionPresenter>
+    <Section format="large">
+      <SectionUpTitle icon={icon} text={label} />
+      <SectionTitle title={title} TitleTag={TitleTag} />
+      <Accordion
+        className={styles.Expertise}
+        Tag="ul"
+        totalVisible={{
+          [breakpoints.sm]: 3,
+          [breakpoints.md]: 4,
+          [breakpoints.xxl]: 6,
+        }}
+        defaultVisible={3}
+      >
+        {expertise.map((service, index) => (
+          <Expertise expertise={service} key={service.title} index={index} />
+        ))}
+      </Accordion>
+    </Section>
+  </SectionPresenter>
 );
 
 export default Expertises;

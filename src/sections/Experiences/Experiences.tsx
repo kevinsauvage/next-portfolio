@@ -5,23 +5,24 @@ import SectionPresenter from '@/components/_scopes/section/SectionPresenter/Sect
 import SectionTitle from '@/components/_scopes/section/SectionTitle/SectionTitle';
 import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionUpTitle';
 import TabList from '@/components/TabList/TabList';
-import experiences from '@/config/experiences';
 import sections, { Sections } from '@/config/sections';
 
-import Experience from './Experience/Experience';
+import Experience from '../../cards/Experience/Experience';
+
+import experiences from './experiences.config';
 
 import styles from './Experiences.module.scss';
 
 const label = 'My Experience';
 
 const section = sections.find((data) => data.label === label) as Sections[0];
-const { icon, title, tagLevel } = section || {};
+const { icon, title, TitleTag } = section || {};
 
 const Experiences = () => (
   <SectionPresenter>
     <Section>
       <SectionUpTitle icon={icon} text={label} />
-      <SectionTitle title={title} tagLevel={tagLevel} />
+      <SectionTitle title={title} TitleTag={TitleTag} />
       <TabList items={experiences.map((experience) => experience.tab)}>
         {experiences.map((experience) => (
           <Experience key={experience.period} experience={experience} />

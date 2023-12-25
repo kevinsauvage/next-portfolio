@@ -3,21 +3,16 @@ import Link from 'next/link';
 
 import Buttons from '@/components/_scopes/project/Buttons/Buttons';
 
+import { ProjectType } from './types';
+
 import styles from './Project.module.scss';
 
 type Properties = {
-  item: {
-    title: string;
-    description: string;
-    languages: Array<{ name: string }>;
-    images: { thumbnail: string };
-    websiteLink: string;
-    githubLink: Array<string>;
-  };
+  item: ProjectType;
 };
 
 const Project = ({ item }: Properties) => {
-  const { title, description, languages, images, websiteLink } = item || {};
+  const { title, description, technologies, images, websiteLink } = item || {};
 
   return (
     <li>
@@ -40,10 +35,10 @@ const Project = ({ item }: Properties) => {
 
             <p className={styles.description}>{description}</p>
             <div className={styles.languages}>
-              {languages.map(({ name }, index) => (
+              {technologies.map(({ name }, index) => (
                 <div key={name} className={styles.language}>
                   <p>{name}</p>
-                  {index < languages.length - 1 && <span className={styles.dot} />}
+                  {index < technologies.length - 1 && <span className={styles.dot} />}
                 </div>
               ))}
             </div>

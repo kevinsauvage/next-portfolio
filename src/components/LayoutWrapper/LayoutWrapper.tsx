@@ -1,4 +1,4 @@
-import { Roboto_Condensed, Roboto_Mono } from 'next/font/google';
+import { Playfair_Display, Roboto_Condensed, Source_Code_Pro } from 'next/font/google';
 
 import styles from './LayoutWrapper.module.scss';
 
@@ -8,14 +8,14 @@ type Properties = {
   children: React.ReactNode;
 };
 
-const robotoCondensed = Roboto_Condensed({
+const playfairDisplay = Playfair_Display({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-heading',
   weight: '700',
 });
 
-const robotoMono = Roboto_Mono({
+const sourceSansPro = Source_Code_Pro({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-body',
@@ -37,7 +37,7 @@ const jsonLd = {
 
 const LayoutWrapper = ({ children }: Properties) => (
   <html lang="en" className={styles.html}>
-    <body className={`${robotoCondensed.variable} ${robotoMono.variable} ${styles.body}`}>
+    <body className={`${playfairDisplay.variable} ${sourceSansPro.variable} ${styles.body}`}>
       <Analytics />
       <script
         type="application/ld+json"

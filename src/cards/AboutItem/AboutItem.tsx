@@ -1,3 +1,5 @@
+import { AboutItemType } from './types';
+
 import styles from './AboutItem.module.scss';
 
 const BOLD_WORDS = [
@@ -15,10 +17,11 @@ const BOLD_WORDS = [
 ];
 
 type Properties = {
-  content: string;
+  item: AboutItemType;
 };
 
-const AboutItem = ({ content }: Properties) => {
+const AboutItem = ({ item }: Properties) => {
+  const { content } = item || {};
   const regexPattern = new RegExp(BOLD_WORDS.join('|'), 'gi');
 
   return (

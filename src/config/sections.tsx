@@ -3,39 +3,45 @@ import { FaCode, FaEnvelope, FaSuitcase, FaTools, FaUser } from 'react-icons/fa'
 export type Sections = Array<{
   icon: React.ReactNode;
   label: string;
-  tagLevel: number;
+  TitleTag: 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   title: string;
 }>;
 
 const sections: Sections = [
   {
+    TitleTag: 'h2',
+    icon: <FaCode />,
+    label: 'My Expertises',
+    title: 'What I Do',
+  },
+  {
+    TitleTag: 'h3',
     icon: <FaUser />,
     label: 'About Me',
-    tagLevel: 2,
     title: 'Getting to Know Me',
   },
   {
-    icon: <FaTools />,
-    label: 'My Skills',
-    tagLevel: 3,
-    title: 'My Technical Skills',
-  },
-  {
+    TitleTag: 'h4',
     icon: <FaSuitcase />,
     label: 'My Experience',
-    tagLevel: 4,
     title: 'Where I’ve Worked',
   },
   {
+    TitleTag: 'h5',
+    icon: <FaTools />,
+    label: 'My Skills',
+    title: 'My Technical Skills',
+  },
+  {
+    TitleTag: 'h6',
     icon: <FaCode />,
     label: 'My Projects',
-    tagLevel: 5,
     title: 'My digital solutions',
   },
   {
+    TitleTag: 'h6',
     icon: <FaEnvelope />,
     label: 'Contact Me',
-    tagLevel: 6,
     title: "Let's work together",
   },
 ];
