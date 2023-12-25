@@ -4,28 +4,28 @@ import SectionTitle from '@/components/_scopes/section/SectionTitle/SectionTitle
 import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionUpTitle';
 import sections, { Sections } from '@/config/sections';
 
-import AboutItem from '../../cards/AboutItem/AboutItem';
+import Project from '../../_cards/Project/Project';
 
-import about from './about.config';
+import projects from './projects.config';
 
-import styles from './About.module.scss';
+import styles from './Projects.module.scss';
 
-const label = 'About Me';
+const label = 'My Projects';
 const section = sections.find((data) => data.label === label) as Sections[0];
 const { icon, title, TitleTag } = section || {};
 
-const About = () => (
+const Projects = () => (
   <SectionPresenter>
     <Section>
       <SectionUpTitle icon={icon} text={label} />
       <SectionTitle title={title} TitleTag={TitleTag} />
-      <ul className={styles.about}>
-        {about.map((item) => (
-          <AboutItem key={item.content} item={item} />
+      <ul className={styles.Projects}>
+        {projects.map((item) => (
+          <Project key={item.title} item={item} />
         ))}
       </ul>
     </Section>
   </SectionPresenter>
 );
 
-export default About;
+export default Projects;

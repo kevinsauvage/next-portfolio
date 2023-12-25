@@ -6,7 +6,7 @@ import Accordion from '@/components/Accordion/Accordion';
 import sections, { Sections } from '@/config/sections';
 import { breakpoints } from '@/utils/breakpoints';
 
-import Skill from '../../cards/Skill/Skill';
+import Skill from '../../_cards/Skill/Skill';
 
 import skills from './skills.config';
 

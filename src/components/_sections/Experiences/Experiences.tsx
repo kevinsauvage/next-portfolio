@@ -7,7 +7,7 @@ import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionU
 import TabList from '@/components/TabList/TabList';
 import sections, { Sections } from '@/config/sections';
 
-import Experience from '../../cards/Experience/Experience';
+import Experience from '../../_cards/Experience/Experience';
 
 import experiences from './experiences.config';
 
