@@ -3,7 +3,7 @@
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-m);
+  gap: var(--spacing-s);
 }
 
 @include respond(medium) {
@@ -16,6 +16,5 @@
 @include respond(small) {
   .skills {
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-s);
   }
 }
