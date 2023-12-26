@@ -12,7 +12,7 @@
   @include glassEffect;
 
   .index {
-    margin-bottom: var(--spacing-xxs);
+    margin-bottom: var(--spacing-xs);
     color: var(--color-text-1);
     font-weight: 800;
     font-size: var(--font-size-lg);
@@ -20,7 +20,7 @@
   }
 
   .title {
-    margin-bottom: var(--spacing-xxs);
+    margin-bottom: var(--spacing-xs);
     color: var(--primary-100);
     font-weight: 600;
     font-size: var(--font-size-md);
