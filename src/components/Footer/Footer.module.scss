@@ -3,10 +3,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: var(--spacing-s) 0;
 
-  &__copyright {
-    width: fit-content;
-    padding: var(--spacing-m) 0;
+  .link {
     font-size: var(--font-size-sm);
+    color: var(--color-text-1);
+
+    &:hover {
+      color: var(--primary-100);
+    }
+  }
+
+  .copyright {
+    width: fit-content;
+    font-size: var(--font-size-sm);
+    margin: var(--spacing-xs) 0;
+    color: var(--color-text-3);
   }
 }

@@ -1,3 +1,5 @@
+import Footer from '../Footer/Footer';
+
 import { AlegreyaFont, jsonLd } from './LayoutWrapper.config';
 
 import styles from './LayoutWrapper.module.scss';
@@ -15,6 +17,7 @@ const LayoutWrapper = ({ children }: Properties) => (
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {children}
+      <Footer />
     </body>
   </html>
 );
