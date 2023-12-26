@@ -2,6 +2,10 @@
   margin-bottom: var(--spacing-md);
   color: var(--color-text-3);
 
+  &:last-child {
+    margin-bottom: 0;
+  }
+
   strong {
     color: var(--color-text-1);
     font-weight: 800;

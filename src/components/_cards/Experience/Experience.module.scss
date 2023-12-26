@@ -47,6 +47,10 @@
     .listItem {
       margin-bottom: var(--spacing-md);
 
+      &:last-child {
+        margin-bottom: 0;
+      }
+
       &::before {
         display: inline-block;
         width: 1em;
