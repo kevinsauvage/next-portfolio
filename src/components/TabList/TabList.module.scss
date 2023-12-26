@@ -1,20 +1,20 @@
 .TabList {
   display: flex;
+  gap: var(--spacing-xl);
 
   .tabs {
     display: flex;
     flex: 1;
     flex-direction: column;
     height: fit-content;
-    margin-right: var(--spacing-md);
-    border: $border-s;
+    border: none;
 
     button {
       padding: var(--spacing-base);
-      border: $border-s;
+      border: none;
       border-left: 2px solid var(--color-border-2);
       color: var(--color-text-1);
-      font-size: var(--font-size-base);
+      font-size: var(--font-size-sm);
       white-space: nowrap;
       text-align: left;
       background-color: transparent;
@@ -59,7 +59,6 @@
     .tabs {
       width: calc(100% + 2rem);
       margin-right: -1rem;
-      margin-bottom: var(--spacing-xl);
       margin-left: -1rem;
     }
   }
