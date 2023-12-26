@@ -8,19 +8,19 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 120px;
-  padding: 0 var(--spacing-xl);
+  padding: var(--spacing-xl) var(--spacing-xl);
   background-color: transparent;
   transition: all 0.5s $cubic-bezier;
 
-  &.isScrollingDown {
+  &.isScrollingDown:not(.isAtTop) {
     transform: translateY(-100%);
   }
 
-  &.isScrollingUp {
+  &.isScrollingUp:not(.isAtTop) {
     background-color: rgba(var(--rgb-color-background-1), 0.5);
     transform: translateY(0);
     backdrop-filter: blur(6px);
+    padding: var(--spacing-md) var(--spacing-xl);
   }
 
   &.isAtTop {

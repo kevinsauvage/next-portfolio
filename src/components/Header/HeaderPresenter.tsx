@@ -30,7 +30,7 @@ const HeaderPresenter = () => {
     const handleScroll = () => {
       const { scrollTop } = document.documentElement;
 
-      if (scrollTop === 0) setIsAtTop(true);
+      if (scrollTop < 50) setIsAtTop(true);
       else setIsAtTop(false);
 
       // Handle scroll up
