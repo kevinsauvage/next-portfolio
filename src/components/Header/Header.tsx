@@ -1,5 +1,6 @@
 import ContactInfo from '../ContactInfo/ContactInfo';
 import Logo from '../Logo/Logo';
+import NavigationPresenter from '../Navigation/NavigationPresenter';
 
 import styles from './Header.module.scss';
 
@@ -16,7 +17,12 @@ const Header = ({ isScrollingUp, isScrollingDown, isAtTop }: Properties) => (
     } ${isAtTop && styles.isAtTop}`}
   >
     <Logo />
-    <ContactInfo />
+    <div className={styles.wrapper}>
+      <div className={styles.navigation}>
+        <NavigationPresenter />
+      </div>
+      <ContactInfo />
+    </div>
   </header>
 );
 

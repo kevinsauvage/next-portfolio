@@ -17,20 +17,38 @@
   }
 
   &.isScrollingUp:not(.isAtTop) {
+    padding: var(--spacing-md) var(--spacing-xl);
     background-color: rgba(var(--rgb-color-background-1), 0.5);
     transform: translateY(0);
     backdrop-filter: blur(6px);
-    padding: var(--spacing-md) var(--spacing-xl);
   }
 
   &.isAtTop {
     background-color: transparent;
     backdrop-filter: blur(0px);
   }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
 }
 
 @include respond(x-large) {
   .header {
-    padding: 0 var(--spacing-md);
+    padding: var(--spacing-md);
+
+    &.isScrollingUp:not(.isAtTop) {
+      padding: var(--spacing-md);
+    }
+  }
+}
+
+@include respond(large) {
+  .header {
+    .navigation {
+      display: none;
+    }
   }
 }

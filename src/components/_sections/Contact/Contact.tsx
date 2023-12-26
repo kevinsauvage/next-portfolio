@@ -7,20 +7,14 @@ import sections, { Sections } from '@/config/sections';
 
 const label = 'Contact Me';
 
-type Section = {
-  icon: string;
-  title: string;
-  tagLevel: 'h2' | 'h3';
-};
-
 const section = sections.find((data) => data.label === label) as Sections[0];
-const { icon, title } = section || {};
+const { icon, title, position } = section || {};
 
 const Contact = () => (
   <SectionPresenter>
-    <Section>
+    <Section id={section.id}>
       <SectionUpTitle icon={icon} text={label} id="contact" />
-      <SectionTitle title={title} />
+      <SectionTitle title={title} position={position} />
       <ContactForm />
     </Section>
   </SectionPresenter>

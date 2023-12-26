@@ -19,7 +19,7 @@ $xx-large: 1440px;
       @content;
     }
   } @else if $media == large {
-    @media (max-width: $tablet) {
+    @media (max-width: $large) {
       @content;
     }
   } @else if $media == x-large {

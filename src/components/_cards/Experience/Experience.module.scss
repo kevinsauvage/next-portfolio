@@ -18,14 +18,14 @@
 
       .company {
         display: flex;
+        display: inline;
         align-items: center;
         gap: var(--spacing-base);
-        white-space: nowrap;
+        margin-left: var(--spacing-base);
         color: var(--primary-100);
         font-weight: 600;
         font-size: var(--font-size-md);
-        display: inline;
-        margin-left: var(--spacing-base);
+        white-space: nowrap;
         text-decoration: underline;
       }
     }

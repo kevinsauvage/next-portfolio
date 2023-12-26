@@ -12,13 +12,13 @@ import styles from './Projects.module.scss';
 
 const label = 'My Projects';
 const section = sections.find((data) => data.label === label) as Sections[0];
-const { icon, title } = section || {};
+const { icon, title, position } = section || {};
 
 const Projects = () => (
   <SectionPresenter>
-    <Section>
+    <Section id={section.id}>
       <SectionUpTitle icon={icon} text={label} />
-      <SectionTitle title={title} />
+      <SectionTitle title={title} position={position} />
       <ul className={styles.Projects}>
         {projects.map((item) => (
           <Project key={item.title} item={item} />

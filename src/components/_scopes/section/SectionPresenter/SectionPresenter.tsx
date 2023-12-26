@@ -1,7 +1,8 @@
 type Properties = {
   children: React.ReactNode;
+  id?: string;
 };
 
-const SectionPresenter = ({ children }: Properties) => <div>{children}</div>;
+const SectionPresenter = ({ children, id }: Properties) => <div id={id}>{children}</div>;
 
 export default SectionPresenter;

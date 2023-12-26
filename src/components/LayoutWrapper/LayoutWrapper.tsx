@@ -1,4 +1,5 @@
 import Footer from '../Footer/Footer';
+import NavigationPresenter from '../Navigation/NavigationPresenter';
 
 import { AlegreyaFont, jsonLd } from './LayoutWrapper.config';
 
@@ -17,6 +18,9 @@ const LayoutWrapper = ({ children }: Properties) => (
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {children}
+      <div className={styles.navigation}>
+        <NavigationPresenter />
+      </div>
       <Footer />
     </body>
   </html>

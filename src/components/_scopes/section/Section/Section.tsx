@@ -3,9 +3,10 @@ import styles from './Section.module.scss';
 type Properties = {
   children: React.ReactNode;
   format?: 'xlarge' | 'large' | 'medium' | 'small';
+  id?: string;
 };
 
-const Section = ({ children, format = 'medium' }: Properties) => {
+const Section = ({ children, id, format = 'medium' }: Properties) => {
   const formatClass = {
     large: styles.large,
     medium: styles.medium,
@@ -13,7 +14,11 @@ const Section = ({ children, format = 'medium' }: Properties) => {
     xlarge: styles.xlarge,
   }[format];
 
-  return <section className={`${styles.Section} ${formatClass}`}>{children}</section>;
+  return (
+    <section id={id} className={`${styles.Section} ${formatClass}`}>
+      {children}
+    </section>
+  );
 };
 
 export default Section;
