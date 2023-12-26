@@ -14,13 +14,13 @@ type Section = {
 };
 
 const section = sections.find((data) => data.label === label) as Sections[0];
-const { icon, title, TitleTag } = section || {};
+const { icon, title } = section || {};
 
 const Contact = () => (
   <SectionPresenter>
     <Section>
       <SectionUpTitle icon={icon} text={label} id="contact" />
-      <SectionTitle title={title} TitleTag={TitleTag} />
+      <SectionTitle title={title} />
       <ContactForm />
     </Section>
   </SectionPresenter>

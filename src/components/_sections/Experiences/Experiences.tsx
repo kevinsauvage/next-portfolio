@@ -16,13 +16,13 @@ import styles from './Experiences.module.scss';
 const label = 'My Experience';
 
 const section = sections.find((data) => data.label === label) as Sections[0];
-const { icon, title, TitleTag } = section || {};
+const { icon, title } = section || {};
 
 const Experiences = () => (
   <SectionPresenter>
     <Section>
       <SectionUpTitle icon={icon} text={label} />
-      <SectionTitle title={title} TitleTag={TitleTag} />
+      <SectionTitle title={title} />
       <TabList items={experiences.map((experience) => experience.tab)}>
         {experiences.map((experience) => (
           <Experience key={experience.period} experience={experience} />

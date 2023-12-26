@@ -12,13 +12,13 @@ import styles from './About.module.scss';
 
 const label = 'About Me';
 const section = sections.find((data) => data.label === label) as Sections[0];
-const { icon, title, TitleTag } = section || {};
+const { icon, title } = section || {};
 
 const About = () => (
   <SectionPresenter>
     <Section>
       <SectionUpTitle icon={icon} text={label} />
-      <SectionTitle title={title} TitleTag={TitleTag} />
+      <SectionTitle title={title} />
       <ul className={styles.about}>
         {about.map((item) => (
           <AboutItem key={item.content} item={item} />

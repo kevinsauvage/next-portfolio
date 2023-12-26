@@ -14,13 +14,13 @@ import styles from './Skills.module.scss';
 
 const label = 'My Skills';
 const section = sections.find((data) => data.label === label) as Sections[0];
-const { icon, title, TitleTag } = section || {};
+const { icon, title } = section || {};
 
 const Skills = () => (
   <SectionPresenter>
     <Section>
       <SectionUpTitle icon={icon} text={label} />
-      <SectionTitle title={title} TitleTag={TitleTag} />
+      <SectionTitle title={title} />
       <Accordion
         className={styles.skills}
         Tag="ul"

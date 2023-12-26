@@ -15,13 +15,13 @@ import styles from './Expertises.module.scss';
 const label = 'My Expertises';
 
 const section = sections.find((data) => data.label === label) as Sections[0];
-const { icon, title, TitleTag } = section || {};
+const { icon, title } = section || {};
 
 const Expertises = () => (
   <SectionPresenter>
     <Section format="large">
       <SectionUpTitle icon={icon} text={label} />
-      <SectionTitle title={title} TitleTag={TitleTag} />
+      <SectionTitle title={title} />
       <Accordion
         className={styles.Expertise}
         Tag="ul"
