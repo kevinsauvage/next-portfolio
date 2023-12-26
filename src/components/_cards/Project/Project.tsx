@@ -20,8 +20,8 @@ const Project = ({ item }: Properties) => {
         <div className={styles.card}>
           <div className={styles.image}>
             <Image
-              src={images.thumbnail}
-              alt={title}
+              src={images.thumbnail.src}
+              alt={images.thumbnail.alt}
               width={1600}
               height={900}
               title="Click to see more images"
@@ -29,7 +29,7 @@ const Project = ({ item }: Properties) => {
           </div>
           <div className={styles.content}>
             <div className={styles.header}>
-              <p className={styles.title}>{title}</p>
+              <h3 className={styles.title}>{title}</h3>
               <Buttons item={item} />
             </div>
 

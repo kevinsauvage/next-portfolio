@@ -16,7 +16,7 @@ const SubmitButton = ({ style }: Properties) => {
       svg={<RiMailSendFill />}
       label="Send Message"
       type="submit"
-      title="Send Message"
+      title="Click to send the Message"
       disabled={pending}
       loading={pending}
     />

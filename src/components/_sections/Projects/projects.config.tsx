@@ -3,8 +3,10 @@ const SpotifyProfile = {
     'Showcase of Spotify API integration: User data, library, and music charts for a personalized experience.',
   githubLink: ['https://github.com/kevinsauvage/spotify-typescript'],
   images: {
-    thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1696360147/Spotify-profile_2_h8jape.webp',
+    thumbnail: {
+      alt: 'Spotify Profile home page',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1696360147/Spotify-profile_2_h8jape.webp',
+    },
   },
   technologies: [
     { name: 'NextJs' },
@@ -25,8 +27,10 @@ const Streamy = {
     'https://github.com/kevinsauvage/streamyV2-server',
   ],
   images: {
-    thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1691688139/portfolio/Streamy_pj4sqb.webp',
+    thumbnail: {
+      alt: 'Streamy home page',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1691688139/portfolio/Streamy_pj4sqb.webp',
+    },
   },
   technologies: [
     { name: 'ReactJs' },
@@ -44,8 +48,10 @@ const Portfolio = {
     'Explore my portfolio website—a creative showcase of my best work, reflecting artistry and innovation across diverse projects.',
   githubLink: ['https://github.com/kevinsauvage/next-portfolio'],
   images: {
-    thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.webp',
+    thumbnail: {
+      alt: 'Portfolio home page',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.webp',
+    },
   },
   technologies: [{ name: 'NextJs' }, { name: 'Typescript' }, { name: 'SASS' }, { name: 'Vercel' }],
   title: 'My Portfolio',
@@ -57,8 +63,10 @@ const Calculator = {
     'A simple calculator app built with Next.js. It allows users to perform basic arithmetic operations and provides a clean and intuitive user interface.',
   githubLink: ['https://github.com/kevinsauvage/calculator'],
   images: {
-    thumbnail:
-      'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1703344125/portfolio/Create-Next-App_oetdtn.webp',
+    thumbnail: {
+      alt: 'Calculator home page',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1703344125/portfolio/Create-Next-App_oetdtn.webp',
+    },
   },
   technologies: [
     { name: 'NextJs' },

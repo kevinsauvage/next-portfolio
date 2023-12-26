@@ -14,17 +14,18 @@ const Experience = ({ experience }: Properties) => {
   return (
     <div className={styles.card} role="tabpanel">
       <div className={styles.header}>
-        <p className={styles.title}>{title}</p>
-        <Link
-          href={company.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={`Go to ${company.name} website`}
-        >
-          <div className={styles.company}>
-            <p>@ {company.name}</p>
-          </div>
-        </Link>
+        <h3 className={styles.title}>
+          {title}
+          <Link
+            className={styles.company}
+            href={company.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`Go to ${company.name} website`}
+          >
+            @ {company.name}
+          </Link>
+        </h3>
       </div>
       <p className={styles.period}>{period}</p>
       <ul className={styles.list}>

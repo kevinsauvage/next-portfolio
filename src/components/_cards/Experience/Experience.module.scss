@@ -15,27 +15,18 @@
       font-weight: 600;
       font-size: var(--font-size-md);
       white-space: nowrap;
-    }
 
-    .company {
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-base);
-      white-space: nowrap;
-
-      p {
+      .company {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-base);
+        white-space: nowrap;
         color: var(--primary-100);
         font-weight: 600;
         font-size: var(--font-size-md);
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-
-      a {
-        display: flex;
-        align-items: baseline;
+        display: inline;
+        margin-left: var(--spacing-base);
+        text-decoration: underline;
       }
     }
   }

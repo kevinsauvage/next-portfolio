@@ -15,7 +15,7 @@ const Expertise = ({ expertise, displayKeyPoints, index }: Properties) => {
     <li>
       <div className={styles.card}>
         <div className={styles.index}>{`0${index + 1}`}</div>
-        <p className={styles.title}>{title}</p>
+        <h3 className={styles.title}>{title}</h3>
         <p>{content}</p>
         {displayKeyPoints && (
           <ul className={styles.keyPoints}>
