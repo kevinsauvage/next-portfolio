@@ -9,9 +9,9 @@
   h1 {
     margin-bottom: var(--spacing-m);
     color: var(--color-text-3);
+    font-weight: 800;
     font-size: var(--font-size-xxxxl);
     line-height: 1.1;
-    font-weight: 800;
 
     &::first-line {
       color: var(--color-text-1);
@@ -51,8 +51,8 @@
   .Banner {
     h1 {
       font-size: var(--font-size-xxxl);
-      text-align: left;
       line-height: 1.2;
+      text-align: left;
     }
 
     .subtitle {
