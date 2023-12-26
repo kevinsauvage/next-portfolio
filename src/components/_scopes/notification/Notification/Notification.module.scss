@@ -2,7 +2,7 @@
   position: relative;
   min-width: 10rem;
   max-width: 500px;
-  margin-bottom: var(--spacing-s);
+  margin-bottom: var(--spacing-base);
   overflow: hidden;
   border: $border-m;
   border-radius: $radius-s 0 $radius-s $radius-s;
@@ -12,7 +12,7 @@
 .inner {
   width: 100%;
   height: 100%;
-  padding: var(--spacing-s) var(--spacing-m);
+  padding: var(--spacing-base) var(--spacing-md);
   color: var(--color-text-1);
   font-weight: 400;
 
@@ -21,7 +21,7 @@
   }
 
   @include respond(small) {
-    padding: var(--spacing-m);
+    padding: var(--spacing-md);
     border-radius: 0;
 
     span {
@@ -81,11 +81,11 @@
 
 @include respond(small) {
   .notification {
-    padding-top: var(--spacing-s);
+    padding-top: var(--spacing-base);
     border-radius: 0;
 
     .inner {
-      padding: var(--spacing-m);
+      padding: var(--spacing-md);
     }
   }
 

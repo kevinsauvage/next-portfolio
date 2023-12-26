@@ -1,7 +1,7 @@
 .Projects {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-m);
+  gap: var(--spacing-md);
 }
 
 @include respond(medium) {

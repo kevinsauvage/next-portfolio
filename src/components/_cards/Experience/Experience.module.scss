@@ -7,7 +7,7 @@
   .header {
     display: flex;
     align-items: center;
-    gap: var(--spacing-s);
+    gap: var(--spacing-base);
     font-weight: 500;
 
     .title {
@@ -20,7 +20,7 @@
     .company {
       display: flex;
       align-items: center;
-      gap: var(--spacing-s);
+      gap: var(--spacing-base);
       white-space: nowrap;
 
       p {
@@ -41,7 +41,7 @@
   }
 
   .period {
-    margin-bottom: var(--spacing-m);
+    margin-bottom: var(--spacing-md);
     color: var(--color-text-3);
     font-weight: 400;
     font-size: var(--font-size-base);
@@ -51,10 +51,10 @@
   }
 
   .list {
-    margin-left: var(--spacing-l);
+    margin-left: var(--spacing-lg);
 
     .listItem {
-      margin-bottom: var(--spacing-m);
+      margin-bottom: var(--spacing-md);
 
       &::before {
         display: inline-block;
@@ -71,7 +71,7 @@
   @include respond(x-large) {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-s);
+    gap: var(--spacing-base);
     width: 100%;
   }
 }

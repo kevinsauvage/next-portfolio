@@ -6,11 +6,11 @@
     flex: 1;
     flex-direction: column;
     height: fit-content;
-    margin-right: var(--spacing-m);
+    margin-right: var(--spacing-md);
     border: $border-s;
 
     button {
-      padding: var(--spacing-s);
+      padding: var(--spacing-base);
       border: $border-s;
       border-left: 2px solid var(--color-border-2);
       color: var(--color-text-1);

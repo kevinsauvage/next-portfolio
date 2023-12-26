@@ -1,7 +1,7 @@
 .Expertise {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-s);
+  gap: var(--spacing-base);
 }
 
 @include respond(medium) {

@@ -7,6 +7,12 @@ import styles from './Banner.module.scss';
 const Banner = () => (
   <SectionPresenter>
     <div className={styles.Banner}>
+      <p className={styles.upTitle}>
+        Hello There!
+        <span role="img" aria-label="wave">
+          👋
+        </span>
+      </p>
       <h1>
         Building the Future
         <br /> One Line of Code at a Time
@@ -16,8 +22,10 @@ const Banner = () => (
         I&apos;m immersed in the exciting world of crafting accessible, human-centered products at{' '}
         <Link href="https://www.decathlon.fr/" rel="noopener noreferrer" target="_blank">
           Decathlon
-        </Link>{' '}
-        ✨
+        </Link>
+        <span role="img" aria-label="rocket">
+          🚀
+        </span>
       </p>
       <div className={styles.buttons}>
         <Link href="mailto:kevinsauvage@outlook.com" className={styles.button} target="_blank">

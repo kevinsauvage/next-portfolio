@@ -31,6 +31,6 @@
 
 @include respond(x-large) {
   .header {
-    padding: 0 var(--spacing-m);
+    padding: 0 var(--spacing-md);
   }
 }

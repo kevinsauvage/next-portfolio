@@ -1,7 +1,7 @@
 .card {
   position: relative;
   display: flex;
-  gap: var(--spacing-m);
+  gap: var(--spacing-md);
   width: 100%;
   min-width: 200px;
   height: fit-content;
@@ -20,8 +20,8 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: var(--spacing-m);
-      margin-bottom: var(--spacing-s);
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-base);
     }
 
     .title {
@@ -33,7 +33,7 @@
     }
 
     .description {
-      margin-bottom: var(--spacing-m);
+      margin-bottom: var(--spacing-md);
       color: var(--color-text-3);
     }
 
@@ -41,13 +41,13 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      margin-bottom: var(--spacing-m);
+      margin-bottom: var(--spacing-md);
 
       .language {
         display: flex;
         align-items: center;
-        gap: var(--spacing-xs);
-        margin-bottom: var(--spacing-xs);
+        gap: var(--spacing-s);
+        margin-bottom: var(--spacing-s);
         color: var(--primary-100);
         font-weight: 400;
         font-size: var(--font-size-sm);
@@ -58,7 +58,7 @@
           display: inline-block;
           width: 0.3rem;
           height: 0.3rem;
-          margin-right: var(--spacing-xs);
+          margin-right: var(--spacing-s);
           border-radius: 50%;
           background-color: var(--primary-100);
         }
@@ -105,7 +105,7 @@
     &:hover {
       @include glassEffect;
 
-      padding: var(--spacing-m);
+      padding: var(--spacing-md);
 
       .image {
         img {
