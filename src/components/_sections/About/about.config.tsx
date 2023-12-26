@@ -9,10 +9,6 @@ const about = [
   },
   {
     content:
-      'You know, what sets me apart? I made a bold career change to become a programmer, which has given me a fresh perspective and a strong commitment to doing my best. As a result, staying updated with the latest web trends has become second nature, ensuring that you can consistently count on me for cutting-edge work.',
-  },
-  {
-    content:
       "Outside of tech, I enjoy exploring Barcelona, going on hikes, and staying active. I'm also really into music, movies, and trying out new places to eat.",
   },
 ];

@@ -38,7 +38,7 @@ const Experiences = () => (
         title="Download full resume"
         download
       >
-        Download Full Resume
+        <span>Download Full Resume</span>
       </Link>
     </Section>
   </SectionPresenter>

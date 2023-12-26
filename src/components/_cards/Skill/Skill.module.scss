@@ -35,7 +35,7 @@
 
 @include respond(x-small) {
   .skill {
-    font-size: var(--fz-sm);
+    font-size: var(--font-size-sm);
 
     svg {
       width: 3rem !important;

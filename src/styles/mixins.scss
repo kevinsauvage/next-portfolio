@@ -64,8 +64,8 @@
   border: 1px solid var(--primary-100);
   border-radius: $radius-xs;
   color: var(--primary-100);
-  font-weight: 500;
-  font-size: var(--fz-sm);
+  font-weight: 700;
+  font-size: var(--font-size-sm);
   line-height: 1;
   background-color: transparent;
   box-shadow: $shadow_2;
@@ -109,12 +109,9 @@
 
 @mixin buttonPrimary {
   @include button;
-
   @include meshGradient;
 
   color: var(--black);
-  font-weight: 900;
-  box-shadow: $shadow_2;
 }
 
 @mixin meshGradient {

@@ -6,12 +6,12 @@
     z-index: 9;
     display: flex;
     align-items: center;
-    font-size: var(--fz-md);
+    font-size: var(--font-size-base);
   }
 
   svg {
     margin-right: var(--spacing-xs);
-    font-size: var(--fz-2xl);
+    font-size: var(--font-size-md);
   }
 
   &.loading {

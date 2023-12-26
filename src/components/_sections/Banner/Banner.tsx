@@ -20,7 +20,7 @@ const Banner = () => (
         ✨
       </p>
       <div className={styles.buttons}>
-        <Link href="#contact" className={styles.button} scroll>
+        <Link href="mailto:kevinsauvage@outlook.com" className={styles.button} target="_blank">
           Get in Touch
         </Link>
         <Link

@@ -3,4 +3,11 @@
 
   margin: 0 auto;
   margin-top: var(--spacing-xl);
+
+  @include buttonHover;
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
 }

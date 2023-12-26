@@ -7,24 +7,22 @@
   padding: var(--spacing-xl) var(--spacing-l);
   border: $border-s;
   border-radius: $radius-s;
-  font-size: var(--fz-m);
-  word-spacing: -2.5px;
-
+  font-size: var(--font-size-base);
   @include glassEffect;
 
   .index {
     margin-bottom: var(--spacing-xxs);
     color: var(--color-text-1);
-    font-weight: 500;
-    font-size: var(--fz-2xl);
-    letter-spacing: -2px;
+    font-weight: 800;
+    font-size: var(--font-size-lg);
+    line-height: 1;
   }
 
   .title {
     margin-bottom: var(--spacing-xxs);
     color: var(--primary-100);
     font-weight: 600;
-    font-size: var(--fz-xl);
+    font-size: var(--font-size-md);
   }
 
   p {
@@ -37,7 +35,7 @@
     li {
       margin-bottom: var(--spacing-xs);
       color: var(--color-text-1);
-      font-size: var(--fz-xs);
+      font-size: var(--font-size-sm);
       list-style: disc inside;
     }
   }

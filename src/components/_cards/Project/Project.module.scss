@@ -27,7 +27,7 @@
     .title {
       color: var(--color-text-1);
       font-weight: 600;
-      font-size: var(--fz-xl);
+      font-size: var(--font-size-md);
       line-height: 1;
       white-space: nowrap;
     }
@@ -50,7 +50,7 @@
         margin-bottom: var(--spacing-xs);
         color: var(--primary-100);
         font-weight: 400;
-        font-size: var(--fz-sm);
+        font-size: var(--font-size-sm);
         line-height: 1;
         letter-spacing: 0px;
 

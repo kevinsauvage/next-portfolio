@@ -9,9 +9,10 @@
   margin-bottom: var(--spacing-xl);
   overflow: hidden;
   color: var(--color-text-1);
-  font-size: var(--fz-4xl);
+  font-size: var(--font-size-xl);
   line-height: 1.3;
   white-space: nowrap;
+  font-weight: 800;
 
   strong {
     color: var(--primary-100);
@@ -34,11 +35,5 @@
 @include respond(medium) {
   .Title {
     padding-left: 0;
-  }
-}
-
-@include respond(small) {
-  .Title {
-    font-size: var(--fz-3xl);
   }
 }

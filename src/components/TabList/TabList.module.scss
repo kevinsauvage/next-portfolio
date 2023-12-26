@@ -6,15 +6,19 @@
     flex: 1;
     flex-direction: column;
     margin-right: var(--spacing-m);
+    border: $border-s;
+    height: fit-content;
 
     button {
       padding: var(--spacing-s);
-      border: none;
-      border-left: 2px solid var(--color-border-2);
       white-space: nowrap;
       text-align: left;
       background-color: transparent;
       cursor: pointer;
+      font-size: var(--font-size-base);
+      border: $border-s;
+      border-left: 2px solid var(--color-border-2);
+      color: var(--color-text-1);
 
       &.active {
         border-left: 2px solid var(--primary-100);
@@ -28,11 +32,16 @@
     flex-direction: column;
 
     .tabs {
+      border-top: 2px solid var(--color-border-2);
       flex-direction: row;
       overflow-x: scroll;
 
+      &::-webkit-scrollbar {
+        width: 0rem;
+        height: 0rem;
+      }
+
       button {
-        margin-bottom: var(--spacing-s);
         border-bottom: 2px solid var(--color-border-2);
         border-left: none;
 

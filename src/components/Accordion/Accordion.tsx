@@ -66,8 +66,8 @@ const Accordion = ({
             }}
             aria-label="See more"
           >
-            {visible < childrenCount && <>See more</>}
-            {visible === childrenCount && <>See less</>}
+            {visible < childrenCount && <span>See more</span>}
+            {visible === childrenCount && <span>See less</span>}
           </button>
         )}
       </>
