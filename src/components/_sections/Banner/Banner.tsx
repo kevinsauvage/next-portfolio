@@ -20,7 +20,12 @@ const Banner = () => (
       <p className={styles.subtitle}>
         I&apos;m a Software Engineer passionate about crafting exceptional websites. Currently,
         I&apos;m immersed in the exciting world of crafting accessible, human-centered products at{' '}
-        <Link href="https://www.decathlon.fr/" rel="noopener noreferrer" target="_blank">
+        <Link
+          href="https://www.decathlon.fr/"
+          rel="noopener noreferrer"
+          target="_blank"
+          aria-label="Open Decathlon website in a new tab"
+        >
           Decathlon
         </Link>
         <span role="img" aria-label="rocket">
@@ -28,7 +33,12 @@ const Banner = () => (
         </span>
       </p>
       <div className={styles.buttons}>
-        <Link href="mailto:kevinsauvage@outlook.com" className={styles.button} target="_blank">
+        <Link
+          href="mailto:kevinsauvage@outlook.com"
+          className={styles.button}
+          target="_blank"
+          aria-label="Open your mail provider in a new tab"
+        >
           Get in Touch
         </Link>
         <Link

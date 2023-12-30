@@ -31,7 +31,7 @@ const Experiences = () => (
       <Link
         href="/kevin-sauvage-cv.pdf"
         className={styles.link}
-        aria-label="Download full resume"
+        aria-label="Download full resume in a new tab"
         target="_blank"
         prefetch={false}
         rel="noopener noreferrer"

@@ -9,7 +9,13 @@ const linkedinLink = socialButton.find((button) => button.id === 'linkedin')?.hr
 const Footer = () => (
   <footer className={styles.Footer}>
     {linkedinLink && (
-      <Link className={styles.link} href={linkedinLink} target="_blank" rel="noopener noreferrer">
+      <Link
+        className={styles.link}
+        href={linkedinLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Kévin Sauvage linkedin profile in a new tab"
+      >
         Designed & Built by Kévin Sauvage
       </Link>
     )}

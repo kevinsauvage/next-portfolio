@@ -16,7 +16,13 @@ const Project = ({ item }: Properties) => {
 
   return (
     <li>
-      <Link href={websiteLink} target="_blank" rel="noopener noreferrer" title={`Go to ${title}`}>
+      <Link
+        href={websiteLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`Go to ${title}`}
+        aria-label={`Open ${title} website in a new tab`}
+      >
         <div className={styles.card}>
           <div className={styles.image}>
             <Image
