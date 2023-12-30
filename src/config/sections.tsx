@@ -10,41 +10,41 @@ export type Sections = Array<{
 
 const sections: Sections = [
   // {
-  //   icon: <FaCode />,
+  //   icon: <FaCode role="presentation" />,
   //   id: 'expertise',
   //   label: 'My Expertises',
   //   title: 'What I Do',
   // },
   {
-    icon: <FaUser />,
+    icon: <FaUser role="presentation" />,
     id: 'about',
     label: 'About Me',
     position: '01',
     title: 'Getting to Know Me',
   },
   {
-    icon: <FaSuitcase />,
+    icon: <FaSuitcase role="presentation" />,
     id: 'experience',
     label: 'My Experience',
     position: '02',
     title: 'Where I’ve Worked',
   },
   {
-    icon: <FaTools />,
+    icon: <FaTools role="presentation" />,
     id: 'skills',
     label: 'My Skills',
     position: '03',
     title: 'My Technical Skills',
   },
   {
-    icon: <FaCode />,
+    icon: <FaCode role="presentation" />,
     id: 'projects',
     label: 'My Projects',
     position: '04',
     title: 'My digital solutions',
   },
   {
-    icon: <FaEnvelope />,
+    icon: <FaEnvelope role="presentation" />,
     id: 'contact',
     label: 'Contact Me',
     position: '05',

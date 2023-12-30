@@ -13,7 +13,7 @@ const SubmitButton = ({ style }: Properties) => {
   return (
     <Button
       className={style}
-      svg={<RiMailSendFill />}
+      svg={<RiMailSendFill role="presentation" />}
       label="Send Message"
       type="submit"
       title="Click to send the Message"
