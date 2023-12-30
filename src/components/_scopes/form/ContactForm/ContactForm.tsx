@@ -47,30 +47,30 @@ const ContactForm = () => {
           <span>
             Full name<span className={styles.required}>*</span>
           </span>
-          <Input type="text" name="fullName" placeholder="Your Full name" />
+          <Input type="text" name="fullName" placeholder="Your Full name" aria-required="true" />
         </Label>
         <Label>
           <span>
             Email<span className={styles.required}>*</span>
           </span>
-          <Input type="email" name="email" placeholder="Your email address" />
+          <Input type="email" name="email" placeholder="Your email address" aria-required="true" />
         </Label>
       </div>
       <div className={styles.row}>
         <Label>
           <span>Subject</span>
-          <Input type="text" name="subject" placeholder="Subject" />
+          <Input type="text" name="subject" placeholder="Subject" aria-required="false" />
         </Label>
         <Label>
           <span>Phone</span>
-          <Input type="phone" name="phone" placeholder="Your Phone Number" />
+          <Input type="phone" name="phone" placeholder="Your Phone Number" aria-required="false" />
         </Label>
       </div>
       <Label>
         <span>
           Message<span className={styles.required}>*</span>
         </span>
-        <TextArea name="message" placeholder="Write Your Message here" />
+        <TextArea name="message" placeholder="Write Your Message here" aria-required="true" />
       </Label>
       <SubmitButton style={styles.button} />
     </form>
