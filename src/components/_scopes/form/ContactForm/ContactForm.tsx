@@ -41,7 +41,7 @@ const ContactForm = () => {
   }, [state]);
 
   return (
-    <form className={styles.form} action={formAction}>
+    <form className={styles.form} action={formAction} aria-label="Contact me">
       <div className={styles.row}>
         <Label>
           <span>
