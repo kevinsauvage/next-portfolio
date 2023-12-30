@@ -21,7 +21,6 @@ const LayoutWrapper = ({ children }: Properties) => (
       <div className={styles.navigation}>
         <NavigationPresenter />
       </div>
-      <Footer />
     </body>
   </html>
 );

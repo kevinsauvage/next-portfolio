@@ -1,5 +1,4 @@
 import Section from '@/components/_scopes/section/Section/Section';
-import SectionPresenter from '@/components/_scopes/section/SectionPresenter/SectionPresenter';
 import SectionTitle from '@/components/_scopes/section/SectionTitle/SectionTitle';
 import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionUpTitle';
 import Accordion from '@/components/Accordion/Accordion';
@@ -18,26 +17,24 @@ const section = sections.find((data) => data.label === label) as Sections[0];
 const { icon, title, position } = section || {};
 
 const Expertises = () => (
-  <SectionPresenter>
-    <Section format="large" id={section.id}>
-      <SectionUpTitle icon={icon} text={label} />
-      <SectionTitle title={title} position={position} />
-      <Accordion
-        className={styles.Expertise}
-        Tag="ul"
-        totalVisible={{
-          [breakpoints.sm]: 3,
-          [breakpoints.md]: 4,
-          [breakpoints.xxl]: 6,
-        }}
-        defaultVisible={3}
-      >
-        {expertise.map((service, index) => (
-          <Expertise expertise={service} key={service.title} index={index} />
-        ))}
-      </Accordion>
-    </Section>
-  </SectionPresenter>
+  <Section format="large" id={section.id}>
+    <SectionUpTitle icon={icon} text={label} />
+    <SectionTitle title={title} position={position} />
+    <Accordion
+      className={styles.Expertise}
+      Tag="ul"
+      totalVisible={{
+        [breakpoints.sm]: 3,
+        [breakpoints.md]: 4,
+        [breakpoints.xxl]: 6,
+      }}
+      defaultVisible={3}
+    >
+      {expertise.map((service, index) => (
+        <Expertise expertise={service} key={service.title} index={index} />
+      ))}
+    </Accordion>
+  </Section>
 );
 
 export default Expertises;

@@ -47,7 +47,13 @@ const ContactForm = () => {
           <span>
             Full name<span className={styles.required}>*</span>
           </span>
-          <Input type="text" name="fullName" placeholder="Your Full name" aria-required="true" />
+          <Input
+            type="text"
+            name="fullName"
+            placeholder="Your Full name"
+            aria-required="true"
+            aria-label="Full name"
+          />
         </Label>
         <Label>
           <span>

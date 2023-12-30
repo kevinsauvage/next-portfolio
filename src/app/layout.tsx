@@ -1,4 +1,5 @@
 import Container from '@/components/Container/Container';
+import Footer from '@/components/Footer/Footer';
 import FullBackgroundImage from '@/components/FullBackgroundImage/FullBackgroundImage';
 import HeaderPresenter from '@/components/Header/HeaderPresenter';
 import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
@@ -17,7 +18,10 @@ const PageLayout = ({ children }: Properties) => (
       <FullBackgroundImage />
       <MouseFollowGradientBackground />
       <HeaderPresenter />
-      <Container>{children}</Container>
+      <Container>
+        <main>{children}</main>
+      </Container>
+      <Footer />
     </NotificationProvider>
   </LayoutWrapper>
 );
