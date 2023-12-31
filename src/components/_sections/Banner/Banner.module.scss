@@ -84,6 +84,7 @@
 
 @include respond(small) {
   .Banner {
+    min-height: calc(100vh - 73px);
     padding-top: 73px;
 
     h1 {
