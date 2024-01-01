@@ -14,7 +14,7 @@ const Footer = () => (
         href={linkedinLink}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Open Kévin Sauvage linkedin profile in a new tab"
+        aria-label=" Designed & Built by Kévin Sauvage - Open Kévin Sauvage linkedin profile in a new tab"
       >
         Designed & Built by Kévin Sauvage
       </Link>

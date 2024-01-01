@@ -10,11 +10,14 @@
   border-color: transparent;
   border-radius: $radius-s;
   transition: all 0.2s ease-in-out;
+  padding: var(--spacing-md);
+  @include glassEffect;
 
   .content {
     position: static;
     flex: 1;
     flex-grow: 1;
+    padding: var(--spacing-base) 0;
 
     .header {
       display: flex;
@@ -42,6 +45,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: var(--spacing-s);
+      margin-top: var(--spacing-lg);
 
       .language {
         display: flex;
@@ -51,15 +55,9 @@
         font-size: var(--font-size-sm);
         line-height: 1;
         letter-spacing: 0px;
-
-        .dot {
-          display: inline-block;
-          width: 0.3rem;
-          height: 0.3rem;
-          margin-left: var(--spacing-s);
-          border-radius: 50%;
-          background-color: var(--primary-100);
-        }
+        background-color: rgba(var(--rgb-primary-400), 0.3);
+        padding: var(--spacing-xs) var(--spacing-s);
+        border-radius: var(--border-radius-xl);
       }
     }
   }
@@ -77,6 +75,12 @@
       border: $border-l;
     }
   }
+
+  &:nth-child(odd) {
+    .image {
+      order: 2;
+    }
+  }
 }
 
 @include respond(medium) {
@@ -84,6 +88,17 @@
     flex-direction: column;
     padding: 0;
     border-radius: 0;
+    gap: 0;
+
+    .content {
+      padding: var(--spacing-md);
+    }
+
+    &:nth-child(odd) {
+      .image {
+        order: 0;
+      }
+    }
   }
 }
 

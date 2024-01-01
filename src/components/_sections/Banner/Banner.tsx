@@ -34,7 +34,7 @@ const Banner = () => (
         href="mailto:kevinsauvage@outlook.com"
         className={styles.button}
         target="_blank"
-        aria-label="Open your mail provider in a new tab"
+        aria-label="Get in Touch - Open your e-mail provider in a new tab"
       >
         Get in Touch
       </Link>

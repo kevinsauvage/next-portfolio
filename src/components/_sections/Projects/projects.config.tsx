@@ -38,6 +38,7 @@ const Streamy = {
     { name: 'ExpressJs' },
     { name: 'MongoDB' },
     { name: 'Vercel' },
+    { name: 'TMDb API' },
   ],
   title: 'Streamy',
   websiteLink: 'https://streamy.fun/',

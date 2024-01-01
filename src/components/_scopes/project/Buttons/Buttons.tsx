@@ -1,7 +1,6 @@
 'use client';
 
 import { FaGithub } from 'react-icons/fa';
-import { FiExternalLink } from 'react-icons/fi';
 
 import styles from './Buttons.module.scss';
 
@@ -18,11 +17,6 @@ const Buttons = ({ item }: Properties) => {
     item.githubLink.forEach((element) => window.open(element));
   };
 
-  const handleClickVisit = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    window.open(item.websiteLink);
-  };
-
   return (
     <div className={styles.buttons}>
       {item.githubLink?.length > 0 && (
@@ -35,14 +29,6 @@ const Buttons = ({ item }: Properties) => {
           <FaGithub />
         </button>
       )}
-      <button
-        type="button"
-        aria-label="Open website in a new tab"
-        onClick={handleClickVisit}
-        title="Open project in a new tab"
-      >
-        <FiExternalLink />
-      </button>
     </div>
   );
 };
