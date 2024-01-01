@@ -11,7 +11,7 @@ const ContactInfo = () => (
         <Link
           href={item.href}
           className={styles.link}
-          aria-label={item.text}
+          aria-label={`${item.text} on a new page`}
           target="_blank"
           prefetch={false}
           rel="noopener noreferrer"
