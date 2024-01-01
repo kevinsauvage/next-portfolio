@@ -34,7 +34,6 @@
     .tabs {
       flex-direction: row;
       overflow-x: scroll;
-      border-top: 2px solid var(--color-border-2);
 
       &::-webkit-scrollbar {
         width: 0rem;
@@ -42,8 +41,9 @@
       }
 
       button {
-        border-bottom: 2px solid var(--color-border-2);
         border-left: none;
+        border-top: 2px solid var(--color-border-2);
+        border-bottom: 2px solid var(--color-border-2);
 
         &.active {
           border-bottom: 2px solid var(--primary-100);
