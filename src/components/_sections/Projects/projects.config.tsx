@@ -5,7 +5,7 @@ const SpotifyProfile = {
   images: {
     thumbnail: {
       alt: 'Spotify Profile home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1696360147/Spotify-profile_2_h8jape.webp',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1704109547/portfolio/spotifyProfileMockup_ehxdxg.webp',
     },
   },
   technologies: [
@@ -29,7 +29,7 @@ const Streamy = {
   images: {
     thumbnail: {
       alt: 'Streamy home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1691688139/portfolio/Streamy_pj4sqb.webp',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1704109547/portfolio/streamyMockup_mpznlb.webp',
     },
   },
   technologies: [
@@ -50,7 +50,7 @@ const Portfolio = {
   images: {
     thumbnail: {
       alt: 'Portfolio home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1699902817/portfolio/Ke%CC%81vin-Sauvage-developer-portfolio-website_1_t9fh6w.webp',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1704109547/portfolio/portfolioMockup_jh0mpw.webp',
     },
   },
   technologies: [{ name: 'NextJs' }, { name: 'Typescript' }, { name: 'SASS' }, { name: 'Vercel' }],
@@ -65,7 +65,7 @@ const Calculator = {
   images: {
     thumbnail: {
       alt: 'Calculator home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500,ar_16:9/v1703344125/portfolio/Create-Next-App_oetdtn.webp',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1704109546/portfolio/CalculatorMockup_oh09z5.webp',
     },
   },
   technologies: [

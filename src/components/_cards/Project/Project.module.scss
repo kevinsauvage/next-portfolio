@@ -13,8 +13,8 @@
 
   .content {
     position: static;
-    flex: 2;
-    flex-grow: 3;
+    flex: 1;
+    flex-grow: 1;
 
     .header {
       display: flex;
@@ -68,14 +68,13 @@
     position: relative;
     display: flex;
     flex: 1;
-    flex-grow: 2;
+    flex-grow: 1;
     height: fit-content;
 
     img {
       width: 100%;
       height: auto;
       border: $border-l;
-      aspect-ratio: 16/9;
     }
   }
 }
@@ -93,26 +92,6 @@
     .image {
       img {
         max-width: unset;
-      }
-    }
-  }
-}
-
-@include respond-gt(medium) {
-  .card {
-    &:hover {
-      @include glassEffect;
-
-      padding: var(--spacing-md);
-
-      .image {
-        img {
-          border-color: var(--primary-100);
-        }
-      }
-
-      button[aria-label='Open website'] {
-        color: var(--primary-100) !important;
       }
     }
   }

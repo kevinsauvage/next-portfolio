@@ -28,14 +28,19 @@ const Buttons = ({ item }: Properties) => {
       {item.githubLink?.length > 0 && (
         <button
           type="button"
-          aria-label="Open Github"
-          title="See the code on Github"
+          aria-label="Open Github in a new tab"
+          title="See the code on Github in a new tab"
           onClick={handleClickSourceCode}
         >
           <FaGithub />
         </button>
       )}
-      <button type="button" aria-label="Open website" onClick={handleClickVisit}>
+      <button
+        type="button"
+        aria-label="Open website in a new tab"
+        onClick={handleClickVisit}
+        title="Open project in a new tab"
+      >
         <FiExternalLink />
       </button>
     </div>
