@@ -70,7 +70,6 @@
       button:not(.active) {
         &:hover {
           @include glassEffect;
-
           border-left: 2px solid var(--color-border-2);
           color: var(--primary-100);
         }
