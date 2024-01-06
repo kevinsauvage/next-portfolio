@@ -11,12 +11,6 @@ type Properties = { children: React.ReactNode };
 const LayoutWrapper = ({ children }: Properties) => (
   <html lang="en" className={styles.html}>
     <body className={`${AlegreyaFont.variable} ${styles.body}`}>
-      <div className="blur-effect blur0" />
-      <div className="blur-effect blur1" />
-      <div className="blur-effect blur2" />
-      <div className="blur-effect blur3" />
-      <div className="blur-effect blur4" />
-      <div className="blur-effect blur5" /> <div className="blur-effect blur6" />
       <Analytics />
       <script
         type="application/ld+json"
