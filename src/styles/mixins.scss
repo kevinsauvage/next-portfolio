@@ -45,10 +45,10 @@
 }
 
 @mixin glassEffect {
-  background-color: rgba(var(--rgb-color-background-1), 0.3);
+  background-color: rgba(var(--rgb-color-background-2), 0.5);
   box-shadow: $shadow_1;
-  -webkit-backdrop-filter: blur(20px) brightness(200%) saturate(180%);
-  backdrop-filter: blur(20px) brightness(200%) saturate(180%);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   transition: all 0.2s ease-in-out;
 }
 
