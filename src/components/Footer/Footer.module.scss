@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-base) 0;
+  position: relative;
+  z-index: 2;
 
   .link {
     color: var(--color-text-1);

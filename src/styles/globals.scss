@@ -68,3 +68,44 @@ select:-webkit-autofill:focus {
   --border-radius-xl: 1.6rem;
   --border-radius-xxl: 3.2rem;
 }
+
+.blur-effect {
+  position: absolute;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  background-color: var(--primary-100);
+  -webkit-box-shadow: 0px 0px 100px 140px rgba(var(--rgb-primary-100), 0.75);
+  -moz-box-shadow: 0px 0px 100px 140px rgba(var(--rgb-primary-100), 0.75);
+  box-shadow: 0px 0px 100px 140px rgba(var(--rgb-primary-100), 0.75);
+}
+
+.blur0 {
+  top: calc(100vh - 50vh);
+  right: 17%;
+  transform: translateY(-50%);
+  width: 20vw;
+}
+
+.blur1 {
+  top: 160vh;
+  left: -10%;
+  width: 30vw;
+}
+
+.blur2 {
+  top: 300vh;
+  right: 5%;
+  width: 25vw;
+}
+
+.blur3 {
+  top: 400vh;
+  right: 80%;
+  width: 30vw;
+}
+
+.blur4 {
+  bottom: 110vh;
+  right: 10%;
+  width: 20vw;
+}

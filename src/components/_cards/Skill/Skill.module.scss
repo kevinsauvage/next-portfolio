@@ -1,6 +1,4 @@
 .skill {
-  @include glassEffect;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +6,7 @@
   gap: var(--spacing-base);
   padding: var(--spacing-md) 0;
   border-radius: $radius-s;
-  background-color: rgba(var(--rgb-color-background-1), 0.1);
+  @include glassEffect;
 
   svg {
     width: 5rem !important;

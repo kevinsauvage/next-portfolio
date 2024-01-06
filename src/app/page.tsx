@@ -4,15 +4,18 @@ import Contact from '@/components/_sections/Contact/Contact';
 import Experiences from '@/components/_sections/Experiences/Experiences';
 import Projects from '@/components/_sections/Projects/Projects';
 import Skills from '@/components/_sections/Skills/Skills';
+import Container from '@/components/Container/Container';
 
 const Home = () => (
   <>
     <Banner />
-    <About />
-    <Experiences />
-    <Skills />
-    <Projects />
-    <Contact />
+    <Container>
+      <About />
+      <Experiences />
+      <Skills />
+      <Projects />
+      <Contact />
+    </Container>
   </>
 );
 

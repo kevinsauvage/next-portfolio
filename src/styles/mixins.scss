@@ -47,8 +47,8 @@
 @mixin glassEffect {
   background-color: rgba(var(--rgb-color-background-1), 0.3);
   box-shadow: $shadow_1;
-  -webkit-backdrop-filter: blur(20px) brightness(200%);
-  backdrop-filter: blur(20px) brightness(200%);
+  -webkit-backdrop-filter: blur(20px) brightness(200%) saturate(180%);
+  backdrop-filter: blur(20px) brightness(200%) saturate(180%);
   transition: all 0.2s ease-in-out;
 }
 
@@ -66,7 +66,7 @@
   font-weight: 700;
   font-size: var(--font-size-sm);
   line-height: 1;
-  background-color: transparent;
+  background-color: var(--color-background-1);
   box-shadow: $shadow_2;
   cursor: pointer;
 
@@ -80,9 +80,6 @@
     &::after {
       position: absolute;
       background-color: var(--primary-100);
-
-      @include meshGradient;
-
       transform-origin: right;
       transition: scale 0.3s $cubic-bezier;
       content: '';
@@ -108,13 +105,6 @@
 
 @mixin buttonPrimary {
   @include button;
-
-  @include meshGradient;
-
+  background-color: var(--primary-100);
   color: var(--black);
-}
-
-@mixin meshGradient {
-  background: linear-gradient(270deg, #24e4cc, #1b9ce4);
-  background-size: 100% 100%;
 }

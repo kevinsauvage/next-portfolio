@@ -1,9 +1,6 @@
-import Container from '@/components/Container/Container';
 import Footer from '@/components/Footer/Footer';
-import FullBackgroundImage from '@/components/FullBackgroundImage/FullBackgroundImage';
 import HeaderPresenter from '@/components/Header/HeaderPresenter';
 import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
-import MouseFollowGradientBackground from '@/components/MouseFollowBackground/MouseFollowGradientBackground';
 import NotificationProvider from '@/contexts/NotificationContext';
 
 import '@/styles/globals.scss';
@@ -15,12 +12,8 @@ type Properties = {
 const PageLayout = ({ children }: Properties) => (
   <LayoutWrapper>
     <NotificationProvider>
-      <FullBackgroundImage />
-      <MouseFollowGradientBackground />
       <HeaderPresenter />
-      <Container>
-        <main>{children}</main>
-      </Container>
+      <main>{children}</main>
       <Footer />
     </NotificationProvider>
   </LayoutWrapper>
