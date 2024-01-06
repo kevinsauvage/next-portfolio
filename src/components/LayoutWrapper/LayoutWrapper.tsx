@@ -16,6 +16,7 @@ const LayoutWrapper = ({ children }: Properties) => (
       <div className="blur-effect blur2" />
       <div className="blur-effect blur3" />
       <div className="blur-effect blur4" />
+      <div className="blur-effect blur5" /> <div className="blur-effect blur6" />
       <Analytics />
       <script
         type="application/ld+json"
