@@ -10,7 +10,11 @@
   width: 100%;
   padding: var(--spacing-xl) var(--spacing-xl);
   background-color: transparent;
-  transition: all 0.5s $cubic-bezier;
+  transition:
+    transform 0.5s $cubic-bezier,
+    padding 0.5s $cubic-bezier;
+  will-change: transform;
+  backdrop-filter: blur(6px);
 
   &.isScrollingDown:not(.isAtTop) {
     transform: translateY(-100%);
@@ -20,7 +24,6 @@
     padding: var(--spacing-md) var(--spacing-xl);
     background-color: rgba(var(--rgb-color-background-1), 0.5);
     transform: translateY(0);
-    backdrop-filter: blur(6px);
   }
 
   &.isAtTop {

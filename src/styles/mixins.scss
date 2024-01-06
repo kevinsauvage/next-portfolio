@@ -47,8 +47,8 @@
 @mixin glassEffect {
   background-color: rgba(var(--rgb-color-background-2), 0.5);
   box-shadow: $shadow_1;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   transition: all 0.2s ease-in-out;
 }
 
