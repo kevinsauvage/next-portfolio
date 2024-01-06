@@ -7,12 +7,7 @@ import Container from '@/components/Container/Container';
 import styles from './Banner.module.scss';
 const Banner = () => (
   <div className={styles.Banner}>
-    <svg className={styles.blur1} fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M558.085 265C558.085 411.079 433.173 529.5 279.085 529.5C124.998 529.5 0.0852015 411.079 0.0852015 265C0.0852015 118.921 124.998 0.5 279.085 0.5C433.173 0.5 558.085 118.921 558.085 265Z"
-        fill="var(--primary-100)"
-      />
-    </svg>
+    <div className={styles.blur1} />
 
     <Container>
       <div className={styles.inner}>
@@ -59,12 +54,7 @@ const Banner = () => (
         </div>
 
         <div className={styles.imageContainer}>
-          <svg className={styles.blur2} fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M558.085 265C558.085 411.079 433.173 529.5 279.085 529.5C124.998 529.5 0.0852015 411.079 0.0852015 265C0.0852015 118.921 124.998 0.5 279.085 0.5C433.173 0.5 558.085 118.921 558.085 265Z"
-              fill="var(--primary-100)"
-            />
-          </svg>
+          <div className={styles.blur2} />
           <Image
             className={styles.image}
             src={testPng}

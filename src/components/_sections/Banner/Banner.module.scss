@@ -10,8 +10,14 @@
   .blur2 {
     position: absolute;
     border-radius: 50%;
-    opacity: 0.5;
-    filter: blur(70px);
+    opacity: 0.4;
+    filter: blur(50px);
+    background: radial-gradient(
+      circle,
+      rgba(var(--rgb-primary-100), 1) 0%,
+      rgba(var(--rgb-primary-100), 0.5) 100%
+    );
+    box-shadow: 0 0 0 100px rgba(var(--rgb-primary-100), 0.5);
   }
 
   .blur1 {
@@ -29,8 +35,8 @@
     transform: translate(-50%, -50%);
 
     @include respond(large) {
-      width: 300px;
-      height: 300px;
+      width: 200px;
+      height: 200px;
     }
   }
 
