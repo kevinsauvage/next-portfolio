@@ -19,9 +19,8 @@ const NavigationPresenter = () => {
         const section = document.querySelector(`#${sectionId}`) as HTMLElement;
 
         if (section) {
-          const sectionTop = section.offsetTop - 50;
+          const sectionTop = section.getBoundingClientRect().top + scrollPosition;
           const sectionBottom = sectionTop + section.offsetHeight;
-
           return scrollPosition >= sectionTop && scrollPosition < sectionBottom;
         }
         return false;
