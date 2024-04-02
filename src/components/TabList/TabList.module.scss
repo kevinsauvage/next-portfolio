@@ -41,9 +41,9 @@
       }
 
       button {
-        border-left: none;
         border-top: 2px solid var(--color-border-2);
         border-bottom: 2px solid var(--color-border-2);
+        border-left: none;
 
         &.active {
           border-bottom: 2px solid var(--primary-100);
@@ -70,6 +70,7 @@
       button:not(.active) {
         &:hover {
           @include glassEffect;
+
           border-left: 2px solid var(--color-border-2);
           color: var(--primary-100);
         }

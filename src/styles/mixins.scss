@@ -105,6 +105,7 @@
 
 @mixin buttonPrimary {
   @include button;
-  background-color: var(--primary-100);
+
   color: var(--black);
+  background-color: var(--primary-100);
 }

@@ -6,11 +6,12 @@
   min-width: 200px;
   height: fit-content;
   padding: 0rem;
+  padding: var(--spacing-md);
   border: $border-s;
   border-color: transparent;
   border-radius: $radius-s;
   transition: all 0.2s ease-in-out;
-  padding: var(--spacing-md);
+
   @include glassEffect;
 
   .content {
@@ -50,14 +51,14 @@
       .language {
         display: flex;
         align-items: center;
+        padding: var(--spacing-xs) var(--spacing-s);
+        border-radius: var(--border-radius-xl);
         color: var(--primary-100);
         font-weight: 400;
         font-size: var(--font-size-sm);
         line-height: 1;
         letter-spacing: 0px;
         background-color: var(--color-background-1);
-        padding: var(--spacing-xs) var(--spacing-s);
-        border-radius: var(--border-radius-xl);
       }
     }
   }
@@ -86,9 +87,9 @@
 @include respond(medium) {
   .card {
     flex-direction: column;
+    gap: 0;
     padding: 0;
     border-radius: 0;
-    gap: 0;
 
     .content {
       padding: var(--spacing-md);

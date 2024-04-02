@@ -6,6 +6,7 @@
   gap: var(--spacing-base);
   padding: var(--spacing-md) 0;
   border-radius: $radius-s;
+
   @include glassEffect;
 
   svg {
