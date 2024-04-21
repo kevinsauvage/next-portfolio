@@ -2,13 +2,14 @@
   min-height: 170px;
   max-height: 500px;
   margin-top: var(--spacing-s);
-  padding: var(--spacing-md);
+  padding: var(--spacing-s);
   border: $border-s;
   border-radius: $radius-xs;
   color: var(--color-text-2);
   font-weight: 300;
   font-size: 0.9rem;
   background-color: transparent;
+  background-color: var(--color-background-1);
   transition: all 0.2s ease-in-out;
   resize: none;
   resize: vertical;
