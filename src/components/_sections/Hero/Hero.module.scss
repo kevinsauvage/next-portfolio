@@ -1,4 +1,4 @@
-.Banner {
+.Hero {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -121,7 +121,7 @@
 }
 
 @include respond(large) {
-  .Banner {
+  .Hero {
     padding: calc(73px + var(--spacing-xxl)) 0;
 
     .inner {
@@ -136,7 +136,7 @@
 }
 
 @include respond(medium) {
-  .Banner {
+  .Hero {
     .inner {
       .content {
         h1 {
@@ -159,7 +159,7 @@
 }
 
 @include respond(small) {
-  .Banner {
+  .Hero {
     min-height: calc(100vh - 73px);
 
     .inner {

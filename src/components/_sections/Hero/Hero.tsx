@@ -4,9 +4,10 @@ import Link from 'next/link';
 import testPng from '@/assets/images/bannerImage.svg';
 import Container from '@/components/Container/Container';
 
-import styles from './Banner.module.scss';
+import styles from './Hero.module.scss';
+
 const Banner = () => (
-  <div className={styles.Banner}>
+  <section className={styles.Hero}>
     <div className={styles.blur1} />
 
     <Container>
@@ -66,7 +67,7 @@ const Banner = () => (
         </div>
       </div>
     </Container>
-  </div>
+  </section>
 );
 
 export default Banner;
