@@ -1,114 +1,58 @@
 .card {
-  position: relative;
-  display: flex;
-  gap: var(--spacing-md);
-  width: 100%;
-  min-width: 200px;
-  height: fit-content;
-  padding: 0rem;
-  padding: var(--spacing-md);
-  border: $border-s;
-  border-color: transparent;
-  border-radius: $radius-s;
-  transition: all 0.2s ease-in-out;
-
-  @include glassEffect;
-
   .content {
-    position: static;
-    flex: 1;
-    flex-grow: 1;
-    padding: var(--spacing-base) 0;
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+    width: 100%;
+    min-width: 200px;
+    height: fit-content;
+    padding: var(--spacing-lg) 0;
+    border-top: $border-l;
+    border-bottom: $border-l;
 
-    .header {
+    .info {
+      .title {
+        margin-bottom: var(--spacing-s);
+        color: var(--color-text-1);
+        font-weight: 600;
+        font-size: var(--font-size-md);
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .languages {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--spacing-s);
+
+        .language {
+          display: flex;
+          align-items: center;
+          color: var(--primary-100);
+          font-weight: 500;
+          font-size: var(--font-size-sm);
+          letter-spacing: 0px;
+        }
+      }
+    }
+
+    .linkPlaceHolder {
       display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: var(--spacing-md);
-      margin-bottom: var(--spacing-base);
-    }
-
-    .title {
-      color: var(--color-text-1);
-      font-weight: 600;
-      font-size: var(--font-size-md);
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .description {
-      margin-bottom: var(--spacing-md);
-      color: var(--color-text-3);
-    }
-
-    .languages {
-      display: flex;
-      flex-wrap: wrap;
       align-items: center;
       gap: var(--spacing-xs);
-      margin-top: var(--spacing-lg);
-
-      .language {
-        display: flex;
-        align-items: center;
-        padding: var(--spacing-xs) var(--spacing-s);
-        border-radius: var(--border-radius-xl);
-        color: var(--primary-100);
-        font-weight: 400;
-        font-size: var(--font-size-sm);
-        line-height: 1;
-        letter-spacing: 0px;
-        background-color: var(--color-background-1);
-      }
+      color: var(--color-text-1);
+      white-space: nowrap;
     }
   }
 
-  .image {
-    position: relative;
-    display: flex;
-    flex: 1;
-    flex-grow: 1;
-    height: fit-content;
-
-    img {
-      width: 100%;
-      height: auto;
-      border: $border-l;
-    }
-  }
-
-  &:nth-child(odd) {
-    .image {
-      order: 2;
-    }
-  }
-}
-
-@include respond(medium) {
-  .card {
-    flex-direction: column;
-    gap: 0;
-    padding: 0;
-    border-radius: 0;
-
+  &:hover {
     .content {
-      padding: var(--spacing-md);
-    }
-
-    &:nth-child(odd) {
-      .image {
-        order: 0;
-      }
-    }
-  }
-}
-
-@include respond(small) {
-  .card {
-    .image {
-      img {
-        max-width: unset;
-      }
+      border-top-color: var(--primary-100);
+      border-bottom-color: var(--primary-100);
     }
   }
 }

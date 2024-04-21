@@ -1,47 +1,57 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useFormState } from 'react-dom';
+import { useEffect, useRef } from 'react';
+import { useFormState, useFormStatus } from 'react-dom';
+import { RiMailSendFill } from 'react-icons/ri';
 
 import { sendMail } from '@/actions/send-mail';
 import Input from '@/components/_scopes/form/Input/Input';
 import Label from '@/components/_scopes/form/Label/Label';
 import TextArea from '@/components/_scopes/form/TextArea/TextArea';
+import Button from '@/components/Button/Button';
 import { useNotification } from '@/contexts/NotificationContext';
 
-import SubmitButton from './SubmitButton';
-
 import styles from './ContactForm.module.scss';
+
+const SubmitButton = () => {
+  const { pending } = useFormStatus();
+
+  return (
+    <Button
+      className={styles.button}
+      svg={<RiMailSendFill role="presentation" />}
+      label="Send Message"
+      type="submit"
+      title="Click to send the Message"
+      disabled={pending}
+      loading={pending}
+    />
+  );
+};
 
 export type formDataType = {
   [key: string]: string;
 };
 
-export type clearInputsType = () => void;
-
-const clearInputs: clearInputsType = () => {
-  const inputs = document.querySelectorAll('input, textarea') as NodeListOf<HTMLInputElement>;
-  inputs.forEach((input) => (input.value = ''));
-};
-
 const ContactForm = () => {
   const notification = useNotification();
-  //@ts-expect-error https://github.com/vercel/next.js/issues/56041
-  const [state, formAction] = useFormState(sendMail, {});
+  const reference = useRef<HTMLFormElement>(null);
+  const [errors, formAction] = useFormState(sendMail, {});
 
   useEffect(() => {
-    if (state?.success) {
-      clearInputs();
-      notification.success(state.message);
+    if (!errors && reference?.current) {
+      reference.current.reset();
+      notification.success('Message sent successfully');
     }
-    if (state?.error) {
-      notification.error(state.message);
+
+    if (errors?.feedback) {
+      notification.error(errors.feedback as string);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [state]);
+  }, [errors]);
 
   return (
-    <form className={styles.form} action={formAction} aria-label="Contact me">
+    <form ref={reference} className={styles.form} action={formAction} aria-label="Contact me">
       <div className={styles.row}>
         <Label>
           <span>
@@ -54,22 +64,26 @@ const ContactForm = () => {
             aria-required="true"
             aria-label="Full name"
           />
+          {errors?.fullName && <span className={styles.error}>{errors.fullName}</span>}
         </Label>
         <Label>
           <span>
             Email<span className={styles.required}>*</span>
           </span>
           <Input type="email" name="email" placeholder="Your email address" aria-required="true" />
+          {errors?.email && <span className={styles.error}>{errors.email}</span>}
         </Label>
       </div>
       <div className={styles.row}>
         <Label>
           <span>Subject</span>
           <Input type="text" name="subject" placeholder="Subject" aria-required="false" />
+          {errors?.subject && <span className={styles.error}>{errors.subject}</span>}
         </Label>
         <Label>
           <span>Phone</span>
           <Input type="phone" name="phone" placeholder="Your Phone Number" aria-required="false" />
+          {errors?.phone && <span className={styles.error}>{errors.phone}</span>}
         </Label>
       </div>
       <Label>
@@ -77,8 +91,9 @@ const ContactForm = () => {
           Message<span className={styles.required}>*</span>
         </span>
         <TextArea name="message" placeholder="Write Your Message here" aria-required="true" />
+        {errors?.message && <span className={styles.error}>{errors.message}</span>}
       </Label>
-      <SubmitButton style={styles.button} />
+      <SubmitButton />
     </form>
   );
 };

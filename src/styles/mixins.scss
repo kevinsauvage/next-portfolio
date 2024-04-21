@@ -58,14 +58,15 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: var(--spacing-md) var(--spacing-lg);
+  padding: var(--spacing-s) var(--spacing-md);
   overflow: hidden;
   border: 1px solid var(--primary-100);
   border-radius: $radius-xs;
   color: var(--primary-100);
   font-weight: 700;
   font-size: var(--font-size-sm);
-  line-height: 1;
+  line-height: 2;
+  text-wrap: nowrap;
   background-color: var(--color-background-1);
   box-shadow: $shadow_2;
   cursor: pointer;

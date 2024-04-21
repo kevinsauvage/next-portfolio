@@ -1,4 +1,4 @@
-.textArea {
+.TextArea {
   min-height: 170px;
   max-height: 500px;
   margin-top: var(--spacing-s);
@@ -7,6 +7,7 @@
   border-radius: $radius-xs;
   color: var(--color-text-2);
   font-weight: 300;
+  font-size: 0.9rem;
   background-color: transparent;
   transition: all 0.2s ease-in-out;
   resize: none;

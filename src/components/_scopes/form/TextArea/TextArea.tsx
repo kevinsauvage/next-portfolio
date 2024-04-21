@@ -1,13 +1,9 @@
 import styles from './TextArea.module.scss';
 
-type Properties = {
-  placeholder: string;
-  [key: string]: unknown;
-  name: string;
-};
+type Properties = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-const TextArea = ({ placeholder, name, ...rest }: Properties) => (
-  <textarea className={styles.textArea} name={name} placeholder={placeholder} {...rest} />
+const TextArea = ({ className, ...rest }: Properties) => (
+  <textarea className={`${styles.TextArea} ${className}`} {...rest} />
 );
 
 export default TextArea;

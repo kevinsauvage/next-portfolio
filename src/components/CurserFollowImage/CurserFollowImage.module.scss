@@ -1,0 +1,21 @@
+.CurserFollowImage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  width: 400px;
+  height: auto;
+  transform: translate(-50%, -50%) rotate(0deg);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+  animation-delay: 1000ms;
+  pointer-events: none;
+  will-change: transform;
+
+  &.isHovered {
+    visibility: visible;
+    opacity: 1;
+  }
+}

@@ -1,13 +1,9 @@
 import styles from './Input.module.scss';
 
-type Properties = {
-  type: string;
-  placeholder: string;
-  [key: string]: unknown;
-};
+type InputProperties = React.InputHTMLAttributes<HTMLInputElement>;
 
-const Input = ({ type, placeholder, ...rest }: Properties) => (
-  <input type={type} className={styles.input} placeholder={placeholder} {...rest} />
+const Input: React.FC<InputProperties> = ({ name, type = 'text', className, ...rest }) => (
+  <input className={`${styles.input} ${className}`} type={type} id={name} name={name} {...rest} />
 );
 
 export default Input;

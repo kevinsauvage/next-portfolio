@@ -1,4 +1,6 @@
-import ContactInfo from '../ContactInfo/ContactInfo';
+import Link from 'next/link';
+
+import Container from '../Container/Container';
 import Logo from '../Logo/Logo';
 import NavigationPresenter from '../Navigation/NavigationPresenter';
 
@@ -16,13 +18,22 @@ const Header = ({ isScrollingUp, isScrollingDown, isAtTop }: Properties) => (
       isScrollingDown && styles.isScrollingDown
     } ${isAtTop && styles.isAtTop}`}
   >
-    <Logo />
-    <div className={styles.wrapper}>
-      <div className={styles.navigation}>
-        <NavigationPresenter />
+    <Container className={styles.container}>
+      <Logo />
+      <div className={styles.wrapper}>
+        <div className={styles.navigation}>
+          <NavigationPresenter />
+        </div>
+        <Link
+          href="mailto:kevinsauvage@outlook.com"
+          className={styles.button}
+          target="_blank"
+          aria-label="Get in Touch - Open your e-mail provider in a new tab"
+        >
+          Contact
+        </Link>
       </div>
-      <ContactInfo />
-    </div>
+    </Container>
   </header>
 );
 

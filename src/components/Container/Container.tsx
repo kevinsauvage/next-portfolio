@@ -1,11 +1,11 @@
-type Properties = {
-  children: React.ReactNode;
-  classname?: string;
-};
 import styles from './Container.module.scss';
 
-const Container = ({ children, classname }: Properties) => (
-  <div className={`${styles.Container} ${classname}`}>{children}</div>
+type Properties = {
+  children: React.ReactNode;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+const Container = ({ children, className }: Properties) => (
+  <div className={`${styles.Container} ${className}`}>{children}</div>
 );
 
 export default Container;

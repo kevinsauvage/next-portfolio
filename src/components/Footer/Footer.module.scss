@@ -2,24 +2,13 @@
   position: relative;
   z-index: 2;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: var(--spacing-base) 0;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
 
-  .link {
+  .linkHome {
     color: var(--color-text-1);
-    font-size: var(--font-size-sm);
-
-    &:hover {
-      color: var(--primary-100);
-    }
-  }
-
-  .copyright {
-    width: fit-content;
-    margin: var(--spacing-s) 0;
-    color: var(--color-text-3);
-    font-size: var(--font-size-sm);
+    font-weight: 500;
   }
 }

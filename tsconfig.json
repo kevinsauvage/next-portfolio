@@ -6,7 +6,8 @@
     "strict": true, // Enable all strict type-checking options.
     "lib": [
       "esnext",
-      "DOM"
+      "DOM",
+      "dom.iterable" // <- there you are
     ], // Specify the default library to use (in this case, ESNext).
     "esModuleInterop": true, // Allow default imports from modules with no default export.
     "target": "es6", // Specify ECMAScript target version.
@@ -20,14 +21,9 @@
     "jsx": "preserve", // Preserve JSX in files passed to TypeScript (handled by Babel in Next.js).
     "incremental": true, // Enable incremental compilation for faster builds.
     "paths": {
-      "@/*": [
-        "./src/*"
-      ] // Module alias for shorter import paths.
+      "@/*": ["./src/*"] // Module alias for shorter import paths.
     },
-    "typeRoots": [
-      "./node_modules/@types"
-    ] // Specify the root directory that contains type declaration files.
-    ,
+    "typeRoots": ["./node_modules/@types"], // Specify the root directory that contains type declaration files.
     "isolatedModules": true,
     "plugins": [
       {
@@ -42,11 +38,8 @@
     "**/**/*.ts",
     "**/**/*.tsx",
     "src/**/*.scss", // Include SCSS files.
-    "./globals.d.ts" // Include global type declarations.
-    ,
+    "./globals.d.ts", // Include global type declarations.
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ] // Exclude the node_modules directory.
+  "exclude": ["node_modules"] // Exclude the node_modules directory.
 }

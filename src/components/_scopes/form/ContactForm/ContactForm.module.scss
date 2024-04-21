@@ -23,6 +23,12 @@
     font-weight: bold;
   }
 
+  .error {
+    margin-top: var(--spacing-xs);
+    color: var(--color-error);
+    font-size: 0.9rem;
+  }
+
   @include respond(medium) {
     padding-left: 0;
   }
