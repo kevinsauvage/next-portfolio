@@ -56,3 +56,28 @@
     }
   }
 }
+
+@include respond(small) {
+  .card {
+    .content {
+      flex-direction: column;
+      gap: var(--spacing-md);
+
+      .info {
+        .title {
+          font-size: var(--font-size-sm);
+        }
+
+        .languages {
+          .language {
+            font-size: var(--font-size-xs);
+          }
+        }
+      }
+
+      .linkPlaceHolder {
+        font-size: var(--font-size-xs);
+      }
+    }
+  }
+}

@@ -5,10 +5,10 @@
     --font-size-base: clamp(1.2rem, -0.0433vw + 1.2108rem, 1.1719rem);
     --font-size-md: clamp(1.44rem, 0.0382vw + 1.4304rem, 1.4648rem);
     --font-size-lg: clamp(1.728rem, 0.1585vw + 1.6884rem, 1.8311rem);
-    --font-size-xl: clamp(2.0736rem, 0.3311vw + 1.9908rem, 2.2888rem);
-    --font-size-xxl: clamp(2.4883rem, 0.5734vw + 2.345rem, 2.861rem);
-    --font-size-xxxl: clamp(2.986rem, 0.9081vw + 2.7589rem, 3.5763rem);
-    --font-size-xxxxl: clamp(3.5832rem, 1.3649vw + 3.242rem, 4.4703rem);
+    --font-size-1xl: clamp(2.0736rem, 0.3311vw + 1.9908rem, 2.2888rem);
+    --font-size-2xl: clamp(2.4883rem, 0.5734vw + 2.345rem, 2.861rem);
+    --font-size-3xl: clamp(2.986rem, 0.9081vw + 2.7589rem, 3.5763rem);
+    --font-size-4xl: clamp(3.5832rem, 1.3649vw + 3.242rem, 4.4703rem);
   }
 }
 /* Fallback variables for browsers that don't support clamp */
@@ -19,9 +19,9 @@
     --font-size-md: 1.44rem;
     --font-size-lg: 1.728rem;
     --font-size-xl: 2.0736rem;
-    --font-size-xxl: 2.4883rem;
-    --font-size-xxxl: 2.986rem;
-    --font-size-xxxxl: 3.5832rem;
+    --font-size-1xl: 2.4883rem;
+    --font-size-2xl: 2.986rem;
+    --font-size-4xl: 3.5832rem;
   }
 
   @media screen and (min-width: 1440px) {
@@ -31,9 +31,9 @@
       --font-size-md: 1.4648rem;
       --font-size-lg: 1.8311rem;
       --font-size-xl: 2.2888rem;
-      --font-size-xxl: 2.861rem;
-      --font-size-xxxl: 3.5763rem;
-      --font-size-xxxxl: 4.4703rem;
+      --font-size-1xl: 2.861rem;
+      --font-size-2xl: 3.5763rem;
+      --font-size-4xl: 4.4703rem;
     }
   }
 }

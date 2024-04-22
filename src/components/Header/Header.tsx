@@ -25,12 +25,11 @@ const Header = ({ isScrollingUp, isScrollingDown, isAtTop }: Properties) => (
           <NavigationPresenter />
         </div>
         <Link
-          href="mailto:kevinsauvage@outlook.com"
+          href="/#contact"
           className={styles.button}
-          target="_blank"
-          aria-label="Get in Touch - Open your e-mail provider in a new tab"
+          aria-label="Get in Touch - Scroll to the contact section"
         >
-          Contact
+          Contact me
         </Link>
       </div>
     </Container>

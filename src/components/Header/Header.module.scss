@@ -67,3 +67,13 @@
     }
   }
 }
+
+@include respond(small) {
+  .header {
+    .wrapper {
+      .button {
+        display: none;
+      }
+    }
+  }
+}

@@ -58,7 +58,7 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  padding: var(--spacing-s) var(--spacing-md);
+  padding: var(--spacing-s) var(--spacing-base);
   overflow: hidden;
   border: 1px solid var(--primary-100);
   border-radius: $radius-xs;
@@ -107,6 +107,6 @@
 @mixin buttonPrimary {
   @include button;
 
-  color: var(--black);
-  background-color: var(--primary-100);
+  color: var(--color-text-1);
+  background: var(--linear-gradient);
 }

@@ -9,7 +9,7 @@ type NavigationProperties = { activeSectionId: string };
 const Navigation: React.FC<NavigationProperties> = ({ activeSectionId }) => (
   <nav className={styles.Navigation}>
     <ul>
-      {sections.map((section) => (
+      {sections.slice(0, -1).map((section) => (
         <li key={section.id}>
           <NavItem
             id={section.id}

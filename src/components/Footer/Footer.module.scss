@@ -4,11 +4,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-md);
+  gap: var(--spacing-base);
   padding: var(--spacing-md) 0;
 
   .linkHome {
     color: var(--color-text-1);
     font-weight: 500;
+  }
+}
+
+@include respond(small) {
+  .Footer {
+    flex-direction: column;
   }
 }

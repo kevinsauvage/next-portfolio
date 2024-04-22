@@ -11,17 +11,19 @@
     font-weight: 500;
 
     .title {
+      display: flex;
+      flex-wrap: wrap;
       color: var(--color-text-1);
       font-weight: 600;
       font-size: var(--font-size-md);
       white-space: nowrap;
+      column-gap: var(--spacing-base);
 
       .company {
         display: flex;
         display: inline;
         align-items: center;
         gap: var(--spacing-base);
-        margin-left: var(--spacing-base);
         color: var(--primary-100);
         font-weight: 600;
         font-size: var(--font-size-md);

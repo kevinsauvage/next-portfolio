@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
+import AnimatedContainer from '../AnimatedContainer/AnimatedContainer';
+
 import Header from './Header';
 
 const threshold = 350;
@@ -62,7 +64,15 @@ const HeaderPresenter = () => {
   }, []);
 
   return (
-    <Header isScrollingUp={isScrollingUp} isScrollingDown={isScrollingDown} isAtTop={isAtTop} />
+    <AnimatedContainer
+      from={{ opacity: 0 }}
+      to={{ duration: 1, opacity: 1 }}
+      style={{
+        opacity: 0,
+      }}
+    >
+      <Header isScrollingUp={isScrollingUp} isScrollingDown={isScrollingDown} isAtTop={isAtTop} />
+    </AnimatedContainer>
   );
 };
 
