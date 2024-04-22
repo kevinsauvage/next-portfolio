@@ -19,7 +19,7 @@ const Title: React.FC = () => {
           3000,
           'A Problem Solver',
           3000,
-          'A Passionate',
+          'Passionate',
           3000,
           'A Team Player',
           3000,
