@@ -13,10 +13,6 @@
     gap: var(--spacing-xs);
   }
 
-  .icon {
-    display: none;
-  }
-
   &:hover {
     color: var(--primary-100);
   }
@@ -29,21 +25,7 @@
 
 @include respond(large) {
   .NavItem {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-
-    .icon {
-      display: flex;
-      align-items: center;
-      font-size: var(--font-size-md);
-    }
-
-    .label {
-      display: none;
-    }
+    font-size: var(--font-size-md);
 
     &.active {
       background-color: rgba(var(--rgb-primary-400), 0.3);

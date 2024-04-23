@@ -1,4 +1,4 @@
-import NavigationPresenter from '../Navigation/NavigationPresenter';
+import GlobalProvider from '@/contexts/GlobalContext';
 
 import { AlegreyaFont, jsonLd } from './LayoutWrapper.config';
 
@@ -16,10 +16,7 @@ const LayoutWrapper = ({ children }: Properties) => (
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {children}
-      <div className={styles.navigation}>
-        <NavigationPresenter />
-      </div>
+      <GlobalProvider>{children}</GlobalProvider>
     </body>
   </html>
 );

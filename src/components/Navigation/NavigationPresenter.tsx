@@ -3,12 +3,14 @@
 import { useEffect, useState } from 'react';
 
 import sections from '@/config/sections';
+import { useGlobalContext } from '@/contexts/GlobalContext';
 
 import Navigation from './Navigation';
 
 const sectionIds = sections.map((section) => section.id);
 
 const NavigationPresenter = () => {
+  const { openOnMobile } = useGlobalContext();
   const [activeSectionId, setActive] = useState<string>('');
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const NavigationPresenter = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <Navigation activeSectionId={activeSectionId} />;
+  return <Navigation activeSectionId={activeSectionId} isOpen={openOnMobile} />;
 };
 
 export default NavigationPresenter;

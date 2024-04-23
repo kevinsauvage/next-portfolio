@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import Container from '../Container/Container';
 import Logo from '../Logo/Logo';
 import NavigationPresenter from '../Navigation/NavigationPresenter';
@@ -10,9 +8,10 @@ type Properties = {
   isScrollingUp: boolean;
   isScrollingDown: boolean;
   isAtTop: boolean;
+  children: React.ReactNode;
 };
 
-const Header = ({ isScrollingUp, isScrollingDown, isAtTop }: Properties) => (
+const Header = ({ children, isScrollingUp, isScrollingDown, isAtTop }: Properties) => (
   <header
     className={`${styles.header} ${isScrollingUp && styles.isScrollingUp} ${
       isScrollingDown && styles.isScrollingDown
@@ -20,18 +19,8 @@ const Header = ({ isScrollingUp, isScrollingDown, isAtTop }: Properties) => (
   >
     <Container className={styles.container}>
       <Logo />
-      <div className={styles.wrapper}>
-        <div className={styles.navigation}>
-          <NavigationPresenter />
-        </div>
-        <Link
-          href="/#contact"
-          className={styles.button}
-          aria-label="Get in Touch - Scroll to the contact section"
-        >
-          Contact me
-        </Link>
-      </div>
+      <NavigationPresenter />
+      {children}
     </Container>
   </header>
 );

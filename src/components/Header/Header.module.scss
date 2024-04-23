@@ -13,6 +13,8 @@
     padding 0.5s $cubic-bezier;
   will-change: transform;
 
+  @include fadeIn;
+
   .container {
     display: flex;
     align-items: center;
@@ -34,20 +36,6 @@
     background-color: transparent;
     backdrop-filter: blur(0px);
   }
-
-  .wrapper {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-
-    .button {
-      @include button;
-
-      @include buttonPrimary;
-
-      line-height: 1.5;
-    }
-  }
 }
 
 @include respond(x-large) {
@@ -56,24 +44,6 @@
 
     &.isScrollingUp:not(.isAtTop) {
       padding: var(--spacing-md) 0;
-    }
-  }
-}
-
-@include respond(large) {
-  .header {
-    .navigation {
-      display: none;
-    }
-  }
-}
-
-@include respond(small) {
-  .header {
-    .wrapper {
-      .button {
-        display: none;
-      }
     }
   }
 }
