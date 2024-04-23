@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-base);
+  will-change: transform, opacity;
 }
 
 @include respond(medium) {

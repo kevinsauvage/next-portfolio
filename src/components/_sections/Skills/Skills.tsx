@@ -2,6 +2,7 @@ import Section from '@/components/_scopes/section/Section/Section';
 import SectionTitle from '@/components/_scopes/section/SectionTitle/SectionTitle';
 import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionUpTitle';
 import Accordion from '@/components/Accordion/Accordion';
+import AnimatedContainer from '@/components/AnimatedContainer/AnimatedContainer';
 import sections, { Sections } from '@/config/sections';
 import { breakpoints } from '@/utils/breakpoints';
 
@@ -19,20 +20,40 @@ const Skills = () => (
   <Section id={section.id}>
     <SectionUpTitle icon={icon} text={label} />
     <SectionTitle title={title} position={position} />
-    <Accordion
-      className={styles.skills}
-      Tag="ul"
-      totalVisible={{
-        [breakpoints.sm]: 9,
-        [breakpoints.md]: 12,
-        [breakpoints.xxl]: 15,
+    <AnimatedContainer
+      from={{ opacity: 0, x: 'random([120, 130, 140])', y: 'random([-120, -130, -140])' }}
+      to={{
+        duration: 0.01,
+        opacity: 1,
+        stagger: {
+          each: 0.05,
+          from: 'random',
+        },
+        x: 0,
+        y: 0,
       }}
-      defaultVisible={9}
+      timelineOptions={{
+        scrollTrigger: {
+          start: 'top 80%',
+        },
+      }}
+      triggerClassName=".animated-skills"
     >
-      {skills.map((item) => (
-        <Skill key={item.name} item={item} />
-      ))}
-    </Accordion>
+      <Accordion
+        className={styles.skills}
+        Tag="ul"
+        totalVisible={{
+          [breakpoints.sm]: 9,
+          [breakpoints.md]: 12,
+          [breakpoints.xxl]: 15,
+        }}
+        defaultVisible={15}
+      >
+        {skills.map((item) => (
+          <Skill key={item.name} item={item} className="animated-skills" />
+        ))}
+      </Accordion>
+    </AnimatedContainer>
   </Section>
 );
 

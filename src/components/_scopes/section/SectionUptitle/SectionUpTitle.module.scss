@@ -11,6 +11,7 @@
   border-radius: $radius-s;
   color: var(--primary-100);
   background-color: rgba(var(--rgb-primary-500), 0.8);
+  will-change: transform, opacity;
 
   p {
     font-weight: 400;

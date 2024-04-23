@@ -1,5 +1,3 @@
-import GlobalProvider from '@/contexts/GlobalContext';
-
 import { AlegreyaFont, jsonLd } from './LayoutWrapper.config';
 
 import styles from './LayoutWrapper.module.scss';
@@ -16,7 +14,7 @@ const LayoutWrapper = ({ children }: Properties) => (
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <GlobalProvider>{children}</GlobalProvider>
+      {children}
     </body>
   </html>
 );

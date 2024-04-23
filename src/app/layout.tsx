@@ -2,6 +2,7 @@ import Footer from '@/components/Footer/Footer';
 import HeaderPresenter from '@/components/Header/HeaderPresenter';
 import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
 import TextureBg from '@/components/TextureBg/TextureBg';
+import GlobalProvider from '@/contexts/GlobalContext';
 import NotificationProvider from '@/contexts/NotificationContext';
 
 import '@/styles/globals.scss';
@@ -13,9 +14,11 @@ type Properties = {
 const PageLayout = ({ children }: Properties) => (
   <LayoutWrapper>
     <NotificationProvider>
-      <HeaderPresenter />
-      <main>{children}</main>
-      <Footer />
+      <GlobalProvider>
+        <HeaderPresenter />
+        <main>{children}</main>
+        <Footer />
+      </GlobalProvider>
     </NotificationProvider>
     <TextureBg />
   </LayoutWrapper>
