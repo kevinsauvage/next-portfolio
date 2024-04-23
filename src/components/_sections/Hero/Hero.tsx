@@ -63,23 +63,22 @@ const Banner = () => {
           </AnimatedContainer>
 
           <AnimatedContainer
+            className={styles.imageContainer}
             from={{ delay: 0.2, ease: elasticOut, opacity: 0, scale: 0 }}
             to={{ duration: 1, ease: elasticOut, opacity: 1, scale: 1 }}
             style={{
               opacity: 0,
             }}
           >
-            <div className={styles.imageContainer}>
-              <div className={styles.blur2} />
-              <Image
-                className={styles.image}
-                src={testPng}
-                width={500}
-                height={500}
-                alt="test"
-                priority
-              />
-            </div>
+            <div className={styles.blur2} />
+            <Image
+              className={styles.image}
+              src={testPng}
+              width={500}
+              height={500}
+              alt="test"
+              priority
+            />
           </AnimatedContainer>
         </div>
       </Container>
