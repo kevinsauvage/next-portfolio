@@ -1,5 +1,3 @@
-import AnimatedContainer from '@/components/AnimatedContainer/AnimatedContainer';
-
 import styles from './SectionTitle.module.scss';
 
 type Properties = {
@@ -8,21 +6,10 @@ type Properties = {
 } & React.HTMLAttributes<HTMLHeadingElement>;
 
 const SectionTitle = ({ title, position, ...rest }: Properties) => (
-  <AnimatedContainer
-    {...rest}
-    className={styles.Title}
-    Tag="h2"
-    from={{ opacity: 0, x: 150 }}
-    to={{ opacity: 1, x: 0 }}
-    timelineOptions={{
-      scrollTrigger: {
-        start: 'top 80%',
-      },
-    }}
-  >
+  <h2 className={styles.Title}>
     <span className={styles.position}>{position}.</span>
     <span dangerouslySetInnerHTML={{ __html: title }} />
-  </AnimatedContainer>
+  </h2>
 );
 
 export default SectionTitle;

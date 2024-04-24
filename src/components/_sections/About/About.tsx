@@ -1,6 +1,7 @@
 import Section from '@/components/_scopes/section/Section/Section';
 import SectionTitle from '@/components/_scopes/section/SectionTitle/SectionTitle';
 import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionUpTitle';
+import AnimatedContainer from '@/components/AnimatedContainer/AnimatedContainer';
 import sections, { Sections } from '@/config/sections';
 
 import AboutItem from '../../_cards/AboutItem/AboutItem';
@@ -17,11 +18,27 @@ const About = () => (
   <Section id={section.id}>
     <SectionUpTitle icon={icon} text={label} />
     <SectionTitle title={title} position={position} />
-    <ul className={styles.about}>
-      {about.map((item) => (
-        <AboutItem key={item.content} item={item} />
-      ))}
-    </ul>
+    <AnimatedContainer
+      from={{ opacity: 0, scale: 0.1, y: 150 }}
+      to={{
+        duration: 0.3,
+        opacity: 1,
+        scale: 1,
+        y: 0,
+      }}
+      timelineOptions={{
+        scrollTrigger: {
+          start: 'top 80%',
+        },
+      }}
+      triggerClassName=".animated-about"
+    >
+      <ul className={styles.about}>
+        {about.map((item) => (
+          <AboutItem key={item.content} item={item} className="animated-about" />
+        ))}
+      </ul>
+    </AnimatedContainer>
   </Section>
 );
 

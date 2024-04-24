@@ -20,40 +20,40 @@ const Skills = () => (
   <Section id={section.id}>
     <SectionUpTitle icon={icon} text={label} />
     <SectionTitle title={title} position={position} />
-    <AnimatedContainer
-      from={{ opacity: 0, x: 'random([120, 130, 140])', y: 'random([-120, -130, -140])' }}
-      to={{
-        duration: 0.01,
-        opacity: 1,
-        stagger: {
-          each: 0.05,
-          from: 'random',
-        },
-        x: 0,
-        y: 0,
+
+    <Accordion
+      className={styles.skills}
+      Tag="ul"
+      totalVisible={{
+        [breakpoints.sm]: 9,
+        [breakpoints.md]: 12,
+        [breakpoints.xxl]: 15,
       }}
-      timelineOptions={{
-        scrollTrigger: {
-          start: 'top 80%',
-        },
-      }}
-      triggerClassName=".animated-skills"
+      defaultVisible={15}
     >
-      <Accordion
-        className={styles.skills}
-        Tag="ul"
-        totalVisible={{
-          [breakpoints.sm]: 9,
-          [breakpoints.md]: 12,
-          [breakpoints.xxl]: 15,
-        }}
-        defaultVisible={15}
-      >
-        {skills.map((item) => (
-          <Skill key={item.name} item={item} className="animated-skills" />
-        ))}
-      </Accordion>
-    </AnimatedContainer>
+      {skills.map((item) => (
+        <AnimatedContainer
+          from={{ opacity: 0, scale: 0.1, y: 150 }}
+          to={{
+            duration: 0.3,
+            opacity: 1,
+            scale: 1,
+            y: 0,
+          }}
+          timelineOptions={{
+            scrollTrigger: {
+              start: 'top 80%',
+            },
+          }}
+          key={item.name}
+          style={{
+            willChange: 'transform, opacity',
+          }}
+        >
+          <Skill item={item} />
+        </AnimatedContainer>
+      ))}
+    </Accordion>
   </Section>
 );
 

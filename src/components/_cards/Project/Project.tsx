@@ -15,15 +15,15 @@ import { MoveUpRight } from 'lucide-react';
 type Properties = {
   item: ProjectType;
   mousePosition: { x: number; y: number };
-};
+} & React.HTMLAttributes<HTMLAnchorElement>;
 
-const Project = ({ item, mousePosition }: Properties) => {
+const Project = ({ item, mousePosition, className }: Properties) => {
   const [isHovered, setIsHovered] = useState(false);
   const { title, technologies, images, websiteLink } = item || {};
 
   return (
     <article
-      className={styles.card}
+      className={`${styles.card} ${className}`}
       onMouseOver={() => setIsHovered(true)}
       onFocus={() => setIsHovered(true)}
       onBlur={() => setIsHovered(false)}

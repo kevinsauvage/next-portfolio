@@ -80,7 +80,8 @@
   @include respond-gt(medium) {
     &::after {
       position: absolute;
-      background-color: var(--primary-100);
+      color: var(--color-text-1);
+      background: var(--linear-gradient);
       transform-origin: right;
       transition: scale 0.3s $cubic-bezier;
       content: '';
@@ -98,7 +99,7 @@
 
     &:hover {
       &:not(:disabled) {
-        color: var(--black);
+        color: var(--color-text-1);
       }
     }
   }

@@ -18,14 +18,14 @@ const BOLD_WORDS = [
 
 type Properties = {
   item: AboutItemType;
-};
+} & React.HTMLAttributes<HTMLLIElement>;
 
-const AboutItem = ({ item }: Properties) => {
+const AboutItem = ({ item, className }: Properties) => {
   const { content } = item || {};
   const regexPattern = new RegExp(BOLD_WORDS.join('|'), 'gi');
 
   return (
-    <li className={styles.item}>
+    <li className={`${styles.item} ${className}`}>
       <p
         dangerouslySetInnerHTML={{
           __html: content.replaceAll(regexPattern, '<strong>$&</strong>'),
