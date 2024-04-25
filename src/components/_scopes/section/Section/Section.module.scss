@@ -5,6 +5,7 @@
   height: fit-content;
   margin: 0 auto;
   padding: 3rem 0 8rem 0;
+  overflow: hidden;
 
   @include respond(medium) {
     padding-bottom: 5rem;

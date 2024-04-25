@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 
 import Link from 'next/link';
 
@@ -36,13 +37,16 @@ const Project = ({ item, mousePosition, className }: Properties) => {
         title={`Go to ${title}`}
         aria-label={`Open ${title} website in a new tab`}
       >
-        <CurserFollowImage
-          {...images.thumbnail}
-          isHovered={isHovered}
-          mousePosition={mousePosition}
-          width={1600}
-          height={900}
-        />
+        {createPortal(
+          <CurserFollowImage
+            {...images.thumbnail}
+            isHovered={isHovered}
+            mousePosition={mousePosition}
+            width={1600}
+            height={900}
+          />,
+          document.body,
+        )}
         <div className={styles.content}>
           <div className={styles.info}>
             <h3 className={styles.title}>{title}</h3>

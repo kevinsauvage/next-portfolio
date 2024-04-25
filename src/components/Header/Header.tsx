@@ -1,3 +1,4 @@
+import AnimatedContainer from '../AnimatedContainer/AnimatedContainer';
 import Container from '../Container/Container';
 import Logo from '../Logo/Logo';
 import NavigationPresenter from '../Navigation/NavigationPresenter';
@@ -18,7 +19,19 @@ const Header = ({ children, isScrollingUp, isScrollingDown, isAtTop }: Propertie
     } ${isAtTop && styles.isAtTop}`}
   >
     <Container className={styles.container}>
-      <Logo />
+      <AnimatedContainer
+        from={{ opacity: 0 }}
+        to={{
+          duration: 0.2,
+          opacity: 1,
+        }}
+        style={{
+          opacity: 0,
+          willChange: 'opacity',
+        }}
+      >
+        <Logo />
+      </AnimatedContainer>
       <NavigationPresenter />
       {children}
     </Container>

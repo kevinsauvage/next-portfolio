@@ -1,6 +1,8 @@
 .item {
   margin-bottom: var(--spacing-md);
   color: var(--color-text-3);
+  transform-origin: top;
+  will-change: transform, opacity;
 
   &:last-child {
     margin-bottom: 0;

@@ -11,9 +11,7 @@
   transition:
     transform 0.5s $cubic-bezier,
     padding 0.5s $cubic-bezier;
-  will-change: transform;
-
-  @include fadeIn;
+  will-change: transform, padding;
 
   .container {
     display: flex;

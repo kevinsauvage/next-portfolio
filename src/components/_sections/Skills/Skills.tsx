@@ -33,20 +33,20 @@ const Skills = () => (
     >
       {skills.map((item) => (
         <AnimatedContainer
-          from={{ opacity: 0, scale: 0.1, y: 150 }}
+          from={{ opacity: 0, y: 200 }}
           to={{
             duration: 0.3,
             opacity: 1,
-            scale: 1,
             y: 0,
           }}
           timelineOptions={{
             scrollTrigger: {
-              start: 'top 80%',
+              start: 'top bottom',
             },
           }}
           key={item.name}
           style={{
+            transformOrigin: 'top',
             willChange: 'transform, opacity',
           }}
         >

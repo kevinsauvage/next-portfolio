@@ -19,16 +19,15 @@ const About = () => (
     <SectionUpTitle icon={icon} text={label} />
     <SectionTitle title={title} position={position} />
     <AnimatedContainer
-      from={{ opacity: 0, scale: 0.1, y: 150 }}
+      from={{ opacity: 0, y: 300 }}
       to={{
         duration: 0.3,
         opacity: 1,
-        scale: 1,
         y: 0,
       }}
       timelineOptions={{
         scrollTrigger: {
-          start: 'top 80%',
+          start: 'top 90%',
         },
       }}
       triggerClassName=".animated-about"

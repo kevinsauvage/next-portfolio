@@ -38,7 +38,7 @@ const AnimatedContainer: React.FC<AnimatedContainerProperties> = ({
     }
     const tl = gsap.timeline(timelineOptions);
     tl.fromTo(triggerClassName || reference.current, from, to);
-  }, [from, to]);
+  });
 
   return (
     <Tag ref={reference} {...rest}>
