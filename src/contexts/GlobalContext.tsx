@@ -83,7 +83,8 @@ const GlobalProvider = ({ children }: GlobalProviderProperties) => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = openOnMobile ? 'hidden' : 'auto';
+    const htmlElement = document.documentElement;
+    htmlElement.style.overflow = openOnMobile ? 'hidden' : 'auto';
   }, [openOnMobile]);
 
   const toggleOpenOnMobile = useCallback(() => {

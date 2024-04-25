@@ -13,7 +13,7 @@ const ProjectList: React.FC = () => {
   return (
     <AnimatedContainer
       className={styles.ProjectList}
-      from={{ opacity: 0, x: 300 }}
+      from={{ opacity: 0, x: 500 }}
       to={{
         duration: 1,
         opacity: 1,
