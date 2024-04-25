@@ -7,7 +7,7 @@ type Properties = {
 };
 
 const SectionUpTitle = ({ text, icon, id }: Properties) => (
-  <div className={styles.uptitle}>
+  <div className={styles.uptitle} id={id}>
     {icon}
     <p>{text}</p>
   </div>
