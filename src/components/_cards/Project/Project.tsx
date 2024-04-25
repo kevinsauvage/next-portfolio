@@ -5,6 +5,7 @@ import { createPortal } from 'react-dom';
 
 import Link from 'next/link';
 
+import ClientPortal from '@/components/ClientPortal/ClientPortal';
 import CurserFollowImage from '@/components/CurserFollowImage/CurserFollowImage';
 
 import { ProjectType } from './types';
@@ -37,16 +38,15 @@ const Project = ({ item, mousePosition, className }: Properties) => {
         title={`Go to ${title}`}
         aria-label={`Open ${title} website in a new tab`}
       >
-        {createPortal(
+        <ClientPortal selector="#portal-root">
           <CurserFollowImage
             {...images.thumbnail}
             isHovered={isHovered}
             mousePosition={mousePosition}
             width={1600}
             height={900}
-          />,
-          document.body,
-        )}
+          />
+        </ClientPortal>
         <div className={styles.content}>
           <div className={styles.info}>
             <h3 className={styles.title}>{title}</h3>

@@ -15,6 +15,7 @@ const LayoutWrapper = ({ children }: Properties) => (
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {children}
+      <div id="portal-root" />
     </body>
   </html>
 );
