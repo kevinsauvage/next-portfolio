@@ -9,7 +9,7 @@ type Properties = {
 };
 
 const Experience = ({ experience }: Properties) => {
-  const { title, period, company, listItem } = experience;
+  const { title, period, company, listItem, description } = experience;
 
   return (
     <div className={styles.card} role="tabpanel">
@@ -28,6 +28,7 @@ const Experience = ({ experience }: Properties) => {
         </h3>
       </div>
       <p className={styles.period}>{period}</p>
+      <p className={styles.description}>{description}</p>
       <ul className={styles.list}>
         {listItem.map((item) => (
           <li key={item} className={styles.listItem}>

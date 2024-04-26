@@ -1,15 +1,15 @@
-import { FaGithubSquare, FaLinkedin } from 'react-icons/fa';
+import { LucideGithub, LucideLinkedin } from 'lucide-react';
 
 const socialButton = [
   {
     href: 'https://www.linkedin.com/in/kevin-sauvage/',
-    icon: <FaLinkedin />,
+    icon: <LucideLinkedin />,
     id: 'linkedin',
     text: 'Visit my Linkedin',
   },
   {
     href: 'https://github.com/kevinsauvage/',
-    icon: <FaGithubSquare />,
+    icon: <LucideGithub />,
     id: 'github',
     text: 'Visit my Github',
   },

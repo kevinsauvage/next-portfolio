@@ -1,7 +1,25 @@
 .card {
+  z-index: 1;
+  display: block;
+  width: 100%;
+
+  .image {
+    position: absolute;
+    top: 50%;
+    right: 160px;
+    z-index: 100;
+    width: 400px;
+    height: auto;
+    transform: translateY(-50%);
+    visibility: hidden;
+    opacity: 0;
+    transition:
+      visibility 0s,
+      opacity 0.5s linear;
+  }
+
   .content {
     position: relative;
-    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,6 +68,14 @@
   }
 
   &:hover {
+    position: relative;
+    z-index: 100;
+
+    .image {
+      visibility: visible;
+      opacity: 1;
+    }
+
     .content {
       border-top-color: var(--primary-100);
       border-bottom-color: var(--primary-100);
@@ -57,28 +83,40 @@
   }
 }
 
-@include respond(small) {
+@include respond(large) {
   .card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+
+    .image {
+      position: static;
+      transform: none;
+      visibility: visible;
+      opacity: 1;
+    }
+
     .content {
       flex-direction: column;
       align-items: flex-start;
       gap: var(--spacing-md);
+      border: none;
+    }
+  }
+}
 
-      .info {
-        .title {
-          font-size: var(--font-size-sm);
-        }
+@include respond(medium) {
+  .card {
+    flex-direction: column;
+    margin-bottom: var(--spacing-xl);
 
-        .languages {
-          .language {
-            font-size: var(--font-size-xs);
-          }
-        }
-      }
+    .image {
+      right: 0;
+      width: 100%;
+    }
 
-      .linkPlaceHolder {
-        font-size: var(--font-size-xs);
-      }
+    .content {
+      padding: 0;
     }
   }
 }

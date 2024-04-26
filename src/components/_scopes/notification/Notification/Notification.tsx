@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { FaXmark } from 'react-icons/fa6';
 
 import styles from './Notification.module.scss';
+
+import { LucideX } from 'lucide-react';
 
 type Properties = {
   notification: {
@@ -48,7 +49,7 @@ const Notification = ({ notification, removeNotification }: Properties) => {
           className={styles.close}
           onClick={() => removeNotification(notification.id)}
         >
-          <FaXmark />
+          <LucideX />
         </button>
       </div>
     </div>

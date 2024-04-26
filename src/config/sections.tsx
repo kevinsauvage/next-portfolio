@@ -1,4 +1,10 @@
-import { FaCode, FaEnvelope, FaSuitcase, FaTools, FaUser } from 'react-icons/fa';
+import {
+  LucideBriefcaseBusiness,
+  LucideCode2,
+  LucideHammer,
+  LucideSend,
+  LucideUser2,
+} from 'lucide-react';
 
 export type Sections = Array<{
   icon: React.ReactNode;
@@ -16,35 +22,35 @@ const sections: Sections = [
   //   title: 'What I Do',
   // },
   {
-    icon: <FaUser role="presentation" />,
+    icon: <LucideUser2 role="presentation" />,
     id: 'about',
     label: 'About Me',
     position: '01',
     title: 'Getting to Know Me',
   },
   {
-    icon: <FaSuitcase role="presentation" />,
+    icon: <LucideBriefcaseBusiness role="presentation" />,
     id: 'experience',
     label: 'My Experience',
     position: '02',
     title: 'Where I’ve Worked',
   },
   {
-    icon: <FaTools role="presentation" />,
+    icon: <LucideHammer role="presentation" />,
     id: 'skills',
     label: 'My Skills',
     position: '03',
     title: 'My Technical Skills',
   },
   {
-    icon: <FaCode role="presentation" />,
+    icon: <LucideCode2 role="presentation" />,
     id: 'projects',
     label: 'My Projects',
     position: '04',
     title: 'My digital solutions',
   },
   {
-    icon: <FaEnvelope role="presentation" />,
+    icon: <LucideSend role="presentation" />,
     id: 'contact',
     label: 'Contact Me',
     position: '05',

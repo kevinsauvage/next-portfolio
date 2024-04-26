@@ -20,9 +20,9 @@ const Navigation: React.FC<NavigationProperties> = ({ activeSectionId, isOpen })
     <AnimatedContainer
       className={`${styles.Navigation} ${isOpen && styles.open}`}
       Tag="nav"
-      from={{ opacity: 0, y: -50 }}
+      from={{ delay: 0.6, opacity: 0, y: -50 }}
       to={{
-        delay: 0.1,
+        delay: 0.6,
         duration: 0.2,
         opacity: 1,
         stagger: {

@@ -20,14 +20,16 @@ const Header = ({ children, isScrollingUp, isScrollingDown, isAtTop }: Propertie
   >
     <Container className={styles.container}>
       <AnimatedContainer
-        from={{ opacity: 0 }}
+        from={{ opacity: 0, y: 150 }}
         to={{
           duration: 0.2,
           opacity: 1,
+          y: 0,
         }}
         style={{
           opacity: 0,
-          willChange: 'opacity',
+          overflow: 'hidden',
+          willChange: 'opacity, transform',
         }}
       >
         <Logo />

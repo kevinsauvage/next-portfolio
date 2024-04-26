@@ -2,14 +2,38 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import testPng from '@/assets/images/bannerImage.svg';
-import Title from '@/components/_scopes/hero/Title/Title';
 import AnimatedContainer from '@/components/AnimatedContainer/AnimatedContainer';
 import Container from '@/components/Container/Container';
+import renderLetters from '@/utils/renderLetters';
 
 import styles from './Hero.module.scss';
 
 const elasticOut = 'elastic.out(1, 0.6)';
 const willChange = 'transform, opacity';
+
+const Title: React.FC = () => {
+  return (
+    <AnimatedContainer
+      Tag="h1"
+      className={styles.Title}
+      from={{ ease: 'sine.out', opacity: 0, y: 250 }}
+      to={{
+        duration: 0.5,
+        ease: 'sine.out',
+        opacity: 1,
+        stagger: {
+          amount: 0.5,
+          each: 0.1,
+        },
+        y: 0,
+      }}
+      triggerClassName=".char"
+    >
+      <span className={styles.first}>{renderLetters("Hello, I'm")}</span>
+      <span className={styles.second}>{renderLetters('Kevin Sauvage')}</span>
+    </AnimatedContainer>
+  );
+};
 
 const Subtitle = () => (
   <AnimatedContainer
@@ -70,8 +94,8 @@ const HeroActions = () => (
 const HeroImage = () => (
   <AnimatedContainer
     className={styles.imageContainer}
-    from={{ delay: 0.2, ease: elasticOut, opacity: 0, scale: 0 }}
-    to={{ delay: 0.6, duration: 1, ease: elasticOut, opacity: 1, scale: 1 }}
+    from={{ delay: 0.2, ease: 'power2.inOut', opacity: 0, scale: 0.3, x: 300 }}
+    to={{ delay: 0.6, duration: 0.3, ease: 'power2.inOut', opacity: 1, scale: 1, x: 0 }}
     style={{
       opacity: 0,
       willChange,

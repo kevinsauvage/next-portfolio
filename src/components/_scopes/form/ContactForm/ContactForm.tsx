@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
-import { RiMailSendFill } from 'react-icons/ri';
 
 import { sendMail } from '@/actions/send-mail';
 import Input from '@/components/_scopes/form/Input/Input';
@@ -13,13 +12,15 @@ import { useNotification } from '@/contexts/NotificationContext';
 
 import styles from './ContactForm.module.scss';
 
+import { LucideSend } from 'lucide-react';
+
 const SubmitButton = () => {
   const { pending } = useFormStatus();
 
   return (
     <Button
       className={styles.button}
-      svg={<RiMailSendFill role="presentation" />}
+      svg={<LucideSend role="presentation" />}
       label="Send Message"
       type="submit"
       title="Click to send the Message"

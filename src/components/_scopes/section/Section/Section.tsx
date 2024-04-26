@@ -6,7 +6,7 @@ type Properties = {
   id?: string;
 };
 
-const Section = ({ children, id, format = 'medium' }: Properties) => {
+const Section = ({ children, id, format = 'large' }: Properties) => {
   const formatClass = {
     large: styles.large,
     medium: styles.medium,

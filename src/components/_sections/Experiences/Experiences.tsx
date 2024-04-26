@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import Section from '@/components/_scopes/section/Section/Section';
 import SectionTitle from '@/components/_scopes/section/SectionTitle/SectionTitle';
 import SectionUpTitle from '@/components/_scopes/section/SectionUptitle/SectionUpTitle';
@@ -10,8 +8,6 @@ import sections, { Sections } from '@/config/sections';
 import Experience from '../../_cards/Experience/Experience';
 
 import experiences from './experiences.config';
-
-import styles from './Experiences.module.scss';
 
 const label = 'My Experience';
 
@@ -45,18 +41,6 @@ const Experiences = () => (
         ))}
       </TabList>
     </AnimatedContainer>
-    <Link
-      href="/kevin-sauvage-cv.pdf"
-      className={styles.link}
-      aria-label="Download full resume in a new tab"
-      target="_blank"
-      prefetch={false}
-      rel="noopener noreferrer"
-      title="Download full resume"
-      download
-    >
-      <span>Download Full Resume</span>
-    </Link>
   </Section>
 );
 

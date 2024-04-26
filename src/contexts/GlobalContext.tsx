@@ -26,61 +26,54 @@ const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
 const threshold = 350;
 
+let lastScrollTop = 0;
+let lastScrollUp = 0;
+let lastScrollDown = 0;
 const GlobalProvider = ({ children }: GlobalProviderProperties) => {
   const [isScrollingUp, setIsScrollingUp] = useState(true);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
   const [openOnMobile, setOpenOnMobile] = useState<boolean>(false);
 
-  // Control the header's scroll direction when the page loads
-  useEffect(() => {
+  const handleScroll = useCallback(() => {
     const { scrollTop } = document.documentElement;
 
-    if (scrollTop > 0) {
-      setIsScrollingDown(true);
-      setIsScrollingUp(false);
+    if (scrollTop < 50) setIsAtTop(true);
+    else setIsAtTop(false);
+
+    // Handle scroll up
+    if (scrollTop < lastScrollTop) {
+      lastScrollUp = scrollTop;
+
+      if (lastScrollUp < lastScrollDown - threshold || scrollTop < 50) {
+        setIsScrollingUp(true);
+        setIsScrollingDown(false);
+      }
     }
+
+    // Handle scroll down
+    if (scrollTop > lastScrollTop) {
+      lastScrollDown = scrollTop;
+
+      if (lastScrollDown > lastScrollUp + threshold) {
+        setIsScrollingUp(false);
+        setIsScrollingDown(true);
+      }
+    }
+
+    lastScrollTop = scrollTop;
   }, []);
 
   // Control the header's scroll direction when the user scrolls
   useEffect(() => {
-    let lastScrollTop = 0;
-    let lastScrollUp = 0;
-    let lastScrollDown = 0;
-
-    const handleScroll = () => {
-      const { scrollTop } = document.documentElement;
-
-      if (scrollTop < 50) setIsAtTop(true);
-      else setIsAtTop(false);
-
-      // Handle scroll up
-      if (scrollTop < lastScrollTop) {
-        lastScrollUp = scrollTop;
-
-        if (lastScrollUp < lastScrollDown - threshold || scrollTop < 50) {
-          setIsScrollingUp(true);
-          setIsScrollingDown(false);
-        }
-      }
-
-      // Handle scroll down
-      if (scrollTop > lastScrollTop) {
-        lastScrollDown = scrollTop;
-
-        if (lastScrollDown > lastScrollUp + threshold) {
-          setIsScrollingUp(false);
-          setIsScrollingDown(true);
-        }
-      }
-
-      lastScrollTop = scrollTop;
-    };
-
     window.addEventListener('scroll', handleScroll);
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
+
+  useEffect(() => {
+    handleScroll();
+  }, [handleScroll]);
 
   useEffect(() => {
     const htmlElement = document.documentElement;
