@@ -109,6 +109,8 @@
   .button {
     @include button;
 
+    gap: var(--spacing-xs);
+
     &:first-child {
       @include buttonPrimary;
     }

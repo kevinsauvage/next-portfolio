@@ -30,8 +30,8 @@ const Button = ({
   >
     {loading && <div className={styles.loader}>loading...</div>}
     <span>
-      {svg}
       {label}
+      {svg}
     </span>
   </button>
 );

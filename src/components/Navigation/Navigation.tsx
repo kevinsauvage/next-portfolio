@@ -11,6 +11,8 @@ import NavItem from './NavItem/NavItem';
 
 import styles from './Navigation.module.scss';
 
+import { LucideSend } from 'lucide-react';
+
 type NavigationProperties = { activeSectionId: string; isOpen: boolean };
 
 const Navigation: React.FC<NavigationProperties> = ({ activeSectionId, isOpen }) => {
@@ -52,6 +54,7 @@ const Navigation: React.FC<NavigationProperties> = ({ activeSectionId, isOpen })
         onClick={toggleOpenOnMobile}
       >
         Contact me
+        <LucideSend size={20} />
       </Link>
     </AnimatedContainer>
   );

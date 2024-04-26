@@ -8,6 +8,8 @@ import renderLetters from '@/utils/renderLetters';
 
 import styles from './Hero.module.scss';
 
+import { LucideDownload, LucideSend } from 'lucide-react';
+
 const elasticOut = 'elastic.out(1, 0.6)';
 const willChange = 'transform, opacity';
 
@@ -75,6 +77,7 @@ const HeroActions = () => (
       aria-label="Get in Touch - Scroll to the contact section"
     >
       Contact me
+      <LucideSend size={20} />
     </Link>
     <Link
       href="/kevin-sauvage-cv.pdf"
@@ -87,6 +90,7 @@ const HeroActions = () => (
       download
     >
       Download cv
+      <LucideDownload size={20} />
     </Link>
   </AnimatedContainer>
 );
