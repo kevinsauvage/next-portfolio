@@ -4,6 +4,7 @@ import styles from './SectionUpTitle.module.scss';
 
 type Properties = {
   text: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   icon: ReactElement<any, string | JSXElementConstructor<any>>;
   id?: string;
 };
