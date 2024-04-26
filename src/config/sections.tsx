@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { JSXElementConstructor, ReactElement } from 'react';
+
 import {
   LucideBriefcaseBusiness,
   LucideCode2,
@@ -7,7 +10,7 @@ import {
 } from 'lucide-react';
 
 export type Sections = Array<{
-  icon: React.ReactNode;
+  icon: ReactElement<any, string | JSXElementConstructor<any>>;
   label: string;
   title: string;
   id: string;
