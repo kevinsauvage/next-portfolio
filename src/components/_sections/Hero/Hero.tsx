@@ -48,8 +48,8 @@ const Subtitle = () => (
     }}
   >
     I&apos;m a developer passionate about crafting exceptional websites.
-    <br /> Currently, I&apos;m immersed in the exciting world of crafting accessible, human-centered
-    products at{' '}
+    <br /> Currently, I&apos;m immersed in the exciting world of crafting <br /> accessible,
+    human-centered products at{' '}
     <Link
       href="https://www.decathlon.fr/"
       rel="noopener noreferrer"

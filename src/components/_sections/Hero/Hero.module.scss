@@ -63,7 +63,7 @@
   color: var(--color-text-1);
   font-weight: 800;
   font-size: var(--font-size-4xl);
-  line-height: 100%;
+  line-height: 116%;
 
   .first {
     width: fit-content;
@@ -91,6 +91,7 @@
   max-width: 600px;
   margin-bottom: var(--spacing-xl);
   color: var(--color-text-3);
+  white-space: nowrap;
   animation-delay: 0.15s;
 
   a {
@@ -157,6 +158,7 @@
 
 @include respond(medium) {
   .subtitle {
+    white-space: normal;
     text-align: left;
   }
 

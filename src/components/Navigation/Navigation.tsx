@@ -16,7 +16,7 @@ import { LucideSend } from 'lucide-react';
 type NavigationProperties = { activeSectionId: string; isOpen: boolean };
 
 const Navigation: React.FC<NavigationProperties> = ({ activeSectionId, isOpen }) => {
-  const { toggleOpenOnMobile } = useGlobalContext();
+  const { closeMenu } = useGlobalContext();
 
   return (
     <AnimatedContainer
@@ -51,7 +51,7 @@ const Navigation: React.FC<NavigationProperties> = ({ activeSectionId, isOpen })
         href="/#contact"
         className={`${styles.button} animated-navigation-item`}
         aria-label="Get in Touch - Scroll to the contact section"
-        onClick={toggleOpenOnMobile}
+        onClick={closeMenu}
       >
         Contact me
         <LucideSend size={20} />

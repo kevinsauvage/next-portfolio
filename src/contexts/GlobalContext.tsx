@@ -19,7 +19,8 @@ type GlobalContextType = {
   isScrollingDown: boolean;
   isScrollingUp: boolean;
   openOnMobile: boolean;
-  toggleOpenOnMobile: () => void;
+  closeMenu: () => void;
+  openMenu: () => void;
 };
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -80,19 +81,24 @@ const GlobalProvider = ({ children }: GlobalProviderProperties) => {
     htmlElement.style.overflow = openOnMobile ? 'hidden' : 'auto';
   }, [openOnMobile]);
 
-  const toggleOpenOnMobile = useCallback(() => {
-    setOpenOnMobile((previous) => !previous);
+  const closeMenu = useCallback(() => {
+    setOpenOnMobile(false);
+  }, []);
+
+  const openMenu = useCallback(() => {
+    setOpenOnMobile(true);
   }, []);
 
   const value = useMemo(
     () => ({
+      closeMenu,
       isAtTop,
       isScrollingDown,
       isScrollingUp,
+      openMenu,
       openOnMobile,
-      toggleOpenOnMobile,
     }),
-    [isScrollingUp, isScrollingDown, isAtTop, openOnMobile, toggleOpenOnMobile],
+    [isScrollingUp, isScrollingDown, isAtTop, openOnMobile, closeMenu, openMenu],
   );
 
   return <GlobalContext.Provider value={value}>{children}</GlobalContext.Provider>;

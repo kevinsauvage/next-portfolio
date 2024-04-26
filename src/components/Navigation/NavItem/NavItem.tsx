@@ -12,14 +12,14 @@ type NavItemProperties = {
 };
 
 const NavItem: React.FC<NavItemProperties> = ({ id, label, activeSectionId }) => {
-  const { toggleOpenOnMobile } = useGlobalContext();
+  const { closeMenu } = useGlobalContext();
   return (
     <Link
       href={`#${id}`}
       className={`${styles.NavItem} ${id === activeSectionId ? styles.active : ''}`}
       replace
       aria-label={label}
-      onClick={toggleOpenOnMobile}
+      onClick={closeMenu}
     >
       <span className={styles.label}>{label}</span>
     </Link>
