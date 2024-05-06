@@ -41,7 +41,7 @@ const Streamy = {
     { name: 'TMDb API' },
   ],
   title: 'Streamy',
-  websiteLink: 'https://streamy.fun/',
+  websiteLink: 'https://streamy-v2-client-kevinsauvages-projects.vercel.app/',
 };
 
 const Portfolio = {
