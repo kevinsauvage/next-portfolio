@@ -11,14 +11,9 @@ const label = 'My Skills';
 const section = sections.find((data) => data.label === label) as Sections[0];
 const { icon, title, position } = section || {};
 
-type SkillType = {
-  name: string;
-  icon: JSX.Element;
-};
+type SkillType = { name: string; icon: JSX.Element };
 
-type Properties = {
-  item: SkillType;
-} & React.HTMLAttributes<HTMLLIElement>;
+type Properties = { item: SkillType } & React.HTMLAttributes<HTMLLIElement>;
 
 const Skill = ({ item, ...rest }: Properties) => {
   return (

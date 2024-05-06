@@ -21,13 +21,7 @@ const Navigation: React.FC<NavigationProperties> = ({ activeSectionId, isOpen })
       ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
       Tag="nav"
       from={{ delay: 0.6, opacity: 0, y: -50 }}
-      to={{
-        delay: 0.6,
-        duration: 0.2,
-        opacity: 1,
-        stagger: { amount: 0.1 },
-        y: 0,
-      }}
+      to={{ delay: 0.6, duration: 0.2, opacity: 1, stagger: { amount: 0.1 }, y: 0 }}
       triggerClassName=".animated-navigation-item"
     >
       <ul className="flex-col items-center gap-8 flex lg:flex-row lg:gap-4">

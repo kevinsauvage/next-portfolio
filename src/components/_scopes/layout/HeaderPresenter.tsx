@@ -1,7 +1,7 @@
 'use client';
 
-import Hamburger from '@/components/Hamburger';
-import Header from '@/components/Header';
+import Hamburger from '@/components/_scopes/header/Hamburger';
+import Header from '@/components/_scopes/layout/Header';
 import { useGlobalContext } from '@/contexts/GlobalContext';
 
 const HeaderPresenter = () => {

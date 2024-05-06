@@ -1,5 +1,5 @@
+import Project from '@/components/_scopes/project/Project';
 import AnimatedContainer from '@/components/AnimatedContainer';
-import Project from '@/components/Project';
 import projects from '@/config/projects.config';
 
 const ProjectList: React.FC = () => {

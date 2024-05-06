@@ -1,6 +1,6 @@
+import NavigationPresenter from '@/components/_scopes/header/NavigationPresenter';
 import AnimatedContainer from '@/components/AnimatedContainer';
 import Logo from '@/components/Logo';
-import NavigationPresenter from '@/components/NavigationPresenter';
 
 type Properties = {
   isScrollingUp: boolean;

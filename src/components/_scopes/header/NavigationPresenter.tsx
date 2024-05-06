@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import Navigation from '@/components/Navigation';
+import Navigation from '@/components/_scopes/header/Navigation';
 import sections from '@/config/sections';
 import { useGlobalContext } from '@/contexts/GlobalContext';
 

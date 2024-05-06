@@ -1,6 +1,6 @@
-import Footer from '@/components/Footer';
-import HeaderPresenter from '@/components/HeaderPresenter';
-import LayoutWrapper from '@/components/LayoutWrapper';
+import Footer from '@/components/_scopes/layout/Footer';
+import HeaderPresenter from '@/components/_scopes/layout/HeaderPresenter';
+import LayoutWrapper from '@/components/_scopes/layout/LayoutWrapper';
 import TextureBg from '@/components/TextureBg';
 import GlobalProvider from '@/contexts/GlobalContext';
 import NotificationProvider from '@/contexts/NotificationContext';
@@ -25,9 +25,7 @@ const PageLayout = ({ children }: Properties) => (
 export default PageLayout;
 
 export const metadata = {
-  alternates: {
-    canonical: 'https://www.kevin-sauvage.com/',
-  },
+  alternates: { canonical: 'https://www.kevin-sauvage.com/' },
   description:
     'Crafting high-performance, inclusive web solutions that prioritize accessibility. Proficient in JavaScript, React.js, Next.js.',
   title: 'Kévin Sauvage developer portfolio website',

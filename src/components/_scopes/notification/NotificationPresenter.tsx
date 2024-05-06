@@ -1,11 +1,7 @@
 import Notification from './Notification';
 
 type Properties = {
-  notificationQueue: Array<{
-    id: string;
-    type: string;
-    message: string;
-  }>;
+  notificationQueue: Array<{ id: string; type: string; message: string }>;
   removeNotification: (id: string) => void;
 };
 
