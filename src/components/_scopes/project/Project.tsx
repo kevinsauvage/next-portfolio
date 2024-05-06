@@ -18,7 +18,7 @@ const Project = ({ item, className }: Properties) => {
   const { title, technologies, images, websiteLink } = item || {};
 
   return (
-    <article className={`group relative ${className}`}>
+    <article className={`group relative hover:z-40 ${className}`}>
       <Link
         className="flex flex-col h-full w-full mb-10 md:flex-row lg:transition-all lg:border-t lg:border-b lg:py-8 lg:mb-0 lg:group-hover:border-blue-500"
         href={websiteLink}
@@ -28,7 +28,7 @@ const Project = ({ item, className }: Properties) => {
         aria-label={`Open ${title} website in a new tab`}
       >
         <Image
-          className="w-full md:w-80 lg:hidden lg:group-hover:block lg:absolute lg:opacity-0 lg:transition-all lg:right-36 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:duration-300 lg:w-98 lg:group-hover:z-40 lg:group-hover:opacity-100"
+          className="w-full md:w-80 lg:hidden lg:group-hover:block lg:absolute lg:opacity-0 lg:transition-all lg:right-36 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:duration-300 lg:w-98 lg:group-hover:opacity-100"
           src={images.thumbnail.src}
           alt={images.thumbnail.alt}
           width={1600}
