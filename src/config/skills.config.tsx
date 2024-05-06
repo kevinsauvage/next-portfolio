@@ -6,7 +6,7 @@ import Html5Plain from 'devicons-react/lib/icons/Html5Plain';
 import JavascriptPlain from 'devicons-react/lib/icons/JavascriptPlain';
 import JestPlain from 'devicons-react/lib/icons/JestPlain';
 import MongodbOriginal from 'devicons-react/lib/icons/MongodbOriginal';
-import NextjsLine from 'devicons-react/lib/icons/NextjsLine';
+import NextjsOriginal from 'devicons-react/lib/icons/NextjsOriginal';
 import NodejsOriginal from 'devicons-react/lib/icons/NodejsOriginal';
 import ReactOriginal from 'devicons-react/lib/icons/ReactOriginal';
 import ReduxOriginal from 'devicons-react/lib/icons/ReduxOriginal';
@@ -23,7 +23,7 @@ const skills: Array<{ icon: JSX.Element; name: string }> = [
   { icon: <JavascriptPlain />, name: 'JavaScript' },
   { icon: <TypescriptPlain />, name: 'TypeScript' },
   { icon: <ReactOriginal />, name: 'React' },
-  { icon: <NextjsLine />, name: 'NextJs' },
+  { icon: <NextjsOriginal />, name: 'NextJs' },
   { icon: <SveltePlain />, name: 'Svelte' },
   { icon: <NodejsOriginal />, name: 'NodeJs' },
   { icon: <ExpressOriginal />, name: 'Express' },
