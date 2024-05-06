@@ -18,39 +18,33 @@ export type Sections = Array<{
 }>;
 
 const sections: Sections = [
-  // {
-  //   icon: <FaCode />,
-  //   id: 'expertise',
-  //   label: 'My Expertises',
-  //   title: 'What I Do',
-  // },
   {
     icon: <LucideUser2 />,
     id: 'about',
     label: 'About Me',
     position: '01',
-    title: 'Getting to Know Me',
+    title: 'Who I Am',
   },
   {
     icon: <LucideBriefcaseBusiness />,
     id: 'experience',
     label: 'My Experience',
     position: '02',
-    title: 'Where I’ve Worked',
+    title: 'Where I Worked',
   },
   {
     icon: <LucideHammer />,
     id: 'skills',
     label: 'My Skills',
     position: '03',
-    title: 'My Technical Skills',
+    title: 'What I Do',
   },
   {
     icon: <LucideCode2 />,
     id: 'projects',
     label: 'My Projects',
     position: '04',
-    title: 'My digital solutions',
+    title: 'What I Built',
   },
   {
     icon: <LucideSend />,

@@ -1,13 +1,8 @@
-const renderLetters = (text: string) =>
+const renderLetters = (text: string, className?: string) =>
   text.split('', 100).map((char, index) => (
     <span
       key={index}
-      className="char"
-      style={{
-        display: 'inline-block',
-        opacity: 0,
-        willChange: 'transform, opacity',
-      }}
+      className={`char min-w-2 inline-block opacity-0 will-change-auto ${className}`}
     >
       {char}
     </span>

@@ -1,15 +1,13 @@
-import Footer from '@/components/Footer/Footer';
-import HeaderPresenter from '@/components/Header/HeaderPresenter';
-import LayoutWrapper from '@/components/LayoutWrapper/LayoutWrapper';
-import TextureBg from '@/components/TextureBg/TextureBg';
+import Footer from '@/components/Footer';
+import HeaderPresenter from '@/components/HeaderPresenter';
+import LayoutWrapper from '@/components/LayoutWrapper';
+import TextureBg from '@/components/TextureBg';
 import GlobalProvider from '@/contexts/GlobalContext';
 import NotificationProvider from '@/contexts/NotificationContext';
 
 import '@/styles/globals.scss';
 
-type Properties = {
-  children: React.ReactNode;
-};
+type Properties = { children: React.ReactNode };
 
 const PageLayout = ({ children }: Properties) => (
   <LayoutWrapper>

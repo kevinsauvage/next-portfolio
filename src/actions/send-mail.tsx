@@ -22,26 +22,27 @@ const sendMailSchema = z.object({
   subject: z.string().optional(),
 });
 
-export async function sendMail(previousState: unknown, formData: FormData) {
-  const result = sendMailSchema.safeParse(Object.fromEntries(formData.entries()));
+type fieldErrors = {
+  email?: Array<string> | undefined;
+  error?: Array<string> | undefined;
+  feedback?: Array<string> | undefined;
+  fullName?: Array<string> | undefined;
+  message?: Array<string> | undefined;
+  phone?: Array<string> | undefined;
+  subject?: Array<string> | undefined;
+};
 
-  if (!result?.success) {
-    return result.error.formErrors.fieldErrors;
-  }
+export async function sendMail(
+  previousState: unknown,
+  formData: FormData,
+): Promise<fieldErrors | undefined> {
+  const result = sendMailSchema.safeParse(Object.fromEntries(formData.entries()));
+  if (!result?.success) return result.error.formErrors.fieldErrors;
 
   try {
     await emailjs.send(serviceId, templateId, result.data, keyParameters);
   } catch (error) {
     console.error('FAILED...', error);
-
-    return {
-      email: false,
-      error: true,
-      feedback: 'Something went wrong. Please try again.',
-      fullName: false,
-      message: false,
-      phone: false,
-      subject: false,
-    };
+    return { feedback: ['Something went wrong. Please try again.'] };
   }
 }

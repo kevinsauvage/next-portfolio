@@ -1,20 +1,8 @@
-@import './theme';
+@tailwind base;
 
-@import './font-size';
+@tailwind components;
 
-@import './spacing';
-
-@import './responsive';
-
-@import './variables';
-
-@import './mixins';
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@tailwind utilities;
 
 body,
 div,
@@ -26,25 +14,8 @@ textarea {
   }
 
   &::-webkit-scrollbar-thumb {
-    border-radius: $radius-xs;
-    background-color: var(--color-text-3);
+    background-color: var(--tw-blue-500);
   }
-}
-
-li {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-a,
-button,
-input,
-textarea {
-  color: var(--color-text-2);
-  font-family: var(--font-body);
 }
 
 input:-webkit-autofill,
@@ -57,16 +28,11 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: 1px solid transparent;
+  color: white;
   transition: background-color 50000s ease-in-out 0s;
-  -webkit-text-fill-color: var(--color-text-3);
+  -webkit-text-fill-color: white;
 }
 
-:root {
-  --border-radius-s: 0.2rem;
-  --border-radius-m: 0.4rem;
-  --border-radius-l: 0.8rem;
-  --border-radius-xl: 1.6rem;
-  --border-radius-xxl: 3.2rem;
-
-  --linear-gradient: linear-gradient(60deg, var(--primary-100), var(--secondary-100));
+.texture-bg {
+  background-image: url('/images/texture-bg3.jpeg');
 }

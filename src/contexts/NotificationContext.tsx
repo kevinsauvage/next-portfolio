@@ -30,7 +30,7 @@ type NotificationContextType = {
 const NotificationContext = createContext<NotificationContextType | undefined>(undefined);
 
 const NotificationPresenter = dynamic(
-  () => import('@/components/_scopes/notification/NotificationPresenter/NotificationPresenter'),
+  () => import('@/components/_scopes/notification/NotificationPresenter'),
   { ssr: false },
 );
 

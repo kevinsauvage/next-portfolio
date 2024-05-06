@@ -42,10 +42,6 @@ const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, './styles/')],
-    prependData: `
-    @import "@/styles/variables.scss"; 
-    @import "@/styles/responsive.scss"; 
-    @import "@/styles/mixins.scss"; `,
   },
 };
 
