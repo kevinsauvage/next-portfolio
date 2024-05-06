@@ -8,16 +8,13 @@ const publicKey = process.env.email_js_public_key as string;
 const privateKey = process.env.email_js_provate_key as string;
 const templateId = process.env.email_js_template_id as string;
 
-const keyParameters = {
-  privateKey,
-  publicKey,
-};
+const keyParameters = { privateKey, publicKey };
 
 const sendMailSchema = z.object({
   email: z.string().email(),
   feedback: z.string().optional(),
-  fullName: z.string().min(1),
-  message: z.string().min(20),
+  fullName: z.string().min(1, { message: 'Full name is required' }),
+  message: z.string().min(1, { message: 'Message is required' }),
   phone: z.string().optional(),
   subject: z.string().optional(),
 });
