@@ -19,7 +19,7 @@ const FormRow = ({ children }: { children: React.ReactNode }) => (
 const Error = ({ error }: { error?: Array<string> }) => {
   return error
     ? error.map((message) => (
-        <span key={message} className="block text-red-600 text-sm">
+        <span key={message} className="block text-red-600 text-base">
           {error}
         </span>
       ))
