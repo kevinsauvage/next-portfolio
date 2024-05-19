@@ -39,7 +39,7 @@ const SubmitButton = () => {
   return (
     <Button
       className="mt-4"
-      svg={<LucideSend role="image" />}
+      svg={<LucideSend role="img" />}
       label="Send Message"
       type="submit"
       title="Click to send the Message"
