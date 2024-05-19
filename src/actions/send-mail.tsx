@@ -20,13 +20,13 @@ const sendMailSchema = z.object({
 });
 
 type fieldErrors = {
-  email?: Array<string> | undefined;
-  error?: Array<string> | undefined;
-  feedback?: Array<string> | undefined;
-  fullName?: Array<string> | undefined;
-  message?: Array<string> | undefined;
-  phone?: Array<string> | undefined;
-  subject?: Array<string> | undefined;
+  email?: Array<string> ;
+  error?: Array<string>;
+  feedback?: Array<string>;
+  fullName?: Array<string>;
+  message?: Array<string>;
+  phone?: Array<string>;
+  subject?: Array<string>;
 };
 
 export async function sendMail(

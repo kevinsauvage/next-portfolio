@@ -16,7 +16,7 @@ const FormRow = ({ children }: { children: React.ReactNode }) => (
   <div className="flex flex-col gap-4 sm:flex-row sm:w-full">{children}</div>
 );
 
-const Error = ({ error }: { error?: Array<string> }) => {
+const ErrorMessage = ({ error }: { error?: Array<string> }) => {
   return error
     ? error.map((message) => (
         <span key={message} className="block text-red-600 text-base">
@@ -39,7 +39,7 @@ const SubmitButton = () => {
   return (
     <Button
       className="mt-4"
-      svg={<LucideSend role="presentation" />}
+      svg={<LucideSend role="image" />}
       label="Send Message"
       type="submit"
       title="Click to send the Message"
@@ -83,30 +83,30 @@ const ContactForm = () => {
             aria-required="true"
             aria-label="Full name"
           />
-          {<Error error={errors?.fullName} />}
+          <ErrorMessage error={errors?.fullName} />
         </Label>
         <Label>
           <LabelText required={true}>Email</LabelText>
           <Input type="email" name="email" placeholder="Your email address" aria-required="true" />
-          <Error error={errors?.email} />
+          <ErrorMessage error={errors?.email} />
         </Label>
       </FormRow>
       <FormRow>
         <Label>
           <LabelText required={false}>Subject</LabelText>
           <Input type="text" name="subject" placeholder="The Subject" aria-required="false" />
-          <Error error={errors?.subject} />
+          <ErrorMessage error={errors?.subject} />
         </Label>
         <Label>
           <LabelText required={false}>Phone</LabelText>
           <Input type="phone" name="phone" placeholder="Your Phone Number" aria-required="false" />
-          <Error error={errors?.phone} />
+          <ErrorMessage error={errors?.phone} />
         </Label>
       </FormRow>
       <Label>
         <LabelText required={true}>Message</LabelText>
         <TextArea name="message" placeholder="Your Message" aria-required="true" />
-        <Error error={errors?.message} />
+        <ErrorMessage error={errors?.message} />
       </Label>
       <SubmitButton />
     </form>
