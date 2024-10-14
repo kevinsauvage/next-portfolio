@@ -10,7 +10,7 @@ const sectionIds = sections.map((section) => section.id);
 
 const NavigationPresenter = () => {
   const { openOnMobile } = useGlobalContext();
-  const [activeSectionId, setActive] = useState<string>('');
+  const [activeSectionId, setActiveSectionId] = useState<string>('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,9 +28,9 @@ const NavigationPresenter = () => {
       });
 
       if (currentSection) {
-        setActive(currentSection);
+        setActiveSectionId(currentSection);
       } else {
-        setActive('');
+        setActiveSectionId('');
       }
     };
 
