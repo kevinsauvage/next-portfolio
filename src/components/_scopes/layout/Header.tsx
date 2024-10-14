@@ -1,5 +1,4 @@
 import NavigationPresenter from '@/components/_scopes/header/NavigationPresenter';
-import AnimatedContainer from '@/components/AnimatedContainer';
 import Logo from '@/components/Logo';
 
 type Properties = {
@@ -18,13 +17,7 @@ const Header = ({ children, isScrollingUp, isScrollingDown, isAtTop }: Propertie
     ${isAtTop && 'bg-transparent backdrop-blur-0'}`}
   >
     <div className="container px-3 flex justify-between m-auto items-center">
-      <AnimatedContainer
-        className="will-change-auto opacity-0 overflow-hidden"
-        from={{ opacity: 0, y: 150 }}
-        to={{ duration: 0.2, opacity: 1, y: 0 }}
-      >
-        <Logo />
-      </AnimatedContainer>
+      <Logo />
       <NavigationPresenter />
       {children}
     </div>

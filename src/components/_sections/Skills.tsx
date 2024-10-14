@@ -3,7 +3,6 @@ import { cloneElement } from 'react';
 import Section from '@/components/_scopes/section/Section';
 import SectionTitle from '@/components/_scopes/section/SectionTitle';
 import SectionUpTitle from '@/components/_scopes/section/SectionUpTitle';
-import AnimatedContainer from '@/components/AnimatedContainer';
 import sections, { Sections } from '@/config/sections';
 import skills from '@/config/skills.config';
 
@@ -33,16 +32,7 @@ const Skills = () => (
     <SectionTitle title={title} position={position} />
     <ul className="grid grid-cols-4 gap-2 mt-10 will-change-auto md:grid-cols-6 xxl:grid-cols-8">
       {skills.map((item) => (
-        <AnimatedContainer
-          className="will-change-transform will-change-opacity origin-top"
-          from={{ opacity: 0, y: 200 }}
-          to={{ duration: 0.3, opacity: 1, y: 0 }}
-          timelineOptions={{ scrollTrigger: { start: 'top bottom' } }}
-          key={item.name}
-          Tag="li"
-        >
-          <Skill item={item} />
-        </AnimatedContainer>
+        <Skill item={item} key={item.name} />
       ))}
     </ul>
   </Section>

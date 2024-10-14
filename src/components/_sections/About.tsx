@@ -1,7 +1,6 @@
 import Section from '@/components/_scopes/section/Section';
 import SectionTitle from '@/components/_scopes/section/SectionTitle';
 import SectionUpTitle from '@/components/_scopes/section/SectionUpTitle';
-import AnimatedContainer from '@/components/AnimatedContainer';
 import about, { BOLD_WORDS } from '@/config/about.config';
 import sections, { Sections } from '@/config/sections';
 
@@ -32,18 +31,11 @@ const About = () => (
   <Section id={section.id}>
     <SectionUpTitle icon={icon} text={label} />
     <SectionTitle title={title} position={position} />
-    <AnimatedContainer
-      from={{ opacity: 0, y: 300 }}
-      to={{ duration: 0.3, opacity: 1, y: 0 }}
-      timelineOptions={{ scrollTrigger: { start: 'top 90%' } }}
-      triggerClassName=".animated-about"
-    >
-      <ul>
-        {about.map((item) => (
-          <AboutItem key={item.content} item={item} className="animated-about" />
-        ))}
-      </ul>
-    </AnimatedContainer>
+    <ul>
+      {about.map((item) => (
+        <AboutItem key={item.content} item={item} className="animated-about" />
+      ))}
+    </ul>
   </Section>
 );
 

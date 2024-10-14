@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Section from '@/components/_scopes/section/Section';
 import SectionTitle from '@/components/_scopes/section/SectionTitle';
 import SectionUpTitle from '@/components/_scopes/section/SectionUpTitle';
-import AnimatedContainer from '@/components/AnimatedContainer';
 import TabList from '@/components/TabList';
 import experiences from '@/config/experience.config';
 import sections, { Sections } from '@/config/sections';
@@ -57,18 +56,11 @@ const Experiences = () => (
   <Section id={section.id}>
     <SectionUpTitle icon={icon} text={label} />
     <SectionTitle title={title} position={position} />
-    <AnimatedContainer
-      className="will-change-auto origin-top"
-      from={{ opacity: 0, y: 200 }}
-      to={{ duration: 0.3, opacity: 1, y: 0 }}
-      timelineOptions={{ scrollTrigger: { start: 'top bottom' } }}
-    >
-      <TabList items={experiences.map((experience) => experience.tab)}>
-        {experiences.map((experience) => (
-          <Experience key={experience.period} experience={experience} />
-        ))}
-      </TabList>
-    </AnimatedContainer>
+    <TabList items={experiences.map((experience) => experience.tab)}>
+      {experiences.map((experience) => (
+        <Experience key={experience.period} experience={experience} />
+      ))}
+    </TabList>
   </Section>
 );
 

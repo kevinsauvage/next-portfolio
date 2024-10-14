@@ -28,7 +28,7 @@ const Project = ({ item, className }: Properties) => {
         aria-label={`Open ${title} website in a new tab`}
       >
         <Image
-          className="w-full md:w-80 lg:hidden lg:group-hover:block lg:absolute lg:opacity-0 lg:transition-all lg:right-36 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:duration-300 lg:w-98 lg:group-hover:opacity-100"
+          className="w-full md:w-80 lg:hidden lg:group-hover:block lg:absolute lg: lg:transition-all lg:right-36 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:duration-300 lg:w-98 lg:group-hover:opacity-100"
           src={images.thumbnail.src}
           alt={images.thumbnail.alt}
           width={1600}
