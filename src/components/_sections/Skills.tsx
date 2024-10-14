@@ -12,17 +12,17 @@ const { icon, title, position } = section || {};
 
 type SkillType = { name: string; icon: JSX.Element };
 
-type Properties = { item: SkillType } & React.HTMLAttributes<HTMLDivElement>;
+type Properties = { item: SkillType } & React.HTMLAttributes<HTMLLIElement>;
 
 const Skill = ({ item, ...rest }: Properties) => {
   return (
-    <div
+    <li
       className="flex flex-col items-center justify-center gap-4 p-4 rounded-lg bg-blue-950 text-blue-400 border border-blue-500"
       {...rest}
     >
       {cloneElement(item.icon, { role: 'presentation', size: 50, strokeWidth: 1.5 })}
       <p>{item.name}</p>
-    </div>
+    </li>
   );
 };
 
