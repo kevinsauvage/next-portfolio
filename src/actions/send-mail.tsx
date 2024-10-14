@@ -10,7 +10,22 @@ const templateId = process.env.email_js_template_id as string;
 
 const keyParameters = { privateKey, publicKey };
 
+async function validateCaptcha(captchaToken: string): Promise<boolean> {
+  const minimumCaptchaScore = 0.7;
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY || '';
+  const data = new FormData();
+  data.append('secret', secretKey);
+  data.append('response', captchaToken);
+  const captchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+    body: data,
+    method: 'POST',
+  });
+  const response = await captchaResponse.json();
+  return response.score && response.score >= minimumCaptchaScore;
+}
+
 const sendMailSchema = z.object({
+  captcha: z.string().optional(),
   email: z.string().email(),
   feedback: z.string().optional(),
   fullName: z.string().min(1, { message: 'Full name is required' }),
@@ -35,6 +50,12 @@ export async function sendMail(
 ): Promise<fieldErrors | undefined> {
   const result = sendMailSchema.safeParse(Object.fromEntries(formData.entries()));
   if (!result?.success) return result.error.formErrors.fieldErrors;
+
+  const valid = await validateCaptcha(result.data.captcha ?? '');
+
+  if (!valid) {
+    return { feedback: ['Captcha validation failed. Please try again later.'] };
+  }
 
   try {
     await emailjs.send(serviceId, templateId, result.data, keyParameters);

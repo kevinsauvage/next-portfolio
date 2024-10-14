@@ -1,7 +1,7 @@
 'use client';
-
 import { useEffect, useRef } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { sendMail } from '@/actions/send-mail';
 import Input from '@/components/_scopes/form/Input';
@@ -52,7 +52,17 @@ const SubmitButton = () => {
 const ContactForm = () => {
   const notification = useNotification();
   const reference = useRef<HTMLFormElement>(null);
-  const [errors, formAction] = useFormState(sendMail, {});
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  async function addRecaptcha(previousState: unknown, formData: FormData) {
+    const gRecaptchaToken = executeRecaptcha ? await executeRecaptcha('contactMessage') : '';
+    formData.set('captcha', gRecaptchaToken);
+
+    return sendMail(previousState, formData);
+  }
+
+  const [errors, formAction] = useFormState(addRecaptcha, {});
 
   useEffect(() => {
     if (!errors && reference?.current) {

@@ -36,3 +36,7 @@ select:-webkit-autofill:focus {
 .texture-bg {
   background-image: url('/images/texture-bg3.jpeg');
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
