@@ -13,17 +13,17 @@ const { icon, title, position } = section || {};
 
 type SkillType = { name: string; icon: JSX.Element };
 
-type Properties = { item: SkillType } & React.HTMLAttributes<HTMLLIElement>;
+type Properties = { item: SkillType } & React.HTMLAttributes<HTMLDivElement>;
 
 const Skill = ({ item, ...rest }: Properties) => {
   return (
-    <li
+    <div
       className="flex flex-col items-center justify-center gap-4 p-4 rounded-lg bg-blue-950 text-blue-400 border border-blue-500"
       {...rest}
     >
       {cloneElement(item.icon, { role: 'presentation', size: 50, strokeWidth: 1.5 })}
       <p>{item.name}</p>
-    </li>
+    </div>
   );
 };
 
@@ -39,6 +39,7 @@ const Skills = () => (
           to={{ duration: 0.3, opacity: 1, y: 0 }}
           timelineOptions={{ scrollTrigger: { start: 'top bottom' } }}
           key={item.name}
+          Tag="li"
         >
           <Skill item={item} />
         </AnimatedContainer>
