@@ -2,20 +2,18 @@ import Link from 'next/link';
 
 import Section from '@/components/_scopes/section/Section';
 import SectionTitle from '@/components/_scopes/section/SectionTitle';
-import SectionUpTitle from '@/components/_scopes/section/SectionUpTitle';
-import TabList from '@/components/TabList';
 import experiences from '@/config/experience.config';
 import sections, { Sections } from '@/config/sections';
 
 const label = 'My Experience';
 const section = sections.find((data) => data.label === label) as Sections[0];
-const { icon, title, position } = section || {};
+const { title, position } = section || {};
 
 type ExperienceType = {
   title: string;
   period: string;
-  description: string;
-  company: { name: string; link: string };
+  description?: string;
+  company: { name: string; link: string; small?: string };
   listItem: Array<string>;
 };
 
@@ -25,25 +23,23 @@ const Experience = ({ experience }: Properties) => {
   const { title: experienceTitle, period, company, listItem, description } = experience;
 
   return (
-    <div role="tabpanel">
-      <h3 className="flex flex-wrap text-2xl gap-4">
-        <span className="font-semibold">{experienceTitle}</span>
-        <Link
-          className="text-blue-500 underline font-semibold"
-          href={company.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={`Go to ${company.name} website`}
-        >
-          @ {company.name}
-        </Link>
-      </h3>
-      <p className="text-sm mb-6">{period}</p>
+    <div className="mb-10">
+      <h3 className="text-3xl gap-2 font-semibold">{experienceTitle}</h3>
+      <Link
+        className="text-blue-500 underline font-normal text-xl mb-2 block"
+        href={company.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={`Go to ${company.name} website`}
+      >
+        @ {company.name} {company.small}
+      </Link>
+      <p className="text-gray-400 font-normal mb-6">{period}</p>
       <p className="text-lg mb-4">{description}</p>
       <ul className="">
         {listItem.map((item) => (
-          <li key={item} className="text-lg flex">
-            <span className="block text-blue-500 font-bold mr-4 text-xl">- </span>
+          <li key={item} className="text-lg md:text-xl flex">
+            <span className="block text-blue-500 font-bold mr-4 ">- </span>
             {item}
           </li>
         ))}
@@ -54,13 +50,10 @@ const Experience = ({ experience }: Properties) => {
 
 const Experiences = () => (
   <Section id={section.id}>
-    <SectionUpTitle icon={icon} text={label} />
     <SectionTitle title={title} position={position} />
-    <TabList items={experiences.map((experience) => experience.tab)}>
-      {experiences.map((experience) => (
-        <Experience key={experience.period} experience={experience} />
-      ))}
-    </TabList>
+    {experiences.map((experience) => (
+      <Experience key={experience.period} experience={experience} />
+    ))}
   </Section>
 );
 

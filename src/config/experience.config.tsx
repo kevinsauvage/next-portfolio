@@ -7,12 +7,11 @@ const experiences = [
       name: 'Decathlon',
       small: '(International)',
     },
-    description:
-      'Promoted to develop a new checkout system serving 15 countries, conducting successful AB tests and achieving significant positive impacts on conversion rates and shipping page access rates.',
     listItem: [
-      'Led the development of a new checkout system serving 15 countries.',
-      'Conducted successful AB tests with significant positive impacts on conversion rates',
-      'Achieved significant positive impact on shipping page access rates',
+      'Implemented user interfaces using JavaScript and Svelte to create a consistent and personalized customer experience across Decathlon’s global platform, improving scalability and user satisfaction.',
+      'Collaborated with teams from 15 countries during the development process, ensuring the platform met diverse regional needs while maintaining a unified global experience.',
+      'Worked closely with design and development teams, using tools like Figma, Storybook, and Jira to streamline workflows and optimize application performance.',
+      'Implemented and maintained testing with Jest to ensure code quality and minimize bugs, contributing to a smoother deployment process.',
     ],
     location,
     period: 'October 2023 - present',
@@ -25,12 +24,11 @@ const experiences = [
       name: 'Decathlon',
       small: '(Spain)',
     },
-    description:
-      'Contributed to improving the performance and accessibility of the Spanish e-commerce website within a team of 25 developers at Decathlon Spain.',
     listItem: [
-      'Joined a team of 25 developers at Decathlon Spain, specializing in improving the performance and accessibility of the Spanish e-commerce website',
-      'Implemented performance optimization strategies and enhanced accessibility features to improve the overall user experience',
-      'Contributed to the development of new features and improvements to the website, resulting in increased user satisfaction and retention rates',
+      'Focused on improving the performance and accessibility of Decathlon Spain’s e-commerce website using Svelte, JavaScript, and Tailwind, resulting in a faster and more user-friendly online shopping experience.',
+      'Collaborated with cross-functional teams, utilizing Figma and Jira to ensure efficient design and development processes, while adhering to best practices in front-end development.',
+      'Enhanced website accessibility to meet industry standards, making the platform more inclusive and easier to navigate for all users.',
+      'Implemented and maintained testing with Jest to ensure code quality and minimize bugs, contributing to a smoother deployment process.',
     ],
     location,
     period: 'May 2022 - October 2023',
@@ -42,8 +40,6 @@ const experiences = [
       link: 'https://subforce.io/',
       name: 'Subforce',
     },
-    description:
-      'Led the development of dynamic projects from inception to execution using React, Next.js, Express.js, and MongoDB within a compact team structure. Spearheaded internationalisation efforts to ensure seamless user experiences across three languages.',
     listItem: [
       'Spearheaded the development of dynamic projects using React, Next.js, Express.js, and MongoDB',
       'Orchestrated project lifecycle within a compact team of developers and a project manager',

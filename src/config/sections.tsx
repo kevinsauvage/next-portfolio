@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { JSXElementConstructor, ReactElement } from 'react';
 
-import {
-  LucideBriefcaseBusiness,
-  LucideCode2,
-  LucideHammer,
-  LucideSend,
-  LucideUser2,
-} from 'lucide-react';
+import { LucideBriefcaseBusiness, LucideCode2, LucideSend, LucideUser2 } from 'lucide-react';
 
 export type Sections = Array<{
   icon: ReactElement<any, string | JSXElementConstructor<any>>;
@@ -32,25 +26,19 @@ const sections: Sections = [
     position: '02',
     title: 'Where I Worked',
   },
-  {
-    icon: <LucideHammer />,
-    id: 'skills',
-    label: 'My Skills',
-    position: '03',
-    title: 'What I Do',
-  },
+
   {
     icon: <LucideCode2 />,
     id: 'projects',
     label: 'My Projects',
-    position: '04',
+    position: '03',
     title: 'What I Built',
   },
   {
     icon: <LucideSend />,
     id: 'contact',
     label: 'Contact Me',
-    position: '05',
+    position: '04',
     title: "Let's work together",
   },
 ];

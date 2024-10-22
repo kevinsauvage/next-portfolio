@@ -31,7 +31,7 @@ const Navigation: React.FC<NavigationProperties> = ({ activeSectionId, isOpen })
       </ul>
       <Link
         href="/#contact"
-        className={`flex items-center justify-center font-semibold font-serif rounded p-3 w-full overflow-hidden  gap-2 text-white border border-blue-900 hover:bg-blue-800 bg-gradient-to-r from-blue-600 to-violet-600 animated-navigation-item text-2xl max-w-xs mx-auto lg:text-lg lg:p-2`}
+        className="flex items-center whitespace-nowrap justify-center w-full gap-2 p-2 font-semibold font-serif text-lg text-white rounded border border-blue-700  bg-blue-600 hover:bg-blue-900"
         aria-label="Get in Touch - Scroll to the contact section"
         onClick={closeMenu}
       >

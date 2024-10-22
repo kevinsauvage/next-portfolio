@@ -29,7 +29,7 @@ const ErrorMessage = ({ error }: { error?: Array<string> }) => {
 const LabelText = ({ children, required }: { children: React.ReactNode; required: boolean }) => (
   <span className="relative w-fit">
     {children}
-    {required && <span className="absolute -right-3 -top-1 text-blue-400 text-2xl">*</span>}
+    {required && <span className="absolute -right-3 -top-1 text-red-600 text-2xl">*</span>}
   </span>
 );
 

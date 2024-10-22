@@ -1,4 +1,4 @@
-import { Alegreya, Alegreya_Sans } from 'next/font/google';
+import { Alegreya, Alegreya_Sans, Tilt_Warp } from 'next/font/google';
 
 import { Analytics } from '@vercel/analytics/react';
 
@@ -24,12 +24,14 @@ const AlegreyaSansFont = Alegreya_Sans({
   weight: ['100', '300', '400', '500', '700'],
 });
 
+const TiltWarpFont = Tilt_Warp({ display: 'swap', subsets: ['latin'], variable: '--font-title' });
+
 const LayoutWrapper = ({ children }: Properties) => (
   <html
     lang="en"
-    className={`${AlegreyaFont.variable} ${AlegreyaSansFont.variable} bg-slate-950 leading-tight scroll-smooth`}
+    className={`${AlegreyaFont.variable} ${AlegreyaSansFont.variable} ${TiltWarpFont.variable} bg-zinc-950 leading-tight scroll-smooth`}
   >
-    <body className={`relative text-slate-50 antialiased font-sans overflow-x-hidden`}>
+    <body className="relative text-slate-50 antialiased font-sans overflow-x-hidden">
       <Analytics />
       <script
         type="application/ld+json"

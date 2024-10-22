@@ -19,8 +19,7 @@ const Button = ({
   disabled,
   ...rest
 }: Properties) => {
-  const primaryClass =
-    'text-white border border-blue-900 hover:bg-blue-800 bg-gradient-to-r from-blue-600 to-violet-600';
+  const primaryClass = 'text-white border border-blue-700  bg-blue-600 hover:bg-blue-900';
   const secondaryClass = 'bg-transparent text-blue-900 border border-blue-900 hover:bg-blue-50';
 
   const buttonClass = {

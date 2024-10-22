@@ -1,7 +1,6 @@
 import Footer from '@/components/_scopes/layout/Footer';
 import HeaderPresenter from '@/components/_scopes/layout/HeaderPresenter';
 import LayoutWrapper from '@/components/_scopes/layout/LayoutWrapper';
-import TextureBg from '@/components/TextureBg';
 import GlobalProvider from '@/contexts/GlobalContext';
 import NotificationProvider from '@/contexts/NotificationContext';
 
@@ -18,7 +17,6 @@ const PageLayout = ({ children }: Properties) => (
         <Footer />
       </GlobalProvider>
     </NotificationProvider>
-    <TextureBg />
   </LayoutWrapper>
 );
 

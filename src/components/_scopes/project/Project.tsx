@@ -36,10 +36,10 @@ const Project = ({ item, className }: Properties) => {
         />
         <div className="p-2 w-full flex flex-col lg:flex-row lg:justify-between">
           <div className="">
-            <h3 className="text-2xl mb-2">{title}</h3>
-            <div className="flex flex-wrap gap-3 items-center text-blue-500 mb-5 lg:mb-0 lg:max-w-64">
+            <h3 className="text-2xl mb-2 font-medium text-blue-600">{title}</h3>
+            <div className="flex flex-wrap gap-3 items-center text-gray-400 mb-5 lg:mb-0 lg:max-w-64">
               {technologies.map(({ name }) => (
-                <div key={name} className="font-semibold whitespace-nowrap">
+                <div key={name} className="font-medium whitespace-nowrap">
                   {name}
                 </div>
               ))}
