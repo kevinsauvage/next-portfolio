@@ -25,7 +25,7 @@ const Project = ({ item, className }: Properties) => {
         target="_blank"
         rel="noopener noreferrer"
         title={`Go to ${title}`}
-        aria-label={`Open ${title} website in a new tab`}
+        aria-label={`Go to ${title} website in a new tab`}
       >
         <Image
           className="w-full md:w-80 lg:hidden lg:group-hover:block lg:absolute lg: lg:transition-all lg:right-36 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:duration-300 lg:w-98 lg:group-hover:opacity-100"
