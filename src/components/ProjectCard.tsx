@@ -33,10 +33,14 @@ const ProjectCard = ({ item, className }: Properties) => {
             ))}
           </div>
         </div>
-        <Link href={websiteLink} target="_blank" rel="noopener noreferrer" aria-label={title}>
-          <div className="flex items-center justify-center text-zinc-400 gap-2 whitespace-nowrap font-medium border border-zinc-600 rounded p-3">
-            View project <MoveUpRight size={20} />
-          </div>
+        <Link
+          className="flex items-center justify-center text-zinc-400 gap-2 whitespace-nowrap font-medium border border-zinc-600 rounded p-3"
+          href={websiteLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="View project"
+        >
+          View project <MoveUpRight size={20} />
         </Link>
       </div>
       <div className="relative w-full flex items-center justify-center group">
