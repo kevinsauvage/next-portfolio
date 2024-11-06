@@ -24,8 +24,8 @@ const ProjectCard = ({ item, className }: Properties) => {
         href={websiteLink}
         target="_blank"
         rel="noopener noreferrer"
-        title={`Go to ${title}`}
-        aria-label={`Go to ${title}`}
+        title={title}
+        aria-label={title}
       >
         <div className="w-full flex flex-col justify-between items-start">
           <div className="">
