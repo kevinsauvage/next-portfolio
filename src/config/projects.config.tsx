@@ -5,7 +5,7 @@ const SpotifyProfile = {
   images: {
     thumbnail: {
       alt: 'Spotify Profile home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1704109547/portfolio/spotifyProfileMockup_ehxdxg.webp',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1730836067/dark_iuvcup.webp',
     },
   },
   technologies: [
@@ -29,7 +29,7 @@ const Streamy = {
   images: {
     thumbnail: {
       alt: 'Streamy home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1704109547/portfolio/streamyMockup_mpznlb.webp',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1730836575/dark_copy_3_exhfpt.webp',
     },
   },
   technologies: [
@@ -51,7 +51,7 @@ const Portfolio = {
   images: {
     thumbnail: {
       alt: 'Portfolio home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1704109547/portfolio/portfolioMockup_jh0mpw.webp',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1730837350/dark_rjdhce.webp',
     },
   },
   technologies: [{ name: 'NextJs' }, { name: 'Typescript' }, { name: 'SASS' }, { name: 'Vercel' }],
@@ -59,26 +59,6 @@ const Portfolio = {
   websiteLink: 'https://www.kevin-sauvage.com/',
 };
 
-const Calculator = {
-  description:
-    'A simple calculator app built with Next.js. It allows users to perform basic arithmetic operations and provides a clean and intuitive user interface.',
-  githubLink: ['https://github.com/kevinsauvage/calculator'],
-  images: {
-    thumbnail: {
-      alt: 'Calculator home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1704109546/portfolio/CalculatorMockup_oh09z5.webp',
-    },
-  },
-  technologies: [
-    { name: 'NextJs' },
-    { name: 'Typescript' },
-    { name: 'TailwindCSS' },
-    { name: 'Vercel' },
-  ],
-  title: 'Calculator',
-  websiteLink: 'https://calculator-inky-mu.vercel.app',
-};
-
-const projects = [SpotifyProfile, Streamy, Portfolio, Calculator];
+const projects = [SpotifyProfile, Streamy, Portfolio];
 
 export default projects;

@@ -5,13 +5,17 @@ module.exports = {
   plugins: [],
   theme: {
     extend: {
+      backgroundSize: {
+        auto: 'auto',
+        contain: 'contain',
+        cover: 'cover',
+      },
       colors: {
         'regal-blue': '#243c5a',
       },
       fontFamily: {
-        sans: ['var(--font-sans)'],
-        serif: ['var(--font-serif)'],
-        title: ['var(--font-title)'],
+        heading: ['var(--font-heading)'],
+        sans: ['var(--font-base)'],
       },
     },
   },

@@ -1,8 +1,16 @@
-type Properties = { children: React.ReactNode; id?: string };
+import clsx from 'clsx';
 
-const Section = ({ children, id }: Properties) => {
+type SectionProperties = {
+  children: React.ReactNode;
+  className?: string;
+} & React.HTMLAttributes<HTMLElement>;
+
+const Section: React.FC<SectionProperties> = ({ children, className, ...properties }) => {
   return (
-    <section id={id} className="mt-10 mb-60">
+    <section
+      className={clsx('max-w-5xl m-auto w-full py-20 scroll-m-10', className)}
+      {...properties}
+    >
       {children}
     </section>
   );

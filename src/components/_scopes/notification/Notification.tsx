@@ -8,7 +8,7 @@ type Properties = {
 };
 
 const Notification = ({ notification, removeNotification }: Properties) => {
-  const timerID = useRef<NodeJS.Timeout>();
+  const timerID = useRef<NodeJS.Timeout>(null);
 
   useEffect(() => {
     timerID.current = setTimeout(() => {
@@ -16,7 +16,7 @@ const Notification = ({ notification, removeNotification }: Properties) => {
     }, 3000);
 
     return () => {
-      clearTimeout(timerID.current);
+      if (timerID.current) clearTimeout(timerID.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -24,19 +24,19 @@ const Notification = ({ notification, removeNotification }: Properties) => {
   if (!notification) return;
 
   const stylesObject: { [key: string]: string } = {
-    error: 'bg-red-950 text-red-400 border border-red-400',
-    success: 'bg-green-950 text-green-400 border border-green-400',
-    warning: 'bg-yellow-950 text-yellow-400 border border-yellow-400',
+    error: 'text-red-400 border border-red-400',
+    success: 'text-green-400 border border-green-400',
+    warning: 'text-yellow-400 border border-yellow-400',
   };
 
   return (
     <div
-      className={`relative min-w-24 w-full mb-2 font-medium ${stylesObject[notification?.type]}`}
+      className={`relative min-w-24 w-full mb-2 bg-zinc-950 border font-medium ${stylesObject[notification?.type]}`}
       key={notification.id}
     >
       <button
         type="button"
-        className="top-0 right-0 text-lg p-4 w-full"
+        className="bottom-2 right-2 text-lg p-4 w-full"
         onClick={() => removeNotification(notification.id)}
       >
         <span dangerouslySetInnerHTML={{ __html: notification?.message }} />

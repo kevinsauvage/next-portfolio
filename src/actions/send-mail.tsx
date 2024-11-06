@@ -5,7 +5,7 @@ import { z } from 'zod';
 
 const serviceId = process.env.email_js_service_id as string;
 const publicKey = process.env.email_js_public_key as string;
-const privateKey = process.env.email_js_provate_key as string;
+const privateKey = process.env.email_js_private_key as string;
 const templateId = process.env.email_js_template_id as string;
 
 const keyParameters = { privateKey, publicKey };
@@ -35,7 +35,7 @@ const sendMailSchema = z.object({
 });
 
 type fieldErrors = {
-  email?: Array<string> ;
+  email?: Array<string>;
   error?: Array<string>;
   feedback?: Array<string>;
   fullName?: Array<string>;

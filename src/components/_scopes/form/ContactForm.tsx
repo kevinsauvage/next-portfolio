@@ -12,10 +12,6 @@ import { useNotification } from '@/contexts/NotificationContext';
 
 import { LucideSend } from 'lucide-react';
 
-const FormRow = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex flex-col gap-4 sm:flex-row sm:w-full">{children}</div>
-);
-
 const ErrorMessage = ({ error }: { error?: Array<string> }) => {
   return error
     ? error.map((message) => (
@@ -39,7 +35,7 @@ const SubmitButton = () => {
   return (
     <Button
       className="mt-4"
-      svg={<LucideSend role="img" />}
+      svg={<LucideSend role="img" size={18} />}
       label="Send Message"
       type="submit"
       title="Click to send the Message"
@@ -79,46 +75,50 @@ const ContactForm = () => {
   return (
     <form
       ref={reference}
-      className="flex flex-col gap-4"
+      className="flex flex-col w-full"
       action={formAction}
       aria-label="Contact me"
     >
-      <FormRow>
+      <div className="rounded-lg space-y-7">
         <Label>
           <LabelText required={true}>Full name</LabelText>
-          <Input
-            type="text"
-            name="fullName"
-            placeholder="Your Full name"
-            aria-required="true"
-            aria-label="Full name"
-          />
-          <ErrorMessage error={errors?.fullName} />
+          <div>
+            <Input
+              type="text"
+              name="fullName"
+              placeholder="ex: John Doe"
+              aria-required="true"
+              aria-label="Full name"
+            />
+            <ErrorMessage error={errors?.fullName} />
+          </div>
         </Label>
         <Label>
           <LabelText required={true}>Email</LabelText>
-          <Input type="email" name="email" placeholder="Your email address" aria-required="true" />
-          <ErrorMessage error={errors?.email} />
+          <div>
+            <Input
+              type="email"
+              name="email"
+              placeholder="ex: johndoe@gmail.com"
+              aria-required="true"
+            />
+            <ErrorMessage error={errors?.email} />
+          </div>
         </Label>
-      </FormRow>
-      <FormRow>
         <Label>
-          <LabelText required={false}>Subject</LabelText>
-          <Input type="text" name="subject" placeholder="The Subject" aria-required="false" />
-          <ErrorMessage error={errors?.subject} />
+          <LabelText required={true}>Message</LabelText>
+          <div>
+            <TextArea
+              name="message"
+              placeholder="Share your thoughts or ask a question"
+              aria-required="true"
+            />
+            <ErrorMessage error={errors?.message} />
+          </div>
         </Label>
-        <Label>
-          <LabelText required={false}>Phone</LabelText>
-          <Input type="phone" name="phone" placeholder="Your Phone Number" aria-required="false" />
-          <ErrorMessage error={errors?.phone} />
-        </Label>
-      </FormRow>
-      <Label>
-        <LabelText required={true}>Message</LabelText>
-        <TextArea name="message" placeholder="Your Message" aria-required="true" />
-        <ErrorMessage error={errors?.message} />
-      </Label>
-      <SubmitButton />
+
+        <SubmitButton />
+      </div>
     </form>
   );
 };

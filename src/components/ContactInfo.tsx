@@ -8,7 +8,7 @@ const ContactInfo = () => (
       <li key={item.href}>
         <Link
           href={item.href}
-          className="md:hover:text-blue-500"
+          className="text-zinc-300 md:hover:text-blue-500"
           aria-label={`${item.text} on a new page`}
           target="_blank"
           prefetch={false}

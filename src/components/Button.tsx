@@ -1,3 +1,7 @@
+'use client';
+
+import clsx from 'clsx';
+
 type Properties = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   label: string;
@@ -14,24 +18,20 @@ const Button = ({
   variant = 'primary',
   label,
   svg,
-  loading = true,
+  loading = false,
   className,
   disabled,
   ...rest
 }: Properties) => {
-  const primaryClass = 'text-white border border-blue-700  bg-blue-600 hover:bg-blue-900';
-  const secondaryClass = 'bg-transparent text-blue-900 border border-blue-900 hover:bg-blue-50';
-
-  const buttonClass = {
-    primary: primaryClass,
-    secondary: secondaryClass,
-  };
-
   return (
     <button
-      className={`flex items-center justify-center text-lg font-semibold font-serif rounded p-3 border w-full overflow-hidden relative sm:max-w-44 ${
-        buttonClass[variant]
-      } ${loading ? 'cursor-default opacity-60' : ''} ${className}`}
+      className={clsx(
+        'relative overflow-hidden flex items-center justify-between text-lg font-normal w-fit whitespace-nowrap rounded-full px-4 py-2 border border-zinc-400 sm:max-w-44',
+        variant === 'primary' ? 'text-zinc-100' : '',
+        variant === 'secondary' ? 'text-blue-900' : '',
+        loading ? 'cursor-default opacity-60' : '',
+        className,
+      )}
       onClick={(event) => onClick?.(event)}
       aria-label={label}
       disabled={disabled || loading}
@@ -39,11 +39,11 @@ const Button = ({
       {...rest}
     >
       {loading && (
-        <div className="absolute z-20 flex items-center justify-center inset-0 bg-blue-900">
+        <div className="absolute flex items-center justify-center inset-0 bg-zinc-900 text-zinc-100">
           loading...
         </div>
       )}
-      <span className="relative z-10 flex items-center gap-2">
+      <span className="w-full flex items-center justify-between gap-2 text-zinc-300">
         {label}
         {svg}
       </span>

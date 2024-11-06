@@ -1,4 +1,4 @@
-const expertises = [
+const expertise = [
   {
     content:
       'Building accessible websites crafted to align with your brand identity and business goals',
@@ -48,4 +48,4 @@ const expertises = [
   },
 ];
 
-export default expertises;
+export default expertise;
