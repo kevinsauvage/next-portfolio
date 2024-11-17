@@ -1,7 +1,11 @@
+import BoxWithBackground from '@/components/BoxWithBackground';
+
 import Section from './Section';
 import SectionDescription from './SectionDescription';
 import SectionHeader from './SectionHeader';
 import SectionTitle from './SectionTitle';
+
+import clsx from 'clsx';
 
 const POSITION = 'Frontend Developer';
 
@@ -37,20 +41,20 @@ const ExperienceItem: React.FC<{
   position: string;
 }> = ({ title, description, period, style, position }) => {
   return (
-    <div
-      className={`flex flex-col justify-between items-center p-6 border rounded-lg grid-container ${style}`}
-    >
+    <BoxWithBackground className={clsx('flex flex-col justify-between items-center', style)}>
       <div className="pb-8 w-full">
-        <h3 className="text-2xl font-medium text-zinc-200 mb-3 leading-5 font-heading">{title}</h3>
+        <p className="text-zinc-400 text-base font-light whitespace-nowrap mb-4">{period}</p>
         <div className="gap-10 md:flex md:items-end md:justify-between w-full">
-          <p className="text-zinc-300 font-light text-xl">{position}</p>
-          <p className="text-zinc-400 text-base font-light whitespace-nowrap">{period}</p>
+          <h3 className="text-2xl font-medium text-zinc-200 mb-3 leading-5 font-heading">
+            {title}
+          </h3>
+          <p className="text-zinc-300 font-light text-xl whitespace-nowrap">{position}</p>
         </div>
       </div>
       <div>
         <p className="text-zinc-200 font-light text-lg leading-6">{description}</p>
       </div>
-    </div>
+    </BoxWithBackground>
   );
 };
 

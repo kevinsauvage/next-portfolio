@@ -4,11 +4,14 @@ import Grid1 from '@/assets/grid1.png';
 import Grid2 from '@/assets/grid2.png';
 import Grid3 from '@/assets/grid3.png';
 import Grid4 from '@/assets/grid4.png';
+import BoxWithBackground from '@/components/BoxWithBackground';
 
 import Section from './Section';
 import SectionDescription from './SectionDescription';
 import SectionHeader from './SectionHeader';
 import SectionTitle from './SectionTitle';
+
+import clsx from 'clsx';
 
 const items = [
   {
@@ -71,9 +74,7 @@ const AboutItem: React.FC<{
   style: string;
 }> = ({ title, content, image, index, style }) => {
   return (
-    <div
-      className={`relative flex flex-col justify-between items-center p-6 border rounded-lg grid-container ${style}`}
-    >
+    <BoxWithBackground className={style}>
       <div className="relative flex flex-col items-center justify-center h-full w-full">
         <Image
           src={image.src}
@@ -85,25 +86,26 @@ const AboutItem: React.FC<{
       </div>
       <div>
         <p
-          className={` ${
+          className={clsx(
             index === items.length - 1
               ? 'text-zinc-200 text-lg text-center font-normal mb-1'
-              : 'text-2xl font-heading text-zinc-100 mb-3'
-          }`}
+              : 'text-2xl font-heading text-zinc-100 mb-3',
+          )}
         >
           {title}
         </p>
         <p
-          className={`font-light ${
+          className={clsx(
+            'font-light',
             index === items.length - 1
-              ? 'text-zinc-100 text-xl text-center '
-              : 'text-zinc-200 text-lg '
-          }`}
+              ? 'text-zinc-100 text-xl text-center'
+              : 'text-zinc-200 text-lg',
+          )}
         >
           {content}
         </p>
       </div>
-    </div>
+    </BoxWithBackground>
   );
 };
 

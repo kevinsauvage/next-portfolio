@@ -9,7 +9,7 @@ import SectionTitle from './SectionTitle';
 
 const ProjectSection: React.FC = () => {
   return (
-    <Section id="works">
+    <Section id="work">
       <SectionHeader>
         <SectionTitle>My Selected Work</SectionTitle>
         <SectionDescription>

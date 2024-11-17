@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 
+import clsx from 'clsx';
+
 type Properties = {
   notification: { id: string; type: string; message: string };
   removeNotification: (id: string) => void;
@@ -31,7 +33,10 @@ const Notification = ({ notification, removeNotification }: Properties) => {
 
   return (
     <div
-      className={`relative min-w-24 w-full mb-2 bg-zinc-950 border font-medium ${stylesObject[notification?.type]}`}
+      className={clsx(
+        'relative min-w-24 w-full mb-2 bg-zinc-950 border font-medium',
+        stylesObject[notification?.type],
+      )}
       key={notification.id}
     >
       <button

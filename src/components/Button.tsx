@@ -27,7 +27,7 @@ const Button = ({
     <button
       className={clsx(
         'relative overflow-hidden flex items-center justify-between text-lg font-normal w-fit whitespace-nowrap rounded-full px-4 py-2 border border-zinc-400 sm:max-w-44',
-        variant === 'primary' ? 'text-zinc-100' : '',
+        variant === 'primary' ? 'text-zinc-100 bg-zinc-950' : '',
         variant === 'secondary' ? 'text-blue-900' : '',
         loading ? 'cursor-default opacity-60' : '',
         className,

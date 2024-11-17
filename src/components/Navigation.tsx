@@ -17,17 +17,24 @@ const Navigation: React.FC<{
   setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ menuOpen, setMenuOpen }) => {
   return (
-    <div className={clsx('flex items-center gap-4')}>
+    <div
+      className={clsx(
+        'md:flex items-center gap-4',
+        !menuOpen && 'hidden md:flex',
+        menuOpen && 'fixed inset-0 bg-black z-50',
+      )}
+    >
       <div
         className={clsx(
-          'flex flex-col items-center justify-center gap-4 h-dvh w-full fixed top-0 left-0 bottom-0 bg-zinc-900 z-50 md:static md:flex-row md:bg-transparent md:w-auto md:h-auto ',
-          !menuOpen && 'hidden md:flex',
+          'flex flex-col items-center justify-center px-5 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 py-4 md:rounded-full md:border md:border-zinc-800 gap-8 h-dvh w-full fixed left-[50%] translate-x-[-50%] max-w-max mx-auto bg-zinc-900 z-50 md:flex-row md:bg-opacity-65 md:w-fit md:h-fit md:bottom-auto ',
+          menuOpen && 'max-w-none',
         )}
       >
         {menuOpen && (
           <X
-            className="md:hidden ml-auto absolute top-3 right-2 cursor-pointer"
+            className="md:hidden ml-auto absolute top-9 right-4 cursor-pointer"
             onClick={() => setMenuOpen(!menuOpen)}
+            size={30}
           />
         )}
         {navItems.map(({ id, label }) => (
@@ -36,7 +43,8 @@ const Navigation: React.FC<{
             href={`#${id}`}
             aria-label={`Go to ${id} section`}
             className={clsx(
-              'flex items-center justify-between gap-1 font-light whitespace-nowrap text-lg last:mb-0 no-underline text-zinc-300',
+              'flex items-center aspect-video rounded-full justify-center gap-1 border border-zinc-700 max-w-32 w-full font-light whitespace-nowrap text-lg last:mb-0 no-underline text-zinc-300',
+              'md:border-none',
             )}
           >
             {label}

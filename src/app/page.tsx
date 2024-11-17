@@ -7,10 +7,12 @@ import Hero from '@/components/Hero';
 
 const Home = () => (
   <div className="h-full w-full grow flex flex-col justify-between m-auto">
-    <Hero />
-    <AboutSection />
-    <ProjectSection />
-    <ExperienceSection />
+    <div className="container m-auto px-4">
+      <Hero />
+      <AboutSection />
+      <ProjectSection />
+      <ExperienceSection />
+    </div>
     <GoogleReCaptchaProviderWrapper>
       <ContactSection />
     </GoogleReCaptchaProviderWrapper>

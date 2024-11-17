@@ -2,11 +2,13 @@ import { Josefin_Sans, Yeseva_One } from 'next/font/google';
 
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import MouseFollowGradientBackground from '@/components/MouseFollowGradientBackground';
 import NotificationProvider from '@/contexts/NotificationContext';
 
 import '@/styles/globals.scss';
 
 import { Analytics } from '@vercel/analytics/react';
+import clsx from 'clsx';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -39,19 +41,22 @@ const PageLayout = ({ children }: Properties) => {
   return (
     <html
       lang="en"
-      className={`${JosefinSans.variable} ${YesevaOne.variable} bg-zinc-900 h-auto w-auto leading-tight scroll-smooth`}
+      className={clsx(
+        'bg-zinc-950 h-auto w-auto leading-tight scroll-smooth',
+        JosefinSans.variable,
+        YesevaOne.variable,
+      )}
     >
-      <body className="w-full h-full  text-zinc-50 antialiased font-base font-light">
+      <body className="w-full h-full text-zinc-50 antialiased font-base font-light">
         <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <NotificationProvider>
+          <MouseFollowGradientBackground />
           <Header />
-          <main className="min-h-dvh px-4 flex-1 h-full w-full flex flex-col xl:px-0">
-            {children}
-          </main>
+          <main className="min-h-dvh flex-1 h-full w-full flex flex-col">{children}</main>
           <Footer />
           <div id="myPortal" />
         </NotificationProvider>

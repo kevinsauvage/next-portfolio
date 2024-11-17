@@ -1,3 +1,5 @@
+import BoxWithBackground from '@/components/BoxWithBackground';
+
 import ContactForm from '../form/ContactForm';
 
 import Section from './Section';
@@ -7,7 +9,7 @@ import SectionTitle from './SectionTitle';
 
 const ContactSection: React.FC = () => {
   return (
-    <div className="grid-container">
+    <BoxWithBackground className="bg-zinc-900 rounded-none">
       <Section
         id="contact"
         className="p-6 max-w-xl min-h-dvh flex flex-col justify-center items-center scroll-m-0 md:p-0"
@@ -21,7 +23,7 @@ const ContactSection: React.FC = () => {
         </SectionHeader>
         <ContactForm />
       </Section>
-    </div>
+    </BoxWithBackground>
   );
 };
 

@@ -23,21 +23,18 @@ select:-webkit-autofill:focus {
   visibility: hidden !important;
 }
 
-.radial-gradient {
-  background: radial-gradient(circle closest-corner at center 125px, #222222, black 40%) no-repeat;
-}
-
-.grid-container {
-  --tw-border-opacity: 1;
-  --tw-bg-opacity: 1;
-
-  border-color: rgb(28 28 33 / var(--tw-border-opacity));
-  border-width: 1px;
-  border-radius: 0.5rem;
-  background-color: rgb(14 14 16 / var(--tw-bg-opacity));
-}
-
-.bg-container {
-  border-color: rgb(28 28 33 / var(--tw-border-opacity));
-  background-color: rgb(14 14 16 / var(--tw-bg-opacity));
+.glow-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  height: 30%;
+  height: calc(100vh - 64px - (1rem * 2));
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent 50%) no-repeat;
+  background-size: 100% 100%;
+  transform: translate(-50%, -50%);
+  opacity: 0.2;
+  transition: 300ms ease;
+  user-select: none;
+  pointer-events: none;
 }
