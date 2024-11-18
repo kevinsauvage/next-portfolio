@@ -19,7 +19,6 @@
     "react",
     "@typescript-eslint",
     "css-modules",
-    "sonarjs",
     "sort-keys",
     "prettier"
   ],
@@ -31,7 +30,6 @@
     "next",
     "plugin:jsx-a11y/recommended",
     "plugin:css-modules/recommended",
-    "plugin:sonarjs/recommended",
     "plugin:unicorn/recommended"
   ],
   "settings": {
