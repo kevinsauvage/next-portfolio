@@ -9,7 +9,7 @@ import SectionTitle from './SectionTitle';
 
 const ContactSection: React.FC = () => {
   return (
-    <BoxWithBackground className="bg-zinc-900 rounded-none">
+    <BoxWithBackground className="bg-zinc-900 rounded-none bg-gradient-to-t from-zinc-950 to-zinc-900 border-none">
       <Section
         id="contact"
         className="p-6 max-w-xl min-h-dvh flex flex-col justify-center items-center scroll-m-0 md:p-0"
