@@ -75,13 +75,13 @@ const AboutItem: React.FC<{
 }> = ({ title, content, image, index, style }) => {
   return (
     <BoxWithBackground className={style}>
-      <div className="relative flex flex-col items-center justify-center h-full w-full pt-6">
+      <div className="relative flex flex-col items-center justify-center h-full w-full p-6">
         <Image
           src={image.src}
           alt={image.alt}
           width={image.width}
           height={image.height}
-          className="w-auto h-auto"
+          className="w-auto h-full object-contain"
         />
       </div>
       <div className="p-6">
