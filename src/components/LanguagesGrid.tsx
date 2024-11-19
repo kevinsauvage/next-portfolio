@@ -5,7 +5,7 @@ import { cloneElement } from 'react';
 
 import languages from '@/config/languages.config';
 
-const SPEED_LEVEL = 0.2;
+const SPEED_LEVEL = 0.01;
 
 const adjustVelocity = (velocity: number): number => {
   // Add small random changes to the velocity
@@ -13,7 +13,7 @@ const adjustVelocity = (velocity: number): number => {
   const newVelocity = velocity + deviation;
 
   // Ensure velocity doesn't get too slow or fast
-  return Math.max(-2, Math.min(2, newVelocity));
+  return Math.max(-1, Math.min(1, newVelocity));
 };
 
 const animate = (
@@ -43,11 +43,10 @@ const animate = (
       box.velocityY = adjustVelocity(box.velocityY);
     }
 
-    // Update box position
+    // Apply transform: translate3d to move the box
     if (boxes[index]) {
-      boxes[index]!.style.top = `${box.top}px`;
-      boxes[index]!.style.left = `${box.left}px`;
-      boxes[index]!.style.opacity = `${box.opacity}`;
+      const boxElement = boxes[index];
+      boxElement!.style.transform = `translate3d(${box.left}px, ${box.top}px, 0)`;
     }
   });
 
@@ -66,11 +65,14 @@ const LanguagesGrid: React.FC = () => {
 
     // Initialize positions and velocities
     const state = languages.map((_, index) => ({
-      left: Math.random() * (container.offsetWidth - (boxes[index]?.offsetWidth || 0)),
+      left: Math.max(0, Math.random() * container.offsetWidth - 100),
       opacity: 0,
-      top: Math.random() * (container.offsetHeight - (boxes[index]?.offsetHeight || 0)),
-      velocityX: Math.random() * SPEED_LEVEL + 1,
-      velocityY: Math.random() * SPEED_LEVEL + 1,
+
+      top: Math.max(0, Math.random() * container.offsetHeight - 100),
+      velocityX:
+        index % 2 === 0 ? Math.random() * SPEED_LEVEL + 1 : Math.random() * SPEED_LEVEL - 1,
+      velocityY:
+        index % 2 === 0 ? Math.random() * SPEED_LEVEL + 1 : Math.random() * SPEED_LEVEL - 1,
     }));
 
     animate(container, state, boxes);
@@ -88,7 +90,7 @@ const LanguagesGrid: React.FC = () => {
             boxesReference.current[index] = element;
           }}
           key={language.name}
-          className="rounded-xl p-5 bg-black border border-zinc-800 absolute animate-move opacity-0"
+          className="rounded-xl p-5 bg-black border border-zinc-800 absolute animate-move"
         >
           {cloneElement(language.icon, { className: 'icon', size: 50 })}
         </div>
