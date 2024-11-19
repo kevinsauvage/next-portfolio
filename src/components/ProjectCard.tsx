@@ -24,7 +24,7 @@ const ProjectCard = ({ item, className }: Properties) => {
     <BoxWithBackground>
       <article
         className={clsx(
-          'group relative hover:z-40 flex flex-col-reverse gap-10 h-full w-full md:grid md:grid-cols-5 md:transition-all',
+          'group relative p-6 hover:z-40 flex flex-col-reverse gap-10 h-full w-full md:grid md:grid-cols-5 md:transition-all',
           className,
         )}
       >

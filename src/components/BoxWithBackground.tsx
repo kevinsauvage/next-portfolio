@@ -15,7 +15,7 @@ const BoxWithBackground = ({
       }
     >
       <Background strokeWidth={0.9} scale={0.1} className="opacity-70" />
-      <div className="relative flex flex-col items-center justify-center h-full w-full p-6">
+      <div className="relative flex flex-col items-center justify-center h-full w-full">
         {children}
       </div>
     </div>

@@ -23,7 +23,7 @@ const items = [
       src: Grid1,
       width: 247,
     },
-    style: 'col-span-1 xl:row-span-3',
+    style: 'col-span-1 order-1 md:row-span-1 xl:row-span-3',
     title: 'Hi, I’m Kévin Sauvage',
   },
 
@@ -36,7 +36,7 @@ const items = [
       src: Grid2,
       width: 247,
     },
-    style: 'xl:col-span-2 xl:row-span-3',
+    style: 'md:order-3 md:col-span-2 md:row-span-1 xl:col-span-2 xl:row-span-3',
     title: 'Tech Stack',
   },
 
@@ -49,7 +49,7 @@ const items = [
       src: Grid3,
       width: 1080,
     },
-    style: 'xl:col-span-2 xl:row-span-3',
+    style: 'md:order-4 md:row-span-1 md:col-span-2 xl:col-span-2 xl:row-span-3',
     title: 'My Passion for Coding',
   },
 
@@ -61,7 +61,7 @@ const items = [
       src: Grid4,
       width: 720,
     },
-    style: 'xl:col-span-1 xl:row-span-3',
+    style: 'md:order-2 md:row-span-1 md:col-span-1 xl:order-4 xl:row-span-3',
     title: 'Contact me at',
   },
 ];
@@ -75,7 +75,7 @@ const AboutItem: React.FC<{
 }> = ({ title, content, image, index, style }) => {
   return (
     <BoxWithBackground className={style}>
-      <div className="relative flex flex-col items-center justify-center h-full w-full">
+      <div className="relative flex flex-col items-center justify-center h-full w-full pt-6">
         <Image
           src={image.src}
           alt={image.alt}
@@ -84,7 +84,7 @@ const AboutItem: React.FC<{
           className="w-auto h-auto"
         />
       </div>
-      <div>
+      <div className="p-6">
         <p
           className={clsx(
             index === items.length - 1
@@ -118,7 +118,7 @@ const AboutSection: React.FC = () => {
           Get to know me a little better. Here are some things that I enjoy and some of my values.
         </SectionDescription>
       </SectionHeader>
-      <div className="grid items-stretch grid-cols-1 xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 gap-5">
+      <div className="grid items-stretch grid-cols-1 md:grid-cols-2 md:grid-rows-3 lg:grid-rows-none xl:grid-cols-3 xl:grid-rows-6  gap-5">
         {items.map((item, index) => (
           <AboutItem key={index} {...item} index={index} />
         ))}

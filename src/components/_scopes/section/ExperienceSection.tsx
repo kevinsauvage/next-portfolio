@@ -43,15 +43,17 @@ const ExperienceItem: React.FC<{
   return (
     <>
       <p className="text-zinc-300 text-base font-light whitespace-nowrap">{period}</p>
-      <BoxWithBackground className={clsx('flex flex-col justify-between items-center', style)}>
-        <div className="pb-8 w-full">
-          <h3 className="text-2xl font-medium text-zinc-200 leading-5 font-heading mb-3">
-            {title}
-          </h3>
-          <p className="text-zinc-300 font-light text-xl whitespace-nowrap">{position}</p>
-        </div>
-        <div>
-          <p className="text-zinc-200 font-light text-lg leading-6">{description}</p>
+      <BoxWithBackground className={clsx(style)}>
+        <div className="p-6 flex flex-col justify-between items-center">
+          <div className="pb-8 w-full">
+            <h3 className="text-2xl font-medium text-zinc-200 leading-5 font-heading mb-3">
+              {title}
+            </h3>
+            <p className="text-zinc-300 font-light text-xl whitespace-nowrap">{position}</p>
+          </div>
+          <div>
+            <p className="text-zinc-200 font-light text-lg leading-6">{description}</p>
+          </div>
         </div>
       </BoxWithBackground>
     </>
