@@ -8,7 +8,10 @@ import { MoveUpRight } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <BoxWithBackground className="relative p-0 h-dvh gap-4 text-center bg-gradient-to-t from-zinc-950 to-zinc-900/70 border-0">
+    <BoxWithBackground
+      className="relative p-0 h-dvh gap-4 text-center bg-gradient-to-t from-zinc-950 to-zinc-900/70 border-0"
+      backgroundConfig={{ scale: 0.3 }}
+    >
       <LanguagesGrid />
       <div className="flex flex-col justify-center items-center p-10 lg:aspect-video rounded-md md:p-16">
         <div className="z-10 flex flex-col justify-center items-center">

@@ -25,6 +25,7 @@ const animate = (
     // Update positions
     box.top += box.velocityY;
     box.left += box.velocityX;
+    console.log('🟩🟪🟦-->  ~ state.forEach ~ box:', box.opacity);
     if (box.opacity < 1) {
       box.opacity += 0.01;
     }
@@ -47,6 +48,7 @@ const animate = (
     if (boxes[index]) {
       const boxElement = boxes[index];
       boxElement!.style.transform = `translate3d(${box.left}px, ${box.top}px, 0)`;
+      boxElement!.style.opacity = box.opacity.toString();
     }
   });
 
@@ -90,7 +92,7 @@ const LanguagesGrid: React.FC = () => {
             boxesReference.current[index] = element;
           }}
           key={language.name}
-          className="rounded-xl p-5 bg-black border border-zinc-800 absolute animate-move"
+          className="rounded-xl p-5 bg-black border border-zinc-800 absolute animate-move opacity-0"
         >
           {cloneElement(language.icon, { className: 'icon', size: 50 })}
         </div>
