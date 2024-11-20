@@ -30,8 +30,8 @@ const Hero = () => {
         <Link
           href="/#contact"
           passHref
-          className="w-fit flex gap-2 items-center justify-center bg-indigo-600 border border-indigo-900 text-zinc-300 px-10 py-4 text-lg 
-          font-semibold hover:bg-indigo-800 hover:border-indigo-800 hover:text-zinc-200 hover:shadow-lg shadow-white
+          className="w-fit flex rounded-md gap-2 items-center justify-center bg-indigo-600 border border-indigo-900 text-zinc-300 px-10 py-4 text-lg 
+          font-semibold hover:bg-indigo-800 hover:border-indigo-800 hover:text-zinc-200 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)]
           focus:bg-indigo-800 focus:border-indigo-800 focus:text-zinc-200 
           active:bg-indigo-800 active:border-indigo-800 active:text-zinc-200"
         >
