@@ -74,36 +74,47 @@ const AboutItem: React.FC<{
   style: string;
 }> = ({ title, content, image, index, style }) => {
   return (
-    <BoxWithBackground className={style}>
-      <div className="relative flex flex-col items-center justify-center h-full w-full p-6">
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          className="w-auto h-full object-contain"
-        />
-      </div>
-      <div className="p-6">
-        <p
-          className={clsx(
-            index === items.length - 1
-              ? 'text-zinc-200 text-lg text-center font-normal mb-1'
-              : 'text-2xl font-heading text-zinc-100 mb-3',
-          )}
-        >
-          {title}
-        </p>
-        <p
-          className={clsx(
-            'font-light',
-            index === items.length - 1
-              ? 'text-zinc-100 text-xl text-center'
-              : 'text-zinc-200 text-lg',
-          )}
-        >
-          {content}
-        </p>
+    <BoxWithBackground
+      className={style}
+      backgroundConfig={{
+        scale: 0.2,
+        strokeWidth: 1,
+      }}
+    >
+      <div className="h-full w-full">
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-zinc-900/70 z-0" />
+        <div className="h-full z-10 relative flex flex-col justify-end align-bottom">
+          <div className="relative flex flex-col items-center justify-center h-full w-full p-6">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+              className="w-auto h-full object-contain"
+            />
+          </div>
+          <div className="p-6">
+            <p
+              className={clsx(
+                index === items.length - 1
+                  ? 'text-zinc-200 text-lg text-center font-normal mb-1'
+                  : 'text-2xl font-heading text-zinc-100 mb-3',
+              )}
+            >
+              {title}
+            </p>
+            <p
+              className={clsx(
+                'font-light',
+                index === items.length - 1
+                  ? 'text-zinc-100 text-xl text-center'
+                  : 'text-zinc-200 text-lg',
+              )}
+            >
+              {content}
+            </p>
+          </div>
+        </div>
       </div>
     </BoxWithBackground>
   );

@@ -14,23 +14,15 @@ type Properties = {
   backgroundConfig?: BackgroundConfig;
 };
 
-const BoxWithBackground = ({
-  children,
-  className,
-  backgroundConfig = { className: 'opacity-70', scale: 0.1, strokeWidth: 0.9 },
-}: Properties) => {
+const BoxWithBackground = ({ children, className, backgroundConfig }: Properties) => {
   return (
     <div
       className={clsx(
-        'relative flex flex-col justify-between items-center border border-zinc-800 rounded-lg bg-zinc-900 bg-opacity-50 md:p-0',
+        'relative flex flex-col overflow-hidden justify-between items-center border border-zinc-800 rounded-lg bg-zinc-900 bg-opacity-50 md:p-0',
         className,
       )}
     >
-      <Background
-        strokeWidth={backgroundConfig.strokeWidth}
-        scale={backgroundConfig.scale}
-        className={backgroundConfig.className}
-      />
+      <Background {...backgroundConfig} />
       <div className="relative flex flex-col items-center justify-center h-full w-full">
         {children}
       </div>

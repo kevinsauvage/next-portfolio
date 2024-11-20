@@ -34,7 +34,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="absolute top-4 left-0 z-50 w-full bg-opacity-95">
+    <header className="absolute top-3 left-0 z-50 w-full bg-opacity-95">
       <div className="flex justify-between m-auto items-center container p-4">
         <Logo />
         {!menuOpen && <Navigation menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}

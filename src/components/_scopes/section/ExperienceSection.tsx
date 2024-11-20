@@ -44,7 +44,12 @@ const ExperienceItem: React.FC<{
     <>
       <p className="text-zinc-300 text-base font-light whitespace-nowrap">{period}</p>
       <BoxWithBackground className={clsx(style)}>
-        <div className="p-6 flex flex-col justify-between items-center">
+        <div
+          className={clsx(
+            'p-6 flex flex-col justify-between items-center',
+            'bg-gradient-to-t from-zinc-950 to-zinc-900/70',
+          )}
+        >
           <div className="pb-8 w-full">
             <h3 className="text-2xl font-medium text-zinc-200 leading-5 font-heading mb-3">
               {title}
