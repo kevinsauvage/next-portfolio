@@ -1,7 +1,6 @@
 import Image, { StaticImageData } from 'next/image';
 
 import Grid1 from '@/assets/grid1.png';
-import Grid2 from '@/assets/grid2.png';
 import Grid3 from '@/assets/grid3.png';
 import Grid4 from '@/assets/grid4.png';
 import BoxWithBackground from '@/components/BoxWithBackground';
@@ -12,6 +11,48 @@ import SectionHeader from './SectionHeader';
 import SectionTitle from './SectionTitle';
 
 import clsx from 'clsx';
+import { ReactNode } from 'react';
+
+const techStack = [
+  {
+    title: 'Front End',
+    child: [
+      {
+        title: 'Languages',
+        items: ['JavaScript', 'TypeScript', 'HTML', 'CSS'],
+      },
+      {
+        title: 'Frameworks',
+        items: ['React.js', 'Next.js', 'Svelte.js'],
+      },
+      {
+        title: 'Tools',
+        items: ['Storybook', 'Figma', 'Tailwind CSS'],
+      },
+      {
+        title: 'Testing',
+        items: ['Jest', 'Testing Library', 'Cypress'],
+      },
+    ],
+  },
+  {
+    title: 'Back End',
+    child: [
+      {
+        title: 'Frameworks',
+        items: ['Express.js'],
+      },
+      {
+        title: 'Database',
+        items: ['MongoDB'],
+      },
+      {
+        title: 'ORM',
+        items: ['Prisma', 'Mongoose'],
+      },
+    ],
+  },
+];
 
 const items = [
   {
@@ -23,20 +64,38 @@ const items = [
       src: Grid1,
       width: 247,
     },
-    style: 'col-span-1 order-1 md:row-span-1 xl:row-span-3',
+    style: 'order-1 col-span-1 order-1 md:row-span-1 xl:row-span-3',
     title: 'Hi, I’m Kévin Sauvage',
   },
 
   {
-    content:
-      'I work mainly with JavaScript and TypeScript to build web applications, using React.js, Next.js, and Svelte.js as my go-to frameworks. For testing, I use Jest, Testing Library and Cypress to make sure everything works as intended. I have some experience with backend tech like Express.js, MongoDB, and Prisma ORM.',
-    image: {
-      alt: 'About me',
-      height: 246,
-      src: Grid2,
-      width: 247,
-    },
-    style: 'md:order-3 md:col-span-2 md:row-span-1 xl:col-span-2 xl:row-span-3',
+    content: (
+      <div className=" mt-10">
+        {techStack.map((stack) => (
+          <div key={stack.title} className="mb-4  ">
+            <h3 className="text-lg font-heading text-zinc-200 bg-zinc-800/40 px-4 py-2 mb-6 shadow-2xl border border-zinc-800">
+              {stack.title}
+            </h3>
+            <ul className={`text-zinc-200 text-lg font-light grid gap-4 grid-cols-auto-fit-130`}>
+              {stack.child.map((child) => (
+                <li key={child.title} className="mb-3">
+                  <h4 className="text-xl font-normal text-zinc-300 mb-2">{child.title}</h4>
+                  <ul className="list-disc pl-5">
+                    {child.items.map((item) => (
+                      <li key={item} className="text-zinc-500">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    ),
+
+    style: 'order-2 md:order-3 md:col-span-2 md:row-span-1 xl:col-span-2 xl:row-span-3',
     title: 'Tech Stack',
   },
 
@@ -49,7 +108,7 @@ const items = [
       src: Grid3,
       width: 1080,
     },
-    style: 'md:order-4 md:row-span-1 md:col-span-2 xl:col-span-2 xl:row-span-3',
+    style: 'order-3 md:order-4 md:row-span-1 md:col-span-2 xl:col-span-2 xl:row-span-3',
     title: 'My Passion for Coding',
   },
 
@@ -61,15 +120,15 @@ const items = [
       src: Grid4,
       width: 720,
     },
-    style: 'md:order-2 md:row-span-1 md:col-span-1 xl:order-4 xl:row-span-3',
+    style: 'order-4 md:order-2 md:row-span-1 md:col-span-1 xl:order-4 xl:row-span-3',
     title: 'Contact me at',
   },
 ];
 
 const AboutItem: React.FC<{
   title: string;
-  content: string;
-  image: { src: StaticImageData; alt: string; width: number; height: number };
+  content: string | ReactNode;
+  image?: { src: StaticImageData; alt: string; width: number; height: number };
   index: number;
   style: string;
 }> = ({ title, content, image, index, style }) => {
@@ -84,15 +143,17 @@ const AboutItem: React.FC<{
       <div className="h-full w-full">
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-zinc-900/70 z-0" />
         <div className="h-full z-10 relative flex flex-col justify-end align-bottom">
-          <div className="relative flex flex-col items-center justify-center h-full w-full p-6">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              className="w-auto h-full object-contain"
-            />
-          </div>
+          {image?.src && (
+            <div className="relative flex flex-col items-center justify-center h-full w-full p-6">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className="w-auto h-full object-contain"
+              />
+            </div>
+          )}
           <div className="p-6">
             <p
               className={clsx(
@@ -103,7 +164,7 @@ const AboutItem: React.FC<{
             >
               {title}
             </p>
-            <p
+            <div
               className={clsx(
                 'font-light',
                 index === items.length - 1
@@ -112,7 +173,7 @@ const AboutItem: React.FC<{
               )}
             >
               {content}
-            </p>
+            </div>
           </div>
         </div>
       </div>
