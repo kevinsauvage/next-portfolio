@@ -26,7 +26,7 @@ const Navigation: React.FC<{
     >
       <div
         className={clsx(
-          'flex flex-col items-center justify-center px-5 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 py-3 md:rounded-full md:border md:border-zinc-800 gap-8 h-dvh w-full fixed left-[50%] translate-x-[-50%] max-w-max mx-auto bg-zinc-900 z-50 md:flex-row md:bg-opacity-65 md:w-fit md:h-fit md:bottom-auto ',
+          'flex flex-col items-center justify-center px-6 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 py-3 md:rounded-full md:border md:border-zinc-800 gap-8 h-dvh w-full fixed left-[50%] translate-x-[-50%] max-w-max mx-auto bg-zinc-900 z-50 md:flex-row md:bg-opacity-65 md:w-fit md:h-fit md:bottom-auto ',
           menuOpen && 'max-w-none',
         )}
       >
@@ -43,7 +43,7 @@ const Navigation: React.FC<{
             href={`#${id}`}
             aria-label={`Go to ${id} section`}
             className={clsx(
-              'flex items-center aspect-video rounded-full justify-center gap-1 border border-zinc-700 max-w-32 w-full font-light whitespace-nowrap text-lg last:mb-0 no-underline text-zinc-300',
+              'flex items-center aspect-video rounded-full justify-center gap-1 border border-zinc-700 max-w-32 w-full font-normal whitespace-nowrap text-md last:mb-0 no-underline text-zinc-200',
               'md:border-none',
             )}
           >

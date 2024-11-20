@@ -17,31 +17,26 @@ const Hero = () => {
     >
       <LanguagesGrid />
       <div className="flex flex-col justify-center items-center p-10 lg:aspect-video rounded-md md:p-16">
-        <div className="z-10 flex flex-col justify-center items-center">
-          <h1 className="text-4xl font-bold font-heading flex flex-col mb-2 text-zinc-300  max-w-4xl sm:text-6xl md:text-6xl xl:text-7xl">
-            Hello, welcome to my Portfolio.
+        <div className="z-10 mb-2 flex flex-col justify-center items-center">
+          <h1 className="text-4xl font-bold font-heading flex flex-col mb-2 text-zinc-300  max-w-6xl sm:text-6xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-snug">
+            Crafting Websites That Connect, Engage, and Inspire.
           </h1>
-          <div className="text-lg font-light mb-5 text-zinc-400 max-w-xl md:text-2xl">
-            I&apos;m a developer passionate about crafting exceptional websites. Currently, I&apos;m
-            immersed in the exciting world of crafting accessible, human-centered products at{' '}
-            <Link
-              href="https://www.decathlon.fr/"
-              rel="noopener noreferrer"
-              target="_blank"
-              aria-label="Open Decathlon website in a new tab"
-              className="text-blue-500 underline"
-            >
-              Decathlon
-            </Link>
-            .
+          <div className="text-lg font-extralight mb-5 text-zinc-400 max-w-xl md:text-2xl">
+            From initial concepts to final deployment, I build websites that prioritize usability,
+            performance, and accessibility.
           </div>
         </div>
 
-        <Link href="/#contact" passHref className="w-fit">
-          <Button
-            label="Hire me"
-            svg={<MoveUpRight strokeWidth={1.5} size={20} aria-label="Hire me" />}
-          />
+        <Link
+          href="/#contact"
+          passHref
+          className="w-fit flex gap-2 items-center justify-center bg-indigo-600 border border-indigo-900 text-zinc-300 px-10 py-4 text-lg 
+          font-semibold hover:bg-indigo-800 hover:border-indigo-800 hover:text-zinc-200 hover:shadow-lg shadow-white
+          focus:bg-indigo-800 focus:border-indigo-800 focus:text-zinc-200 
+          active:bg-indigo-800 active:border-indigo-800 active:text-zinc-200"
+        >
+          Hire me
+          <MoveUpRight strokeWidth={1.5} size={20} aria-label="Hire me" />
         </Link>
       </div>
     </BoxWithBackground>

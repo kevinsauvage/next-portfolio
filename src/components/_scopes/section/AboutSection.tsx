@@ -126,7 +126,7 @@ const AboutSection: React.FC = () => {
       <SectionHeader>
         <SectionTitle>About Me</SectionTitle>
         <SectionDescription>
-          Get to know me a little better. Here are some things that I enjoy and some of my values.
+          Get to know me a little better. Here are some things I enjoy and some of my values.
         </SectionDescription>
       </SectionHeader>
       <div className="grid items-stretch grid-cols-1 md:grid-cols-2 md:grid-rows-3 lg:grid-rows-none xl:grid-cols-3 xl:grid-rows-6  gap-5">

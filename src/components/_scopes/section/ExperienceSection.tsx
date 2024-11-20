@@ -57,7 +57,7 @@ const ExperienceItem: React.FC<{
             <p className="text-zinc-300 font-light text-xl whitespace-nowrap">{position}</p>
           </div>
           <div>
-            <p className="text-zinc-200 font-light text-lg leading-6">{description}</p>
+            <p className="text-zinc-300 font-light text-xl leading-6">{description}</p>
           </div>
         </div>
       </BoxWithBackground>
