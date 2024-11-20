@@ -10,7 +10,7 @@ import SectionTitle from './SectionTitle';
 const ContactSection: React.FC = () => {
   return (
     <BoxWithBackground
-      className="bg-zinc-900 rounded-none bg-gradient-to-t from-zinc-950 to-zinc-900/70 border-0 border-t"
+      className="bg-zinc-900 rounded-none bg-gradient-to-t from-zinc-950 from-30% to-zinc-900/90 border-0 border-t"
       backgroundConfig={{
         scale: 0.3,
         strokeWidth: 1.1,
