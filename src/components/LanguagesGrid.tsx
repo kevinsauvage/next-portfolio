@@ -25,7 +25,6 @@ const animate = (
     // Update positions
     box.top += box.velocityY;
     box.left += box.velocityX;
-    console.log('🟩🟪🟦-->  ~ state.forEach ~ box:', box.opacity);
     if (box.opacity < 1) {
       box.opacity += 0.01;
     }
