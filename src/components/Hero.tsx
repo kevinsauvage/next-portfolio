@@ -38,7 +38,10 @@ const Hero = () => {
         </div>
 
         <Link href="/#contact" passHref className="w-fit">
-          <Button label="Hire me" svg={<MoveUpRight strokeWidth={1.5} size={20} />} />
+          <Button
+            label="Hire me"
+            svg={<MoveUpRight strokeWidth={1.5} size={20} aria-label="Hire me" />}
+          />
         </Link>
       </div>
     </BoxWithBackground>

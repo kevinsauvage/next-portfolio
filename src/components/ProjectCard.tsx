@@ -48,7 +48,7 @@ const ProjectCard = ({ item, className }: Properties) => {
             rel="noopener noreferrer"
             aria-label="View project"
           >
-            View project <MoveUpRight size={20} />
+            View project <MoveUpRight size={20} aria-label="View project" />
           </Link>
         </div>
         <div className="relative w-fit flex items-center justify-center group md:col-span-2">

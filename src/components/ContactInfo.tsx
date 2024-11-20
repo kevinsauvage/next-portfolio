@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import socialButton from '@/config/socialButton';
+import { cloneElement } from 'react';
 
 const ContactInfo = () => (
   <ul className="flex gap-4">
@@ -15,7 +16,9 @@ const ContactInfo = () => (
           rel="noopener noreferrer"
           title={`${item.text} profile`}
         >
-          {item.icon}
+          {cloneElement(item.icon, {
+            'aria-label': item.text,
+          })}
         </Link>
       </li>
     ))}

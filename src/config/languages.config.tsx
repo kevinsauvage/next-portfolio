@@ -12,18 +12,18 @@ import TailwindcssPlain from 'devicons-react/lib/icons/TailwindcssOriginal';
 import TypescriptPlain from 'devicons-react/lib/icons/TypescriptPlain';
 
 const languages = [
-  { icon: <Html5Plain />, name: 'HTML' },
-  { icon: <Css3Plain />, name: 'CSS' },
-  { icon: <TailwindcssPlain />, name: 'Tailwind' },
-  { icon: <JavascriptPlain />, name: 'JavaScript' },
-  { icon: <TypescriptPlain />, name: 'TypeScript' },
-  { icon: <ReactOriginal />, name: 'React' },
-  { icon: <NextjsLine />, name: 'NextJs' },
-  { icon: <SveltePlain />, name: 'Svelte' },
-  { icon: <ExpressOriginal />, name: 'Express' },
-  { icon: <ReduxOriginal />, name: 'Redux' },
-  { icon: <JestPlain />, name: 'Jest' },
-  { icon: <GithubOriginal />, name: 'Github' },
+  { icon: <Html5Plain aria-label="HTML" />, name: 'HTML' },
+  { icon: <Css3Plain aria-label="CSS" />, name: 'CSS' },
+  { icon: <TailwindcssPlain aria-label="Tailwind" />, name: 'Tailwind' },
+  { icon: <JavascriptPlain aria-label="JavaScript" />, name: 'JavaScript' },
+  { icon: <TypescriptPlain aria-label="TypeScript" />, name: 'TypeScript' },
+  { icon: <ReactOriginal aria-label="React" />, name: 'React' },
+  { icon: <NextjsLine aria-label="NextJs" />, name: 'NextJs' },
+  { icon: <SveltePlain aria-label="Svelte" />, name: 'Svelte' },
+  { icon: <ExpressOriginal aria-label="Express" />, name: 'Express' },
+  { icon: <ReduxOriginal aria-label="Redux" />, name: 'Redux' },
+  { icon: <JestPlain aria-label="Jest" />, name: 'Jest' },
+  { icon: <GithubOriginal aria-label="Github" />, name: 'Github' },
 ];
 
 export default languages;

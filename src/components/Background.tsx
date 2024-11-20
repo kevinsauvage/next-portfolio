@@ -9,7 +9,14 @@ const Background = ({ strokeColor = '#FFF', strokeWidth = 1, scale = 0.2, classN
     <div
       className={clsx('absolute -z-10 inset-0 w-full h-full overflow-hidden rounded-lg', className)}
     >
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="100%"
+        height="100%"
+        aria-label="Background pattern"
+        role="img"
+        preserveAspectRatio="none"
+      >
         <defs>
           <pattern
             id={id}

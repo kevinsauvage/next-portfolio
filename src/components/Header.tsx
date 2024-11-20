@@ -41,7 +41,7 @@ const Header = () => {
         <div className="flex gap-4">
           <Link href="/#contact" passHref className="hidden w-fit ml-auto md:flex md:gap-4">
             Hire Me
-            <MoveUpRight strokeWidth={1.5} size={18} />{' '}
+            <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} />{' '}
           </Link>
           <MenuIcon
             className="md:hidden ml-auto cursor-pointer"

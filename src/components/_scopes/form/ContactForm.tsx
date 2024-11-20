@@ -35,7 +35,7 @@ const SubmitButton = () => {
   return (
     <Button
       className="mt-4"
-      svg={<LucideSend role="img" size={18} />}
+      svg={<LucideSend role="img" size={18} aria-label="Send message" />}
       label="Send Message"
       type="submit"
       title="Click to send the Message"
