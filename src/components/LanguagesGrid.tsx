@@ -43,7 +43,6 @@ const animate = (
       box.velocityY = adjustVelocity(box.velocityY);
     }
 
-    // Apply transform: translate3d to move the box
     if (boxes[index]) {
       const boxElement = boxes[index];
       boxElement!.style.transform = `translate3d(${box.left}px, ${box.top}px, 0)`;
