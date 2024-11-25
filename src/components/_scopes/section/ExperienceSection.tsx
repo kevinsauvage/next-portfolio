@@ -51,7 +51,7 @@ const ExperienceItem: React.FC<{
           )}
         >
           <div className="pb-8 w-full">
-            <h3 className="text-2xl font-medium text-zinc-200 leading-5 font-heading mb-3">
+            <h3 className="text-2xl font-medium text-zinc-200 leading-5 mb-3 font-heading">
               {title}
             </h3>
             <p className="text-zinc-300 font-light text-xl whitespace-nowrap">{position}</p>

@@ -73,13 +73,13 @@ const items = [
       <div className=" mt-10">
         {techStack.map((stack) => (
           <div key={stack.title} className="mb-4  ">
-            <h3 className="text-lg font-heading text-zinc-200 bg-zinc-800/40 px-4 py-2 mb-6 shadow-2xl border rounded-md border-zinc-800">
+            <h4 className="text-xl font-heading font-normal text-zinc-200 bg-zinc-800/40 px-4 py-2 mb-6 shadow-2xl border rounded-md border-zinc-800">
               {stack.title}
-            </h3>
+            </h4>
             <ul className={`text-zinc-200 text-lg font-light grid gap-4 grid-cols-auto-fit-130`}>
               {stack.child.map((child) => (
                 <li key={child.title} className="mb-3">
-                  <h4 className="text-xl font-normal text-zinc-300 mb-2">{child.title}</h4>
+                  <h5 className="text-lg font-normal text-zinc-300 mb-2">{child.title}</h5>
                   <ul className="list-disc pl-5">
                     {child.items.map((item) => (
                       <li key={item} className="text-zinc-500">
@@ -155,15 +155,15 @@ const AboutItem: React.FC<{
             </div>
           )}
           <div className="p-6">
-            <p
+            <h3
               className={clsx(
                 index === items.length - 1
                   ? 'text-zinc-200 text-lg text-center font-normal mb-1'
-                  : 'text-2xl font-heading text-zinc-100 mb-3',
+                  : 'text-2xl font-heading font-semibold text-zinc-100 mb-3',
               )}
             >
               {title}
-            </p>
+            </h3>
             <div
               className={clsx(
                 'font-light',

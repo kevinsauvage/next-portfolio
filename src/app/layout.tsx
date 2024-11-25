@@ -1,5 +1,4 @@
-import { Josefin_Sans, Yeseva_One } from 'next/font/google';
-
+import { Josefin_Sans, Yeseva_One, League_Spartan } from 'next/font/google';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import MouseFollowGradientBackground from '@/components/MouseFollowGradientBackground';
@@ -21,11 +20,11 @@ const jsonLd = {
   url: 'https://www.kevin-sauvage.com',
 };
 
-const YesevaOne = Yeseva_One({
+const LeagueSpartan = League_Spartan({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-heading',
-  weight: ['400'],
+  weight: ['400', '500', '600', '700', '800'],
 });
 
 const JosefinSans = Josefin_Sans({
@@ -44,7 +43,7 @@ const PageLayout = ({ children }: Properties) => {
       className={clsx(
         'bg-zinc-950 h-auto w-auto leading-tight scroll-smooth',
         JosefinSans.variable,
-        YesevaOne.variable,
+        LeagueSpartan.variable,
       )}
     >
       <body className="w-full h-full text-zinc-50 antialiased font-base font-light">

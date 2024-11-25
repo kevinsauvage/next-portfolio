@@ -31,8 +31,8 @@ const ProjectCard = ({ item, className }: Properties) => {
       >
         <div className="w-full flex flex-col justify-between items-start md:col-span-3">
           <div className="">
-            <h3 className="text-2xl mb-4 text-zinc-300 font-heading">{title}</h3>
-            <p className="text-lg text-zinc-200 font-light mb-6">{item.description}</p>
+            <h3 className="text-2xl mb-4 text-zinc-300 font-semibold font-heading">{title}</h3>
+            <p className="text-xl text-zinc-200 font-light mb-6">{item.description}</p>
             <div className="flex flex-wrap gap-3 items-center text-zinc-400 mb-5 mb:mb-0">
               {technologies.map(({ name }) => (
                 <div key={name} className="font-light whitespace-nowrap">
