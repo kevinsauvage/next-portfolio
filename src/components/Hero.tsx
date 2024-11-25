@@ -16,9 +16,9 @@ const Hero = () => {
       }}
     >
       <LanguagesGrid />
-      <div className="flex flex-col justify-center items-center p-10 lg:aspect-video rounded-md md:p-16">
+      <div className="flex flex-col justify-center items-center p-6 lg:aspect-video rounded-md md:p-16">
         <div className="z-10 mb-2 flex flex-col justify-center items-center">
-          <h1 className="text-4xl font-bold font-heading flex flex-col mb-2 text-zinc-300  max-w-6xl sm:text-6xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-snug">
+          <h1 className="text-4xl font-bold font-heading flex flex-col mb-2 text-zinc-300  max-w-6xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-snug">
             Crafting Websites That Connect, Engage, and Inspire.
           </h1>
           <div className="text-lg font-extralight mb-5 text-zinc-400 max-w-xl md:text-2xl">

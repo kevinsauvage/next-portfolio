@@ -73,7 +73,7 @@ const items = [
       <div className=" mt-10">
         {techStack.map((stack) => (
           <div key={stack.title} className="mb-4  ">
-            <h3 className="text-lg font-heading text-zinc-200 bg-zinc-800/40 px-4 py-2 mb-6 shadow-2xl border border-zinc-800">
+            <h3 className="text-lg font-heading text-zinc-200 bg-zinc-800/40 px-4 py-2 mb-6 shadow-2xl border rounded-md border-zinc-800">
               {stack.title}
             </h3>
             <ul className={`text-zinc-200 text-lg font-light grid gap-4 grid-cols-auto-fit-130`}>
