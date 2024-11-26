@@ -82,7 +82,7 @@ const items = [
                   <h5 className="text-lg font-normal text-zinc-300 mb-2">{child.title}</h5>
                   <ul className="list-disc pl-5">
                     {child.items.map((item) => (
-                      <li key={item} className="text-zinc-500">
+                      <li key={item} className="text-zinc-400">
                         {item}
                       </li>
                     ))}
