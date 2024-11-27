@@ -1,5 +1,5 @@
-import { getDictionary } from '@/dictionaries/dictionaries';
 import BoxWithBackground from '@/components/BoxWithBackground';
+import { getDictionary } from '@/dictionaries/dictionaries';
 
 import Section from './_components/Section';
 import SectionDescription from './_components/SectionDescription';

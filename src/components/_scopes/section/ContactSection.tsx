@@ -1,5 +1,5 @@
-import { getDictionary } from '@/dictionaries/dictionaries';
 import BoxWithBackground from '@/components/BoxWithBackground';
+import { getDictionary } from '@/dictionaries/dictionaries';
 
 import ContactForm from '../form/ContactForm';
 

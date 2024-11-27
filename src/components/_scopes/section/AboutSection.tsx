@@ -1,10 +1,10 @@
 import Image, { StaticImageData } from 'next/image';
 
-import { getDictionary } from '@/dictionaries/dictionaries';
 import Grid1 from '@/assets/grid1.png';
 import Grid3 from '@/assets/grid3.png';
 import Grid4 from '@/assets/grid4.png';
 import BoxWithBackground from '@/components/BoxWithBackground';
+import { getDictionary } from '@/dictionaries/dictionaries';
 
 import Section from './_components/Section';
 import SectionDescription from './_components/SectionDescription';

@@ -1,5 +1,5 @@
-import { getDictionary } from '@/dictionaries/dictionaries';
 import projects from '@/config/projects.config';
+import { getDictionary } from '@/dictionaries/dictionaries';
 
 import ProjectCard from '../../ProjectCard';
 
