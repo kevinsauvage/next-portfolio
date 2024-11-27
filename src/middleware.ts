@@ -19,25 +19,20 @@ function getLocale(request: NextRequest) {
   return match(languages, locales, defaultLocale);
 }
 
+const pathnameHasLocale = (pathname: string) => {
+  return locales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
+};
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
-  );
 
-  if (pathnameHasLocale) return;
+  if (pathnameHasLocale(pathname)) return;
 
-  const locale = getLocale(request);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
+  request.nextUrl.pathname = `/${getLocale(request)}${pathname}`;
 
   return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next).*)',
-    // Optional: only run on root (/) URL
-    // '/'
-  ],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)'],
 };
