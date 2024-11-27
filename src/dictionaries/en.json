@@ -1,0 +1,104 @@
+{
+  "home": {
+    "metadata": {
+      "title": "Home",
+      "desc": "This is the home page"
+    },
+    "hero": {
+      "title": "Crafting Websites That Connect, Engage, and Inspire.",
+      "description": "From initial concepts to final deployment, I build websites that prioritize usability, performance, and accessibility.",
+      "cta": "View My Work"
+    },
+    "about": {
+      "title": "About Me",
+      "description": "Get to know me a little better. Here are some things I enjoy and some of my values.",
+      "items": [
+        {
+          "title": "Hi, I’m Kévin Sauvage",
+          "description": "Hey there! 👋 I'm Kévin Sauvage, a Frontend Developer who's passionate about crafting web experiences that users love."
+        },
+        {
+          "title": "I’m Passionate About Web Development",
+          "description": "What gets me excited about coding is making things that help people. I enjoy turning complex problems into simple solutions that users can easily understand and use. At Decathlon, this means working on things like making the checkout process smoother or ensuring our website works well across different countries."
+        },
+        {
+          "title": "I Love to Learn",
+          "description": "I’m always looking for ways to improve my skills and learn new technologies. I believe that the best way to grow is to never stop learning."
+        },
+        {
+          "title": "I Value Collaboration",
+          "description": "I believe that the best work is done when people come together to share their ideas and expertise. I’m always looking for ways to collaborate with others."
+        }
+      ]
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "description": "Here are some of the projects I have worked on. Click on a project to learn more about it.",
+      "projects": [
+        {
+          "description": "Showcase of Spotify API integration: User data, library, and music charts for a personalized experience.",
+          "cta": "View Project"
+        },
+        {
+          "description": "Your personalized entertainment hub. Discover new titles, watch trailers, and engage in community conversations.",
+          "cta": "View Project"
+        },
+        {
+          "description": "Explore my portfolio website—a creative showcase of my best work, reflecting artistry and innovation across diverse projects.",
+          "cta": "View Project"
+        }
+      ]
+    },
+    "career": {
+      "title": "My Career Journey",
+      "description": "I've been fortunate to work with some amazing companies and talented people. Here are some of the highlights from my career so far.",
+      "jobs": [
+        {
+          "position": "Frontend Developer",
+          "period": "October 2023 - Present",
+          "description": "Working on Decathlon's e-commerce platform, I build and improve user interfaces using JavaScript and Svelte. I'm part of an international team that makes sure our online shopping experience works well across different countries.",
+          "company": "Decathlon International"
+        },
+        {
+          "position": "Frontend Developer",
+          "period": "May 2022 - October 2023",
+          "company": "Decathlon Spain",
+          "description": "I worked on making Decathlon Spain's online store better for everyone. My focus was on speed and accessibility - basically making sure the site was fast and easy to use for all our customers."
+        },
+        {
+          "position": "Frontend Developer",
+          "period": "June 2021 - May 2022",
+          "company": "Subforce",
+          "description": "Subforce is a small agency that builds websites for local businesses. I worked on a range of projects, from simple landing pages to full e-commerce sites."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Contact Me",
+      "description": "Have a question or want to work together? Feel free to reach out to me using the form below.",
+      "form": {
+        "fullName": "Full Name",
+        "email": "Email",
+        "message": {
+          "label": "Message",
+          "placeholder": "Share your thoughts or ask a question"
+        },
+        "submit": "Send Message"
+      }
+    }
+  },
+  "shared": {
+    "header": {
+      "nav": {
+        "home": "Home",
+        "about": "About",
+        "portfolio": "Portfolio",
+        "career": "Career",
+        "contact": "Contact"
+      },
+      "cta": {
+        "contact": "Contact Me"
+      }
+    }
+  }
+}

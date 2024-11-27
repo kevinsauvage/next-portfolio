@@ -29,23 +29,35 @@ const LabelText = ({ children, required }: { children: React.ReactNode; required
   </span>
 );
 
-const SubmitButton = () => {
+const SubmitButton = ({ text }: { text: string }) => {
   const { pending } = useFormStatus();
 
   return (
     <Button
       className="w-full justify-center items-center mt-4"
-      svg={<LucideSend role="img" size={18} aria-label="Send message" />}
-      label="Send Message"
+      svg={<LucideSend role="img" size={18} aria-label={text} />}
+      label={text}
       type="submit"
-      title="Click to send the Message"
+      title={text}
       disabled={pending}
       loading={pending}
     />
   );
 };
 
-const ContactForm = () => {
+const ContactForm = ({
+  translations,
+}: {
+  translations: {
+    fullName: string;
+    email: string;
+    message: {
+      placeholder: string;
+      label: string;
+    };
+    submit: string;
+  };
+}) => {
   const notification = useNotification();
   const reference = useRef<HTMLFormElement>(null);
 
@@ -81,43 +93,45 @@ const ContactForm = () => {
     >
       <div className="rounded-lg space-y-7">
         <Label>
-          <LabelText required={true}>Full name</LabelText>
+          <LabelText required={true}>{translations.fullName}</LabelText>
           <div>
             <Input
               type="text"
               name="fullName"
               placeholder="ex: John Doe"
               aria-required="true"
-              aria-label="Full name"
+              aria-label={translations.fullName}
             />
             <ErrorMessage error={errors?.fullName} />
           </div>
         </Label>
         <Label>
-          <LabelText required={true}>Email</LabelText>
+          <LabelText required={true}>{translations.email}</LabelText>
           <div>
             <Input
               type="email"
               name="email"
               placeholder="ex: johndoe@gmail.com"
               aria-required="true"
+              aria-label={translations.email}
             />
             <ErrorMessage error={errors?.email} />
           </div>
         </Label>
         <Label>
-          <LabelText required={true}>Message</LabelText>
+          <LabelText required={true}>{translations.message.label}</LabelText>
           <div>
             <TextArea
               name="message"
-              placeholder="Share your thoughts or ask a question"
+              placeholder={translations.message.placeholder}
               aria-required="true"
+              aria-label={translations.message.label}
             />
             <ErrorMessage error={errors?.message} />
           </div>
         </Label>
 
-        <SubmitButton />
+        <SubmitButton text={translations.submit} />
       </div>
     </form>
   );

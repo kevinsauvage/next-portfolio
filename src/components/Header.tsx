@@ -1,19 +1,42 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
-import ClientPortal from './ClientPortal';
+import LanguageSwitcher from './LanguageSwitcher';
 import Logo from './Logo';
 import Navigation from './Navigation';
 
-import { MenuIcon, MoveUpRight } from 'lucide-react';
+import { MenuIcon, MoveUpRight, X } from 'lucide-react';
 
-const Header = () => {
+const Header = ({
+  lang,
+  translations,
+}: {
+  lang: string;
+  translations: {
+    nav: {
+      home: string;
+      about: string;
+      portfolio: string;
+      career: string;
+      contact: string;
+    };
+    cta: {
+      contact: string;
+    };
+  };
+}) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const parameters = useParams();
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [menuOpen]);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -34,27 +57,41 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="absolute top-3 left-0 z-50 w-full bg-opacity-95">
-      <div className="flex justify-between m-auto items-center container p-4">
-        <Logo />
-        {!menuOpen && <Navigation menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
-        <div className="flex gap-4">
-          <Link href="/#contact" passHref className="hidden w-fit ml-auto md:flex md:gap-4">
-            Hire Me
-            <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} />{' '}
-          </Link>
-          <MenuIcon
-            className="md:hidden ml-auto cursor-pointer"
+    <>
+      <Logo />
+      <Navigation
+        menuOpen={menuOpen}
+        navItems={
+          translations &&
+          Object.values(translations?.nav)?.map((item) => ({
+            href: `/${lang}/#${item.toLowerCase()}`,
+            label: item,
+          }))
+        }
+      />
+      <div className="flex gap-4 items-center justify-end order-4">
+        <Link href="/#contact" className="hidden w-fit ml-auto lg:flex md:gap-4">
+          {translations?.cta.contact}
+          <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} />{' '}
+        </Link>
+        <LanguageSwitcher lang={lang} className={menuOpen ? '' : 'hidden lg:block'} />
+        {menuOpen ? (
+          <X
+            className="lg:hidden cursor-pointer z-50"
             onClick={() => setMenuOpen(!menuOpen)}
-            size={30}
+            size={40}
+            strokeWidth={1}
           />
-        </div>
-
-        <ClientPortal show={menuOpen} selector="myPortal">
-          <Navigation menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-        </ClientPortal>
+        ) : (
+          <MenuIcon
+            className="lg:hidden cursor-pointer"
+            onClick={() => setMenuOpen(!menuOpen)}
+            size={40}
+            strokeWidth={1}
+          />
+        )}
       </div>
-    </header>
+    </>
   );
 };
 

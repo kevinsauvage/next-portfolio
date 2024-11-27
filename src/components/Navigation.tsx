@@ -3,53 +3,43 @@
 import Link from 'next/link';
 
 import clsx from 'clsx';
-import { X } from 'lucide-react';
-
-const navItems = [
-  { id: 'about', label: 'About' },
-  { id: 'work', label: 'Work' },
-  { id: 'career', label: 'Career' },
-  { id: 'contact', label: 'Contact' },
-];
+import { MoveUpRight } from 'lucide-react';
 
 const Navigation: React.FC<{
+  navItems: { label: string; href: string }[];
   menuOpen: boolean;
-  setMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}> = ({ menuOpen, setMenuOpen }) => {
+}> = ({ navItems, menuOpen }) => {
   return (
-    <div
-      className={clsx(
-        'md:flex items-center gap-4',
-        !menuOpen && 'hidden md:flex',
-        menuOpen && 'fixed inset-0 bg-black z-50',
-      )}
-    >
+    <div className="flex items-center gap-4 order-4 lg:order-none">
       <div
         className={clsx(
-          'flex flex-col items-center justify-center px-6 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 py-3 md:rounded-full md:border md:border-zinc-800 gap-8 h-dvh w-full fixed left-[50%] translate-x-[-50%] max-w-max mx-auto bg-zinc-900 z-50 md:flex-row md:bg-opacity-65 md:w-fit md:h-fit md:bottom-auto ',
-          menuOpen && 'max-w-none',
+          'lg:flex items-center gap-4',
+          !menuOpen && 'hidden lg:flex',
+          menuOpen && 'fixed inset-0 bg-black z-50',
         )}
       >
-        {menuOpen && (
-          <X
-            className="md:hidden ml-auto absolute top-9 right-4 cursor-pointer"
-            onClick={() => setMenuOpen(!menuOpen)}
-            size={30}
-          />
-        )}
-        {navItems.map(({ id, label }) => (
-          <Link
-            key={id}
-            href={`#${id}`}
-            aria-label={`Go to ${id} section`}
-            className={clsx(
-              'flex items-center aspect-video rounded-full justify-center gap-1 border border-zinc-700 max-w-32 w-full font-normal whitespace-nowrap text-md last:mb-0 no-underline text-zinc-200',
-              'md:border-none',
-            )}
-          >
-            {label}
-          </Link>
-        ))}
+        <div
+          className={clsx(
+            'flex flex-col justify-end gap-2 p-6 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 h-dvh w-full fixed left-[50%] translate-x-[-50%] max-w-max mx-auto bg-zinc-900 z-50  ',
+            menuOpen && 'max-w-none',
+            'lg:items-center lg:rounded-full lg:border lg:border-zinc-800 lg:flex-row lg:bg-opacity-65 lg:w-fit lg:h-fit lg:bottom-auto lg:gap-6 lg:p-4',
+          )}
+        >
+          {navItems?.map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
+              aria-label={`Go to ${label} section`}
+              className={clsx(
+                'flex items-center justify-between rounded-md p-6 gap-1 border bg-zinc-950 border-zinc-800 w-full font-normal whitespace-nowrap text-lg last:mb-0 no-underline text-zinc-200',
+                'lg:border-none lg:p-0 lg:bg-transparent lg:font-light',
+              )}
+            >
+              {label}
+              <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} className="lg:hidden" />
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

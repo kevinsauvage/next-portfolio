@@ -1,7 +1,5 @@
-import { Josefin_Sans, Yeseva_One, League_Spartan } from 'next/font/google';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import MouseFollowGradientBackground from '@/components/MouseFollowGradientBackground';
+import { Josefin_Sans, League_Spartan } from 'next/font/google';
+
 import NotificationProvider from '@/contexts/NotificationContext';
 
 import '@/styles/globals.scss';
@@ -52,13 +50,7 @@ const PageLayout = ({ children }: Properties) => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <NotificationProvider>
-          <MouseFollowGradientBackground />
-          <Header />
-          <main className="min-h-dvh flex-1 h-full w-full flex flex-col">{children}</main>
-          <Footer />
-          <div id="myPortal" />
-        </NotificationProvider>
+        <NotificationProvider>{children}</NotificationProvider>
       </body>
     </html>
   );

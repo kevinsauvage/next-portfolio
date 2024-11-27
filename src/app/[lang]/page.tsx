@@ -1,20 +1,20 @@
 import AboutSection from '@/components/_scopes/section/AboutSection';
+import CareerSection from '@/components/_scopes/section/CareerSection';
 import ContactSection from '@/components/_scopes/section/ContactSection';
-import ExperienceSection from '@/components/_scopes/section/ExperienceSection';
-import ProjectSection from '@/components/_scopes/section/ProjectSection';
+import Hero from '@/components/_scopes/section/Hero';
+import PortfolioSection from '@/components/_scopes/section/PortfolioSection';
 import GoogleReCaptchaProviderWrapper from '@/components/GoogleReCaptchaProviderWrapper';
-import Hero from '@/components/Hero';
 
-const Home = () => (
+const Home = ({ params: { lang } }: { params: { lang: string } }) => (
   <div className="h-full w-full grow flex flex-col justify-between m-auto">
-    <Hero />
+    <Hero lang={lang} />
     <div className="container m-auto px-4">
-      <AboutSection />
-      <ProjectSection />
-      <ExperienceSection />
+      <AboutSection lang={lang} />
+      <PortfolioSection lang={lang} />
+      <CareerSection lang={lang} />
     </div>
     <GoogleReCaptchaProviderWrapper>
-      <ContactSection />
+      <ContactSection lang={lang} />
     </GoogleReCaptchaProviderWrapper>
   </div>
 );

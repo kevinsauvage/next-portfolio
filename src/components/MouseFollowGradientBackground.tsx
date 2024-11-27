@@ -9,7 +9,7 @@ const MouseFollowGradientBackground = () => {
   const position = useMousePosition();
 
   useEffect(() => {
-    const { innerWidth, innerHeight } = window;
+    const { innerWidth, innerHeight } = globalThis;
 
     const x = (position.x / innerWidth) * 100;
     const y = (position.y / innerHeight) * 100;

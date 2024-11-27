@@ -13,12 +13,13 @@ type ProjectType = {
   technologies: Array<{ name: string }>;
   websiteLink: string;
   githubLink: Array<string>;
+  cta: string;
 };
 
 type Properties = { item: ProjectType } & React.HTMLAttributes<HTMLAnchorElement>;
 
 const ProjectCard = ({ item, className }: Properties) => {
-  const { title, technologies, images, websiteLink } = item || {};
+  const { title, technologies, images, websiteLink, cta } = item || {};
 
   return (
     <BoxWithBackground>
@@ -46,9 +47,9 @@ const ProjectCard = ({ item, className }: Properties) => {
             href={websiteLink}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="View project"
+            aria-label={cta}
           >
-            View project <MoveUpRight size={20} aria-label="View project" />
+            {cta} <MoveUpRight size={20} aria-label={cta} />
           </Link>
         </div>
         <div className="relative w-fit flex items-center justify-center group md:col-span-2">
