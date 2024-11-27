@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/prefer-module */
 /** @type {import('next').NextConfig} */
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
 const path = require('node:path');
 
 const nextConfig = {
