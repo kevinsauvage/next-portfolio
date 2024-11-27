@@ -1,4 +1,4 @@
-import { getDictionary } from '@/app/[lang]/dictionaries';
+import { getDictionary } from '@/dictionaries/dictionaries';
 import BoxWithBackground from '@/components/BoxWithBackground';
 
 import Section from './_components/Section';

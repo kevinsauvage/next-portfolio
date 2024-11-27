@@ -1,4 +1,4 @@
-import { getDictionary } from '@/app/[lang]/dictionaries';
+import { getDictionary } from '@/dictionaries/dictionaries';
 import projects from '@/config/projects.config';
 
 import ProjectCard from '../../ProjectCard';

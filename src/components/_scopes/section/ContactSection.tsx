@@ -1,4 +1,4 @@
-import { getDictionary } from '@/app/[lang]/dictionaries';
+import { getDictionary } from '@/dictionaries/dictionaries';
 import BoxWithBackground from '@/components/BoxWithBackground';
 
 import ContactForm from '../form/ContactForm';

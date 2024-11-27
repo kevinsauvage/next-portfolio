@@ -1,4 +1,4 @@
-import { getDictionary } from '@/app/[lang]/dictionaries';
+import { getDictionary } from '@/dictionaries/dictionaries';
 
 import Header from './Header';
 

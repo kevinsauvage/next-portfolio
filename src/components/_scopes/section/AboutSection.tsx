@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from 'next/image';
 
-import { getDictionary } from '@/app/[lang]/dictionaries';
+import { getDictionary } from '@/dictionaries/dictionaries';
 import Grid1 from '@/assets/grid1.png';
 import Grid3 from '@/assets/grid3.png';
 import Grid4 from '@/assets/grid4.png';

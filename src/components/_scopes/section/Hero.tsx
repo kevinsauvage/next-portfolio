@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { getDictionary } from '@/app/[lang]/dictionaries';
+import { getDictionary } from '@/dictionaries/dictionaries';
 
 import BoxWithBackground from '../../BoxWithBackground';
 import LanguagesGrid from '../../LanguagesGrid';
