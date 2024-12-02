@@ -10,9 +10,9 @@ import clsx from 'clsx';
 import { CheckIcon, ChevronDownIcon } from 'lucide-react';
 
 const languages = [
-  { code: 'en', name: 'English' },
-  { code: 'es', name: 'Español' },
-  { code: 'fr', name: 'Français' },
+  { code: 'en', flag: '🇺🇸', name: 'English' },
+  { code: 'es', flag: '🇪🇸', name: 'Español' },
+  { code: 'fr', flag: '🇫🇷', name: 'Français' },
 ];
 
 const LanguageSwitcher = ({ lang, className }: { lang: string; className?: string }) => {
@@ -37,6 +37,10 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
     setServerCookie('i18nlang', lang, { maxAge: 1000 * 60 * 60 * 24 * 365 });
   }, [lang]);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }, [isOpen]);
+
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   return (
@@ -44,7 +48,7 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
       className={clsx('relative inline-block text-left ml-4 z-50', className)}
       ref={dropdownReference}
     >
-      <div>
+      <div className="relative z-50">
         <button
           type="button"
           className="flex items-center justify-center w-full rounded-md border uppercase border-zinc-700 shadow-sm px-4 py-2 bg-zinc-900 bg-opacity-50 text-sm font-medium text-zinc-50 hover:bg-zinc-900 focus:outline-none focus:ring"
@@ -59,30 +63,47 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
       </div>
 
       {isOpen && (
-        <div
-          className="origin-top-right overflow-hidden absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-zinc-950 ring-1 ring-zinc-300 ring-opacity-50 divide-y divide-zinc-100"
-          role="menu"
-          aria-orientation="vertical"
-          aria-labelledby="language-menu"
-        >
-          <div className="overflow-hidden" role="none">
-            {languages.map((language) => (
-              <Link href={`/${language.code}`} key={language.code}>
-                <button
-                  className={`${
-                    lang === language.code ? 'bg-zinc-900 text-zinc-200' : 'text-zinc-100'
-                  } group flex items-center w-full px-4 py-2 text-sm hover:bg-zinc-800 hover:text-zinc-50 `}
-                  role="menuitem"
-                >
-                  {language.code === lang && (
-                    <CheckIcon className="mr-2 h-5 w-5 text-gray-400" aria-hidden="true" />
-                  )}
-                  {language.name}
-                </button>
-              </Link>
-            ))}
+        <>
+          <div
+            className="fixed inset-0 z-40 bg-zinc-950 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50"
+            onClick={toggleDropdown}
+            onKeyDown={toggleDropdown}
+            role="button"
+            tabIndex={0}
+          />
+          <div
+            className={clsx(
+              'z-50 overflow-hidden fixed bottom-0 right-0 w-full shadow-lg bg-zinc-950 border-t border-zinc-800',
+              'md:absolute md:rounded-md md:origin-top-right md:bottom-auto md:w-fit md:min-w-56 md:mt-2 md:ring-1 md:ring-zinc-300 md:ring-opacity-50 md:divide-y md:divide-zinc-100',
+            )}
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="language-menu"
+          >
+            <div className="overflow-hidden" role="none">
+              {languages.map((language) => (
+                <Link href={`/${language.code}`} key={language.code}>
+                  <button
+                    role="menuitem"
+                    className={clsx(
+                      lang === language.code ? 'bg-zinc-900 text-zinc-200' : 'text-zinc-100',
+                      'group flex items-center w-full p-6 text-lg font-semibold hover:bg-zinc-800 hover:text-zinc-50',
+                      'md:text-sm md:p-3',
+                    )}
+                  >
+                    <span className="flex items-center">
+                      {language.code === lang && (
+                        <CheckIcon className="mr-2 text-zinc-200 text-2xl" aria-hidden="true" />
+                      )}
+                      {language.name}
+                    </span>
+                    <span className="ml-auto text-2xl">{language.flag}</span>
+                  </button>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
