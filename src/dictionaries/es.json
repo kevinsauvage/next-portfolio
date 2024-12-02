@@ -2,88 +2,88 @@
   "home": {
     "metadata": {
       "title": "Inicio",
-      "desc": "Esta es la página principal"
+      "desc": "Bienvenido a la página principal"
     },
     "hero": {
       "title": "Creando sitios web que conectan, atraen e inspiran.",
-      "description": "Desde los conceptos iniciales hasta el despliegue final, creo sitios web que priorizan la usabilidad, el rendimiento y la accesibilidad.",
-      "cta": "Ver Mi Trabajo"
+      "description": "Desde la conceptualización inicial hasta el despliegue final, desarrollo sitios web centrados en la usabilidad, el rendimiento y la accesibilidad.",
+      "cta": "Ver mi trabajo"
     },
     "about": {
-      "title": "Sobre Mí",
-      "description": "Conóceme un poco más. Aquí hay algunas cosas que disfruto y algunos de mis valores.",
+      "title": "Sobre mí",
+      "description": "Descubre más sobre quién soy, mis valores y las cosas que disfruto.",
       "items": [
         {
           "title": "Hola, soy Kévin Sauvage",
-          "description": "¡Hola! 👋 Soy Kévin Sauvage, un desarrollador Frontend apasionado por crear experiencias web que los usuarios adoran."
+          "description": "¡Hola! 👋 Soy Kévin Sauvage, un desarrollador Frontend apasionado por crear experiencias web que encantan a los usuarios."
         },
         {
-          "title": "Me Apasiona el Desarrollo Web",
-          "description": "Lo que me entusiasma del desarrollo es crear cosas que ayudan a las personas. Disfruto transformando problemas complejos en soluciones simples que los usuarios puedan entender y utilizar fácilmente. En Decathlon, esto significa trabajar en cosas como hacer que el proceso de pago sea más fluido o garantizar que nuestro sitio funcione bien en diferentes países."
+          "title": "Apasionado por el desarrollo web",
+          "description": "Me entusiasma crear soluciones que ayuden a las personas. Disfruto resolviendo problemas complejos y transformándolos en experiencias simples e intuitivas. En Decathlon, esto incluye optimizar procesos como el pago en línea o asegurar la funcionalidad del sitio en diversos países."
         },
         {
-          "title": "Me Encanta Aprender",
-          "description": "Siempre estoy buscando formas de mejorar mis habilidades y aprender nuevas tecnologías. Creo que la mejor manera de crecer es nunca dejar de aprender."
+          "title": "Siempre aprendiendo",
+          "description": "Estoy comprometido con el aprendizaje continuo. Exploro constantemente nuevas tecnologías y formas de mejorar mis habilidades para crecer profesionalmente."
         },
         {
-          "title": "Valoro la Colaboración",
-          "description": "Creo que el mejor trabajo se realiza cuando las personas se reúnen para compartir sus ideas y experiencia. Siempre busco oportunidades para colaborar con otros."
+          "title": "Colaboración",
+          "description": "Creo firmemente que las mejores ideas surgen al trabajar en equipo. Valoro profundamente las oportunidades para compartir conocimientos y colaborar con otros profesionales."
         }
       ]
     },
     "portfolio": {
       "title": "Portafolio",
-      "description": "Aquí tienes algunos de los proyectos en los que he trabajado. Haz clic en un proyecto para saber más.",
+      "description": "Explora algunos de los proyectos en los que he trabajado. Haz clic en cualquier proyecto para obtener más detalles.",
       "projects": [
         {
-          "description": "Integración de la API de Spotify: datos de usuario, biblioteca y listas de música para una experiencia personalizada.",
-          "cta": "Ver Proyecto"
+          "description": "Integración de la API de Spotify para ofrecer una experiencia personalizada con datos de usuario, biblioteca y listas de reproducción.",
+          "cta": "Ver proyecto"
         },
         {
-          "description": "Tu centro de entretenimiento personalizado. Descubre nuevos títulos, mira tráilers y participa en conversaciones comunitarias.",
-          "cta": "Ver Proyecto"
+          "description": "Un centro de entretenimiento personalizado: descubre nuevos títulos, mira tráilers y participa en conversaciones comunitarias.",
+          "cta": "Ver proyecto"
         },
         {
-          "description": "Explora mi sitio de portafolio: una muestra creativa de mi mejor trabajo, reflejando arte e innovación en proyectos diversos.",
-          "cta": "Ver Proyecto"
+          "description": "Explora mi portafolio: una muestra creativa de mi mejor trabajo que refleja innovación y arte en proyectos diversos.",
+          "cta": "Ver proyecto"
         }
       ]
     },
     "career": {
-      "title": "Mi Trayectoria Profesional",
-      "description": "He tenido la suerte de trabajar con empresas increíbles y personas talentosas. Aquí tienes algunos de los momentos destacados de mi carrera hasta ahora.",
+      "title": "Mi trayectoria profesional",
+      "description": "He tenido la fortuna de colaborar con empresas increíbles y profesionales talentosos. Aquí están algunos de los hitos de mi carrera.",
       "jobs": [
         {
           "position": "Desarrollador Frontend",
           "period": "Octubre 2023 - Presente",
-          "description": "Trabajando en la plataforma de comercio electrónico de Decathlon, desarrollo y mejoro interfaces de usuario utilizando JavaScript y Svelte. Formo parte de un equipo internacional que garantiza que nuestra experiencia de compra en línea funcione bien en diferentes países.",
+          "description": "En Decathlon Internacional, desarrollo y optimizo interfaces de usuario para la plataforma de comercio electrónico. Formo parte de un equipo global que garantiza experiencias de compra eficientes y adaptadas a múltiples países.",
           "company": "Decathlon Internacional"
         },
         {
           "position": "Desarrollador Frontend",
           "period": "Mayo 2022 - Octubre 2023",
           "company": "Decathlon España",
-          "description": "Trabajé en mejorar la tienda en línea de Decathlon España para todos. Mi enfoque estaba en la velocidad y accesibilidad: básicamente, hacer que el sitio fuera rápido y fácil de usar para todos nuestros clientes."
+          "description": "Me enfoqué en mejorar la tienda en línea de Decathlon España, priorizando la velocidad y accesibilidad para ofrecer una experiencia rápida y sencilla a los clientes."
         },
         {
           "position": "Desarrollador Frontend",
           "period": "Junio 2021 - Mayo 2022",
           "company": "Subforce",
-          "description": "Subforce es una pequeña agencia que crea sitios web para negocios locales. Trabajé en una variedad de proyectos, desde páginas de aterrizaje simples hasta sitios de comercio electrónico completos."
+          "description": "En Subforce, una agencia especializada en negocios locales, trabajé en proyectos diversos que iban desde páginas de aterrizaje hasta sitios de comercio electrónico completos."
         }
       ]
     },
     "contact": {
       "title": "Contáctame",
-      "description": "¿Tienes alguna pregunta o quieres colaborar? No dudes en comunicarte conmigo a través del formulario a continuación.",
+      "description": "¿Tienes preguntas o estás interesado en colaborar? Completa el formulario a continuación y me pondré en contacto contigo.",
       "form": {
-        "fullName": "Nombre Completo",
-        "email": "Correo Electrónico",
+        "fullName": "Nombre completo",
+        "email": "Correo electrónico",
         "message": {
           "label": "Mensaje",
-          "placeholder": "Comparte tus ideas o haz una pregunta"
+          "placeholder": "Comparte tus ideas o plantea tus preguntas"
         },
-        "submit": "Enviar Mensaje"
+        "submit": "Enviar mensaje"
       }
     }
   },
@@ -91,7 +91,7 @@
     "header": {
       "nav": {
         "home": "Inicio",
-        "about": "Sobre Mí",
+        "about": "Sobre mí",
         "portfolio": "Portafolio",
         "career": "Carrera",
         "contact": "Contacto"
