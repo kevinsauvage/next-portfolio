@@ -70,6 +70,7 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
             onKeyDown={toggleDropdown}
             role="button"
             tabIndex={0}
+            aria-label="Close"
           />
           <div
             className={clsx(
@@ -80,11 +81,10 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
             aria-orientation="vertical"
             aria-labelledby="language-menu"
           >
-            <div className="overflow-hidden" role="none">
+            <div className="overflow-hidden" role="menu">
               {languages.map((language) => (
-                <Link href={`/${language.code}`} key={language.code}>
+                <Link href={`/${language.code}`} key={language.code} role="menuitem">
                   <button
-                    role="menuitem"
                     className={clsx(
                       lang === language.code ? 'bg-zinc-900 text-zinc-200' : 'text-zinc-100',
                       'group flex items-center w-full p-6 text-lg font-semibold hover:bg-zinc-800 hover:text-zinc-50',
