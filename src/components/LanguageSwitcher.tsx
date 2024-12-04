@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 import { setServerCookie } from '@/actions/cookies';
 import { cookieName } from '@/middleware';
@@ -19,6 +19,7 @@ const languages = [
 const LanguageSwitcher = ({ lang, className }: { lang: string; className?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   const dropdownReference = useRef<HTMLDivElement>(null);
 
@@ -28,7 +29,7 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
 
   const handleClick = (language: string) => {
     setServerCookie(cookieName, language, { maxAge: 1000 * 60 * 60 * 24 * 365 });
-    router.push(`/${language}`);
+    router.push(`/${language}${pathname.replace(new RegExp(`^/${lang}`), '')}`);
     router.refresh();
     setIsOpen(false);
   };
