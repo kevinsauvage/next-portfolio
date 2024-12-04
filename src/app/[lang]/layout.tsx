@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
-import { cookies } from 'next/headers';
 
 import { getDictionary } from '@/dictionaries/dictionaries';
-import { cookieName } from '@/middleware';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
@@ -10,11 +8,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
 export default Layout;
 
-export async function generateMetadata(): Promise<Metadata> {
-  const lang = cookies().get(cookieName)?.value || 'en';
-  console.log('🟩🟪🟦-->  ~ generateMetadata ~ lang:', lang);
-
-  const t = await getDictionary(lang);
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: string };
+}): Promise<Metadata> {
+  const t = await getDictionary(params.lang);
 
   return {
     alternates: { canonical: './' },
