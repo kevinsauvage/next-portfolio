@@ -1,8 +1,8 @@
 {
   "home": {
     "metadata": {
-      "title": "Inicio",
-      "desc": "Bienvenido a la página principal"
+      "title": "Kévin Sauvage desarrollador portafolio",
+      "description": "Creando soluciones web de alto rendimiento e inclusivas que priorizan la accesibilidad. Experto en JavaScript, React.js, Next.js."
     },
     "hero": {
       "title": "Creando sitios web que conectan, atraen e inspiran.",

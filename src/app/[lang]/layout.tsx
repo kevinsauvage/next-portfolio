@@ -1,12 +1,33 @@
+import type { Metadata } from 'next';
+
 import Footer from '@/components/Footer';
 import HeaderPresenter from '@/components/HeaderPresenter';
 import MouseFollowGradientBackground from '@/components/MouseFollowGradientBackground';
+import { getDictionary } from '@/dictionaries/dictionaries';
 
 import '@/styles/globals.scss';
 
-type Properties = { children: React.ReactNode; params: { lang: string } };
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: string };
+}): Promise<Metadata> {
+  const t = await getDictionary(params.lang);
 
-const PageLayout = ({ children, params }: Properties) => {
+  return {
+    alternates: { canonical: 'https://www.kevin-sauvage.com/' },
+    description: t.home.metadata.description,
+    title: t.home.metadata.title,
+  };
+}
+
+const PageLayout = ({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { lang: string };
+}) => {
   return (
     <>
       <MouseFollowGradientBackground />
