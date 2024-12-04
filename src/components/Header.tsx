@@ -47,7 +47,7 @@ const Header = ({ translations, lang }: Properties) => {
 
   return (
     <>
-      <Logo />
+      <Logo lang={lang} />
       <Navigation
         closeMenu={() => setMenuOpen(false)}
         menuOpen={menuOpen}
@@ -60,7 +60,10 @@ const Header = ({ translations, lang }: Properties) => {
         }
       />
       <div className="flex gap-4 items-center justify-end order-4">
-        <Link href="/#contact" className="hidden w-fit ml-auto font-normal lg:flex md:gap-2">
+        <Link
+          href={`/${lang}#contact`}
+          className="hidden w-fit ml-auto font-normal lg:flex md:gap-2"
+        >
           {translations?.cta.contact}
           <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} />{' '}
         </Link>

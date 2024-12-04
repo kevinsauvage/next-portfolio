@@ -19,7 +19,7 @@ const Custom404 = async () => {
           {t?.[404].description}
         </p>
         <Link
-          href="/"
+          href={`/${lang}`}
           className="w-fit flex rounded-md gap-2 items-center justify-center bg-indigo-800 border border-indigo-900 text-zinc-300 px-10 py-4 text-lg 
                font-semibold hover:bg-indigo-900 hover:border-indigo-900 hover:text-zinc-200 hover:shadow-[0_20px_50px_rgba(55,_48,_163,_0.7)]
                focus:bg-indigo-800 focus:border-indigo-800 focus:text-zinc-200 
