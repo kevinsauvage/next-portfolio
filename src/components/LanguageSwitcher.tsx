@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { setServerCookie } from '@/actions/cookies';
@@ -29,6 +28,7 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
 
   const handleClick = (language: string) => {
     setServerCookie(cookieName, language, { maxAge: 1000 * 60 * 60 * 24 * 365 });
+    router.push(`/${language}`);
     router.refresh();
     setIsOpen(false);
   };
@@ -75,28 +75,25 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
           >
             <div className="overflow-hidden" role="menu">
               {languages.map((language) => (
-                <Link
-                  href={`/${language.code}`}
+                <button
                   key={language.code}
-                  role="menuitem"
                   onClick={() => handleClick(language.code)}
+                  type="button"
+                  role="menuitem"
+                  className={clsx(
+                    lang === language.code ? 'bg-zinc-900 text-zinc-200' : 'text-zinc-100',
+                    'group flex items-center w-full p-6 text-lg font-semibold hover:bg-zinc-800 hover:text-zinc-50',
+                    'md:text-sm md:p-3',
+                  )}
                 >
-                  <button
-                    className={clsx(
-                      lang === language.code ? 'bg-zinc-900 text-zinc-200' : 'text-zinc-100',
-                      'group flex items-center w-full p-6 text-lg font-semibold hover:bg-zinc-800 hover:text-zinc-50',
-                      'md:text-sm md:p-3',
+                  <span className="flex items-center">
+                    {language.code === lang && (
+                      <CheckIcon className="mr-2 text-zinc-200 text-2xl" aria-hidden="true" />
                     )}
-                  >
-                    <span className="flex items-center">
-                      {language.code === lang && (
-                        <CheckIcon className="mr-2 text-zinc-200 text-2xl" aria-hidden="true" />
-                      )}
-                      {language.name}
-                    </span>
-                    <span className="ml-auto text-2xl">{language.flag}</span>
-                  </button>
-                </Link>
+                    {language.name}
+                  </span>
+                  <span className="ml-auto text-2xl">{language.flag}</span>
+                </button>
               ))}
             </div>
           </div>
