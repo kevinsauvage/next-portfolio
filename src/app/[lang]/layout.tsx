@@ -15,10 +15,11 @@ export async function generateMetadata({
   const t = await getDictionary(params.lang);
 
   return {
-    alternates: { canonical: t.home.metadata.canonical },
+    alternates: { canonical: './' },
     authors: [{ name: t.home.metadata.author }],
     description: t.home.metadata.description,
     keywords: t.home.metadata.keywords,
+    metadataBase: new URL(`https://www.kevin-sauvage.com/`),
     openGraph: {
       description: t.home.metadata.description,
       images: [{ url: '/images/og-image.png' }],
