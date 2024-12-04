@@ -15,8 +15,17 @@ export async function generateMetadata({
   const t = await getDictionary(params.lang);
 
   return {
-    alternates: { canonical: 'https://www.kevin-sauvage.com/' },
+    alternates: { canonical: t.home.metadata.canonical },
+    authors: [{ name: t.home.metadata.author }],
     description: t.home.metadata.description,
+    keywords: t.home.metadata.keywords,
+    openGraph: {
+      description: t.home.metadata.description,
+      images: [{ url: '/images/og-image.png' }],
+      title: t.home.metadata.title,
+      type: 'website',
+      url: t.home.metadata.canonical,
+    },
     title: t.home.metadata.title,
   };
 }

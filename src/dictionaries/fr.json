@@ -2,7 +2,12 @@
   "home": {
     "metadata": {
       "title": "Kévin Sauvage développeur portfolio",
-      "description": "Concevoir des solutions web performantes et inclusives qui mettent l'accent sur l'accessibilité. Compétent en JavaScript, React.js, Next.js."
+      "description": "Concevoir des solutions web performantes et inclusives qui mettent l'accent sur l'accessibilité. Compétent en JavaScript, React.js, Next.js.",
+      "keywords": "développeur frontend, développeur web, développeur react, développeur next.js, développeur javascript",
+      "author": "Kévin Sauvage",
+      "canonical": "https://kevinsauvage.com",
+      "robots": "index, follow",
+      "language": "fr"
     },
     "hero": {
       "title": "Concevoir des expériences web qui engagent et inspirent.",
