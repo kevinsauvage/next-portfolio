@@ -32,6 +32,7 @@ export async function generateMetadata({
       creator: t.home.metadata.author,
       description: t.home.metadata.description,
       images: '/images/og-image.png',
+      title: t.home.metadata.title,
     },
   };
 }
