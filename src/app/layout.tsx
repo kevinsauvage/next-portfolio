@@ -42,7 +42,7 @@ export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'es' }, { lang: 'fr' }];
 }
 
-const PageLayout = ({ children }: Properties) => {
+const RootLayout = ({ children }: Properties) => {
   return (
     <html
       lang="en"
@@ -69,4 +69,4 @@ const PageLayout = ({ children }: Properties) => {
   );
 };
 
-export default PageLayout;
+export default RootLayout;
