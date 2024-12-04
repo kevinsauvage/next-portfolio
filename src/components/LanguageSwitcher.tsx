@@ -29,7 +29,6 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
   const handleClick = (language: string) => {
     setServerCookie(cookieName, language, { maxAge: 1000 * 60 * 60 * 24 * 365 });
     router.push(`/${language}`);
-    router.refresh();
     setIsOpen(false);
   };
 
