@@ -34,6 +34,7 @@ const Custom404 = async () => {
         width={400}
         height={400}
         className="w-full h-ful col-span-1"
+        priority
       />
     </div>
   );
