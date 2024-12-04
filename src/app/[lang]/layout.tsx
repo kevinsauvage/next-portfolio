@@ -22,6 +22,7 @@ export async function generateMetadata({
     openGraph: {
       description: t.home.metadata.description,
       images: [{ url: '/images/og-image.png' }],
+      siteName: t.home.metadata.title,
       title: t.home.metadata.title,
       type: 'website',
       url: t.home.metadata.canonical,
