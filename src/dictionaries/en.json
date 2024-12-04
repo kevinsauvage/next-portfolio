@@ -105,5 +105,16 @@
         "contact": "Contact Me"
       }
     }
+  },
+  "404": {
+    "metadata": {
+      "title": "404: Page Not Found",
+      "description": "Oops! The page you're looking for doesn't exist. Let's get you back on track.",
+      "keywords": "404, page not found, error, missing page",
+      "robots": "noindex, nofollow"
+    },
+    "title": "Oops! Page Not Found",
+    "description": "The page you're looking for doesn't exist. Let's get you back on track.",
+    "cta": "Go Back Home"
   }
 }

@@ -105,5 +105,16 @@
         "contact": "Contáctame"
       }
     }
+  },
+  "404": {
+    "metadata": {
+      "title": "Página no encontrada",
+      "description": "La página que buscas no existe. Vuelve a la página de inicio o contáctame si necesitas ayuda.",
+      "keywords": "404, página no encontrada, error, página faltante",
+      "robots": "noindex, nofollow"
+    },
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe. Vuelve a la página de inicio o contáctame si necesitas ayuda.",
+    "cta": "Volver a la página de inicio"
   }
 }

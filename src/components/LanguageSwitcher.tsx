@@ -3,8 +3,10 @@
 import { useEffect, useRef, useState } from 'react';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { setServerCookie } from '@/actions/cookies';
+import { cookieName } from '@/middleware';
 
 import clsx from 'clsx';
 import { CheckIcon, ChevronDownIcon } from 'lucide-react';
@@ -17,29 +19,19 @@ const languages = [
 
 const LanguageSwitcher = ({ lang, className }: { lang: string; className?: string }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const dropdownReference = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownReference.current && !dropdownReference.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  useEffect(() => {
-    setServerCookie('i18nlang', lang, { maxAge: 1000 * 60 * 60 * 24 * 365 });
-  }, [lang]);
-
-  useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   }, [isOpen]);
+
+  const handleClick = (language: string) => {
+    setServerCookie(cookieName, language, { maxAge: 1000 * 60 * 60 * 24 * 365 });
+    router.refresh();
+    setIsOpen(false);
+  };
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
@@ -83,7 +75,12 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
           >
             <div className="overflow-hidden" role="menu">
               {languages.map((language) => (
-                <Link href={`/${language.code}`} key={language.code} role="menuitem">
+                <Link
+                  href={`/${language.code}`}
+                  key={language.code}
+                  role="menuitem"
+                  onClick={() => handleClick(language.code)}
+                >
                   <button
                     className={clsx(
                       lang === language.code ? 'bg-zinc-900 text-zinc-200' : 'text-zinc-100',

@@ -1,8 +1,8 @@
 'use client';
+
 import { useEffect, useState } from 'react';
 
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 
 import LanguageSwitcher from './LanguageSwitcher';
 import Logo from './Logo';
@@ -10,10 +10,7 @@ import Navigation from './Navigation';
 
 import { MenuIcon, MoveUpRight, X } from 'lucide-react';
 
-const Header = ({
-  lang,
-  translations,
-}: {
+type Properties = {
   lang: string;
   translations: {
     nav: {
@@ -27,26 +24,18 @@ const Header = ({
       contact: string;
     };
   };
-}) => {
+};
+
+const Header = ({ translations, lang }: Properties) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const parameters = useParams();
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
   }, [menuOpen]);
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [parameters]);
-
-  useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setMenuOpen(false);
-      }
+      if (event.key === 'Escape') setMenuOpen(false);
     };
 
     document.addEventListener('keydown', handleEscape);
@@ -60,6 +49,7 @@ const Header = ({
     <>
       <Logo />
       <Navigation
+        closeMenu={() => setMenuOpen(false)}
         menuOpen={menuOpen}
         navItems={
           translations &&
@@ -74,7 +64,7 @@ const Header = ({
           {translations?.cta.contact}
           <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} />{' '}
         </Link>
-        <LanguageSwitcher lang={lang} className={menuOpen ? '' : 'hidden lg:block'} />
+        <LanguageSwitcher lang={lang as string} className={menuOpen ? '' : 'hidden lg:block'} />
         {menuOpen ? (
           <X
             className="lg:hidden cursor-pointer z-50"

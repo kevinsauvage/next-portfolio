@@ -8,7 +8,8 @@ import { MoveUpRight } from 'lucide-react';
 const Navigation: React.FC<{
   navItems: { label: string; href: string }[];
   menuOpen: boolean;
-}> = ({ navItems, menuOpen }) => {
+  closeMenu: () => void;
+}> = ({ navItems, menuOpen, closeMenu }) => {
   return (
     <div className="flex items-center gap-4 order-4 lg:order-none">
       <div
@@ -29,6 +30,7 @@ const Navigation: React.FC<{
             <Link
               key={label}
               href={href}
+              onClick={closeMenu}
               aria-label={`Go to ${label} section`}
               className={clsx(
                 'flex items-center justify-between rounded-md p-6 gap-1 border bg-zinc-950 border-zinc-800 w-full font-normal whitespace-nowrap text-lg last:mb-0 no-underline text-zinc-200',

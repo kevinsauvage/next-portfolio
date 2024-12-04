@@ -5,7 +5,7 @@ import Negotiator from 'negotiator';
 
 const locales = ['en', 'fr', 'es'];
 const defaultLocale = 'en';
-const cookieName = 'i18nlang';
+export const cookieName = 'i18nlang';
 
 function getLocale(request: NextRequest) {
   if (request.cookies.has(cookieName)) {
