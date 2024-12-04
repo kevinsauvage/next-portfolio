@@ -27,6 +27,12 @@ export async function generateMetadata({
       url: t.home.metadata.canonical,
     },
     title: t.home.metadata.title,
+    twitter: {
+      card: 'summary_large_image',
+      creator: t.home.metadata.author,
+      description: t.home.metadata.description,
+      images: '/images/og-image.png',
+    },
   };
 }
 
