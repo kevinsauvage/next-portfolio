@@ -28,9 +28,15 @@ export function middleware(request: NextRequest) {
 
   if (pathnameHasLocale(pathname)) return;
 
-  request.nextUrl.pathname = `/${getLocale(request)}${pathname}`;
+  const locale = getLocale(request);
 
-  return NextResponse.redirect(request.nextUrl);
+  request.nextUrl.pathname = `/${locale}${pathname}`;
+
+  return NextResponse.redirect(request.nextUrl, {
+    headers: {
+      'Set-Cookie': `${cookieName}=${locale}; Path=/; Max-Age=31536000; SameSite=Strict; HttpOnly; Secure`,
+    },
+  });
 }
 
 export const config = {
