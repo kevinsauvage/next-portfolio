@@ -36,6 +36,7 @@ export function middleware(request: NextRequest) {
     headers: {
       'Set-Cookie': `${cookieName}=${locale}; Path=/; Max-Age=31536000; SameSite=Strict; HttpOnly; Secure`,
     },
+    status: 302,
   });
 }
 
