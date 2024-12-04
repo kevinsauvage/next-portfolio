@@ -39,6 +39,7 @@ const nextConfig = {
       },
     ],
   },
+  poweredByHeader: false,
   reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, './styles/')],
