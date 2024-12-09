@@ -7,7 +7,7 @@ const locales = ['en', 'fr', 'es'];
 const defaultLocale = 'en';
 export const cookieName = 'i18nlang';
 
-function getLocale(request: NextRequest) {
+const getLocale = (request: NextRequest) => {
   if (request.cookies.has(cookieName)) {
     return request.cookies.get(cookieName)!.value;
   }
@@ -17,7 +17,7 @@ function getLocale(request: NextRequest) {
   const headers = { 'accept-language': acceptLang };
   const languages = new Negotiator({ headers }).languages();
   return match(languages, locales, defaultLocale);
-}
+};
 
 const pathnameHasLocale = (pathname: string) => {
   return locales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`);
