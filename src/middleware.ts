@@ -24,20 +24,23 @@ const pathnameHasLocale = (pathname: string) => {
 };
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { origin, basePath, pathname } = request.nextUrl;
 
   if (pathnameHasLocale(pathname)) return;
 
   const locale = getLocale(request);
 
-  request.nextUrl.pathname = `/${locale}${pathname}`;
+  const localePath = `/${locale}`;
 
-  return NextResponse.redirect(request.nextUrl, {
-    headers: {
-      'Set-Cookie': `${cookieName}=${locale}; Path=/; Max-Age=31536000; SameSite=Strict; HttpOnly; Secure`,
-    },
-    status: 301,
-  });
+  if (pathname !== localePath) {
+    const redirectUrl = `${origin}${basePath}${localePath}${pathname}`;
+
+    return NextResponse.redirect(new URL(redirectUrl), {
+      headers: {
+        'Set-Cookie': `${cookieName}=${locale}; Path=/; Max-Age=31536000; SameSite=Strict; HttpOnly; Secure`,
+      },
+    });
+  }
 }
 
 export const config = {
