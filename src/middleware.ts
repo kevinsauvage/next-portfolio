@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 
-const locales = ['en', 'fr', 'es'];
-const defaultLocale = 'en';
+export const locales = ['en', 'fr', 'es'];
+export const defaultLocale = 'en';
 export const cookieName = 'i18nlang';
 
 const getLocale = (request: NextRequest) => {

@@ -3,11 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { getDictionary } from '@/dictionaries/dictionaries';
-import { cookieName } from '@/middleware';
+import { cookieName, defaultLocale } from '@/middleware';
 
 const Custom404 = async () => {
   const lang = cookies().get(cookieName)?.value;
-  const t = await getDictionary(lang || 'en');
+  const t = await getDictionary(lang || defaultLocale);
 
   return (
     <div className="flex flex-col-reverse justify-center p-4 md:grid md:grid-cols-2 gap-10 items-center min-h-dvh container m-auto lg:p-20">

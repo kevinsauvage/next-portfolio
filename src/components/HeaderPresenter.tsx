@@ -1,12 +1,8 @@
-import { cookies } from 'next/headers';
-
 import { getDictionary } from '@/dictionaries/dictionaries';
-import { cookieName } from '@/middleware';
 
 import Header from './Header';
 
-const HeaderPresenter = async () => {
-  const lang = cookies().get(cookieName)?.value || 'en';
+const HeaderPresenter = async ({ lang }: { lang: string }) => {
   const t = await getDictionary(lang);
 
   return (

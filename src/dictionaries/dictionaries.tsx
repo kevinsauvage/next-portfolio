@@ -1,3 +1,5 @@
+import { defaultLocale } from '@/middleware';
+
 import 'server-only';
 
 const dictionaries = {
@@ -6,7 +8,7 @@ const dictionaries = {
   fr: () => import('./fr.json').then((module) => module.default),
 };
 
-export const getDictionary = async (locale: string = 'en') => {
+export const getDictionary = async (locale: string = defaultLocale) => {
   if (locale in dictionaries) {
     return dictionaries[locale as keyof typeof dictionaries]();
   }
