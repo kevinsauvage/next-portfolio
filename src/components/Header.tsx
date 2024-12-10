@@ -33,32 +33,34 @@ const Header = () => {
   }, []);
 
   return (
-    <>
-      <Logo />
-      <Navigation closeMenu={() => setMenuOpen(false)} menuOpen={menuOpen} />
-      <div className="flex gap-4 items-center justify-end order-4">
-        <Link href={t('cta.href')} className="hidden w-fit ml-auto font-normal lg:flex md:gap-2">
-          {t('cta.contact')}
-          <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} />{' '}
-        </Link>
-        <LanguageSwitcher className={menuOpen ? '' : 'hidden lg:block'} />
-        {menuOpen ? (
-          <X
-            className="lg:hidden cursor-pointer z-50"
-            onClick={() => setMenuOpen(!menuOpen)}
-            size={40}
-            strokeWidth={1}
-          />
-        ) : (
-          <MenuIcon
-            className="lg:hidden cursor-pointer"
-            onClick={() => setMenuOpen(!menuOpen)}
-            size={40}
-            strokeWidth={1}
-          />
-        )}
+    <header className="absolute top-3 left-0 z-50 w-full bg-opacity-95">
+      <div className="flex justify-between m-auto items-center xl:container p-4">
+        <Logo />
+        <Navigation closeMenu={() => setMenuOpen(false)} menuOpen={menuOpen} />
+        <div className="flex gap-4 items-center justify-end order-4">
+          <Link href={t('cta.href')} className="hidden w-fit ml-auto font-normal lg:flex md:gap-2">
+            {t('cta.contact')}
+            <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} />{' '}
+          </Link>
+          <LanguageSwitcher className={menuOpen ? '' : 'hidden lg:block'} />
+          {menuOpen ? (
+            <X
+              className="lg:hidden cursor-pointer z-50"
+              onClick={() => setMenuOpen(!menuOpen)}
+              size={40}
+              strokeWidth={1}
+            />
+          ) : (
+            <MenuIcon
+              className="lg:hidden cursor-pointer"
+              onClick={() => setMenuOpen(!menuOpen)}
+              size={40}
+              strokeWidth={1}
+            />
+          )}
+        </div>
       </div>
-    </>
+    </header>
   );
 };
 

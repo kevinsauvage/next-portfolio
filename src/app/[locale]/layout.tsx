@@ -6,7 +6,7 @@ import { getMessages } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
 
 import Footer from '@/components/Footer';
-import HeaderPresenter from '@/components/HeaderPresenter';
+import Header from '@/components/Header';
 import MouseFollowGradientBackground from '@/components/MouseFollowGradientBackground';
 import NotificationProvider from '@/contexts/NotificationContext';
 import { routing } from '@/i18n/routing';
@@ -72,7 +72,7 @@ const Layout = async ({
         <NextIntlClientProvider messages={messages}>
           <NotificationProvider>
             <MouseFollowGradientBackground />
-            <HeaderPresenter />
+            <Header />
             <main className="min-h-dvh flex-1 h-full w-full flex flex-col">{children}</main>
             <Footer />
           </NotificationProvider>

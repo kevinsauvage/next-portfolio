@@ -54,7 +54,7 @@ const animate = (
 };
 
 const LanguagesGrid: React.FC = () => {
-  const containerReference = useRef<HTMLDivElement | null>(null); // Correctly typed ref
+  const containerReference = useRef<HTMLDivElement | null>(null);
   const boxesReference: React.MutableRefObject<(HTMLDivElement | null)[]> = useRef([]);
 
   const startAnimation = () => {
