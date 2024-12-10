@@ -91,7 +91,15 @@
         },
         "submit": "Envoyer",
         "success": "Votre message a bien été envoyé. Je vous répondrai dans les plus brefs délais.",
-        "error": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer."
+        "error": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.",
+        "required": {
+          "fullName": "Le nom complet est requis",
+          "email": "L'adresse email est requise",
+          "message": "Le message est requis"
+        },
+        "invalid": {
+          "email": "Veuillez saisir une adresse email valide"
+        }
       }
     }
   },

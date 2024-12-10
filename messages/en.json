@@ -91,7 +91,15 @@
         },
         "submit": "Send Message",
         "success": "Your message has been sent successfully. I'll get back to you as soon as possible.",
-        "error": "An error occurred while sending your message. Please try again later."
+        "error": "An error occurred while sending your message. Please try again later.",
+        "required": {
+          "fullName": "Full name is required",
+          "email": "Email is required",
+          "message": "Message is required"
+        },
+        "invalid": {
+          "email": "Please enter a valid email address"
+        }
       }
     }
   },

@@ -15,13 +15,9 @@ import { useNotification } from '@/contexts/NotificationContext';
 import { LucideSend } from 'lucide-react';
 
 const ErrorMessage = ({ error }: { error?: Array<string> }) => {
-  return error
-    ? error.map((message) => (
-        <span key={message} className="block text-red-600 text-base">
-          {error}
-        </span>
-      ))
-    : undefined;
+  return error?.length ? (
+    <span className="block text-red-600 text-base">{error[0]}</span>
+  ) : undefined;
 };
 
 const LabelText = ({ children, required }: { children: React.ReactNode; required: boolean }) => (
@@ -100,7 +96,7 @@ const ContactForm = () => {
           <LabelText required={true}>{t('email')}</LabelText>
           <div>
             <Input
-              type="email"
+              type="text"
               name="email"
               placeholder="ex: johndoe@gmail.com"
               aria-required="true"

@@ -91,7 +91,15 @@
         },
         "submit": "Enviar mensaje",
         "success": "Tu mensaje se ha enviado correctamente. Me pondré en contacto contigo lo antes posible.",
-        "error": "Se produjo un error al enviar tu mensaje. Por favor, inténtalo de nuevo."
+        "error": "Se produjo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.",
+        "required": {
+          "fullName": "El nombre completo es obligatorio",
+          "email": "El correo electrónico es obligatorio",
+          "message": "El mensaje es obligatorio"
+        },
+        "invalid": {
+          "email": "Por favor, introduce una dirección de correo electrónico válida"
+        }
       }
     }
   },
