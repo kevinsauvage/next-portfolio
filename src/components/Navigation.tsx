@@ -17,6 +17,7 @@ const Navigation: React.FC<{
     href: `#${t(`nav.${key}`)?.toLowerCase()}`,
     label: t(`nav.${key}`),
   }));
+
   return (
     <div className="flex items-center gap-4 order-4 lg:order-none">
       <div
