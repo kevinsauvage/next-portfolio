@@ -66,7 +66,7 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
           <div
             className={clsx(
               'z-50 overflow-hidden fixed bottom-0 right-0 w-full shadow-lg bg-zinc-950 border-t border-zinc-800',
-              'md:absolute md:rounded-md md:origin-top-right md:bottom-auto md:w-fit md:min-w-56 md:mt-2 md:ring-1 md:ring-zinc-300 md:ring-opacity-50 md:divide-y md:divide-zinc-100',
+              'md:absolute md:rounded-md md:origin-top-right md:bottom-auto md:w-fit md:min-w-56 md:mt-2 md:ring-1 md:ring-zinc-700 md:ring-opacity-50 md:divide-y md:divide-zinc-100',
             )}
             role="menu"
             aria-orientation="vertical"
@@ -80,8 +80,10 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
                   type="button"
                   role="menuitem"
                   className={clsx(
-                    locale === language.code ? 'bg-zinc-900 text-zinc-200' : 'text-zinc-100',
-                    'group flex items-center w-full p-6 text-lg font-semibold hover:bg-zinc-800 hover:text-zinc-50',
+                    locale === language.code
+                      ? 'bg-zinc-900 text-zinc-200 cursor-default'
+                      : 'text-zinc-100',
+                    'group flex items-center w-full p-6 text-lg font-semibold hover:bg-zinc-900 hover:text-zinc-50',
                     'md:text-sm md:p-3',
                   )}
                 >
