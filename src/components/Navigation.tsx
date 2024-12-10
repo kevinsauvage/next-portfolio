@@ -30,7 +30,7 @@ const Navigation: React.FC<{
           className={clsx(
             'flex flex-col justify-end gap-2 p-6 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 h-dvh w-full fixed left-[50%] translate-x-[-50%] max-w-max mx-auto bg-zinc-900 z-50  ',
             menuOpen && 'max-w-none',
-            'lg:items-center lg:rounded-lg lg:py-3 lg:px-7  lg:border lg:border-zinc-800 lg:flex-row lg:bg-opacity-65 lg:w-fit lg:h-fit lg:bottom-auto lg:gap-6 lg:p-4',
+            'lg:items-center lg:rounded-lg lg:py-4 lg:px-7  lg:border lg:border-zinc-800 lg:flex-row lg:bg-opacity-65 lg:w-fit lg:h-fit lg:bottom-auto lg:gap-6 lg:p-4',
           )}
         >
           {navItems?.map(({ label, href }) => (
