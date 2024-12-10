@@ -60,18 +60,17 @@ export async function sendMail(
   });
 
   const result = sendMailSchema(t).safeParse(Object.fromEntries(formData.entries()));
-  if (!result?.success) return result.error.formErrors.fieldErrors;
+  if (result?.success) {
+    const valid = await validateCaptcha(result.data.captcha ?? '');
+    if (!valid) return { error: true };
 
-  const valid = await validateCaptcha(result.data.captcha ?? '');
-
-  if (!valid) {
-    return { error: true };
-  }
-
-  try {
-    await emailjs.send(serviceId, templateId, result.data, keyParameters);
-  } catch (error) {
-    console.error('FAILED...', error);
-    return { error: true };
+    try {
+      await emailjs.send(serviceId, templateId, result.data, keyParameters);
+    } catch (error) {
+      console.error('FAILED...', error);
+      return { error: true };
+    }
+  } else {
+    return result.error.formErrors.fieldErrors;
   }
 }
