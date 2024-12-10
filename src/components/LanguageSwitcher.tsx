@@ -43,14 +43,14 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
       <div className="relative z-50">
         <button
           type="button"
-          className="flex items-center justify-center w-full rounded-md border uppercase border-zinc-700 shadow-sm px-4 py-2 bg-zinc-900 bg-opacity-50 text-sm font-medium text-zinc-50 hover:bg-zinc-900 focus:outline-none focus:ring"
+          className="flex items-center justify-center w-full rounded-md border uppercase border-zinc-700 shadow-sm px-3 py-2 bg-zinc-900 bg-opacity-50 text-sm font-medium text-zinc-50 hover:bg-zinc-900 focus:outline-none focus:ring"
           id="language-menu"
           aria-haspopup="true"
           aria-expanded={isOpen}
           onClick={toggleDropdown}
         >
           {locale}
-          <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" strokeWidth={1} />
+          <ChevronDownIcon className="-mr-1 ml-1 h-5 w-5" aria-hidden="true" strokeWidth={1} />
         </button>
       </div>
 
