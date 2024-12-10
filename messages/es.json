@@ -128,5 +128,8 @@
     "title": "Página no encontrada",
     "description": "La página que buscas no existe. Vuelve a la página de inicio o contáctame si necesitas ayuda.",
     "cta": "Volver a la página de inicio"
+  },
+  "common": {
+    "loading": "Cargando..."
   }
 }

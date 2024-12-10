@@ -1,5 +1,7 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
+
 import clsx from 'clsx';
 
 type Properties = {
@@ -23,6 +25,7 @@ const Button = ({
   disabled,
   ...rest
 }: Properties) => {
+  const t = useTranslations('common');
   return (
     <button
       className={clsx(
@@ -40,7 +43,7 @@ const Button = ({
     >
       {loading && (
         <div className="absolute flex items-center justify-center inset-0 bg-zinc-900 text-zinc-100">
-          loading...
+          {t('loading')}
         </div>
       )}
       <span className="w-full flex items-center justify-center gap-2 text-zinc-300">

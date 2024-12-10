@@ -128,5 +128,8 @@
     "title": "Page Introuvable",
     "description": "La page que vous recherchez n'existe pas. Retournez à l'accueil ou contactez-moi si vous avez besoin d'aide.",
     "cta": "Retour à l'accueil"
+  },
+  "common": {
+    "loading": "Chargement..."
   }
 }
