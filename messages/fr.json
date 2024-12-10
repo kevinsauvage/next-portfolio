@@ -12,71 +12,72 @@
     "hero": {
       "title": "Concevoir des expériences web qui engagent et inspirent.",
       "description": "De la première ligne de code au déploiement, je crée des sites web alliant performance, accessibilité et design réfléchi.",
-      "cta": "Découvrir Mon Travail"
+      "cta": "Découvrir Mon Travail",
+      "href": "#portfolio"
     },
     "about": {
       "title": "À Propos de Moi",
       "description": "Découvrez qui je suis, mes passions et mes valeurs au service du développement web.",
-      "items": [
-        {
+      "items": {
+        "first": {
           "title": "Hello 👋",
           "description": "Salut ! Je suis Kévin Sauvage, un développeur Frontend créatif et passionné par la conception d'expériences web engageantes et intuitives."
         },
-        {
+        "second": {
           "title": "Une Passion pour le Développement Web",
           "description": "Transformer des idées complexes en solutions simples, utilisables et élégantes est ce qui me motive. Chez Decathlon, je me concentre sur l'optimisation des performances et la fluidité de l'expérience utilisateur, quelle que soit la localisation des utilisateurs."
         },
-        {
+        "third": {
           "title": "L’Apprentissage Continu",
           "description": "Je suis un adepte de l’apprentissage permanent. J’explore toujours de nouvelles technologies et méthodologies pour améliorer mes compétences et relever les défis techniques."
         },
-        {
+        "fourth": {
           "title": "La Collaboration au Cœur de Mes Valeurs",
           "description": "Les grandes idées naissent de la collaboration. J’aime travailler en équipe et partager mes connaissances pour réaliser des projets qui font la différence."
         }
-      ]
+      }
     },
     "portfolio": {
       "title": "Portfolio",
       "description": "Découvrez une sélection de mes projets récents, illustrant ma passion pour l'innovation et le design web.",
-      "projects": [
-        {
+      "projects": {
+        "first": {
           "description": "Intégration de l'API Spotify : exploration des données utilisateur, gestion de bibliothèques musicales et création de classements personnalisés.",
           "cta": "Voir le Projet"
         },
-        {
+        "second": {
           "description": "Votre hub de divertissement interactif. Découvrez de nouveaux contenus, visionnez des bandes-annonces et engagez-vous avec une communauté passionnée.",
           "cta": "Voir le Projet"
         },
-        {
+        "third": {
           "description": "Mon portfolio : une vitrine créative et interactive de mes travaux, mêlant innovation et expérience utilisateur.",
           "cta": "Voir le Projet"
         }
-      ]
+      }
     },
     "career": {
       "title": "Parcours Professionnel",
       "description": "Retour sur les expériences et collaborations qui ont marqué mon évolution en tant que développeur Frontend.",
-      "jobs": [
-        {
+      "jobs": {
+        "first": {
           "position": "Développeur Frontend",
           "period": "Octobre 2023 - Présent",
           "description": "Au sein de l’équipe e-commerce internationale de Decathlon, je développe et améliore des interfaces utilisateur en utilisant JavaScript et Svelte. Mon rôle consiste à garantir une expérience utilisateur fluide et adaptée à un public mondial.",
           "company": "Decathlon International"
         },
-        {
+        "second": {
           "position": "Développeur Frontend",
           "period": "Mai 2022 - Octobre 2023",
           "description": "J'ai contribué à optimiser la boutique en ligne de Decathlon Espagne, en mettant l’accent sur l’accessibilité et la rapidité, afin de répondre aux attentes d’un public diversifié.",
           "company": "Decathlon Espagne"
         },
-        {
+        "third": {
           "position": "Développeur Frontend",
           "period": "Juin 2021 - Mai 2022",
           "description": "Chez Subforce, j’ai collaboré avec des entreprises locales pour créer des sites web allant des pages simples aux plateformes e-commerce complexes, toujours avec un souci de qualité et d’innovation.",
           "company": "Subforce"
         }
-      ]
+      }
     },
     "contact": {
       "title": "Contactez-moi",
@@ -88,7 +89,9 @@
           "label": "Message",
           "placeholder": "Partagez vos idées ou posez une question"
         },
-        "submit": "Envoyer"
+        "submit": "Envoyer",
+        "success": "Votre message a bien été envoyé. Je vous répondrai dans les plus brefs délais.",
+        "error": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer."
       }
     }
   },
@@ -102,7 +105,8 @@
         "contact": "Contact"
       },
       "cta": {
-        "contact": "Contactez-moi"
+        "contact": "Contactez-moi",
+        "href": "#contact"
       }
     }
   },

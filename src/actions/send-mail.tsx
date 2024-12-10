@@ -28,15 +28,15 @@ const sendMailSchema = z.object({
   captcha: z.string().optional(),
   email: z.string().email(),
   feedback: z.string().optional(),
-  fullName: z.string().min(1, { message: 'Full name is required' }),
-  message: z.string().min(1, { message: 'Message is required' }),
+  fullName: z.string().min(1, { message: 'home.contact.form.required.fullName' }),
+  message: z.string().min(1, { message: 'home.contact.form.required.message' }),
   phone: z.string().optional(),
   subject: z.string().optional(),
 });
 
 type fieldErrors = {
   email?: Array<string>;
-  error?: Array<string>;
+  error?: boolean;
   feedback?: Array<string>;
   fullName?: Array<string>;
   message?: Array<string>;
@@ -54,13 +54,13 @@ export async function sendMail(
   const valid = await validateCaptcha(result.data.captcha ?? '');
 
   if (!valid) {
-    return { feedback: ['Captcha validation failed. Please try again later.'] };
+    return { error: true };
   }
 
   try {
     await emailjs.send(serviceId, templateId, result.data, keyParameters);
   } catch (error) {
     console.error('FAILED...', error);
-    return { feedback: ['Something went wrong. Please try again.'] };
+    return { error: true };
   }
 }

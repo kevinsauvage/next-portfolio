@@ -34,7 +34,7 @@ const Notification = ({ notification, removeNotification }: Properties) => {
   return (
     <div
       className={clsx(
-        'relative min-w-24 w-full mb-2 bg-zinc-950 border font-medium',
+        'relative min-w-24 max-w-80 w-full mb-2 bg-zinc-950 border font-medium',
         stylesObject[notification?.type],
       )}
       key={notification.id}

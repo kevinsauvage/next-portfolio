@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react';
 import { useFormState, useFormStatus } from 'react-dom';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
+import { useTranslations } from 'next-intl';
+
 import { sendMail } from '@/actions/send-mail';
 import Input from '@/components/_scopes/form/Input';
 import Label from '@/components/_scopes/form/Label';
@@ -45,21 +47,10 @@ const SubmitButton = ({ text }: { text: string }) => {
   );
 };
 
-const ContactForm = ({
-  translations,
-}: {
-  translations: {
-    fullName: string;
-    email: string;
-    message: {
-      placeholder: string;
-      label: string;
-    };
-    submit: string;
-  };
-}) => {
+const ContactForm = () => {
   const notification = useNotification();
   const reference = useRef<HTMLFormElement>(null);
+  const t = useTranslations('home.contact.form');
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -75,11 +66,11 @@ const ContactForm = ({
   useEffect(() => {
     if (!errors && reference?.current) {
       reference.current.reset();
-      notification.success('Message sent successfully');
+      notification.success(t('success'));
     }
 
-    if (errors?.feedback) {
-      notification.error(errors.feedback[0]);
+    if (errors?.error) {
+      notification.error(t('error'));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors]);
@@ -93,45 +84,44 @@ const ContactForm = ({
     >
       <div className="rounded-lg space-y-7">
         <Label>
-          <LabelText required={true}>{translations.fullName}</LabelText>
+          <LabelText required={true}>{t('fullName')}</LabelText>
           <div>
             <Input
               type="text"
               name="fullName"
               placeholder="ex: John Doe"
               aria-required="true"
-              aria-label={translations.fullName}
+              aria-label={t('fullName')}
             />
             <ErrorMessage error={errors?.fullName} />
           </div>
         </Label>
         <Label>
-          <LabelText required={true}>{translations.email}</LabelText>
+          <LabelText required={true}>{t('email')}</LabelText>
           <div>
             <Input
               type="email"
               name="email"
               placeholder="ex: johndoe@gmail.com"
               aria-required="true"
-              aria-label={translations.email}
+              aria-label={t('email')}
             />
             <ErrorMessage error={errors?.email} />
           </div>
         </Label>
         <Label>
-          <LabelText required={true}>{translations.message.label}</LabelText>
+          <LabelText required={true}>{t('message.label')}</LabelText>
           <div>
             <TextArea
               name="message"
-              placeholder={translations.message.placeholder}
+              placeholder={t('message.placeholder')}
               aria-required="true"
-              aria-label={translations.message.label}
+              aria-label={t('message.label')}
             />
             <ErrorMessage error={errors?.message} />
           </div>
         </Label>
-
-        <SubmitButton text={translations.submit} />
+        <SubmitButton text={t('submit')} />
       </div>
     </form>
   );

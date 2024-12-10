@@ -1,5 +1,6 @@
+import { useTranslations } from 'next-intl';
+
 import BoxWithBackground from '@/components/BoxWithBackground';
-import { getDictionary } from '@/dictionaries/dictionaries';
 
 import ContactForm from '../form/ContactForm';
 
@@ -8,10 +9,9 @@ import SectionDescription from './_components/SectionDescription';
 import SectionHeader from './_components/SectionHeader';
 import SectionTitle from './_components/SectionTitle';
 
-const ContactSection: React.FC<{
-  lang: string;
-}> = async ({ lang }) => {
-  const t = await getDictionary(lang);
+const ContactSection: React.FC = () => {
+  const t = useTranslations('home.contact');
+  const id = useTranslations('shared.header.nav');
 
   return (
     <BoxWithBackground
@@ -19,14 +19,14 @@ const ContactSection: React.FC<{
       backgroundConfig={{ scale: 0.3, strokeWidth: 1.1 }}
     >
       <Section
-        id={t.shared.header.nav.contact.toLowerCase()}
+        id={id('contact')?.toLowerCase()}
         className="p-6 max-w-xl min-h-dvh flex flex-col justify-center items-center scroll-m-0 md:p-0"
       >
         <SectionHeader>
-          <SectionTitle>{t.home.contact.title}</SectionTitle>
-          <SectionDescription>{t.home.contact.description}</SectionDescription>
+          <SectionTitle>{t('title')}</SectionTitle>
+          <SectionDescription>{t('description')}</SectionDescription>
         </SectionHeader>
-        <ContactForm translations={t.home.contact.form} />
+        <ContactForm />
       </Section>
     </BoxWithBackground>
   );

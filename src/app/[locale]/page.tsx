@@ -5,16 +5,16 @@ import Hero from '@/components/_scopes/section/Hero';
 import PortfolioSection from '@/components/_scopes/section/PortfolioSection';
 import GoogleReCaptchaProviderWrapper from '@/components/GoogleReCaptchaProviderWrapper';
 
-const Home = ({ params: { lang } }: { params: { lang: string } }) => (
+const Home = () => (
   <div className="h-full w-full grow flex flex-col justify-between m-auto">
-    <Hero lang={lang} />
+    <Hero />
     <div className="container m-auto px-4">
-      <AboutSection lang={lang} />
-      <PortfolioSection lang={lang} />
-      <CareerSection lang={lang} />
+      <AboutSection />
+      <PortfolioSection />
+      <CareerSection />
     </div>
     <GoogleReCaptchaProviderWrapper>
-      <ContactSection lang={lang} />
+      <ContactSection />
     </GoogleReCaptchaProviderWrapper>
   </div>
 );

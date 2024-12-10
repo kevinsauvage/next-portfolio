@@ -3,9 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { usePathname, useRouter } from 'next/navigation';
-
-import { setServerCookie } from '@/actions/cookies';
-import { cookieName } from '@/middleware';
+import { useLocale } from 'next-intl';
 
 import clsx from 'clsx';
 import { CheckIcon, ChevronDownIcon } from 'lucide-react';
@@ -16,7 +14,8 @@ const languages = [
   { code: 'fr', flag: '🇫🇷', name: 'Français' },
 ];
 
-const LanguageSwitcher = ({ lang, className }: { lang: string; className?: string }) => {
+const LanguageSwitcher = ({ className }: { className?: string }) => {
+  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
@@ -28,8 +27,7 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
   }, [isOpen]);
 
   const handleClick = (language: string) => {
-    setServerCookie(cookieName, language, { maxAge: 1000 * 60 * 60 * 24 * 365 });
-    router.push(`/${language}${pathname.replace(new RegExp(`^/${lang}`), '')}`);
+    router.push(`/${language}${pathname.replace(new RegExp(`^/${locale}`), '')}`);
     router.refresh();
     setIsOpen(false);
   };
@@ -50,7 +48,7 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
           aria-expanded={isOpen}
           onClick={toggleDropdown}
         >
-          {lang}
+          {locale}
           <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" strokeWidth={1} />
         </button>
       </div>
@@ -82,13 +80,13 @@ const LanguageSwitcher = ({ lang, className }: { lang: string; className?: strin
                   type="button"
                   role="menuitem"
                   className={clsx(
-                    lang === language.code ? 'bg-zinc-900 text-zinc-200' : 'text-zinc-100',
+                    locale === language.code ? 'bg-zinc-900 text-zinc-200' : 'text-zinc-100',
                     'group flex items-center w-full p-6 text-lg font-semibold hover:bg-zinc-800 hover:text-zinc-50',
                     'md:text-sm md:p-3',
                   )}
                 >
                   <span className="flex items-center">
-                    {language.code === lang && (
+                    {language.code === locale && (
                       <CheckIcon className="mr-2 text-zinc-200 text-2xl" aria-hidden="true" />
                     )}
                     {language.name}

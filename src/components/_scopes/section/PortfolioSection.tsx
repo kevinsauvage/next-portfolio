@@ -1,5 +1,6 @@
+import { useTranslations } from 'next-intl';
+
 import projects from '@/config/projects.config';
-import { getDictionary } from '@/dictionaries/dictionaries';
 
 import ProjectCard from '../../ProjectCard';
 
@@ -8,22 +9,23 @@ import SectionDescription from './_components/SectionDescription';
 import SectionHeader from './_components/SectionHeader';
 import SectionTitle from './_components/SectionTitle';
 
-const PortfolioSection: React.FC<{
-  lang: string;
-}> = async ({ lang }) => {
-  const t = await getDictionary(lang);
+const PortfolioSection: React.FC = () => {
+  const t = useTranslations('home.portfolio');
+  const id = useTranslations('shared.header.nav');
+
+  const projectsKeys = ['first', 'second', 'third'];
 
   const projectsTranslated = projects.map((item, index) => ({
     ...item,
-    cta: t.home.portfolio.projects[index].cta,
-    description: t.home.portfolio.projects[index].description,
+    cta: t(`projects.${projectsKeys.at(index)}.cta`),
+    description: t(`projects.${projectsKeys.at(index)}.description`),
   }));
 
   return (
-    <Section id={t.shared.header.nav.portfolio.toLowerCase()}>
+    <Section id={id('portfolio')?.toLowerCase()}>
       <SectionHeader>
-        <SectionTitle>{t.home.portfolio.title}</SectionTitle>
-        <SectionDescription>{t.home.portfolio.description}</SectionDescription>
+        <SectionTitle>{t('title')}</SectionTitle>
+        <SectionDescription>{t('description')}</SectionDescription>
       </SectionHeader>
       <div className="flex flex-col gap-5">
         {projectsTranslated.map((item) => (

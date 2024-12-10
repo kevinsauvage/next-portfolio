@@ -12,71 +12,72 @@
     "hero": {
       "title": "Crafting Websites That Connect, Engage, and Inspire.",
       "description": "From initial concepts to final deployment, I build websites that prioritize usability, performance, and accessibility.",
-      "cta": "View My Work"
+      "cta": "View My Work",
+      "href": "#portfolio"
     },
     "about": {
       "title": "About Me",
       "description": "Get to know me a little better. Here are some things I enjoy and some of my values.",
-      "items": [
-        {
+      "items": {
+        "first": {
           "title": "Hi, I’m Kévin Sauvage",
           "description": "Hey there! 👋 I'm Kévin Sauvage, a Frontend Developer who's passionate about crafting web experiences that users love."
         },
-        {
+        "second": {
           "title": "I’m Passionate About Web Development",
           "description": "What gets me excited about coding is making things that help people. I enjoy turning complex problems into simple solutions that users can easily understand and use. At Decathlon, this means working on things like making the checkout process smoother or ensuring our website works well across different countries."
         },
-        {
+        "third": {
           "title": "I Love to Learn",
           "description": "I’m always looking for ways to improve my skills and learn new technologies. I believe that the best way to grow is to never stop learning."
         },
-        {
+        "fourth": {
           "title": "I Value Collaboration",
           "description": "I believe that the best work is done when people come together to share their ideas and expertise. I’m always looking for ways to collaborate with others."
         }
-      ]
+      }
     },
     "portfolio": {
       "title": "Portfolio",
       "description": "Here are some of the projects I have worked on. Click on a project to learn more about it.",
-      "projects": [
-        {
+      "projects": {
+        "first": {
           "description": "Showcase of Spotify API integration: User data, library, and music charts for a personalized experience.",
           "cta": "View Project"
         },
-        {
+        "second": {
           "description": "Your personalized entertainment hub. Discover new titles, watch trailers, and engage in community conversations.",
           "cta": "View Project"
         },
-        {
+        "third": {
           "description": "Explore my portfolio website—a creative showcase of my best work, reflecting artistry and innovation across diverse projects.",
           "cta": "View Project"
         }
-      ]
+      }
     },
     "career": {
       "title": "My Career Journey",
       "description": "I've been fortunate to work with some amazing companies and talented people. Here are some of the highlights from my career so far.",
-      "jobs": [
-        {
+      "jobs": {
+        "first": {
           "position": "Frontend Developer",
           "period": "October 2023 - Present",
           "description": "Working on Decathlon's e-commerce platform, I build and improve user interfaces using JavaScript and Svelte. I'm part of an international team that makes sure our online shopping experience works well across different countries.",
           "company": "Decathlon International"
         },
-        {
+        "second": {
           "position": "Frontend Developer",
           "period": "May 2022 - October 2023",
           "company": "Decathlon Spain",
           "description": "I worked on making Decathlon Spain's online store better for everyone. My focus was on speed and accessibility - basically making sure the site was fast and easy to use for all our customers."
         },
-        {
+        "third": {
           "position": "Frontend Developer",
           "period": "June 2021 - May 2022",
           "company": "Subforce",
           "description": "Subforce is a small agency that builds websites for local businesses. I worked on a range of projects, from simple landing pages to full e-commerce sites."
         }
-      ]
+      }
     },
     "contact": {
       "title": "Contact Me",
@@ -88,7 +89,9 @@
           "label": "Message",
           "placeholder": "Share your thoughts or ask a question"
         },
-        "submit": "Send Message"
+        "submit": "Send Message",
+        "success": "Your message has been sent successfully. I'll get back to you as soon as possible.",
+        "error": "An error occurred while sending your message. Please try again later."
       }
     }
   },
@@ -102,7 +105,8 @@
         "contact": "Contact"
       },
       "cta": {
-        "contact": "Contact Me"
+        "contact": "Contact Me",
+        "href": "#contact"
       }
     }
   },

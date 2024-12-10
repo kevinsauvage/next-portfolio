@@ -1,10 +1,10 @@
 import Image, { StaticImageData } from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import Grid1 from '@/assets/grid1.png';
 import Grid3 from '@/assets/grid3.png';
 import Grid4 from '@/assets/grid4.png';
 import BoxWithBackground from '@/components/BoxWithBackground';
-import { getDictionary } from '@/dictionaries/dictionaries';
 
 import Section from './_components/Section';
 import SectionDescription from './_components/SectionDescription';
@@ -86,22 +86,22 @@ const AboutItem: React.FC<{
   );
 };
 
-const AboutSection: React.FC<{
-  lang: string;
-}> = async ({ lang }) => {
-  const t = await getDictionary(lang);
+const AboutSection: React.FC = () => {
+  const t = useTranslations('home.about');
+  const id = useTranslations('shared.header.nav');
 
-  const itemsWithTraduction = items.map((item, index) => ({
-    ...item,
-    description: t.home.about.items[index].description,
-    title: t.home.about.items[index].title,
+  const itemsWithTraduction = ['first', 'second', 'third', 'fourth'].map((item, index) => ({
+    description: t(`items.${item}.description`),
+    image: items[index].image,
+    style: items[index].style,
+    title: t(`items.${item}.title`),
   }));
 
   return (
-    <Section id={t.shared.header.nav.about.toLowerCase()}>
+    <Section id={id('about')?.toLowerCase()}>
       <SectionHeader>
-        <SectionTitle>{t.home.about.title}</SectionTitle>
-        <SectionDescription>{t.home.about.description}</SectionDescription>
+        <SectionTitle>{t('title')}</SectionTitle>
+        <SectionDescription>{t('description')}</SectionDescription>
       </SectionHeader>
       <div
         className={clsx(

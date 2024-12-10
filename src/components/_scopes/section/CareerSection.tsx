@@ -1,5 +1,6 @@
+import { useTranslations } from 'next-intl';
+
 import BoxWithBackground from '@/components/BoxWithBackground';
-import { getDictionary } from '@/dictionaries/dictionaries';
 
 import Section from './_components/Section';
 import SectionDescription from './_components/SectionDescription';
@@ -39,20 +40,25 @@ const CareerItem: React.FC<{
   );
 };
 
-const CareerSection: React.FC<{ lang: string }> = async ({ lang }) => {
-  const t = await getDictionary(lang);
+const CareerSection = () => {
+  const t = useTranslations('home.career');
+  const id = useTranslations('shared.header.nav');
+
+  const jobs = ['first', 'second', 'third'].map((item) => ({
+    company: t(`jobs.${item}.company`),
+    description: t(`jobs.${item}.description`),
+    period: t(`jobs.${item}.period`),
+    position: t(`jobs.${item}.position`),
+  }));
 
   return (
-    <Section
-      id={t.shared.header.nav.career.toLowerCase()}
-      className="lg:grid lg:grid-cols-5 gap-20"
-    >
+    <Section id={id('career')?.toLowerCase()} className="lg:grid lg:grid-cols-5 gap-20">
       <SectionHeader className="col-span-2">
-        <SectionTitle>{t.home.career.title}</SectionTitle>
-        <SectionDescription>{t.home.career.description}</SectionDescription>
+        <SectionTitle>{t('title')}</SectionTitle>
+        <SectionDescription>{t('description')}</SectionDescription>
       </SectionHeader>
       <div className="grid items-stretch grid-cols-1 gap-5 lg:col-span-3">
-        {t.home.career.jobs.map((item, index) => (
+        {jobs.map((item, index) => (
           <CareerItem key={index} {...item} />
         ))}
       </div>

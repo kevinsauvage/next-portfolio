@@ -1,7 +1,14 @@
-/* eslint-disable unicorn/prefer-module */
 /** @type {import('next').NextConfig} */
-// eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-require-imports
-const path = require('node:path');
+
+import createNextIntlPlugin from 'next-intl/plugin';
+
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const withNextIntl = createNextIntlPlugin();
+
+const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __dirname = path.dirname(__filename);
 
 const nextConfig = {
   async headers() {
@@ -42,8 +49,9 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   sassOptions: {
+    // eslint-disable-next-line unicorn/prefer-module
     includePaths: [path.join(__dirname, './styles/')],
   },
 };
 
-module.exports = nextConfig;
+export default withNextIntl(nextConfig);
