@@ -20,18 +20,6 @@ const Header = () => {
     document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
   }, [menuOpen]);
 
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false);
-    };
-
-    document.addEventListener('keydown', handleEscape);
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, []);
-
   return (
     <header className="absolute top-3 left-0 z-50 w-full bg-opacity-95">
       <div className="flex justify-between m-auto items-center xl:container p-4">
