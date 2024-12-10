@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { usePathname, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
+
+import { usePathname, useRouter } from '@/i18n/routing';
 
 import clsx from 'clsx';
 import { CheckIcon, ChevronDownIcon } from 'lucide-react';
@@ -27,12 +28,12 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
   }, [isOpen]);
 
   const handleClick = (language: string) => {
-    router.push(`/${language}${pathname.replace(new RegExp(`^/${locale}`), '')}`);
+    router.push(language + pathname);
     router.refresh();
     setIsOpen(false);
   };
 
-  const toggleDropdown = () => setIsOpen(!isOpen);
+  const toggleDropdown = () => setIsOpen((previous) => !previous);
 
   return (
     <div
