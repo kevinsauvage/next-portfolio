@@ -1,6 +1,6 @@
 'use client';
-import { useEffect, useRef } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useEffect, useRef } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { useTranslations } from 'next-intl';
@@ -57,7 +57,7 @@ const ContactForm = () => {
     return sendMail(previousState, formData);
   }
 
-  const [errors, formAction] = useFormState(addRecaptcha, {});
+  const [errors, formAction] = useActionState(addRecaptcha, {});
 
   useEffect(() => {
     if (!errors && reference?.current) {

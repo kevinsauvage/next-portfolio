@@ -43,11 +43,15 @@ const JosefinSans = Josefin_Sans({
 
 const Layout = async ({
   children,
-  params: { locale },
+  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) => {
+  const parameters = await params;
+
+  const { locale } = parameters;
+
   if (!routing.locales.includes(locale as never)) {
     notFound();
   }
@@ -84,11 +88,13 @@ const Layout = async ({
 
 export default Layout;
 
-export async function generateMetadata({
-  params: { locale },
-}: {
-  params: { locale: string };
+export async function generateMetadata(properties: {
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
+  const parameters = await properties.params;
+
+  const { locale } = parameters;
+
   const t = await getTranslations({ locale, namespace: 'home.metadata' });
 
   return {
