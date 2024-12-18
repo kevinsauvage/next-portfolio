@@ -40,7 +40,7 @@ const SubmitButton = ({ text }: { text: string }) => {
       disabled={pending}
       loading={pending}
       variant="secondary"
-      size="md"
+      size="lg"
     />
   );
 };

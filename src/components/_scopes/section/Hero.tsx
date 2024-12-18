@@ -31,7 +31,7 @@ const Hero = () => {
           <Button
             svg={<MoveDown strokeWidth={1.5} size={20} aria-label={t('hero.cta')} />}
             label={t('hero.cta')}
-            size="lg"
+            size="xl"
           />
         </Link>
       </div>
