@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 
+import Button from '@/components/Button';
 import { Link } from '@/i18n/routing';
 
 import BoxWithBackground from '../../BoxWithBackground';
@@ -26,16 +27,12 @@ const Hero = () => {
           </div>
         </div>
 
-        <Link
-          href={t('hero.href')}
-          passHref
-          className="w-fit flex rounded-md gap-2 items-center justify-center bg-indigo-800 border border-indigo-900 text-zinc-300 px-10 py-4 text-lg 
-          font-semibold hover:bg-indigo-900 hover:border-indigo-900 hover:text-zinc-200 hover:shadow-[0_20px_50px_rgba(55,_48,_163,_0.7)]
-          focus:bg-indigo-800 focus:border-indigo-800 focus:text-zinc-200 
-          active:bg-indigo-800 active:border-indigo-800 active:text-zinc-200"
-        >
-          {t('hero.cta')}
-          <MoveDown strokeWidth={1.5} size={20} aria-label={t('hero.cta')} />
+        <Link href={t('hero.href')} passHref>
+          <Button
+            svg={<MoveDown strokeWidth={1.5} size={20} aria-label={t('hero.cta')} />}
+            label={t('hero.cta')}
+            size="lg"
+          />
         </Link>
       </div>
     </BoxWithBackground>
