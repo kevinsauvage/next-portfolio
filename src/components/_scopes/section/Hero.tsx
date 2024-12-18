@@ -5,7 +5,7 @@ import { Link } from '@/i18n/routing';
 import BoxWithBackground from '../../BoxWithBackground';
 import LanguagesGrid from '../../LanguagesGrid';
 
-import { MoveUpRight } from 'lucide-react';
+import { MoveDown } from 'lucide-react';
 
 const Hero = () => {
   const t = useTranslations('home');
@@ -35,7 +35,7 @@ const Hero = () => {
           active:bg-indigo-800 active:border-indigo-800 active:text-zinc-200"
         >
           {t('hero.cta')}
-          <MoveUpRight strokeWidth={1.5} size={20} aria-label={t('hero.cta')} />
+          <MoveDown strokeWidth={1.5} size={20} aria-label={t('hero.cta')} />
         </Link>
       </div>
     </BoxWithBackground>

@@ -10,7 +10,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 import Logo from './Logo';
 import Navigation from './Navigation';
 
-import { MenuIcon, MoveUpRight, X } from 'lucide-react';
+import { MenuIcon, MoveDown, X } from 'lucide-react';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,7 +28,7 @@ const Header = () => {
         <div className="flex gap-4 items-center justify-end order-4">
           <Link href={t('cta.href')} className="hidden w-fit ml-auto font-normal lg:flex md:gap-2">
             {t('cta.contact')}
-            <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} />{' '}
+            <MoveDown aria-label="Hire me" strokeWidth={1.5} size={18} />{' '}
           </Link>
           <LanguageSwitcher className={menuOpen ? '' : 'hidden lg:block'} />
           {menuOpen ? (
