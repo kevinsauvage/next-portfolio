@@ -28,23 +28,22 @@ const Button = ({
   ...rest
 }: Properties) => {
   const styleSize = clsx(
-    'text-lg',
     size === 'md' && 'text-md',
     size === 'sm' && 'text-sm',
-    size === 'lg' && 'text-xl',
+    size === 'lg' && 'text-lg',
   );
 
   const styleVariant = clsx(
     variant === 'primary' &&
-      'text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2',
+      'text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium px-5 py-2.5 text-center me-2 mb-2',
     variant === 'secondary' &&
-      'text-gray-800 bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2',
+      'text-gray-800 bg-gray-200 hover:bg-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-300 dark:focus:ring-gray-800 font-medium px-5 py-2.5 text-center me-2 mb-2',
   );
 
   return (
     <button
       className={clsx(
-        'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap rounded-md px-4 py-3 border',
+        'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap rounded-md',
         styleSize,
         styleVariant,
         loading && 'cursor-default',
