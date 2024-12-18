@@ -32,7 +32,7 @@ const SubmitButton = ({ text }: { text: string }) => {
 
   return (
     <Button
-      className="justify-center items-center mt-4"
+      className="mt-4 w-full md:w-fit"
       svg={<LucideSend role="img" size={18} aria-label={text} />}
       label={text}
       type="submit"

@@ -44,7 +44,7 @@ const ProjectCard = ({ item, className }: Properties) => {
             </div>
           </div>
           <Link
-            className="flex items-center justify-center text-zinc-400 gap-2 whitespace-nowrap font-medium border border-zinc-600 bg-zinc-950 rounded p-3"
+            className="flex items-center justify-center w-full md:w-fit text-zinc-400 gap-2 whitespace-nowrap font-medium border border-zinc-600 bg-zinc-950 rounded p-3"
             href={websiteLink}
             target="_blank"
             rel="noopener noreferrer"
