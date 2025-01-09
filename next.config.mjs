@@ -49,6 +49,14 @@ const nextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        destination: 'https://cloud.umami.is/script.js',
+        source: '/growth/:match*',
+      },
+    ];
+  },
   sassOptions: {
     // eslint-disable-next-line unicorn/prefer-module
     includePaths: [path.join(__dirname, './styles/')],

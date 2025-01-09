@@ -93,8 +93,8 @@ const Layout = async ({
         />
         <Script
           strategy="lazyOnload"
-          src="https://cloud.umami.is/script.js"
           data-website-id="ceb01e2d-6db2-4627-959a-1889d2adb879"
+          src={'/growth/rewrites'}
         />
         <NextIntlClientProvider messages={messages}>
           <NotificationProvider>
