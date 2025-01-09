@@ -93,7 +93,7 @@ const Layout = async ({
         />
         <Script
           strategy="lazyOnload"
-          data-website-id="ceb01e2d-6db2-4627-959a-1889d2adb879"
+          data-website-id={process.env.UMAMI_ID}
           src={'/growth/rewrites'}
         />
         <NextIntlClientProvider messages={messages}>
