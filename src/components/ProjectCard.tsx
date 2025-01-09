@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Link } from '@/i18n/routing';
 
 import BoxWithBackground from './BoxWithBackground';
+import Button from './Button';
 
 import clsx from 'clsx';
 import { MoveUpRight } from 'lucide-react';
@@ -44,13 +45,19 @@ const ProjectCard = ({ item, className }: Properties) => {
             </div>
           </div>
           <Link
-            className="flex items-center justify-center w-full md:w-fit text-zinc-400 gap-2 whitespace-nowrap font-medium border border-zinc-600 bg-zinc-950 rounded p-3"
             href={websiteLink}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={cta}
+            className="mt-4 w-full md:w-fit font-normal group-hover:text-zinc-300"
           >
-            {cta} <MoveUpRight size={20} aria-label={cta} />
+            <Button
+              svg={<MoveUpRight size={20} aria-label={cta} />}
+              label={cta}
+              data-umami-event="project_cta_click"
+              data-umami-event-project={title}
+              className="w-full"
+            />
           </Link>
         </div>
         <div className="relative w-fit flex items-center justify-center group md:col-span-2">

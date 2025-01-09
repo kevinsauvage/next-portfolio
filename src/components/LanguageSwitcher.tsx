@@ -66,14 +66,14 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
           />
           <div
             className={clsx(
-              'z-50 overflow-hidden fixed bottom-0 right-0 w-full shadow-lg bg-zinc-950 border-t border-zinc-800',
-              'md:absolute md:rounded-md md:origin-top-right md:bottom-auto md:w-fit md:min-w-56 md:mt-2 md:ring-1 md:ring-zinc-700 md:ring-opacity-50 md:divide-y md:divide-zinc-100',
+              'z-40 overflow-hidden fixed bottom-0 right-0 top-0 h-dvh w-full shadow-lg bg-zinc-950 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-50 border-t border-zinc-800 flex flex-col justify-end',
+              'lg:absolute lg:rounded-md lg:origin-top-right lg:bottom-auto lg:w-fit lg:min-w-56 lg:mt-2 lg:ring-1 lg:ring-zinc-700 lg:ring-opacity-50 lg:divide-y lg:divide-zinc-100 lg:h-fit lg:top-full',
             )}
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="language-menu"
           >
-            <div className="overflow-hidden" role="menu">
+            <div className="overflow-hidden border-t border-zinc-700 lg:border-none" role="menu">
               {languages.map((language) => (
                 <button
                   key={language.code}
@@ -83,7 +83,7 @@ const LanguageSwitcher = ({ className }: { className?: string }) => {
                   className={clsx(
                     locale === language.code
                       ? 'bg-zinc-900 text-zinc-200 cursor-default'
-                      : 'text-zinc-100',
+                      : 'text-zinc-100 bg-zinc-950',
                     'group flex items-center w-full p-6 text-lg font-semibold hover:bg-zinc-900 hover:text-zinc-50',
                     'md:text-sm md:p-3',
                   )}

@@ -11,6 +11,8 @@ type Properties = {
   loading?: boolean;
   type?: 'button' | 'submit' | 'reset';
   variant?: 'primary' | 'secondary';
+  eventName?: string;
+  eventProperties?: Record<string, string>;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
   disabled?: boolean;
@@ -25,6 +27,8 @@ const Button = ({
   size = 'md',
   className,
   disabled,
+  eventName,
+  eventProperties,
   ...rest
 }: Properties) => {
   const styleSize = clsx(
@@ -50,7 +54,10 @@ const Button = ({
         loading && 'cursor-default',
         className,
       )}
-      onClick={(event) => onClick?.(event)}
+      onClick={(event) => {
+        onClick?.(event);
+        if (eventName) globalThis.umami.track(eventName, eventProperties);
+      }}
       aria-label={label}
       disabled={disabled || loading}
       type={rest.type || 'button'}

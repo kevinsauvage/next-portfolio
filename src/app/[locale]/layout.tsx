@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { Josefin_Sans, League_Spartan } from 'next/font/google';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { getTranslations } from 'next-intl/server';
@@ -13,17 +14,35 @@ import { routing } from '@/i18n/routing';
 
 import '@/styles/globals.scss';
 
-import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  about:
+    'I specialize in building high-performance web applications with a focus on accessibility and inclusivity. Passionate about delivering seamless experiences to users of all abilities.',
   description: 'Developing performance-focused, inclusive web products that leave no one behind.',
   jobTitle: 'JavaScript Developer',
   mainEntityOfPage: { '@id': 'https://www.kevin-sauvage.com', '@type': 'WebPage' },
   name: 'Kévin Sauvage',
   sameAs: ['https://www.linkedin.com/in/kevin-sauvage', 'https://github.com/kevinsauvage'],
+  skills: [
+    'JavaScript',
+    'Web Accessibility',
+    'React',
+    'NextJs',
+    'Front-end Development',
+    'Performance Optimization',
+    'TypeScript',
+    'HTML',
+    'CSS',
+    'Sass',
+    'Tailwind CSS',
+    'Responsive Design',
+    'Progressive Web Apps',
+    'Web Performance',
+    'Web Development',
+  ],
   url: 'https://www.kevin-sauvage.com',
 };
 
@@ -68,10 +87,14 @@ const Layout = async ({
       )}
     >
       <body className="w-full h-full text-zinc-50 antialiased font-base font-light">
-        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <Script
+          strategy="lazyOnload"
+          src="https://cloud.umami.is/script.js"
+          data-website-id="ceb01e2d-6db2-4627-959a-1889d2adb879"
         />
         <NextIntlClientProvider messages={messages}>
           <NotificationProvider>

@@ -41,6 +41,7 @@ const SubmitButton = ({ text }: { text: string }) => {
       loading={pending}
       variant="secondary"
       size="lg"
+      data-umami-event="contact_form_submit"
     />
   );
 };

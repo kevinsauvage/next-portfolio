@@ -11,6 +11,7 @@ const __filename = fileURLToPath(import.meta.url); // get the resolved path to t
 const __dirname = path.dirname(__filename);
 
 const nextConfig = {
+  compress: true,
   async headers() {
     return [
       {

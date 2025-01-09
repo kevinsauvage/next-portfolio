@@ -32,6 +32,7 @@ const Hero = () => {
             svg={<MoveDown strokeWidth={1.5} size={20} aria-label={t('hero.cta')} />}
             label={t('hero.cta')}
             size="xl"
+            data-umami-event="hero_cta_click"
           />
         </Link>
       </div>
