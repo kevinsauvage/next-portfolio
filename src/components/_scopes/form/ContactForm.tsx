@@ -81,44 +81,38 @@ const ContactForm = () => {
       action={formAction}
       aria-label="Contact me"
     >
-      <div className="rounded-lg space-y-7">
+      <div className="space-y-7">
         <Label>
           <LabelText required={true}>{t('fullName')}</LabelText>
-          <div>
-            <Input
-              type="text"
-              name="fullName"
-              placeholder="ex: John Doe"
-              aria-required="true"
-              aria-label={t('fullName')}
-            />
-            <ErrorMessage error={errors?.fullName} />
-          </div>
+          <Input
+            type="text"
+            name="fullName"
+            placeholder="ex: John Doe"
+            aria-required="true"
+            aria-label={t('fullName')}
+          />
+          <ErrorMessage error={errors?.fullName} />
         </Label>
         <Label>
           <LabelText required={true}>{t('email')}</LabelText>
-          <div>
-            <Input
-              type="text"
-              name="email"
-              placeholder="ex: johndoe@gmail.com"
-              aria-required="true"
-              aria-label={t('email')}
-            />
-            <ErrorMessage error={errors?.email} />
-          </div>
+          <Input
+            type="text"
+            name="email"
+            placeholder="ex: johndoe@gmail.com"
+            aria-required="true"
+            aria-label={t('email')}
+          />
+          <ErrorMessage error={errors?.email} />
         </Label>
         <Label>
           <LabelText required={true}>{t('message.label')}</LabelText>
-          <div>
-            <TextArea
-              name="message"
-              placeholder={t('message.placeholder')}
-              aria-required="true"
-              aria-label={t('message.label')}
-            />
-            <ErrorMessage error={errors?.message} />
-          </div>
+          <TextArea
+            name="message"
+            placeholder={t('message.placeholder')}
+            aria-required="true"
+            aria-label={t('message.label')}
+          />
+          <ErrorMessage error={errors?.message} />
         </Label>
         <SubmitButton text={t('submit')} />
       </div>
