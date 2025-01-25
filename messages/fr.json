@@ -60,19 +60,19 @@
       "description": "Retour sur les expériences et collaborations qui ont marqué mon évolution en tant que développeur Frontend.",
       "jobs": {
         "first": {
-          "position": "Développeur Frontend",
+          "position": "Frontend",
           "period": "Octobre 2023 - Présent",
           "description": "Au sein de l’équipe e-commerce internationale de Decathlon, je développe et améliore des interfaces utilisateur en utilisant JavaScript et Svelte. Mon rôle consiste à garantir une expérience utilisateur fluide et adaptée à un public mondial.",
           "company": "Decathlon International"
         },
         "second": {
-          "position": "Développeur Frontend",
+          "position": "Frontend",
           "period": "Mai 2022 - Octobre 2023",
           "description": "J'ai contribué à optimiser la boutique en ligne de Decathlon Espagne, en mettant l’accent sur l’accessibilité et la rapidité, afin de répondre aux attentes d’un public diversifié.",
           "company": "Decathlon Espagne"
         },
         "third": {
-          "position": "Développeur Frontend",
+          "position": "Frontend",
           "period": "Juin 2021 - Mai 2022",
           "description": "Chez Subforce, j’ai collaboré avec des entreprises locales pour créer des sites web allant des pages simples aux plateformes e-commerce complexes, toujours avec un souci de qualité et d’innovation.",
           "company": "Subforce"
