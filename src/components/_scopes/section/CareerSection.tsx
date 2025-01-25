@@ -25,8 +25,8 @@ const CareerItem: React.FC<{
             'bg-gradient-to-t from-zinc-950 to-zinc-900/70',
           )}
         >
-          <div className="pb-8 w-full">
-            <h3 className="text-2xl font-medium text-zinc-200 leading-5 mb-3 font-heading">
+          <div className="pb-8 w-full flex flex-col justify-between sm:items-center gap-y-2 gap-x-12 flex-wrap sm:flex-row">
+            <h3 className="text-2xl font-medium text-zinc-200 leading-5 font-heading text-nowrap">
               {company}
             </h3>
             <p className="text-zinc-300 font-light text-xl whitespace-nowrap">{position}</p>
