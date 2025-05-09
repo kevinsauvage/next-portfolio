@@ -33,7 +33,8 @@ const myEcommerceProject: Project = {
     { name: 'Zod' },
   ],
   title: 'My Ecommerce',
-  websiteLink: 'https://nextjs-strapi-ecommerce-kevinsauvages-projects.vercel.app/',
+  websiteLink:
+    'https://nextjs-strapi-ecommerce-kevinsauvages-projects.vercel.app/?authorization=true',
 };
 
 const Streamy: Project = {
