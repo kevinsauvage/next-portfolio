@@ -1,24 +1,42 @@
-const SpotifyProfile = {
-  description:
-    'Showcase of Spotify API integration: User data, library, and music charts for a personalized experience.',
-  githubLink: ['https://github.com/kevinsauvage/spotify-typescript'],
+type Project = {
+  description: string;
+  githubLink: string[];
   images: {
     thumbnail: {
-      alt: 'Spotify Profile home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1730836067/dark_iuvcup.webp',
+      alt: string;
+      src: string;
+    };
+  };
+  technologies: { name: string }[];
+  title: string;
+  websiteLink: string;
+};
+
+const myEcommerceProject: Project = {
+  description:
+    "A modern, performant ecommerce platform built with Next.js, Tailwind CSS, and Shopify's Storefront API. It features product listings, filtering, a shopping cart, and a secure checkout flow — all styled with a clean, minimal design and smooth UX.",
+  githubLink: ['https://github.com/kevinsauvage/nextjs-strapi-ecommerce'],
+  images: {
+    thumbnail: {
+      alt: 'My Ecommerce Homepage Screenshot',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1746818453/portfolio/ecommerce-shadcn-tailwind/nextjs-shadcn-ecommerce.png',
     },
   },
   technologies: [
-    { name: 'NextJs' },
-    { name: 'Typescript' },
-    { name: 'SASS' },
-    { name: 'Spotify API' },
+    { name: 'Next.js' },
+    { name: 'React' },
+    { name: 'TypeScript' },
+    { name: 'Tailwind CSS' },
+    { name: 'GraphQL' },
+    { name: 'Shopify Storefront API' },
+    { name: 'Shadcn' },
+    { name: 'Zod' },
   ],
-  title: 'Spotify Profile',
-  websiteLink: 'https://spotify-typescript.vercel.app/',
+  title: 'My Ecommerce',
+  websiteLink: 'https://nextjs-strapi-ecommerce-kevinsauvages-projects.vercel.app/',
 };
 
-const Streamy = {
+const Streamy: Project = {
   description:
     'Your personalized entertainment hub. Discover new titles, watch trailers, and engage in community conversations.',
   githubLink: [
@@ -32,9 +50,9 @@ const Streamy = {
     },
   },
   technologies: [
-    { name: 'ReactJs' },
+    { name: 'React' },
     { name: 'SASS' },
-    { name: 'ExpressJs' },
+    { name: 'Express' },
     { name: 'MongoDB' },
     { name: 'TMDb API' },
   ],
@@ -42,26 +60,6 @@ const Streamy = {
   websiteLink: 'https://streamy-v2-client-kevinsauvages-projects.vercel.app/',
 };
 
-const Portfolio = {
-  description:
-    'Explore my portfolio website—a creative showcase of my best work, reflecting artistry and innovation across diverse projects.',
-  githubLink: ['https://github.com/kevinsauvage/next-portfolio'],
-  images: {
-    thumbnail: {
-      alt: 'Portfolio home page',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_800/v1730837350/dark_rjdhce.webp',
-    },
-  },
-  technologies: [
-    { name: 'NextJs' },
-    { name: 'Typescript' },
-    { name: 'SASS' },
-    { name: 'Tailwind CSS' },
-  ],
-  title: 'My Portfolio',
-  websiteLink: 'https://www.kevin-sauvage.com/',
-};
-
-const projects = [SpotifyProfile, Streamy, Portfolio];
+const projects = [myEcommerceProject, Streamy];
 
 export default projects;

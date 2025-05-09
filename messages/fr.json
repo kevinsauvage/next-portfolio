@@ -42,15 +42,11 @@
       "description": "Découvrez une sélection de mes projets récents, illustrant ma passion pour l'innovation et le design web.",
       "projects": {
         "first": {
-          "description": "Intégration de l'API Spotify : exploration des données utilisateur, gestion de bibliothèques musicales et création de classements personnalisés.",
+          "description": "Une plateforme e-commerce moderne et performante, construite avec Next.js, Tailwind CSS et l'API Storefront de Shopify. Elle propose des listes de produits, des filtres, un panier d’achat et un processus de paiement sécurisé — le tout avec un design épuré, minimaliste et une expérience utilisateur fluide.",
           "cta": "Voir le Projet"
         },
         "second": {
           "description": "Votre hub de divertissement interactif. Découvrez de nouveaux contenus, visionnez des bandes-annonces et engagez-vous avec une communauté passionnée.",
-          "cta": "Voir le Projet"
-        },
-        "third": {
-          "description": "Mon portfolio : une vitrine créative et interactive de mes travaux, mêlant innovation et expérience utilisateur.",
           "cta": "Voir le Projet"
         }
       }

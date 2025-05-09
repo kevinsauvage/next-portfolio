@@ -42,15 +42,11 @@
       "description": "Explora algunos de los proyectos en los que he trabajado. Haz clic en cualquier proyecto para obtener más detalles.",
       "projects": {
         "first": {
-          "description": "Integración de la API de Spotify para ofrecer una experiencia personalizada con datos de usuario, biblioteca y listas de reproducción.",
+          "description": "Una plataforma de comercio electrónico moderna y de alto rendimiento, construida con Next.js, Tailwind CSS y la API Storefront de Shopify. Cuenta con listados de productos, filtros, un carrito de compras y un proceso de pago seguro — todo diseñado con un estilo limpio, minimalista y una experiencia de usuario fluida.",
           "cta": "Ver proyecto"
         },
         "second": {
           "description": "Un centro de entretenimiento personalizado: descubre nuevos títulos, mira tráilers y participa en conversaciones comunitarias.",
-          "cta": "Ver proyecto"
-        },
-        "third": {
-          "description": "Explora mi portafolio: una muestra creativa de mi mejor trabajo que refleja innovación y arte en proyectos diversos.",
           "cta": "Ver proyecto"
         }
       }

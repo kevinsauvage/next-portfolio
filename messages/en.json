@@ -42,15 +42,11 @@
       "description": "Here are some of the projects I have worked on. Click on a project to learn more about it.",
       "projects": {
         "first": {
-          "description": "Showcase of Spotify API integration: User data, library, and music charts for a personalized experience.",
+          "description": "A modern, performant ecommerce platform built with Next.js, Tailwind CSS, and Shopify's Storefront API. It features product listings, filtering, a shopping cart, and a secure checkout flow — all styled with a clean, minimal design and smooth UX.",
           "cta": "View Project"
         },
         "second": {
           "description": "Your personalized entertainment hub. Discover new titles, watch trailers, and engage in community conversations.",
-          "cta": "View Project"
-        },
-        "third": {
-          "description": "Explore my portfolio website—a creative showcase of my best work, reflecting artistry and innovation across diverse projects.",
           "cta": "View Project"
         }
       }
@@ -70,12 +66,6 @@
           "period": "May 2022 - October 2023",
           "company": "Decathlon Spain",
           "description": "I worked on making Decathlon Spain's online store better for everyone. My focus was on speed and accessibility - basically making sure the site was fast and easy to use for all our customers."
-        },
-        "third": {
-          "position": "Frontend",
-          "period": "June 2021 - May 2022",
-          "company": "Subforce",
-          "description": "Subforce is a small agency that builds websites for local businesses. I worked on a range of projects, from simple landing pages to full e-commerce sites."
         }
       }
     },
