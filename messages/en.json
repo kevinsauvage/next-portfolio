@@ -66,6 +66,12 @@
           "period": "May 2022 - October 2023",
           "company": "Decathlon Spain",
           "description": "I worked on making Decathlon Spain's online store better for everyone. My focus was on speed and accessibility - basically making sure the site was fast and easy to use for all our customers."
+        },
+        "third": {
+          "position": "Frontend",
+          "period": "June 2021 - May 2022",
+          "company": "Subforce",
+          "description": "Subforce is a small agency that builds websites for local businesses. I worked on a range of projects, from simple landing pages to full e-commerce sites."
         }
       }
     },
