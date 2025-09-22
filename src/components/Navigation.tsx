@@ -13,13 +13,13 @@ const Navigation: React.FC<{
 }> = ({ menuOpen, closeMenu }) => {
   const t = useTranslations('shared.header');
 
-  const navItems = ['home', 'about', 'portfolio', 'career', 'contact'].map((key) => ({
+  const navItems = ['home', 'about', 'portfolio', 'career', 'contact'].map(key => ({
     href: `#${t(`nav.${key}`)?.toLowerCase()}`,
     label: t(`nav.${key}`),
   }));
 
   return (
-    <div className="flex items-center gap-4 order-4 lg:order-none">
+    <div className='flex items-center gap-4 order-4 lg:order-none'>
       <div
         className={clsx(
           'lg:flex items-center gap-4',
@@ -40,7 +40,7 @@ const Navigation: React.FC<{
               href={href}
               onClick={closeMenu}
               aria-label={`Go to ${label} section`}
-              data-umami-event="header_nav_click"
+              data-umami-event='header_nav_click'
               data-umami-event-label={label}
               className={clsx(
                 'flex items-center justify-between rounded-md p-6 gap-1 border bg-zinc-950 border-zinc-800 w-full font-normal whitespace-nowrap text-lg last:mb-0 no-underline text-zinc-200',
@@ -48,7 +48,7 @@ const Navigation: React.FC<{
               )}
             >
               {label}
-              <MoveUpRight aria-label="Hire me" strokeWidth={1.5} size={18} className="lg:hidden" />
+              <MoveUpRight aria-label='Hire me' strokeWidth={1.5} size={18} className='lg:hidden' />
             </Link>
           ))}
         </div>

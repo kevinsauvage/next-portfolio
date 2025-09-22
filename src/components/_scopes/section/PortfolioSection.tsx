@@ -27,8 +27,8 @@ const PortfolioSection: React.FC = () => {
         <SectionTitle>{t('title')}</SectionTitle>
         <SectionDescription>{t('description')}</SectionDescription>
       </SectionHeader>
-      <div className="flex flex-col gap-5">
-        {projectsTranslated.map((item) => (
+      <div className='flex flex-col gap-5'>
+        {projectsTranslated.map(item => (
           <ProjectCard key={item.title} item={item} />
         ))}
       </div>

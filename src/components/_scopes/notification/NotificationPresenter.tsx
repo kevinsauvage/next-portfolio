@@ -9,8 +9,8 @@ const NotificationPresenter = ({ notificationQueue, removeNotification }: Proper
   if (!notificationQueue?.length) return '';
 
   return (
-    <div className="fixed bottom-1 left-1 right-1 md:bottom-2 md:right-6 md:left-auto z-[999]">
-      {notificationQueue.map((notification) => (
+    <div className='fixed bottom-1 left-1 right-1 md:bottom-2 md:right-6 md:left-auto z-[999]'>
+      {notificationQueue.map(notification => (
         <Notification
           key={notification.id}
           notification={notification}

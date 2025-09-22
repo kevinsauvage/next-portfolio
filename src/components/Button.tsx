@@ -54,7 +54,7 @@ const Button = ({
         loading && 'cursor-default',
         className,
       )}
-      onClick={(event) => {
+      onClick={event => {
         onClick?.(event);
         if (eventName) globalThis.umami.track(eventName, eventProperties);
       }}
@@ -64,11 +64,11 @@ const Button = ({
       {...rest}
     >
       {loading && (
-        <div className="absolute flex items-center justify-center inset-0 bg-zinc-950">
+        <div className='absolute flex items-center justify-center inset-0 bg-zinc-950'>
           <SpinnerLoader />
         </div>
       )}
-      <span className="w-full flex items-center justify-center gap-2 ">
+      <span className='w-full flex items-center justify-center gap-2 '>
         {label}
         {svg}
       </span>

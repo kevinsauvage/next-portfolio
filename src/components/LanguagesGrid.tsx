@@ -85,14 +85,14 @@ const LanguagesGrid: React.FC = () => {
   }, []);
 
   return (
-    <div ref={containerReference} className="absolute inset-0 w-full h-fill overflow-hidden -z-10">
+    <div ref={containerReference} className='absolute inset-0 w-full h-fill overflow-hidden -z-10'>
       {languages.map((language, index) => (
         <div
-          ref={(element) => {
+          ref={element => {
             boxesReference.current[index] = element;
           }}
           key={language.name}
-          className="rounded-xl p-5 bg-black border border-zinc-800 absolute animate-move opacity-0"
+          className='rounded-xl p-5 bg-black border border-zinc-800 absolute animate-move opacity-0'
         >
           {cloneElement(language.icon, { className: 'icon', size: 50 })}
         </div>

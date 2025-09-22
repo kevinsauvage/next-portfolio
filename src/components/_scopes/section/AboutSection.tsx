@@ -61,21 +61,21 @@ const AboutItem: React.FC<{
 }> = ({ title, description, image, style }) => {
   return (
     <BoxWithBackground className={style} backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}>
-      <div className="h-full w-full">
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-zinc-900/70 z-0" />
-        <div className="h-full z-10 relative flex flex-col justify-end align-bottom">
+      <div className='h-full w-full'>
+        <div className='absolute inset-0 bg-gradient-to-t from-zinc-950 to-zinc-900/70 z-0' />
+        <div className='h-full z-10 relative flex flex-col justify-end align-bottom'>
           {image?.src && (
-            <div className="relative flex flex-col items-center justify-center h-full w-full p-6">
+            <div className='relative flex flex-col items-center justify-center h-full w-full p-6'>
               <Image
                 src={image.src}
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
-                className="w-auto h-full object-contain"
+                className='w-auto h-full object-contain'
               />
             </div>
           )}
-          <div className="p-6">
+          <div className='p-6'>
             <h3 className={clsx('text-2xl font-heading font-semibold text-zinc-100 mb-3')}>
               {title}
             </h3>

@@ -40,8 +40,8 @@ const Notification = ({ notification, removeNotification }: Properties) => {
       key={notification.id}
     >
       <button
-        type="button"
-        className="bottom-2 right-2 text-lg p-4 w-full"
+        type='button'
+        className='bottom-2 right-2 text-lg p-4 w-full'
         onClick={() => removeNotification(notification.id)}
       >
         <span dangerouslySetInnerHTML={{ __html: notification?.message }} />

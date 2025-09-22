@@ -23,7 +23,7 @@ const BoxWithBackground = ({ children, className, backgroundConfig }: Properties
       )}
     >
       <Background {...backgroundConfig} />
-      <div className="relative flex flex-col items-center justify-center h-full w-full">
+      <div className='relative flex flex-col items-center justify-center h-full w-full'>
         {children}
       </div>
     </div>

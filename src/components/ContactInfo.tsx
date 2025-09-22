@@ -4,18 +4,18 @@ import socialButton from '@/config/socialButton';
 import { Link } from '@/i18n/routing';
 
 const ContactInfo = () => (
-  <ul className="flex gap-4">
-    {socialButton.map((item) => (
+  <ul className='flex gap-4'>
+    {socialButton.map(item => (
       <li key={item.href}>
         <Link
           href={item.href}
-          className="text-zinc-300 md:hover:text-blue-500"
+          className='text-zinc-300 md:hover:text-blue-500'
           aria-label={`${item.text} on a new page`}
-          target="_blank"
+          target='_blank'
           prefetch={false}
-          rel="noopener noreferrer"
+          rel='noopener noreferrer'
           title={`${item.text} profile`}
-          data-umami-event="footer_social_click"
+          data-umami-event='footer_social_click'
           data-umami-event-label={item.text}
         >
           {cloneElement(item.icon, {

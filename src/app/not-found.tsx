@@ -4,7 +4,7 @@ import Error from 'next/error';
 
 const NotFound = () => {
   return (
-    <html lang="en">
+    <html lang='en'>
       <body>
         <Error statusCode={404} />
       </body>

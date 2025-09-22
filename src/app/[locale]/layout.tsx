@@ -113,13 +113,13 @@ const Layout = async ({
         LeagueSpartan.variable,
       )}
     >
-      <body className="w-full h-full text-zinc-50 antialiased font-base font-light">
+      <body className='w-full h-full text-zinc-50 antialiased font-base font-light'>
         <script
-          type="application/ld+json"
+          type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Script
-          strategy="lazyOnload"
+          strategy='lazyOnload'
           data-website-id={process.env.UMAMI_ID}
           src={'/growth/rewrites'}
         />
@@ -127,17 +127,17 @@ const Layout = async ({
           <NotificationProvider>
             <MouseFollowGradientBackground />
             <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-md focus:shadow-lg"
+              href='#main-content'
+              className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-md focus:shadow-lg'
             >
               Skip to main content
             </a>
             <Header />
             <main
-              id="main-content"
-              className="min-h-dvh flex-1 h-full w-full flex flex-col"
-              role="main"
-              aria-label="Main content"
+              id='main-content'
+              className='min-h-dvh flex-1 h-full w-full flex flex-col'
+              role='main'
+              aria-label='Main content'
             >
               {children}
             </main>

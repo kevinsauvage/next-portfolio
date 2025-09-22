@@ -51,17 +51,8 @@
   "settings": {
     "import/resolver": {
       "alias": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".tsx"
-        ],
-        "map": [
-          [
-            "@/",
-            "./src/"
-          ]
-        ]
+        "extensions": [".js", ".jsx", ".tsx"],
+        "map": [["@/", "./src/"]]
       }
     }
   },
@@ -85,28 +76,12 @@
       "error",
       {
         "groups": [
-          [
-            "^react",
-            "^next"
-          ],
-          [
-            "^@/"
-          ],
-          [
-            "^\\u0000"
-          ],
-          [
-            "^\\.\\.(?!/?$)",
-            "^\\.\\./?$"
-          ],
-          [
-            "^\\.\\/(?=.*/)(?!/?$)",
-            "^\\.(?!/?$)",
-            "^\\.\\./?$"
-          ],
-          [
-            "^.+\\.?(css|scss)$"
-          ]
+          ["^react", "^next"],
+          ["^@/"],
+          ["^\\u0000"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\.\\/(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\.\\./?$"],
+          ["^.+\\.?(css|scss)$"]
         ]
       }
     ],
@@ -115,11 +90,7 @@
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".js", ".jsx", ".tsx"]
       }
     ],
     "react/prop-types": "off",
@@ -144,16 +115,9 @@
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
-        "labelComponents": [
-          "Label"
-        ],
-        "labelAttributes": [
-          "label"
-        ],
-        "controlComponents": [
-          "Input",
-          "TextArea"
-        ],
+        "labelComponents": ["Label"],
+        "labelAttributes": ["label"],
+        "controlComponents": ["Input", "TextArea"],
         "depth": 3
       }
     ],
@@ -191,18 +155,9 @@
     "prefer-template": "error",
     "prefer-arrow-callback": "error",
     "arrow-spacing": "error",
-    "object-curly-spacing": [
-      "error",
-      "always"
-    ],
-    "array-bracket-spacing": [
-      "error",
-      "never"
-    ],
-    "comma-dangle": [
-      "error",
-      "always-multiline"
-    ],
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
+    "comma-dangle": ["error", "always-multiline"],
     "quotes": [
       "error",
       "single",
@@ -210,10 +165,7 @@
         "avoidEscape": true
       }
     ],
-    "semi": [
-      "error",
-      "always"
-    ],
+    "semi": ["error", "always"],
     "indent": [
       "error",
       2,

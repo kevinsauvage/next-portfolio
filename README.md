@@ -46,8 +46,9 @@ src/
 ## 🌐 Internationalization
 
 The website supports three languages:
+
 - **English** (default)
-- **French** 
+- **French**
 - **Spanish**
 
 Language detection is handled automatically based on browser preferences, with manual switching available.
@@ -62,22 +63,26 @@ Language detection is handled automatically based on browser preferences, with m
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/kevinsauvage/next-portfolio.git
 cd next-portfolio
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Set up environment variables:
+
 ```bash
 cp .env.example .env.local
 ```
 
 Required environment variables:
+
 - `email_js_service_id`: EmailJS service ID
 - `email_js_public_key`: EmailJS public key
 - `email_js_private_key`: EmailJS private key
@@ -85,6 +90,7 @@ Required environment variables:
 - `RECAPTCHA_SECRET_KEY`: Google reCAPTCHA secret key
 
 4. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -105,6 +111,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the website.
 ## 🎨 Design System
 
 The website uses a custom design system with:
+
 - **Typography**: League Spartan (headings) + Josefin Sans (body)
 - **Color Palette**: Dark theme with zinc and indigo accents
 - **Animations**: Smooth transitions and hover effects
@@ -119,8 +126,9 @@ Edit `src/config/projects.config.tsx` to add new portfolio projects.
 ### Updating Content
 
 Content is managed through dictionary files in `src/dictionaries/`:
+
 - `en.json` - English content
-- `fr.json` - French content  
+- `fr.json` - French content
 - `es.json` - Spanish content
 
 ### Styling

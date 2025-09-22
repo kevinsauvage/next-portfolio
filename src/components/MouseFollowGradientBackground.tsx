@@ -19,7 +19,7 @@ const MouseFollowGradientBackground = () => {
 
   return (
     <div
-      className="hidden z-10 glow-overlay bg-zinc-600 lg:flex "
+      className='hidden z-10 glow-overlay bg-zinc-600 lg:flex '
       style={{
         left: `${glowPosition.x}%`,
         top: `${glowPosition.y}%`,

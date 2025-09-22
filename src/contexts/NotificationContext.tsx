@@ -38,7 +38,7 @@ const NotificationProvider = ({ children }: NotificationProviderProperties) => {
   const [notificationQueue, setNotificationQueue] = useState<Array<NotificationType>>([]);
 
   const enqueueNotification = (type: 'success' | 'warning' | 'info' | 'error', message: string) => {
-    setNotificationQueue((previousQueue) => [
+    setNotificationQueue(previousQueue => [
       ...previousQueue,
       { displayed: false, id: uuidv4(), message, type },
     ]);
@@ -61,12 +61,12 @@ const NotificationProvider = ({ children }: NotificationProviderProperties) => {
   }, []);
 
   const removeNotification = (id: string) => {
-    setNotificationQueue((previousQueue) => previousQueue.filter((current) => current.id !== id));
+    setNotificationQueue(previousQueue => previousQueue.filter(current => current.id !== id));
   };
 
   const updateNotification = useCallback((updatedNotification: NotificationType) => {
-    setNotificationQueue((previousQueue) =>
-      previousQueue.map((current) =>
+    setNotificationQueue(previousQueue =>
+      previousQueue.map(current =>
         current.id === updatedNotification.id ? updatedNotification : current,
       ),
     );
