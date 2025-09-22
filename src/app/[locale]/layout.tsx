@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { Josefin_Sans, League_Spartan } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';

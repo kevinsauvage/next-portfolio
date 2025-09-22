@@ -45,8 +45,10 @@ const animate = (
 
     if (boxes[index]) {
       const boxElement = boxes[index];
-      boxElement!.style.transform = `translate3d(${box.left}px, ${box.top}px, 0)`;
-      boxElement!.style.opacity = box.opacity.toString();
+      if (boxElement) {
+        boxElement.style.transform = `translate3d(${box.left}px, ${box.top}px, 0)`;
+        boxElement.style.opacity = box.opacity.toString();
+      }
     }
   });
 

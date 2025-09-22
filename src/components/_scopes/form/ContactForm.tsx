@@ -2,7 +2,6 @@
 import { useActionState, useEffect, useRef } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-
 import { useTranslations } from 'next-intl';
 
 import { sendMail } from '@/actions/send-mail';

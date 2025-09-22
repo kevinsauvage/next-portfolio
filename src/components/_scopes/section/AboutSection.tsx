@@ -1,4 +1,5 @@
-import Image, { StaticImageData } from 'next/image';
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 import Grid1 from '@/assets/grid1.png';

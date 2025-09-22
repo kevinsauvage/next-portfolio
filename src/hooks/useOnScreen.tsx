@@ -17,7 +17,7 @@ const useOnScreen = (config = {}, reset = true) => {
         }
       },
       // Pass the configuration options to the IntersectionObserver constructor
-      config
+      config,
     );
 
     if (current) observer.observe(current);
