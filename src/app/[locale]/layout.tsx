@@ -21,17 +21,29 @@ const jsonLd = {
   '@type': 'Person',
   about:
     'I specialize in building high-performance web applications with a focus on accessibility and inclusivity. Passionate about delivering seamless experiences to users of all abilities.',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'ES',
+    addressLocality: 'Spain',
+  },
   description: 'Developing performance-focused, inclusive web products that leave no one behind.',
-  jobTitle: 'JavaScript Developer',
-  mainEntityOfPage: { '@id': 'https://www.kevin-sauvage.com', '@type': 'WebPage' },
-  name: 'Kévin Sauvage',
-  sameAs: ['https://www.linkedin.com/in/kevin-sauvage', 'https://github.com/kevinsauvage'],
-  skills: [
+  email: 'contact@kevin-sauvage.com',
+  hasOccupation: {
+    '@type': 'Occupation',
+    description: 'Frontend Developer specializing in React, Next.js, and web accessibility',
+    name: 'Frontend Developer',
+    occupationLocation: {
+      '@type': 'Place',
+      name: 'Decathlon International',
+    },
+  },
+  jobTitle: 'Frontend Developer',
+  knowsAbout: [
     'JavaScript',
     'Web Accessibility',
     'React',
-    'NextJs',
-    'Front-end Development',
+    'Next.js',
+    'Frontend Development',
     'Performance Optimization',
     'TypeScript',
     'HTML',
@@ -42,6 +54,21 @@ const jsonLd = {
     'Progressive Web Apps',
     'Web Performance',
     'Web Development',
+    'Internationalization',
+    'SEO',
+    'User Experience',
+  ],
+  mainEntityOfPage: {
+    '@id': 'https://www.kevin-sauvage.com',
+    '@type': 'WebPage',
+    description: 'Portfolio website of Kévin Sauvage, Frontend Developer',
+    name: 'Kévin Sauvage - Portfolio',
+  },
+  name: 'Kévin Sauvage',
+  sameAs: [
+    'https://www.linkedin.com/in/kevin-sauvage',
+    'https://github.com/kevinsauvage',
+    'https://www.kevin-sauvage.com',
   ],
   url: 'https://www.kevin-sauvage.com',
 };
@@ -99,8 +126,21 @@ const Layout = async ({
         <NextIntlClientProvider messages={messages}>
           <NotificationProvider>
             <MouseFollowGradientBackground />
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-md focus:shadow-lg"
+            >
+              Skip to main content
+            </a>
             <Header />
-            <main className="min-h-dvh flex-1 h-full w-full flex flex-col">{children}</main>
+            <main
+              id="main-content"
+              className="min-h-dvh flex-1 h-full w-full flex flex-col"
+              role="main"
+              aria-label="Main content"
+            >
+              {children}
+            </main>
             <Footer />
           </NotificationProvider>
         </NextIntlClientProvider>
@@ -120,27 +160,67 @@ export async function generateMetadata(properties: {
 
   const t = await getTranslations({ locale, namespace: 'home.metadata' });
 
+  const baseUrl = 'https://www.kevin-sauvage.com';
+  const currentUrl = `${baseUrl}/${locale}`;
+
   return {
-    alternates: { canonical: './' },
+    alternates: {
+      canonical: currentUrl,
+      languages: {
+        en: `${baseUrl}/en`,
+        es: `${baseUrl}/es`,
+        fr: `${baseUrl}/fr`,
+      },
+    },
     authors: [{ name: t('author') }],
+    category: 'Technology',
+    creator: t('author'),
     description: t('description'),
+    generator: 'Next.js',
     keywords: t('keywords'),
-    metadataBase: new URL(`https://www.kevin-sauvage.com/`),
+    metadataBase: new URL(baseUrl),
     openGraph: {
       description: t('description'),
-      images: [{ url: '/images/og-image.png' }],
+      images: [
+        {
+          alt: `${t('author')} - ${t('title')}`,
+          height: 630,
+          url: '/images/og-image.png',
+          width: 1200,
+        },
+      ],
+      locale: locale,
       siteName: t('title'),
       title: t('title'),
       type: 'website',
-      url: t('canonical'),
+      url: currentUrl,
     },
-    title: t('title'),
+    publisher: t('author'),
+    robots: {
+      follow: true,
+      googleBot: {
+        follow: true,
+        index: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
+      index: true,
+    },
+    title: {
+      default: t('title'),
+      template: `%s | ${t('author')}`,
+    },
     twitter: {
       card: 'summary_large_image',
-      creator: t('author'),
+      creator: '@kevinsauvage',
       description: t('description'),
-      images: '/images/og-image.png',
+      images: ['/images/og-image.png'],
+      site: '@kevinsauvage',
       title: t('title'),
+    },
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION,
     },
   };
 }
