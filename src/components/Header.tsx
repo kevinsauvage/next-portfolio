@@ -8,12 +8,11 @@ import Logo from './Logo';
 import Navigation from './Navigation';
 
 import clsx from 'clsx';
-import { ChevronRight,Mail, MenuIcon, X } from 'lucide-react';
+import { ChevronRight, Mail, MenuIcon, X } from 'lucide-react';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  console.log('🟩🟪🟦-->  ~ Header ~ isScrolled:', isScrolled);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
@@ -73,6 +72,10 @@ const Header = () => {
           menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
         onClick={() => setMenuOpen(false)}
+        onKeyDown={(e) => e.key === 'Escape' && setMenuOpen(false)}
+        role="button"
+        tabIndex={0}
+        aria-label="Close navigation menu"
       >
         <div
           className={clsx(
@@ -80,6 +83,10 @@ const Header = () => {
             menuOpen ? 'translate-x-0' : 'translate-x-full'
           )}
           onClick={e => e.stopPropagation()}
+          onKeyDown={e => e.stopPropagation()}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
         >
           <div className='flex flex-col h-full'>
             {/* Mobile Menu Header */}
