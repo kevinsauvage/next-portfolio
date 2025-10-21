@@ -14,7 +14,7 @@ type Project = {
 
 const myEcommerceProject: Project = {
   description:
-    "A cutting-edge ecommerce platform featuring advanced product filtering, real-time inventory management, and seamless checkout experience. Built with Next.js 15, TypeScript, and Shopify's GraphQL API, achieving 95+ Lighthouse scores.",
+    "An e‑commerce platform with advanced filtering, real‑time inventory, and a smooth checkout. Built with Next.js 15, TypeScript, and Shopify's GraphQL API. Strong Lighthouse scores.",
   githubLink: ['https://github.com/kevinsauvage/nextjs-strapi-ecommerce'],
   images: {
     thumbnail: {
@@ -39,7 +39,7 @@ const myEcommerceProject: Project = {
 
 const Streamy: Project = {
   description:
-    'An interactive entertainment platform with personalized recommendations, social features, and real-time updates. Features include movie discovery, user reviews, and community engagement with 99.9% uptime and advanced recommendation algorithms.',
+    'An entertainment platform with personalized recommendations, social features, and real-time updates—movie discovery, reviews, and community features.',
   githubLink: [
     'https://github.com/kevinsauvage/streamyV2-client',
     'https://github.com/kevinsauvage/streamyV2-server',

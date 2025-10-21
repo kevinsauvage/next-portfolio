@@ -137,8 +137,7 @@ const PortfolioSection: React.FC = () => {
             className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-4xl animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
           >
-            Explore my latest work showcasing modern web development practices, performance
-            optimization, and user-centered design.
+            Recent work focused on modern web practices, performance, and user-centered design.
           </p>
         </div>
 

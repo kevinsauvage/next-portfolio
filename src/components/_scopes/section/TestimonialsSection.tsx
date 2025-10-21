@@ -89,8 +89,7 @@ const TestimonialsSection: React.FC = () => {
             </span>
           </h2>
           <p className='text-lg md:text-xl text-zinc-300 leading-relaxed max-w-3xl'>
-            Recommendations from engineering leaders and colleagues who have worked with me directly
-            at Decathlon International.
+            Notes from engineering leaders and colleagues I’ve worked with.
           </p>
         </div>
 

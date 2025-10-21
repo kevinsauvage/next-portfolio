@@ -49,7 +49,7 @@ const Header = () => {
             <Link href='#contact' className='hidden lg:block'>
               <Button
                 svg={<Mail strokeWidth={1.5} size={18} aria-hidden='true' />}
-                label='Contact Me'
+                label='Get in touch'
                 size='md'
                 variant='primary'
                 data-umami-event='header_cta_contact'

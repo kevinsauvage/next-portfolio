@@ -38,10 +38,10 @@ const Footer: React.FC = () => {
       <div className='container m-auto px-6 py-12'>
         {/* Main tagline */}
         <div className='mb-10 text-center md:text-left'>
-          <h2 className='text-2xl font-bold text-zinc-100 mb-2'>Kevin Sauvage</h2>
+          <h2 className='text-2xl font-bold text-zinc-100 mb-2'>Kévin Sauvage</h2>
           <p className='text-zinc-400 max-w-2xl'>
-            Full-stack developer crafting modern web experiences with passion and precision.
-            Let&apos;s build something amazing together.
+            Frontend Developer crafting modern web experiences with passion and precision.
+            Let&apos;s build something great.
           </p>
         </div>
 
@@ -115,7 +115,7 @@ const Footer: React.FC = () => {
         {/* Copyright */}
         <div className='pt-8 border-t border-zinc-800'>
           <p className='text-zinc-400 text-sm text-center'>
-            © {new Date().getFullYear()} Kevin Sauvage. All rights reserved.
+            © {new Date().getFullYear()} Kévin Sauvage. All rights reserved.
           </p>
         </div>
       </div>

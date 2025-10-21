@@ -10,7 +10,7 @@ const Hero = () => {
   const stats = [
     { label: 'Years Experience', value: '5+' },
     { label: 'Projects Completed', value: '50+' },
-    { label: 'Happy Clients', value: '30+' },
+    { label: 'Clients', value: '30+' },
   ];
 
   return (
@@ -51,16 +51,16 @@ const Hero = () => {
         >
           <h1
             id='hero-title'
-            className='text-4xl font-bold font-heading flex flex-col mb-6 text-zinc-100 max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'
+            className='text-5xl font-bold font-heading flex flex-col mb-6 text-zinc-100 max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'
           >
             <span className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
-              Building Digital Experiences
+              I build fast, accessible
             </span>{' '}
             <span
               className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-fade-in-up opacity-0'
               style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
             >
-              That Drive Results
+              web experiences
             </span>
           </h1>
           <p
@@ -68,9 +68,8 @@ const Hero = () => {
             className='text-lg font-light mb-8 text-zinc-300 max-w-2xl md:text-xl leading-relaxed animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
           >
-            I&apos;m a Frontend Developer who transforms complex ideas into intuitive,
-            high-performance web applications. Specializing in React, Next.js, and
-            accessibility-first design.
+            I&apos;m a Frontend Developer. I turn complex ideas into intuitive, fast web
+            apps—working with React, Next.js, and accessibility-first design.
           </p>
         </header>
 
@@ -82,7 +81,7 @@ const Hero = () => {
           <Link href='#portfolio' passHref>
             <Button
               svg={<MoveDown strokeWidth={1.5} size={20} aria-hidden='true' />}
-              label='Explore My Work'
+              label='View my work'
               size='xl'
               variant='primary'
               data-umami-event='hero_cta_click'

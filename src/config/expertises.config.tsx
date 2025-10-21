@@ -1,50 +1,48 @@
 const expertise = [
   {
-    content:
-      'Building accessible websites crafted to align with your brand identity and business goals',
+    content: 'I build accessible websites that fit your brand and goals.',
     keyPoints: [
-      'Customized web solutions tailored to your specific needs',
-      'Using the latest technologies for enhanced functionality',
-      'Optimized for speed, performance, and user engagement',
+      'Custom solutions for your needs',
+      'Modern tech for reliable features',
+      'Optimized for speed and engagement',
     ],
     title: 'Website Development',
   },
   {
-    content:
-      'Ensuring your website stays secure, up-to-date, and performs at its best at all times',
+    content: 'I keep your site secure, up to date, and running smoothly.',
     keyPoints: [
-      'Updates to keep your website in line with industry standards',
-      'Proactive security monitoring to prevent potential threats',
-      'Issue resolution for uninterrupted service',
+      'Regular updates and improvements',
+      'Proactive security monitoring',
+      'Fixes without downtime when possible',
     ],
     title: 'Website Maintenance',
   },
   {
-    content: 'Creating a seamless and secure online shopping experience for your customers',
+    content: 'Seamless, secure shopping experiences.',
     keyPoints: [
-      'User-friendly product catalogs and intuitive navigation',
-      'Secure payment gateways for safe and smooth transactions',
-      'Customized solutions to meet your business needs',
+      'Clear catalogs and navigation',
+      'Secure, smooth checkout',
+      'Tailored to your business',
     ],
     title: 'E-Commerce Solutions',
   },
   {
-    content: 'Ensuring your website is easy to find and ranks well in search engines',
+    content: 'Make your site easy to find—and measure what matters.',
     keyPoints: [
-      'Comprehensive keyword research and on-page optimization',
-      'Regular analysis of website traffic and user behavior',
-      'Continuous refinement of SEO strategies',
+      'Keyword research and on‑page SEO',
+      'Traffic and behavior insights',
+      'Iterate and improve over time',
     ],
     title: 'SEO & Analytics',
   },
   {
-    content: "Optimizing your website's speed and performance to improve user experience",
+    content: 'Make your site faster and more responsive.',
     keyPoints: [
-      'Optimization of images, scripts, and other page elements',
-      'Implementation of caching and content delivery networks',
-      'Regular performance audits and ongoing maintenance',
+      'Optimize images, scripts, and assets',
+      'Caching and CDN best practices',
+      'Regular audits and follow‑ups',
     ],
-    title: 'Performance optimization',
+    title: 'Performance Optimization',
   },
 ];
 
