@@ -1,6 +1,8 @@
-import ContactInfo from './ContactInfo';
 import Link from 'next/link';
-import { MapPin, CheckCircle2, Mail, Code2, Briefcase } from 'lucide-react';
+
+import ContactInfo from './ContactInfo';
+
+import { Briefcase,CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const quickLinks = [

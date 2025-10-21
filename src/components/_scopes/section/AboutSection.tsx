@@ -1,7 +1,8 @@
+import BoxWithBackground from '@/components/BoxWithBackground';
+
 import Section from './_components/Section';
 
 import { Sparkles, TrendingUp, Users } from 'lucide-react';
-import BoxWithBackground from '@/components/BoxWithBackground';
 
 const PassionCard: React.FC<{
   icon: React.ElementType;
@@ -59,12 +60,12 @@ const AboutSection: React.FC = () => {
           <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>About me</p>
           <h1 className='text-4xl md:text-6xl font-bold mb-6'>
             <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text'>
-              Hi, I'm Kévin Sauvage
+              Hi, I&apos;m Kévin Sauvage
             </span>
           </h1>
           <div className='flex flex-wrap items-center gap-6 mb-8'>
             <div className='flex items-center gap-2'>
-              <div className='h-2 w-2 rounded-full bg-blue-400 animate-pulse'></div>
+              <div className='h-2 w-2 rounded-full bg-blue-400 animate-pulse' />
               <span className='text-lg font-semibold text-blue-400'>5+ Years Experience</span>
             </div>
           </div>

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react';
 
-import { ChevronUp } from 'lucide-react';
 import clsx from 'clsx';
+import { ChevronUp } from 'lucide-react';
 
 const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);

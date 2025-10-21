@@ -1,7 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { cloneElement } from 'react';
+import { cloneElement,useEffect, useRef } from 'react';
 
 import languages from '@/config/languages.config';
 

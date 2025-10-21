@@ -1,9 +1,10 @@
-import Button from '@/components/Button';
 import Link from 'next/link';
+
+import Button from '@/components/Button';
 
 import BoxWithBackground from '../../BoxWithBackground';
 
-import { MoveDown, Mail, Sparkles } from 'lucide-react';
+import { Mail, MoveDown, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   const stats = [
@@ -25,8 +26,8 @@ const Hero = () => {
         {/* Availability Badge */}
         <div className='inline-flex items-center gap-2 px-4 py-2 mb-6 bg-green-500/10 border border-green-500/20 rounded-full'>
           <span className='relative flex h-2 w-2'>
-            <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75'></span>
-            <span className='relative inline-flex rounded-full h-2 w-2 bg-green-500'></span>
+            <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75' />
+            <span className='relative inline-flex rounded-full h-2 w-2 bg-green-500' />
           </span>
           <span className='text-sm text-green-400 font-medium'>Available for new projects</span>
         </div>
@@ -45,8 +46,9 @@ const Hero = () => {
             id='hero-description'
             className='text-lg font-light mb-8 text-zinc-400 max-w-2xl md:text-xl leading-relaxed'
           >
-            I'm a Frontend Developer who transforms complex ideas into intuitive, high-performance
-            web applications. Specializing in React, Next.js, and accessibility-first design.
+            I&apos;m a Frontend Developer who transforms complex ideas into intuitive,
+            high-performance web applications. Specializing in React, Next.js, and
+            accessibility-first design.
           </p>
         </header>
 

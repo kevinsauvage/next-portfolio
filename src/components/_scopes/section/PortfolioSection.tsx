@@ -1,8 +1,9 @@
-import projects from '@/config/projects.config';
 import Image from 'next/image';
 import Link from 'next/link';
+
 import BoxWithBackground from '@/components/BoxWithBackground';
 import Button from '@/components/Button';
+import projects from '@/config/projects.config';
 
 import Section from './_components/Section';
 

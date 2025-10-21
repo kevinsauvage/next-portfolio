@@ -1,24 +1,24 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 
 import clsx from 'clsx';
+
+const navItems = [
+  { href: '#home', label: 'Home' },
+  { href: '#about', label: 'About' },
+  { href: '#portfolio', label: 'Portfolio' },
+  { href: '#career', label: 'Career' },
+  { href: '#testimonials', label: 'Testimonials' },
+  { href: '#contact', label: 'Contact' },
+];
 
 const Navigation: React.FC<{
   menuOpen: boolean;
   closeMenu: () => void;
 }> = ({ closeMenu }) => {
   const [activeSection, setActiveSection] = useState('home');
-
-  const navItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About' },
-    { href: '#portfolio', label: 'Portfolio' },
-    { href: '#career', label: 'Career' },
-    { href: '#testimonials', label: 'Testimonials' },
-    { href: '#contact', label: 'Contact' },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {

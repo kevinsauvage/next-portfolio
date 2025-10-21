@@ -1,7 +1,5 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
-import { LucideSend } from 'lucide-react';
 import { useState } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useForm } from 'react-hook-form';
@@ -12,7 +10,11 @@ import TextArea from '@/components/_scopes/form/TextArea';
 import Button from '@/components/Button';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { useNotification } from '@/contexts/NotificationContext';
-import { contactFormSchema, ContactFormValues } from '@/schemas/contact-form.schema';
+import type { ContactFormValues } from '@/schemas/contact-form.schema';
+import { contactFormSchema } from '@/schemas/contact-form.schema';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { LucideSend } from 'lucide-react';
 
 const ContactForm = () => {
   const notification = useNotification();

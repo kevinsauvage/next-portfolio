@@ -3,12 +3,12 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+import Button from './Button';
 import Logo from './Logo';
 import Navigation from './Navigation';
 
-import { MenuIcon, Mail, X, ChevronRight } from 'lucide-react';
-import Button from './Button';
 import clsx from 'clsx';
+import { ChevronRight,Mail, MenuIcon, X } from 'lucide-react';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);

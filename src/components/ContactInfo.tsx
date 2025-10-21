@@ -1,7 +1,7 @@
 import { cloneElement } from 'react';
+import Link from 'next/link';
 
 import socialButton from '@/config/socialButton';
-import Link from 'next/link';
 
 const ContactInfo = () => (
   <ul className='flex gap-4 flex-wrap'>
