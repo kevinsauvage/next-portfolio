@@ -4,12 +4,12 @@ import Link from 'next/link';
 import socialButton from '@/config/socialButton';
 
 const ContactInfo = () => (
-  <ul className='flex gap-4 flex-wrap'>
+  <ul className='flex gap-3 flex-wrap'>
     {socialButton.map(item => (
       <li key={item.href}>
         <Link
           href={item.href}
-          className='text-zinc-400 hover:text-blue-400 transition-colors flex items-center gap-2 group'
+          className='text-zinc-400 hover:text-blue-400 transition-colors flex items-center justify-center gap-2 group min-w-[48px] min-h-[48px] p-3'
           aria-label={`Visit ${item.text} profile`}
           target='_blank'
           prefetch={false}

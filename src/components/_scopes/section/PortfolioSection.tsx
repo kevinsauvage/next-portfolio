@@ -76,7 +76,7 @@ const ProjectCard: React.FC<{
             </div>
 
             {/* Action Buttons */}
-            <div className='flex flex-wrap gap-3'>
+            <div className='flex flex-wrap gap-4'>
               <Link href={websiteLink} target='_blank' rel='noopener noreferrer'>
                 <Button
                   svg={<ExternalLink size={18} aria-hidden='true' />}

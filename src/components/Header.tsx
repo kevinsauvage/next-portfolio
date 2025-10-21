@@ -45,7 +45,7 @@ const Header = () => {
         <div className='flex justify-between m-auto items-center xl:container px-6 py-4'>
           <Logo />
           <Navigation closeMenu={() => setMenuOpen(false)} menuOpen={menuOpen} />
-          <div className='flex gap-4 items-center justify-end'>
+          <div className='flex gap-3 items-center justify-end'>
             <Link href='#contact' className='hidden lg:block'>
               <Button
                 svg={<Mail strokeWidth={1.5} size={18} aria-hidden='true' />}
@@ -57,7 +57,7 @@ const Header = () => {
               />
             </Link>
             <button
-              className='lg:hidden p-2 rounded-md hover:bg-zinc-800/50 transition-colors relative z-50'
+              className='lg:hidden p-3 rounded-md hover:bg-zinc-800/50 transition-colors relative z-50 min-w-[48px] min-h-[48px] flex items-center justify-center'
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
@@ -135,7 +135,7 @@ const Header = () => {
                 <Link
                   href='#contact'
                   onClick={() => setMenuOpen(false)}
-                  className='flex items-center justify-center gap-2 w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-200'
+                  className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-200'
                 >
                   Get in Touch
                   <ChevronRight size={18} aria-hidden='true' />
