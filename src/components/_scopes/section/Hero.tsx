@@ -29,14 +29,15 @@ const Hero = () => {
             id='hero-description'
             className='text-lg font-extralight mb-5 text-zinc-400 max-w-xl md:text-2xl'
           >
-            I'm a Frontend Developer who transforms complex ideas into intuitive, high-performance web applications. Specializing in React, Next.js, and accessibility-first design.
+            I'm a Frontend Developer who transforms complex ideas into intuitive, high-performance
+            web applications. Specializing in React, Next.js, and accessibility-first design.
           </p>
         </header>
 
-        <Link href="#portfolio" passHref>
+        <Link href='#portfolio' passHref>
           <Button
             svg={<MoveDown strokeWidth={1.5} size={20} aria-hidden='true' />}
-            label="Explore My Work"
+            label='Explore My Work'
             size='xl'
             data-umami-event='hero_cta_click'
             aria-describedby='hero-description'

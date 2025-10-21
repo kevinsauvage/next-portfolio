@@ -82,7 +82,9 @@ const ContactForm = () => {
   useEffect(() => {
     if (submitStatus === 'success' && reference?.current) {
       reference.current.reset();
-      notification.success('Your message has been sent successfully. I\'ll get back to you as soon as possible.');
+      notification.success(
+        "Your message has been sent successfully. I'll get back to you as soon as possible."
+      );
       setSubmitStatus('idle');
     }
 
@@ -133,7 +135,7 @@ const ContactForm = () => {
           />
           {errors?.message && <ErrorMessage error={errors.message} />}
         </Label>
-        <SubmitButton text="Send Message" />
+        <SubmitButton text='Send Message' />
       </div>
     </form>
   );

@@ -23,9 +23,7 @@ const Error = ({ error, reset }: ErrorProps) => {
     <div className='min-h-screen flex items-center justify-center bg-zinc-950 text-zinc-50'>
       <div className='max-w-md mx-auto text-center p-6'>
         <div className='mb-6'>
-          <h1 className='text-2xl font-bold text-zinc-300 mb-2'>
-            Oops! Something went wrong
-          </h1>
+          <h1 className='text-2xl font-bold text-zinc-300 mb-2'>Oops! Something went wrong</h1>
           <p className='text-zinc-400 mb-4'>
             We encountered an unexpected error. Please try refreshing the page.
           </p>
@@ -43,18 +41,8 @@ const Error = ({ error, reset }: ErrorProps) => {
           )}
         </div>
         <div className='flex flex-col gap-3 sm:flex-row sm:justify-center'>
-          <Button
-            label="Reload Page"
-            onClick={handleReload}
-            variant='primary'
-            size='lg'
-          />
-          <Button
-            label="Try Again"
-            onClick={reset}
-            variant='secondary'
-            size='lg'
-          />
+          <Button label='Reload Page' onClick={handleReload} variant='primary' size='lg' />
+          <Button label='Try Again' onClick={reset} variant='secondary' size='lg' />
         </div>
       </div>
     </div>

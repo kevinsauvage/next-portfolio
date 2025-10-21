@@ -90,42 +90,48 @@ const AboutSection: React.FC = () => {
   const itemsWithContent = [
     {
       title: "Hi, I'm Kévin Sauvage",
-      description: "Hey there! 👋 I'm Kévin Sauvage, a Frontend Developer passionate about crafting web experiences that users love.",
+      description:
+        "Hey there! 👋 I'm Kévin Sauvage, a Frontend Developer passionate about crafting web experiences that users love.",
       image: items[0].image,
       style: items[0].style,
     },
     {
       title: "I'm Passionate About Web Development",
-      description: "What excites me most about coding is creating solutions that genuinely help people. I love transforming complex problems into intuitive, user-friendly experiences. At Decathlon, this translates into optimizing checkout processes and ensuring our website delivers a seamless experience across different countries and cultures.",
+      description:
+        'What excites me most about coding is creating solutions that genuinely help people. I love transforming complex problems into intuitive, user-friendly experiences. At Decathlon, this translates into optimizing checkout processes and ensuring our website delivers a seamless experience across different countries and cultures.',
       image: items[1].image,
       style: items[1].style,
     },
     {
-      title: "I Love to Learn",
-      description: "I'm constantly seeking opportunities to expand my skills and explore new technologies. I firmly believe that continuous learning is the key to professional growth and staying relevant in this ever-evolving field.",
+      title: 'I Love to Learn',
+      description:
+        "I'm constantly seeking opportunities to expand my skills and explore new technologies. I firmly believe that continuous learning is the key to professional growth and staying relevant in this ever-evolving field.",
       image: items[2].image,
       style: items[2].style,
     },
     {
-      title: "I Value Collaboration",
-      description: "I believe the most impactful work emerges when people unite to share ideas and expertise. I actively seek collaborative opportunities and thrive in environments where knowledge sharing and teamwork drive innovation.",
+      title: 'I Value Collaboration',
+      description:
+        'I believe the most impactful work emerges when people unite to share ideas and expertise. I actively seek collaborative opportunities and thrive in environments where knowledge sharing and teamwork drive innovation.',
       image: items[3].image,
       style: items[3].style,
     },
   ];
 
   return (
-    <Section id="about">
+    <Section id='about'>
       <SectionHeader>
         <SectionTitle>About Me</SectionTitle>
-        <SectionDescription>Get to know me a little better. Here are some things I enjoy and some of my values.</SectionDescription>
+        <SectionDescription>
+          Get to know me a little better. Here are some things I enjoy and some of my values.
+        </SectionDescription>
       </SectionHeader>
       <div
         className={clsx(
           'grid items-stretch grid-cols-1 gap-5',
           'md:grid-cols-2 md:grid-rows-3',
           'lg:grid-rows-none',
-          'xl:grid-cols-3 xl:grid-rows-6',
+          'xl:grid-cols-3 xl:grid-rows-6'
         )}
       >
         {itemsWithContent.map((item, index) => (

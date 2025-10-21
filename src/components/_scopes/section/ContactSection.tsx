@@ -14,12 +14,15 @@ const ContactSection: React.FC = () => {
       backgroundConfig={{ scale: 0.3, strokeWidth: 3 }}
     >
       <Section
-        id="contact"
+        id='contact'
         className='p-6 max-w-xl min-h-dvh flex flex-col justify-center items-center scroll-m-0 md:p-0'
       >
         <SectionHeader>
           <SectionTitle>Let's Build Something Amazing Together</SectionTitle>
-          <SectionDescription>Ready to transform your ideas into exceptional digital experiences? I'm always excited to discuss new projects, collaborations, or just chat about web development.</SectionDescription>
+          <SectionDescription>
+            Ready to transform your ideas into exceptional digital experiences? I'm always excited
+            to discuss new projects, collaborations, or just chat about web development.
+          </SectionDescription>
         </SectionHeader>
         <ContactForm />
       </Section>

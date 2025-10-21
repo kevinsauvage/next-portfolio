@@ -7,10 +7,7 @@ import GoogleReCaptchaProviderWrapper from '@/components/GoogleReCaptchaProvider
 
 const Home = () => {
   return (
-    <div
-      className='h-full w-full grow flex flex-col justify-between m-auto'
-      id='home'
-    >
+    <div className='h-full w-full grow flex flex-col justify-between m-auto' id='home'>
       <Hero />
       <div className='container m-auto px-4'>
         <AboutSection />

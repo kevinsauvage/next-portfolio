@@ -49,7 +49,7 @@ type fieldErrors = {
 
 export async function sendMail(
   previousState: unknown,
-  formData: FormData,
+  formData: FormData
 ): Promise<fieldErrors | undefined> {
   const result = sendMailSchema.safeParse(Object.fromEntries(formData.entries()));
   if (result?.success) {
