@@ -67,7 +67,7 @@ const CareerSection = () => {
   const jobs = [
     {
       company: 'Decathlon International',
-      position: 'Senior Frontend Developer',
+      position: 'Frontend Developer',
       period: 'October 2023 - Present',
       location: 'Remote',
       description:
