@@ -8,7 +8,7 @@ const Custom404 = () => {
         <h1 className='text-4xl font-bold font-heading flex flex-col mb-2 text-zinc-300  max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'>
           Oops! Page Not Found
         </h1>
-        <p className='text-lg font-extralight mb-5 text-zinc-400 max-w-xl md:text-2xl'>
+        <p className='text-lg font-extralight mb-5 text-zinc-300 max-w-xl md:text-2xl'>
           The page you're looking for doesn't exist. Let's get you back on track.
         </p>
         <Link

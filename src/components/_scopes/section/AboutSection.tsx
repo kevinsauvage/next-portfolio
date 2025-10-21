@@ -75,10 +75,10 @@ const AboutItem: React.FC<{
             </div>
           )}
           <div className='p-6'>
-            <h3 className={clsx('text-2xl font-heading font-semibold text-zinc-100 mb-3')}>
+            <h3 className={clsx('text-2xl font-heading font-semibold text-zinc-50 mb-3')}>
               {title}
             </h3>
-            <div className={clsx('font-light text-zinc-200 text-lg')}>{description}</div>
+            <div className={clsx('font-light text-zinc-100 text-lg')}>{description}</div>
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@ const Hero = () => {
           </h1>
           <p
             id='hero-description'
-            className='text-lg font-extralight mb-5 text-zinc-400 max-w-xl md:text-2xl'
+            className='text-lg font-extralight mb-5 text-zinc-300 max-w-xl md:text-2xl'
           >
             I'm a Frontend Developer who transforms complex ideas into intuitive, high-performance
             web applications. Specializing in React, Next.js, and accessibility-first design.

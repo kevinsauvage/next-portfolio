@@ -18,8 +18,8 @@ const BoxWithBackground = ({ children, className, backgroundConfig }: Properties
   return (
     <div
       className={clsx(
-        'relative flex flex-col overflow-hidden justify-between items-center border border-zinc-800 bg-zinc-900 bg-opacity-50 md:p-0',
-        className,
+        'relative flex flex-col overflow-hidden justify-between items-center border border-zinc-700 bg-zinc-900 bg-opacity-50 md:p-0',
+        className
       )}
     >
       <Background {...backgroundConfig} />

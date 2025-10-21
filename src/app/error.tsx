@@ -24,7 +24,7 @@ const Error = ({ error, reset }: ErrorProps) => {
       <div className='max-w-md mx-auto text-center p-6'>
         <div className='mb-6'>
           <h1 className='text-2xl font-bold text-zinc-300 mb-2'>Oops! Something went wrong</h1>
-          <p className='text-zinc-400 mb-4'>
+          <p className='text-zinc-300 mb-4'>
             We encountered an unexpected error. Please try refreshing the page.
           </p>
           {process.env.NODE_ENV === 'development' && error && (
