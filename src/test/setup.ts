@@ -1,3 +1,5 @@
+import React from 'react';
+
 import '@testing-library/jest-dom';
 
 // Mock next/navigation
@@ -13,8 +15,7 @@ vi.mock('next/navigation', () => ({
 
 // Mock next/image
 vi.mock('next/image', () => ({
-  default: ({ src, alt, ...props }: any) => {
-    const React = require('react');
+  default: ({ src, alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => {
     return React.createElement('img', { src, alt, ...props });
   },
 }));
