@@ -1,7 +1,5 @@
 'use server';
 
-import { getTranslations } from 'next-intl/server';
-
 import emailjs from '@emailjs/nodejs';
 import { z } from 'zod';
 
@@ -26,19 +24,18 @@ async function validateCaptcha(captchaToken: string): Promise<boolean> {
   return response.score && response.score >= minimumCaptchaScore;
 }
 
-const sendMailSchema = (t: (argument: string) => string) =>
-  z.object({
-    captcha: z.string().optional(),
-    email: z
-      .string()
-      .min(1, { message: t('required.email') })
-      .email(t('invalid.email')),
-    feedback: z.string().optional(),
-    fullName: z.string().min(1, { message: t('required.fullName') }),
-    message: z.string().min(1, { message: t('required.message') }),
-    phone: z.string().optional(),
-    subject: z.string().optional(),
-  });
+const sendMailSchema = z.object({
+  captcha: z.string().optional(),
+  email: z
+    .string()
+    .min(1, { message: 'Email is required' })
+    .email('Please enter a valid email address'),
+  feedback: z.string().optional(),
+  fullName: z.string().min(1, { message: 'Full name is required' }),
+  message: z.string().min(1, { message: 'Message is required' }),
+  phone: z.string().optional(),
+  subject: z.string().optional(),
+});
 
 type fieldErrors = {
   email?: Array<string>;
@@ -54,12 +51,7 @@ export async function sendMail(
   previousState: unknown,
   formData: FormData,
 ): Promise<fieldErrors | undefined> {
-  const t = await getTranslations({
-    locale: formData.get('locale'),
-    namespace: 'home.contact.form',
-  });
-
-  const result = sendMailSchema(t).safeParse(Object.fromEntries(formData.entries()));
+  const result = sendMailSchema.safeParse(Object.fromEntries(formData.entries()));
   if (result?.success) {
     const valid = await validateCaptcha(result.data.captcha ?? '');
     if (!valid) return { error: true };

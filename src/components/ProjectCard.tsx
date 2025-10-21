@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Link } from '@/i18n/routing';
+import Link from 'next/link';
 
 import BoxWithBackground from './BoxWithBackground';
 import Button from './Button';

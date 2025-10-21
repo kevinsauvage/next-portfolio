@@ -1,15 +1,36 @@
-'use client';
+import Image from 'next/image';
+import Link from 'next/link';
 
-import Error from 'next/error';
-
-const NotFound = () => {
+const Custom404 = () => {
   return (
-    <html lang='en'>
-      <body>
-        <Error statusCode={404} />
-      </body>
-    </html>
+    <div className='flex flex-col-reverse justify-center p-4 md:grid md:grid-cols-2 gap-10 items-center min-h-dvh container m-auto lg:p-20'>
+      <div className='col-span-1'>
+        <h1 className='text-4xl font-bold font-heading flex flex-col mb-2 text-zinc-300  max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'>
+          Oops! Page Not Found
+        </h1>
+        <p className='text-lg font-extralight mb-5 text-zinc-400 max-w-xl md:text-2xl'>
+          The page you're looking for doesn't exist. Let's get you back on track.
+        </p>
+        <Link
+          href='/'
+          className='w-fit flex rounded-md gap-2 items-center justify-center bg-indigo-800 border border-indigo-900 text-zinc-300 px-10 py-4 text-lg 
+               font-semibold hover:bg-indigo-900 hover:border-indigo-900 hover:text-zinc-200 hover:shadow-[0_20px_50px_rgba(55,_48,_163,_0.7)]
+               focus:bg-indigo-800 focus:border-indigo-800 focus:text-zinc-200 
+               active:bg-indigo-800 active:border-indigo-800 active:text-zinc-200'
+        >
+          Go Back Home
+        </Link>
+      </div>
+      <Image
+        src='/images/404.svg'
+        alt='404'
+        width={400}
+        height={400}
+        className='w-full h-ful col-span-1'
+        priority
+      />
+    </div>
   );
 };
 
-export default NotFound;
+export default Custom404;

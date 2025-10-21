@@ -1,8 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
-
-import { Link } from '@/i18n/routing';
+import Link from 'next/link';
 
 import clsx from 'clsx';
 import { MoveUpRight } from 'lucide-react';
@@ -11,12 +9,13 @@ const Navigation: React.FC<{
   menuOpen: boolean;
   closeMenu: () => void;
 }> = ({ menuOpen, closeMenu }) => {
-  const t = useTranslations('shared.header');
-
-  const navItems = ['home', 'about', 'portfolio', 'career', 'contact'].map(key => ({
-    href: `#${t(`nav.${key}`)?.toLowerCase()}`,
-    label: t(`nav.${key}`),
-  }));
+  const navItems = [
+    { href: '#home', label: 'Home' },
+    { href: '#about', label: 'About' },
+    { href: '#portfolio', label: 'Portfolio' },
+    { href: '#career', label: 'Career' },
+    { href: '#contact', label: 'Contact' },
+  ];
 
   return (
     <div className='flex items-center gap-4 order-4 lg:order-none'>

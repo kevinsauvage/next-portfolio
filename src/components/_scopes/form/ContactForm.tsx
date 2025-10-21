@@ -1,8 +1,7 @@
 'use client';
-import { useActionState, useEffect, useRef } from 'react';
+import { useActionState, useEffect, useRef, useState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import { useTranslations } from 'next-intl';
 
 import { sendMail } from '@/actions/send-mail';
 import Input from '@/components/_scopes/form/Input';
@@ -48,30 +47,51 @@ const SubmitButton = ({ text }: { text: string }) => {
 const ContactForm = () => {
   const notification = useNotification();
   const reference = useRef<HTMLFormElement>(null);
-  const t = useTranslations('home.contact.form');
+  const [_isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   async function addRecaptcha(previousState: unknown, formData: FormData) {
-    const gRecaptchaToken = executeRecaptcha ? await executeRecaptcha('contactMessage') : '';
-    formData.set('captcha', gRecaptchaToken);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
 
-    return sendMail(previousState, formData);
+    try {
+      const gRecaptchaToken = executeRecaptcha ? await executeRecaptcha('contactMessage') : '';
+      formData.set('captcha', gRecaptchaToken);
+
+      const result = await sendMail(previousState, formData);
+
+      if (result?.error) {
+        setSubmitStatus('error');
+        return result;
+      } else {
+        setSubmitStatus('success');
+        return result;
+      }
+    } catch {
+      setSubmitStatus('error');
+      return { error: true };
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   const [errors, formAction] = useActionState(addRecaptcha, {});
 
   useEffect(() => {
-    if (!errors && reference?.current) {
+    if (submitStatus === 'success' && reference?.current) {
       reference.current.reset();
-      notification.success(t('success'));
+      notification.success('Your message has been sent successfully. I\'ll get back to you as soon as possible.');
+      setSubmitStatus('idle');
     }
 
-    if (errors?.error) {
-      notification.error(t('error'));
+    if (submitStatus === 'error') {
+      notification.error('An error occurred while sending your message. Please try again later.');
+      setSubmitStatus('idle');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [errors]);
+  }, [submitStatus]);
 
   return (
     <form
@@ -82,38 +102,38 @@ const ContactForm = () => {
     >
       <div className='space-y-7'>
         <Label>
-          <LabelText required={true}>{t('fullName')}</LabelText>
+          <LabelText required={true}>Full Name</LabelText>
           <Input
             type='text'
             name='fullName'
             placeholder='ex: John Doe'
             aria-required='true'
-            aria-label={t('fullName')}
+            aria-label='Full Name'
           />
-          <ErrorMessage error={errors?.fullName} />
+          {errors?.fullName && <ErrorMessage error={errors.fullName} />}
         </Label>
         <Label>
-          <LabelText required={true}>{t('email')}</LabelText>
+          <LabelText required={true}>Email</LabelText>
           <Input
             type='text'
             name='email'
             placeholder='ex: johndoe@gmail.com'
             aria-required='true'
-            aria-label={t('email')}
+            aria-label='Email'
           />
-          <ErrorMessage error={errors?.email} />
+          {errors?.email && <ErrorMessage error={errors.email} />}
         </Label>
         <Label>
-          <LabelText required={true}>{t('message.label')}</LabelText>
+          <LabelText required={true}>Message</LabelText>
           <TextArea
             name='message'
-            placeholder={t('message.placeholder')}
+            placeholder='Share your thoughts or ask a question'
             aria-required='true'
-            aria-label={t('message.label')}
+            aria-label='Message'
           />
-          <ErrorMessage error={errors?.message} />
+          {errors?.message && <ErrorMessage error={errors.message} />}
         </Label>
-        <SubmitButton text={t('submit')} />
+        <SubmitButton text="Send Message" />
       </div>
     </form>
   );

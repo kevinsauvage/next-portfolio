@@ -1,4 +1,4 @@
-import { Link } from '@/i18n/routing';
+import Link from 'next/link';
 
 const Logo = () => (
   <Link href='/' title='Scroll to top' data-umami-event='header_logo_click'>

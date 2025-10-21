@@ -1,11 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-import createNextIntlPlugin from 'next-intl/plugin';
-
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-
-const withNextIntl = createNextIntlPlugin();
 
 const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
 const __dirname = path.dirname(__filename);
@@ -63,4 +59,4 @@ const nextConfig = {
   },
 };
 
-export default withNextIntl(nextConfig);
+export default nextConfig;

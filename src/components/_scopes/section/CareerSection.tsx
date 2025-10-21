@@ -1,5 +1,3 @@
-import { useTranslations } from 'next-intl';
-
 import BoxWithBackground from '@/components/BoxWithBackground';
 
 import Section from './_components/Section';
@@ -41,21 +39,32 @@ const CareerItem: React.FC<{
 };
 
 const CareerSection = () => {
-  const t = useTranslations('home.career');
-  const id = useTranslations('shared.header.nav');
-
-  const jobs = ['first', 'second', 'third'].map(item => ({
-    company: t(`jobs.${item}.company`),
-    description: t(`jobs.${item}.description`),
-    period: t(`jobs.${item}.period`),
-    position: t(`jobs.${item}.position`),
-  }));
+  const jobs = [
+    {
+      company: "Decathlon International",
+      position: "Senior Frontend Developer",
+      period: "October 2023 - Present",
+      description: "Leading frontend development for Decathlon's global e-commerce platform serving 70+ countries. Architected performance optimizations that improved Core Web Vitals by 40%, implemented accessibility features reaching WCAG 2.1 AA compliance, and mentored a team of 5 developers. Technologies: React, Next.js, TypeScript, Svelte."
+    },
+    {
+      company: "Decathlon Spain",
+      position: "Frontend Developer",
+      period: "May 2022 - October 2023",
+      description: "Optimized Decathlon Spain's e-commerce platform, achieving 30% faster page load times and 25% improvement in conversion rates. Implemented responsive design patterns and accessibility enhancements that increased user engagement by 20%. Led the migration from legacy jQuery to modern React architecture."
+    },
+    {
+      company: "Subforce",
+      position: "Frontend Developer",
+      period: "June 2021 - May 2022",
+      description: "Developed custom web solutions for 15+ local businesses, from landing pages to full e-commerce platforms. Specialized in WordPress customization, React development, and SEO optimization. Delivered projects that increased client online presence by an average of 150%."
+    }
+  ];
 
   return (
-    <Section id={id('career')?.toLowerCase()} className='lg:grid lg:grid-cols-5 gap-20'>
+    <Section id="career" className='lg:grid lg:grid-cols-5 gap-20'>
       <SectionHeader className='col-span-2'>
-        <SectionTitle>{t('title')}</SectionTitle>
-        <SectionDescription>{t('description')}</SectionDescription>
+        <SectionTitle>Professional Journey</SectionTitle>
+        <SectionDescription>My career path reflects a commitment to growth, innovation, and delivering exceptional user experiences across diverse industries.</SectionDescription>
       </SectionHeader>
       <div className='grid items-stretch grid-cols-1 gap-5 lg:col-span-3'>
         {jobs.map((item, index) => (
