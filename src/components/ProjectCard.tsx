@@ -51,7 +51,7 @@ const ProjectCard = ({ item, className }: Properties) => {
             className='mt-6 w-full md:w-fit font-normal group-hover:text-zinc-300'
           >
             <Button
-              svg={<MoveUpRight size={20} aria-label={cta} />}
+              svg={<MoveUpRight size={20} aria-hidden='true' />}
               label={cta}
               data-umami-event='project_cta_click'
               data-umami-event-project={title}

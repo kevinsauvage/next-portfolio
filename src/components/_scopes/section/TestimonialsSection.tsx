@@ -35,7 +35,7 @@ const TestimonialCard: React.FC<{
           </div>
 
           {/* Testimonial Content */}
-          <blockquote className='flex-1 text-zinc-300 leading-relaxed text-lg italic'>
+          <blockquote className='flex-1 text-zinc-200 leading-relaxed text-lg italic'>
             &quot;{content}&quot;
           </blockquote>
 
@@ -43,7 +43,7 @@ const TestimonialCard: React.FC<{
           <footer className='border-t border-zinc-800 pt-6 space-y-4'>
             <div className='flex items-center gap-3'>
               <div className='p-2 bg-blue-500/10 rounded-full border border-blue-500/20'>
-                <User size={16} className='text-blue-400' />
+                <User size={16} className='text-blue-400' aria-hidden='true' />
               </div>
               <div>
                 <cite className='text-zinc-100 font-bold text-lg not-italic block'>
@@ -53,17 +53,17 @@ const TestimonialCard: React.FC<{
               </div>
             </div>
 
-            <div className='flex flex-wrap gap-4 text-sm text-zinc-500'>
+            <div className='flex flex-wrap gap-4 text-sm text-zinc-400'>
               <div className='flex items-center gap-2'>
-                <Briefcase size={14} />
+                <Briefcase size={14} aria-hidden='true' />
                 <span>{author.company}</span>
               </div>
               <div className='flex items-center gap-2'>
-                <span className='w-1 h-1 bg-zinc-600 rounded-full' />
+                <span className='w-1 h-1 bg-zinc-600 rounded-full' aria-hidden='true' />
                 <span>{author.relationship}</span>
               </div>
               <div className='flex items-center gap-2'>
-                <Calendar size={14} />
+                <Calendar size={14} aria-hidden='true' />
                 <time dateTime={date}>{date}</time>
               </div>
             </div>
@@ -86,7 +86,7 @@ const TestimonialsSection: React.FC = () => {
               What Colleagues Say
             </span>
           </h2>
-          <p className='text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-4xl'>
+          <p className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-4xl'>
             Recommendations from engineering leaders and colleagues who have worked with me directly
             at Decathlon International.
           </p>

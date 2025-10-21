@@ -63,13 +63,17 @@ const ContactForm = () => {
       <form
         onSubmit={form.handleSubmit(onSubmit)}
         className='flex flex-col w-full bg-zinc-900/30 border border-zinc-800 rounded-lg p-8'
-        aria-label='Contact me'
+        aria-label='Contact form'
+        noValidate
       >
+        <div className='sr-only' role='status' aria-live='polite' aria-atomic='true'>
+          {isSubmitting ? 'Sending message...' : ''}
+        </div>
         <div className='space-y-6'>
           <FormField
             control={form.control}
             name='fullName'
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem className='flex flex-col space-y-2'>
                 <FormLabel required>Full Name</FormLabel>
                 <FormControl>
@@ -78,9 +82,14 @@ const ContactForm = () => {
                     type='text'
                     placeholder='ex: John Doe'
                     aria-required='true'
-                    aria-label='Full Name'
+                    aria-invalid={fieldState.invalid}
                   />
                 </FormControl>
+                {fieldState.error && (
+                  <p id='fullName-error' className='text-sm text-rose-400' role='alert'>
+                    {fieldState.error.message}
+                  </p>
+                )}
               </FormItem>
             )}
           />
@@ -88,18 +97,23 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name='email'
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem className='flex flex-col space-y-2'>
                 <FormLabel required>Email</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
-                    type='text'
+                    type='email'
                     placeholder='ex: johndoe@gmail.com'
                     aria-required='true'
-                    aria-label='Email'
+                    aria-invalid={fieldState.invalid}
                   />
                 </FormControl>
+                {fieldState.error && (
+                  <p id='email-error' className='text-sm text-rose-400' role='alert'>
+                    {fieldState.error.message}
+                  </p>
+                )}
               </FormItem>
             )}
           />
@@ -107,7 +121,7 @@ const ContactForm = () => {
           <FormField
             control={form.control}
             name='message'
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem className='flex flex-col space-y-2'>
                 <FormLabel required>Message</FormLabel>
                 <FormControl>
@@ -115,17 +129,22 @@ const ContactForm = () => {
                     {...field}
                     placeholder='Share your thoughts or ask a question'
                     aria-required='true'
-                    aria-label='Message'
+                    aria-invalid={fieldState.invalid}
                   />
                 </FormControl>
+                {fieldState.error && (
+                  <p id='message-error' className='text-sm text-rose-400' role='alert'>
+                    {fieldState.error.message}
+                  </p>
+                )}
               </FormItem>
             )}
           />
 
           <Button
             className='mt-2 w-full'
-            svg={<LucideSend role='img' size={18} aria-label='Send Message' />}
-            label='Send Message'
+            svg={<LucideSend role='img' size={18} aria-hidden='true' />}
+            label={isSubmitting ? 'Sending...' : 'Send Message'}
             type='submit'
             title='Send Message'
             disabled={isSubmitting}
@@ -133,6 +152,7 @@ const ContactForm = () => {
             variant='primary'
             size='lg'
             data-umami-event='contact_form_submit'
+            aria-live='polite'
           />
         </div>
       </form>

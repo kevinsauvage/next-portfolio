@@ -39,7 +39,7 @@ const Navigation: React.FC<{
   }, []);
 
   return (
-    <nav className='flex items-center'>
+    <nav className='flex items-center' role='navigation' aria-label='Main navigation'>
       {/* Desktop Navigation */}
       <ul className='hidden lg:flex items-center gap-1'>
         {navItems.map(({ label, href }) => {

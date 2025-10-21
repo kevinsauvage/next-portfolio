@@ -10,7 +10,7 @@ const ContactInfo = () => (
         <Link
           href={item.href}
           className='text-zinc-400 hover:text-blue-400 transition-colors flex items-center gap-2 group'
-          aria-label={`${item.text} on a new page`}
+          aria-label={`Visit ${item.text} profile`}
           target='_blank'
           prefetch={false}
           rel='noopener noreferrer'
@@ -19,7 +19,7 @@ const ContactInfo = () => (
           data-umami-event-label={item.text}
         >
           {cloneElement(item.icon, {
-            'aria-label': item.text,
+            'aria-hidden': 'true',
             size: 24,
           })}
         </Link>

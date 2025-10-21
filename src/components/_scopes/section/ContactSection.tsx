@@ -14,7 +14,7 @@ const ContactSection: React.FC = () => {
     >
       <Section
         id='contact'
-        className='px-6 py-12 md:px-0 md:py-20 max-w-4xl min-h-dvh flex flex-col justify-center items-center scroll-m-0'
+        className='px-6 py-12 md:py-20 max-w-4xl min-h-dvh flex flex-col justify-center items-center scroll-m-0'
       >
         <div className='w-full space-y-16'>
           {/* Header Section */}
@@ -25,7 +25,7 @@ const ContactSection: React.FC = () => {
                 Let&apos;s Build Something Amazing Together
               </span>
             </h2>
-            <p className='text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-3xl mx-auto'>
+            <p className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-3xl mx-auto'>
               Ready to transform your ideas into exceptional digital experiences? I&apos;m always
               excited to discuss new projects, collaborations, or just chat about web development.
             </p>
@@ -36,7 +36,7 @@ const ContactSection: React.FC = () => {
             <div className='p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-blue-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10'>
               <div className='flex items-center gap-3 mb-3'>
                 <div className='p-2 bg-blue-500/10 rounded-lg'>
-                  <MessageSquare size={20} className='text-blue-400' />
+                  <MessageSquare size={20} className='text-blue-400' aria-hidden='true' />
                 </div>
                 <h3 className='text-lg font-semibold text-zinc-100'>Quick Response</h3>
               </div>
@@ -48,7 +48,7 @@ const ContactSection: React.FC = () => {
             <div className='p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10'>
               <div className='flex items-center gap-3 mb-3'>
                 <div className='p-2 bg-purple-500/10 rounded-lg'>
-                  <Send size={20} className='text-purple-400' />
+                  <Send size={20} className='text-purple-400' aria-hidden='true' />
                 </div>
                 <h3 className='text-lg font-semibold text-zinc-100'>Direct Contact</h3>
               </div>

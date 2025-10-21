@@ -29,7 +29,7 @@ const ProjectCard: React.FC<{
       className='group hover:-translate-y-1 transition-all duration-300'
       backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
     >
-      <article className='h-full w-full overflow-hidden'>
+      <article className='h-full w-full overflow-hidden' aria-labelledby={`project-title-${index}`}>
         <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0' />
         <div className='relative z-10 grid grid-cols-1 md:grid-cols-5 gap-8 p-8'>
           {/* Image Section */}
@@ -54,10 +54,13 @@ const ProjectCard: React.FC<{
                 </span>
                 <div className='h-px flex-1 bg-zinc-800' />
               </div>
-              <h3 className='text-3xl font-bold text-zinc-100 group-hover:text-blue-400 transition-colors'>
+              <h3
+                id={`project-title-${index}`}
+                className='text-3xl font-bold text-zinc-100 group-hover:text-blue-400 transition-colors'
+              >
                 {title}
               </h3>
-              <p className='text-zinc-400 leading-relaxed text-lg'>{description}</p>
+              <p className='text-zinc-300 leading-relaxed text-lg'>{description}</p>
             </div>
 
             {/* Technologies */}
@@ -76,7 +79,7 @@ const ProjectCard: React.FC<{
             <div className='flex flex-wrap gap-3'>
               <Link href={websiteLink} target='_blank' rel='noopener noreferrer'>
                 <Button
-                  svg={<ExternalLink size={18} />}
+                  svg={<ExternalLink size={18} aria-hidden='true' />}
                   label='View Live'
                   size='md'
                   variant='primary'
@@ -87,7 +90,7 @@ const ProjectCard: React.FC<{
               {githubLink.length > 0 && (
                 <Link href={githubLink[0] as string} target='_blank' rel='noopener noreferrer'>
                   <Button
-                    svg={<Github size={18} />}
+                    svg={<Github size={18} aria-hidden='true' />}
                     label='Source Code'
                     size='md'
                     variant='secondary'
@@ -116,7 +119,7 @@ const PortfolioSection: React.FC = () => {
               Featured Projects
             </span>
           </h2>
-          <p className='text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-4xl'>
+          <p className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-4xl'>
             Explore my latest work showcasing modern web development practices, performance
             optimization, and user-centered design.
           </p>

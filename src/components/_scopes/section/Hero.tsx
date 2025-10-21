@@ -44,7 +44,7 @@ const Hero = () => {
           </h1>
           <p
             id='hero-description'
-            className='text-lg font-light mb-8 text-zinc-400 max-w-2xl md:text-xl leading-relaxed'
+            className='text-lg font-light mb-8 text-zinc-300 max-w-2xl md:text-xl leading-relaxed'
           >
             I&apos;m a Frontend Developer who transforms complex ideas into intuitive,
             high-performance web applications. Specializing in React, Next.js, and
@@ -84,10 +84,10 @@ const Hero = () => {
               <div className='text-2xl md:text-3xl font-bold text-zinc-100 mb-1 flex items-center gap-1'>
                 {stat.value}
                 {stat.label === 'Years Experience' && (
-                  <Sparkles size={20} className='text-yellow-500' />
+                  <Sparkles size={20} className='text-yellow-500' aria-hidden='true' />
                 )}
               </div>
-              <div className='text-xs md:text-sm text-zinc-500 font-light'>{stat.label}</div>
+              <div className='text-xs md:text-sm text-zinc-400 font-light'>{stat.label}</div>
             </div>
           ))}
         </div>
