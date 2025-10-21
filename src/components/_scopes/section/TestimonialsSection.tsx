@@ -22,21 +22,21 @@ const TestimonialCard: React.FC<{
     <BoxWithBackground className='h-full'>
       <article className='p-6 h-full flex flex-col justify-between bg-gradient-to-t from-zinc-950 to-zinc-900/70'>
         <div className='flex-1'>
-          <Quote className='text-zinc-400 mb-4' size={32} strokeWidth={1} aria-hidden='true' />
-          <blockquote className='text-zinc-100 font-light text-lg leading-relaxed mb-6'>
+          <Quote className='text-zinc-400 mb-6' size={32} strokeWidth={1} aria-hidden='true' />
+          <blockquote className='text-zinc-100 font-light text-lg leading-relaxed mb-8'>
             "{content}"
           </blockquote>
         </div>
-        <footer className='border-t border-zinc-700 pt-4'>
-          <div className='flex flex-col'>
+        <footer className='border-t border-zinc-700 pt-6'>
+          <div className='flex flex-col space-y-2'>
             <cite className='text-zinc-50 font-semibold font-heading text-xl not-italic'>
               {author.name}
             </cite>
-            <p className='text-zinc-200 text-base font-light mt-1'>{author.title}</p>
-            <p className='text-zinc-300 text-sm font-light mt-1'>
+            <p className='text-zinc-200 text-base font-light'>{author.title}</p>
+            <p className='text-zinc-300 text-sm font-light'>
               {author.company} • {author.relationship}
             </p>
-            <time className='text-zinc-400 text-sm font-light mt-2' dateTime='2025-09'>
+            <time className='text-zinc-400 text-sm font-light' dateTime='2025-09'>
               {date}
             </time>
           </div>
@@ -56,7 +56,7 @@ const TestimonialsSection: React.FC = () => {
           at Decathlon International.
         </SectionDescription>
       </SectionHeader>
-      <div className='grid grid-cols-1 gap-6 lg:grid-cols-2 xl:gap-8'>
+      <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
         {testimonials.map((testimonial, index) => (
           <TestimonialCard key={`${testimonial.author.name}-${index}`} {...testimonial} />
         ))}

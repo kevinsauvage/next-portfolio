@@ -4,7 +4,7 @@ import socialButton from '@/config/socialButton';
 import Link from 'next/link';
 
 const ContactInfo = () => (
-  <ul className='flex gap-4'>
+  <ul className='flex gap-6'>
     {socialButton.map(item => (
       <li key={item.href}>
         <Link

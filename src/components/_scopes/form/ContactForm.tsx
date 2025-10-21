@@ -102,7 +102,7 @@ const ContactForm = () => {
       action={formAction}
       aria-label='Contact me'
     >
-      <div className='space-y-7'>
+      <div className='space-y-8'>
         <Label>
           <LabelText required={true}>Full Name</LabelText>
           <Input

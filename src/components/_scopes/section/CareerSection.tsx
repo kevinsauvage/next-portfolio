@@ -23,7 +23,7 @@ const CareerItem: React.FC<{
             'bg-gradient-to-t from-zinc-950 to-zinc-900/70'
           )}
         >
-          <div className='pb-8 w-full flex flex-col justify-between sm:items-center gap-y-2 gap-x-12 flex-wrap sm:flex-row'>
+          <div className='pb-6 w-full flex flex-col justify-between sm:items-center gap-y-3 gap-x-12 flex-wrap sm:flex-row'>
             <h3 className='text-2xl font-medium text-zinc-100 leading-5 font-heading text-nowrap'>
               {company}
             </h3>
@@ -64,7 +64,7 @@ const CareerSection = () => {
   ];
 
   return (
-    <Section id='career' className='lg:grid lg:grid-cols-5 gap-20'>
+    <Section id='career' className='lg:grid lg:grid-cols-5 gap-16'>
       <SectionHeader className='col-span-2'>
         <SectionTitle>Professional Journey</SectionTitle>
         <SectionDescription>
@@ -72,7 +72,7 @@ const CareerSection = () => {
           user experiences across diverse industries.
         </SectionDescription>
       </SectionHeader>
-      <div className='grid items-stretch grid-cols-1 gap-5 lg:col-span-3'>
+      <div className='grid items-stretch grid-cols-1 gap-8 lg:col-span-3'>
         {jobs.map((item, index) => (
           <CareerItem key={index} {...item} />
         ))}

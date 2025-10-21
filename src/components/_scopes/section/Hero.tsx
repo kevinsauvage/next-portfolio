@@ -18,16 +18,16 @@ const Hero = () => {
         aria-labelledby='hero-title'
         aria-describedby='hero-description'
       >
-        <header className='z-10 mb-2 flex flex-col justify-center items-center'>
+        <header className='z-10 mb-8 flex flex-col justify-center items-center'>
           <h1
             id='hero-title'
-            className='text-4xl font-bold font-heading flex flex-col mb-2 text-zinc-300 max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'
+            className='text-4xl font-bold font-heading flex flex-col mb-6 text-zinc-300 max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'
           >
             Building Digital Experiences That Drive Results
           </h1>
           <p
             id='hero-description'
-            className='text-lg font-extralight mb-5 text-zinc-300 max-w-xl md:text-2xl'
+            className='text-lg font-extralight mb-8 text-zinc-300 max-w-xl md:text-2xl'
           >
             I'm a Frontend Developer who transforms complex ideas into intuitive, high-performance
             web applications. Specializing in React, Next.js, and accessibility-first design.

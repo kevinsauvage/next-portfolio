@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className='h-full w-full grow flex flex-col justify-between m-auto' id='home'>
       <Hero />
-      <div className='container m-auto px-4'>
+      <div className='container m-auto px-6'>
         <AboutSection />
         <PortfolioSection />
         <CareerSection />

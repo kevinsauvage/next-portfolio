@@ -128,7 +128,7 @@ const AboutSection: React.FC = () => {
       </SectionHeader>
       <div
         className={clsx(
-          'grid items-stretch grid-cols-1 gap-5',
+          'grid items-stretch grid-cols-1 gap-8',
           'md:grid-cols-2 md:grid-rows-3',
           'lg:grid-rows-none',
           'xl:grid-cols-3 xl:grid-rows-6'
