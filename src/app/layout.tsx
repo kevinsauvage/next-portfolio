@@ -75,6 +75,9 @@ const LeagueSpartan = League_Spartan({
   subsets: ['latin'],
   variable: '--font-heading',
   weight: ['400', '500', '600', '700', '800'],
+  fallback: ['system-ui', 'arial', 'sans-serif'],
+  adjustFontFallback: true,
+  preload: true,
 });
 
 const JosefinSans = Josefin_Sans({
@@ -82,6 +85,9 @@ const JosefinSans = Josefin_Sans({
   subsets: ['latin'],
   variable: '--font-base',
   weight: ['100', '200', '300', '400', '500'],
+  fallback: ['system-ui', 'arial', 'sans-serif'],
+  adjustFontFallback: true,
+  preload: true,
 });
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
