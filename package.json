@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@emailjs/nodejs": "^5.0.2",
+    "@hookform/resolvers": "^5.2.2",
     "@types/umami": "^2.10.0",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
@@ -41,9 +42,10 @@
     "react": "^19.0.0-rc.1",
     "react-dom": "^19.0.0-rc.1",
     "react-google-recaptcha-v3": "^1.10.1",
+    "react-hook-form": "^7.65.0",
     "uuid": "^9.0.0",
     "web-vitals": "^5.1.0",
-    "zod": "^3.22.5"
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.8.0",

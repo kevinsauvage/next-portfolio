@@ -1,143 +1,140 @@
 'use client';
-import { useActionState, useEffect, useRef, useState } from 'react';
-import { useFormStatus } from 'react-dom';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { LucideSend } from 'lucide-react';
+import { useState } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useForm } from 'react-hook-form';
 
 import { sendMail } from '@/actions/send-mail';
 import Input from '@/components/_scopes/form/Input';
-import Label from '@/components/_scopes/form/Label';
 import TextArea from '@/components/_scopes/form/TextArea';
 import Button from '@/components/Button';
+import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { useNotification } from '@/contexts/NotificationContext';
-
-import { LucideSend } from 'lucide-react';
-
-const ErrorMessage = ({ error }: { error?: Array<string> }) => {
-  return error?.length ? (
-    <span className='block text-red-600 text-base'>{error[0]}</span>
-  ) : undefined;
-};
-
-const LabelText = ({ children, required }: { children: React.ReactNode; required: boolean }) => (
-  <span className='relative w-fit'>
-    {children}
-    {required && <span className='absolute -right-3 -top-1 text-red-600 text-2xl'>*</span>}
-  </span>
-);
-
-const SubmitButton = ({ text }: { text: string }) => {
-  const { pending } = useFormStatus();
-
-  return (
-    <Button
-      className='mt-4 w-full md:w-fit'
-      svg={<LucideSend role='img' size={18} aria-label={text} />}
-      label={text}
-      type='submit'
-      title={text}
-      disabled={pending}
-      loading={pending}
-      variant='secondary'
-      size='lg'
-      data-umami-event='contact_form_submit'
-    />
-  );
-};
+import { contactFormSchema, ContactFormValues } from '@/schemas/contact-form.schema';
 
 const ContactForm = () => {
   const notification = useNotification();
-  const reference = useRef<HTMLFormElement>(null);
-  const [_isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  async function addRecaptcha(previousState: unknown, formData: FormData) {
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
+    defaultValues: {
+      fullName: '',
+      email: '',
+      message: '',
+    },
+  });
+
+  const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
-    setSubmitStatus('idle');
 
     try {
       const gRecaptchaToken = executeRecaptcha ? await executeRecaptcha('contactMessage') : '';
-      formData.set('captcha', gRecaptchaToken);
 
-      const result = await sendMail(previousState, formData);
+      const result = await sendMail({
+        ...data,
+        captcha: gRecaptchaToken,
+      });
 
-      if (result?.error) {
-        setSubmitStatus('error');
-        return result;
+      if (result.success) {
+        form.reset();
+        notification.success(
+          "Your message has been sent successfully. I'll get back to you as soon as possible."
+        );
       } else {
-        setSubmitStatus('success');
-        return result;
+        notification.error('An error occurred while sending your message. Please try again later.');
       }
     } catch {
-      setSubmitStatus('error');
-      return { error: true };
+      notification.error('An error occurred while sending your message. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
-  }
-
-  const [errors, formAction] = useActionState(addRecaptcha, {});
-
-  useEffect(() => {
-    if (submitStatus === 'success' && reference?.current) {
-      reference.current.reset();
-      notification.success(
-        "Your message has been sent successfully. I'll get back to you as soon as possible."
-      );
-      setSubmitStatus('idle');
-    }
-
-    if (submitStatus === 'error') {
-      notification.error('An error occurred while sending your message. Please try again later.');
-      setSubmitStatus('idle');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [submitStatus]);
+  };
 
   return (
-    <form
-      ref={reference}
-      className='flex flex-col w-full'
-      action={formAction}
-      aria-label='Contact me'
-    >
-      <div className='space-y-8'>
-        <Label>
-          <LabelText required={true}>Full Name</LabelText>
-          <Input
-            type='text'
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className='flex flex-col w-full'
+        aria-label='Contact me'
+      >
+        <div className='space-y-8'>
+          <FormField
+            control={form.control}
             name='fullName'
-            placeholder='ex: John Doe'
-            aria-required='true'
-            aria-label='Full Name'
+            render={({ field }) => (
+              <FormItem className='flex flex-col space-y-1'>
+                <FormLabel required>Full Name</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type='text'
+                    placeholder='ex: John Doe'
+                    aria-required='true'
+                    aria-label='Full Name'
+                  />
+                </FormControl>
+              </FormItem>
+            )}
           />
-          {errors?.fullName && <ErrorMessage error={errors.fullName} />}
-        </Label>
-        <Label>
-          <LabelText required={true}>Email</LabelText>
-          <Input
-            type='text'
+
+          <FormField
+            control={form.control}
             name='email'
-            placeholder='ex: johndoe@gmail.com'
-            aria-required='true'
-            aria-label='Email'
+            render={({ field }) => (
+              <FormItem className='flex flex-col space-y-1'>
+                <FormLabel required>Email</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type='text'
+                    placeholder='ex: johndoe@gmail.com'
+                    aria-required='true'
+                    aria-label='Email'
+                  />
+                </FormControl>
+              </FormItem>
+            )}
           />
-          {errors?.email && <ErrorMessage error={errors.email} />}
-        </Label>
-        <Label>
-          <LabelText required={true}>Message</LabelText>
-          <TextArea
+
+          <FormField
+            control={form.control}
             name='message'
-            placeholder='Share your thoughts or ask a question'
-            aria-required='true'
-            aria-label='Message'
+            render={({ field }) => (
+              <FormItem className='flex flex-col space-y-1'>
+                <FormLabel required>Message</FormLabel>
+                <FormControl>
+                  <TextArea
+                    {...field}
+                    placeholder='Share your thoughts or ask a question'
+                    aria-required='true'
+                    aria-label='Message'
+                  />
+                </FormControl>
+              </FormItem>
+            )}
           />
-          {errors?.message && <ErrorMessage error={errors.message} />}
-        </Label>
-        <SubmitButton text='Send Message' />
-      </div>
-    </form>
+
+          <Button
+            className='mt-4 w-full md:w-fit'
+            svg={<LucideSend role='img' size={18} aria-label='Send Message' />}
+            label='Send Message'
+            type='submit'
+            title='Send Message'
+            disabled={isSubmitting}
+            loading={isSubmitting}
+            variant='secondary'
+            size='lg'
+            data-umami-event='contact_form_submit'
+          />
+        </div>
+      </form>
+    </Form>
   );
 };
 
