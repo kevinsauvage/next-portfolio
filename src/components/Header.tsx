@@ -12,14 +12,32 @@ import clsx from 'clsx';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  console.log('🟩🟪🟦-->  ~ Header ~ isScrolled:', isScrolled);
 
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
   }, [menuOpen]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
-      <header className='w-full bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50 sticky top-0 z-40'>
+      <header
+        className={clsx(
+          'w-full fixed top-0 z-40 transition-all duration-300',
+          isScrolled
+            ? 'bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50'
+            : 'bg-transparent border-b border-transparent'
+        )}
+      >
         <div className='flex justify-between m-auto items-center xl:container px-6 py-4'>
           <Logo />
           <Navigation closeMenu={() => setMenuOpen(false)} menuOpen={menuOpen} />

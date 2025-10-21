@@ -1,12 +1,9 @@
-import testimonials from '@/config/testimonials.config';
 import BoxWithBackground from '@/components/BoxWithBackground';
+import testimonials from '@/config/testimonials.config';
 
 import Section from './_components/Section';
-import SectionDescription from './_components/SectionDescription';
-import SectionHeader from './_components/SectionHeader';
-import SectionTitle from './_components/SectionTitle';
 
-import { Quote } from 'lucide-react';
+import { Briefcase, Calendar, Quote, User } from 'lucide-react';
 
 const TestimonialCard: React.FC<{
   author: {
@@ -17,30 +14,61 @@ const TestimonialCard: React.FC<{
   };
   content: string;
   date: string;
-}> = ({ author, content, date }) => {
+  index: number;
+}> = ({ author, content, date, index }) => {
   return (
-    <BoxWithBackground className='h-full'>
-      <article className='p-6 h-full flex flex-col justify-between bg-gradient-to-t from-zinc-950 to-zinc-900/70'>
-        <div className='flex-1'>
-          <Quote className='text-zinc-400 mb-6' size={32} strokeWidth={1} aria-hidden='true' />
-          <blockquote className='text-zinc-100 font-light text-lg leading-relaxed mb-8'>
+    <BoxWithBackground
+      className='group hover:-translate-y-1 transition-all duration-300'
+      backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
+    >
+      <article className='h-full w-full p-8'>
+        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0' />
+        <div className='relative z-10 h-full flex flex-col justify-between space-y-6'>
+          {/* Quote Icon & Number */}
+          <div className='flex items-start justify-between'>
+            <div className='p-3 bg-purple-500/10 rounded-lg border border-purple-500/20'>
+              <Quote className='text-purple-400' size={24} strokeWidth={1.5} aria-hidden='true' />
+            </div>
+            <span className='text-sm font-medium text-blue-400'>
+              {String(index + 1).padStart(2, '0')}
+            </span>
+          </div>
+
+          {/* Testimonial Content */}
+          <blockquote className='flex-1 text-zinc-300 leading-relaxed text-lg italic'>
             "{content}"
           </blockquote>
+
+          {/* Author Info */}
+          <footer className='border-t border-zinc-800 pt-6 space-y-4'>
+            <div className='flex items-center gap-3'>
+              <div className='p-2 bg-blue-500/10 rounded-full border border-blue-500/20'>
+                <User size={16} className='text-blue-400' />
+              </div>
+              <div>
+                <cite className='text-zinc-100 font-bold text-lg not-italic block'>
+                  {author.name}
+                </cite>
+                <p className='text-zinc-400 text-sm'>{author.title}</p>
+              </div>
+            </div>
+
+            <div className='flex flex-wrap gap-4 text-sm text-zinc-500'>
+              <div className='flex items-center gap-2'>
+                <Briefcase size={14} />
+                <span>{author.company}</span>
+              </div>
+              <div className='flex items-center gap-2'>
+                <span className='w-1 h-1 bg-zinc-600 rounded-full' />
+                <span>{author.relationship}</span>
+              </div>
+              <div className='flex items-center gap-2'>
+                <Calendar size={14} />
+                <time dateTime={date}>{date}</time>
+              </div>
+            </div>
+          </footer>
         </div>
-        <footer className='border-t border-zinc-700 pt-6'>
-          <div className='flex flex-col space-y-2'>
-            <cite className='text-zinc-50 font-semibold font-heading text-xl not-italic'>
-              {author.name}
-            </cite>
-            <p className='text-zinc-200 text-base font-light'>{author.title}</p>
-            <p className='text-zinc-300 text-sm font-light'>
-              {author.company} • {author.relationship}
-            </p>
-            <time className='text-zinc-400 text-sm font-light' dateTime='2025-09'>
-              {date}
-            </time>
-          </div>
-        </footer>
       </article>
     </BoxWithBackground>
   );
@@ -49,17 +77,31 @@ const TestimonialCard: React.FC<{
 const TestimonialsSection: React.FC = () => {
   return (
     <Section id='testimonials'>
-      <SectionHeader>
-        <SectionTitle>What Colleagues Say</SectionTitle>
-        <SectionDescription>
-          Recommendations from engineering leaders and colleagues who have worked with me directly
-          at Decathlon International.
-        </SectionDescription>
-      </SectionHeader>
-      <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
-        {testimonials.map((testimonial, index) => (
-          <TestimonialCard key={`${testimonial.author.name}-${index}`} {...testimonial} />
-        ))}
+      <div className='space-y-16'>
+        {/* Header Section */}
+        <div className='space-y-6'>
+          <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Testimonials</p>
+          <h2 className='text-4xl md:text-6xl font-bold'>
+            <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text'>
+              What Colleagues Say
+            </span>
+          </h2>
+          <p className='text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-4xl'>
+            Recommendations from engineering leaders and colleagues who have worked with me directly
+            at Decathlon International.
+          </p>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
+          {testimonials.map((testimonial, index) => (
+            <TestimonialCard
+              key={`${testimonial.author.name}-${index}`}
+              {...testimonial}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
     </Section>
   );

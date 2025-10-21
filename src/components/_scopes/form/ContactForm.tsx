@@ -60,15 +60,15 @@ const ContactForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='flex flex-col w-full'
+        className='flex flex-col w-full bg-zinc-900/30 border border-zinc-800 rounded-lg p-8'
         aria-label='Contact me'
       >
-        <div className='space-y-8'>
+        <div className='space-y-6'>
           <FormField
             control={form.control}
             name='fullName'
             render={({ field }) => (
-              <FormItem className='flex flex-col space-y-1'>
+              <FormItem className='flex flex-col space-y-2'>
                 <FormLabel required>Full Name</FormLabel>
                 <FormControl>
                   <Input
@@ -87,7 +87,7 @@ const ContactForm = () => {
             control={form.control}
             name='email'
             render={({ field }) => (
-              <FormItem className='flex flex-col space-y-1'>
+              <FormItem className='flex flex-col space-y-2'>
                 <FormLabel required>Email</FormLabel>
                 <FormControl>
                   <Input
@@ -106,7 +106,7 @@ const ContactForm = () => {
             control={form.control}
             name='message'
             render={({ field }) => (
-              <FormItem className='flex flex-col space-y-1'>
+              <FormItem className='flex flex-col space-y-2'>
                 <FormLabel required>Message</FormLabel>
                 <FormControl>
                   <TextArea
@@ -121,14 +121,14 @@ const ContactForm = () => {
           />
 
           <Button
-            className='mt-4 w-full md:w-fit'
+            className='mt-2 w-full'
             svg={<LucideSend role='img' size={18} aria-label='Send Message' />}
             label='Send Message'
             type='submit'
             title='Send Message'
             disabled={isSubmitting}
             loading={isSubmitting}
-            variant='secondary'
+            variant='primary'
             size='lg'
             data-umami-event='contact_form_submit'
           />

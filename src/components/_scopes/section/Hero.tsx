@@ -2,7 +2,6 @@ import Button from '@/components/Button';
 import Link from 'next/link';
 
 import BoxWithBackground from '../../BoxWithBackground';
-import LanguagesGrid from '../../LanguagesGrid';
 
 import { MoveDown, Mail, Sparkles } from 'lucide-react';
 
@@ -15,12 +14,11 @@ const Hero = () => {
 
   return (
     <BoxWithBackground
-      className='relative p-0 h-dvh gap-4 text-center bg-gradient-to-t from-zinc-950 to-zinc-900/70 border-0 justify-start'
+      className='relative p-0 gap-4 text-center bg-gradient-to-t from-zinc-950 to-zinc-900/70 border-0 justify-start '
       backgroundConfig={{ scale: 0.3, strokeWidth: 1.1 }}
     >
-      <LanguagesGrid />
       <section
-        className='flex flex-col justify-center items-center p-6 lg:aspect-video rounded-md md:p-16'
+        className='min-h-dvh flex flex-col justify-center items-center p-6 pt-20 lg:aspect-video rounded-md md:p-16 md:pt-20'
         aria-labelledby='hero-title'
         aria-describedby='hero-description'
       >

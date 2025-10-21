@@ -1,85 +1,28 @@
-import type { StaticImageData } from 'next/image';
-import Image from 'next/image';
+import Section from './_components/Section';
 
-import Grid1 from '@/assets/grid1.png';
-import Grid3 from '@/assets/grid3.png';
-import Grid4 from '@/assets/grid4.png';
+import { Sparkles, TrendingUp, Users } from 'lucide-react';
 import BoxWithBackground from '@/components/BoxWithBackground';
 
-import Section from './_components/Section';
-import SectionDescription from './_components/SectionDescription';
-import SectionHeader from './_components/SectionHeader';
-import SectionTitle from './_components/SectionTitle';
-
-import clsx from 'clsx';
-
-const items = [
-  {
-    image: {
-      alt: 'About me',
-      height: 204,
-      src: Grid1,
-      width: 247,
-    },
-    style: 'order-1 col-span-1 order-1 md:row-span-1 xl:row-span-3',
-  },
-  {
-    image: {
-      alt: 'My Passion for Coding',
-      height: 435,
-      src: Grid3,
-      width: 1080,
-    },
-    style: 'order-2 md:order-3 md:col-span-2 md:row-span-1 xl:col-span-2 xl:row-span-3',
-  },
-  {
-    image: {
-      alt: 'My Passion for Coding',
-      height: 435,
-      src: Grid3,
-      width: 1080,
-    },
-    style: 'order-3 md:order-4 md:row-span-1 md:col-span-2 xl:col-span-2 xl:row-span-3',
-  },
-  {
-    image: {
-      alt: 'Contact me',
-      height: 500,
-      src: Grid4,
-      width: 720,
-    },
-    style: 'order-4 md:order-2 md:row-span-1 md:col-span-1 xl:order-4 xl:row-span-3',
-  },
-];
-
-const AboutItem: React.FC<{
+const PassionCard: React.FC<{
+  icon: React.ElementType;
   title: string;
   description: string;
-  image?: { src: StaticImageData; alt: string; width: number; height: number };
-  style: string;
-}> = ({ title, description, image, style }) => {
+}> = ({ icon: Icon, title, description }) => {
   return (
-    <BoxWithBackground className={style} backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}>
-      <div className='h-full w-full'>
-        <div className='absolute inset-0 bg-gradient-to-t from-zinc-950 to-zinc-900/70 z-0' />
-        <div className='h-full z-10 relative flex flex-col justify-end align-bottom'>
-          {image?.src && (
-            <div className='relative flex flex-col items-center justify-center h-full w-full p-6'>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={image.width}
-                height={image.height}
-                className='w-auto h-full object-contain'
-              />
-            </div>
-          )}
-          <div className='p-6'>
-            <h3 className={clsx('text-2xl font-heading font-semibold text-zinc-50 mb-3')}>
-              {title}
-            </h3>
-            <div className={clsx('font-light text-zinc-100 text-lg')}>{description}</div>
+    <BoxWithBackground
+      className='group hover:shadow-lg hover:-translate-y-1 transition-all duration-300'
+      backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
+    >
+      <div className='h-full w-full p-8'>
+        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0' />
+        <div className='relative z-10 space-y-4'>
+          <div className='inline-flex p-3 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600'>
+            <Icon className='w-6 h-6 text-white' />
           </div>
+          <h3 className='text-xl font-bold text-zinc-100 group-hover:text-blue-400 transition-colors'>
+            {title}
+          </h3>
+          <p className='text-zinc-400 leading-relaxed'>{description}</p>
         </div>
       </div>
     </BoxWithBackground>
@@ -87,56 +30,60 @@ const AboutItem: React.FC<{
 };
 
 const AboutSection: React.FC = () => {
-  const itemsWithContent = [
+  const passions = [
     {
-      title: "Hi, I'm Kévin Sauvage",
+      icon: Sparkles,
+      title: 'Passionate About Impact',
       description:
-        "Hey there! 👋 I'm Kévin Sauvage, a Frontend Developer passionate about crafting web experiences that users love.",
-      image: items[0].image,
-      style: items[0].style,
+        "I thrive on creating solutions that genuinely improve people's lives. At Decathlon, I optimize checkout experiences and ensure seamless functionality across multiple countries. Every line of code I write aims to solve real problems and deliver tangible value.",
     },
     {
-      title: "I'm Passionate About Web Development",
+      icon: TrendingUp,
+      title: 'Always Growing',
       description:
-        'What excites me most about coding is creating solutions that genuinely help people. I love transforming complex problems into intuitive, user-friendly experiences. At Decathlon, this translates into optimizing checkout processes and ensuring our website delivers a seamless experience across different countries and cultures.',
-      image: items[1].image,
-      style: items[1].style,
+        "Technology evolves rapidly, and so do I. I'm constantly exploring new frameworks, tools, and best practices. From mastering TypeScript to diving deep into performance optimization, I believe that continuous learning is the foundation of excellence.",
     },
     {
-      title: 'I Love to Learn',
+      icon: Users,
+      title: 'Team Player',
       description:
-        "I'm constantly seeking opportunities to expand my skills and explore new technologies. I firmly believe that continuous learning is the key to professional growth and staying relevant in this ever-evolving field.",
-      image: items[2].image,
-      style: items[2].style,
-    },
-    {
-      title: 'I Value Collaboration',
-      description:
-        'I believe the most impactful work emerges when people unite to share ideas and expertise. I actively seek collaborative opportunities and thrive in environments where knowledge sharing and teamwork drive innovation.',
-      image: items[3].image,
-      style: items[3].style,
+        'The best solutions emerge from collaboration. I excel in cross-functional teams, actively share knowledge, and believe that diverse perspectives drive innovation. Whether mentoring juniors or learning from seniors, I value every opportunity to grow together.',
     },
   ];
 
   return (
     <Section id='about'>
-      <SectionHeader>
-        <SectionTitle>About Me</SectionTitle>
-        <SectionDescription>
-          Get to know me a little better. Here are some things I enjoy and some of my values.
-        </SectionDescription>
-      </SectionHeader>
-      <div
-        className={clsx(
-          'grid items-stretch grid-cols-1 gap-8',
-          'md:grid-cols-2 md:grid-rows-3',
-          'lg:grid-rows-none',
-          'xl:grid-cols-3 xl:grid-rows-6'
-        )}
-      >
-        {itemsWithContent.map((item, index) => (
-          <AboutItem key={index} {...item} />
-        ))}
+      <div className='space-y-16'>
+        {/* Hero Section */}
+        <div className='space-y-6'>
+          <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>About me</p>
+          <h1 className='text-4xl md:text-6xl font-bold mb-6'>
+            <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text'>
+              Hi, I'm Kévin Sauvage
+            </span>
+          </h1>
+          <div className='flex flex-wrap items-center gap-6 mb-8'>
+            <div className='flex items-center gap-2'>
+              <div className='h-2 w-2 rounded-full bg-blue-400 animate-pulse'></div>
+              <span className='text-lg font-semibold text-blue-400'>5+ Years Experience</span>
+            </div>
+          </div>
+          <p className='text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-4xl'>
+            Frontend Developer based in Barcelona, Spain. I transform ideas into elegant,
+            high-performance web applications that users love. With 5+ years of experience, I
+            specialize in React, Next.js, and creating accessibility-first experiences.
+          </p>
+        </div>
+
+        {/* Passion Cards */}
+        <div className='space-y-8'>
+          <h2 className='text-3xl font-bold text-zinc-100'>My Passion for Coding</h2>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            {passions.map(passion => (
+              <PassionCard key={passion.title} {...passion} />
+            ))}
+          </div>
+        </div>
       </div>
     </Section>
   );
