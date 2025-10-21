@@ -100,6 +100,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         LeagueSpartan.variable
       )}
     >
+      <head>
+        <link rel='preconnect' href='https://api-gateway.umami.dev' crossOrigin='anonymous' />
+        <link rel='dns-prefetch' href='https://api-gateway.umami.dev' />
+      </head>
       <body className='w-full h-full text-zinc-50 antialiased font-base font-light'>
         <script
           type='application/ld+json'
