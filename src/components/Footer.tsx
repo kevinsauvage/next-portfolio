@@ -49,12 +49,12 @@ const Footer: React.FC = () => {
           {/* Quick Links */}
           <nav aria-label='Footer navigation'>
             <h3 className='text-zinc-100 text-lg font-semibold mb-4'>Quick Links</h3>
-            <ul className='space-y-3'>
+            <ul className='space-y-2'>
               {quickLinks.map(link => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className='text-zinc-400 hover:text-blue-400 transition-all duration-200 text-sm hover:translate-x-1 inline-block py-2 min-h-[44px] flex items-center'
+                    className='text-zinc-400 hover:text-blue-400 transition-all duration-200 text-sm hover:translate-x-1 py-2 flex items-center'
                   >
                     {link.name}
                   </Link>
