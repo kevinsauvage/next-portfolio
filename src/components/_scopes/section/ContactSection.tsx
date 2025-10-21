@@ -22,12 +22,12 @@ const ContactSection: React.FC = () => {
             <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Contact</p>
             <h2 className='text-4xl md:text-6xl font-bold'>
               <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text'>
-                Let's Build Something Amazing Together
+                Let&apos;s Build Something Amazing Together
               </span>
             </h2>
             <p className='text-xl md:text-2xl text-zinc-400 leading-relaxed max-w-3xl mx-auto'>
-              Ready to transform your ideas into exceptional digital experiences? I'm always excited
-              to discuss new projects, collaborations, or just chat about web development.
+              Ready to transform your ideas into exceptional digital experiences? I&apos;m always
+              excited to discuss new projects, collaborations, or just chat about web development.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ const ContactSection: React.FC = () => {
                 <h3 className='text-lg font-semibold text-zinc-100'>Direct Contact</h3>
               </div>
               <p className='text-zinc-400 text-sm'>
-                Fill out the form below and I'll get back to you soon
+                Fill out the form below and I&apos;ll get back to you soon
               </p>
             </div>
           </div>

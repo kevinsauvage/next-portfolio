@@ -9,7 +9,7 @@ const Custom404 = () => {
           Oops! Page Not Found
         </h1>
         <p className='text-lg font-extralight mb-5 text-zinc-300 max-w-xl md:text-2xl'>
-          The page you're looking for doesn't exist. Let's get you back on track.
+          The page you&apos;re looking for doesn&apos;t exist. Let&apos;s get you back on track.
         </p>
         <Link
           href='/'

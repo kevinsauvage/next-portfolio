@@ -36,7 +36,7 @@ const TestimonialCard: React.FC<{
 
           {/* Testimonial Content */}
           <blockquote className='flex-1 text-zinc-300 leading-relaxed text-lg italic'>
-            "{content}"
+            &quot;{content}&quot;
           </blockquote>
 
           {/* Author Info */}
