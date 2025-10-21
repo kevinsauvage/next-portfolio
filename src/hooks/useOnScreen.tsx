@@ -10,6 +10,7 @@ const useOnScreen = (config = {}, reset = true) => {
     const { current } = reference;
     const observer = new IntersectionObserver(
       ([entry]) => {
+        if (!entry) return;
         if (reset) {
           setIsIntersecting(entry.isIntersecting);
         } else if (entry.isIntersecting) {

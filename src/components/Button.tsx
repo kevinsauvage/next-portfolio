@@ -56,7 +56,9 @@ const Button = ({
       )}
       onClick={event => {
         onClick?.(event);
-        if (eventName) globalThis.umami.track(eventName, eventProperties);
+        if (eventName && 'umami' in globalThis) {
+          (globalThis as typeof globalThis & { umami: { track: (name: string, props?: Record<string, unknown>) => void } }).umami.track(eventName, eventProperties);
+        }
       }}
       aria-label={label}
       disabled={disabled || loading}

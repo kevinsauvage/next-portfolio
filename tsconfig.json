@@ -6,6 +6,9 @@
       "DOM",
       "DOM.Iterable"
     ],
+    "types": [
+      "vitest/globals"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
