@@ -3,7 +3,17 @@ import GlowEffect from '@/components/GlowEffect';
 
 import Section from './_components/Section';
 
-import { Sparkles, TrendingUp, Users } from 'lucide-react';
+import {
+  CheckCircle,
+  Code,
+  Heart,
+  MessageCircle,
+  Puzzle,
+  Sparkles,
+  TrendingUp,
+  Users,
+  Zap,
+} from 'lucide-react';
 
 const PassionCard: React.FC<{
   icon: React.ElementType;
@@ -46,22 +56,22 @@ const PassionCard: React.FC<{
 const AboutSection: React.FC = () => {
   const passions = [
     {
-      icon: Sparkles,
-      title: 'Passionate About Impact',
+      icon: CheckCircle,
+      title: 'Delivering Value',
       description:
-        "I thrive on creating solutions that genuinely improve people's lives. At Decathlon, I optimize checkout experiences and ensure seamless functionality across multiple countries. Every line of code I write aims to solve real problems and deliver tangible value.",
+        'My primary goal is to ship high-quality code that solves business problems and enhances the end-user experience. The success of my projects is measured by the tangible value they deliver.',
     },
     {
-      icon: TrendingUp,
-      title: 'Always Growing',
+      icon: Code,
+      title: 'Technical Excellence',
       description:
-        "Technology evolves rapidly, and so do I. I'm constantly exploring new frameworks, tools, and best practices. From mastering TypeScript to diving deep into performance optimization, I believe that continuous learning is the foundation of excellence.",
+        'I am committed to writing clean, maintainable, and efficient code. I actively invest time in learning emerging technologies and best practices to ensure my work meets a high standard of excellence.',
     },
     {
-      icon: Users,
-      title: 'Team Player',
+      icon: MessageCircle,
+      title: 'Collaborative Development',
       description:
-        'The best solutions emerge from collaboration. I excel in cross-functional teams, actively share knowledge, and believe that diverse perspectives drive innovation. Whether mentoring juniors or learning from seniors, I value every opportunity to grow together.',
+        'I excel in agile, cross-functional teams. I prioritize clear communication, knowledge sharing, and constructive code reviews to help the entire team succeed and innovate.',
     },
   ];
 
@@ -92,9 +102,9 @@ const AboutSection: React.FC = () => {
             className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-4xl animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
           >
-            Frontend Developer based in Barcelona, Spain. I transform ideas into elegant,
-            high-performance web applications that users love. With 5+ years of experience, I
-            specialize in React, Next.js, and creating accessibility-first experiences.
+            I&apos;m a Frontend Developer based in Barcelona. I build elegant, high-performance web
+            apps with accessibility in mind. With 5+ years of experience, I focus on React and
+            Next.js.
           </p>
         </div>
 
@@ -104,7 +114,7 @@ const AboutSection: React.FC = () => {
             className='text-3xl font-bold text-zinc-100 animate-fade-in-up opacity-0'
             style={{ animationFillMode: 'both' }}
           >
-            My Passion for Coding
+            My Philosophy
           </h2>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {passions.map((passion, index) => (
