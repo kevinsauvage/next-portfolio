@@ -1,4 +1,5 @@
 import BoxWithBackground from '@/components/BoxWithBackground';
+import GlowEffect from '@/components/GlowEffect';
 import testimonials from '@/config/testimonials.config';
 
 import Section from './_components/Section';
@@ -18,11 +19,12 @@ const TestimonialCard: React.FC<{
 }> = ({ author, content, date, index }) => {
   return (
     <BoxWithBackground
-      className='group h-fit hover:-translate-y-1 transition-all duration-300'
+      className='group h-fit hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500'
       backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
     >
-      <article className='h-fit w-full p-6'>
-        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0' />
+      <article className='h-fit w-full p-6 relative overflow-hidden'>
+        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
+        <GlowEffect variant='purple-pink' intensity='low' />
         <div className='relative z-10 h-full flex flex-col justify-between space-y-4'>
           {/* Quote Icon & Number */}
           <div className='flex items-start justify-between'>

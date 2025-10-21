@@ -1,4 +1,5 @@
 import BoxWithBackground from '@/components/BoxWithBackground';
+import GlowEffect from '@/components/GlowEffect';
 
 import Section from './_components/Section';
 
@@ -14,11 +15,15 @@ const CareerItem: React.FC<{
 }> = ({ company, description, period, position, location, index }) => {
   return (
     <BoxWithBackground
-      className='group hover:-translate-y-1 transition-all duration-300'
+      className='group hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500'
       backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
     >
-      <article className='h-full w-full p-8' aria-labelledby={`career-${index}`}>
-        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0' />
+      <article
+        className='h-full w-full p-8 relative overflow-hidden'
+        aria-labelledby={`career-${index}`}
+      >
+        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
+        <GlowEffect variant='blue-purple' intensity='low' />
         <div className='relative z-10 space-y-6'>
           {/* Header */}
           <div className='flex items-center gap-3 pb-4 border-b border-zinc-800'>
