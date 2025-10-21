@@ -107,7 +107,7 @@ const ProjectCard: React.FC<{
 const PortfolioSection: React.FC = () => {
   return (
     <Section id='portfolio'>
-      <div className='space-y-16'>
+      <div className='space-y-20'>
         {/* Header Section */}
         <div className='space-y-6'>
           <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Portfolio</p>
@@ -123,7 +123,7 @@ const PortfolioSection: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className='space-y-8'>
+        <div className='space-y-10'>
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}

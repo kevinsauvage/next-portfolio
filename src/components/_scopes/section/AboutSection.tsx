@@ -54,7 +54,7 @@ const AboutSection: React.FC = () => {
 
   return (
     <Section id='about'>
-      <div className='space-y-16'>
+      <div className='space-y-20'>
         {/* Hero Section */}
         <div className='space-y-6'>
           <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>About me</p>
@@ -77,9 +77,9 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Passion Cards */}
-        <div className='space-y-8'>
+        <div className='space-y-10'>
           <h2 className='text-3xl font-bold text-zinc-100'>My Passion for Coding</h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {passions.map(passion => (
               <PassionCard key={passion.title} {...passion} />
             ))}

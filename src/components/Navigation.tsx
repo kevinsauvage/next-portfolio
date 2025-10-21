@@ -54,9 +54,10 @@ const Navigation: React.FC<{
                 data-umami-event-label={label}
                 className={clsx(
                   'px-4 py-2 rounded-md text-sm font-medium transition-all duration-200',
+                  'hover:scale-105 active:scale-95',
                   isActive
-                    ? 'text-blue-400 bg-blue-400/10'
-                    : 'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/50'
+                    ? 'text-blue-400 bg-blue-400/10 shadow-sm'
+                    : 'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/50 hover:shadow-md'
                 )}
               >
                 {label}

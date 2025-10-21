@@ -93,7 +93,7 @@ const CareerSection = () => {
 
   return (
     <Section id='career'>
-      <div className='space-y-16'>
+      <div className='space-y-20'>
         {/* Header Section */}
         <div className='space-y-6'>
           <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Career</p>
@@ -109,7 +109,7 @@ const CareerSection = () => {
         </div>
 
         {/* Jobs Timeline */}
-        <div className='space-y-6'>
+        <div className='space-y-8'>
           {jobs.map((job, index) => (
             <CareerItem key={index} {...job} index={index} />
           ))}

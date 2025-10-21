@@ -23,10 +23,10 @@ const ProjectCard = ({ item, className }: Properties) => {
   const { title, technologies, images, websiteLink, cta } = item || {};
 
   return (
-    <BoxWithBackground>
+    <BoxWithBackground className='transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl'>
       <article
         className={clsx(
-          'group relative p-6 hover:z-40 flex flex-col-reverse gap-10 h-full w-full md:grid md:grid-cols-5 md:transition-all',
+          'group relative p-6 hover:z-40 flex flex-col-reverse gap-10 h-full w-full md:grid md:grid-cols-5',
           'bg-gradient-to-t md:bg-gradient-to-r from-zinc-950 to-zinc-900/70',
           className
         )}
@@ -55,7 +55,8 @@ const ProjectCard = ({ item, className }: Properties) => {
               label={cta}
               data-umami-event='project_cta_click'
               data-umami-event-project={title}
-              className='w-full'
+              className='w-full font-semibold'
+              variant='primary'
             />
           </Link>
         </div>

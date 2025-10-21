@@ -18,7 +18,7 @@ const ContactSection: React.FC = () => {
       >
         <div className='w-full space-y-16'>
           {/* Header Section */}
-          <div className='space-y-6 text-center'>
+          <div className='space-y-8 text-center'>
             <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Contact</p>
             <h2 className='text-4xl md:text-6xl font-bold'>
               <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text'>
@@ -33,7 +33,7 @@ const ContactSection: React.FC = () => {
 
           {/* Contact Info Cards */}
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            <div className='p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-blue-500/50 transition-colors'>
+            <div className='p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-blue-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10'>
               <div className='flex items-center gap-3 mb-3'>
                 <div className='p-2 bg-blue-500/10 rounded-lg'>
                   <MessageSquare size={20} className='text-blue-400' />
@@ -45,7 +45,7 @@ const ContactSection: React.FC = () => {
               </p>
             </div>
 
-            <div className='p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-purple-500/50 transition-colors'>
+            <div className='p-6 bg-zinc-900/50 border border-zinc-800 rounded-lg hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-purple-500/10'>
               <div className='flex items-center gap-3 mb-3'>
                 <div className='p-2 bg-purple-500/10 rounded-lg'>
                   <Send size={20} className='text-purple-400' />

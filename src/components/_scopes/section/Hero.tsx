@@ -53,7 +53,7 @@ const Hero = () => {
         </header>
 
         {/* CTAs */}
-        <div className='flex flex-col sm:flex-row gap-4 mb-12 z-10'>
+        <div className='flex flex-col sm:flex-row gap-4 mb-16 z-10'>
           <Link href='#portfolio' passHref>
             <Button
               svg={<MoveDown strokeWidth={1.5} size={20} aria-hidden='true' />}
@@ -62,6 +62,7 @@ const Hero = () => {
               variant='primary'
               data-umami-event='hero_cta_click'
               aria-describedby='hero-description'
+              className='min-w-[200px] font-semibold'
             />
           </Link>
           <Link href='#contact' passHref>
@@ -71,6 +72,7 @@ const Hero = () => {
               size='xl'
               variant='secondary'
               data-umami-event='hero_contact_click'
+              className='min-w-[200px]'
             />
           </Link>
         </div>

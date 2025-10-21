@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import ContactInfo from './ContactInfo';
 
-import { Briefcase,CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
+import { Briefcase, CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const quickLinks = [
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className='text-zinc-400 hover:text-blue-400 transition-colors text-sm'
+                    className='text-zinc-400 hover:text-blue-400 transition-all duration-200 text-sm hover:translate-x-1 inline-block'
                   >
                     {link.name}
                   </Link>

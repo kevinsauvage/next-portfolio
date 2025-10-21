@@ -40,15 +40,18 @@ const Button = ({
 
   const styleVariant = clsx(
     variant === 'primary' &&
-      'text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-1 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium px-5 py-2.5 text-center me-2 mb-2',
+      'text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 focus:ring-2 focus:outline-none focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40',
     variant === 'secondary' &&
-      'relative inline-flex items-center justify-center  px-5 py-2.5 mb-2 me-2 overflow-hidden text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800'
+      'relative inline-flex items-center justify-center overflow-hidden text-zinc-100 rounded-lg bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 focus:ring-2 focus:outline-none focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-md hover:shadow-lg'
   );
 
   return (
     <button
       className={clsx(
         'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap rounded-md font-medium',
+        'transition-all duration-300 ease-out',
+        'hover:scale-105 hover:shadow-xl active:scale-95',
+        'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
         styleSize,
         styleVariant,
         loading && 'cursor-default',

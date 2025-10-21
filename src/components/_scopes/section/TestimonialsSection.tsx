@@ -77,7 +77,7 @@ const TestimonialCard: React.FC<{
 const TestimonialsSection: React.FC = () => {
   return (
     <Section id='testimonials'>
-      <div className='space-y-16'>
+      <div className='space-y-20'>
         {/* Header Section */}
         <div className='space-y-6'>
           <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Testimonials</p>
@@ -93,7 +93,7 @@ const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className='grid grid-cols-1 gap-8 lg:grid-cols-2'>
+        <div className='grid grid-cols-1 gap-10 lg:grid-cols-2'>
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={`${testimonial.author.name}-${index}`}
