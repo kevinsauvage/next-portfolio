@@ -142,7 +142,7 @@ const ContactForm = () => {
           />
 
           <Button
-            className='mt-2 w-full'
+            className='mt-2'
             svg={<LucideSend role='img' size={18} aria-hidden='true' />}
             label={isSubmitting ? 'Sending...' : 'Send Message'}
             type='submit'
@@ -150,7 +150,7 @@ const ContactForm = () => {
             disabled={isSubmitting}
             loading={isSubmitting}
             variant='primary'
-            size='lg'
+            size='md'
             data-umami-event='contact_form_submit'
             aria-live='polite'
           />
