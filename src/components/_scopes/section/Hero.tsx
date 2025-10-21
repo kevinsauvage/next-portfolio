@@ -8,9 +8,9 @@ import { Mail, MoveDown, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   const stats = [
-    { label: 'Years Experience', value: '5+' },
-    { label: 'Projects Completed', value: '50+' },
-    { label: 'Clients', value: '30+' },
+    { label: 'Products Scaled', value: '5+' },
+    { label: 'Pull Requests Merged', value: '400+' },
+    { label: 'Users Impacted', value: '1M+' },
   ];
 
   return (

@@ -3,17 +3,7 @@ import GlowEffect from '@/components/GlowEffect';
 
 import Section from './_components/Section';
 
-import {
-  CheckCircle,
-  Code,
-  Heart,
-  MessageCircle,
-  Puzzle,
-  Sparkles,
-  TrendingUp,
-  Users,
-  Zap,
-} from 'lucide-react';
+import { CheckCircle, Code, MessageCircle } from 'lucide-react';
 
 const PassionCard: React.FC<{
   icon: React.ElementType;
@@ -95,7 +85,7 @@ const AboutSection: React.FC = () => {
           >
             <div className='flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full backdrop-blur-sm'>
               <div className='h-2 w-2 rounded-full bg-blue-400 animate-pulse' />
-              <span className='text-lg font-semibold text-blue-400'>5+ Years Experience</span>
+              <span className='text-lg font-semibold text-blue-400'>4+ Years Experience</span>
             </div>
           </div>
           <p
@@ -103,7 +93,7 @@ const AboutSection: React.FC = () => {
             style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
           >
             I&apos;m a Frontend Developer based in Barcelona. I build elegant, high-performance web
-            apps with accessibility in mind. With 5+ years of experience, I focus on React and
+            apps with accessibility in mind. With 4+ years of experience, I focus on React and
             Next.js.
           </p>
         </div>
