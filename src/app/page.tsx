@@ -3,6 +3,7 @@ import CareerSection from '@/components/_scopes/section/CareerSection';
 import ContactSection from '@/components/_scopes/section/ContactSection';
 import Hero from '@/components/_scopes/section/Hero';
 import PortfolioSection from '@/components/_scopes/section/PortfolioSection';
+import TestimonialsSection from '@/components/_scopes/section/TestimonialsSection';
 import GoogleReCaptchaProviderWrapper from '@/components/GoogleReCaptchaProviderWrapper';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
         <AboutSection />
         <PortfolioSection />
         <CareerSection />
+        <TestimonialsSection />
       </div>
       <GoogleReCaptchaProviderWrapper>
         <ContactSection />
