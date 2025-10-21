@@ -1,14 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "lib": [
-      "ES2022",
-      "DOM",
-      "DOM.Iterable"
-    ],
-    "types": [
-      "vitest/globals"
-    ],
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["vitest/globals"],
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
@@ -24,9 +18,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "plugins": [
       {
@@ -59,10 +51,5 @@
     "globals.d.ts",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules",
-    ".next",
-    "out",
-    "dist"
-  ]
+  "exclude": ["node_modules", ".next", "out", "dist"]
 }

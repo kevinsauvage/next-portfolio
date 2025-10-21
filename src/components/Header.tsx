@@ -72,10 +72,10 @@ const Header = () => {
           menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
         onClick={() => setMenuOpen(false)}
-        onKeyDown={(e) => e.key === 'Escape' && setMenuOpen(false)}
-        role="button"
+        onKeyDown={e => e.key === 'Escape' && setMenuOpen(false)}
+        role='button'
         tabIndex={0}
-        aria-label="Close navigation menu"
+        aria-label='Close navigation menu'
       >
         <div
           className={clsx(
@@ -84,9 +84,9 @@ const Header = () => {
           )}
           onClick={e => e.stopPropagation()}
           onKeyDown={e => e.stopPropagation()}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Navigation menu"
+          role='dialog'
+          aria-modal='true'
+          aria-label='Navigation menu'
         >
           <div className='flex flex-col h-full'>
             {/* Mobile Menu Header */}
