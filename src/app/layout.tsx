@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Josefin_Sans, League_Spartan } from 'next/font/google';
 import Script from 'next/script';
 
+import BackToTopButton from '@/components/BackToTopButton';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import MouseFollowGradientBackground from '@/components/MouseFollowGradientBackground';
@@ -121,6 +122,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {children}
           </main>
           <Footer />
+          <BackToTopButton />
         </NotificationProvider>
         <Analytics />
       </body>
