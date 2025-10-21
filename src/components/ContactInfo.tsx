@@ -4,12 +4,12 @@ import socialButton from '@/config/socialButton';
 import Link from 'next/link';
 
 const ContactInfo = () => (
-  <ul className='flex gap-6'>
+  <ul className='flex gap-4 flex-wrap'>
     {socialButton.map(item => (
       <li key={item.href}>
         <Link
           href={item.href}
-          className='text-zinc-100 md:hover:text-blue-400'
+          className='text-zinc-400 hover:text-blue-400 transition-colors flex items-center gap-2 group'
           aria-label={`${item.text} on a new page`}
           target='_blank'
           prefetch={false}
@@ -20,6 +20,7 @@ const ContactInfo = () => (
         >
           {cloneElement(item.icon, {
             'aria-label': item.text,
+            size: 24,
           })}
         </Link>
       </li>
