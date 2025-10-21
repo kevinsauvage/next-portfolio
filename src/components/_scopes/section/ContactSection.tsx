@@ -1,4 +1,7 @@
+'use client';
+
 import BoxWithBackground from '@/components/BoxWithBackground';
+import GoogleReCaptchaProviderWrapper from '@/components/GoogleReCaptchaProviderWrapper';
 
 import ContactForm from '../form/ContactForm';
 
@@ -59,7 +62,9 @@ const ContactSection: React.FC = () => {
           </div>
 
           {/* Form */}
-          <ContactForm />
+          <GoogleReCaptchaProviderWrapper>
+            <ContactForm />
+          </GoogleReCaptchaProviderWrapper>
         </div>
       </Section>
     </BoxWithBackground>
