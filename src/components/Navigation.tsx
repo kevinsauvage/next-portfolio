@@ -1,14 +1,16 @@
 'use client';
 
 import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 import clsx from 'clsx';
-import { MoveUpRight } from 'lucide-react';
 
 const Navigation: React.FC<{
   menuOpen: boolean;
   closeMenu: () => void;
-}> = ({ menuOpen, closeMenu }) => {
+}> = ({ closeMenu }) => {
+  const [activeSection, setActiveSection] = useState('home');
+
   const navItems = [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
@@ -18,42 +20,52 @@ const Navigation: React.FC<{
     { href: '#contact', label: 'Contact' },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navItems.map(item => item.href.substring(1));
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className='flex items-center gap-4 order-4 lg:order-none'>
-      <div
-        className={clsx(
-          'lg:flex items-center gap-4',
-          !menuOpen && 'hidden lg:flex',
-          menuOpen && 'fixed inset-0 bg-black z-50'
-        )}
-      >
-        <div
-          className={clsx(
-            'flex flex-col justify-end gap-4 p-6 bg-clip-padding backdrop-filter backdrop-blur-sm  h-dvh w-full fixed left-[50%] translate-x-[-50%] max-w-max mx-auto bg-black z-50  ',
-            menuOpen && 'max-w-none',
-            'lg:items-center lg:rounded-lg lg:py-4 lg:px-6  lg:border lg:border-zinc-700 lg:flex-row lg:bg-opacity-65 lg:w-fit lg:h-fit lg:bottom-auto lg:gap-6 lg:p-4'
-          )}
-        >
-          {navItems?.map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              onClick={closeMenu}
-              aria-label={`Go to ${label} section`}
-              data-umami-event='header_nav_click'
-              data-umami-event-label={label}
-              className={clsx(
-                'flex items-center justify-between rounded-md p-6 gap-4 border bg-zinc-950 border-zinc-700 w-full font-normal whitespace-nowrap text-lg last:mb-0 no-underline text-zinc-100',
-                'lg:border-none lg:p-0 lg:bg-transparent lg:font-light'
-              )}
-            >
-              {label}
-              <MoveUpRight aria-label='Hire me' strokeWidth={1.5} size={18} className='lg:hidden' />
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
+    <nav className='flex items-center'>
+      {/* Desktop Navigation */}
+      <ul className='hidden lg:flex items-center gap-1'>
+        {navItems.map(({ label, href }) => {
+          const isActive = activeSection === href.substring(1);
+          return (
+            <li key={label}>
+              <Link
+                href={href}
+                onClick={closeMenu}
+                aria-label={`Go to ${label} section`}
+                data-umami-event='header_nav_click'
+                data-umami-event-label={label}
+                className={clsx(
+                  'px-4 py-2 rounded-md text-sm font-medium transition-all duration-200',
+                  isActive
+                    ? 'text-blue-400 bg-blue-400/10'
+                    : 'text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800/50'
+                )}
+              >
+                {label}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 };
 
