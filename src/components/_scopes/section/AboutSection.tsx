@@ -74,11 +74,11 @@ const AboutSection: React.FC = () => {
           style={{ animationFillMode: 'both' }}
         >
           <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>About me</p>
-          <h1 className='text-4xl md:text-6xl font-bold mb-6'>
+          <h2 className='text-4xl md:text-6xl font-bold mb-6'>
             <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-gradient'>
               Hi, I&apos;m Kévin Sauvage
             </span>
-          </h1>
+          </h2>
           <div
             className='flex flex-wrap items-center gap-6 mb-8 animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
