@@ -20,12 +20,11 @@ const Hero = () => {
     >
       {/* Animated gradient orbs */}
       <div className='absolute inset-0 overflow-hidden pointer-events-none'>
-        <div className='absolute top-1/4 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float' />
+        <div className='absolute top-1/4 left-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-float' />
         <div
-          className='absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float'
+          className='absolute bottom-1/4 right-0 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-float'
           style={{ animationDelay: '2s' }}
         />
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse-slow' />
       </div>
 
       <section
@@ -57,7 +56,7 @@ const Hero = () => {
               Crafting High-Performance
             </span>{' '}
             <span
-              className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-fade-in-up opacity-0'
+              className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-fade-in-up opacity-0'
               style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
             >
               Accessible Web Experiences

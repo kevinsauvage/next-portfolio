@@ -36,7 +36,7 @@ const ProjectCard: React.FC<{
         aria-labelledby={`project-title-${index}`}
       >
         <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
-        <GlowEffect variant='blue-purple' intensity='medium' />
+        <GlowEffect variant='primary-secondary' intensity='medium' />
         <div className='relative z-10 grid grid-cols-1 md:grid-cols-5 gap-8 p-8'>
           {/* Image Section */}
           <div className='md:col-span-2 flex items-center justify-center'>
@@ -64,7 +64,7 @@ const ProjectCard: React.FC<{
               </div>
               <h3
                 id={`project-title-${index}`}
-                className='text-3xl font-bold text-zinc-100 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300'
+                className='text-3xl font-bold text-zinc-100 group-hover:text-accent-400 transition-all duration-300'
               >
                 {title}
               </h3>
@@ -121,15 +121,15 @@ const ProjectCard: React.FC<{
 const PortfolioSection: React.FC = () => {
   return (
     <Section id='portfolio'>
-      <div className='space-y-20'>
+      <div className='space-y-32'>
         {/* Header Section */}
         <div
           className='space-y-6 animate-fade-in-up opacity-0'
           style={{ animationFillMode: 'both' }}
         >
-          <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Portfolio</p>
+          <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>Portfolio</p>
           <h2 className='text-4xl md:text-6xl font-bold'>
-            <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-gradient'>
+            <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'>
               Featured Projects
             </span>
           </h2>

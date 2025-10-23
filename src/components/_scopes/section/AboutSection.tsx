@@ -22,15 +22,15 @@ const PassionCard: React.FC<{
         aria-label={title}
       >
         <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
-        <GlowEffect variant='purple-pink' intensity='low' />
+        <GlowEffect variant='secondary-accent' intensity='low' />
         <div className='relative z-10 space-y-4'>
           <div
-            className='inline-flex p-3 rounded-xl bg-gradient-to-br from-blue-600 to-purple-600 group-hover:from-blue-500 group-hover:to-purple-500 transition-all duration-300 shadow-glow-sm group-hover:shadow-glow-md'
+            className='inline-flex p-3 rounded-xl bg-gradient-to-br from-primary-600 to-secondary-600 group-hover:from-primary-500 group-hover:to-secondary-500 transition-all duration-300 shadow-glow-sm group-hover:shadow-glow-md'
             aria-hidden='true'
           >
             <Icon className='w-6 h-6 text-white' aria-hidden='true' />
           </div>
-          <h3 className='text-xl font-bold text-zinc-100 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-400 group-hover:bg-clip-text transition-all duration-300'>
+          <h3 className='text-xl font-bold text-zinc-100 group-hover:text-accent-400 transition-all duration-300'>
             {title}
           </h3>
           <p className='text-zinc-300 leading-relaxed group-hover:text-zinc-200 transition-colors'>
@@ -45,15 +45,15 @@ const PassionCard: React.FC<{
 const AboutSection: React.FC = () => {
   return (
     <Section id='about'>
-      <div className='space-y-20'>
+      <div className='space-y-32'>
         {/* Hero Section */}
         <div
           className='space-y-6 animate-fade-in-up opacity-0'
           style={{ animationFillMode: 'both' }}
         >
-          <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>About me</p>
+          <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>About me</p>
           <h2 className='text-4xl md:text-6xl font-bold mb-6'>
-            <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-gradient'>
+            <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-gradient'>
               Hi, I&apos;m Kévin Sauvage
             </span>
           </h2>
@@ -84,7 +84,7 @@ const AboutSection: React.FC = () => {
           >
             My Philosophy
           </h2>
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
             {passions.map((passion, index) => (
               <PassionCard key={passion.title} {...passion} index={index} />
             ))}

@@ -25,7 +25,7 @@ const CareerItem: React.FC<{
         aria-labelledby={`career-${index}`}
       >
         <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
-        <GlowEffect variant='blue-purple' intensity='low' />
+        <GlowEffect variant='primary-secondary' intensity='low' />
         <div className='relative z-10 space-y-6'>
           {/* Header */}
           <div className='flex items-center gap-3 pb-4 border-b border-zinc-800'>
@@ -76,12 +76,12 @@ const CareerItem: React.FC<{
 const CareerSection = () => {
   return (
     <Section id='career'>
-      <div className='space-y-20'>
+      <div className='space-y-32'>
         {/* Header Section */}
         <div className='space-y-6'>
-          <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Career</p>
+          <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>Career</p>
           <h2 className='text-4xl md:text-6xl font-bold'>
-            <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text'>
+            <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'>
               Professional Journey
             </span>
           </h2>

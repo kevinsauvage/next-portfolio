@@ -135,7 +135,7 @@ const Header = () => {
                 <Link
                   href='#contact'
                   onClick={() => setMenuOpen(false)}
-                  className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium rounded-lg transition-all duration-200'
+                  className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-medium rounded-lg transition-all duration-200'
                 >
                   Get in Touch
                   <ChevronRight size={18} aria-hidden='true' />

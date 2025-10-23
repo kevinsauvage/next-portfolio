@@ -40,9 +40,9 @@ const Button = ({
 
   const styleVariant = clsx(
     variant === 'primary' &&
-      'text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 focus:ring-2 focus:outline-none focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 hover:shadow-glow-md relative overflow-hidden group',
+      'text-white bg-gradient-to-br from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 focus:ring-2 focus:outline-none focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:shadow-glow-md relative overflow-hidden group',
     variant === 'secondary' &&
-      'relative inline-flex items-center justify-center overflow-hidden text-zinc-100 rounded-lg bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 hover:border-blue-500/30 focus:ring-2 focus:outline-none focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-md hover:shadow-lg group'
+      'relative inline-flex items-center justify-center overflow-hidden text-zinc-100 rounded-lg bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 hover:border-secondary-500/30 focus:ring-2 focus:outline-none focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-md hover:shadow-lg group'
   );
 
   return (
@@ -73,7 +73,7 @@ const Button = ({
       {...rest}
     >
       {/* Shimmer effect for primary variant */}
-      {variant === 'primary' && (
+      {false && variant === 'primary' && (
         <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent' />
       )}
       {loading && (

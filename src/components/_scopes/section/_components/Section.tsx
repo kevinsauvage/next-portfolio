@@ -7,7 +7,7 @@ type SectionProperties = {
 
 const Section: React.FC<SectionProperties> = ({ children, className, ...properties }) => {
   return (
-    <section className={clsx('max-w-5xl m-auto w-full py-24 md:py-32', className)} {...properties}>
+    <section className={clsx('max-w-5xl m-auto w-full py-32 md:py-40', className)} {...properties}>
       {children}
     </section>
   );

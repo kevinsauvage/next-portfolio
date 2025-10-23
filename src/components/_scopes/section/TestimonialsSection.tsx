@@ -24,7 +24,7 @@ const TestimonialCard: React.FC<{
     >
       <article className='h-fit w-full p-6 relative overflow-hidden'>
         <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
-        <GlowEffect variant='purple-pink' intensity='low' />
+        <GlowEffect variant='secondary-accent' intensity='low' />
         <div className='relative z-10 h-full flex flex-col justify-between space-y-4'>
           {/* Quote Icon & Number */}
           <div className='flex items-start justify-between'>
@@ -82,9 +82,11 @@ const TestimonialsSection: React.FC = () => {
       <div className='space-y-12'>
         {/* Header Section */}
         <div className='space-y-4'>
-          <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Testimonials</p>
+          <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>
+            Testimonials
+          </p>
           <h2 className='text-3xl md:text-5xl font-bold'>
-            <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text'>
+            <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'>
               What Colleagues Say
             </span>
           </h2>

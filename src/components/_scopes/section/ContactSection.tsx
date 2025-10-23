@@ -15,15 +15,6 @@ const ContactSection: React.FC = () => {
       className='bg-zinc-900 rounded-none bg-gradient-to-t from-zinc-950 from-30% to-zinc-900/90 border-0 border-t'
       backgroundConfig={{ scale: 0.3, strokeWidth: 3 }}
     >
-      {/* Animated gradient orbs (glow effect) */}
-      <div className='absolute inset-0 overflow-hidden pointer-events-none z-0'>
-        <div className='absolute top-1/4 left-1 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float' />
-        <div
-          className='absolute bottom-1/4 right-2 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float'
-          style={{ animationDelay: '2s' }}
-        />
-        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse-slow' />
-      </div>
       <Section
         id='contact'
         className='px-6 py-12 md:py-20 max-w-4xl min-h-dvh flex flex-col justify-center items-center scroll-m-0 relative'
@@ -31,9 +22,9 @@ const ContactSection: React.FC = () => {
         <div className='w-full space-y-16 relative z-10'>
           {/* Header Section */}
           <div className='space-y-8 text-center'>
-            <p className='text-sm font-medium text-blue-400 tracking-wider uppercase'>Contact</p>
+            <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>Contact</p>
             <h2 className='text-4xl md:text-6xl font-bold'>
-              <span className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text'>
+              <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'>
                 Let&apos;s build something great
               </span>
             </h2>

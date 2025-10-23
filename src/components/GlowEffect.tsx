@@ -1,11 +1,11 @@
 type GlowEffectProps = {
-  variant?: 'blue-purple' | 'purple-pink' | 'blue-only' | 'purple-only';
+  variant?: 'primary-secondary' | 'secondary-accent' | 'primary-only' | 'secondary-only';
   intensity?: 'low' | 'medium' | 'high';
   className?: string;
 };
 
 const GlowEffect: React.FC<GlowEffectProps> = ({
-  variant = 'blue-purple',
+  variant = 'primary-secondary',
   intensity = 'medium',
   className = '',
 }) => {
@@ -16,34 +16,34 @@ const GlowEffect: React.FC<GlowEffectProps> = ({
   };
 
   const variantClasses = {
-    'blue-purple': (
+    'primary-secondary': (
       <>
         <div
-          className={`absolute -top-24 -right-24 ${intensityClasses[intensity]} bg-blue-500/20 rounded-full blur-3xl`}
+          className={`absolute -top-24 -right-24 ${intensityClasses[intensity]} bg-primary-500/20 rounded-full blur-3xl`}
         />
         <div
-          className={`absolute -bottom-24 -left-24 ${intensityClasses[intensity]} bg-purple-500/20 rounded-full blur-3xl`}
+          className={`absolute -bottom-24 -left-24 ${intensityClasses[intensity]} bg-secondary-500/20 rounded-full blur-3xl`}
         />
       </>
     ),
-    'purple-pink': (
+    'secondary-accent': (
       <>
         <div
-          className={`absolute top-0 right-0 ${intensityClasses[intensity]} bg-purple-500/20 rounded-full blur-3xl`}
+          className={`absolute top-0 right-0 ${intensityClasses[intensity]} bg-secondary-500/20 rounded-full blur-3xl`}
         />
         <div
-          className={`absolute bottom-0 left-0 ${intensityClasses[intensity]} bg-pink-500/20 rounded-full blur-3xl`}
+          className={`absolute bottom-0 left-0 ${intensityClasses[intensity]} bg-accent-500/20 rounded-full blur-3xl`}
         />
       </>
     ),
-    'blue-only': (
+    'primary-only': (
       <div
-        className={`absolute -top-24 -right-24 ${intensityClasses[intensity]} bg-blue-500/20 rounded-full blur-3xl`}
+        className={`absolute -top-24 -right-24 ${intensityClasses[intensity]} bg-primary-500/20 rounded-full blur-3xl`}
       />
     ),
-    'purple-only': (
+    'secondary-only': (
       <div
-        className={`absolute -bottom-24 -left-24 ${intensityClasses[intensity]} bg-purple-500/20 rounded-full blur-3xl`}
+        className={`absolute -bottom-24 -left-24 ${intensityClasses[intensity]} bg-secondary-500/20 rounded-full blur-3xl`}
       />
     ),
   };

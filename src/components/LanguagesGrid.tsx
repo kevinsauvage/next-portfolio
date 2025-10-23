@@ -1,6 +1,6 @@
 'use client';
 
-import { cloneElement,useEffect, useRef } from 'react';
+import { cloneElement, useEffect, useRef } from 'react';
 
 import languages from '@/config/languages.config';
 
@@ -91,7 +91,7 @@ const LanguagesGrid: React.FC = () => {
             boxesReference.current[index] = element;
           }}
           key={language.name}
-          className='rounded-xl p-5 bg-black border border-zinc-700 absolute animate-move opacity-0'
+          className='rounded-xl p-5 bg-black border border-zinc-700 absolute opacity-0'
         >
           {cloneElement(language.icon, { className: 'icon', size: 50 })}
         </div>
