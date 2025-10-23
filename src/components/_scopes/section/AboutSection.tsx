@@ -70,9 +70,9 @@ const AboutSection: React.FC = () => {
             className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-4xl animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
           >
-            I&apos;m a Frontend Developer based in Barcelona. I build elegant, high-performance web
-            apps with accessibility in mind. With 4+ years of experience, I focus on React and
-            Next.js.
+            I&apos;m a Frontend Developer in Barcelona, crafting high-performance, accessible web
+            applications. With over four years of experience, I specialize in building modern
+            solutions with React and Next.js that are both user-centric and robust.
           </p>
         </div>
 
