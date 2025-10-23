@@ -85,7 +85,7 @@ const Header = () => {
           aria-hidden='true'
         >
           <div
-            className='absolute right-0 top-0 h-full w-full max-w-sm bg-zinc-900 border-l border-zinc-800'
+            className='absolute right-0 top-0 h-full w-full max-w-sm bg-zinc-900 border-l border-zinc-800 animate-slide-in-left'
             onClick={e => e.stopPropagation()}
             onKeyDown={e => e.stopPropagation()}
             ref={mobileMenuRef}
@@ -95,9 +95,18 @@ const Header = () => {
           >
             <div className='flex flex-col h-full'>
               {/* Mobile Menu Header */}
-              <div className='p-6 border-b border-zinc-800'>
-                <h2 className='text-xl font-semibold text-zinc-100'>Navigation</h2>
-                <p className='text-sm text-zinc-500 mt-1'>Explore my portfolio</p>
+              <div className='p-6 border-b border-zinc-800 flex items-center justify-between'>
+                <div>
+                  <h2 className='text-xl font-semibold text-zinc-100'>Navigation</h2>
+                  <p className='text-sm text-zinc-500 mt-1'>Explore my portfolio</p>
+                </div>
+                <button
+                  onClick={() => setMenuOpen(false)}
+                  className='p-2 rounded-md hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center'
+                  aria-label='Close navigation menu'
+                >
+                  <X size={24} strokeWidth={1.5} className='text-zinc-400' aria-hidden='true' />
+                </button>
               </div>
 
               {/* Mobile Menu Items */}
@@ -117,7 +126,7 @@ const Header = () => {
                       aria-label={`Go to ${label} section`}
                       data-umami-event='header_nav_click'
                       data-umami-event-label={label}
-                      className='flex items-center justify-between p-4 mb-2 rounded-lg bg-zinc-800/50 border border-zinc-700/50 hover:border-blue-500/50 hover:bg-zinc-800 transition-all duration-200 group'
+                      className='flex items-center justify-between p-4 mb-2 rounded-lg bg-zinc-800/50 border border-zinc-700/50 hover:border-primary-500/50 hover:bg-zinc-800 active:bg-zinc-700 transition-all duration-200 group min-h-[56px]'
                     >
                       <span className='text-zinc-100 font-medium text-lg'>{label}</span>
                       <ChevronRight

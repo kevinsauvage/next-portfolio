@@ -17,7 +17,7 @@ const CareerItem: React.FC<{
 }> = ({ company, description, period, position, location, index }) => {
   return (
     <BoxWithBackground
-      className='group hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500'
+      className='group hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500'
       backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
     >
       <article

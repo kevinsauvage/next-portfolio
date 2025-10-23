@@ -14,7 +14,7 @@ const ExpertiseCard: React.FC<{
 }> = ({ title, content, keyPoints, index }) => {
   return (
     <BoxWithBackground
-      className='group hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 animate-fade-in-up opacity-0'
+      className='group hover:shadow-2xl hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-500 animate-fade-in-up opacity-0'
       backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
       style={{ animationDelay: `${index * 0.15}s`, animationFillMode: 'both' }}
     >

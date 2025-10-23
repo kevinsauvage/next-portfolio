@@ -27,7 +27,7 @@ const ProjectCard: React.FC<{
 
   return (
     <BoxWithBackground
-      className='group hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500 animate-fade-in-up opacity-0'
+      className='group hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500 animate-fade-in-up opacity-0'
       backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
       style={{ animationDelay: `${index * 0.2}s`, animationFillMode: 'both' }}
     >

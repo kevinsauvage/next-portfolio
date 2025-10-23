@@ -19,7 +19,7 @@ const TestimonialCard: React.FC<{
 }> = ({ author, content, date, index }) => {
   return (
     <BoxWithBackground
-      className='group h-fit hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500'
+      className='group h-fit hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500'
       backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
     >
       <article className='h-fit w-full p-6 relative overflow-hidden'>
