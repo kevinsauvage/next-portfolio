@@ -1,17 +1,20 @@
 'use server';
 
+import { env } from '@/lib/env';
+import { logError } from '@/lib/error-tracking';
+
 import emailjs from '@emailjs/nodejs';
 
-const serviceId = process.env['email_js_service_id'] as string;
-const publicKey = process.env['email_js_public_key'] as string;
-const privateKey = process.env['email_js_private_key'] as string;
-const templateId = process.env['email_js_template_id'] as string;
+const serviceId = env.email_js_service_id;
+const publicKey = env.email_js_public_key;
+const privateKey = env.email_js_private_key;
+const templateId = env.email_js_template_id;
 
 const keyParameters = { privateKey, publicKey };
 
 async function validateCaptcha(captchaToken: string): Promise<boolean> {
   const minimumCaptchaScore = 0.7;
-  const secretKey = process.env['RECAPTCHA_SECRET_KEY'] || '';
+  const secretKey = env.RECAPTCHA_SECRET_KEY;
   const data = new FormData();
   data.append('secret', secretKey);
   data.append('response', captchaToken);
@@ -38,7 +41,7 @@ export async function sendMail(data: {
     await emailjs.send(serviceId, templateId, data, keyParameters);
     return { success: true };
   } catch (error) {
-    console.error('FAILED...', error);
+    logError(new Error('Failed to send email'), { error });
     return { success: false, error: 'Failed to send email' };
   }
 }
