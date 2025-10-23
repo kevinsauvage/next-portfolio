@@ -66,7 +66,11 @@ const Footer: React.FC = () => {
           {/* Tech Stack */}
           <div>
             <h3 className='text-zinc-100 text-lg font-semibold mb-4 flex items-center gap-2'>
-              <Code2 size={20} className='transition-transform hover:rotate-12' aria-hidden='true' />
+              <Code2
+                size={20}
+                className='transition-transform hover:rotate-12'
+                aria-hidden='true'
+              />
               Tech Stack
             </h3>
             <div className='flex flex-wrap gap-2'>
@@ -84,16 +88,28 @@ const Footer: React.FC = () => {
           {/* Status & Availability */}
           <div>
             <h3 className='text-zinc-100 text-lg font-semibold mb-4 flex items-center gap-2'>
-              <Briefcase size={20} className='transition-transform hover:rotate-12' aria-hidden='true' />
+              <Briefcase
+                size={20}
+                className='transition-transform hover:rotate-12'
+                aria-hidden='true'
+              />
               Availability
             </h3>
             <div className='space-y-3'>
               <div className='flex items-center gap-2'>
-                <CheckCircle2 size={18} className='text-green-400 transition-transform hover:rotate-12' aria-hidden='true' />
+                <CheckCircle2
+                  size={18}
+                  className='text-green-400 transition-transform hover:rotate-12'
+                  aria-hidden='true'
+                />
                 <span className='text-sm text-zinc-200'>Open to opportunities</span>
               </div>
               <div className='flex items-center gap-2'>
-                <MapPin size={18} className='text-blue-400 transition-transform hover:rotate-12' aria-hidden='true' />
+                <MapPin
+                  size={18}
+                  className='text-blue-400 transition-transform hover:rotate-12'
+                  aria-hidden='true'
+                />
                 <span className='text-sm text-zinc-200'>Barcelona, Spain</span>
               </div>
             </div>

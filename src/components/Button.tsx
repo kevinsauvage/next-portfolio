@@ -83,7 +83,9 @@ const Button = ({
       )}
       <span className='w-full flex items-center justify-center gap-2 relative z-10'>
         {label}
-        <span className='transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-6'>{svg}</span>
+        <span className='transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-6'>
+          {svg}
+        </span>
       </span>
     </button>
   );
