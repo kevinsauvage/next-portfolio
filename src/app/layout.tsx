@@ -6,6 +6,7 @@ import BackToTopButton from '@/components/BackToTopButton';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import MouseFollowGradientBackground from '@/components/MouseFollowGradientBackground';
+import { WebVitals } from '@/components/WebVitals';
 import NotificationProvider from '@/contexts/NotificationContext';
 
 import '@/styles/globals.scss';
@@ -13,9 +14,14 @@ import '@/styles/globals.scss';
 import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 
-const jsonLd = {
+const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  name: 'Kévin Sauvage',
+  jobTitle: 'Frontend Developer',
+  email: 'contact@kevin-sauvage.com',
+  url: 'https://www.kevin-sauvage.com',
+  description: 'Developing performance-focused, inclusive web products that leave no one behind.',
   about:
     'I specialize in building high-performance web applications with a focus on accessibility and inclusivity. Passionate about delivering seamless experiences to users of all abilities.',
   address: {
@@ -23,26 +29,23 @@ const jsonLd = {
     addressCountry: 'ES',
     addressLocality: 'Spain',
   },
-  description: 'Developing performance-focused, inclusive web products that leave no one behind.',
-  email: 'contact@kevin-sauvage.com',
   hasOccupation: {
     '@type': 'Occupation',
-    description: 'Frontend Developer specializing in React, Next.js, and web accessibility',
     name: 'Frontend Developer',
+    description: 'Frontend Developer specializing in React, Next.js, and web accessibility',
     occupationLocation: {
       '@type': 'Place',
       name: 'Decathlon International',
     },
   },
-  jobTitle: 'Frontend Developer',
   knowsAbout: [
     'JavaScript',
-    'Web Accessibility',
+    'TypeScript',
     'React',
     'Next.js',
+    'Web Accessibility',
     'Frontend Development',
     'Performance Optimization',
-    'TypeScript',
     'HTML',
     'CSS',
     'Sass',
@@ -55,19 +58,35 @@ const jsonLd = {
     'SEO',
     'User Experience',
   ],
-  mainEntityOfPage: {
-    '@id': 'https://www.kevin-sauvage.com',
-    '@type': 'WebPage',
-    description: 'Portfolio website of Kévin Sauvage, Frontend Developer',
-    name: 'Kévin Sauvage - Portfolio',
-  },
-  name: 'Kévin Sauvage',
   sameAs: [
     'https://www.linkedin.com/in/kevin-sauvage',
     'https://github.com/kevinsauvage',
     'https://www.kevin-sauvage.com',
   ],
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Kévin Sauvage - Portfolio',
   url: 'https://www.kevin-sauvage.com',
+  author: {
+    '@type': 'Person',
+    name: 'Kévin Sauvage',
+  },
+  description: 'Portfolio website of Kévin Sauvage, Frontend Developer',
+  inLanguage: 'en',
+};
+
+const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Kévin Sauvage - Frontend Development Services',
+  url: 'https://www.kevin-sauvage.com',
+  description:
+    'Professional frontend development services specializing in React, Next.js, and web accessibility',
+  areaServed: 'Worldwide',
+  serviceType: 'Frontend Development',
 };
 
 const LeagueSpartan = League_Spartan({
@@ -107,7 +126,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <body className='w-full h-full text-zinc-50 antialiased font-base font-light'>
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
         />
         <Script
           strategy='lazyOnload'
@@ -136,6 +163,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <Footer />
           <BackToTopButton />
         </NotificationProvider>
+        <WebVitals />
         <Analytics />
       </body>
     </html>
