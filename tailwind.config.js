@@ -11,7 +11,7 @@ module.exports = {
         cover: 'cover',
       },
       colors: {
-        'regal-blue': '#243c5a',
+        // Primary: Used for main CTAs and important actions
         primary: {
           50: '#f0f9ff',
           100: '#e0f2fe',
@@ -25,11 +25,36 @@ module.exports = {
           900: '#0c4a6e',
           950: '#082f49',
         },
-        accent: {
-          purple: '#a855f7',
-          pink: '#ec4899',
-          blue: '#3b82f6',
+        // Secondary: Used for highlights and secondary actions
+        secondary: {
+          50: '#faf5ff',
+          100: '#f3e8ff',
+          200: '#e9d5ff',
+          300: '#d8b4fe',
+          400: '#c084fc',
+          500: '#a855f7',
+          600: '#9333ea',
+          700: '#7c3aed',
+          800: '#6b21a8',
+          900: '#581c87',
+          950: '#3b0764',
         },
+        // Accent: Warm accent color for special highlights
+        accent: {
+          50: '#fffbeb',
+          100: '#fef3c7',
+          200: '#fde68a',
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',
+          600: '#d97706',
+          700: '#b45309',
+          800: '#92400e',
+          900: '#78350f',
+          950: '#451a03',
+        },
+        // Legacy colors - keep for backward compatibility
+        'regal-blue': '#243c5a',
       },
       fontFamily: {
         heading: ['var(--font-heading)'],
@@ -48,10 +73,10 @@ module.exports = {
         'slide-in-right': 'slideInRight 0.5s ease-out',
         'slide-in-left': 'slideInLeft 0.5s ease-out',
         'scale-in': 'scaleIn 0.5s ease-out',
-        'bounce-slow': 'bounce 3s infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        gradient: 'gradient 8s ease infinite',
-        float: 'float 6s ease-in-out infinite',
+        'bounce-slow': 'bounce 2s infinite',
+        'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        gradient: 'gradient 4s ease infinite',
+        float: 'float 4s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -91,14 +116,15 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         'mesh-gradient':
-          'radial-gradient(at 27% 37%, hsla(215, 98%, 61%, 1) 0px, transparent 0%), radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%), radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%), radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%), radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%), radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%), radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%)',
+          'radial-gradient(at 27% 37%, hsla(199, 89%, 48%, 1) 0px, transparent 0%), radial-gradient(at 97% 21%, hsla(262, 83%, 58%, 1) 0px, transparent 50%), radial-gradient(at 52% 99%, hsla(43, 96%, 56%, 1) 0px, transparent 50%), radial-gradient(at 10% 29%, hsla(217, 91%, 60%, 1) 0px, transparent 50%), radial-gradient(at 97% 96%, hsla(27, 87%, 67%, 1) 0px, transparent 50%), radial-gradient(at 33% 50%, hsla(199, 89%, 48%, 1) 0px, transparent 50%), radial-gradient(at 79% 53%, hsla(262, 83%, 58%, 1) 0px, transparent 50%)',
       },
       boxShadow: {
-        'glow-sm': '0 0 10px rgba(59, 130, 246, 0.5)',
-        'glow-md': '0 0 20px rgba(59, 130, 246, 0.5)',
-        'glow-lg': '0 0 30px rgba(59, 130, 246, 0.5)',
-        'glow-purple': '0 0 30px rgba(168, 85, 247, 0.5)',
-        'inner-glow': 'inset 0 0 20px rgba(59, 130, 246, 0.2)',
+        'glow-sm': '0 0 10px rgba(14, 165, 233, 0.5)', // primary-500
+        'glow-md': '0 0 20px rgba(14, 165, 233, 0.5)', // primary-500
+        'glow-lg': '0 0 30px rgba(14, 165, 233, 0.5)', // primary-500
+        'glow-secondary': '0 0 30px rgba(168, 85, 247, 0.5)', // secondary-500
+        'glow-accent': '0 0 30px rgba(245, 158, 11, 0.5)', // accent-500
+        'inner-glow': 'inset 0 0 20px rgba(14, 165, 233, 0.2)', // primary-500
       },
     },
   },
