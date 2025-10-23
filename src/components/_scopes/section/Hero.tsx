@@ -20,7 +20,7 @@ const Hero = () => {
     >
       {/* Animated gradient orbs */}
       <div className='absolute inset-0 overflow-hidden pointer-events-none'>
-        <div className='absolute top-1/4 left-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-float' />
+        <div className='absolute top-1 left-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-float' />
         <div
           className='absolute bottom-1/4 right-0 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-float'
           style={{ animationDelay: '2s' }}
