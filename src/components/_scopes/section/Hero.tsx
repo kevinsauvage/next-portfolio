@@ -120,7 +120,7 @@ const Hero = () => {
                   />
                 )}
               </div>
-              <div className='text-xs md:text-sm text-zinc-400 font-light group-hover:text-zinc-300 transition-colors'>
+              <div className='text-sm md:text-base text-zinc-300 font-light group-hover:text-zinc-200 transition-colors'>
                 {stat.label}
               </div>
             </div>

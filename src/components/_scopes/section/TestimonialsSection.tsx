@@ -37,7 +37,7 @@ const TestimonialCard: React.FC<{
           </div>
 
           {/* Testimonial Content */}
-          <blockquote className='flex-1 text-zinc-200 leading-relaxed text-base italic line-clamp-6 hover:line-clamp-none'>
+          <blockquote className='flex-1 text-zinc-200 leading-relaxed text-lg italic line-clamp-6 hover:line-clamp-none'>
             &quot;{content}&quot;
           </blockquote>
 
@@ -51,11 +51,11 @@ const TestimonialCard: React.FC<{
                 <cite className='text-zinc-100 font-bold text-base not-italic block'>
                   {author.name}
                 </cite>
-                <p className='text-zinc-400 text-sm'>{author.title}</p>
+                <p className='text-zinc-300 text-base'>{author.title}</p>
               </div>
             </div>
 
-            <div className='flex flex-wrap gap-3 text-xs text-zinc-400'>
+            <div className='flex flex-wrap gap-3 text-sm text-zinc-400'>
               <div className='flex items-center gap-2'>
                 <Briefcase size={12} aria-hidden='true' />
                 <span>{author.company}</span>

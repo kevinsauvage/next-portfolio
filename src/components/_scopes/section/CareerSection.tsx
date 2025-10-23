@@ -51,7 +51,7 @@ const CareerItem: React.FC<{
               <TrendingUp size={16} className='text-purple-400' aria-hidden='true' />
               <p className='text-xl font-semibold text-zinc-200'>{position}</p>
             </div>
-            <div className='flex flex-wrap gap-4 text-sm text-zinc-400'>
+            <div className='flex flex-wrap gap-4 text-sm text-zinc-300'>
               <div className='flex items-center gap-2'>
                 <Calendar size={14} className='text-zinc-500' aria-hidden='true' />
                 <span>{period}</span>
