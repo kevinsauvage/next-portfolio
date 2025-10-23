@@ -15,7 +15,12 @@ const handleReload = () => {
 
 const Error = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
-    // Log the error to an error reporting service
+    if (typeof window !== 'undefined' && window.umami) {
+      window.umami.track('app-error', {
+        message: error.message,
+        digest: error.digest,
+      });
+    }
     console.error('Application error:', error);
   }, [error]);
 
