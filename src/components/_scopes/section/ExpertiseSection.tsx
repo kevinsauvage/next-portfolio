@@ -19,7 +19,7 @@ const ExpertiseCard: React.FC<{
       style={{ animationDelay: `${index * 0.15}s`, animationFillMode: 'both' }}
     >
       <article
-        className='h-full w-full p-8 relative overflow-hidden'
+        className='h-full w-full p-5 sm:p-6 md:p-8 relative overflow-hidden'
         role='article'
         aria-label={title}
       >
@@ -57,7 +57,7 @@ const ExpertiseCard: React.FC<{
 const ExpertiseSection: React.FC = () => {
   return (
     <Section id='expertise'>
-      <div className='space-y-32'>
+      <div className='space-y-16 sm:space-y-24 md:space-y-32'>
         {/* Header Section */}
         <div
           className='space-y-6 animate-fade-in-up opacity-0'
@@ -79,7 +79,7 @@ const ExpertiseSection: React.FC = () => {
         </div>
 
         {/* Expertise Cards */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8'>
           {expertise.map((item, index) => (
             <ExpertiseCard key={item.title} {...item} index={index} />
           ))}

@@ -22,7 +22,7 @@ const TestimonialCard: React.FC<{
       className='group h-fit hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500'
       backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
     >
-      <article className='h-fit w-full p-6 relative overflow-hidden'>
+      <article className='h-fit w-full p-4 sm:p-5 md:p-6 relative overflow-hidden'>
         <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
         <GlowEffect variant='secondary-accent' intensity='low' />
         <div className='relative z-10 h-full flex flex-col justify-between space-y-4'>
@@ -79,7 +79,7 @@ const TestimonialCard: React.FC<{
 const TestimonialsSection: React.FC = () => {
   return (
     <Section id='testimonials'>
-      <div className='space-y-12'>
+      <div className='space-y-8 sm:space-y-10 md:space-y-12'>
         {/* Header Section */}
         <div className='space-y-4'>
           <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>
@@ -96,7 +96,7 @@ const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Testimonials Grid */}
-        <div className='grid grid-cols-1 gap-6 lg:grid-cols-2'>
+        <div className='grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2'>
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={`${testimonial.author.name}-${index}`}

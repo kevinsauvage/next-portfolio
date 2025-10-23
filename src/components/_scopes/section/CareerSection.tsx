@@ -21,7 +21,7 @@ const CareerItem: React.FC<{
       backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
     >
       <article
-        className='h-full w-full p-8 relative overflow-hidden'
+        className='h-full w-full p-5 sm:p-6 md:p-8 relative overflow-hidden'
         aria-labelledby={`career-${index}`}
       >
         <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
@@ -76,7 +76,7 @@ const CareerItem: React.FC<{
 const CareerSection = () => {
   return (
     <Section id='career'>
-      <div className='space-y-32'>
+      <div className='space-y-16 sm:space-y-24 md:space-y-32'>
         {/* Header Section */}
         <div className='space-y-6'>
           <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>Career</p>
@@ -92,7 +92,7 @@ const CareerSection = () => {
         </div>
 
         {/* Jobs Timeline */}
-        <div className='space-y-8'>
+        <div className='space-y-5 sm:space-y-7 md:space-y-8'>
           {jobs.map((job, index) => (
             <CareerItem key={index} {...job} index={index} />
           ))}

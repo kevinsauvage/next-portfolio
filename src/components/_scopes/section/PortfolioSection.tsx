@@ -37,7 +37,7 @@ const ProjectCard: React.FC<{
       >
         <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
         <GlowEffect variant='primary-secondary' intensity='medium' />
-        <div className='relative z-10 grid grid-cols-1 md:grid-cols-5 gap-8 p-8'>
+        <div className='relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 p-5 sm:p-6 md:p-8'>
           {/* Image Section */}
           <div className='md:col-span-2 flex items-center justify-center'>
             <div className='relative w-full aspect-video rounded-lg overflow-hidden border border-zinc-800 group-hover:border-blue-500/50 transition-all duration-300 shadow-lg group-hover:shadow-glow-md'>
@@ -121,7 +121,7 @@ const ProjectCard: React.FC<{
 const PortfolioSection: React.FC = () => {
   return (
     <Section id='portfolio'>
-      <div className='space-y-32'>
+      <div className='space-y-16 sm:space-y-24 md:space-y-32'>
         {/* Header Section */}
         <div
           className='space-y-6 animate-fade-in-up opacity-0'
@@ -143,7 +143,7 @@ const PortfolioSection: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className='space-y-10'>
+        <div className='space-y-6 sm:space-y-8 md:space-y-10'>
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}

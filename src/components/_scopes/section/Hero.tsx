@@ -102,7 +102,7 @@ const Hero = () => {
 
         {/* Stats */}
         <div
-          className='grid grid-cols-3 gap-8 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0'
+          className='grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0'
           style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
         >
           {stats.map(stat => (
