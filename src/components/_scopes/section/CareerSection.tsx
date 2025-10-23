@@ -86,8 +86,8 @@ const CareerSection = () => {
             </span>
           </h2>
           <p className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-4xl'>
-            My career path reflects a commitment to growth, innovation, and delivering exceptional
-            user experiences across diverse industries.
+            Evolving through roles dedicated to innovation, quality, and the relentless pursuit of
+            better user experiences.
           </p>
         </div>
 
