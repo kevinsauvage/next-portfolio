@@ -40,7 +40,7 @@ const ProjectCard: React.FC<{
         <div className='relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 p-5 sm:p-6 md:p-8'>
           {/* Image Section */}
           <div className='md:col-span-2 flex items-center justify-center'>
-            <div className='relative w-full aspect-video rounded-lg overflow-hidden border border-zinc-800 group-hover:border-blue-500/50 transition-all duration-300 shadow-lg group-hover:shadow-glow-md'>
+            <div className='relative w-full aspect-[16/10] sm:aspect-video rounded-lg overflow-hidden border border-zinc-800 group-hover:border-blue-500/50 transition-all duration-300 shadow-lg group-hover:shadow-glow-md'>
               <Image
                 src={images.thumbnail.src}
                 alt={images.thumbnail.alt}

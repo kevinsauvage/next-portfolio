@@ -50,7 +50,7 @@ const Hero = () => {
         >
           <h1
             id='hero-title'
-            className='text-5xl font-bold font-heading flex flex-col mb-6 text-zinc-100 max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'
+            className='text-4xl font-bold font-heading flex flex-col mb-6 text-zinc-100 max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'
           >
             <span className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
               Crafting High-Performance

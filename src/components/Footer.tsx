@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className='text-zinc-400 hover:text-blue-400 transition-all duration-200 text-sm hover:translate-x-1 py-2 flex items-center'
+                    className='text-zinc-400 hover:text-blue-400 transition-all duration-200 text-sm hover:translate-x-1 py-2 flex items-center min-h-[44px]'
                   >
                     {link.name}
                   </Link>
