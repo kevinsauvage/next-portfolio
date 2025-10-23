@@ -5,14 +5,14 @@ export const jobs = [
     period: 'October 2023 - Present',
     location: 'Remote',
     descriptionArray: [
-      'Created a scalable, reusable Svelte component library that improved performance and consistency of the platform for e-commerce sites in 15+ countries.',
-      'Led A/B tests for new features that resulted in observed improvements in user adoption and conversion rates.',
-      'Collaborated with product designers in Figma and Storybook, translating designs into high-quality production-ready code.',
-      'Developed and implemented a robust test suite (Jest, Cypress) to increase code confidence and reduce bugs.',
-      'Collaborated with cross-country teams to define feature configurations and manage feature requests, ensuring alignment across international markets.',
+      'Architected and built a scalable Svelte component library, adopted across e-commerce platforms in 15+ countries to enhance performance and ensure design consistency.',
+      'Spearheaded A/B testing initiatives for new features, directly contributing to measurable gains in user adoption and conversion.',
+      'Partnered closely with product designers in Figma and Storybook to translate complex design concepts into robust, production-ready code.',
+      'Championed code quality by implementing a comprehensive test suite (Jest, Cypress), boosting development confidence and reducing production bugs.',
+      'Collaborated with cross-functional, international teams to align feature development with diverse market needs and strategic goals.',
     ],
     description:
-      'At Decathlon International, I built a scalable Svelte component library used across e-commerce platforms in over 15 countries, enhancing performance and visual consistency. I also led A/B testing initiatives, implemented end-to-end testing strategies with Jest and Cypress, and collaborated closely with international teams and designers using Figma and Storybook to deliver high-quality, production-ready UI components.',
+      'As a Frontend Developer at Decathlon International, I architect and maintain a global Svelte component library that serves e-commerce platforms in over 15 countries, driving performance and consistency. My work involves leading A/B testing to inform data-driven feature development, ensuring code reliability through robust testing strategies, and collaborating with international teams to deliver high-impact, user-centric solutions.',
   },
   {
     company: 'Decathlon Spain',
@@ -20,15 +20,14 @@ export const jobs = [
     period: 'May 2022 - October 2023',
     location: 'Barcelona, Spain',
     descriptionArray: [
-      'Improved the core web vitals and made the Decathlon Spain online store more accessible.',
-      'Created modular, reusable Svelte components to ease the development of new features.',
-      'Developed automated testing frameworks (unit and integration) that ensured stability of the platform.',
-      'Reviewed performance metrics collection and analytics tools to identify and resolve performance issues, reducing average load time by 1.5 seconds.',
-      'Implemented accessibility standards (WCAG 2.1), making applications more inclusive for all users.',
-      'Documented technical solutions and best practices to improve team knowledge sharing.',
+      'Enhanced user experience by optimizing Core Web Vals, resulting in a measurable 1.5-second reduction in average page load time.',
+      'Engineered a suite of modular, reusable Svelte components to accelerate feature development and streamline team workflows.',
+      'Pioneered automated testing frameworks (unit and integration) that significantly improved platform stability and developer efficiency.',
+      'Advanced product inclusivity by implementing WCAG 2.1 accessibility standards, creating a more equitable experience for all users.',
+      'Authored clear technical documentation and established best practices to foster effective knowledge sharing within the team.',
     ],
     description:
-      'Focused on performance and accessibility improvements for Decathlon Spain’s e-commerce platform, optimizing Core Web Vitals and reducing load times significantly. I contributed reusable Svelte components, introduced automated unit and integration testing, and implemented accessibility standards (WCAG 2.1) to ensure inclusivity, while also maintaining comprehensive documentation to support internal knowledge sharing.',
+      'During my tenure with Decathlon Spain, I focused on elevating the core user experience of the national e-commerce platform. I delivered tangible performance improvements, including a 1.5-second load time reduction, built a reusable component system to speed up development, and embedded accessibility (WCAG 2.1) as a core principle. I also established automated testing and documentation practices to ensure long-term code health and team alignment.',
   },
   {
     company: 'Subforce',
@@ -36,13 +35,13 @@ export const jobs = [
     period: 'June 2021 - May 2022',
     location: 'France (Remote)',
     descriptionArray: [
-      'Created comprehensive web applications on both the client and server-side using React.js and Next.js with secure integrations through backends.',
-      'Designed and built scalable state management components using Redux and Context API.',
-      'Developed secure user authentication systems and streamlined form validation processes to ensure data integrity.',
-      'Designed and created accessible and easy-to-use user-facing form components.',
-      'Refactored legacy codebases to modern JavaScript standards, enhancing maintainability and reducing bugs.',
+      'Developed full-stack web applications with React.js and Next.js, focusing on seamless and secure backend integrations.',
+      'Designed and implemented scalable state management architectures using Redux and Context API to handle complex application data.',
+      'Built secure user authentication systems and streamlined form validation processes to ensure data integrity and a smooth user journey.',
+      'Transformed legacy JavaScript codebases into modern, maintainable systems, reducing technical debt and minimizing bugs.',
+      'Created intuitive and accessible user-facing components, with a focus on form usability and clarity.',
     ],
     description:
-      'At Subforce, I developed full-stack web applications using React.js and Next.js, integrating with secure backend systems. I designed scalable state management solutions with Redux and Context API, built user-friendly and accessible form components, and improved application reliability by modernizing legacy codebases and implementing secure authentication and validation flows.',
+      'At Subforce, I was responsible for end-to-end development of web applications using React.js and Next.js. I engineered scalable state management solutions, built secure and user-friendly authentication flows, and was instrumental in modernizing legacy code. My focus was on creating robust, maintainable, and intuitive user interfaces from the ground up.',
   },
 ];

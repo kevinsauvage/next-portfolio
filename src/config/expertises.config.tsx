@@ -1,42 +1,46 @@
 const expertise = [
   {
     title: 'Web App Development',
-    content: 'Custom, scalable applications built with React, TypeScript, and modern tooling.',
+    content:
+      'Building robust, scalable applications with modern frameworks like React, Next.js, and TypeScript.',
     keyPoints: [
-      'Custom React & Next.js Apps',
+      'Custom React & Next.js Solutions',
       'Type-Safe Development',
       'Responsive & Accessible UI',
     ],
   },
   {
-    title: 'Performance',
-    content: 'Making your site blazing fast to improve user experience and search rankings.',
-    keyPoints: ['Core Web Vitals', 'Speed & Load Time Optimization', 'Performance Audits'],
+    title: 'Performance Optimization',
+    content:
+      'Engineering faster, smoother experiences that improve user engagement and search engine visibility.',
+    keyPoints: ['Core Web Vitals', 'Rendering & Load Optimization', 'Performance Auditing'],
   },
   {
-    title: 'E-Commerce',
-    content: 'Fast, secure, and high-converting online stores tailored to your business.',
-    keyPoints: ['Headless Storefronts', 'Checkout & UX Optimization', 'Platform Integration'],
+    title: 'E-Commerce Solutions',
+    content:
+      'Developing high-converting online stores with a focus on user experience, security, and scalability.',
+    keyPoints: ['Headless Architecture', 'Checkout & Funnel Optimization', 'Platform Integration'],
   },
   {
     title: 'Accessibility (a11y)',
-    content:
-      'Building inclusive digital experiences that work for everyone, regardless of ability.',
+    content: 'Creating inclusive digital products that are usable and equitable for all people.',
     keyPoints: [
       'WCAG 2.1 Compliance',
-      'Screen Reader Optimization',
-      'Keyboard Navigation & Focus Management',
+      'Assistive Technology Support',
+      'Keyboard & Focus Management',
     ],
   },
   {
-    title: 'SEO & Data',
-    content: 'Driving organic growth with technical SEO and actionable insights from analytics.',
-    keyPoints: ['Technical SEO', 'Analytics & Conversion Tracking', 'Data-Driven Iteration'],
+    title: 'SEO & Data Strategy',
+    content:
+      'Implementing technical foundations and analytics to drive organic growth and inform strategic decisions.',
+    keyPoints: ['Technical SEO', 'Analytics Implementation', 'Data-Driven Iteration'],
   },
   {
-    title: 'Maintenance & Care',
-    content: 'Keeping your site secure, updated, and running smoothly 24/7.',
-    keyPoints: ['Security & Updates', 'Ongoing Support & Monitoring', 'Continuous Improvement'],
+    title: 'Maintenance & Evolution',
+    content:
+      'Providing ongoing care to ensure your application remains secure, modern, and performant.',
+    keyPoints: ['Proactive Updates & Security', 'Performance Monitoring', 'Continuous Improvement'],
   },
 ];
 export default expertise;

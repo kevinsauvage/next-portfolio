@@ -3,20 +3,20 @@ import { CheckCircle, Code, MessageCircle } from 'lucide-react';
 export const passions = [
   {
     icon: CheckCircle,
-    title: 'Delivering Value',
+    title: 'Driving Impact',
     description:
-      'My primary goal is to ship high-quality code that solves business problems and enhances the end-user experience. The success of my projects is measured by the tangible value they deliver.',
+      'I focus on shipping solutions that matter. My work is guided by a clear objective: to deliver tangible business results and a superior, seamless experience for the end-user.',
   },
   {
     icon: Code,
-    title: 'Technical Excellence',
+    title: 'Craftsmanship & Quality',
     description:
-      'I am committed to writing clean, maintainable, and efficient code. I actively invest time in learning emerging technologies and best practices to ensure my work meets a high standard of excellence.',
+      'I believe in building with intention. This means writing clean, scalable, and maintainable code, while continuously refining my skills with modern tools and practices.',
   },
   {
     icon: MessageCircle,
-    title: 'Collaborative Development',
+    title: 'Collaborative Growth',
     description:
-      'I excel in agile, cross-functional teams. I prioritize clear communication, knowledge sharing, and constructive code reviews to help the entire team succeed and innovate.',
+      'The best products are built together. I thrive in team environments that champion open communication, shared knowledge, and mutual success through mentorship and thoughtful feedback.',
   },
 ];
