@@ -1,9 +1,12 @@
 import Link from 'next/link';
 
 import Button from '@/components/Button';
+import { BodyLarge, Display } from '@/components/Typography';
+import { animations, gapSpacing, iconSizes } from '@/design-system/tokens';
 
 import BoxWithBackground from '../../BoxWithBackground';
 
+import clsx from 'clsx';
 import { Mail, MoveDown, Sparkles } from 'lucide-react';
 
 const Hero = () => {
@@ -48,38 +51,38 @@ const Hero = () => {
           className='z-10 mb-8 flex flex-col justify-center items-center animate-fade-in-up opacity-0'
           style={{ animationFillMode: 'both' }}
         >
-          <h1
-            id='hero-title'
-            className='text-4xl font-bold font-heading flex flex-col mb-6 text-zinc-100 max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'
-          >
+          <Display id='hero-title' className='flex flex-col mb-6 max-w-5xl'>
             <span className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
               Crafting High-Performance
             </span>{' '}
             <span
               className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-fade-in-up opacity-0'
-              style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+              style={{ animationDelay: animations.loadDelay.first, animationFillMode: 'both' }}
             >
               Accessible Web Experiences
             </span>
-          </h1>
-          <p
+          </Display>
+          <BodyLarge
             id='hero-description'
-            className='text-lg font-light mb-8 text-zinc-300 max-w-2xl md:text-xl leading-loose animate-fade-in-up opacity-0'
-            style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+            className='mb-8 max-w-2xl animate-fade-in-up opacity-0'
+            style={{ animationDelay: animations.loadDelay.second, animationFillMode: 'both' }}
           >
             A Frontend Developer specializing in transforming complex challenges into fast,
             intuitive, and inclusive applications with React and Next.js.
-          </p>
+          </BodyLarge>
         </header>
 
         {/* CTAs */}
         <div
-          className='flex flex-col sm:flex-row gap-4 mb-16 z-10 animate-fade-in-up opacity-0'
-          style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
+          className={clsx(
+            'flex flex-col sm:flex-row mb-16 z-10 animate-fade-in-up opacity-0',
+            gapSpacing.sm
+          )}
+          style={{ animationDelay: animations.loadDelay.third, animationFillMode: 'both' }}
         >
           <Link href='#portfolio' passHref>
             <Button
-              svg={<MoveDown strokeWidth={1.5} size={20} aria-hidden='true' />}
+              svg={<MoveDown strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
               label='View my work'
               size='xl'
               variant='primary'
@@ -90,7 +93,7 @@ const Hero = () => {
           </Link>
           <Link href='#contact' passHref>
             <Button
-              svg={<Mail strokeWidth={1.5} size={20} aria-hidden='true' />}
+              svg={<Mail strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
               label='Get in Touch'
               size='xl'
               variant='secondary'
@@ -102,25 +105,29 @@ const Hero = () => {
 
         {/* Stats */}
         <div
-          className='grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0'
-          style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
+          className={clsx(
+            'grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0',
+            gapSpacing.sm,
+            'md:gap-8'
+          )}
+          style={{ animationDelay: animations.loadDelay.fourth, animationFillMode: 'both' }}
         >
           {stats.map(stat => (
             <div
               key={stat.label}
               className='flex flex-col items-center group hover:scale-110 transition-transform duration-300'
             >
-              <div className='text-2xl md:text-3xl font-bold text-zinc-100 mb-1 flex items-center gap-1'>
+              <div className='text-2xl md:text-3xl font-bold text-zinc-50 mb-1 flex items-center gap-1'>
                 {stat.value}
                 {stat.label === 'Years Experience' && (
                   <Sparkles
-                    size={20}
+                    size={iconSizes.md}
                     className='text-yellow-500 group-hover:animate-spin'
                     aria-hidden='true'
                   />
                 )}
               </div>
-              <div className='text-sm md:text-base text-zinc-300 font-light group-hover:text-zinc-200 transition-colors'>
+              <div className='text-sm md:text-base text-zinc-200 font-light group-hover:text-zinc-100 transition-colors'>
                 {stat.label}
               </div>
             </div>

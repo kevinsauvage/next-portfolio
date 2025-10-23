@@ -4,7 +4,9 @@ import Link from 'next/link';
 import BoxWithBackground from '@/components/BoxWithBackground';
 import Button from '@/components/Button';
 import GlowEffect from '@/components/GlowEffect';
+import { SectionHeader } from '@/components/SectionHeader';
 import projects from '@/config/projects.config';
+import { stackSpacing } from '@/design-system/tokens';
 
 import Section from './_components/Section';
 
@@ -121,29 +123,18 @@ const ProjectCard: React.FC<{
 const PortfolioSection: React.FC = () => {
   return (
     <Section id='portfolio'>
-      <div className='space-y-16 sm:space-y-24 md:space-y-32'>
+      <div className={stackSpacing['2xl']}>
         {/* Header Section */}
-        <div
-          className='space-y-6 animate-fade-in-up opacity-0'
-          style={{ animationFillMode: 'both' }}
-        >
-          <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>Portfolio</p>
-          <h2 className='text-4xl md:text-6xl font-bold'>
-            <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'>
-              Featured Projects
-            </span>
-          </h2>
-          <p
-            className='text-xl md:text-2xl text-zinc-300 leading-loose max-w-4xl animate-fade-in-up opacity-0'
-            style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
-          >
-            Translating modern web practices into tangible results. Each project is built with a
-            focus on speed, accessibility, and creating meaningful user interactions.
-          </p>
+        <div className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
+          <SectionHeader
+            overline='Portfolio'
+            title='Featured Projects'
+            description='Translating modern web practices into tangible results. Each project is built with a focus on speed, accessibility, and creating meaningful user interactions.'
+          />
         </div>
 
         {/* Projects Grid */}
-        <div className='space-y-6 sm:space-y-8 md:space-y-10'>
+        <div className={stackSpacing.lg}>
           {projects.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
           ))}

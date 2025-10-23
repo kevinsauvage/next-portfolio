@@ -40,9 +40,9 @@ const Button = ({
 
   const styleVariant = clsx(
     variant === 'primary' &&
-      'text-white bg-gradient-to-br from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 focus:ring-2 focus:outline-none focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:shadow-glow-md relative overflow-hidden group',
+      'text-zinc-50 bg-gradient-to-br from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 focus:ring-2 focus:outline-none focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:shadow-glow-md relative overflow-hidden group',
     variant === 'secondary' &&
-      'relative inline-flex items-center justify-center overflow-hidden text-zinc-100 rounded-lg bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 hover:border-secondary-500/30 focus:ring-2 focus:outline-none focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-md hover:shadow-lg group'
+      'relative inline-flex items-center justify-center overflow-hidden text-zinc-50 rounded-lg bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 hover:border-secondary-500/30 focus:ring-2 focus:outline-none focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-md hover:shadow-lg group'
   );
 
   return (
@@ -83,7 +83,7 @@ const Button = ({
       )}
       <span className='w-full flex items-center justify-center gap-2 relative z-10'>
         {label}
-        <span className='transition-transform duration-300 group-hover:translate-x-1'>{svg}</span>
+        <span className='transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-6'>{svg}</span>
       </span>
     </button>
   );

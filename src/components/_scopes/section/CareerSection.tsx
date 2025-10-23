@@ -1,9 +1,12 @@
-import BoxWithBackground from '@/components/BoxWithBackground';
-import GlowEffect from '@/components/GlowEffect';
+import { Card, CardContent, CardHeader, CardIcon } from '@/components/Card';
+import { SectionHeader } from '@/components/SectionHeader';
+import { Body, Caption, H4, H5 } from '@/components/Typography';
 import { jobs } from '@/config/jobs.config';
+import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import Section from './_components/Section';
 
+import clsx from 'clsx';
 import { Briefcase, Calendar, MapPin, TrendingUp } from 'lucide-react';
 
 const CareerItem: React.FC<{
@@ -16,83 +19,79 @@ const CareerItem: React.FC<{
   index: number;
 }> = ({ company, description, period, position, location, index }) => {
   return (
-    <BoxWithBackground
-      className='group hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500'
-      backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
+    <Card
+      hover='standard'
+      size='md'
+      glow='primary-secondary'
+      animationIndex={index}
+      aria-labelledby={`career-${index}`}
     >
-      <article
-        className='h-full w-full p-5 sm:p-6 md:p-8 relative overflow-hidden'
-        aria-labelledby={`career-${index}`}
-      >
-        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
-        <GlowEffect variant='primary-secondary' intensity='low' />
-        <div className='relative z-10 space-y-6'>
-          {/* Header */}
-          <div className='flex items-center gap-3 pb-4 border-b border-zinc-800'>
-            <div className='p-2 bg-blue-500/10 rounded-lg border border-blue-500/20'>
-              <Briefcase size={20} className='text-blue-400' aria-hidden='true' />
-            </div>
-            <div className='flex-1'>
-              <h3
-                id={`career-${index}`}
-                className='text-2xl font-bold text-zinc-100 group-hover:text-blue-400 transition-colors'
-              >
-                {company}
-              </h3>
-            </div>
-            <span className='text-sm font-medium text-blue-400 whitespace-nowrap'>
-              {String(index + 1).padStart(2, '0')}
-            </span>
+      <CardContent spacing='lg'>
+        {/* Header */}
+        <CardHeader withBorder>
+          <CardIcon variant='blue'>
+            <Briefcase
+              size={iconSizes.md}
+              className='text-blue-400 transition-transform group-hover:rotate-12'
+              strokeWidth={1.5}
+              aria-hidden='true'
+            />
+          </CardIcon>
+          <div className='flex-1'>
+            <H4 id={`career-${index}`} className='group-hover:text-blue-400 transition-colors'>
+              {company}
+            </H4>
           </div>
+          <Caption className='text-blue-400 whitespace-nowrap'>
+            {String(index + 1).padStart(2, '0')}
+          </Caption>
+        </CardHeader>
 
-          {/* Position & Meta */}
-          <div className='space-y-3'>
-            <div className='flex items-center gap-2'>
-              <TrendingUp size={16} className='text-purple-400' aria-hidden='true' />
-              <p className='text-xl font-semibold text-zinc-200'>{position}</p>
-            </div>
-            <div className='flex flex-wrap gap-4 text-sm text-zinc-300'>
-              <div className='flex items-center gap-2'>
-                <Calendar size={14} className='text-zinc-500' aria-hidden='true' />
-                <span>{period}</span>
-              </div>
-              {location && (
-                <div className='flex items-center gap-2'>
-                  <MapPin size={14} className='text-zinc-500' aria-hidden='true' />
-                  <span>{location}</span>
-                </div>
-              )}
-            </div>
+        {/* Position & Meta */}
+        <div className={stackSpacing.xs}>
+          <div className={clsx(gapSpacing.xs, 'flex items-center')}>
+            <TrendingUp
+              size={iconSizes.sm}
+              className='text-purple-400 transition-transform group-hover:rotate-12'
+              strokeWidth={1.5}
+              aria-hidden='true'
+            />
+            <H5>{position}</H5>
           </div>
-
-          {/* Description */}
-          <p className='text-zinc-300 leading-relaxed'>{description}</p>
+          <div className={clsx(gapSpacing.sm, 'flex flex-wrap')}>
+            <Caption className='flex items-center gap-2'>
+              <Calendar size={iconSizes.xs} className='text-zinc-500' aria-hidden='true' />
+              <span>{period}</span>
+            </Caption>
+            {location && (
+              <Caption className='flex items-center gap-2'>
+                <MapPin size={iconSizes.xs} className='text-zinc-500' aria-hidden='true' />
+                <span>{location}</span>
+              </Caption>
+            )}
+          </div>
         </div>
-      </article>
-    </BoxWithBackground>
+
+        {/* Description */}
+        <Body>{description}</Body>
+      </CardContent>
+    </Card>
   );
 };
 
 const CareerSection = () => {
   return (
     <Section id='career'>
-      <div className='space-y-16 sm:space-y-24 md:space-y-32'>
+      <div className={stackSpacing['2xl']}>
         {/* Header Section */}
-        <div className='space-y-6'>
-          <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>Career</p>
-          <h2 className='text-4xl md:text-6xl font-bold'>
-            <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'>
-              Professional Journey
-            </span>
-          </h2>
-          <p className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-4xl'>
-            Evolving through roles dedicated to innovation, quality, and the relentless pursuit of
-            better user experiences.
-          </p>
-        </div>
+        <SectionHeader
+          overline='Career'
+          title='Professional Journey'
+          description='Evolving through roles dedicated to innovation, quality, and the relentless pursuit of better user experiences.'
+        />
 
         {/* Jobs Timeline */}
-        <div className='space-y-5 sm:space-y-7 md:space-y-8'>
+        <div className={stackSpacing.lg}>
           {jobs.map((job, index) => (
             <CareerItem key={index} {...job} index={index} />
           ))}

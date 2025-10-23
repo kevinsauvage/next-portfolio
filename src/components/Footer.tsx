@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
         {/* Main tagline */}
         <div className='mb-10 text-center md:text-left'>
           <h2 className='text-2xl font-bold text-zinc-100 mb-2'>Kévin Sauvage</h2>
-          <p className='text-zinc-400 max-w-2xl font-light'>
+          <p className='text-zinc-200 max-w-2xl font-light'>
             Frontend Developer crafting modern web experiences with passion and precision.
             Let&apos;s build something great.
           </p>
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className='text-zinc-400 hover:text-blue-400 transition-all duration-200 text-sm hover:translate-x-1 py-2 flex items-center min-h-[44px]'
+                    className='text-zinc-200 hover:text-blue-400 transition-all duration-200 text-sm hover:translate-x-1 py-2 flex items-center min-h-[44px]'
                   >
                     {link.name}
                   </Link>
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
           {/* Tech Stack */}
           <div>
             <h3 className='text-zinc-100 text-lg font-semibold mb-4 flex items-center gap-2'>
-              <Code2 size={20} aria-hidden='true' />
+              <Code2 size={20} className='transition-transform hover:rotate-12' aria-hidden='true' />
               Tech Stack
             </h3>
             <div className='flex flex-wrap gap-2'>
@@ -84,17 +84,17 @@ const Footer: React.FC = () => {
           {/* Status & Availability */}
           <div>
             <h3 className='text-zinc-100 text-lg font-semibold mb-4 flex items-center gap-2'>
-              <Briefcase size={20} aria-hidden='true' />
+              <Briefcase size={20} className='transition-transform hover:rotate-12' aria-hidden='true' />
               Availability
             </h3>
             <div className='space-y-3'>
               <div className='flex items-center gap-2'>
-                <CheckCircle2 size={18} className='text-green-400' aria-hidden='true' />
-                <span className='text-sm text-zinc-300'>Open to opportunities</span>
+                <CheckCircle2 size={18} className='text-green-400 transition-transform hover:rotate-12' aria-hidden='true' />
+                <span className='text-sm text-zinc-200'>Open to opportunities</span>
               </div>
               <div className='flex items-center gap-2'>
-                <MapPin size={18} className='text-blue-400' aria-hidden='true' />
-                <span className='text-sm text-zinc-300'>Barcelona, Spain</span>
+                <MapPin size={18} className='text-blue-400 transition-transform hover:rotate-12' aria-hidden='true' />
+                <span className='text-sm text-zinc-200'>Barcelona, Spain</span>
               </div>
             </div>
           </div>
@@ -102,10 +102,10 @@ const Footer: React.FC = () => {
           {/* Connect */}
           <div>
             <h3 className='text-zinc-100 text-lg font-semibold mb-4 flex items-center gap-2'>
-              <Mail size={20} aria-hidden='true' />
+              <Mail size={20} className='transition-transform hover:rotate-12' aria-hidden='true' />
               Get in Touch
             </h3>
-            <p className='text-zinc-400 text-sm mb-4 font-light'>
+            <p className='text-zinc-200 text-sm mb-4 font-light'>
               Feel free to reach out for collaborations or just a friendly chat.
             </p>
             <ContactInfo />

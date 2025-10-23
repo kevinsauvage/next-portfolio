@@ -1,9 +1,12 @@
-import BoxWithBackground from '@/components/BoxWithBackground';
-import GlowEffect from '@/components/GlowEffect';
+import { Card, CardContent, CardFooter, CardIcon } from '@/components/Card';
+import { SectionHeader } from '@/components/SectionHeader';
+import { Body, Caption } from '@/components/Typography';
 import testimonials from '@/config/testimonials.config';
+import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import Section from './_components/Section';
 
+import clsx from 'clsx';
 import { Briefcase, Calendar, Quote, User } from 'lucide-react';
 
 const TestimonialCard: React.FC<{
@@ -18,85 +21,87 @@ const TestimonialCard: React.FC<{
   index: number;
 }> = ({ author, content, date, index }) => {
   return (
-    <BoxWithBackground
-      className='group h-fit hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500'
-      backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
-    >
-      <article className='h-fit w-full p-4 sm:p-5 md:p-6 relative overflow-hidden'>
-        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
-        <GlowEffect variant='secondary-accent' intensity='low' />
-        <div className='relative z-10 h-full flex flex-col justify-between space-y-4'>
-          {/* Quote Icon & Number */}
-          <div className='flex items-start justify-between'>
-            <div className='p-2 bg-purple-500/10 rounded-lg border border-purple-500/20'>
-              <Quote className='text-purple-400' size={20} strokeWidth={1.5} aria-hidden='true' />
-            </div>
-            <span className='text-sm font-medium text-blue-400'>
-              {String(index + 1).padStart(2, '0')}
-            </span>
-          </div>
+    <Card hover='standard' size='sm' glow='secondary-accent' animationIndex={index}>
+      <CardContent spacing='md'>
+        {/* Quote Icon & Number */}
+        <div className='flex items-start justify-between'>
+          <CardIcon variant='purple'>
+            <Quote
+              className='text-purple-400 transition-transform group-hover:rotate-12'
+              size={iconSizes.md}
+              strokeWidth={1.5}
+              aria-hidden='true'
+            />
+          </CardIcon>
+          <Caption className='text-blue-400'>{String(index + 1).padStart(2, '0')}</Caption>
+        </div>
 
-          {/* Testimonial Content */}
-          <blockquote className='flex-1 text-zinc-200 leading-relaxed text-lg italic line-clamp-6 hover:line-clamp-none'>
-            &quot;{content}&quot;
-          </blockquote>
+        {/* Testimonial Content */}
+        <blockquote className='flex-1 text-zinc-200 leading-relaxed text-lg italic line-clamp-6 hover:line-clamp-none'>
+          &quot;{content}&quot;
+        </blockquote>
 
-          {/* Author Info */}
-          <footer className='border-t border-zinc-800 pt-4 space-y-3'>
-            <div className='flex items-center gap-3'>
+        {/* Author Info */}
+        <CardFooter>
+          <div className={stackSpacing.xs}>
+            <div className={clsx(gapSpacing.xs, 'flex items-center')}>
               <div className='p-2 bg-blue-500/10 rounded-full border border-blue-500/20'>
-                <User size={14} className='text-blue-400' aria-hidden='true' />
+                <User
+                  size={iconSizes.xs}
+                  className='text-blue-400 transition-transform group-hover:rotate-12'
+                  aria-hidden='true'
+                />
               </div>
               <div>
                 <cite className='text-zinc-100 font-bold text-base not-italic block'>
                   {author.name}
                 </cite>
-                <p className='text-zinc-300 text-base'>{author.title}</p>
+                <Body className='text-base'>{author.title}</Body>
               </div>
             </div>
 
-            <div className='flex flex-wrap gap-3 text-sm text-zinc-400'>
-              <div className='flex items-center gap-2'>
-                <Briefcase size={12} aria-hidden='true' />
+            <div className={clsx(gapSpacing.xs, 'flex flex-wrap text-sm text-zinc-400')}>
+              <Caption className='flex items-center gap-2'>
+                <Briefcase
+                  size={iconSizes.xs - 2}
+                  className='transition-transform group-hover:rotate-12'
+                  aria-hidden='true'
+                />
                 <span>{author.company}</span>
-              </div>
-              <div className='flex items-center gap-2'>
+              </Caption>
+              <Caption className='flex items-center gap-2'>
                 <span className='w-1 h-1 bg-zinc-600 rounded-full' aria-hidden='true' />
                 <span>{author.relationship}</span>
-              </div>
-              <div className='flex items-center gap-2'>
-                <Calendar size={12} aria-hidden='true' />
+              </Caption>
+              <Caption className='flex items-center gap-2'>
+                <Calendar
+                  size={iconSizes.xs - 2}
+                  className='transition-transform group-hover:rotate-12'
+                  aria-hidden='true'
+                />
                 <time dateTime={date}>{date}</time>
-              </div>
+              </Caption>
             </div>
-          </footer>
-        </div>
-      </article>
-    </BoxWithBackground>
+          </div>
+        </CardFooter>
+      </CardContent>
+    </Card>
   );
 };
 
 const TestimonialsSection: React.FC = () => {
   return (
     <Section id='testimonials'>
-      <div className='space-y-8 sm:space-y-10 md:space-y-12'>
+      <div className={stackSpacing.lg}>
         {/* Header Section */}
-        <div className='space-y-4'>
-          <p className='text-sm font-medium text-primary-400 tracking-wider uppercase'>
-            Testimonials
-          </p>
-          <h2 className='text-3xl md:text-5xl font-bold'>
-            <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'>
-              What Colleagues Say
-            </span>
-          </h2>
-          <p className='text-lg md:text-xl text-zinc-300 leading-relaxed max-w-3xl'>
-            Notes from engineering leaders and colleagues I’ve worked with.
-          </p>
-        </div>
+        <SectionHeader
+          overline='Testimonials'
+          title='What Colleagues Say'
+          description="Notes from engineering leaders and colleagues I've worked with."
+        />
 
         {/* Testimonials Grid */}
-        <div className='grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2'>
+        <div className={clsx('grid grid-cols-1 lg:grid-cols-2', gapSpacing.md)}>
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={`${testimonial.author.name}-${index}`}
