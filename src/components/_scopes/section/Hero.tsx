@@ -20,9 +20,9 @@ const Hero = () => {
     >
       {/* Animated gradient orbs */}
       <div className='absolute inset-0 overflow-hidden pointer-events-none'>
-        <div className='absolute top-1/4 -left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float' />
+        <div className='absolute top-1/4 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float' />
         <div
-          className='absolute bottom-1/4 -right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float'
+          className='absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float'
           style={{ animationDelay: '2s' }}
         />
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse-slow' />
@@ -54,13 +54,13 @@ const Hero = () => {
             className='text-5xl font-bold font-heading flex flex-col mb-6 text-zinc-100 max-w-5xl sm:text-5xl sm:leading-snug md:text-6xl md:leading-snug xl:text-7xl leading-snug xl:leading-tight'
           >
             <span className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
-              I build fast, accessible
+              Crafting High-Performance
             </span>{' '}
             <span
               className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-fade-in-up opacity-0'
               style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
             >
-              web experiences
+              Accessible Web Experiences
             </span>
           </h1>
           <p
@@ -68,8 +68,8 @@ const Hero = () => {
             className='text-lg font-light mb-8 text-zinc-300 max-w-2xl md:text-xl leading-relaxed animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
           >
-            I&apos;m a Frontend Developer. I turn complex ideas into intuitive, fast web
-            apps—working with React, Next.js, and accessibility-first design.
+            A Frontend Developer specializing in transforming complex challenges into fast,
+            intuitive, and inclusive applications with React and Next.js.
           </p>
         </header>
 
