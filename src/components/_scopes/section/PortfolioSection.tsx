@@ -68,7 +68,7 @@ const ProjectCard: React.FC<{
               >
                 {title}
               </h3>
-              <p className='text-zinc-300 leading-relaxed text-lg group-hover:text-zinc-200 transition-colors'>
+              <p className='text-zinc-300 leading-relaxed text-lg group-hover:text-zinc-200 transition-colors font-light'>
                 {description}
               </p>
             </div>
@@ -134,7 +134,7 @@ const PortfolioSection: React.FC = () => {
             </span>
           </h2>
           <p
-            className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-4xl animate-fade-in-up opacity-0'
+            className='text-xl md:text-2xl text-zinc-300 leading-loose max-w-4xl animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
           >
             Translating modern web practices into tangible results. Each project is built with a

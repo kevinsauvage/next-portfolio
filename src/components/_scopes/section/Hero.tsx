@@ -64,7 +64,7 @@ const Hero = () => {
           </h1>
           <p
             id='hero-description'
-            className='text-lg font-light mb-8 text-zinc-300 max-w-2xl md:text-xl leading-relaxed animate-fade-in-up opacity-0'
+            className='text-lg font-light mb-8 text-zinc-300 max-w-2xl md:text-xl leading-loose animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
           >
             A Frontend Developer specializing in transforming complex challenges into fast,

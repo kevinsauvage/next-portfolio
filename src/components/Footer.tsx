@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
         {/* Main tagline */}
         <div className='mb-10 text-center md:text-left'>
           <h2 className='text-2xl font-bold text-zinc-100 mb-2'>Kévin Sauvage</h2>
-          <p className='text-zinc-400 max-w-2xl'>
+          <p className='text-zinc-400 max-w-2xl font-light'>
             Frontend Developer crafting modern web experiences with passion and precision.
             Let&apos;s build something great.
           </p>
@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
               <Mail size={20} aria-hidden='true' />
               Get in Touch
             </h3>
-            <p className='text-zinc-400 text-sm mb-4'>
+            <p className='text-zinc-400 text-sm mb-4 font-light'>
               Feel free to reach out for collaborations or just a friendly chat.
             </p>
             <ContactInfo />

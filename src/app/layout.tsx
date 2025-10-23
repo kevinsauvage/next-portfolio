@@ -84,7 +84,7 @@ const JosefinSans = Josefin_Sans({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-base',
-  weight: ['100', '200', '300', '400', '500'],
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
   fallback: ['system-ui', 'arial', 'sans-serif'],
   adjustFontFallback: true,
   preload: true,

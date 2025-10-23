@@ -33,7 +33,7 @@ const PassionCard: React.FC<{
           <h3 className='text-xl font-bold text-zinc-100 group-hover:text-accent-400 transition-all duration-300'>
             {title}
           </h3>
-          <p className='text-zinc-300 leading-relaxed group-hover:text-zinc-200 transition-colors'>
+          <p className='text-zinc-300 leading-relaxed group-hover:text-zinc-200 transition-colors font-light'>
             {description}
           </p>
         </div>
@@ -67,7 +67,7 @@ const AboutSection: React.FC = () => {
             </div>
           </div>
           <p
-            className='text-xl md:text-2xl text-zinc-300 leading-relaxed max-w-4xl animate-fade-in-up opacity-0'
+            className='text-xl md:text-2xl text-zinc-300 leading-loose max-w-4xl animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
           >
             I&apos;m a Frontend Developer in Barcelona, crafting high-performance, accessible web
@@ -79,7 +79,7 @@ const AboutSection: React.FC = () => {
         {/* Passion Cards */}
         <div className='space-y-6 sm:space-y-8 md:space-y-10'>
           <h2
-            className='text-3xl font-bold text-zinc-100 animate-fade-in-up opacity-0'
+            className='text-3xl font-semibold text-zinc-100 animate-fade-in-up opacity-0'
             style={{ animationFillMode: 'both' }}
           >
             My Philosophy
