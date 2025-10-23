@@ -34,6 +34,7 @@ export default [
       '*.config.js',
       '*.config.mjs',
       '*.config.ts',
+      'next-env.d.ts',
     ],
   },
   // Next.js configs (using FlatCompat for old format configs)
