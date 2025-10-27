@@ -15,7 +15,7 @@ const PassionCard: React.FC<{
 }> = ({ icon: Icon, title, description, index }) => {
   return (
     <Card
-      hover='standard'
+      hover='subtle'
       size='md'
       glow='secondary-accent'
       animationIndex={index}
@@ -41,7 +41,6 @@ const AboutSection: React.FC = () => {
   return (
     <Section id='about'>
       <div className={clsx(stackSpacing['2xl'])}>
-        {/* Hero Section */}
         <div
           className={clsx(stackSpacing.md, 'animate-fade-in-up opacity-0')}
           style={{ animationFillMode: 'both' }}
@@ -72,7 +71,6 @@ const AboutSection: React.FC = () => {
           </BodyLarge>
         </div>
 
-        {/* Passion Cards */}
         <div className={stackSpacing.md}>
           <H3 className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
             My Philosophy

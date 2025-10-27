@@ -27,7 +27,7 @@ const ProjectCard: React.FC<{
 
   return (
     <Card
-      hover='pronounced'
+      hover='standard'
       size='md'
       glow='primary-secondary'
       animationIndex={index}

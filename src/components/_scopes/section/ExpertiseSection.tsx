@@ -13,7 +13,7 @@ const ExpertiseCard: React.FC<{
 }> = ({ title, content, keyPoints, index }) => {
   return (
     <Card
-      hover='standard'
+      hover='subtle'
       size='md'
       glow='primary-secondary'
       animationIndex={index}

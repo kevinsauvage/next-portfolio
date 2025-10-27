@@ -21,7 +21,7 @@ const CertificationCard: React.FC<{
 }> = ({ title, issuer, date, description, credentialUrl, skills, index }) => {
   return (
     <Card
-      hover='pronounced'
+      hover='subtle'
       size='md'
       glow='secondary-accent'
       animationIndex={index}

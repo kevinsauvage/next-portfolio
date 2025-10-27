@@ -20,7 +20,7 @@ const CareerItem: React.FC<{
 }> = ({ company, description, period, position, location, index }) => {
   return (
     <Card
-      hover='standard'
+      hover='subtle'
       size='md'
       glow='primary-secondary'
       animationIndex={index}

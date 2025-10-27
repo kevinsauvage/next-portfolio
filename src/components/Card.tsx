@@ -43,9 +43,23 @@ export const Card = ({
 
   const hoverClasses = {
     none: '',
-    subtle: 'hover:-translate-y-1 hover:scale-[1.01]',
-    standard: 'hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-[1.01]',
-    pronounced: 'hover:-translate-y-2 md:hover:-translate-y-3 hover:scale-[1.02]',
+    subtle: 'hover:shadow-glow-sm',
+    standard: 'hover:shadow-glow-md ',
+    pronounced: 'hover:shadow-glow-lg',
+  };
+
+  const hoverTransforms = {
+    none: '',
+    subtle: 'translateY(-4px) scale(1.01)',
+    standard: 'translateY(-4px) scale(1.01)',
+    pronounced: 'translateY(-8px) scale(1.02)',
+  };
+
+  const hoverTransformsMd = {
+    none: '',
+    subtle: 'translateY(-4px) scale(1.01)',
+    standard: 'translateY(-8px) scale(1.01)',
+    pronounced: 'translateY(-12px) scale(1.02)',
   };
 
   const baseClasses = clsx(
@@ -58,7 +72,6 @@ export const Card = ({
     animationIndex !== undefined
       ? {
           animationDelay: getStaggerDelay(animationIndex, animations.stagger.base),
-          animationFillMode: 'both' as const,
         }
       : undefined;
 
@@ -69,10 +82,18 @@ export const Card = ({
       className={clsx(
         baseClasses,
         'group border border-zinc-700 bg-zinc-900/50 rounded-lg',
-        animationIndex !== undefined && 'animate-fade-in-up opacity-0',
+        animationIndex !== undefined && 'card-fade-in',
         className
       )}
-      style={animationStyle}
+      style={{
+        ...animationStyle,
+        ...(animationIndex !== undefined && { opacity: 0 }),
+        ...(hover !== 'none' &&
+          ({
+            '--hover-transform': hoverTransforms[hover],
+            '--hover-transform-md': hoverTransformsMd[hover],
+          } as React.CSSProperties)),
+      }}
       {...props}
     >
       <div className={contentClasses}>
