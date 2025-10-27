@@ -1,5 +1,6 @@
 import AboutSection from '@/components/_scopes/section/AboutSection';
 import CareerSection from '@/components/_scopes/section/CareerSection';
+import CertificationsSection from '@/components/_scopes/section/CertificationsSection';
 import ContactSection from '@/components/_scopes/section/ContactSection';
 import Hero from '@/components/_scopes/section/Hero';
 import PortfolioSection from '@/components/_scopes/section/PortfolioSection';
@@ -13,6 +14,7 @@ const Home = () => {
         <AboutSection />
         <PortfolioSection />
         <CareerSection />
+        <CertificationsSection />
         <TestimonialsSection />
       </div>
       <ContactSection />
