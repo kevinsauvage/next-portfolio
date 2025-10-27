@@ -22,7 +22,7 @@ const CertificationCard: React.FC<{
   return (
     <Card
       hover='pronounced'
-      size='lg'
+      size='md'
       glow='secondary-accent'
       animationIndex={index}
       aria-labelledby={`cert-${index}`}

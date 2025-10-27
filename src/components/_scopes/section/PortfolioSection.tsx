@@ -1,9 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
-import BoxWithBackground from '@/components/BoxWithBackground';
 import Button from '@/components/Button';
-import GlowEffect from '@/components/GlowEffect';
+import { Card, CardContent, CardImage } from '@/components/Card';
 import { SectionHeader } from '@/components/SectionHeader';
 import projects from '@/config/projects.config';
 import { stackSpacing } from '@/design-system/tokens';
@@ -28,31 +26,25 @@ const ProjectCard: React.FC<{
   const { title, description, technologies, images, websiteLink, githubLink } = project;
 
   return (
-    <BoxWithBackground
-      className='group hover:-translate-y-1 md:hover:-translate-y-2 hover:scale-[1.01] transition-all duration-500 animate-fade-in-up opacity-0'
-      backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
-      style={{ animationDelay: `${index * 0.2}s`, animationFillMode: 'both' }}
+    <Card
+      hover='pronounced'
+      size='md'
+      glow='primary-secondary'
+      animationIndex={index}
+      className='group relative h-full'
     >
-      <article
-        className='h-full w-full overflow-hidden relative'
-        aria-labelledby={`project-title-${index}`}
-      >
-        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
-        <GlowEffect variant='primary-secondary' intensity='medium' />
-        <div className='relative z-10 grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 p-5 sm:p-6 md:p-8'>
+      <CardContent spacing='lg' className='relative z-10 h-full'>
+        <div className='grid grid-cols-1 md:grid-cols-5 gap-4 sm:gap-6 md:gap-8 h-full'>
           {/* Image Section */}
           <div className='md:col-span-2 flex items-center justify-center'>
-            <div className='relative w-full aspect-[16/10] sm:aspect-video rounded-lg overflow-hidden border border-zinc-800 group-hover:border-blue-500/50 transition-all duration-300 shadow-lg group-hover:shadow-glow-md'>
-              <Image
-                src={images.thumbnail.src}
-                alt={images.thumbnail.alt}
-                fill
-                className='object-cover group-hover:scale-110 transition-transform duration-500'
-                sizes='(max-width: 768px) 100vw, 40vw'
-              />
-              {/* Overlay gradient on hover */}
-              <div className='absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
-            </div>
+            <CardImage
+              src={images.thumbnail.src}
+              alt={images.thumbnail.alt}
+              aspectRatio='wide'
+              width={800}
+              height={500}
+              sizes='(max-width: 768px) 100vw, 40vw'
+            />
           </div>
 
           {/* Content Section */}
@@ -115,8 +107,8 @@ const ProjectCard: React.FC<{
             </div>
           </div>
         </div>
-      </article>
-    </BoxWithBackground>
+      </CardContent>
+    </Card>
   );
 };
 

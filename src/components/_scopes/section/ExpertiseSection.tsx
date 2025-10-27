@@ -1,5 +1,4 @@
-import BoxWithBackground from '@/components/BoxWithBackground';
-import GlowEffect from '@/components/GlowEffect';
+import { Card, CardContent } from '@/components/Card';
 import expertise from '@/config/expertises.config';
 
 import Section from './_components/Section';
@@ -13,19 +12,15 @@ const ExpertiseCard: React.FC<{
   index: number;
 }> = ({ title, content, keyPoints, index }) => {
   return (
-    <BoxWithBackground
-      className='group hover:shadow-2xl hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-500 animate-fade-in-up opacity-0'
-      backgroundConfig={{ scale: 0.2, strokeWidth: 1 }}
-      style={{ animationDelay: `${index * 0.15}s`, animationFillMode: 'both' }}
+    <Card
+      hover='standard'
+      size='md'
+      glow='primary-secondary'
+      animationIndex={index}
+      className='group relative h-full'
     >
-      <article
-        className='h-full w-full p-5 sm:p-6 md:p-8 relative overflow-hidden'
-        role='article'
-        aria-label={title}
-      >
-        <div className='absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900/95 to-zinc-900/90 z-0 group-hover:from-zinc-900 group-hover:via-zinc-900/90 transition-all duration-500' />
-        <GlowEffect variant='primary-secondary' intensity='low' />
-        <div className='relative z-10 space-y-6'>
+      <CardContent spacing='lg' className='relative z-10 h-full'>
+        <div className='space-y-6'>
           <div className='space-y-3'>
             <h3 className='text-2xl font-bold text-zinc-100 group-hover:text-accent-400 transition-all duration-300'>
               {title}
@@ -49,8 +44,8 @@ const ExpertiseCard: React.FC<{
             ))}
           </ul>
         </div>
-      </article>
-    </BoxWithBackground>
+      </CardContent>
+    </Card>
   );
 };
 
