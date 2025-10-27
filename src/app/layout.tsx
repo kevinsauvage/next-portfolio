@@ -5,7 +5,6 @@ import Script from 'next/script';
 import BackToTopButton from '@/components/BackToTopButton';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import MouseFollowGradientBackground from '@/components/MouseFollowGradientBackground';
 import { WebVitals } from '@/components/WebVitals';
 import NotificationProvider from '@/contexts/NotificationContext';
 
@@ -142,7 +141,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           src={'/growth/rewrites'}
         />
         <NotificationProvider>
-          <MouseFollowGradientBackground />
           <nav aria-label='Skip navigation'>
             <a
               href='#main-content'
