@@ -58,7 +58,7 @@ export const H2 = ({
   const textColor = gradient ? colors.brand.gradientText : colors.text.primary;
 
   return (
-    <Component className={clsx(classes, textColor, className)} {...props}>
+    <Component className={clsx(className, classes, textColor)} {...props}>
       {children}
     </Component>
   );
@@ -134,7 +134,7 @@ export const Body = ({ children, className, as: Component = 'p', ...props }: Typ
   const classes = getTypographyClasses('body');
 
   return (
-    <Component className={clsx(classes, colors.text.secondary, className)} {...props}>
+    <Component className={(colors.text.secondary, className, classes)} {...props}>
       {children}
     </Component>
   );
