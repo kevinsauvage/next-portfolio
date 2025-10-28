@@ -30,8 +30,8 @@ type NotificationContextType = {
 const NotificationContext = createContext<NotificationContextType | undefined>(undefined);
 
 const NotificationPresenter = dynamic(
-  () => import('@/components/_scopes/notification/NotificationPresenter'),
-  { ssr: false },
+  () => import('@/components/shared/Notification/NotificationPresenter'),
+  { ssr: false }
 );
 
 const NotificationProvider = ({ children }: NotificationProviderProperties) => {
@@ -67,8 +67,8 @@ const NotificationProvider = ({ children }: NotificationProviderProperties) => {
   const updateNotification = useCallback((updatedNotification: NotificationType) => {
     setNotificationQueue(previousQueue =>
       previousQueue.map(current =>
-        current.id === updatedNotification.id ? updatedNotification : current,
-      ),
+        current.id === updatedNotification.id ? updatedNotification : current
+      )
     );
   }, []);
 
@@ -82,7 +82,7 @@ const NotificationProvider = ({ children }: NotificationProviderProperties) => {
       updateNotification,
       warning,
     }),
-    [error, info, notificationQueue, success, updateNotification, warning],
+    [error, info, notificationQueue, success, updateNotification, warning]
   );
 
   return (

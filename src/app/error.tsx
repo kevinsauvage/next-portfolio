@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import Button from '@/components/Button';
+import Button from '@/components/ui/Button';
 
 interface ErrorProps {
   error: Error & { digest?: string };

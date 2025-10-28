@@ -1,10 +1,10 @@
-import AboutSection from '@/components/_scopes/section/AboutSection';
-import CareerSection from '@/components/_scopes/section/CareerSection';
-import CertificationsSection from '@/components/_scopes/section/CertificationsSection';
-import ContactSection from '@/components/_scopes/section/ContactSection';
-import Hero from '@/components/_scopes/section/Hero';
-import PortfolioSection from '@/components/_scopes/section/PortfolioSection';
-import TestimonialsSection from '@/components/_scopes/section/TestimonialsSection';
+import AboutSection from '@/components/features/home/AboutSection';
+import CareerSection from '@/components/features/home/CareerSection';
+import CertificationsSection from '@/components/features/home/CertificationsSection';
+import ContactSection from '@/components/features/home/ContactSection';
+import Hero from '@/components/features/home/Hero';
+import PortfolioSection from '@/components/features/home/PortfolioSection';
+import TestimonialsSection from '@/components/features/home/TestimonialsSection';
 
 const Home = () => {
   return (

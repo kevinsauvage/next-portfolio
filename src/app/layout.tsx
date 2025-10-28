@@ -2,10 +2,10 @@ import type { Metadata } from 'next';
 import { Josefin_Sans, League_Spartan } from 'next/font/google';
 import Script from 'next/script';
 
-import BackToTopButton from '@/components/BackToTopButton';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
-import { WebVitals } from '@/components/WebVitals';
+import Footer from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+import BackToTopButton from '@/components/shared/BackToTopButton';
+import { WebVitals } from '@/components/shared/WebVitals';
 import NotificationProvider from '@/contexts/NotificationContext';
 
 import '@/styles/globals.scss';
