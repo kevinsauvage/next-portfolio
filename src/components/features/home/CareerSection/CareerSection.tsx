@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardIcon } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
-import { Body, Caption, H4, H5 } from '@/components/ui/Typography';
+import { Body, Caption, H3, H4 } from '@/components/ui/Typography';
 import { jobs, sections } from '@/config/content';
 import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
@@ -35,9 +35,9 @@ const CareerItem: React.FC<{
             />
           </CardIcon>
           <div className='flex-1'>
-            <H4 id={`career-${index}`} className='group-hover:text-blue-400 transition-colors'>
+            <H3 id={`career-${index}`} className='group-hover:text-blue-400 transition-colors'>
               {company}
-            </H4>
+            </H3>
           </div>
           <Caption className='text-blue-400 whitespace-nowrap'>
             {String(index + 1).padStart(2, '0')}
@@ -52,7 +52,7 @@ const CareerItem: React.FC<{
               strokeWidth={1.5}
               aria-hidden='true'
             />
-            <H5>{position}</H5>
+            <H4>{position}</H4>
           </div>
           <div className={clsx(gapSpacing.sm, 'flex flex-wrap')}>
             <Caption className='flex items-center gap-2'>

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
-import { Body, BodySmall, H4, H5 } from '@/components/ui/Typography';
+import { Body, BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import certifications from '@/config/content/certifications';
 import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
@@ -40,12 +40,12 @@ const CertificationCard: React.FC<{
               />
             </CardIcon>
             <div className='flex-1 min-w-0'>
-              <H4
+              <H3
                 id={`cert-${index}`}
                 className='group-hover:text-primary-400 transition-all duration-300 text-xl md:text-2xl leading-tight'
               >
                 {title}
-              </H4>
+              </H3>
             </div>
           </div>
         </div>
@@ -58,7 +58,9 @@ const CertificationCard: React.FC<{
               strokeWidth={1.5}
               aria-hidden='true'
             />
-            <H5 className='text-zinc-300 group-hover:text-zinc-200 transition-colors'>{issuer}</H5>
+            <Body className='text-zinc-300 group-hover:text-zinc-200 transition-colors'>
+              {issuer}
+            </Body>
           </div>
           <div className='flex items-center gap-2'>
             <Calendar size={iconSizes.sm} className='text-zinc-500' aria-hidden='true' />

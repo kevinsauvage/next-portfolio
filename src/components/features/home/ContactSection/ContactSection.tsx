@@ -4,7 +4,7 @@ import ContactForm from '@/components/features/contact/ContactForm';
 import BoxWithBackground from '@/components/shared/BoxWithBackground';
 import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
 import Section, { SectionHeader } from '@/components/ui/Section';
-import { BodySmall, H5 } from '@/components/ui/Typography';
+import { BodySmall, H4 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { gapSpacing, iconSizes, radius, stackSpacing } from '@/design-system/tokens';
 
@@ -46,7 +46,7 @@ const ContactSection: React.FC = () => {
                     aria-hidden='true'
                   />
                 </div>
-                <H5>{sections.contact.features.quickResponse.title}</H5>
+                <H4>{sections.contact.features.quickResponse.title}</H4>
               </div>
               <BodySmall>{sections.contact.features.quickResponse.description}</BodySmall>
             </div>
@@ -66,7 +66,7 @@ const ContactSection: React.FC = () => {
                     aria-hidden='true'
                   />
                 </div>
-                <H5>{sections.contact.features.directContact.title}</H5>
+                <H4>{sections.contact.features.directContact.title}</H4>
               </div>
               <BodySmall>{sections.contact.features.directContact.description}</BodySmall>
             </div>

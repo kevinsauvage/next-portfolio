@@ -1,6 +1,6 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import Section from '@/components/ui/Section';
-import { Body, BodyLarge, H2, H3, H5, Overline } from '@/components/ui/Typography';
+import { Body, BodyLarge, H2, H3, H4, Overline } from '@/components/ui/Typography';
 import { passions, sections } from '@/config/content';
 import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
@@ -29,7 +29,7 @@ const PassionCard: React.FC<{
             aria-hidden='true'
           />
         </CardIcon>
-        <H5 className='group-hover:text-accent-400 transition-all duration-300'>{title}</H5>
+        <H4 className='group-hover:text-accent-400 transition-all duration-300'>{title}</H4>
         <Body className='group-hover:text-zinc-200 transition-colors'>{description}</Body>
       </CardContent>
     </Card>
