@@ -35,7 +35,7 @@ This portfolio showcases professional work, skills, and experience through a res
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/next-portfolio.git
+git clone https://github.com/kevinsauvage/next-portfolio.git
 cd next-portfolio
 ```
 
@@ -60,33 +60,35 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_key
 ```
 
-## Usage
+## Development
 
-### Development
+This is a private portfolio project. For development purposes:
 
 ```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Production Build
+### Available Scripts
 
 ```bash
+# Development
+npm run dev
+
+# Production build
 npm run build
 npm start
-```
 
-### Code Quality
-
-```bash
-# Run all checks
+# Code quality
 npm run check
-
-# Fix issues automatically
 npm run check:fix
 
-# Run tests
+# Testing
 npm run test
 ```
 
@@ -134,13 +136,16 @@ src/
 └── styles/                # Global styles
 ```
 
-## Contributing
+## About This Project
 
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit changes: `git commit -m 'Add amazing feature'`
-4. Push to branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+This is a personal portfolio website showcasing frontend development skills and professional experience. The codebase demonstrates modern web development practices including:
+
+- Component-based architecture with React and Next.js
+- TypeScript for type safety
+- Tailwind CSS for styling
+- Accessibility best practices
+- Performance optimization
+- Modern development tooling
 
 ## License
 
