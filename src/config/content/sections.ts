@@ -1,11 +1,11 @@
 export const sections = {
   hero: {
     title: {
-      firstLine: 'Crafting High-Performance',
-      secondLine: 'Accessible Web Experiences',
+      firstLine: 'Building Fast,',
+      secondLine: 'Accessible Web Apps',
     },
     description:
-      'A Frontend Developer specializing in transforming complex challenges into fast, intuitive, and inclusive applications with React, Next.js and TypeScript.',
+      'A Frontend Developer who builds fast, accessible applications with React, Next.js and TypeScript. I focus on creating solutions that work well for users and help businesses grow online.',
     availability: 'Available for new projects',
   },
   about: {
@@ -13,25 +13,25 @@ export const sections = {
     title: "Hi, I'm Kévin Sauvage",
     experience: '4+ Years Experience',
     description:
-      "I'm a Frontend Developer in Barcelona, crafting high-performance, accessible web applications. With over four years of experience, I specialize in building modern solutions with React and Next.js that are both user-centric and robust.",
+      "I'm a Frontend Developer in Barcelona, building accessible web applications. With over four years of experience, I create modern solutions with React and Next.js that work well for users. I enjoy solving complex problems and turning ideas into working applications.",
   },
   expertise: {
     overline: 'Expertise',
     title: 'What I Do Best',
     description:
-      'Specialized services to help your business thrive online, from custom development to optimization and ongoing support.',
+      'Services to help your business online, from custom development to optimization and ongoing support. I work with modern technologies to build applications that are fast, accessible, and easy to use.',
   },
   career: {
     overline: 'Career',
     title: 'Professional Journey',
     description:
-      'Evolving through roles dedicated to innovation, quality, and the relentless pursuit of better user experiences.',
+      'Growing through roles focused on quality and creating better user experiences. From building component libraries to optimizing performance, each role has taught me something new about building great web applications.',
   },
   portfolio: {
     overline: 'Portfolio',
     title: 'Featured Projects',
     description:
-      'Translating modern web practices into tangible results. Each project is built with a focus on speed, accessibility, and creating meaningful user interactions.',
+      'Modern web development in action. Each project focuses on speed, accessibility, and good user experience. These examples show how I approach real-world challenges and deliver working solutions.',
     buttons: {
       viewLive: 'View Live',
       sourceCode: 'Source Code',
@@ -40,13 +40,14 @@ export const sections = {
   testimonials: {
     overline: 'Testimonials',
     title: 'What Colleagues Say',
-    description: "Notes from engineering leaders and colleagues I've worked with.",
+    description:
+      'What colleagues and managers say about working with me. These testimonials reflect the collaborative approach and technical skills I bring to each project.',
   },
   contact: {
     overline: 'Contact',
     title: "Let's build something great",
     description:
-      "Have a project or challenge? I'd love to hear about it. Let's discuss how we can build, improve, or innovate together.",
+      "Have a project or challenge? I'd love to hear about it. Let's discuss how we can work together to build something that meets your needs and exceeds your expectations.",
     features: {
       quickResponse: {
         title: 'Quick Response',
@@ -62,7 +63,7 @@ export const sections = {
     overline: 'Continuous Learning',
     title: 'Certifications & Achievements',
     description:
-      'Committed to staying current with industry best practices and emerging technologies through continuous education and professional development.',
+      'Staying current with industry practices and new technologies through continuous learning. These certifications and achievements show my commitment to growing as a developer and staying up-to-date with the latest tools and techniques.',
     button: 'View Credential',
   },
 } as const;

@@ -29,16 +29,7 @@ export const certifications: Certification[] = [
       'Full-Stack Development',
     ],
   },
-  {
-    title: 'React: Using TypeScript',
-    issuer: 'LinkedIn Learning',
-    date: 'November 2023',
-    description:
-      'Advanced React course covering TypeScript integration, hooks, context, and performance optimization for scalable applications.',
-    credentialUrl:
-      'https://www.linkedin.com/learning/certificates/40fd79658af09c1bdbf16e99974debccb5b541758ce2d58f71bdb0dfc323722e',
-    skills: ['React Hooks', 'TypeScript', 'React.js', 'Web Development', 'Frontend Development'],
-  },
+
   {
     title: 'JavaScript: The Advanced Concepts',
     issuer: 'Udemy',
@@ -48,6 +39,16 @@ export const certifications: Certification[] = [
     credentialId: 'UC-833af855-7179-4c4e-903a-98172c7e4964',
     credentialUrl: 'https://www.udemy.com/certificate/UC-833af855-7179-4c4e-903a-98172c7e4964/',
     skills: ['JavaScript', 'Programming', 'Web Development', 'Frontend Development'],
+  },
+  {
+    title: 'React: Using TypeScript',
+    issuer: 'LinkedIn Learning',
+    date: 'November 2023',
+    description:
+      'Advanced React course covering TypeScript integration, hooks, context, and performance optimization for scalable applications.',
+    credentialUrl:
+      'https://www.linkedin.com/learning/certificates/40fd79658af09c1bdbf16e99974debccb5b541758ce2d58f71bdb0dfc323722e',
+    skills: ['React Hooks', 'TypeScript', 'React.js', 'Web Development', 'Frontend Development'],
   },
   {
     title: 'EF SET English Certificate (C1 Advanced)',
