@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Logo from '@/components/layout/Logo';
 import Navigation from '@/components/layout/Navigation';
 import Button from '@/components/ui/Button';
+import { layout } from '@/config/content';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
 import clsx from 'clsx';
@@ -48,7 +49,7 @@ const Header = () => {
             <Link href='#contact' className='hidden lg:block'>
               <Button
                 svg={<Mail strokeWidth={1.5} size={18} aria-hidden='true' />}
-                label='Get in touch'
+                label={layout.header.ctaButton}
                 size='md'
                 variant='primary'
                 data-umami-event='header_cta_contact'
@@ -58,7 +59,11 @@ const Header = () => {
             <button
               className='lg:hidden p-3 rounded-md hover:bg-zinc-800/50 transition-colors relative z-50 min-w-[48px] min-h-[48px] flex items-center justify-center'
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={
+                menuOpen
+                  ? layout.header.mobileMenu.closeButton
+                  : layout.header.mobileMenu.openButton
+              }
               aria-expanded={menuOpen}
             >
               {menuOpen ? (
@@ -94,8 +99,10 @@ const Header = () => {
             <div className='flex flex-col h-full'>
               <div className='p-6 border-b border-zinc-800 flex items-center justify-between'>
                 <div>
-                  <h2 className='text-xl font-semibold text-zinc-100'>Navigation</h2>
-                  <p className='text-sm text-zinc-500 mt-1'>Explore my portfolio</p>
+                  <h2 className='text-xl font-semibold text-zinc-100'>
+                    {layout.header.mobileMenu.title}
+                  </h2>
+                  <p className='text-sm text-zinc-500 mt-1'>{layout.header.mobileMenu.subtitle}</p>
                 </div>
                 <button
                   onClick={() => setMenuOpen(false)}
@@ -107,15 +114,7 @@ const Header = () => {
               </div>
 
               <ul className='flex-1 overflow-y-auto p-4'>
-                {[
-                  { href: '#home', label: 'Home' },
-                  { href: '#about', label: 'About' },
-                  { href: '#portfolio', label: 'Portfolio' },
-                  { href: '#career', label: 'Career' },
-                  { href: '#certifications', label: 'Certifications' },
-                  { href: '#testimonials', label: 'Testimonials' },
-                  { href: '#contact', label: 'Contact' },
-                ].map(({ label, href }, index) => (
+                {layout.header.navigation.items.map(({ label, href }, index) => (
                   <li key={label} style={{ animationDelay: `${index * 50}ms` }}>
                     <Link
                       href={href}
@@ -142,7 +141,7 @@ const Header = () => {
                   onClick={() => setMenuOpen(false)}
                   className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 text-white font-medium rounded-lg transition-all duration-200'
                 >
-                  Get in Touch
+                  {layout.header.mobileMenu.ctaButton}
                   <ChevronRight size={18} aria-hidden='true' />
                 </Link>
               </div>

@@ -4,16 +4,9 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import clsx from 'clsx';
+import { layout } from '@/config/content';
 
-const navItems = [
-  { href: '#home', label: 'Home' },
-  { href: '#about', label: 'About' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#career', label: 'Career' },
-  { href: '#certifications', label: 'Certifications' },
-  { href: '#testimonials', label: 'Testimonials' },
-  { href: '#contact', label: 'Contact' },
-];
+const navItems = layout.header.navigation.items;
 
 const Navigation: React.FC<{
   menuOpen: boolean;

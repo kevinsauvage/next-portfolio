@@ -1,34 +1,11 @@
 import Link from 'next/link';
 
 import ContactInfo from '@/components/shared/ContactInfo';
+import { layout } from '@/config/content';
 
 import { Briefcase, CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
-  const quickLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Career', href: '#career' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
-  const skills = [
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Node.js',
-    'Tailwind CSS',
-    'JavaScript',
-    'HTML',
-    'CSS',
-    'Git',
-    'REST API',
-    'MongoDB',
-    'PostgreSQL',
-    'Express',
-  ];
-
   return (
     <footer
       className='border-t border-zinc-800 bg-zinc-950/50'
@@ -37,18 +14,17 @@ const Footer: React.FC = () => {
     >
       <div className='container m-auto px-6 py-12'>
         <div className='mb-10 text-center md:text-left'>
-          <h2 className='text-2xl font-bold text-zinc-100 mb-2'>Kévin Sauvage</h2>
-          <p className='text-zinc-200 max-w-2xl font-light'>
-            Frontend Developer crafting modern web experiences with passion and precision.
-            Let&apos;s build something great.
-          </p>
+          <h2 className='text-2xl font-bold text-zinc-100 mb-2'>{layout.footer.name}</h2>
+          <p className='text-zinc-200 max-w-2xl font-light'>{layout.footer.tagline}</p>
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8'>
           <nav aria-label='Footer navigation'>
-            <h3 className='text-zinc-100 text-lg font-semibold mb-4'>Quick Links</h3>
+            <h3 className='text-zinc-100 text-lg font-semibold mb-4'>
+              {layout.footer.sections.quickLinks.title}
+            </h3>
             <ul className='space-y-2'>
-              {quickLinks.map(link => (
+              {layout.footer.sections.quickLinks.links.map(link => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -68,10 +44,10 @@ const Footer: React.FC = () => {
                 className='transition-transform hover:rotate-12'
                 aria-hidden='true'
               />
-              Tech Stack
+              {layout.footer.sections.techStack.title}
             </h3>
             <div className='flex flex-wrap gap-2'>
-              {skills.map(skill => (
+              {layout.footer.sections.techStack.skills.map(skill => (
                 <span
                   key={skill}
                   className='px-3 py-1 bg-zinc-800/50 text-zinc-300 text-xs rounded-full border border-zinc-700'
@@ -89,7 +65,7 @@ const Footer: React.FC = () => {
                 className='transition-transform hover:rotate-12'
                 aria-hidden='true'
               />
-              Availability
+              {layout.footer.sections.availability.title}
             </h3>
             <div className='space-y-3'>
               <div className='flex items-center gap-2'>
@@ -98,7 +74,9 @@ const Footer: React.FC = () => {
                   className='text-green-400 transition-transform hover:rotate-12'
                   aria-hidden='true'
                 />
-                <span className='text-sm text-zinc-200'>Open to opportunities</span>
+                <span className='text-sm text-zinc-200'>
+                  {layout.footer.sections.availability.status}
+                </span>
               </div>
               <div className='flex items-center gap-2'>
                 <MapPin
@@ -106,7 +84,9 @@ const Footer: React.FC = () => {
                   className='text-blue-400 transition-transform hover:rotate-12'
                   aria-hidden='true'
                 />
-                <span className='text-sm text-zinc-200'>Barcelona, Spain</span>
+                <span className='text-sm text-zinc-200'>
+                  {layout.footer.sections.availability.location}
+                </span>
               </div>
             </div>
           </div>
@@ -114,10 +94,10 @@ const Footer: React.FC = () => {
           <div>
             <h3 className='text-zinc-100 text-lg font-semibold mb-4 flex items-center gap-2'>
               <Mail size={20} className='transition-transform hover:rotate-12' aria-hidden='true' />
-              Get in Touch
+              {layout.footer.sections.contact.title}
             </h3>
             <p className='text-zinc-200 text-sm mb-4 font-light'>
-              Feel free to reach out for collaborations or just a friendly chat.
+              {layout.footer.sections.contact.description}
             </p>
             <ContactInfo />
           </div>
@@ -125,7 +105,7 @@ const Footer: React.FC = () => {
 
         <div className='pt-8 border-t border-zinc-800'>
           <p className='text-zinc-400 text-sm text-center'>
-            © {new Date().getFullYear()} Kévin Sauvage. All rights reserved.
+            © {new Date().getFullYear()} {layout.footer.name}. {layout.footer.copyright}
           </p>
         </div>
       </div>
