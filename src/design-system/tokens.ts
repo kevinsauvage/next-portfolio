@@ -122,7 +122,7 @@ export const typography = {
   body: {
     fontSize: 'text-base md:text-lg',
     lineHeight: 'leading-relaxed',
-    fontWeight: 'font-normal',
+    fontWeight: 'font-light',
   },
 
   // Body Small - Secondary text
