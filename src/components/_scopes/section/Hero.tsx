@@ -68,7 +68,7 @@ const Hero = () => {
             style={{ animationDelay: animations.loadDelay.second, animationFillMode: 'both' }}
           >
             A Frontend Developer specializing in transforming complex challenges into fast,
-            intuitive, and inclusive applications with React and Next.js.
+            intuitive, and inclusive applications with React, Next.js and TypeScript.
           </BodyLarge>
         </header>
 
