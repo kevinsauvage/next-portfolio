@@ -4,6 +4,7 @@ import Button from '@/components/ui/Button';
 import { Card, CardContent, CardImage } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import projects from '@/config/content/projects';
+import { sections } from '@/config/content';
 import { stackSpacing } from '@/design-system/tokens';
 
 import { ExternalLink, Github } from 'lucide-react';
@@ -78,7 +79,7 @@ const ProjectCard: React.FC<{
               <Link href={websiteLink} target='_blank' rel='noopener noreferrer'>
                 <Button
                   svg={<ExternalLink size={18} aria-hidden='true' />}
-                  label='View Live'
+                  label={sections.portfolio.buttons.viewLive}
                   size='md'
                   variant='primary'
                   data-umami-event='project_live_click'
@@ -90,7 +91,7 @@ const ProjectCard: React.FC<{
                 <Link href={githubLink[0] as string} target='_blank' rel='noopener noreferrer'>
                   <Button
                     svg={<Github size={18} aria-hidden='true' />}
-                    label='Source Code'
+                    label={sections.portfolio.buttons.sourceCode}
                     size='md'
                     variant='secondary'
                     data-umami-event='project_github_click'
@@ -112,9 +113,9 @@ const PortfolioSection: React.FC = () => {
       <div className={stackSpacing['2xl']}>
         <div className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
           <SectionHeader
-            overline='Portfolio'
-            title='Featured Projects'
-            description='Translating modern web practices into tangible results. Each project is built with a focus on speed, accessibility, and creating meaningful user interactions.'
+            overline={sections.portfolio.overline}
+            title={sections.portfolio.title}
+            description={sections.portfolio.description}
           />
         </div>
 

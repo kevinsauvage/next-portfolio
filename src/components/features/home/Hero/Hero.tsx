@@ -3,6 +3,7 @@ import Link from 'next/link';
 import BoxWithBackground from '@/components/shared/BoxWithBackground';
 import Button from '@/components/ui/Button';
 import { BodyLarge, Display } from '@/components/ui/Typography';
+import { sections } from '@/config/content';
 import { animations, gapSpacing, iconSizes } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -41,7 +42,7 @@ const Hero = () => {
             <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75' />
             <span className='relative inline-flex rounded-full h-2 w-2 bg-green-500' />
           </span>
-          <span className='text-sm text-green-400 font-medium'>Available for new projects</span>
+          <span className='text-sm text-green-400 font-medium'>{sections.hero.availability}</span>
         </div>
 
         <header
@@ -50,13 +51,13 @@ const Hero = () => {
         >
           <Display id='hero-title' className='flex flex-col mb-6 max-w-5xl'>
             <span className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
-              Crafting High-Performance
+              {sections.hero.title.firstLine}
             </span>{' '}
             <span
               className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-fade-in-up opacity-0'
               style={{ animationDelay: animations.loadDelay.first, animationFillMode: 'both' }}
             >
-              Accessible Web Experiences
+              {sections.hero.title.secondLine}
             </span>
           </Display>
           <BodyLarge
@@ -64,8 +65,7 @@ const Hero = () => {
             className='mb-8 max-w-2xl animate-fade-in-up opacity-0'
             style={{ animationDelay: animations.loadDelay.second, animationFillMode: 'both' }}
           >
-            A Frontend Developer specializing in transforming complex challenges into fast,
-            intuitive, and inclusive applications with React, Next.js and TypeScript.
+            {sections.hero.description}
           </BodyLarge>
         </header>
 

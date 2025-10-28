@@ -1,7 +1,7 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import Section from '@/components/ui/Section';
 import { Body, BodyLarge, H2, H3, H5, Overline } from '@/components/ui/Typography';
-import { passions } from '@/config/content/passions';
+import { passions, sections } from '@/config/content';
 import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -44,12 +44,12 @@ const AboutSection: React.FC = () => {
           className={clsx(stackSpacing.md, 'animate-fade-in-up opacity-0')}
           style={{ animationFillMode: 'both' }}
         >
-          <Overline>About me</Overline>
+          <Overline>{sections.about.overline}</Overline>
           <H2
             gradient
             className='animate-gradient bg-[length:200%_auto] text-4xl md:text-5xl lg:text-6xl'
           >
-            Hi, I&apos;m Kévin Sauvage
+            {sections.about.title}
           </H2>
           <div
             className={clsx(
@@ -60,16 +60,16 @@ const AboutSection: React.FC = () => {
           >
             <div className='flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full backdrop-blur-sm'>
               <div className='h-2 w-2 rounded-full bg-blue-400 animate-pulse' />
-              <span className='text-lg font-semibold text-blue-400'>4+ Years Experience</span>
+              <span className='text-lg font-semibold text-blue-400'>
+                {sections.about.experience}
+              </span>
             </div>
           </div>
           <BodyLarge
             className='max-w-4xl animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
           >
-            I&apos;m a Frontend Developer in Barcelona, crafting high-performance, accessible web
-            applications. With over four years of experience, I specialize in building modern
-            solutions with React and Next.js that are both user-centric and robust.
+            {sections.about.description}
           </BodyLarge>
         </div>
 

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardIcon } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { Body, Caption, H4, H5 } from '@/components/ui/Typography';
-import { jobs } from '@/config/content/jobs';
+import { jobs, sections } from '@/config/content';
 import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -79,9 +79,9 @@ const CareerSection = () => {
     <Section id='career'>
       <div className={stackSpacing['2xl']}>
         <SectionHeader
-          overline='Career'
-          title='Professional Journey'
-          description='Evolving through roles dedicated to innovation, quality, and the relentless pursuit of better user experiences.'
+          overline={sections.career.overline}
+          title={sections.career.title}
+          description={sections.career.description}
         />
 
         <div className={stackSpacing.lg}>

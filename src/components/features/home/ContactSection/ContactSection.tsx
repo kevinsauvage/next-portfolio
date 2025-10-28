@@ -6,6 +6,7 @@ import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaP
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { BodySmall, H5 } from '@/components/ui/Typography';
 import { gapSpacing, iconSizes, radius, stackSpacing } from '@/design-system/tokens';
+import { sections } from '@/config/content';
 
 import clsx from 'clsx';
 import { MessageSquare, Send } from 'lucide-react';
@@ -23,9 +24,9 @@ const ContactSection: React.FC = () => {
       >
         <div className={clsx('w-full relative z-10', stackSpacing.xl)}>
           <SectionHeader
-            overline='Contact'
-            title="Let's build something great"
-            description="Have a project or challenge? I'd love to hear about it. Let's discuss how we can build, improve, or innovate together."
+            overline={sections.contact.overline}
+            title={sections.contact.title}
+            description={sections.contact.description}
             align='center'
           />
 
@@ -45,9 +46,9 @@ const ContactSection: React.FC = () => {
                     aria-hidden='true'
                   />
                 </div>
-                <H5>Quick Response</H5>
+                <H5>{sections.contact.features.quickResponse.title}</H5>
               </div>
-              <BodySmall>I typically respond within 24 hours during weekdays</BodySmall>
+              <BodySmall>{sections.contact.features.quickResponse.description}</BodySmall>
             </div>
 
             <div
@@ -65,9 +66,9 @@ const ContactSection: React.FC = () => {
                     aria-hidden='true'
                   />
                 </div>
-                <H5>Direct Contact</H5>
+                <H5>{sections.contact.features.directContact.title}</H5>
               </div>
-              <BodySmall>Fill out the form below and I&apos;ll get back to you soon</BodySmall>
+              <BodySmall>{sections.contact.features.directContact.description}</BodySmall>
             </div>
           </div>
 

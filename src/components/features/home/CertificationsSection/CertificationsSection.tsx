@@ -2,6 +2,7 @@ import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { Body, BodySmall, H4, H5 } from '@/components/ui/Typography';
 import certifications from '@/config/content/certifications';
+import { sections } from '@/config/content';
 import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -96,7 +97,7 @@ const CertificationCard: React.FC<{
               className='transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5'
               aria-hidden='true'
             />
-            <span>View Credential</span>
+            <span>{sections.certifications.button}</span>
             <span className='sr-only'> for {title}</span>
           </a>
         )}
@@ -110,9 +111,9 @@ const CertificationsSection: React.FC = () => {
     <Section id='certifications'>
       <div className={clsx(stackSpacing['2xl'])}>
         <SectionHeader
-          overline='Continuous Learning'
-          title='Certifications & Achievements'
-          description='Committed to staying current with industry best practices and emerging technologies through continuous education and professional development.'
+          overline={sections.certifications.overline}
+          title={sections.certifications.title}
+          description={sections.certifications.description}
         />
 
         <div className={clsx('grid grid-cols-1 lg:grid-cols-2', gapSpacing.xl)}>

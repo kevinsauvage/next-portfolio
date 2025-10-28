@@ -1,6 +1,7 @@
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { Body, Caption } from '@/components/ui/Typography';
+import { sections } from '@/config/content';
 import testimonials from '@/config/content/testimonials';
 import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
@@ -89,9 +90,9 @@ const TestimonialsSection: React.FC = () => {
     <Section id='testimonials'>
       <div className={stackSpacing.lg}>
         <SectionHeader
-          overline='Testimonials'
-          title='What Colleagues Say'
-          description="Notes from engineering leaders and colleagues I've worked with."
+          overline={sections.testimonials.overline}
+          title={sections.testimonials.title}
+          description={sections.testimonials.description}
         />
 
         <div className={clsx('grid grid-cols-1 lg:grid-cols-2', gapSpacing.md)}>
