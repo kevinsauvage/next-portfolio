@@ -46,7 +46,10 @@ const AboutSection: React.FC = () => {
           style={{ animationFillMode: 'both' }}
         >
           <Overline>About me</Overline>
-          <H2 gradient className='animate-gradient bg-[length:200%_auto]'>
+          <H2
+            gradient
+            className='animate-gradient bg-[length:200%_auto] text-4xl md:text-5xl lg:text-6xl'
+          >
             Hi, I&apos;m Kévin Sauvage
           </H2>
           <div
