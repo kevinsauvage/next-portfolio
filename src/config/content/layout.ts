@@ -23,7 +23,7 @@ export const layout = {
   footer: {
     name: 'Kévin Sauvage',
     tagline:
-      "Frontend Developer crafting modern web experiences with passion and precision. Let's build something great.",
+      "Frontend Developer building modern web applications. Let's work together on your next project.",
     sections: {
       quickLinks: {
         title: 'Quick Links',
@@ -60,7 +60,7 @@ export const layout = {
       },
       contact: {
         title: 'Get in Touch',
-        description: 'Feel free to reach out for collaborations or just a friendly chat.',
+        description: 'Feel free to reach out for projects or just to say hello.',
       },
     },
     copyright: 'All rights reserved.',

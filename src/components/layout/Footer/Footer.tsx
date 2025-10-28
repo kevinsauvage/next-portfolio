@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
       <div className='container m-auto px-6 py-12'>
         <div className='mb-10 text-center md:text-left'>
           <h2 className='text-2xl font-bold text-zinc-100 mb-2'>{layout.footer.name}</h2>
-          <p className='text-zinc-200 max-w-2xl font-light'>{layout.footer.tagline}</p>
+          <p className='text-zinc-200 max-w-sm font-light'>{layout.footer.tagline}</p>
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8'>
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
               />
               {layout.footer.sections.techStack.title}
             </h3>
-            <div className='flex flex-wrap gap-2'>
+            <div className='flex flex-wrap gap-2 max-w-52'>
               {layout.footer.sections.techStack.skills.map(skill => (
                 <span
                   key={skill}
@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
               <Mail size={20} className='transition-transform hover:rotate-12' aria-hidden='true' />
               {layout.footer.sections.contact.title}
             </h3>
-            <p className='text-zinc-200 text-sm mb-4 font-light'>
+            <p className='text-zinc-200 text-sm mb-4 font-light max-w-40'>
               {layout.footer.sections.contact.description}
             </p>
             <ContactInfo />
