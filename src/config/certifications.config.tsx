@@ -11,6 +11,25 @@ type Certification = {
 
 export const certifications: Certification[] = [
   {
+    title: 'Full-Stack Web Developer',
+    issuer: 'Le Wagon',
+    date: 'Aug 2020 - Oct 2020',
+    description:
+      '9-week full-time coding Bootcamp learning HTML, CSS, Bootstrap, JavaScript ES6, SQL, git, GitHub, Heroku, and Ruby on Rails. Designed, implemented, and shipped to production a clone of Airbnb and a Rails prototype.',
+    skills: [
+      'Ruby on Rails',
+      'JavaScript ES6',
+      'HTML',
+      'CSS',
+      'Bootstrap',
+      'SQL',
+      'Git',
+      'GitHub',
+      'Heroku',
+      'Full-Stack Development',
+    ],
+  },
+  {
     title: 'React: Using TypeScript',
     issuer: 'LinkedIn Learning',
     date: 'November 2023',
@@ -29,16 +48,6 @@ export const certifications: Certification[] = [
     credentialId: 'UC-833af855-7179-4c4e-903a-98172c7e4964',
     credentialUrl: 'https://www.udemy.com/certificate/UC-833af855-7179-4c4e-903a-98172c7e4964/',
     skills: ['JavaScript', 'Programming', 'Web Development', 'Frontend Development'],
-  },
-  {
-    title: 'JavaScript Algorithms and Data Structures',
-    issuer: 'freeCodeCamp',
-    date: 'April 2021',
-    description:
-      'Intensive program covering fundamental computer science concepts, data structures, algorithms, and problem-solving techniques essential for technical interviews.',
-    credentialUrl:
-      'https://freecodecamp.org/certification/kevin-sauvage/javascript-algorithms-and-data-structures',
-    skills: ['JavaScript', 'Node.js', 'Programming', 'Web Development', 'Frontend Development'],
   },
   {
     title: 'EF SET English Certificate (C1 Advanced)',
