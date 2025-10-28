@@ -1,7 +1,7 @@
 import { Card, CardContent } from '@/components/ui/Card';
 import Section from '@/components/ui/Section';
-import expertise from '@/config/content/expertises';
 import { sections } from '@/config/content';
+import expertise from '@/config/content/expertises';
 
 import { Check } from 'lucide-react';
 

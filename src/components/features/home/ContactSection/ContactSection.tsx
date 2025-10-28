@@ -5,8 +5,8 @@ import BoxWithBackground from '@/components/shared/BoxWithBackground';
 import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { BodySmall, H5 } from '@/components/ui/Typography';
-import { gapSpacing, iconSizes, radius, stackSpacing } from '@/design-system/tokens';
 import { sections } from '@/config/content';
+import { gapSpacing, iconSizes, radius, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 import { MessageSquare, Send } from 'lucide-react';

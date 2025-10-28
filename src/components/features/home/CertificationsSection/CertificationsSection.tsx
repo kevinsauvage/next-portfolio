@@ -1,8 +1,8 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { Body, BodySmall, H4, H5 } from '@/components/ui/Typography';
-import certifications from '@/config/content/certifications';
 import { sections } from '@/config/content';
+import certifications from '@/config/content/certifications';
 import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';

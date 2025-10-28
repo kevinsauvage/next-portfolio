@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-import clsx from 'clsx';
 import { layout } from '@/config/content';
+
+import clsx from 'clsx';
 
 const navItems = layout.header.navigation.items;
 

@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Button from '@/components/ui/Button';
 import { Card, CardContent, CardImage } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
-import projects from '@/config/content/projects';
 import { sections } from '@/config/content';
+import projects from '@/config/content/projects';
 import { stackSpacing } from '@/design-system/tokens';
 
 import { ExternalLink, Github } from 'lucide-react';
