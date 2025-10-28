@@ -1,8 +1,24 @@
 {
-  "name": "next-portfolio",
-  "version": "0.1.0",
+  "name": "kevin-sauvage-portfolio",
+  "version": "1.0.0",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "PROPRIETARY",
+  "description": "Personal portfolio website showcasing frontend development skills and experience",
+  "author": "Kévin Sauvage <your-email@example.com>",
+  "homepage": "https://www.kevin-sauvage.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinsauvage/next-portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "react",
+    "typescript",
+    "tailwindcss",
+    "frontend",
+    "developer"
+  ],
   "engines": {
     "node": ">=20.0.0"
   },

@@ -1,71 +1,41 @@
-# Kévin Sauvage - Portfolio Website
+# Next.js Portfolio
 
-A modern, multilingual portfolio website built with Next.js 14, showcasing my work as a Frontend Developer at Decathlon International.
+A modern, accessible portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. Features a clean design, smooth animations, and comprehensive developer experience tooling.
 
-## 🚀 Features
+## Overview
 
-- **Multilingual Support**: Available in English, French, and Spanish
-- **Modern Tech Stack**: Next.js 14, TypeScript, Tailwind CSS, SASS
-- **Performance Optimized**: Vercel Analytics, image optimization, lazy loading
-- **Accessibility First**: WCAG compliant with proper semantic HTML
-- **Security**: reCAPTCHA integration, security headers, form validation
-- **Responsive Design**: Mobile-first approach with smooth animations
-- **SEO Optimized**: Structured data, meta tags, and sitemap generation
+This portfolio showcases professional work, skills, and experience through a responsive single-page application. Built with performance and accessibility in mind, it includes contact forms, project showcases, and a modern tech stack.
 
-## 🛠️ Tech Stack
+## Features
 
-- **Framework**: Next.js 14 with App Router
+- **Responsive Design** - Mobile-first approach with Tailwind CSS
+- **Accessibility** - WCAG 2.1 compliant with proper heading hierarchy
+- **Performance** - Optimized images, lazy loading, and Core Web Vitals
+- **Contact Form** - EmailJS integration with reCAPTCHA protection
+- **Animations** - Smooth transitions and micro-interactions
+- **SEO Ready** - Meta tags, sitemap, and robots.txt
+- **Type Safety** - Full TypeScript implementation
+- **Testing** - Vitest setup with React Testing Library
+- **Code Quality** - ESLint, Prettier, and Stylelint configuration
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS + SASS
-- **Icons**: Lucide React, DevIcons
-- **Forms**: Zod validation with EmailJS integration
+- **Styling**: Tailwind CSS with SCSS
+- **Icons**: Lucide React
+- **Forms**: React Hook Form with Zod validation
+- **Email**: EmailJS
 - **Analytics**: Vercel Analytics
-- **Deployment**: Vercel
+- **Testing**: Vitest + React Testing Library
+- **Linting**: ESLint + Prettier + Stylelint
 
-## 📁 Project Structure
-
-```
-src/
-├── app/                    # Next.js App Router
-│   ├── [lang]/            # Internationalized routes
-│   ├── layout.tsx         # Root layout
-│   └── not-found.tsx      # 404 page
-├── components/            # Reusable components
-│   ├── _scopes/          # Feature-scoped components
-│   │   ├── form/         # Contact form components
-│   │   ├── notification/ # Notification system
-│   │   └── section/      # Page sections
-│   └── ...               # Shared components
-├── config/               # Configuration files
-├── dictionaries/         # i18n translations
-├── hooks/               # Custom React hooks
-├── actions/             # Server actions
-└── styles/             # Global styles
-```
-
-## 🌐 Internationalization
-
-The website supports three languages:
-
-- **English** (default)
-- **French**
-- **Spanish**
-
-Language detection is handled automatically based on browser preferences, with manual switching available.
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js >= 16.0.0
-- npm or yarn
-
-### Installation
+## Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/kevinsauvage/next-portfolio.git
+git clone https://github.com/yourusername/next-portfolio.git
 cd next-portfolio
 ```
 
@@ -81,94 +51,108 @@ npm install
 cp .env.example .env.local
 ```
 
-Required environment variables:
+4. Configure your environment variables in `.env.local`:
 
-- `email_js_service_id`: EmailJS service ID
-- `email_js_public_key`: EmailJS public key
-- `email_js_private_key`: EmailJS private key
-- `email_js_template_id`: EmailJS template ID
-- `RECAPTCHA_SECRET_KEY`: Google reCAPTCHA secret key
+```env
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
+NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_key
+```
 
-4. Run the development server:
+## Usage
+
+### Development
 
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the website.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📝 Available Scripts
+### Production Build
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint issues
-- `npm run lint:css` - Run Stylelint
-- `npm run lint:css:fix` - Fix Stylelint issues
-- `npm run lint:ts` - Run TypeScript compiler check
+```bash
+npm run build
+npm start
+```
 
-## 🎨 Design System
+### Code Quality
 
-The website uses a custom design system with:
+```bash
+# Run all checks
+npm run check
 
-- **Typography**: League Spartan (headings) + Josefin Sans (body)
-- **Color Palette**: Dark theme with zinc and indigo accents
-- **Animations**: Smooth transitions and hover effects
-- **Grid System**: Responsive grid with auto-fit columns
+# Fix issues automatically
+npm run check:fix
 
-## 🔧 Customization
+# Run tests
+npm run test
+```
 
-### Adding New Projects
+## Configuration
 
-Edit `src/config/projects.config.tsx` to add new portfolio projects.
+### Content Management
 
-### Updating Content
+Update content in the `src/config/content/` directory:
 
-Content is managed through dictionary files in `src/dictionaries/`:
-
-- `en.json` - English content
-- `fr.json` - French content
-- `es.json` - Spanish content
+- `sections.ts` - Page section titles and descriptions
+- `jobs.ts` - Professional experience
+- `certifications.ts` - Education and certifications
+- `projects.ts` - Portfolio projects
+- `testimonials.ts` - Client testimonials
+- `passions.ts` - Personal values and approach
 
 ### Styling
 
+- Design tokens: `src/design-system/tokens.ts`
 - Global styles: `src/styles/globals.scss`
-- Component styles: Co-located with components
-- Tailwind configuration: `tailwind.config.js`
+- Tailwind config: `tailwind.config.js`
 
-## 🚀 Deployment
+### Email Configuration
 
-The website is deployed on Vercel with automatic deployments from the main branch.
+1. Set up EmailJS account
+2. Create email template
+3. Add service credentials to environment variables
+4. Configure reCAPTCHA for spam protection
 
-### Build Optimization
+## Project Structure
 
-- Image optimization with Next.js Image component
-- Font optimization with Google Fonts
-- Bundle analysis and code splitting
-- Static generation for better performance
+```
+src/
+├── app/                    # Next.js App Router pages
+├── components/
+│   ├── features/          # Feature-specific components
+│   ├── layout/            # Layout components (Header, Footer)
+│   ├── shared/            # Reusable components
+│   └── ui/                # Base UI components
+├── config/
+│   └── content/           # Content configuration
+├── design-system/         # Design tokens and utilities
+├── hooks/                 # Custom React hooks
+├── lib/                   # Utility functions
+└── styles/                # Global styles
+```
 
-## 📊 Performance
+## Contributing
 
-- **Lighthouse Score**: 95+ across all metrics
-- **Core Web Vitals**: Optimized for LCP, FID, and CLS
-- **Accessibility**: WCAG 2.1 AA compliant
-- **SEO**: Structured data and meta tags
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
 
-## 🤝 Contributing
+## License
 
-This is a personal portfolio website, but suggestions and improvements are welcome!
+This project is proprietary and confidential. All rights reserved. See the [LICENSE](LICENSE) file for details.
 
-## 📄 License
+## Contact
 
-This project is private and proprietary.
+**Kévin Sauvage** - Frontend Developer
 
-## 📞 Contact
-
-- **Website**: [kevin-sauvage.com](https://www.kevin-sauvage.com)
-- **LinkedIn**: [kevin-sauvage](https://www.linkedin.com/in/kevin-sauvage)
-- **GitHub**: [kevinsauvage](https://github.com/kevinsauvage)
+- Portfolio: [your-portfolio-url.com](https://www.kevin-sauvage.com/)
+- LinkedIn: [linkedin.com/in/yourprofile](https://www.linkedin.com/in/kevin-sauvage/)
 
 ---
 
-Built with ❤️ by Kévin Sauvage
+Built with ❤️ using Next.js, TypeScript, and Tailwind CSS
