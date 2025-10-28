@@ -2,7 +2,7 @@ const expertise = [
   {
     title: 'Web App Development',
     content:
-      'Building robust, scalable applications with modern frameworks like React, Next.js, and TypeScript.',
+      'Building applications with React, Next.js, and TypeScript that scale with your business needs.',
     keyPoints: [
       'Custom React & Next.js Solutions',
       'Type-Safe Development',
@@ -12,18 +12,19 @@ const expertise = [
   {
     title: 'Performance Optimization',
     content:
-      'Engineering faster, smoother experiences that improve user engagement and search engine visibility.',
+      'Making websites faster and more responsive to improve user experience and search rankings.',
     keyPoints: ['Core Web Vitals', 'Rendering & Load Optimization', 'Performance Auditing'],
   },
   {
     title: 'E-Commerce Solutions',
     content:
-      'Developing high-converting online stores with a focus on user experience, security, and scalability.',
+      'Building online stores that convert visitors into customers with secure, scalable solutions.',
     keyPoints: ['Headless Architecture', 'Checkout & Funnel Optimization', 'Platform Integration'],
   },
   {
     title: 'Accessibility (a11y)',
-    content: 'Creating inclusive digital products that are usable and equitable for all people.',
+    content:
+      'Building websites and apps that work for everyone, including users with disabilities.',
     keyPoints: [
       'WCAG 2.1 Compliance',
       'Assistive Technology Support',
@@ -33,13 +34,12 @@ const expertise = [
   {
     title: 'SEO & Data Strategy',
     content:
-      'Implementing technical foundations and analytics to drive organic growth and inform strategic decisions.',
+      'Setting up technical SEO and analytics to help your site rank better and track what works.',
     keyPoints: ['Technical SEO', 'Analytics Implementation', 'Data-Driven Iteration'],
   },
   {
     title: 'Maintenance & Evolution',
-    content:
-      'Providing ongoing care to ensure your application remains secure, modern, and performant.',
+    content: 'Keeping your application secure, up-to-date, and running smoothly over time.',
     keyPoints: ['Proactive Updates & Security', 'Performance Monitoring', 'Continuous Improvement'],
   },
 ];

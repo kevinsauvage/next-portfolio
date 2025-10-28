@@ -316,11 +316,3 @@ export function getTypographyClasses(variant: keyof typeof typography): string {
   const styles = typography[variant];
   return Object.values(styles).join(' ');
 }
-
-
-
-
-
-
-
-

@@ -15,7 +15,7 @@ export const certifications: Certification[] = [
     issuer: 'Le Wagon',
     date: 'Aug 2020 - Oct 2020',
     description:
-      '9-week full-time coding Bootcamp learning HTML, CSS, Bootstrap, JavaScript ES6, SQL, git, GitHub, Heroku, and Ruby on Rails. Designed, implemented, and shipped to production a clone of Airbnb and a Rails prototype.',
+      '9-week intensive bootcamp covering full-stack development with Ruby on Rails, JavaScript, and modern web technologies. Built and deployed two production applications including an Airbnb clone.',
     skills: [
       'Ruby on Rails',
       'JavaScript ES6',
@@ -34,7 +34,7 @@ export const certifications: Certification[] = [
     issuer: 'LinkedIn Learning',
     date: 'November 2023',
     description:
-      'Comprehensive course covering advanced React patterns with TypeScript, including hooks, context, and performance optimization techniques for building scalable applications.',
+      'Advanced React course covering TypeScript integration, hooks, context, and performance optimization for scalable applications.',
     credentialUrl:
       'https://www.linkedin.com/learning/certificates/40fd79658af09c1bdbf16e99974debccb5b541758ce2d58f71bdb0dfc323722e',
     skills: ['React Hooks', 'TypeScript', 'React.js', 'Web Development', 'Frontend Development'],
@@ -44,7 +44,7 @@ export const certifications: Certification[] = [
     issuer: 'Udemy',
     date: 'May 2021',
     description:
-      'Deep dive into advanced JavaScript concepts including closures, prototypes, async programming, and modern ES6+ features for building complex applications.',
+      'Advanced JavaScript course covering closures, prototypes, async programming, and modern ES6+ features for complex applications.',
     credentialId: 'UC-833af855-7179-4c4e-903a-98172c7e4964',
     credentialUrl: 'https://www.udemy.com/certificate/UC-833af855-7179-4c4e-903a-98172c7e4964/',
     skills: ['JavaScript', 'Programming', 'Web Development', 'Frontend Development'],
@@ -54,7 +54,7 @@ export const certifications: Certification[] = [
     issuer: 'EF SET',
     date: 'March 2024',
     description:
-      'Official certification demonstrating advanced English proficiency (C1 level) enabling effective communication in international professional environments.',
+      'Official C1 Advanced English certification for professional communication in international environments.',
     credentialUrl: 'https://cert.efset.org/W8vpXL',
     skills: ['English', 'Communication', 'International Collaboration'],
   },

@@ -14,7 +14,7 @@ type Project = {
 
 const myEcommerceProject: Project = {
   description:
-    "A high-performance, modern e-commerce demo built with Next.js 15 and TypeScript. Features include advanced product filtering, real-time cart management, and a seamless checkout experience, powered by Shopify's Storefront API. Engineered for excellence, achieving top-tier Lighthouse scores for performance, accessibility, and SEO.",
+    "A modern e-commerce demo built with Next.js 15 and TypeScript. Features product filtering, cart management, and checkout powered by Shopify's Storefront API. Achieves high Lighthouse scores for performance, accessibility, and SEO.",
   githubLink: ['https://github.com/kevinsauvage/nextjs-strapi-ecommerce'],
   images: {
     thumbnail: {
