@@ -28,7 +28,12 @@ export const SectionHeader = ({
     <div className={clsx(stackSpacing.md, alignmentClass, className)}>
       {overline && <Overline>{overline}</Overline>}
 
-      <H2 gradient={gradient}>{title}</H2>
+      <H2
+        gradient={gradient}
+        className='animate-gradient bg-[length:200%_auto] text-4xl md:text-5xl lg:text-6xl'
+      >
+        {title}
+      </H2>
 
       {description && <BodyLarge className='max-w-4xl'>{description}</BodyLarge>}
     </div>
