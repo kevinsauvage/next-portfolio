@@ -51,7 +51,7 @@ export const certifications: Certification[] = [
     skills: ['React Hooks', 'TypeScript', 'React.js', 'Web Development', 'Frontend Development'],
   },
   {
-    title: 'EF SET English Certificate (C1 Advanced)',
+    title: 'C1 English Certificate',
     issuer: 'EF SET',
     date: 'March 2024',
     description:

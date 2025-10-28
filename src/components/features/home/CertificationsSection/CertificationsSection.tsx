@@ -33,7 +33,7 @@ const CertificationCard: React.FC<{
           <div className='flex items-start gap-4 flex-1'>
             <CardIcon variant='primary' className='flex-shrink-0'>
               <Award
-                size={iconSizes.lg}
+                size={iconSizes.xl}
                 className='text-white transition-transform group-hover:rotate-12 group-hover:scale-110'
                 strokeWidth={1.5}
                 aria-hidden='true'
@@ -42,31 +42,30 @@ const CertificationCard: React.FC<{
             <div className='flex-1 min-w-0'>
               <H3
                 id={`cert-${index}`}
-                className='group-hover:text-primary-400 transition-all duration-300 text-xl md:text-2xl leading-tight'
+                className='group-hover:text-primary-400 transition-all duration-300 text-xl md:text-2xl leading-tight mb-1'
               >
                 {title}
               </H3>
+              <div className='flex items-center gap-4 flex-wrap'>
+                <div className='flex items-center gap-2'>
+                  <Building2
+                    size={iconSizes.sm}
+                    className='text-purple-400 transition-transform group-hover:rotate-12'
+                    strokeWidth={1.5}
+                    aria-hidden='true'
+                  />
+                  <Body className='text-zinc-300 group-hover:text-zinc-200 transition-colors'>
+                    {issuer}
+                  </Body>
+                </div>
+                <div className='flex items-center gap-2'>
+                  <Calendar size={iconSizes.sm} className='text-zinc-500' aria-hidden='true' />
+                  <BodySmall className='text-zinc-400 font-medium'>
+                    <time dateTime={date}>{date}</time>
+                  </BodySmall>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div className='flex items-center gap-4 flex-wrap'>
-          <div className='flex items-center gap-2'>
-            <Building2
-              size={iconSizes.sm}
-              className='text-purple-400 transition-transform group-hover:rotate-12'
-              strokeWidth={1.5}
-              aria-hidden='true'
-            />
-            <Body className='text-zinc-300 group-hover:text-zinc-200 transition-colors'>
-              {issuer}
-            </Body>
-          </div>
-          <div className='flex items-center gap-2'>
-            <Calendar size={iconSizes.sm} className='text-zinc-500' aria-hidden='true' />
-            <BodySmall className='text-zinc-400 font-medium'>
-              <time dateTime={date}>{date}</time>
-            </BodySmall>
           </div>
         </div>
 
