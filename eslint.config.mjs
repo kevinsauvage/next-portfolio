@@ -1,4 +1,3 @@
-import { FlatCompat } from '@eslint/eslintrc';
 import js from '@eslint/js';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
@@ -11,16 +10,12 @@ import reactHooks from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import sortKeys from 'eslint-plugin-sort-keys';
 import unicorn from 'eslint-plugin-unicorn';
+import nextPlugin from '@next/eslint-plugin-next';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-});
 
 export default [
   // Ignore patterns
@@ -37,8 +32,6 @@ export default [
       'next-env.d.ts',
     ],
   },
-  // Next.js configs (using FlatCompat for old format configs)
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'prettier'),
   // Custom configuration
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
@@ -79,6 +72,7 @@ export default [
       import: importPlugin,
       'jsx-a11y': jsxA11y,
       unicorn,
+      '@next/next': nextPlugin,
     },
     settings: {
       react: {

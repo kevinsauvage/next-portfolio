@@ -23,6 +23,6 @@ describe('Button', () => {
   it('applies variant classes', () => {
     render(<Button label='Primary' variant='primary' />);
     const button = screen.getByRole('button');
-    expect(button.className).toContain('bg-gradient-to-r');
+    expect(button.className).toContain('bg-gradient-to-br');
   });
 });
