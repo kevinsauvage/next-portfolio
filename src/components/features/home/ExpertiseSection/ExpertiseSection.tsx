@@ -1,9 +1,7 @@
-import { Card, CardContent } from '@/components/ui/Card';
 import Section from '@/components/ui/Section';
 import { sections } from '@/config/content';
 import expertise from '@/config/content/expertises';
 
-import { Check } from 'lucide-react';
 import ExpertiseCard from './ExpertiseCard';
 
 const ExpertiseSection: React.FC = () => {

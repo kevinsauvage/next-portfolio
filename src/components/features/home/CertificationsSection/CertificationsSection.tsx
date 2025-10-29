@@ -1,13 +1,11 @@
-import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
-import { Body, BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import certifications from '@/config/content/certifications';
-import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
+import { gapSpacing, stackSpacing } from '@/design-system/tokens';
+
+import CertificationCard from './CertificationCard';
 
 import clsx from 'clsx';
-import { Award, Building2, Calendar, ExternalLink } from 'lucide-react';
-import CertificationCard from './CertificationCard';
 
 const CertificationsSection: React.FC = () => {
   return (

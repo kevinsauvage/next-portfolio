@@ -1,4 +1,5 @@
 import { Card, CardContent } from '@/components/ui/Card';
+
 import { Check } from 'lucide-react';
 
 type ExpertiseCardProps = {

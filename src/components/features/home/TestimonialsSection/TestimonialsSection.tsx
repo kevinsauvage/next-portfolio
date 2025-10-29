@@ -1,13 +1,11 @@
-import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import Section, { SectionHeader } from '@/components/ui/Section';
-import { Body, Caption } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import testimonials from '@/config/content/testimonials';
-import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
+import { gapSpacing, stackSpacing } from '@/design-system/tokens';
+
+import TestimonialCard from './TestimonialCard';
 
 import clsx from 'clsx';
-import { Briefcase, Calendar, Quote, User } from 'lucide-react';
-import TestimonialCard from './TestimonialCard';
 
 const TestimonialsSection: React.FC = () => {
   return (
