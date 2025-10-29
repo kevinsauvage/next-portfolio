@@ -1,40 +1,11 @@
-import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import Section from '@/components/ui/Section';
-import { Body, BodyLarge, H2, H3, H4, Overline } from '@/components/ui/Typography';
+import { BodyLarge, H2, H3, Overline } from '@/components/ui/Typography';
 import { passions, sections } from '@/config/content';
-import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
+import { gapSpacing, stackSpacing } from '@/design-system/tokens';
+
+import PassionCard from './PassionCard';
 
 import clsx from 'clsx';
-
-const PassionCard: React.FC<{
-  icon: React.ElementType;
-  title: string;
-  description: string;
-  index: number;
-}> = ({ icon: Icon, title, description, index }) => {
-  return (
-    <Card
-      hover='subtle'
-      size='md'
-      glow='secondary-accent'
-      animationIndex={index}
-      aria-label={title}
-    >
-      <CardContent spacing='md'>
-        <CardIcon variant='primary'>
-          <Icon
-            className='text-white transition-transform group-hover:rotate-12'
-            size={iconSizes.lg}
-            strokeWidth={1.5}
-            aria-hidden='true'
-          />
-        </CardIcon>
-        <H4 className='group-hover:text-accent-400 transition-all duration-300'>{title}</H4>
-        <Body className='group-hover:text-zinc-200 transition-colors'>{description}</Body>
-      </CardContent>
-    </Card>
-  );
-};
 
 const AboutSection: React.FC = () => {
   return (
