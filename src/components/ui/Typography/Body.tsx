@@ -2,6 +2,8 @@ import type { ElementType, ReactNode } from 'react';
 
 import { colors, getTypographyClasses } from '@/design-system/tokens';
 
+import clsx from 'clsx';
+
 type BaseTypographyProps = {
   children: ReactNode;
   className?: string;
@@ -14,7 +16,7 @@ export const Body = ({ children, className, as: Component = 'p', ...props }: Typ
   const classes = getTypographyClasses('body');
 
   return (
-    <Component className={(colors.text.secondary, className, classes)} {...props}>
+    <Component className={clsx(classes, colors.text.secondary, className)} {...props}>
       {children}
     </Component>
   );

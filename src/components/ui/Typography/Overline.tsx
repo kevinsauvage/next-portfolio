@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import { getTypographyClasses } from '@/design-system/tokens';
+import { colors, getTypographyClasses } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 
@@ -21,7 +21,7 @@ export const Overline = ({
   const classes = getTypographyClasses('overline');
 
   return (
-    <Component className={clsx(classes, 'text-primary-400 uppercase', className)} {...props}>
+    <Component className={clsx(classes, colors.text.secondary, className)} {...props}>
       {children}
     </Component>
   );

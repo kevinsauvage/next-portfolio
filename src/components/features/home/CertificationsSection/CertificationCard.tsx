@@ -60,13 +60,11 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
                     strokeWidth={1.5}
                     aria-hidden='true'
                   />
-                  <Body className='text-zinc-300 group-hover:text-zinc-200 transition-colors'>
-                    {issuer}
-                  </Body>
+                  <Body className='group-hover:text-zinc-200 transition-colors'>{issuer}</Body>
                 </div>
                 <div className='flex items-center gap-2'>
                   <Calendar size={iconSizes.sm} className='text-zinc-500' aria-hidden='true' />
-                  <BodySmall className='text-zinc-400 font-medium'>
+                  <BodySmall className='font-medium'>
                     <time dateTime={date}>{date}</time>
                   </BodySmall>
                 </div>
@@ -76,18 +74,13 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
         </div>
 
         <div className='mb-6 flex-1'>
-          <Body className='text-zinc-300 group-hover:text-zinc-200 transition-colors leading-relaxed'>
+          <Body className='group-hover:text-zinc-200 transition-colors leading-relaxed'>
             {description}
           </Body>
         </div>
         <div className='flex flex-wrap gap-2'>
           {skills.map(skill => (
-            <span
-              key={skill}
-              className='px-3 py-1.5 text-sm font-medium text-primary-300 bg-primary-950/40 border border-primary-800/40 rounded-full group-hover:border-primary-700/60 group-hover:bg-primary-900/40 group-hover:text-primary-200 transition-all duration-300'
-            >
-              {skill}
-            </span>
+            <BodySmall key={skill}>{skill}</BodySmall>
           ))}
         </div>
 

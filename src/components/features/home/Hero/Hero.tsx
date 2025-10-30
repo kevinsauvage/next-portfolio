@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import BoxWithBackground from '@/components/shared/BoxWithBackground';
 import Button from '@/components/ui/Button';
-import { BodyLarge, Display } from '@/components/ui/Typography';
+import { BodyLarge, BodySmall, Display } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { animations, gapSpacing, iconSizes } from '@/design-system/tokens';
 
@@ -42,7 +42,7 @@ const Hero = () => {
             <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75' />
             <span className='relative inline-flex rounded-full h-2 w-2 bg-green-500' />
           </span>
-          <span className='text-sm text-green-400 font-medium'>{sections.hero.availability}</span>
+          <BodySmall className='text-green-400 font-medium'>{sections.hero.availability}</BodySmall>
         </div>
 
         <header
@@ -123,9 +123,9 @@ const Hero = () => {
                   />
                 )}
               </div>
-              <div className='text-sm md:text-base text-zinc-200 font-light group-hover:text-zinc-100 transition-colors'>
+              <BodySmall className='md:text-base text-zinc-200 font-light group-hover:text-zinc-100 transition-colors'>
                 {stat.label}
-              </div>
+              </BodySmall>
             </div>
           ))}
         </div>

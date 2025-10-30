@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import ContactInfo from '@/components/shared/ContactInfo';
+import { BodySmall, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
 
 import { Briefcase, CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
@@ -14,23 +15,21 @@ const Footer: React.FC = () => {
     >
       <div className='container m-auto px-6 py-12'>
         <div className='mb-10 text-center md:text-left'>
-          <h2 className='text-2xl font-bold text-zinc-100 mb-2'>{layout.footer.name}</h2>
-          <p className='text-zinc-200 max-w-sm font-light'>{layout.footer.tagline}</p>
+          <H4 className='mb-2'>{layout.footer.name}</H4>
+          <BodySmall className='max-w-sm'>{layout.footer.tagline}</BodySmall>
         </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8'>
           <nav aria-label='Footer navigation'>
-            <h3 className='text-zinc-100 text-lg font-semibold mb-4'>
-              {layout.footer.sections.quickLinks.title}
-            </h3>
+            <H4 className='mb-4'>{layout.footer.sections.quickLinks.title}</H4>
             <ul className='space-y-2'>
               {layout.footer.sections.quickLinks.links.map(link => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className='text-zinc-200 hover:text-blue-400 transition-all duration-200 text-sm hover:translate-x-1 py-2 flex items-center min-h-[44px]'
+                    className='hover:text-blue-400 transition-all duration-200 hover:translate-x-1 py-2 flex items-center min-h-[44px]'
                   >
-                    {link.name}
+                    <BodySmall className='text-zinc-200'>{link.name}</BodySmall>
                   </Link>
                 </li>
               ))}
@@ -38,14 +37,14 @@ const Footer: React.FC = () => {
           </nav>
 
           <div>
-            <h3 className='text-zinc-100 text-lg font-semibold mb-4 flex items-center gap-2'>
+            <H4 className='mb-4 flex items-center gap-2'>
               <Code2
                 size={20}
                 className='transition-transform hover:rotate-12'
                 aria-hidden='true'
               />
               {layout.footer.sections.techStack.title}
-            </h3>
+            </H4>
             <div className='flex flex-wrap gap-2 max-w-52'>
               {layout.footer.sections.techStack.skills.map(skill => (
                 <span
@@ -59,14 +58,14 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h3 className='text-zinc-100 text-lg font-semibold mb-4 flex items-center gap-2'>
+            <H4 className='mb-4 flex items-center gap-2'>
               <Briefcase
                 size={20}
                 className='transition-transform hover:rotate-12'
                 aria-hidden='true'
               />
               {layout.footer.sections.availability.title}
-            </h3>
+            </H4>
             <div className='space-y-3'>
               <div className='flex items-center gap-2'>
                 <CheckCircle2
@@ -74,9 +73,9 @@ const Footer: React.FC = () => {
                   className='text-green-400 transition-transform hover:rotate-12'
                   aria-hidden='true'
                 />
-                <span className='text-sm text-zinc-200'>
+                <BodySmall className='text-sm text-zinc-200'>
                   {layout.footer.sections.availability.status}
-                </span>
+                </BodySmall>
               </div>
               <div className='flex items-center gap-2'>
                 <MapPin
@@ -92,13 +91,13 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h3 className='text-zinc-100 text-lg font-semibold mb-4 flex items-center gap-2'>
+            <H4 className='mb-4 flex items-center gap-2'>
               <Mail size={20} className='transition-transform hover:rotate-12' aria-hidden='true' />
               {layout.footer.sections.contact.title}
-            </h3>
-            <p className='text-zinc-200 text-sm mb-4 font-light max-w-40'>
+            </H4>
+            <BodySmall className='mb-4 max-w-40'>
               {layout.footer.sections.contact.description}
-            </p>
+            </BodySmall>
             <ContactInfo />
           </div>
         </div>

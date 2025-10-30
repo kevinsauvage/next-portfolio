@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Logo from '@/components/layout/Logo';
 import Navigation from '@/components/layout/Navigation';
 import Button from '@/components/ui/Button';
+import { BodySmall, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
 
 import clsx from 'clsx';
@@ -94,10 +95,8 @@ const HeaderView = ({
             <div className='flex flex-col h-full'>
               <div className='p-6 border-b border-zinc-800 flex items-center justify-between'>
                 <div>
-                  <h2 className='text-xl font-semibold text-zinc-100'>
-                    {layout.header.mobileMenu.title}
-                  </h2>
-                  <p className='text-sm text-zinc-500 mt-1'>{layout.header.mobileMenu.subtitle}</p>
+                  <H4 className='mb-0'>{layout.header.mobileMenu.title}</H4>
+                  <BodySmall className='mt-1'>{layout.header.mobileMenu.subtitle}</BodySmall>
                 </div>
                 <button
                   onClick={closeMenu}
@@ -119,7 +118,7 @@ const HeaderView = ({
                       data-umami-event-label={label}
                       className='flex items-center justify-between p-4 mb-2 rounded-lg bg-zinc-800/50 border border-zinc-700/50 hover:border-primary-500/50 hover:bg-zinc-800 active:bg-zinc-700 transition-all duration-200 group min-h-[56px]'
                     >
-                      <span className='text-zinc-100 font-medium text-lg'>{label}</span>
+                      <BodySmall className='text-zinc-100 font-medium text-lg'>{label}</BodySmall>
                       <ChevronRight
                         size={20}
                         className='text-zinc-500 group-hover:text-blue-400 group-hover:translate-x-1 transition-all'

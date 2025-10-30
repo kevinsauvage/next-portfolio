@@ -2,15 +2,15 @@
 
 import { useReportWebVitals } from 'next/web-vitals';
 
+import { trackEvent } from '@/lib/analytics';
+
 export const WebVitals = () => {
   useReportWebVitals(metric => {
-    if (typeof window !== 'undefined' && window.umami) {
-      window.umami.track('web-vitals', {
-        metric: metric.name,
-        value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
-        rating: metric.rating,
-      });
-    }
+    trackEvent('web-vitals', {
+      metric: metric.name,
+      value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+      rating: metric.rating,
+    });
   });
 
   return null;

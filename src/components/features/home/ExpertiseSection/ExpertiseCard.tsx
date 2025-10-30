@@ -1,4 +1,5 @@
 import { Card, CardContent } from '@/components/ui/Card';
+import { Body, BodySmall, H4 } from '@/components/ui/Typography';
 
 import { Check } from 'lucide-react';
 
@@ -21,12 +22,8 @@ const ExpertiseCard: React.FC<ExpertiseCardProps> = ({ title, content, keyPoints
       <CardContent spacing='lg' className='relative z-10 h-full'>
         <div className='space-y-6'>
           <div className='space-y-3'>
-            <h3 className='text-2xl font-bold text-zinc-100 group-hover:text-accent-400 transition-all duration-300'>
-              {title}
-            </h3>
-            <p className='text-zinc-300 leading-relaxed group-hover:text-zinc-200 transition-colors'>
-              {content}
-            </p>
+            <H4 className='group-hover:text-accent-400 transition-all duration-300'>{title}</H4>
+            <Body className='group-hover:text-zinc-200 transition-colors'>{content}</Body>
           </div>
           <ul className='space-y-3' aria-label='Key points'>
             {keyPoints.map(point => (
@@ -36,9 +33,9 @@ const ExpertiseCard: React.FC<ExpertiseCardProps> = ({ title, content, keyPoints
                     <Check className='w-3.5 h-3.5 text-white' aria-hidden='true' />
                   </div>
                 </div>
-                <span className='text-zinc-300 group-hover:text-zinc-200 transition-colors'>
+                <BodySmall className='group-hover:text-zinc-200 transition-colors'>
                   {point}
-                </span>
+                </BodySmall>
               </li>
             ))}
           </ul>

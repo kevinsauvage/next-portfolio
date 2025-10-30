@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import Button from '@/components/ui/Button';
 import { Card, CardContent, CardImage } from '@/components/ui/Card';
+import { Body, BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 
 import { ExternalLink, Github } from 'lucide-react';
@@ -47,20 +48,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <div className='md:col-span-3 flex flex-col justify-between space-y-6'>
             <div className='space-y-4'>
               <div className='flex items-center gap-3'>
-                <span className='text-sm font-medium text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20'>
+                <BodySmall className='text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20'>
                   Project {String(index + 1).padStart(2, '0')}
-                </span>
+                </BodySmall>
                 <div className='h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent' />
               </div>
-              <h3
+              <H3
                 id={`project-title-${index}`}
-                className='text-3xl font-bold text-zinc-100 group-hover:text-accent-400 transition-all duration-300'
+                className='group-hover:text-accent-400 transition-all duration-300'
               >
                 {title}
-              </h3>
-              <p className='text-zinc-300 leading-relaxed text-lg group-hover:text-zinc-200 transition-colors font-light'>
-                {description}
-              </p>
+              </H3>
+              <Body className='group-hover:text-zinc-200 transition-colors'>{description}</Body>
             </div>
 
             <div className='flex flex-wrap gap-2'>

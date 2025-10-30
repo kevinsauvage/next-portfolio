@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/Form';
 import Input from '@/components/ui/Input';
 import TextArea from '@/components/ui/TextArea';
+import { BodySmall } from '@/components/ui/Typography';
 import type { ContactFormValues } from '@/schemas/contact-form.schema';
 
 import { LucideSend } from 'lucide-react';
@@ -45,9 +46,9 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                   />
                 </FormControl>
                 {fieldState.error && (
-                  <p id='fullName-error' className='text-sm text-rose-400' role='alert'>
+                  <BodySmall id='fullName-error' className='text-sm text-rose-400' role='alert'>
                     {fieldState.error.message}
-                  </p>
+                  </BodySmall>
                 )}
               </FormItem>
             )}
@@ -69,9 +70,9 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                   />
                 </FormControl>
                 {fieldState.error && (
-                  <p id='email-error' className='text-sm text-rose-400' role='alert'>
+                  <BodySmall id='email-error' className='text-sm text-rose-400' role='alert'>
                     {fieldState.error.message}
-                  </p>
+                  </BodySmall>
                 )}
               </FormItem>
             )}
@@ -92,9 +93,9 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                   />
                 </FormControl>
                 {fieldState.error && (
-                  <p id='message-error' className='text-sm text-rose-400' role='alert'>
+                  <BodySmall id='message-error' className='text-sm text-rose-400' role='alert'>
                     {fieldState.error.message}
-                  </p>
+                  </BodySmall>
                 )}
               </FormItem>
             )}
