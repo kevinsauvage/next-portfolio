@@ -1,6 +1,7 @@
 'use client';
 
 import SpinnerLoader from '@/components/shared/SpinnerLoader';
+import { trackEvent } from '@/lib/analytics';
 
 import clsx from 'clsx';
 
@@ -59,12 +60,8 @@ const Button = ({
       )}
       onClick={event => {
         onClick?.(event);
-        if (eventName && 'umami' in globalThis) {
-          (
-            globalThis as typeof globalThis & {
-              umami: { track: (name: string, props?: Record<string, unknown>) => void };
-            }
-          ).umami.track(eventName, eventProperties);
+        if (eventName) {
+          trackEvent(eventName, eventProperties);
         }
       }}
       aria-label={label}

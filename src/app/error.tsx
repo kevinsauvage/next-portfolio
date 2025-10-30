@@ -3,6 +3,8 @@
 import { useEffect } from 'react';
 
 import Button from '@/components/ui/Button';
+import { Body, H4 } from '@/components/ui/Typography';
+import { trackEvent } from '@/lib/analytics';
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -15,12 +17,7 @@ const handleReload = () => {
 
 const Error = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
-    if (typeof window !== 'undefined' && window.umami) {
-      window.umami.track('app-error', {
-        message: error.message,
-        digest: error.digest,
-      });
-    }
+    trackEvent('app-error', { message: error.message, digest: error.digest });
     console.error('Application error:', error);
   }, [error]);
 
@@ -28,10 +25,10 @@ const Error = ({ error, reset }: ErrorProps) => {
     <div className='min-h-screen flex items-center justify-center bg-zinc-950 text-zinc-50'>
       <div className='max-w-md mx-auto text-center p-6'>
         <div className='mb-6'>
-          <h1 className='text-2xl font-bold text-zinc-300 mb-2'>Oops! Something went wrong</h1>
-          <p className='text-zinc-300 mb-4'>
+          <H4 className='mb-2'>Oops! Something went wrong</H4>
+          <Body className='mb-4'>
             We encountered an unexpected error. Please try refreshing the page.
-          </p>
+          </Body>
           {process.env.NODE_ENV === 'development' && error && (
             <details className='text-left bg-zinc-900 p-4 rounded-md mb-4'>
               <summary className='cursor-pointer text-zinc-300 mb-2'>
