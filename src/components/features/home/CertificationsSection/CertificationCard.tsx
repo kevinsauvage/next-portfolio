@@ -25,6 +25,17 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
   skills,
   index,
 }) => {
+  const safeCredentialUrl = (() => {
+    if (!credentialUrl) return undefined;
+    try {
+      const parsed = new URL(credentialUrl);
+      return parsed.protocol === 'http:' || parsed.protocol === 'https:'
+        ? credentialUrl
+        : undefined;
+    } catch {
+      return undefined;
+    }
+  })();
   return (
     <Card
       hover='subtle'
@@ -84,9 +95,9 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
           ))}
         </div>
 
-        {credentialUrl && (
+        {safeCredentialUrl && (
           <a
-            href={credentialUrl}
+            href={safeCredentialUrl}
             target='_blank'
             rel='noopener noreferrer'
             className='inline-flex items-center gap-2 py-2 text-sm ml-auto font-medium text-primary-300 rounded-lg hover:text-primary-200 transition-all duration-300 group/link'
