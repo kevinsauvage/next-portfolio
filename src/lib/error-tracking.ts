@@ -1,3 +1,5 @@
+import { trackEvent } from './analytics';
+
 interface ErrorLog {
   message: string;
   stack: string | undefined;
@@ -16,13 +18,7 @@ export function logError(error: Error, context?: Record<string, unknown>) {
   };
 
   console.error('Error logged:', { ...errorLog, context });
-
-  if (typeof window !== 'undefined' && window.umami) {
-    window.umami.track('error', {
-      message: error.message,
-      ...context,
-    });
-  }
+  trackEvent('error', { message: error.message, ...context });
 
   return errorLog;
 }

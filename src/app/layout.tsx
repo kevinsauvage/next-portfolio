@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Josefin_Sans, League_Spartan } from 'next/font/google';
-import Script from 'next/script';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import BackToTopButton from '@/components/shared/BackToTopButton';
 import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
+import UmamiScript from '@/components/shared/UmamiScript';
 import { WebVitals } from '@/components/shared/WebVitals';
 import NotificationProvider from '@/contexts/NotificationContext';
 import { getPublicEnv } from '@/lib/env';
@@ -138,11 +138,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
         />
-        <Script
-          strategy='lazyOnload'
-          data-website-id={publicEnv.UMAMI_ID}
-          src={'/growth/rewrites'}
-        />
+        <UmamiScript umamiId={publicEnv.UMAMI_ID} />
         <GoogleReCaptchaProviderWrapper reCaptchaKey={publicEnv.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
           <NotificationProvider>
             <nav aria-label='Skip navigation'>
