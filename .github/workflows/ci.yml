@@ -11,6 +11,8 @@ jobs:
   build-lint-test:
     name: Build, Lint and Test
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ${{ vars.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || 'test-recaptcha-key' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
