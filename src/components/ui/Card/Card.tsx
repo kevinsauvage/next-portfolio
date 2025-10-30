@@ -34,6 +34,7 @@ export const Card = ({
   as: Component = 'article',
   ...props
 }: CardProps) => {
+  const HOVER_TRANSFORM_SM = 'translateY(-4px) scale(1.01)';
   const paddingClasses = {
     sm: 'p-4 sm:p-5',
     md: 'p-6 sm:p-7 md:p-8',
@@ -49,14 +50,14 @@ export const Card = ({
 
   const hoverTransforms = {
     none: '',
-    subtle: 'translateY(-4px) scale(1.01)',
-    standard: 'translateY(-4px) scale(1.01)',
+    subtle: HOVER_TRANSFORM_SM,
+    standard: HOVER_TRANSFORM_SM,
     pronounced: 'translateY(-8px) scale(1.02)',
   };
 
   const hoverTransformsMd = {
     none: '',
-    subtle: 'translateY(-4px) scale(1.01)',
+    subtle: HOVER_TRANSFORM_SM,
     standard: 'translateY(-8px) scale(1.01)',
     pronounced: 'translateY(-12px) scale(1.02)',
   };
@@ -64,7 +65,20 @@ export const Card = ({
   const baseClasses = clsx(
     'relative overflow-hidden',
     hover !== 'none' && 'transition-all duration-300 ease-out',
-    hoverClasses[hover]
+    (() => {
+      switch (hover) {
+        case 'none':
+          return hoverClasses.none;
+        case 'subtle':
+          return hoverClasses.subtle;
+        case 'standard':
+          return hoverClasses.standard;
+        case 'pronounced':
+          return hoverClasses.pronounced;
+        default:
+          return hoverClasses.standard;
+      }
+    })()
   );
 
   const animationStyle =
@@ -74,7 +88,49 @@ export const Card = ({
         }
       : undefined;
 
-  const contentClasses = clsx('h-full w-full relative z-10', paddingClasses[size]);
+  const paddingClass = (() => {
+    switch (size) {
+      case 'sm':
+        return paddingClasses.sm;
+      case 'md':
+        return paddingClasses.md;
+      case 'lg':
+        return paddingClasses.lg;
+      default:
+        return paddingClasses.md;
+    }
+  })();
+
+  const hoverTransform = (() => {
+    switch (hover) {
+      case 'none':
+        return '';
+      case 'subtle':
+        return hoverTransforms.subtle;
+      case 'standard':
+        return hoverTransforms.standard;
+      case 'pronounced':
+        return hoverTransforms.pronounced;
+      default:
+        return hoverTransforms.standard;
+    }
+  })();
+  const hoverTransformMd = (() => {
+    switch (hover) {
+      case 'none':
+        return '';
+      case 'subtle':
+        return hoverTransformsMd.subtle;
+      case 'standard':
+        return hoverTransformsMd.standard;
+      case 'pronounced':
+        return hoverTransformsMd.pronounced;
+      default:
+        return hoverTransformsMd.standard;
+    }
+  })();
+
+  const contentClasses = clsx('h-full w-full relative z-10', paddingClass);
 
   return (
     <Component
@@ -89,8 +145,8 @@ export const Card = ({
         ...(animationIndex !== undefined && { opacity: 0 }),
         ...(hover !== 'none' &&
           ({
-            '--hover-transform': hoverTransforms[hover],
-            '--hover-transform-md': hoverTransformsMd[hover],
+            '--hover-transform': hoverTransform,
+            '--hover-transform-md': hoverTransformMd,
           } as React.CSSProperties)),
       }}
       {...props}

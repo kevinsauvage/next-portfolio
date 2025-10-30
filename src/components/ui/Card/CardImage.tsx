@@ -34,11 +34,26 @@ export const CardImage = ({
     auto: '',
   } as const;
 
+  const aspectClass = (() => {
+    switch (aspectRatio) {
+      case 'square':
+        return aspectClasses.square;
+      case 'video':
+        return aspectClasses.video;
+      case 'wide':
+        return aspectClasses.wide;
+      case 'auto':
+        return aspectClasses.auto;
+      default:
+        return aspectClasses.video;
+    }
+  })();
+
   return (
     <div
       className={clsx(
         'relative w-full rounded-lg overflow-hidden border border-zinc-800 group-hover:border-blue-500/50 transition-all duration-300 shadow-lg group-hover:shadow-glow-md',
-        aspectClasses[aspectRatio],
+        aspectClass,
         className
       )}
     >

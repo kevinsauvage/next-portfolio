@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 /**
  * Design Tokens System
  * Central source of truth for all design values
@@ -313,7 +314,7 @@ export function getStaggerDelay(
  * Combine typography styles into a single className string
  */
 export function getTypographyClasses(variant: keyof typeof typography): string {
+  // eslint-disable-next-line security/detect-object-injection
   const styles = typography[variant];
   return Object.values(styles).join(' ');
 }
-

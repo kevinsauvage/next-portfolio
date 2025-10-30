@@ -12,15 +12,13 @@ export function isUmamiAvailable(): boolean {
 
 export function trackEvent(eventName: string, data?: Record<string, unknown>): void {
   if (isUmamiAvailable()) {
-    window.umami!.track(eventName, data);
+    window.umami?.track(eventName, data);
   }
 }
 
-export function getUmamiScriptProps(umamiId: string | undefined):
-  | { 'data-website-id': string; src: string }
-  | null {
+export function getUmamiScriptProps(
+  umamiId: string | undefined
+): { 'data-website-id': string; src: string } | null {
   if (!umamiId) return null;
   return { 'data-website-id': umamiId, src: '/growth/rewrites' };
 }
-
-

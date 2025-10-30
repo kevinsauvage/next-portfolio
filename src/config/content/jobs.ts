@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 type Job = {
   id: string;
   company: string;

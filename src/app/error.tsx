@@ -15,7 +15,7 @@ const handleReload = () => {
   window.location.reload();
 };
 
-const Error = ({ error, reset }: ErrorProps) => {
+const ErrorPage = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
     trackEvent('app-error', { message: error.message, digest: error.digest });
     console.error('Application error:', error);
@@ -39,4 +39,4 @@ const Error = ({ error, reset }: ErrorProps) => {
   );
 };
 
-export default Error;
+export default ErrorPage;
