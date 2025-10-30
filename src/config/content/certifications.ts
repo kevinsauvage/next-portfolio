@@ -35,7 +35,7 @@ export const certifications: Certification[] = [
   {
     id: 'udemy-advanced-javascript-2021',
     // NOSONAR: S7637 - Safe: React automatically escapes text content, preventing XSS. This is a static string, not user input.
-    title: 'JavaScript: The Advanced Concepts',
+    title: 'JavaScript - The Advanced Concepts',
     issuer: 'Udemy',
     date: 'May 2021',
     description:
