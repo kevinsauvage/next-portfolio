@@ -1,22 +1,50 @@
 import { z } from 'zod';
 
-const envSchema = z.object({
+const serverEnvSchema = z.object({
   email_js_service_id: z.string().min(1),
   email_js_public_key: z.string().min(1),
   email_js_private_key: z.string().min(1),
   email_js_template_id: z.string().min(1),
   RECAPTCHA_SECRET_KEY: z.string().min(1),
-  NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().min(1),
-  UMAMI_ID: z.string().optional(),
-  GOOGLE_SITE_VERIFICATION: z.string().optional(),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
 });
 
-const parsed = envSchema.safeParse(process.env);
+const publicEnvSchema = z.object({
+  NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().min(1),
+  UMAMI_ID: z.string().optional(),
+  GOOGLE_SITE_VERIFICATION: z.string().optional(),
+});
 
-if (!parsed.success) {
-  console.error('❌ Invalid environment variables:', parsed.error.flatten().fieldErrors);
-  throw new Error('Invalid environment variables');
+export type ServerEnv = z.infer<typeof serverEnvSchema>;
+export type PublicEnv = z.infer<typeof publicEnvSchema>;
+
+let cachedServerEnv: ServerEnv | null = null;
+let cachedPublicEnv: PublicEnv | null = null;
+
+export function getServerEnv(): ServerEnv {
+  if (typeof window !== 'undefined') {
+    throw new Error('getServerEnv must only be called on the server');
+  }
+  if (cachedServerEnv) return cachedServerEnv;
+
+  const parsed = serverEnvSchema.safeParse(process.env);
+  if (!parsed.success) {
+    throw new Error(
+      `Invalid server environment variables: ${JSON.stringify(parsed.error.flatten().fieldErrors)}`
+    );
+  }
+  cachedServerEnv = parsed.data;
+  return cachedServerEnv;
 }
 
-export const env = parsed.data;
+export function getPublicEnv(): PublicEnv {
+  if (cachedPublicEnv) return cachedPublicEnv;
+  const parsed = publicEnvSchema.safeParse(process.env);
+  if (!parsed.success) {
+    throw new Error(
+      `Invalid public environment variables: ${JSON.stringify(parsed.error.flatten().fieldErrors)}`
+    );
+  }
+  cachedPublicEnv = parsed.data;
+  return cachedPublicEnv;
+}

@@ -5,10 +5,10 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
 const GoogleReCaptchaProviderWrapper: React.FC<{
   children: React.ReactNode;
-}> = ({ children }) => {
+  reCaptchaKey?: string;
+}> = ({ children, reCaptchaKey }) => {
   const [shouldLoad, setShouldLoad] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const recaptchaKey: string | undefined = process?.env?.['NEXT_PUBLIC_RECAPTCHA_SITE_KEY'];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -39,7 +39,7 @@ const GoogleReCaptchaProviderWrapper: React.FC<{
     <div ref={wrapperRef}>
       {shouldLoad ? (
         <GoogleReCaptchaProvider
-          reCaptchaKey={recaptchaKey ?? 'NOT DEFINED'}
+          reCaptchaKey={reCaptchaKey ?? 'NOT DEFINED'}
           scriptProps={{
             appendTo: 'head',
             async: true,
