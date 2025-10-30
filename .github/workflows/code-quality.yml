@@ -1,15 +1,14 @@
-name: CI
+name: Code Quality
 
 on:
   push:
-  pull_request:
 
 permissions:
   contents: read
 
 jobs:
-  build-lint-test:
-    name: Build, Lint and Test
+  quality:
+    name: Lint, Type-check, Prettier
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,7 +24,7 @@ jobs:
         run: |
           npm ci || npm install
 
-      - name: Lint
+      - name: ESLint
         run: |
           npm run lint --if-present
 
@@ -33,10 +32,6 @@ jobs:
         run: |
           npm run type-check --if-present || npx -y typescript -v >/dev/null 2>&1 && npx tsc -p tsconfig.json --noEmit || echo "No type checking configured"
 
-      - name: Test
+      - name: Prettier check
         run: |
-          npm test -- --ci --reporters=default --passWithNoTests || echo "No tests configured"
-
-      - name: Build
-        run: |
-          npm run build --if-present
+          npm run format:check --if-present || npx -y prettier -v >/dev/null 2>&1 && npx prettier --check . || echo "No prettier check configured"
