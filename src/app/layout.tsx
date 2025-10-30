@@ -94,17 +94,17 @@ const LeagueSpartan = League_Spartan({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-heading',
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['500', '600', '700'],
   fallback: ['system-ui', 'arial', 'sans-serif'],
   adjustFontFallback: true,
-  preload: true,
+  preload: false,
 });
 
 const JosefinSans = Josefin_Sans({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-base',
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500'],
   fallback: ['system-ui', 'arial', 'sans-serif'],
   adjustFontFallback: true,
   preload: true,
