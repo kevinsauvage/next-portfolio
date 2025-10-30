@@ -7,6 +7,7 @@ import BackToTopButton from '@/components/shared/BackToTopButton';
 import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
 import UmamiScript from '@/components/shared/UmamiScript';
 import { WebVitals } from '@/components/shared/WebVitals';
+import { layout as siteContent } from '@/config/content';
 import NotificationProvider from '@/contexts/NotificationContext';
 import { getPublicEnv } from '@/lib/env';
 
@@ -124,6 +125,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <head>
         <link rel='preconnect' href='https://api-gateway.umami.dev' crossOrigin='anonymous' />
         <link rel='dns-prefetch' href='https://api-gateway.umami.dev' />
+        <link rel='preconnect' href='https://res.cloudinary.com' crossOrigin='anonymous' />
+        <link rel='dns-prefetch' href='https://res.cloudinary.com' />
+        <meta name='theme-color' content='#0ea5e9' />
       </head>
       <body className='w-full h-full text-zinc-50 antialiased font-base font-light'>
         <script
@@ -137,6 +141,19 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
+        />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SiteNavigationElement',
+              name: siteContent.header.navigation.items.map(i => i.label),
+              url: siteContent.header.navigation.items.map(
+                i => `https://www.kevin-sauvage.com/${i.href}`
+              ),
+            }),
+          }}
         />
         <UmamiScript umamiId={publicEnv.UMAMI_ID} />
         <GoogleReCaptchaProviderWrapper reCaptchaKey={publicEnv.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
@@ -198,7 +215,7 @@ export async function generateMetadata(): Promise<Metadata> {
           width: 1200,
         },
       ],
-      locale: 'en',
+      locale: 'en_US',
       siteName: 'Kévin Sauvage - Frontend Developer | React & Next.js Expert',
       title: 'Kévin Sauvage - Frontend Developer | React & Next.js Expert',
       type: 'website',
