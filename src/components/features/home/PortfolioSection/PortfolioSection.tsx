@@ -19,7 +19,7 @@ const PortfolioSection: React.FC = () => {
 
         <div className={stackSpacing.lg}>
           {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+            <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
       </div>

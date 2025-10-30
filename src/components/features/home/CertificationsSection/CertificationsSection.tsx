@@ -19,7 +19,7 @@ const CertificationsSection: React.FC = () => {
 
         <div className={clsx('grid grid-cols-1 lg:grid-cols-2', gapSpacing.xl)}>
           {certifications.map((cert, index) => (
-            <CertificationCard key={`${cert.issuer}-${cert.title}`} {...cert} index={index} />
+            <CertificationCard key={cert.id} {...cert} index={index} />
           ))}
         </div>
       </div>

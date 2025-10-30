@@ -16,7 +16,7 @@ const CareerSection = () => {
 
         <div className={stackSpacing.lg}>
           {jobs.map((job, index) => (
-            <CareerItem key={index} {...job} index={index} />
+            <CareerItem key={job.id} {...job} index={index} />
           ))}
         </div>
       </div>

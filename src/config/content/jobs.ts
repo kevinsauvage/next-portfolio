@@ -1,5 +1,16 @@
-export const jobs = [
+type Job = {
+  id: string;
+  company: string;
+  position: string;
+  period: string;
+  location: string;
+  descriptionArray: string[];
+  description: string;
+};
+
+export const jobs: Job[] = [
   {
+    id: 'decathlon-international-2023',
     company: 'Decathlon International',
     position: 'Frontend Developer',
     period: 'October 2023 - Present',
@@ -15,6 +26,7 @@ export const jobs = [
       'At Decathlon International, I build and maintain a Svelte component library used across e-commerce platforms in 15+ countries. I lead A/B testing for new features, implement comprehensive testing strategies, and work with international teams to deliver user-focused solutions.',
   },
   {
+    id: 'decathlon-spain-2022',
     company: 'Decathlon Spain',
     position: 'Frontend Developer',
     period: 'May 2022 - October 2023',
@@ -30,6 +42,7 @@ export const jobs = [
       'At Decathlon Spain, I improved the e-commerce platform performance by reducing load times by 1.5 seconds. I built reusable Svelte components, implemented WCAG 2.1 accessibility standards, and set up automated testing and documentation practices.',
   },
   {
+    id: 'subforce-2021',
     company: 'Subforce',
     position: 'Frontend Developer',
     period: 'June 2021 - May 2022',

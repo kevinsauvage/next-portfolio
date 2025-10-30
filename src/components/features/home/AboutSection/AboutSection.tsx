@@ -50,7 +50,7 @@ const AboutSection: React.FC = () => {
           </H3>
           <div className={clsx('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3', gapSpacing.lg)}>
             {passions.map((passion, index) => (
-              <PassionCard key={passion.title} {...passion} index={index} />
+              <PassionCard key={passion.slug} {...passion} index={index} />
             ))}
           </div>
         </div>

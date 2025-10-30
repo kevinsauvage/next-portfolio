@@ -19,11 +19,7 @@ const TestimonialsSection: React.FC = () => {
 
         <div className={clsx('grid grid-cols-1 lg:grid-cols-2', gapSpacing.md)}>
           {testimonials.map((testimonial, index) => (
-            <TestimonialCard
-              key={`${testimonial.author.name}-${index}`}
-              {...testimonial}
-              index={index}
-            />
+            <TestimonialCard key={testimonial.id} {...testimonial} index={index} />
           ))}
         </div>
       </div>

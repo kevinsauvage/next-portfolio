@@ -1,4 +1,5 @@
 type Project = {
+  slug: string;
   description: string;
   githubLink: string[];
   images: {
@@ -13,6 +14,7 @@ type Project = {
 };
 
 const myEcommerceProject: Project = {
+  slug: 'modern-ecommerce-platform',
   description:
     "A modern e-commerce demo built with Next.js 15 and TypeScript. Features product filtering, cart management, and checkout powered by Shopify's Storefront API. Achieves high Lighthouse scores for performance, accessibility, and SEO.",
   githubLink: ['https://github.com/kevinsauvage/nextjs-strapi-ecommerce'],

@@ -1,4 +1,5 @@
 type Certification = {
+  id: string;
   title: string;
   issuer: string;
   date: string;
@@ -11,6 +12,7 @@ type Certification = {
 
 export const certifications: Certification[] = [
   {
+    id: 'le-wagon-full-stack-web-developer-2020',
     title: 'Full-Stack Web Developer',
     issuer: 'Le Wagon',
     date: 'Aug 2020 - Oct 2020',
@@ -31,6 +33,7 @@ export const certifications: Certification[] = [
   },
 
   {
+    id: 'udemy-advanced-javascript-2021',
     title: 'JavaScript: The Advanced Concepts',
     issuer: 'Udemy',
     date: 'May 2021',
@@ -41,6 +44,7 @@ export const certifications: Certification[] = [
     skills: ['JavaScript', 'Programming', 'Web Development', 'Frontend Development'],
   },
   {
+    id: 'linkedin-react-using-typescript-2023',
     title: 'React: Using TypeScript',
     issuer: 'LinkedIn Learning',
     date: 'November 2023',
@@ -51,6 +55,7 @@ export const certifications: Certification[] = [
     skills: ['React Hooks', 'TypeScript', 'React.js', 'Web Development', 'Frontend Development'],
   },
   {
+    id: 'ef-set-c1-english-certificate-2024',
     title: 'C1 English Certificate',
     issuer: 'EF SET',
     date: 'March 2024',

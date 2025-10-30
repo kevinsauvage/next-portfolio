@@ -1,4 +1,5 @@
 type Testimonial = {
+  id: string;
   author: {
     name: string;
     title: string;
@@ -11,6 +12,7 @@ type Testimonial = {
 
 const testimonials: Testimonial[] = [
   {
+    id: 'monica-szlatiner-2025-09',
     author: {
       name: 'Monica Szlatiner',
       title: 'Senior Engineering Leader',
@@ -22,6 +24,7 @@ const testimonials: Testimonial[] = [
     date: 'September 2025',
   },
   {
+    id: 'franck-blumenfeld-2025-09',
     author: {
       name: 'Franck Blumenfeld',
       title: 'Digital Circularity Engineering Leader',
