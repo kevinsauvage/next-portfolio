@@ -41,6 +41,7 @@
     "preview": "next build && next start",
     "check": "npm run type-check && npm run lint:all",
     "check:fix": "npm run format && npm run lint:all:fix",
+    "prepare": "husky",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:run": "vitest run",
@@ -88,7 +89,9 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-sort-keys": "^2.3.5",
     "eslint-plugin-unicorn": "^62.0.0",
+    "husky": "^9.1.7",
     "jsdom": "^27.0.1",
+    "lint-staged": "^16.2.6",
     "postcss": "^8.4.38",
     "prettier": "^3.6.2",
     "sass": "^1.93.2",
@@ -104,5 +107,17 @@
   "overrides": {
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix --max-warnings=0",
+      "prettier --write"
+    ],
+    "**/*.{scss,css}": [
+      "stylelint --fix"
+    ],
+    "**/*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
   }
 }
