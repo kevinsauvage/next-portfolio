@@ -29,18 +29,6 @@ const Error = ({ error, reset }: ErrorProps) => {
           <Body className='mb-4'>
             We encountered an unexpected error. Please try refreshing the page.
           </Body>
-          {process.env.NODE_ENV === 'development' && error && (
-            <details className='text-left bg-zinc-900 p-4 rounded-md mb-4'>
-              <summary className='cursor-pointer text-zinc-300 mb-2'>
-                Error Details (Development)
-              </summary>
-              <pre className='text-sm text-red-400 overflow-auto'>
-                {error.message}
-                {error.stack && `\n\n${error.stack}`}
-                {error.digest && `\n\nDigest: ${error.digest}`}
-              </pre>
-            </details>
-          )}
         </div>
         <div className='flex flex-col gap-3 sm:flex-row sm:justify-center'>
           <Button label='Reload Page' onClick={handleReload} variant='primary' size='lg' />
