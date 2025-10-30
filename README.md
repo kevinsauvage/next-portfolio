@@ -1,6 +1,6 @@
 # Next.js Portfolio
 
-A modern, accessible portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. Features a clean design, smooth animations, and comprehensive developer experience tooling.
+A modern, accessible portfolio website built with Next.js 16, TypeScript, and Tailwind CSS. Features a clean design, smooth animations, and comprehensive developer experience tooling.
 
 ## Overview
 
@@ -20,7 +20,7 @@ This portfolio showcases professional work, skills, and experience through a res
 
 ## Tech Stack
 
-- **Framework**: Next.js 15 with App Router
+- **Framework**: Next.js 16 with App Router
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS with SCSS
 - **Icons**: Lucide React
@@ -155,8 +155,9 @@ This project is proprietary and confidential. All rights reserved. See the [LICE
 
 **Kévin Sauvage** - Frontend Developer
 
-- Portfolio: [your-portfolio-url.com](https://www.kevin-sauvage.com/)
-- LinkedIn: [linkedin.com/in/yourprofile](https://www.linkedin.com/in/kevin-sauvage/)
+- Portfolio: [kevin-sauvage.com](https://www.kevin-sauvage.com/)
+- LinkedIn: [linkedin.com/in/kevin-sauvage](https://www.linkedin.com/in/kevin-sauvage/)
+- Email: [contact@kevin-sauvage.com](mailto:contact@kevin-sauvage.com)
 
 ---
 
