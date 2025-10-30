@@ -21,7 +21,7 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='flex flex-col w-full bg-zinc-900/30 border border-zinc-800 rounded-lg p-8'
+        className='flex flex-col w-full bg-zinc-900/30 border border-zinc-800 rounded-lg py-6 px-6 md:p-8'
         aria-label='Contact form'
         noValidate
       >
