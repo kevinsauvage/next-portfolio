@@ -14,13 +14,27 @@ const Section: React.FC<SectionProperties> = ({
   spacing = 'md',
   ...properties
 }) => {
+  const spacingClass = (() => {
+    switch (spacing) {
+      case 'sm':
+        return sectionSpacing.sm;
+      case 'md':
+        return sectionSpacing.md;
+      case 'lg':
+        return sectionSpacing.lg;
+      case 'xl':
+        return sectionSpacing.xl;
+      default:
+        return sectionSpacing.md;
+    }
+  })();
   return (
     <section
       className={clsx(
         containerSpacing.maxWidth,
         containerSpacing.margin,
         'w-full',
-        sectionSpacing[spacing],
+        spacingClass,
         className
       )}
       {...properties}

@@ -1,4 +1,3 @@
-import js from '@eslint/js';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import cssModules from 'eslint-plugin-css-modules';
@@ -11,6 +10,8 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort';
 import sortKeys from 'eslint-plugin-sort-keys';
 import unicorn from 'eslint-plugin-unicorn';
 import nextPlugin from '@next/eslint-plugin-next';
+import sonarjs from 'eslint-plugin-sonarjs';
+import security from 'eslint-plugin-security';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -73,6 +74,8 @@ export default [
       'jsx-a11y': jsxA11y,
       unicorn,
       '@next/next': nextPlugin,
+      sonarjs,
+      security,
     },
     settings: {
       react: {
@@ -215,6 +218,48 @@ export default [
       // Next.js specific
       '@next/next/no-img-element': 'warn',
       '@next/next/no-html-link-for-pages': 'warn',
+
+      // SonarJS rules (SonarQube rules for ESLint)
+      // Using correct rule names from eslint-plugin-sonarjs
+      'sonarjs/cognitive-complexity': ['warn', 15],
+      'sonarjs/no-duplicate-string': ['warn', { threshold: 3 }],
+      'sonarjs/no-identical-functions': 'warn',
+      'sonarjs/no-collapsible-if': 'warn',
+      'sonarjs/no-redundant-boolean': 'warn',
+      'sonarjs/prefer-single-boolean-return': 'warn',
+      'sonarjs/max-lines-per-function': ['warn', { maximum: 50 }],
+      'sonarjs/no-duplicated-branches': 'warn',
+      'sonarjs/no-all-duplicated-branches': 'warn',
+      'sonarjs/no-nested-functions': 'warn',
+      'sonarjs/no-function-declaration-in-block': 'warn',
+
+      // Security plugin rules (catches security issues similar to SonarQube)
+      'security/detect-eval-with-expression': 'error',
+      'security/detect-no-csrf-before-method-override': 'error',
+      'security/detect-non-literal-fs-filename': 'warn',
+      'security/detect-non-literal-regexp': 'warn',
+      'security/detect-non-literal-require': 'warn',
+      'security/detect-object-injection': 'warn',
+      'security/detect-possible-timing-attacks': 'warn',
+      'security/detect-pseudoRandomBytes': 'warn',
+      'security/detect-unsafe-regex': 'error',
+      'security/detect-child-process': 'warn',
+      'security/detect-disable-mustache-escape': 'warn',
+      'security/detect-new-buffer': 'warn',
+
+      // Custom rule to catch javascript: protocol handlers (SonarQube S7637 equivalent)
+      'no-restricted-syntax': [
+        'error',
+        {
+          message:
+            'Avoid using "javascript:" protocol handler. Use a different separator or format (e.g., "JavaScript -" instead of "JavaScript:").',
+          selector: 'Literal[value=/javascript:/i]',
+        },
+        {
+          message: 'Avoid using "javascript:" protocol handler in template literals.',
+          selector: 'TemplateLiteral[quasis.0.value.raw=/javascript:/i]',
+        },
+      ],
     },
   },
 ];

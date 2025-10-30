@@ -69,10 +69,6 @@ const Button = ({
       type={rest.type || 'button'}
       {...rest}
     >
-      {/* Shimmer effect for primary variant */}
-      {false && variant === 'primary' && (
-        <div className='absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent' />
-      )}
       {loading && (
         <div className='absolute flex items-center justify-center inset-0 bg-zinc-950'>
           <SpinnerLoader />

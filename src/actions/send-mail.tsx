@@ -38,7 +38,6 @@ export async function sendMail(data: {
     await emailjs.send(env.email_js_service_id, env.email_js_template_id, data, keyParameters);
     return { success: true };
   } catch (error) {
-    console.log('🚀 ~ sendMail ~ error:', error);
     logError(new Error('Failed to send email'), { error });
     return { success: false, error: 'Failed to send email' };
   }

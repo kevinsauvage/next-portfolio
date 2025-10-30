@@ -18,11 +18,28 @@ export const CardIcon = ({ children, className, variant = 'primary' }: CardIconP
     blue: 'bg-blue-500/10 border border-blue-500/20',
   } as const;
 
+  const variantClass = (() => {
+    switch (variant) {
+      case 'primary':
+        return variantClasses.primary;
+      case 'secondary':
+        return variantClasses.secondary;
+      case 'accent':
+        return variantClasses.accent;
+      case 'purple':
+        return variantClasses.purple;
+      case 'blue':
+        return variantClasses.blue;
+      default:
+        return variantClasses.primary;
+    }
+  })();
+
   return (
     <div
       className={clsx(
         'inline-flex p-3 rounded-xl transition-all duration-300 shadow-glow-sm group-hover:shadow-glow-md',
-        variantClasses[variant],
+        variantClass,
         className
       )}
       aria-hidden='true'
