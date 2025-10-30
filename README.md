@@ -113,6 +113,28 @@ Update content in the `src/config/content/` directory:
 
 ### Email Configuration
 
+### Security: Content Security Policy (CSP)
+
+This project sets a strict CSP via `next.config.mjs` headers. Key directives:
+
+- **default-src**: 'self'
+- **script-src**: 'self' plus Umami and Google (reCAPTCHA)
+  - Allowed: `https://cloud.umami.is`, `https://www.google.com`, `https://www.gstatic.com`
+  - Includes `'unsafe-inline'` to permit inline JSON-LD scripts used in `src/components/shared/StructuredData/StructuredData.tsx`. For a stricter policy, replace with nonces or hashes and pass a nonce to inline scripts.
+- **style-src**: 'self' and `'unsafe-inline'` plus `https://fonts.googleapis.com` (if Google Fonts stylesheet is used)
+- **font-src**: 'self', `https://fonts.gstatic.com`, and `data:` URIs
+- **connect-src**: 'self', Umami, and Google
+- **img-src**: 'self', `data:`, `blob:`, and `https:`
+- **frame-src**: `https://www.google.com` (reCAPTCHA)
+- **object-src**: 'none'; **base-uri**: 'self'; **form-action**: 'self'; `upgrade-insecure-requests`
+
+Notes and exceptions:
+
+- **Umami**: Loaded through a local rewrite to `/growth/...` that targets `https://cloud.umami.is/script.js`; `script-src`/`connect-src` allow the upstream host.
+- **Structured Data (JSON-LD)**: Inline `<script type="application/ld+json">` requires `'unsafe-inline'`. To remove this, switch to a CSP nonce approach and set the nonce on those scripts.
+- **reCAPTCHA v3**: Requires `www.google.com` and `www.gstatic.com` in `script-src`, `connect-src`, and `frame-src`.
+- **Vercel Analytics**: If enabled, you may need to add Vercel domains (e.g., `https://va.vercel-scripts.com` in `script-src` and `https://vitals.vercel-insights.com` in `connect-src`).
+
 1. Set up EmailJS account
 2. Create email template
 3. Add service credentials to environment variables
