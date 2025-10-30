@@ -11,10 +11,12 @@ export const cspDirectives = {
     'https://www.google.com',
     'https://www.gstatic.com',
     'https://va.vercel-scripts.com',
+    'https://vercel.live',
   ],
   'connect-src': [
     "'self'",
     'https://cloud.umami.is',
+    'https://api-gateway.umami.dev',
     'https://www.google.com',
     'https://www.gstatic.com',
     'https://vitals.vercel-insights.com',
