@@ -4,7 +4,6 @@ import { Josefin_Sans, League_Spartan } from 'next/font/google';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import BackToTopButton from '@/components/shared/BackToTopButton';
-import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
 import HeadLinks from '@/components/shared/HeadLinks';
 import StructuredData from '@/components/shared/StructuredData';
 import UmamiScript from '@/components/shared/UmamiScript';
@@ -54,29 +53,27 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <body className='w-full h-full text-zinc-50 antialiased font-base font-light'>
         <StructuredData />
         <UmamiScript umamiId={publicEnv.UMAMI_ID} />
-        <GoogleReCaptchaProviderWrapper reCaptchaKey={publicEnv.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
-          <NotificationProvider>
-            <nav aria-label='Skip navigation'>
-              <a
-                href='#main-content'
-                className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-md focus:shadow-lg'
-              >
-                Skip to main content
-              </a>
-            </nav>
-            <Header />
-            <main
-              id='main-content'
-              className='min-h-dvh flex-1 h-full w-full flex flex-col'
-              role='main'
-              aria-label='Main content'
+        <NotificationProvider>
+          <nav aria-label='Skip navigation'>
+            <a
+              href='#main-content'
+              className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-md focus:shadow-lg'
             >
-              {children}
-            </main>
-            <Footer />
-            <BackToTopButton />
-          </NotificationProvider>
-        </GoogleReCaptchaProviderWrapper>
+              Skip to main content
+            </a>
+          </nav>
+          <Header />
+          <main
+            id='main-content'
+            className='min-h-dvh flex-1 h-full w-full flex flex-col'
+            role='main'
+            aria-label='Main content'
+          >
+            {children}
+          </main>
+          <Footer />
+          <BackToTopButton />
+        </NotificationProvider>
         <WebVitals />
         <Analytics />
       </body>

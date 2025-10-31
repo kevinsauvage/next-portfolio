@@ -1,14 +1,17 @@
 import ContactForm from '@/components/features/contact/ContactForm';
 import BoxWithBackground from '@/components/shared/BoxWithBackground';
+import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { gapSpacing, iconSizes, radius, stackSpacing } from '@/design-system/tokens';
+import { getPublicEnv } from '@/lib/env';
 
 import clsx from 'clsx';
 import { MessageSquare, Send } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
+  const publicEnv = getPublicEnv();
   return (
     <BoxWithBackground
       className='bg-zinc-900 rounded-none bg-gradient-to-t from-zinc-950 from-30% to-zinc-900/90 border-0 border-t'
@@ -69,7 +72,9 @@ const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          <ContactForm />
+          <GoogleReCaptchaProviderWrapper reCaptchaKey={publicEnv.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
+            <ContactForm />
+          </GoogleReCaptchaProviderWrapper>
         </div>
       </Section>
     </BoxWithBackground>
