@@ -13,6 +13,10 @@ export const cspDirectives = {
     'https://va.vercel-scripts.com',
     'https://vercel.live',
   ],
+  // Allow Web Workers created from same-origin and blob: URLs
+  'worker-src': ["'self'", 'blob:'],
+  // Legacy fallback for some browsers
+  'child-src': ["'self'", 'blob:'],
   'connect-src': [
     "'self'",
     'https://cloud.umami.is',
