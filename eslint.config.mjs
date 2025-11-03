@@ -31,6 +31,7 @@ export default [
       '*.config.mjs',
       '*.config.ts',
       'next-env.d.ts',
+      '.lintstagedrc.js',
     ],
   },
   // Custom configuration
