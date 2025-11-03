@@ -1,12 +1,17 @@
 module.exports = {
   '**/*.{js,jsx,ts,tsx}': filenames => {
     // Filter out config files that are ignored by ESLint
-    const filtered = filenames.filter(
-      file =>
-        !file.includes('.config.js') &&
-        !file.includes('.config.mjs') &&
-        !file.includes('.config.ts')
-    );
+    const filtered = filenames.filter(file => {
+      // Handle both Unix and Windows paths
+      const fileName = file.split(/[/\\]/).pop() || file;
+      return (
+        !fileName.endsWith('.config.js') &&
+        !fileName.endsWith('.config.mjs') &&
+        !fileName.endsWith('.config.ts') &&
+        !fileName.endsWith('.lintstagedrc.js') &&
+        fileName !== '.lintstagedrc.js'
+      );
+    });
 
     if (filtered.length === 0) {
       return [];
