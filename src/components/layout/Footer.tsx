@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import ContactInfo from '@/components/shared/ContactInfo';
-import { BodySmall, H4 } from '@/components/ui/Typography';
+import { BodySmall, H3, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
 import { colors } from '@/design-system/tokens';
 
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
     >
       <div className='container m-auto px-6 py-12'>
         <div className='mb-10 text-center md:text-left'>
-          <H4 className='mb-2'>{layout.footer.name}</H4>
+          <H3 className='mb-2'>{layout.footer.name}</H3>
           <BodySmall className='max-w-sm'>{layout.footer.tagline}</BodySmall>
         </div>
 

@@ -83,7 +83,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               ))}
             </div>
 
-            <div className='flex flex-wrap gap-4 sm:gap-4'>
+            <div className='flex flex-wrap gap-6'>
               <Link
                 href={websiteLink}
                 target='_blank'
@@ -97,7 +97,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   variant='primary'
                   data-umami-event='project_live_click'
                   data-umami-event-project={title}
-                  className='shadow-glow-sm hover:shadow-glow-md'
+                  className='shadow-glow-sm hover:shadow-glow-md min-w-[180px]'
                 />
               </Link>
               {githubLink.length > 0 && (
@@ -114,6 +114,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                     variant='secondary'
                     data-umami-event='project_github_click'
                     data-umami-event-project={title}
+                    className='min-w-[180px]'
                   />
                 </Link>
               )}
