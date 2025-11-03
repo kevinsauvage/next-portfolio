@@ -65,11 +65,11 @@ const Hero = () => {
         <div
           className={clsx(
             'flex flex-col sm:flex-row mb-16 z-10 animate-fade-in-up opacity-0',
-            gapSpacing.sm
+            gapSpacing.md
           )}
           style={{ animationDelay: animations.loadDelay.third, animationFillMode: 'both' }}
         >
-          <Link href='#portfolio' passHref>
+          <Link href='#portfolio' passHref className='w-full sm:w-auto'>
             <Button
               svg={<MoveDown strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
               label='View my work'
@@ -77,17 +77,17 @@ const Hero = () => {
               variant='primary'
               data-umami-event='hero_cta_click'
               aria-describedby='hero-description'
-              className='min-w-[200px] font-semibold shadow-glow-md hover:shadow-glow-lg'
+              className='min-w-[220px] font-semibold shadow-glow-md hover:shadow-glow-lg'
             />
           </Link>
-          <Link href='#contact' passHref>
+          <Link href='#contact' passHref className='w-full sm:w-auto'>
             <Button
               svg={<Mail strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
               label='Get in Touch'
               size='xl'
               variant='secondary'
               data-umami-event='hero_contact_click'
-              className='min-w-[200px]'
+              className='min-w-[220px]'
             />
           </Link>
         </div>
