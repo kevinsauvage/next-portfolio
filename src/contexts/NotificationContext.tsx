@@ -29,10 +29,9 @@ type NotificationContextType = {
 
 const NotificationContext = createContext<NotificationContextType | undefined>(undefined);
 
-const NotificationPresenter = dynamic(
-  () => import('@/components/shared/Notification/NotificationPresenter'),
-  { ssr: false }
-);
+const NotificationPresenter = dynamic(() => import('@/components/shared/NotificationPresenter'), {
+  ssr: false,
+});
 
 const NotificationProvider = ({ children }: NotificationProviderProperties) => {
   const [notificationQueue, setNotificationQueue] = useState<Array<NotificationType>>([]);

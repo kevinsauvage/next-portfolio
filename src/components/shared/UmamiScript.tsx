@@ -9,5 +9,3 @@ const UmamiScript: React.FC<{ umamiId?: string | undefined }> = ({ umamiId }) =>
 };
 
 export default UmamiScript;
-
-

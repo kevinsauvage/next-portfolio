@@ -1,5 +1,4 @@
 import ContactForm from '@/components/features/contact/ContactForm';
-import BoxWithBackground from '@/components/shared/BoxWithBackground';
 import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
 import MeshGradient from '@/components/shared/MeshGradient';
 import Section, { SectionHeader } from '@/components/ui/Section';
@@ -12,10 +11,7 @@ import clsx from 'clsx';
 const ContactSection: React.FC = () => {
   const publicEnv = getPublicEnv();
   return (
-    <BoxWithBackground
-      className='bg-zinc-900 rounded-none bg-gradient-to-t from-zinc-950 from-30% to-zinc-900/90 border-0 border-t'
-      backgroundConfig={{ scale: 0.3, strokeWidth: 3 }}
-    >
+    <div className='relative rounded-none border-0 border-t border-zinc-700'>
       <MeshGradient />
       <Section
         id='contact'
@@ -35,7 +31,7 @@ const ContactSection: React.FC = () => {
           </GoogleReCaptchaProviderWrapper>
         </div>
       </Section>
-    </BoxWithBackground>
+    </div>
   );
 };
 
