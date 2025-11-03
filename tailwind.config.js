@@ -11,47 +11,61 @@ module.exports = {
         cover: 'cover',
       },
       colors: {
-        // Primary: Used for main CTAs and important actions
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#0ea5e9',
-          600: '#0284c7',
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-          950: '#082f49',
+          50: '#e6fffc',
+          100: '#b5fffa',
+          200: '#82fff5',
+          300: '#4dfff0',
+          400: '#1afae3',
+          500: '#00ebd7', // original
+          600: '#00bfb1',
+          700: '#00938b',
+          800: '#066a63',
+          900: '#064843',
+          950: '#022624',
         },
-        // Secondary: Used for highlights and secondary actions
+
         secondary: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#a855f7',
-          600: '#9333ea',
-          700: '#7c3aed',
-          800: '#6b21a8',
-          900: '#581c87',
-          950: '#3b0764',
+          50: '#eef0ff',
+          100: '#d9dcff',
+          200: '#b4b7ff',
+          300: '#8a92ff',
+          400: '#646cf9',
+          500: '#4e5cf5', // original blue
+          600: '#6039e8',
+          700: '#7523db',
+          800: '#8510ce',
+          900: '#9705e6', // original purple
+          950: '#54007c',
         },
-        // Accent: Warm accent color for special highlights
+
         accent: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
-          950: '#451a03',
+          50: '#fff4e7',
+          100: '#ffe4c2',
+          200: '#ffc892',
+          300: '#ffab5f',
+          400: '#f18e31',
+          500: '#d6750d', // original
+          600: '#b25e08',
+          700: '#8d4906',
+          800: '#693604',
+          900: '#442303',
+          950: '#221101',
+        },
+
+        // Neutral: Warm grays for backgrounds and text
+        neutral: {
+          50: '#fafaf9',
+          100: '#f5f5f4',
+          200: '#e7e5e4',
+          300: '#d6d3d1',
+          400: '#a8a29e',
+          500: '#78716c',
+          600: '#57534e',
+          700: '#44403c',
+          800: '#292524',
+          900: '#1c1917',
+          950: '#0c0a09',
         },
         // Legacy colors - keep for backward compatibility
         'regal-blue': '#243c5a',
@@ -76,6 +90,7 @@ module.exports = {
         'bounce-slow': 'bounce 2s infinite',
         'pulse-slow': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         gradient: 'gradient 4s ease infinite',
+        'mesh-slow': 'meshGradient 14s ease-in-out infinite alternate',
         float: 'float 4s ease-in-out infinite',
       },
       keyframes: {
@@ -107,6 +122,13 @@ module.exports = {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         },
+        meshGradient: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '25%': { backgroundPosition: '50% 20%' },
+          '50%': { backgroundPosition: '100% 70%' },
+          '75%': { backgroundPosition: '30% 100%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
@@ -115,16 +137,23 @@ module.exports = {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'mesh-gradient':
-          'radial-gradient(at 27% 37%, hsla(199, 89%, 48%, 1) 0px, transparent 0%), radial-gradient(at 97% 21%, hsla(262, 83%, 58%, 1) 0px, transparent 50%), radial-gradient(at 52% 99%, hsla(43, 96%, 56%, 1) 0px, transparent 50%), radial-gradient(at 10% 29%, hsla(217, 91%, 60%, 1) 0px, transparent 50%), radial-gradient(at 97% 96%, hsla(27, 87%, 67%, 1) 0px, transparent 50%), radial-gradient(at 33% 50%, hsla(199, 89%, 48%, 1) 0px, transparent 50%), radial-gradient(at 79% 53%, hsla(262, 83%, 58%, 1) 0px, transparent 50%)',
+
+        'mesh-gradient': `
+          radial-gradient(at 86.7% 17.7%, #00EBD7 0px, transparent 50%), 
+          radial-gradient(at 20.4% 32.5%, #4E5CF5 0px, transparent 50%), 
+          radial-gradient(at 81.8% 74.7%, #9705E6 0px, transparent 50%), 
+          radial-gradient(at 30.8% 88.5%, #D6750D 0px, transparent 50%)
+        `,
       },
       boxShadow: {
-        'glow-sm': '0 0 10px rgba(14, 165, 233, 0.5)', // primary-500
-        'glow-md': '0 0 20px rgba(14, 165, 233, 0.5)', // primary-500
-        'glow-lg': '0 0 30px rgba(14, 165, 233, 0.5)', // primary-500
-        'glow-secondary': '0 0 30px rgba(168, 85, 247, 0.5)', // secondary-500
-        'glow-accent': '0 0 30px rgba(245, 158, 11, 0.5)', // accent-500
-        'inner-glow': 'inset 0 0 20px rgba(14, 165, 233, 0.2)', // primary-500
+        'glow-sm': '0 0 10px rgba(217, 152, 28, 0.45)', // primary-500
+        'glow-md': '0 0 20px rgba(217, 152, 28, 0.45)', // primary-500
+        'glow-lg': '0 0 35px rgba(217, 152, 28, 0.5)', // primary-500
+
+        'glow-secondary': '0 0 28px rgba(212, 73, 95, 0.45)', // secondary-500
+        'glow-accent': '0 0 28px rgba(219, 117, 49, 0.45)', // accent-500
+
+        'inner-glow': 'inset 0 0 20px rgba(217, 152, 28, 0.25)', // primary-500
       },
     },
   },

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import BoxWithBackground from '@/components/shared/BoxWithBackground';
+import MeshGradient from '@/components/shared/MeshGradient';
 import Button from '@/components/ui/Button';
 import { BodyLarge, BodySmall, Display } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
@@ -18,10 +19,12 @@ const stats = [
 const Hero = () => {
   return (
     <BoxWithBackground
-      className='relative p-0 gap-4 text-center bg-gradient-to-t from-zinc-950 via-zinc-900/80 to-zinc-900/70 border-0 justify-start overflow-hidden'
+      className='relative p-0 gap-4 text-center bg-[length:140%_140%] border-0 justify-start overflow-hidden'
       backgroundConfig={{ scale: 0.3, strokeWidth: 1.1 }}
     >
-      <div className='absolute inset-0 overflow-hidden pointer-events-none'>
+      <MeshGradient />
+
+      <div className='absolute inset-0 overflow-hidden pointer-events-none -z-10'>
         <div className='absolute top-1 left-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-float' />
         <div
           className='absolute bottom-1/4 right-0 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-float'

@@ -1,6 +1,7 @@
 import ContactForm from '@/components/features/contact/ContactForm';
 import BoxWithBackground from '@/components/shared/BoxWithBackground';
 import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
+import MeshGradient from '@/components/shared/MeshGradient';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
@@ -17,6 +18,7 @@ const ContactSection: React.FC = () => {
       className='bg-zinc-900 rounded-none bg-gradient-to-t from-zinc-950 from-30% to-zinc-900/90 border-0 border-t'
       backgroundConfig={{ scale: 0.3, strokeWidth: 3 }}
     >
+      <MeshGradient />
       <Section
         id='contact'
         className='px-6 py-12 md:py-20 max-w-4xl min-h-dvh flex flex-col justify-center items-center scroll-m-0 relative'
