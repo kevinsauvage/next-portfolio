@@ -42,10 +42,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
             />
           </CardIcon>
           <div className='flex-1'>
-            <H3
-              id={`career-${index}`}
-              className={clsx('transition-colors', colors.accent.groupHover)}
-            >
+            <H3 id={`career-${index}`} className={clsx('transition-colors')}>
               {company}
             </H3>
           </div>

@@ -60,10 +60,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 </BodySmall>
                 <div className='h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent' />
               </div>
-              <H3
-                id={`project-title-${index}`}
-                className={clsx(colors.accent.groupHover, 'transition-all duration-300')}
-              >
+              <H3 id={`project-title-${index}`} className={clsx('transition-all duration-300')}>
                 {title}
               </H3>
               <Body className={clsx('transition-colors', colors.text.groupHover.secondary)}>

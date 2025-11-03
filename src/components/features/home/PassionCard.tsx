@@ -29,7 +29,7 @@ const PassionCard: React.FC<PassionCardProps> = ({ icon: Icon, title, descriptio
             aria-hidden='true'
           />
         </CardIcon>
-        <H4 className={clsx(colors.accent.groupHover, 'transition-all duration-300')}>{title}</H4>
+        <H4 className={clsx('transition-all duration-300')}>{title}</H4>
         <Body className={clsx(colors.text.groupHover.secondary, 'transition-colors')}>
           {description}
         </Body>

@@ -24,9 +24,7 @@ const ExpertiseCard: React.FC<ExpertiseCardProps> = ({ title, content, keyPoints
       <CardContent spacing='lg' className='relative z-10 h-full'>
         <div className='space-y-6'>
           <div className='space-y-3'>
-            <H4 className={clsx(colors.accent.groupHover, 'transition-all duration-300')}>
-              {title}
-            </H4>
+            <H4 className={clsx('transition-all duration-300')}>{title}</H4>
             <Body className={clsx('transition-colors', colors.text.groupHover.secondary)}>
               {content}
             </Body>
