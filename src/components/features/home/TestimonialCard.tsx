@@ -19,7 +19,13 @@ type TestimonialCardProps = {
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ author, content, date, index }) => {
   return (
-    <Card hover='standard' size='sm' glow='secondary-accent' animationIndex={index}>
+    <Card
+      hover='standard'
+      size='sm'
+      glow='secondary-accent'
+      animationIndex={index}
+      className='h-fit'
+    >
       <CardContent spacing='md'>
         <div className='flex items-start justify-between'>
           <CardIcon variant='purple'>
