@@ -11,7 +11,7 @@ import clsx from 'clsx';
 const ContactSection: React.FC = () => {
   const publicEnv = getPublicEnv();
   return (
-    <div className='relative rounded-none border-0 border-t border-zinc-700'>
+    <div className='relative rounded-none border-0 border-t border-zinc-700 text-center'>
       <MeshGradient />
       <Section
         id='contact'

@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import GlowEffect from '@/components/shared/GlowEffect';
+import MeshGradient from '@/components/shared/MeshGradient';
 import { animations, getStaggerDelay } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -151,8 +151,12 @@ export const Card = ({
       }}
       {...props}
     >
+      {glow !== 'none' && (
+        <div className='absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out z-0'>
+          <MeshGradient overlayOpacity={85} />
+        </div>
+      )}
       <div className={contentClasses}>
-        {glow !== 'none' && <GlowEffect variant={glow} intensity='low' />}
         <div className='relative z-10 h-full w-full'>{children}</div>
       </div>
     </Component>

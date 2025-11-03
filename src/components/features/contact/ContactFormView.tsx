@@ -24,7 +24,7 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className='flex flex-col w-full bg-zinc-900/30 border border-zinc-800 rounded-lg py-6 px-6 md:p-8'
+        className='flex flex-col w-full bg-black/25 backdrop-blur-md border border-zinc-800 rounded-lg py-6 px-6 md:p-8 max-w-3xl mx-auto'
         aria-label='Contact form'
         noValidate
       >
@@ -122,7 +122,6 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
             type='submit'
             title='Send Message'
             disabled={isSubmitting}
-            loading={isSubmitting}
             variant='primary'
             size='md'
             data-umami-event='contact_form_submit'

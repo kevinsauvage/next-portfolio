@@ -18,7 +18,7 @@ const ExpertiseSection: React.FC = () => {
             {sections.expertise.title}
           </H2>
           <BodyLarge
-            className='max-w-4xl animate-fade-in-up opacity-0'
+            className='max-w-4xl mx-auto animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
           >
             {sections.expertise.description}

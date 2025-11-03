@@ -50,7 +50,7 @@ const Hero = () => {
           className='z-10 mb-8 flex flex-col justify-center items-center animate-fade-in-up opacity-0'
           style={{ animationFillMode: 'both' }}
         >
-          <Display id='hero-title' className='flex flex-col mb-6 max-w-5xl'>
+          <Display id='hero-title' className='flex flex-col mb-6 max-w-5xl text-center'>
             <span className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
               {sections.hero.title.firstLine}
             </span>{' '}

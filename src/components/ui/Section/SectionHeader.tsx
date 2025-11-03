@@ -20,7 +20,7 @@ const SectionHeader = ({
   description,
   className,
   gradient = true,
-  align = 'left',
+  align = 'center',
 }: SectionHeaderProps) => {
   const alignmentClass = align === 'center' ? 'text-center' : 'text-left';
 
@@ -35,7 +35,7 @@ const SectionHeader = ({
         {title}
       </H2>
 
-      {description && <BodyLarge className='max-w-4xl'>{description}</BodyLarge>}
+      {description && <BodyLarge className='max-w-4xl mx-auto'>{description}</BodyLarge>}
     </div>
   );
 };

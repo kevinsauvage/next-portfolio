@@ -44,7 +44,7 @@ const Button = ({
     variant === 'primary' &&
       clsx(
         colors.text.primary,
-        'bg-gradient-to-br from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 focus:ring-2 focus:outline-none focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:shadow-glow-md relative overflow-hidden group'
+        'bg-gradient-to-br from-primary-800 to-primary-900 hover:from-primary-700 hover:to-primary-800 focus:ring-2 focus:outline-none focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:shadow-glow-md relative overflow-hidden group'
       ),
     variant === 'secondary' &&
       clsx(

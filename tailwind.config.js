@@ -12,17 +12,17 @@ module.exports = {
       },
       colors: {
         primary: {
-          50: '#e6fffc',
-          100: '#b5fffa',
-          200: '#82fff5',
-          300: '#4dfff0',
-          400: '#1afae3',
-          500: '#00ebd7', // original
-          600: '#00bfb1',
-          700: '#00938b',
-          800: '#066a63',
-          900: '#064843',
-          950: '#022624',
+          50: '#faf5ff',
+          100: '#f3e8ff',
+          200: '#e9d5ff',
+          300: '#d8b4fe',
+          400: '#c084fc',
+          500: '#9705e6', // purple primary
+          600: '#8510ce',
+          700: '#7c3aed',
+          800: '#6b21a8',
+          900: '#581c87',
+          950: '#54007c',
         },
 
         secondary: {
@@ -139,21 +139,21 @@ module.exports = {
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 
         'mesh-gradient': `
-          radial-gradient(at 86.7% 17.7%, #00EBD7 0px, transparent 50%), 
+          radial-gradient(at 86.7% 17.7%, #9705E6 0px, transparent 50%), 
           radial-gradient(at 20.4% 32.5%, #4E5CF5 0px, transparent 50%), 
-          radial-gradient(at 81.8% 74.7%, #9705E6 0px, transparent 50%), 
+          radial-gradient(at 81.8% 74.7%, #00EBD7 0px, transparent 50%), 
           radial-gradient(at 30.8% 88.5%, #D6750D 0px, transparent 50%)
         `,
       },
       boxShadow: {
-        'glow-sm': '0 0 10px rgba(217, 152, 28, 0.45)', // primary-500
-        'glow-md': '0 0 20px rgba(217, 152, 28, 0.45)', // primary-500
-        'glow-lg': '0 0 35px rgba(217, 152, 28, 0.5)', // primary-500
+        'glow-sm': '0 0 10px rgba(151, 5, 230, 0.45)', // primary-500 (purple)
+        'glow-md': '0 0 20px rgba(151, 5, 230, 0.45)', // primary-500 (purple)
+        'glow-lg': '0 0 35px rgba(151, 5, 230, 0.5)', // primary-500 (purple)
 
         'glow-secondary': '0 0 28px rgba(212, 73, 95, 0.45)', // secondary-500
         'glow-accent': '0 0 28px rgba(219, 117, 49, 0.45)', // accent-500
 
-        'inner-glow': 'inset 0 0 20px rgba(217, 152, 28, 0.25)', // primary-500
+        'inner-glow': 'inset 0 0 20px rgba(151, 5, 230, 0.25)', // primary-500 (purple)
       },
     },
   },
