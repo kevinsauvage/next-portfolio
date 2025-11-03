@@ -83,8 +83,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               ))}
             </div>
 
-            <div className='flex flex-wrap gap-4'>
-              <Link href={websiteLink} target='_blank' rel='noopener noreferrer'>
+            <div className='flex flex-wrap gap-4 sm:gap-4'>
+              <Link
+                href={websiteLink}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='inline-block'
+              >
                 <Button
                   svg={<ExternalLink size={18} aria-hidden='true' />}
                   label={sections.portfolio.buttons.viewLive}
@@ -96,7 +101,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 />
               </Link>
               {githubLink.length > 0 && (
-                <Link href={githubLink[0] as string} target='_blank' rel='noopener noreferrer'>
+                <Link
+                  href={githubLink[0] as string}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='inline-block'
+                >
                   <Button
                     svg={<Github size={18} aria-hidden='true' />}
                     label={sections.portfolio.buttons.sourceCode}

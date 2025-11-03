@@ -34,10 +34,10 @@ const Button = ({
   ...rest
 }: Properties) => {
   const styleSize = clsx(
-    size === 'sm' && 'px-4 py-3 text-sm min-h-[48px]',
-    size === 'md' && 'px-6 py-3.5 text-sm min-h-[48px]',
-    size === 'lg' && 'px-6 py-4 text-base min-h-[52px]',
-    size === 'xl' && 'px-8 py-4.5 text-base min-h-[56px]'
+    size === 'sm' && 'px-4 py-3 text-sm min-h-[48px] min-w-[48px]',
+    size === 'md' && 'px-6 py-3.5 text-sm min-h-[48px] min-w-[48px]',
+    size === 'lg' && 'px-6 py-4 text-base min-h-[52px] min-w-[52px]',
+    size === 'xl' && 'px-8 py-4.5 text-base min-h-[56px] min-w-[56px]'
   );
 
   const styleVariant = clsx(
