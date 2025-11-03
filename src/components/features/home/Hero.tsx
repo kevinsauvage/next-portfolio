@@ -20,16 +20,8 @@ const Hero = () => {
     <div className='relative rounded-none border-0 border-t border-zinc-700'>
       <MeshGradient />
 
-      <div className='absolute inset-0 overflow-hidden pointer-events-none -z-10'>
-        <div className='absolute top-1 left-0 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-float' />
-        <div
-          className='absolute bottom-1/4 right-0 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-float'
-          style={{ animationDelay: '2s' }}
-        />
-      </div>
-
       <section
-        className='min-h-dvh flex flex-col justify-center items-center p-6 pt-20 lg:aspect-video rounded-md md:p-16 md:pt-20 relative z-10'
+        className='min-h-dvh flex flex-col justify-center items-center p-6 pt-20  rounded-md md:p-16 md:pt-20 relative z-10'
         aria-labelledby='hero-title'
         aria-describedby='hero-description'
       >
