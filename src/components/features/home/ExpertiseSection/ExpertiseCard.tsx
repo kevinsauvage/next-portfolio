@@ -1,6 +1,8 @@
 import { Card, CardContent } from '@/components/ui/Card';
 import { Body, BodySmall, H4 } from '@/components/ui/Typography';
+import { colors } from '@/design-system/tokens';
 
+import clsx from 'clsx';
 import { Check } from 'lucide-react';
 
 type ExpertiseCardProps = {
@@ -22,18 +24,25 @@ const ExpertiseCard: React.FC<ExpertiseCardProps> = ({ title, content, keyPoints
       <CardContent spacing='lg' className='relative z-10 h-full'>
         <div className='space-y-6'>
           <div className='space-y-3'>
-            <H4 className='group-hover:text-accent-400 transition-all duration-300'>{title}</H4>
-            <Body className='group-hover:text-zinc-200 transition-colors'>{content}</Body>
+            <H4 className={clsx(colors.accent.groupHover, 'transition-all duration-300')}>
+              {title}
+            </H4>
+            <Body className={clsx('transition-colors', colors.text.groupHover.secondary)}>
+              {content}
+            </Body>
           </div>
           <ul className='space-y-3' aria-label='Key points'>
             {keyPoints.map(point => (
               <li key={point} className='flex items-center gap-3'>
                 <div className='mt-0.5 flex-shrink-0'>
                   <div className='p-1 rounded-full bg-gradient-to-br from-primary-600 to-secondary-600 group-hover:from-primary-500 group-hover:to-secondary-500 transition-all duration-300'>
-                    <Check className='w-3.5 h-3.5 text-white' aria-hidden='true' />
+                    <Check
+                      className={clsx('w-3.5 h-3.5', colors.text.primary)}
+                      aria-hidden='true'
+                    />
                   </div>
                 </div>
-                <BodySmall className='group-hover:text-zinc-200 transition-colors'>
+                <BodySmall className={clsx('transition-colors', colors.text.groupHover.secondary)}>
                   {point}
                 </BodySmall>
               </li>

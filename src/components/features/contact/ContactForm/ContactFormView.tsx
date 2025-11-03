@@ -7,8 +7,10 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/
 import Input from '@/components/ui/Input';
 import TextArea from '@/components/ui/TextArea';
 import { BodySmall } from '@/components/ui/Typography';
+import { colors } from '@/design-system/tokens';
 import type { ContactFormValues } from '@/schemas/contact-form.schema';
 
+import clsx from 'clsx';
 import { LucideSend } from 'lucide-react';
 
 type ContactFormViewProps = {
@@ -46,7 +48,11 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                   />
                 </FormControl>
                 {fieldState.error && (
-                  <BodySmall id='fullName-error' className='text-sm text-rose-400' role='alert'>
+                  <BodySmall
+                    id='fullName-error'
+                    className={clsx('text-sm', colors.status.error)}
+                    role='alert'
+                  >
                     {fieldState.error.message}
                   </BodySmall>
                 )}
@@ -70,7 +76,11 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                   />
                 </FormControl>
                 {fieldState.error && (
-                  <BodySmall id='email-error' className='text-sm text-rose-400' role='alert'>
+                  <BodySmall
+                    id='email-error'
+                    className={clsx('text-sm', colors.status.error)}
+                    role='alert'
+                  >
                     {fieldState.error.message}
                   </BodySmall>
                 )}
@@ -93,7 +103,11 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                   />
                 </FormControl>
                 {fieldState.error && (
-                  <BodySmall id='message-error' className='text-sm text-rose-400' role='alert'>
+                  <BodySmall
+                    id='message-error'
+                    className={clsx('text-sm', colors.status.error)}
+                    role='alert'
+                  >
                     {fieldState.error.message}
                   </BodySmall>
                 )}

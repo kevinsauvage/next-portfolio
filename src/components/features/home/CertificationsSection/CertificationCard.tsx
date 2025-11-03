@@ -1,8 +1,9 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import { Body, BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
-import { iconSizes } from '@/design-system/tokens';
+import { colors, iconSizes } from '@/design-system/tokens';
 
+import clsx from 'clsx';
 import { Award, Building2, Calendar, ExternalLink } from 'lucide-react';
 
 type CertificationCardProps = {
@@ -51,7 +52,10 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
             <CardIcon variant='primary' className='flex-shrink-0'>
               <Award
                 size={iconSizes.xl}
-                className='text-white transition-transform group-hover:rotate-12 group-hover:scale-110'
+                className={clsx(
+                  colors.text.primary,
+                  'transition-transform group-hover:rotate-12 group-hover:scale-110'
+                )}
                 strokeWidth={1.5}
                 aria-hidden='true'
               />
@@ -59,7 +63,10 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
             <div className='flex-1 min-w-0'>
               <H3
                 id={`cert-${index}`}
-                className='group-hover:text-primary-400 transition-all duration-300 text-xl md:text-2xl leading-tight mb-1'
+                className={clsx(
+                  colors.brandColors.groupHover.primary400,
+                  'transition-all duration-300 text-xl md:text-2xl leading-tight mb-1'
+                )}
               >
                 {title}
               </H3>
@@ -67,14 +74,19 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
                 <div className='flex items-center gap-2'>
                   <Building2
                     size={iconSizes.sm}
-                    className='text-purple-400 transition-transform group-hover:rotate-12'
+                    className={clsx(
+                      colors.brandColors.purple,
+                      'transition-transform group-hover:rotate-12'
+                    )}
                     strokeWidth={1.5}
                     aria-hidden='true'
                   />
-                  <Body className='group-hover:text-zinc-200 transition-colors'>{issuer}</Body>
+                  <Body className={clsx('transition-colors', colors.text.groupHover.secondary)}>
+                    {issuer}
+                  </Body>
                 </div>
                 <div className='flex items-center gap-2'>
-                  <Calendar size={iconSizes.sm} className='text-zinc-500' aria-hidden='true' />
+                  <Calendar size={iconSizes.sm} className={colors.text.muted} aria-hidden='true' />
                   <BodySmall className='font-medium'>
                     <time dateTime={date}>{date}</time>
                   </BodySmall>
@@ -85,7 +97,9 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
         </div>
 
         <div className='mb-6 flex-1'>
-          <Body className='group-hover:text-zinc-200 transition-colors leading-relaxed'>
+          <Body
+            className={clsx('transition-colors leading-relaxed', colors.text.groupHover.secondary)}
+          >
             {description}
           </Body>
         </div>
@@ -100,7 +114,11 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
             href={safeCredentialUrl}
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-flex items-center gap-2 py-2 text-sm ml-auto font-medium text-primary-300 rounded-lg hover:text-primary-200 transition-all duration-300 group/link'
+            className={clsx(
+              'inline-flex items-center gap-2 py-2 text-sm ml-auto font-medium rounded-lg transition-all duration-300 group/link',
+              colors.brandColors.primary[300],
+              colors.brandColors.hover.primary200
+            )}
           >
             <ExternalLink
               size={iconSizes.sm}

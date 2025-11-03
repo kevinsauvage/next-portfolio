@@ -2,6 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { BodyLarge, Display } from '@/components/ui/Typography';
+import { colors } from '@/design-system/tokens';
+
+import clsx from 'clsx';
 
 const Custom404 = () => {
   return (
@@ -13,10 +16,13 @@ const Custom404 = () => {
         </BodyLarge>
         <Link
           href='/'
-          className='w-fit flex rounded-md gap-2 items-center justify-center bg-primary-800 border border-primary-900 text-zinc-300 px-10 py-4 text-lg 
-               font-semibold hover:bg-primary-900 hover:border-primary-900 hover:text-zinc-200 hover:shadow-[0_20px_50px_rgba(14,_165,_233,_0.4)]
-               focus:bg-primary-800 focus:border-primary-800 focus:text-zinc-200 
-               active:bg-primary-800 active:border-primary-800 active:text-zinc-200'
+          className={clsx(
+            'w-fit flex rounded-md gap-2 items-center justify-center bg-primary-800 border border-primary-900 px-10 py-4 text-lg font-semibold hover:bg-primary-900 hover:border-primary-900 hover:shadow-[0_20px_50px_rgba(14,_165,_233,_0.4)] focus:bg-primary-800 focus:border-primary-800 active:bg-primary-800 active:border-primary-800',
+            colors.text.tertiary,
+            colors.text.hover.secondary,
+            colors.text.hover.secondary.replace('hover:', 'focus:'),
+            colors.text.hover.secondary.replace('hover:', 'active:')
+          )}
         >
           Go Back Home
         </Link>

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { Body, Caption } from '@/components/ui/Typography';
-import { gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
+import { colors, gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 import { Briefcase, Calendar, Quote, User } from 'lucide-react';
@@ -24,16 +24,24 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ author, content, date
         <div className='flex items-start justify-between'>
           <CardIcon variant='purple'>
             <Quote
-              className='text-purple-400 transition-transform group-hover:rotate-12'
+              className={clsx(
+                colors.brandColors.purple,
+                'transition-transform group-hover:rotate-12'
+              )}
               size={iconSizes.md}
               strokeWidth={1.5}
               aria-hidden='true'
             />
           </CardIcon>
-          <Caption className='text-blue-400'>{String(index + 1).padStart(2, '0')}</Caption>
+          <Caption className={colors.status.info}>{String(index + 1).padStart(2, '0')}</Caption>
         </div>
 
-        <blockquote className='flex-1 text-zinc-200 leading-relaxed text-lg italic line-clamp-6 hover:line-clamp-none'>
+        <blockquote
+          className={clsx(
+            'flex-1 leading-relaxed text-lg italic line-clamp-6 hover:line-clamp-none',
+            colors.text.secondary
+          )}
+        >
           &quot;{content}&quot;
         </blockquote>
 
@@ -43,19 +51,19 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ author, content, date
               <div className='p-2 bg-blue-500/10 rounded-full border border-blue-500/20'>
                 <User
                   size={iconSizes.xs}
-                  className='text-blue-400 transition-transform group-hover:rotate-12'
+                  className={clsx(colors.status.info, 'transition-transform group-hover:rotate-12')}
                   aria-hidden='true'
                 />
               </div>
               <div>
-                <cite className='text-zinc-100 font-bold text-base not-italic block'>
+                <cite className={clsx('font-bold text-base not-italic block', colors.text.primary)}>
                   {author.name}
                 </cite>
                 <Body className='text-base'>{author.title}</Body>
               </div>
             </div>
 
-            <div className={clsx(gapSpacing.xs, 'flex flex-wrap text-sm text-zinc-400')}>
+            <div className={clsx(gapSpacing.xs, 'flex flex-wrap text-sm', colors.text.muted)}>
               <Caption className='flex items-center gap-2'>
                 <Briefcase
                   size={iconSizes.xs - 2}

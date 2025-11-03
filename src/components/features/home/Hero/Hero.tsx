@@ -5,7 +5,7 @@ import MeshGradient from '@/components/shared/MeshGradient';
 import Button from '@/components/ui/Button';
 import { BodyLarge, BodySmall, Display } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
-import { animations, gapSpacing, iconSizes } from '@/design-system/tokens';
+import { animations, colors, gapSpacing, iconSizes } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 import { Mail, MoveDown, Sparkles } from 'lucide-react';
@@ -45,7 +45,9 @@ const Hero = () => {
             <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75' />
             <span className='relative inline-flex rounded-full h-2 w-2 bg-green-500' />
           </span>
-          <BodySmall className='text-green-400 font-medium'>{sections.hero.availability}</BodySmall>
+          <BodySmall className={clsx('font-medium', colors.status.success)}>
+            {sections.hero.availability}
+          </BodySmall>
         </div>
 
         <header
@@ -116,17 +118,22 @@ const Hero = () => {
               key={stat.label}
               className='flex flex-col items-center group hover:scale-110 transition-transform duration-300'
             >
-              <div className='text-2xl md:text-3xl font-bold text-zinc-50 mb-1 flex items-center gap-1'>
+              <div className='text-2xl md:text-3xl font-bold mb-1 flex items-center gap-1'>
                 {stat.value}
                 {stat.label === 'Years Experience' && (
                   <Sparkles
                     size={iconSizes.md}
-                    className='text-yellow-500 group-hover:animate-spin'
+                    className={clsx(colors.brandColors.yellow, 'group-hover:animate-spin')}
                     aria-hidden='true'
                   />
                 )}
               </div>
-              <BodySmall className='md:text-base text-zinc-200 font-light group-hover:text-zinc-100 transition-colors'>
+              <BodySmall
+                className={clsx(
+                  'md:text-base font-light transition-colors',
+                  colors.text.groupHover.light
+                )}
+              >
                 {stat.label}
               </BodySmall>
             </div>

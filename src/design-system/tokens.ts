@@ -161,6 +161,19 @@ export const colors = {
     tertiary: 'text-zinc-300', // Tertiary text - use sparingly
     muted: 'text-zinc-400', // Muted text - decorative only
     inverse: 'text-zinc-950', // Inverse text
+    // Light text variants
+    light: 'text-zinc-100', // Light text variant
+    // Hover variants for text colors
+    hover: {
+      primary: 'hover:text-zinc-50',
+      secondary: 'hover:text-zinc-200',
+      light: 'hover:text-zinc-100',
+    },
+    // Group hover variants
+    groupHover: {
+      secondary: 'group-hover:text-zinc-200',
+      light: 'group-hover:text-zinc-100',
+    },
   },
 
   // Background colors
@@ -183,6 +196,41 @@ export const colors = {
     error: 'text-rose-400',
     warning: 'text-amber-400',
     info: 'text-blue-400',
+    // Hover variants for status colors
+    hover: {
+      success: 'hover:text-green-400',
+      error: 'hover:text-rose-400',
+      warning: 'hover:text-amber-400',
+      info: 'hover:text-blue-400',
+    },
+  },
+
+  // Accent colors
+  accent: {
+    primary: 'text-accent-400',
+    hover: 'hover:text-accent-400',
+    groupHover: 'group-hover:text-accent-400',
+  },
+
+  // Brand/accent colors
+  brandColors: {
+    purple: 'text-purple-400',
+    yellow: 'text-yellow-500',
+    primary: {
+      200: 'text-primary-200',
+      300: 'text-primary-300',
+      400: 'text-primary-400',
+    },
+    hover: {
+      purple: 'hover:text-purple-400',
+      primary200: 'hover:text-primary-200',
+      primary300: 'hover:text-primary-300',
+      primary400: 'hover:text-primary-400',
+    },
+    groupHover: {
+      purple: 'group-hover:text-purple-400',
+      primary400: 'group-hover:text-primary-400',
+    },
   },
 
   // Border colors

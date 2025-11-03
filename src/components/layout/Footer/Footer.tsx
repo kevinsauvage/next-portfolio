@@ -3,7 +3,9 @@ import Link from 'next/link';
 import ContactInfo from '@/components/shared/ContactInfo';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
+import { colors } from '@/design-system/tokens';
 
+import clsx from 'clsx';
 import { Briefcase, CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
@@ -27,9 +29,12 @@ const Footer: React.FC = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className='hover:text-blue-400 transition-all duration-200 hover:translate-x-1 py-2 flex items-center min-h-[44px]'
+                    className={clsx(
+                      colors.status.hover.info,
+                      'transition-all duration-200 hover:translate-x-1 py-2 flex items-center min-h-[44px]'
+                    )}
                   >
-                    <BodySmall className='text-zinc-200'>{link.name}</BodySmall>
+                    <BodySmall className={colors.text.secondary}>{link.name}</BodySmall>
                   </Link>
                 </li>
               ))}
@@ -49,7 +54,7 @@ const Footer: React.FC = () => {
               {layout.footer.sections.techStack.skills.map(skill => (
                 <span
                   key={skill}
-                  className='px-3 py-1 bg-zinc-800/50 text-zinc-300 text-xs rounded-full border border-zinc-700'
+                  className={`px-3 py-1 bg-zinc-800/50 text-xs rounded-full border border-zinc-700 ${colors.text.tertiary}`}
                 >
                   {skill}
                 </span>
@@ -70,22 +75,20 @@ const Footer: React.FC = () => {
               <div className='flex items-center gap-2'>
                 <CheckCircle2
                   size={18}
-                  className='text-green-400 transition-transform hover:rotate-12'
+                  className={clsx(colors.status.success, 'transition-transform hover:rotate-12')}
                   aria-hidden='true'
                 />
-                <BodySmall className='text-sm text-zinc-200'>
+                <BodySmall className='text-sm'>
                   {layout.footer.sections.availability.status}
                 </BodySmall>
               </div>
               <div className='flex items-center gap-2'>
                 <MapPin
                   size={18}
-                  className='text-blue-400 transition-transform hover:rotate-12'
+                  className={clsx(colors.status.info, 'transition-transform hover:rotate-12')}
                   aria-hidden='true'
                 />
-                <span className='text-sm text-zinc-200'>
-                  {layout.footer.sections.availability.location}
-                </span>
+                <span className='text-sm'>{layout.footer.sections.availability.location}</span>
               </div>
             </div>
           </div>
@@ -103,7 +106,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className='pt-8 border-t border-zinc-800'>
-          <p className='text-zinc-400 text-sm text-center'>
+          <p className={clsx('text-sm text-center', colors.text.muted)}>
             © {new Date().getFullYear()} {layout.footer.name}. {layout.footer.copyright}
           </p>
         </div>

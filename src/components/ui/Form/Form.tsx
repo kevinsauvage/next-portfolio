@@ -4,6 +4,10 @@ import * as React from 'react';
 import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form';
 import { Controller, FormProvider, useFormContext } from 'react-hook-form';
 
+import { colors } from '@/design-system/tokens';
+
+import clsx from 'clsx';
+
 const Form = FormProvider;
 
 type FormFieldContextValue<
@@ -77,15 +81,12 @@ const FormLabel = React.forwardRef<
   const { formItemId } = useFormField();
 
   return (
-    <label
-      ref={ref}
-      className={`flex text-lg text-zinc-300 ${className || ''}`}
-      htmlFor={formItemId}
-      {...props}
-    >
+    <label ref={ref} className={`flex text-lg ${className || ''}`} htmlFor={formItemId} {...props}>
       <span className='relative w-fit'>
         {children}
-        {required && <span className='absolute -right-3 -top-1 text-red-600 text-2xl'>*</span>}
+        {required && (
+          <span className={clsx('absolute -right-3 -top-1 text-2xl', colors.status.error)}>*</span>
+        )}
       </span>
     </label>
   );
@@ -121,14 +122,7 @@ const FormDescription = React.forwardRef<
 >(({ className, ...props }, ref) => {
   const { formDescriptionId } = useFormField();
 
-  return (
-    <p
-      ref={ref}
-      id={formDescriptionId}
-      className={`text-sm text-zinc-400 ${className || ''}`}
-      {...props}
-    />
-  );
+  return <p ref={ref} id={formDescriptionId} className={`text-sm ${className || ''}`} {...props} />;
 });
 FormDescription.displayName = 'FormDescription';
 
@@ -147,7 +141,7 @@ const FormMessage = React.forwardRef<
     <p
       ref={ref}
       id={formMessageId}
-      className={`text-base text-red-600 ${className || ''}`}
+      className={clsx('text-base', colors.status.error, className || '')}
       {...props}
     >
       {body}

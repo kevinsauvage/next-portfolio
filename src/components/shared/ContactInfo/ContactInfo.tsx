@@ -2,6 +2,9 @@ import { cloneElement } from 'react';
 import Link from 'next/link';
 
 import socialButton from '@/config/ui/social';
+import { colors } from '@/design-system/tokens';
+
+import clsx from 'clsx';
 
 const ContactInfo = () => (
   <ul className='flex gap-3 flex-wrap'>
@@ -9,7 +12,11 @@ const ContactInfo = () => (
       <li key={item.href}>
         <Link
           href={item.href}
-          className='text-zinc-200 hover:text-blue-400 transition-colors flex items-center justify-center gap-2 group min-w-[48px] min-h-[48px] p-3'
+          className={clsx(
+            colors.text.secondary,
+            colors.status.hover.info,
+            'transition-colors flex items-center justify-center gap-2 group min-w-[48px] min-h-[48px] p-3'
+          )}
           aria-label={`Visit ${item.text} profile`}
           target='_blank'
           prefetch={false}

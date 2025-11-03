@@ -1,6 +1,7 @@
 'use client';
 
 import SpinnerLoader from '@/components/shared/SpinnerLoader';
+import { colors } from '@/design-system/tokens';
 import { trackEvent } from '@/lib/analytics';
 
 import clsx from 'clsx';
@@ -41,9 +42,15 @@ const Button = ({
 
   const styleVariant = clsx(
     variant === 'primary' &&
-      'text-zinc-50 bg-gradient-to-br from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 focus:ring-2 focus:outline-none focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:shadow-glow-md relative overflow-hidden group',
+      clsx(
+        colors.text.primary,
+        'bg-gradient-to-br from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 focus:ring-2 focus:outline-none focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:shadow-glow-md relative overflow-hidden group'
+      ),
     variant === 'secondary' &&
-      'relative inline-flex items-center justify-center overflow-hidden text-zinc-50 rounded-lg bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 hover:border-secondary-500/30 focus:ring-2 focus:outline-none focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-md hover:shadow-lg group'
+      clsx(
+        colors.text.primary,
+        'relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 hover:border-secondary-500/30 focus:ring-2 focus:outline-none focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-md hover:shadow-lg group'
+      )
   );
 
   return (

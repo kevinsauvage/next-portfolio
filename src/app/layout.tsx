@@ -9,6 +9,7 @@ import StructuredData from '@/components/shared/StructuredData';
 import UmamiScript from '@/components/shared/UmamiScript';
 import { WebVitals } from '@/components/shared/WebVitals';
 import NotificationProvider from '@/contexts/NotificationContext';
+import { colors } from '@/design-system/tokens';
 import { getPublicEnv } from '@/lib/env';
 
 import '@/styles/globals.scss';
@@ -50,14 +51,17 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <head>
         <HeadLinks />
       </head>
-      <body className='w-full h-full text-zinc-50 antialiased font-base font-light'>
+      <body className={clsx('w-full h-full antialiased font-base font-light', colors.text.primary)}>
         <StructuredData />
         <UmamiScript umamiId={publicEnv.UMAMI_ID} />
         <NotificationProvider>
           <nav aria-label='Skip navigation'>
             <a
               href='#main-content'
-              className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-md focus:shadow-lg'
+              className={clsx(
+                'sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:rounded-md focus:shadow-lg',
+                colors.text.primary
+              )}
             >
               Skip to main content
             </a>

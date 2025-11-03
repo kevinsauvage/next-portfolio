@@ -4,7 +4,9 @@ import Button from '@/components/ui/Button';
 import { Card, CardContent, CardImage } from '@/components/ui/Card';
 import { Body, BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
+import { colors } from '@/design-system/tokens';
 
+import clsx from 'clsx';
 import { ExternalLink, Github } from 'lucide-react';
 
 type ProjectType = {
@@ -48,25 +50,36 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <div className='md:col-span-3 flex flex-col justify-between space-y-6'>
             <div className='space-y-4'>
               <div className='flex items-center gap-3'>
-                <BodySmall className='text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20'>
+                <BodySmall
+                  className={clsx(
+                    colors.status.info,
+                    'bg-blue-500/10 px-3 py-1 rounded-full border border-blue-500/20'
+                  )}
+                >
                   Project {String(index + 1).padStart(2, '0')}
                 </BodySmall>
                 <div className='h-px flex-1 bg-gradient-to-r from-zinc-800 to-transparent' />
               </div>
               <H3
                 id={`project-title-${index}`}
-                className='group-hover:text-accent-400 transition-all duration-300'
+                className={clsx(colors.accent.groupHover, 'transition-all duration-300')}
               >
                 {title}
               </H3>
-              <Body className='group-hover:text-zinc-200 transition-colors'>{description}</Body>
+              <Body className={clsx('transition-colors', colors.text.groupHover.secondary)}>
+                {description}
+              </Body>
             </div>
 
             <div className='flex flex-wrap gap-2'>
               {technologies.map(({ name }) => (
                 <span
                   key={name}
-                  className='px-3 py-1.5 bg-zinc-800/50 text-zinc-300 text-xs rounded-full border border-zinc-700 hover:border-blue-500/50 hover:bg-zinc-700/50 transition-all duration-300 cursor-default'
+                  className={clsx(
+                    'px-3 py-1.5 bg-zinc-800/50 text-xs rounded-full border border-zinc-700 transition-all duration-300 cursor-default',
+                    colors.text.tertiary,
+                    'hover:border-blue-500/50 hover:bg-zinc-700/50'
+                  )}
                 >
                   {name}
                 </span>

@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react';
 
+import { colors } from '@/design-system/tokens';
+
 import clsx from 'clsx';
 
 type Properties = {
@@ -26,16 +28,16 @@ const Notification = ({ notification, removeNotification }: Properties) => {
   if (!notification) return;
 
   const stylesObject: { [key: string]: string } = {
-    error: 'text-red-400 border border-red-400',
-    success: 'text-green-400 border border-green-400',
-    warning: 'text-yellow-400 border border-yellow-400',
+    error: clsx(colors.status.error, 'border border-red-400'),
+    success: clsx(colors.status.success, 'border border-green-400'),
+    warning: clsx(colors.status.warning, 'border border-yellow-400'),
   };
 
   return (
     <div
       className={clsx(
         'relative min-w-24 max-w-80 w-full mb-2 bg-zinc-950 border font-medium',
-        stylesObject[notification?.type],
+        stylesObject[notification?.type]
       )}
       key={notification.id}
     >
