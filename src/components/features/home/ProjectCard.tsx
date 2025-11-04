@@ -88,7 +88,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 href={websiteLink}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='inline-block'
+                className='inline-block w-full sm:w-auto'
               >
                 <Button
                   svg={<ExternalLink size={18} aria-hidden='true' />}
@@ -97,7 +97,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   variant='primary'
                   data-umami-event='project_live_click'
                   data-umami-event-project={title}
-                  className='shadow-glow-sm hover:shadow-glow-md min-w-[180px]'
+                  className='shadow-glow-sm hover:shadow-glow-md min-w-[180px] w-full sm:w-auto'
                 />
               </Link>
               {githubLink.length > 0 && (
@@ -105,7 +105,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                   href={githubLink[0] as string}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-block'
+                  className='inline-block w-full sm:w-auto'
                 >
                   <Button
                     svg={<Github size={18} aria-hidden='true' />}
@@ -114,7 +114,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                     variant='secondary'
                     data-umami-event='project_github_click'
                     data-umami-event-project={title}
-                    className='min-w-[180px]'
+                    className='min-w-[180px] w-full sm:w-auto'
                   />
                 </Link>
               )}
