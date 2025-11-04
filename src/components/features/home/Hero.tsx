@@ -51,7 +51,7 @@ const Hero = () => {
 
         <div
           className={clsx(
-            'flex flex-col sm:flex-row mb-16 z-10 animate-fade-in-up opacity-0',
+            'flex flex-col sm:flex-row mb-16 z-10 animate-fade-in-up opacity-0 w-full sm:w-auto',
             gapSpacing.md
           )}
           style={{ animationDelay: animations.loadDelay.third, animationFillMode: 'both' }}
@@ -64,7 +64,7 @@ const Hero = () => {
               variant='primary'
               data-umami-event='hero_cta_click'
               aria-describedby='hero-description'
-              className='min-w-[220px] font-semibold shadow-glow-md hover:shadow-glow-lg'
+              className='min-w-[220px] w-full sm:w-auto font-semibold shadow-glow-md hover:shadow-glow-lg'
             />
           </Link>
           <Link href='#contact' passHref className='w-full sm:w-auto'>
@@ -74,7 +74,7 @@ const Hero = () => {
               size='xl'
               variant='secondary'
               data-umami-event='hero_contact_click'
-              className='min-w-[220px]'
+              className='min-w-[220px] w-full sm:w-auto'
             />
           </Link>
         </div>
