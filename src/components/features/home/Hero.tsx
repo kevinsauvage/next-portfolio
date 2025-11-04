@@ -19,7 +19,7 @@ const stats = [
 const Hero = () => {
   return (
     <div className='relative rounded-none border-0 border-t border-zinc-700'>
-      <MeshGradient />
+      <MeshGradient overlayOpacity={75} />
 
       <section
         className='min-h-dvh flex flex-col justify-center items-center p-6 pt-20 text-center rounded-md md:p-16 md:pt-20 relative z-10'
@@ -52,7 +52,7 @@ const Hero = () => {
 
         <div
           className={clsx(
-            'flex flex-col sm:flex-row mb-16 z-10 animate-fade-in-up opacity-0 w-full sm:w-auto',
+            'flex flex-col sm:flex-row mb-10 z-10 animate-fade-in-up opacity-0 w-full sm:w-auto',
             gapSpacing.md
           )}
           style={{ animationDelay: animations.loadDelay.third, animationFillMode: 'both' }}
