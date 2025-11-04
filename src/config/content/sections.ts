@@ -13,7 +13,7 @@ export const sections = {
     title: "Hi, I'm Kévin Sauvage",
     experience: '4+ Years Experience',
     description:
-      "I'm a Frontend Developer in Barcelona, building accessible web applications. With over four years of experience, I create modern solutions with React and Next.js that work well for users. I enjoy solving complex problems and turning ideas into working applications.",
+      "I'm Kévin, a Frontend Developer in Barcelona who turns complex problems into simple, fast, accessible solutions. With over four years of experience building React and Next.js applications, I've learned that the best code is the kind that disappears, letting users focus on what they came to do, not fighting with slow loading times or broken interfaces.",
   },
   expertise: {
     overline: 'Expertise',
