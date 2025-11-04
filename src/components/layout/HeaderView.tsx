@@ -4,6 +4,7 @@ import Link from 'next/link';
 
 import Logo from '@/components/layout/Logo';
 import Navigation from '@/components/layout/Navigation';
+import ContactInfo from '@/components/shared/ContactInfo';
 import Button from '@/components/ui/Button';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
@@ -31,7 +32,7 @@ const HeaderView = ({
     <>
       <header
         className={clsx(
-          'w-full fixed top-0 z-40 transition-all duration-300',
+          'w-full fixed top-0 z-40 transition-all duration-300 overflow-hidden',
           isScrolled
             ? 'bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50'
             : 'bg-transparent border-b border-transparent'
@@ -39,10 +40,15 @@ const HeaderView = ({
         role='banner'
         aria-label='Main navigation'
       >
-        <div className='flex justify-between m-auto items-center xl:container px-6 py-4'>
+        <div className='flex justify-between m-auto items-center xl:container px-6 py-4 gap-2 sm:gap-4'>
           <Logo />
-          <Navigation closeMenu={closeMenu} menuOpen={menuOpen} />
-          <div className='flex gap-3 items-center justify-end'>
+          <div className='flex-1 min-w-0 flex justify-center'>
+            <Navigation closeMenu={closeMenu} menuOpen={menuOpen} />
+          </div>
+          <div className='flex gap-2 sm:gap-3 items-center justify-end flex-shrink-0'>
+            <div className='hidden xl:flex items-center gap-2'>
+              <ContactInfo size={20} eventPrefix='header' className='mr-2' />
+            </div>
             <Link href='#contact' className='hidden lg:block'>
               <Button
                 svg={<Mail strokeWidth={1.5} size={18} aria-hidden='true' />}
@@ -50,7 +56,7 @@ const HeaderView = ({
                 size='md'
                 variant='primary'
                 data-umami-event='header_cta_contact'
-                className='font-semibold'
+                className='font-semibold whitespace-nowrap'
               />
             </Link>
             <button
@@ -141,7 +147,10 @@ const HeaderView = ({
                 ))}
               </ul>
 
-              <div className='p-6 border-t border-zinc-800'>
+              <div className='p-6 border-t border-zinc-800 space-y-4'>
+                <div className='flex justify-center'>
+                  <ContactInfo size={22} eventPrefix='mobile_menu' />
+                </div>
                 <Link
                   href='#contact'
                   onClick={closeMenu}

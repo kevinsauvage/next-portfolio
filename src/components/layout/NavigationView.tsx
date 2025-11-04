@@ -17,7 +17,7 @@ type NavigationViewProps = {
 const NavigationView = ({ navItems, activeSection, closeMenu }: NavigationViewProps) => {
   return (
     <nav className='flex items-center' role='navigation' aria-label='Main navigation'>
-      <ul className='hidden lg:flex items-center gap-1'>
+      <ul className='hidden lg:flex items-center gap-0.5 xl:gap-1'>
         {navItems.map(({ label, href }) => {
           const isActive = activeSection === href.substring(1);
           return (
@@ -29,9 +29,8 @@ const NavigationView = ({ navItems, activeSection, closeMenu }: NavigationViewPr
                 data-umami-event='header_nav_click'
                 data-umami-event-label={label}
                 className={clsx(
-                  // Typography and sizing from design system
                   getTypographyClasses('bodySmall'),
-                  'px-4 py-2',
+                  'px-3 py-2 xl:px-4',
                   radius.sm,
                   // Motion tokens
                   'transition-all',

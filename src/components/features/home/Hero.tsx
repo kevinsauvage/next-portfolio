@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import ContactInfo from '@/components/shared/ContactInfo';
 import MeshGradient from '@/components/shared/MeshGradient';
 import Button from '@/components/ui/Button';
 import { BodyLarge, BodySmall, Display } from '@/components/ui/Typography';
@@ -113,6 +114,13 @@ const Hero = () => {
               </BodySmall>
             </div>
           ))}
+        </div>
+
+        <div
+          className='mt-8 animate-fade-in-up opacity-0'
+          style={{ animationDelay: animations.loadDelay.fourth, animationFillMode: 'both' }}
+        >
+          <ContactInfo size={22} eventPrefix='hero' className='justify-center' />
         </div>
       </section>
     </div>

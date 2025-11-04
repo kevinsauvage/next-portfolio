@@ -1,4 +1,5 @@
 import ContactForm from '@/components/features/contact/ContactForm';
+import ContactInfo from '@/components/shared/ContactInfo';
 import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
 import MeshGradient from '@/components/shared/MeshGradient';
 import Section, { SectionHeader } from '@/components/ui/Section';
@@ -29,6 +30,11 @@ const ContactSection: React.FC = () => {
           <GoogleReCaptchaProviderWrapper reCaptchaKey={publicEnv.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
             <ContactForm />
           </GoogleReCaptchaProviderWrapper>
+
+          <div className='mt-8 flex flex-col items-center gap-4'>
+            <p className='text-sm text-zinc-400'>Or connect with me on social media</p>
+            <ContactInfo size={24} eventPrefix='contact' />
+          </div>
         </div>
       </Section>
     </div>
