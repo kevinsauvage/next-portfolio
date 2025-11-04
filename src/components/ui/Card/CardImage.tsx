@@ -13,6 +13,7 @@ type CardImageProps = {
   sizes?: string;
   width?: number;
   height?: number;
+  unoptimized?: boolean;
 };
 
 export const CardImage = ({
@@ -26,6 +27,7 @@ export const CardImage = ({
   sizes = '(max-width: 768px) 100vw, 40vw',
   width = 800,
   height = 600,
+  unoptimized = false,
 }: CardImageProps) => {
   const aspectClasses = {
     square: 'aspect-square',
@@ -73,6 +75,7 @@ export const CardImage = ({
         sizes={sizes}
         placeholder='blur'
         blurDataURL='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k='
+        unoptimized={unoptimized}
       />
       <div className='absolute inset-0 bg-gradient-to-t from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300' />
     </div>

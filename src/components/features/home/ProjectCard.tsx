@@ -44,6 +44,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               width={800}
               height={500}
               sizes='(max-width: 768px) 100vw, 40vw'
+              unoptimized={true}
             />
           </div>
 
