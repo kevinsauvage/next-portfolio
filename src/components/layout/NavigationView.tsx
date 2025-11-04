@@ -40,7 +40,7 @@ const NavigationView = ({ navItems, activeSection, closeMenu }: NavigationViewPr
                   'hover:scale-105 active:scale-95',
                   // States
                   isActive
-                    ? clsx(colors.text.light, 'bg-accent-400/10 shadow-sm')
+                    ? clsx(colors.text.light, 'bg-zinc-800/50 border border-zinc-700/50 shadow-sm')
                     : clsx(colors.text.muted, 'hover:bg-zinc-800/50 hover:shadow-md')
                 )}
               >
