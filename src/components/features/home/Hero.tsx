@@ -21,23 +21,10 @@ const Hero = () => {
       <MeshGradient />
 
       <section
-        className='min-h-dvh flex flex-col justify-center items-center p-6 pt-20  rounded-md md:p-16 md:pt-20 relative z-10'
+        className='min-h-dvh flex flex-col justify-center items-center p-6 pt-20 text-center rounded-md md:p-16 md:pt-20 relative z-10'
         aria-labelledby='hero-title'
         aria-describedby='hero-description'
       >
-        <div
-          className='inline-flex items-center gap-2 px-4 py-2 mb-6 bg-green-500/10 border border-green-500/20 rounded-full backdrop-blur-sm hover:bg-green-500/20 transition-all duration-300 animate-fade-in-down opacity-0'
-          style={{ animationFillMode: 'both' }}
-        >
-          <span className='relative flex h-2 w-2'>
-            <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75' />
-            <span className='relative inline-flex rounded-full h-2 w-2 bg-green-500' />
-          </span>
-          <BodySmall className={clsx('font-medium', colors.status.success)}>
-            {sections.hero.availability}
-          </BodySmall>
-        </div>
-
         <header
           className='z-10 mb-8 flex flex-col justify-center items-center animate-fade-in-up opacity-0'
           style={{ animationFillMode: 'both' }}
