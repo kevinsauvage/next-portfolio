@@ -1,7 +1,7 @@
 import Section from '@/components/ui/Section';
 import { BodyLarge, H2, H3, Overline } from '@/components/ui/Typography';
 import { passions, sections } from '@/config/content';
-import { colors, gapSpacing, stackSpacing } from '@/design-system/tokens';
+import { gapSpacing, stackSpacing } from '@/design-system/tokens';
 
 import PassionCard from './PassionCard';
 
@@ -22,20 +22,6 @@ const AboutSection: React.FC = () => {
           >
             {sections.about.title}
           </H2>
-          <div
-            className={clsx(
-              gapSpacing.md,
-              'flex flex-wrap items-center animate-fade-in-up opacity-0'
-            )}
-            style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
-          >
-            <div className='flex items-center gap-2 px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full backdrop-blur-sm'>
-              <div className='h-2 w-2 rounded-full bg-blue-400 animate-pulse' />
-              <span className={clsx('text-lg font-semibold', colors.status.info)}>
-                {sections.about.experience}
-              </span>
-            </div>
-          </div>
           <BodyLarge
             className='max-w-4xl animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
