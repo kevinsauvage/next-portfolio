@@ -28,7 +28,7 @@ export const cspDirectives = {
   'img-src': ["'self'", 'data:', 'blob:', 'https:'],
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
   'font-src': ["'self'", 'https://fonts.gstatic.com', 'data:'],
-  'frame-src': ['https://www.google.com'],
+  'frame-src': ['https://www.google.com', 'https://vercel.live'],
   'base-uri': ["'self'"],
   'form-action': ["'self'"],
   'object-src': ['none'],
