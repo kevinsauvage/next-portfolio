@@ -21,8 +21,9 @@ const Hero = () => {
     <div className='relative rounded-none border-0 border-t border-zinc-700'>
       <MeshGradient overlayOpacity={75} />
 
+      {/* Hero Content - Full viewport on mobile */}
       <section
-        className='min-h-dvh flex flex-col justify-center items-center p-6 pt-20 text-center rounded-md md:p-16 md:pt-20 relative z-10'
+        className='h-dvh md:min-h-dvh flex flex-col justify-center items-center p-6 pt-20 text-center rounded-md md:p-16 md:pt-20 md:justify-end relative z-10'
         aria-labelledby='hero-title'
         aria-describedby='hero-description'
       >
@@ -30,7 +31,7 @@ const Hero = () => {
           className='z-10 mb-8 flex flex-col justify-center items-center animate-fade-in-up opacity-0'
           style={{ animationFillMode: 'both' }}
         >
-          <Display id='hero-title' className='flex flex-col mb-6 max-w-5xl text-center'>
+          <Display id='hero-title' className='mb-6 max-w-5xl text-center md:flex md:flex-col'>
             <span className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
               {sections.hero.title.firstLine}
             </span>{' '}
@@ -82,12 +83,58 @@ const Hero = () => {
           </Button>
         </div>
 
-        {/* Stats */}
+        {/* Stats - Visible on desktop only, part of first fold */}
+        <div className='hidden md:block w-full'>
+          <div
+            className={clsx(
+              'grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0',
+              gapSpacing.sm,
+              'md:gap-8'
+            )}
+            style={{ animationDelay: animations.loadDelay.fourth, animationFillMode: 'both' }}
+          >
+            {stats.map(stat => (
+              <div
+                key={stat.label}
+                className='flex flex-col items-center group hover:scale-110 transition-transform duration-300'
+              >
+                <div className='text-2xl md:text-3xl font-bold mb-1 flex items-center gap-1'>
+                  {stat.value}
+                  {stat.label === 'Years Experience' && (
+                    <Sparkles
+                      size={iconSizes.md}
+                      className={clsx(colors.brandColors.yellow, 'group-hover:animate-spin')}
+                      aria-hidden='true'
+                    />
+                  )}
+                </div>
+                <BodySmall
+                  className={clsx(
+                    'md:text-base font-light transition-colors',
+                    colors.text.groupHover.light
+                  )}
+                >
+                  {stat.label}
+                </BodySmall>
+              </div>
+            ))}
+          </div>
+
+          <div
+            className='mt-8 animate-fade-in-up opacity-0'
+            style={{ animationDelay: animations.loadDelay.fourth, animationFillMode: 'both' }}
+          >
+            <ContactInfo size={22} eventPrefix='hero' className='justify-center' />
+          </div>
+        </div>
+      </section>
+
+      {/* Stats - Below the fold on mobile only */}
+      <div className='block md:hidden relative z-10 px-6 pb-8'>
         <div
           className={clsx(
             'grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0',
-            gapSpacing.sm,
-            'md:gap-8'
+            gapSpacing.sm
           )}
           style={{ animationDelay: animations.loadDelay.fourth, animationFillMode: 'both' }}
         >
@@ -96,7 +143,7 @@ const Hero = () => {
               key={stat.label}
               className='flex flex-col items-center group hover:scale-110 transition-transform duration-300'
             >
-              <div className='text-2xl md:text-3xl font-bold mb-1 flex items-center gap-1'>
+              <div className='text-2xl font-bold mb-1 flex items-center gap-1'>
                 {stat.value}
                 {stat.label === 'Years Experience' && (
                   <Sparkles
@@ -107,10 +154,7 @@ const Hero = () => {
                 )}
               </div>
               <BodySmall
-                className={clsx(
-                  'md:text-base font-light transition-colors',
-                  colors.text.groupHover.light
-                )}
+                className={clsx('font-light transition-colors', colors.text.groupHover.light)}
               >
                 {stat.label}
               </BodySmall>
@@ -124,7 +168,7 @@ const Hero = () => {
         >
           <ContactInfo size={22} eventPrefix='hero' className='justify-center' />
         </div>
-      </section>
+      </div>
     </div>
   );
 };
