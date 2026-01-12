@@ -28,11 +28,9 @@
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "lint:css": "stylelint **/*.{scss,css}",
-    "lint:css:fix": "stylelint --fix **/*.{scss,css}",
     "lint:ts": "tsc --noemit",
-    "lint:all": "npm run lint && npm run lint:css && npm run lint:ts",
-    "lint:all:fix": "npm run lint:fix && npm run lint:css:fix",
+    "lint:all": "npm run lint && npm run lint:ts",
+    "lint:all:fix": "npm run lint:fix",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -97,11 +95,6 @@
     "postcss": "^8.4.38",
     "prettier": "^3.7.4",
     "sass": "^1.97.2",
-    "stylelint": "^15.11.0",
-    "stylelint-checkstyle-formatter": "^0.1.2",
-    "stylelint-config-recommended-scss": "^13.1.0",
-    "stylelint-order": "^6.0.4",
-    "stylelint-scss": "^5.3.2",
     "tailwindcss": "^3.4.19",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
@@ -114,9 +107,6 @@
     "**/*.{js,jsx,ts,tsx}": [
       "eslint --fix --max-warnings=0",
       "prettier --write"
-    ],
-    "**/*.{scss,css}": [
-      "stylelint --fix"
     ],
     "**/*.{json,md,yml,yaml}": [
       "prettier --write"

@@ -16,7 +16,7 @@ This portfolio showcases professional work, skills, and experience through a res
 - **SEO Ready** - Meta tags, sitemap, and robots.txt
 - **Type Safety** - Full TypeScript implementation
 - **Testing** - Vitest setup with React Testing Library
-- **Code Quality** - ESLint, Prettier, and Stylelint configuration
+- **Code Quality** - ESLint and Prettier configuration
 
 ## Tech Stack
 
@@ -28,7 +28,7 @@ This portfolio showcases professional work, skills, and experience through a res
 - **Email**: EmailJS
 - **Analytics**: Vercel Analytics
 - **Testing**: Vitest + React Testing Library
-- **Linting**: ESLint + Prettier + Stylelint
+- **Linting**: ESLint + Prettier
 
 ## Installation
 

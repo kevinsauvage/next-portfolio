@@ -22,6 +22,5 @@ module.exports = {
       `prettier --write ${filtered.map(f => `"${f}"`).join(' ')}`,
     ];
   },
-  '**/*.{scss,css}': ['stylelint --fix'],
   '**/*.{json,md,yml,yaml}': ['prettier --write'],
 };
