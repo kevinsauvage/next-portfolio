@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { Body, Caption } from '@/components/ui/Typography';
@@ -33,7 +33,6 @@ const ANIMATION_RESET_DELAY = 50;
 const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonials }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [displayedIndex, setDisplayedIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -52,29 +51,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
     [resetAnimation]
   );
 
-  const animateToNextSlide = useCallback(() => {
-    setDirection('right');
-    setIsAnimating(true);
-    setTimeout(() => {
-      setCurrentIndex(prevIndex => {
-        const nextIndex = (prevIndex + 1) % testimonials.length;
-        setDisplayedIndex(nextIndex);
-        resetAnimation();
-        return nextIndex;
-      });
-    }, ANIMATION_DURATION);
-  }, [testimonials.length, resetAnimation]);
-
-  useEffect(() => {
-    if (!isAutoPlaying || testimonials.length <= 1) return;
-
-    const interval = setInterval(() => {
-      animateToNextSlide();
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, testimonials.length, animateToNextSlide]);
-
   const goToSlide = (index: number) => {
     if (index === currentIndex || isAnimating) return;
     if (index < 0 || index >= testimonials.length) return;
@@ -83,7 +59,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
     setTimeout(() => {
       updateSlideIndex(index);
     }, ANIMATION_DURATION);
-    setIsAutoPlaying(false);
   };
 
   const goToPrevious = () => {
@@ -94,7 +69,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
       const prevIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
       updateSlideIndex(prevIndex);
     }, ANIMATION_DURATION);
-    setIsAutoPlaying(false);
   };
 
   const goToNext = () => {
@@ -105,7 +79,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
       const nextIndex = (currentIndex + 1) % testimonials.length;
       updateSlideIndex(nextIndex);
     }, ANIMATION_DURATION);
-    setIsAutoPlaying(false);
   };
 
   // Safe array access to avoid object injection warning
