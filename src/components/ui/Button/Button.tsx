@@ -1,5 +1,7 @@
 'use client';
 
+import { cloneElement, isValidElement } from 'react';
+
 import SpinnerLoader from '@/components/shared/SpinnerLoader';
 import { colors } from '@/design-system/tokens';
 import { trackEvent } from '@/lib/analytics';
@@ -7,7 +9,7 @@ import { trackEvent } from '@/lib/analytics';
 import clsx from 'clsx';
 
 type Properties = {
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
   label: string;
   svg?: React.ReactNode;
   loading?: boolean;
@@ -18,7 +20,9 @@ type Properties = {
   size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
   disabled?: boolean;
-} & React.HTMLAttributes<HTMLButtonElement>;
+  asChild?: boolean;
+  children?: React.ReactNode;
+} & Omit<React.HTMLAttributes<HTMLButtonElement>, 'children'>;
 
 const Button = ({
   onClick,
@@ -31,6 +35,8 @@ const Button = ({
   disabled,
   eventName,
   eventProperties,
+  asChild = false,
+  children,
   ...rest
 }: Properties) => {
   const styleSize = clsx(
@@ -53,29 +59,26 @@ const Button = ({
       )
   );
 
-  return (
-    <button
-      className={clsx(
-        'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap rounded-md font-medium',
-        'transition-all duration-300 ease-out',
-        'hover:scale-105 hover:shadow-xl active:scale-95',
-        'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
-        styleSize,
-        styleVariant,
-        loading && 'cursor-default',
-        className
-      )}
-      onClick={event => {
-        onClick?.(event);
-        if (eventName) {
-          trackEvent(eventName, eventProperties);
-        }
-      }}
-      aria-label={label}
-      disabled={disabled || loading}
-      type={rest.type || 'button'}
-      {...rest}
-    >
+  const buttonClasses = clsx(
+    'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap rounded-md font-medium',
+    'transition-all duration-300 ease-out',
+    'hover:scale-105 hover:shadow-xl active:scale-95',
+    'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
+    styleSize,
+    styleVariant,
+    loading && 'cursor-default',
+    className
+  );
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    onClick?.(event);
+    if (eventName) {
+      trackEvent(eventName, eventProperties);
+    }
+  };
+
+  const buttonContent = (
+    <>
       {loading && (
         <div className='absolute flex items-center justify-center inset-0 bg-zinc-950'>
           <SpinnerLoader />
@@ -87,6 +90,41 @@ const Button = ({
           {svg}
         </span>
       </span>
+    </>
+  );
+
+  if (asChild && isValidElement(children)) {
+    const child = children as React.ReactElement<React.HTMLAttributes<HTMLAnchorElement>>;
+    const childClassName = child.props?.className || '';
+    const childOnClick = child.props?.onClick;
+
+    return cloneElement(child, {
+      ...child.props,
+      className: clsx(buttonClasses, childClassName),
+      onClick: (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (disabled || loading) {
+          e.preventDefault();
+          return;
+        }
+        if (childOnClick) childOnClick(e);
+        handleClick(e);
+      },
+      'aria-label': label,
+      ...(disabled || loading ? { 'aria-disabled': true, tabIndex: -1 } : {}),
+      children: buttonContent,
+    });
+  }
+
+  return (
+    <button
+      className={buttonClasses}
+      onClick={handleClick}
+      aria-label={label}
+      disabled={disabled || loading}
+      type={rest.type || 'button'}
+      {...rest}
+    >
+      {buttonContent}
     </button>
   );
 };

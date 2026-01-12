@@ -49,16 +49,17 @@ const HeaderView = ({
             <div className='hidden xl:flex items-center gap-2'>
               <ContactInfo size={20} eventPrefix='header' className='mr-2' />
             </div>
-            <Link href='#contact' className='hidden lg:block'>
-              <Button
-                svg={<Mail strokeWidth={1.5} size={18} aria-hidden='true' />}
-                label={layout.header.ctaButton}
-                size='md'
-                variant='primary'
-                data-umami-event='header_cta_contact'
-                className='font-semibold whitespace-nowrap'
-              />
-            </Link>
+            <Button
+              asChild
+              svg={<Mail strokeWidth={1.5} size={18} aria-hidden='true' />}
+              label={layout.header.ctaButton}
+              size='md'
+              variant='primary'
+              data-umami-event='header_cta_contact'
+              className='hidden lg:block font-semibold whitespace-nowrap'
+            >
+              <Link href='#contact' />
+            </Button>
             <button
               className='lg:hidden p-3 rounded-md hover:bg-zinc-800/50 transition-colors relative z-50 min-w-[48px] min-h-[48px] flex items-center justify-center'
               onClick={toggleMenu}

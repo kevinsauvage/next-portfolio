@@ -57,27 +57,29 @@ const Hero = () => {
           )}
           style={{ animationDelay: animations.loadDelay.third, animationFillMode: 'both' }}
         >
-          <Link href='#portfolio' passHref className='w-full sm:w-auto'>
-            <Button
-              svg={<MoveDown strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
-              label='View my work'
-              size='xl'
-              variant='primary'
-              data-umami-event='hero_cta_click'
-              aria-describedby='hero-description'
-              className='min-w-[220px] w-full sm:w-auto font-semibold shadow-glow-md hover:shadow-glow-lg'
-            />
-          </Link>
-          <Link href='#contact' passHref className='w-full sm:w-auto'>
-            <Button
-              svg={<Mail strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
-              label='Get in Touch'
-              size='xl'
-              variant='secondary'
-              data-umami-event='hero_contact_click'
-              className='min-w-[220px] w-full sm:w-auto'
-            />
-          </Link>
+          <Button
+            asChild
+            svg={<MoveDown strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
+            label='View my work'
+            size='xl'
+            variant='primary'
+            data-umami-event='hero_cta_click'
+            aria-describedby='hero-description'
+            className='w-full sm:w-auto min-w-[220px] font-semibold shadow-glow-md hover:shadow-glow-lg'
+          >
+            <Link href='#portfolio' />
+          </Button>
+          <Button
+            asChild
+            svg={<Mail strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
+            label='Get in Touch'
+            size='xl'
+            variant='secondary'
+            data-umami-event='hero_contact_click'
+            className='w-full sm:w-auto min-w-[220px]'
+          >
+            <Link href='#contact' />
+          </Button>
         </div>
 
         {/* Stats */}

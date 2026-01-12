@@ -85,39 +85,41 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             </div>
 
             <div className='flex flex-wrap gap-6'>
-              <Link
-                href={websiteLink}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='inline-block w-full sm:w-auto'
+              <Button
+                asChild
+                svg={<ExternalLink size={18} aria-hidden='true' />}
+                label={sections.portfolio.buttons.viewLive}
+                size='md'
+                variant='primary'
+                data-umami-event='project_live_click'
+                data-umami-event-project={title}
+                className='inline-block w-full sm:w-auto shadow-glow-sm hover:shadow-glow-md min-w-[180px]'
               >
-                <Button
-                  svg={<ExternalLink size={18} aria-hidden='true' />}
-                  label={sections.portfolio.buttons.viewLive}
-                  size='md'
-                  variant='primary'
-                  data-umami-event='project_live_click'
-                  data-umami-event-project={title}
-                  className='shadow-glow-sm hover:shadow-glow-md min-w-[180px] w-full sm:w-auto'
-                />
-              </Link>
-              {githubLink.length > 0 && (
                 <Link
-                  href={githubLink[0] as string}
+                  href={websiteLink}
                   target='_blank'
                   rel='noopener noreferrer'
-                  className='inline-block w-full sm:w-auto'
+                  className='w-full sm:w-auto'
+                />
+              </Button>
+              {githubLink.length > 0 && (
+                <Button
+                  asChild
+                  svg={<Github size={18} aria-hidden='true' />}
+                  label={sections.portfolio.buttons.sourceCode}
+                  size='md'
+                  variant='secondary'
+                  data-umami-event='project_github_click'
+                  data-umami-event-project={title}
+                  className='inline-block w-full sm:w-auto min-w-[180px]'
                 >
-                  <Button
-                    svg={<Github size={18} aria-hidden='true' />}
-                    label={sections.portfolio.buttons.sourceCode}
-                    size='md'
-                    variant='secondary'
-                    data-umami-event='project_github_click'
-                    data-umami-event-project={title}
-                    className='min-w-[180px] w-full sm:w-auto'
+                  <Link
+                    href={githubLink[0] as string}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='w-full sm:w-auto'
                   />
-                </Link>
+                </Button>
               )}
             </div>
           </div>
