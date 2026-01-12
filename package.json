@@ -64,10 +64,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@tailwindcss/postcss": "^4.1.18",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
     "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^24.10.7",
+    "@types/node": "^25.0.6",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "@types/uuid": "^9.0.8",
@@ -95,7 +96,7 @@
     "postcss": "^8.4.38",
     "prettier": "^3.7.4",
     "sass": "^1.97.2",
-    "tailwindcss": "^3.4.19",
+    "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   },

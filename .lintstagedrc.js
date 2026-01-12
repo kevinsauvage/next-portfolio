@@ -9,7 +9,8 @@ module.exports = {
         !fileName.endsWith('.config.mjs') &&
         !fileName.endsWith('.config.ts') &&
         !fileName.endsWith('.lintstagedrc.js') &&
-        fileName !== '.lintstagedrc.js'
+        fileName !== '.lintstagedrc.js' &&
+        fileName !== 'next-env.d.ts'
       );
     });
 

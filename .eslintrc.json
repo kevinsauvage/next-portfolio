@@ -23,7 +23,8 @@
     "build/",
     "*.config.js",
     "*.config.mjs",
-    "*.config.ts"
+    "*.config.ts",
+    "next-env.d.ts"
   ],
   "globals": {
     "React": "writable",
