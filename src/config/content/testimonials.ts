@@ -35,6 +35,18 @@ const testimonials: Testimonial[] = [
       'I had the great pleasure of having Kévin on my team as a front-end developer for our Spanish E-commerce website. I was impressed by his ability to rapidly grow his skills and deepen his understanding of our context, becoming a key asset to our team. It was a natural step to propose that he join the E-commerce CheckOut Decathlon team, as we were convinced he would bring significant value. He quickly became a pillar of his new team, demonstrating a high capacity for adaptation and an ability to thrive in a multicultural and decentralized environment, all while continuing to advance his technical skills. I highly recommend Kévin and wish him the best for the future.',
     date: 'September 2025',
   },
+  {
+    id: 'teva-porlier-2025-11',
+    author: {
+      name: 'Teva Porlier',
+      title: 'Senior Software Engineer',
+      company: 'Decathlon',
+      relationship: 'Team Member',
+    },
+    content:
+      "I had the pleasure of working with Kevin and was continually impressed by his technical expertise and adaptability. He's one of those rare developers who can quickly understand a new environment and start adding value from day one. Kevin is deeply passionate about writing high-quality, maintainable code and always pushes for excellence in everything he delivers. He's not afraid to challenge existing foundations when he sees an opportunity for improvement, and always in a constructive, thoughtful way that elevates the entire team. Working alongside him was both inspiring and rewarding, and I would highly recommend Kevin to any team looking for a skilled, driven, and forward-thinking engineer.",
+    date: 'November 2025',
+  },
 ];
 
 export default testimonials;
