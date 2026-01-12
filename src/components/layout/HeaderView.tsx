@@ -32,7 +32,7 @@ const HeaderView = ({
     <>
       <header
         className={clsx(
-          'w-full fixed top-0 z-40 transition-all duration-300 overflow-hidden',
+          'w-full fixed top-0 z-40 transition-all duration-300',
           isScrolled
             ? 'bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800/50'
             : 'bg-transparent border-b border-transparent'
