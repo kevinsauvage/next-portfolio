@@ -123,6 +123,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               onClick={goToPrevious}
               disabled={isAnimating}
               aria-label='Previous testimonial'
+              tabIndex={-1}
               className={clsx(
                 'absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-20',
                 'p-2 md:p-3 lg:p-4 rounded-full',
@@ -130,7 +131,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
                 'hover:bg-zinc-800 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20',
                 'active:scale-90',
                 'transition-all duration-300 ease-out',
-                FOCUS_RING_CLASSES,
                 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
                 'group shadow-lg md:shadow-xl'
               )}
@@ -150,6 +150,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               onClick={goToNext}
               disabled={isAnimating}
               aria-label='Next testimonial'
+              tabIndex={-1}
               className={clsx(
                 'absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-20',
                 'p-2 md:p-3 lg:p-4 rounded-full',
@@ -157,7 +158,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
                 'hover:bg-zinc-800 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20',
                 'active:scale-90',
                 'transition-all duration-300 ease-out',
-                FOCUS_RING_CLASSES,
                 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
                 'group shadow-lg md:shadow-xl'
               )}
