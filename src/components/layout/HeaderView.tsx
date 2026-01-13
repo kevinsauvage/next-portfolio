@@ -51,7 +51,7 @@ const HeaderView = ({
             </div>
             <Button
               asChild
-              svg={<Mail strokeWidth={1.5} size={18} aria-hidden='true' />}
+              svg={<Mail strokeWidth={1.5} size={18} />}
               label={layout.header.ctaButton}
               size='md'
               variant='primary'
@@ -90,16 +90,15 @@ const HeaderView = ({
         </div>
       </header>
       {menuOpen && (
-        <div
-          className='fixed inset-0 bg-black/95 backdrop-blur-lg z-[45] lg:hidden'
-          onClick={closeMenu}
-          onKeyDown={e => e.key === 'Escape' && closeMenu()}
-          aria-hidden='true'
-        >
+        <div className='fixed inset-0 z-[45] lg:hidden'>
+          <button
+            type='button'
+            className='absolute inset-0 w-full h-full bg-black/95 backdrop-blur-lg cursor-default'
+            onClick={closeMenu}
+            aria-label='Close navigation menu'
+          />
           <div
             className='absolute right-0 top-0 h-full w-full max-w-sm bg-zinc-900 border-l border-zinc-800 animate-slide-in-left'
-            onClick={e => e.stopPropagation()}
-            onKeyDown={e => e.stopPropagation()}
             ref={mobileMenuRef}
             role='dialog'
             aria-modal='true'
