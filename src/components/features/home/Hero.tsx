@@ -23,6 +23,7 @@ const Hero = () => {
 
       {/* Hero Content - Full viewport on mobile */}
       <section
+        id='home'
         className='h-dvh md:min-h-dvh flex flex-col justify-center items-center p-6 pt-20 text-center rounded-md md:p-16 md:pt-20 md:justify-end relative z-10'
         aria-labelledby='hero-title'
         aria-describedby='hero-description'
