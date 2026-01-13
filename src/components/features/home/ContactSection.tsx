@@ -1,13 +1,23 @@
-import ContactForm from '@/components/features/contact/ContactForm';
+import dynamic from 'next/dynamic';
+
 import ContactInfo from '@/components/shared/ContactInfo';
 import GoogleReCaptchaProviderWrapper from '@/components/shared/GoogleReCaptchaProviderWrapper';
 import MeshGradient from '@/components/shared/MeshGradient';
+import SpinnerLoader from '@/components/shared/SpinnerLoader';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { sections } from '@/config/content';
 import { stackSpacing } from '@/design-system/tokens';
 import { getPublicEnv } from '@/lib/env';
 
 import clsx from 'clsx';
+
+const ContactForm = dynamic(() => import('@/components/features/contact/ContactForm'), {
+  loading: () => (
+    <div className='flex justify-center items-center min-h-[300px]'>
+      <SpinnerLoader />
+    </div>
+  ),
+});
 
 const ContactSection: React.FC = () => {
   const publicEnv = getPublicEnv();
