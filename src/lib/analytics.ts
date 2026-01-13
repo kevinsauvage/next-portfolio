@@ -7,12 +7,14 @@ declare global {
 }
 
 export function isUmamiAvailable(): boolean {
-  return typeof window !== 'undefined' && typeof window.umami?.track === 'function';
+  return (
+    typeof globalThis.window !== 'undefined' && typeof globalThis.window.umami?.track === 'function'
+  );
 }
 
 export function trackEvent(eventName: string, data?: Record<string, unknown>): void {
   if (isUmamiAvailable()) {
-    window.umami?.track(eventName, data);
+    globalThis.window.umami?.track(eventName, data);
   }
 }
 
