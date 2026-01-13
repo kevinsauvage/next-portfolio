@@ -116,10 +116,10 @@ export default [
           groups: [
             ['^react', '^next'],
             ['^@/'],
-            ['^\\u0000'],
-            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-            ['^\\.\\/(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\.(?!/?$)'],
-            ['^.+\\.?(css|scss)$'],
+            [String.raw`^\u0000`],
+            [String.raw`^\.\.(?!/?$)`, String.raw`^\.\./?$`],
+            [String.raw`^\./(?=.*/)(?!/?$)`, String.raw`^\.(?!/?$)`, String.raw`^\.(?!/?$)`],
+            [String.raw`^.+\.?(css|scss)$`],
           ],
         },
       ],
@@ -254,11 +254,11 @@ export default [
         {
           message:
             'Avoid using "javascript:" protocol handler. Use a different separator or format (e.g., "JavaScript -" instead of "JavaScript:").',
-          selector: 'Literal[value=/javascript:/i]',
+          selector: String.raw`Literal[value=/javascript:/i]`,
         },
         {
           message: 'Avoid using "javascript:" protocol handler in template literals.',
-          selector: 'TemplateLiteral[quasis.0.value.raw=/javascript:/i]',
+          selector: String.raw`TemplateLiteral[quasis.0.value.raw=/javascript:/i]`,
         },
       ],
     },
