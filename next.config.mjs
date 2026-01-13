@@ -11,6 +11,9 @@ const __dirname = path.dirname(__filename);
 
 const nextConfig = {
   compress: true,
+  experimental: {
+    optimizeCss: true,
+  },
   async headers() {
     return [
       {
