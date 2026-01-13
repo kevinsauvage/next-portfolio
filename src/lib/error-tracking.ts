@@ -13,9 +13,8 @@ export function logError(error: Error, context?: Record<string, unknown>) {
     message: error.message,
     stack: error.stack ?? undefined,
     timestamp: Date.now(),
-    userAgent:
-      typeof globalThis.window === 'undefined' ? undefined : globalThis.window.navigator.userAgent,
-    url: typeof globalThis.window === 'undefined' ? undefined : globalThis.window.location.href,
+    userAgent: globalThis.window === undefined ? undefined : globalThis.window.navigator.userAgent,
+    url: globalThis.window === undefined ? undefined : globalThis.window.location.href,
   };
 
   console.error('Error logged:', { ...errorLog, context });
