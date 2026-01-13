@@ -15,7 +15,7 @@ interface ErrorProps {
 }
 
 const handleReload = () => {
-  globalThis.location.reload();
+  globalThis.window.location.reload();
 };
 
 const ErrorPage = ({ error, reset }: ErrorProps) => {
