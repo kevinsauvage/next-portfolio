@@ -7,6 +7,7 @@ export const cspDirectives = {
   'script-src': [
     "'self'",
     "'unsafe-inline'",
+    "'unsafe-eval'",
     'https://cloud.umami.is',
     'https://www.google.com',
     'https://www.gstatic.com',
