@@ -70,7 +70,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   totalCount,
 }) => {
   const styles = variant === 'carousel' ? variantStyles.carousel : variantStyles.default;
-  const indexDisplay = `${String(index + 1).padStart(2, '0')}${variant === 'carousel' && totalCount ? ` / ${String(totalCount).padStart(2, '0')}` : ''}`;
+  const currentIndex = String(index + 1).padStart(2, '0');
+  const totalDisplay =
+    variant === 'carousel' && totalCount ? String(totalCount).padStart(2, '0') : '';
+  const indexDisplay = totalDisplay ? `${currentIndex} / ${totalDisplay}` : currentIndex;
 
   return (
     <Card
