@@ -24,7 +24,11 @@ const Hero = () => {
       {/* Hero Content - Full viewport on mobile */}
       <section
         id='home'
-        className='h-dvh md:min-h-dvh flex flex-col justify-center items-center p-6 pt-20 text-center rounded-md md:p-16 md:pt-20 md:justify-end relative z-10'
+        className={clsx(
+          'h-dvh md:min-h-dvh flex flex-col justify-center items-center text-center rounded-md md:justify-center relative z-10',
+          'px-6 pb-6 pt-[calc(1.5rem+5rem)]', // Normal padding (p-6 = 1.5rem/24px) + header height (5rem/80px) = 104px
+          'md:px-16 md:pb-16 md:pt-[calc(4rem+5rem)]' // Normal padding (md:p-16 = 4rem/64px) + header height (5rem/80px) = 144px
+        )}
         aria-labelledby='hero-title'
         aria-describedby='hero-description'
       >

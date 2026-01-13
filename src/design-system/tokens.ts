@@ -60,13 +60,18 @@ export const stackSpacing = {
   '2xl': 'space-y-24', // 96px
 } as const;
 
+// Layout heights
+export const layoutHeights = {
+  header: 'pt-20', // 80px - accounts for fixed header (py-4 padding + content)
+} as const;
+
 // ============================================================================
 // TYPOGRAPHY SYSTEM
 // ============================================================================
 export const typography = {
   // Display - For hero sections and major headlines
   display: {
-    fontSize: 'text-5xl md:text-7xl',
+    fontSize: 'text-5xl md:text-6xl lg:text-7xl',
     lineHeight: 'leading-tight',
     fontWeight: 'font-bold',
     fontFamily: 'font-heading',
