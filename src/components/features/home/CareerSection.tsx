@@ -2,7 +2,7 @@ import Section, { SectionHeader } from '@/components/ui/Section';
 import { jobs, sections } from '@/config/content';
 import { stackSpacing } from '@/design-system/tokens';
 
-import CareerItem from './CareerItem';
+import CareerCard from './CareerCard';
 
 const CareerSection = () => {
   return (
@@ -16,7 +16,7 @@ const CareerSection = () => {
 
         <div className={stackSpacing.lg}>
           {jobs.map((job, index) => (
-            <CareerItem key={job.id} {...job} index={index} />
+            <CareerCard key={job.id} {...job} index={index} />
           ))}
         </div>
       </div>

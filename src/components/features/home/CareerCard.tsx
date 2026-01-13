@@ -7,7 +7,7 @@ import { colors, iconSizes } from '@/design-system/tokens';
 import clsx from 'clsx';
 import { Briefcase, Calendar, TrendingUp } from 'lucide-react';
 
-type CareerItemProps = {
+type CareerCardProps = {
   company: string;
   description?: string;
   descriptionArray?: string[];
@@ -17,7 +17,7 @@ type CareerItemProps = {
   index: number;
 };
 
-const CareerItem: React.FC<CareerItemProps> = ({
+const CareerCard: React.FC<CareerCardProps> = ({
   company,
   description,
   period,
@@ -96,7 +96,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
 
         {/* Skills Tags */}
         {skills && skills.length > 0 && (
-          <div className='flex flex-wrap gap-1.5 pt-2 border-t border-zinc-800/50'>
+          <div className='flex flex-wrap gap-1.5 pt-2 border-zinc-800/50'>
             {skills.map(skill => (
               <Tag key={skill}>{skill}</Tag>
             ))}
@@ -107,4 +107,4 @@ const CareerItem: React.FC<CareerItemProps> = ({
   );
 };
 
-export default CareerItem;
+export default CareerCard;
