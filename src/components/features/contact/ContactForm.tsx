@@ -6,12 +6,15 @@ import { useForm } from 'react-hook-form';
 
 import { sendMail } from '@/actions/send-mail';
 import { useNotification } from '@/contexts/NotificationContext';
-import type { ContactFormValues } from '@/schemas/contact-form.schema';
-import { contactFormSchema } from '@/schemas/contact-form.schema';
 
 import ContactFormView from './ContactFormView';
 
-import { zodResolver } from '@hookform/resolvers/zod';
+// Client-side type (no Zod import needed)
+export interface ContactFormValues {
+  fullName: string;
+  email: string;
+  message: string;
+}
 
 const ContactForm = () => {
   const notification = useNotification();
@@ -19,7 +22,6 @@ const ContactForm = () => {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const form = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
     mode: 'onSubmit',
     reValidateMode: 'onChange',
     defaultValues: {
@@ -45,6 +47,13 @@ const ContactForm = () => {
         notification.success(
           "Your message has been sent successfully. I'll get back to you as soon as possible."
         );
+      } else if (result.fieldErrors) {
+        // Set server-side validation errors on the form
+        for (const [field, message] of Object.entries(result.fieldErrors)) {
+          if (field in data) {
+            form.setError(field as keyof ContactFormValues, { message });
+          }
+        }
       } else {
         notification.error('An error occurred while sending your message. Please try again later.');
       }

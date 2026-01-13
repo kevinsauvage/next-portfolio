@@ -8,7 +8,8 @@ import Input from '@/components/ui/Input';
 import TextArea from '@/components/ui/TextArea';
 import { BodySmall } from '@/components/ui/Typography';
 import { colors } from '@/design-system/tokens';
-import type { ContactFormValues } from '@/schemas/contact-form.schema';
+
+import type { ContactFormValues } from './ContactForm';
 
 import clsx from 'clsx';
 import { LucideSend } from 'lucide-react';
