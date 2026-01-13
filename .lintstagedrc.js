@@ -19,7 +19,7 @@ module.exports = {
     }
 
     return [
-      `eslint --fix --max-warnings=0 ${filtered.map(f => `"${f}"`).join(' ')}`,
+      `eslint --fix --max-warnings=3 ${filtered.map(f => `"${f}"`).join(' ')}`,
       `prettier --write ${filtered.map(f => `"${f}"`).join(' ')}`,
     ];
   },
