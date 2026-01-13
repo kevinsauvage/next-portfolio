@@ -88,7 +88,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
 
   return (
     <div className={stackSpacing.md}>
-      <div className='relative px-4 md:px-12 lg:px-20'>
+      <div className='relative px-0 md:px-12 lg:px-20'>
         {testimonials.length > 1 && (
           <>
             <button
@@ -97,7 +97,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               aria-label='Previous testimonial'
               tabIndex={-1}
               className={clsx(
-                'absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-20',
+                'absolute left-0 -translate-x-1/2 md:-translate-x-0 top-1/2 -translate-y-1/2 z-20',
                 'p-2 md:p-3 lg:p-4 rounded-full',
                 'bg-zinc-900/95 backdrop-blur-md border border-zinc-700',
                 'hover:bg-zinc-800 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20',
@@ -124,7 +124,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               aria-label='Next testimonial'
               tabIndex={-1}
               className={clsx(
-                'absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-20',
+                'absolute right-0 translate-x-1/2 md:translate-x-0 top-1/2 -translate-y-1/2 z-20',
                 'p-2 md:p-3 lg:p-4 rounded-full',
                 'bg-zinc-900/95 backdrop-blur-md border border-zinc-700',
                 'hover:bg-zinc-800 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20',
