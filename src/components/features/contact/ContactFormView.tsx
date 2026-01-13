@@ -28,9 +28,9 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
         aria-label='Contact form'
         noValidate
       >
-        <div className='sr-only' role='status' aria-live='polite' aria-atomic='true'>
+        <output className='sr-only' aria-live='polite' aria-atomic='true'>
           {isSubmitting ? 'Sending message...' : ''}
-        </div>
+        </output>
         <div className='space-y-6'>
           <FormField
             control={form.control}

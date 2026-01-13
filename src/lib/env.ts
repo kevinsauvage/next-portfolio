@@ -22,7 +22,7 @@ let cachedServerEnv: ServerEnv | null = null;
 let cachedPublicEnv: PublicEnv | null = null;
 
 export function getServerEnv(): ServerEnv {
-  if (typeof window !== 'undefined') {
+  if (typeof globalThis !== 'undefined') {
     throw new Error('getServerEnv must only be called on the server');
   }
   if (cachedServerEnv) return cachedServerEnv;
