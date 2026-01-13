@@ -3,7 +3,6 @@ type Job = {
   company: string;
   position: string;
   period: string;
-  location: string;
   descriptionArray: string[];
   description: string;
   skills: string[];
@@ -17,7 +16,6 @@ export const jobs: Job[] = [
     company: 'Decathlon International',
     position,
     period: 'October 2023 - Present',
-    location: 'Remote',
     descriptionArray: [
       'Built a Svelte component library used across e-commerce platforms in 15+ countries, improving performance and design consistency.',
       'Led A/B testing for new features, resulting in measurable improvements in user adoption and conversion.',
@@ -44,7 +42,6 @@ export const jobs: Job[] = [
     company: 'Decathlon Spain',
     position,
     period: 'May 2022 - October 2023',
-    location: 'Barcelona, Spain',
     descriptionArray: [
       'Improved page load times by 1.5 seconds through Core Web Vitals optimization.',
       'Built reusable Svelte components to speed up development and improve team efficiency.',
@@ -70,7 +67,6 @@ export const jobs: Job[] = [
     company: 'Subforce',
     position,
     period: 'June 2021 - May 2022',
-    location: 'France (Remote)',
     descriptionArray: [
       'Built full-stack web applications with React.js and Next.js, including secure backend integrations.',
       'Implemented state management using Redux and Context API for complex application data.',

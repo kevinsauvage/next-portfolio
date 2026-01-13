@@ -5,7 +5,7 @@ import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { colors, iconSizes } from '@/design-system/tokens';
 
 import clsx from 'clsx';
-import { Briefcase, Calendar, MapPin, TrendingUp } from 'lucide-react';
+import { Briefcase, Calendar, TrendingUp } from 'lucide-react';
 
 type CareerItemProps = {
   company: string;
@@ -13,7 +13,6 @@ type CareerItemProps = {
   descriptionArray?: string[];
   period: string;
   position: string;
-  location?: string;
   skills?: string[];
   index: number;
 };
@@ -23,7 +22,6 @@ const CareerItem: React.FC<CareerItemProps> = ({
   description,
   period,
   position,
-  location,
   skills,
   index,
 }) => {
@@ -74,31 +72,15 @@ const CareerItem: React.FC<CareerItemProps> = ({
             />
             <Caption className={clsx('font-semibold', colors.text.primary)}>{position}</Caption>
           </div>
-          <div className='flex flex-wrap gap-3'>
-            <Caption className='flex items-center gap-1.5'>
-              <Calendar
-                size={iconSizes.xs}
-                className={colors.text.muted}
-                aria-hidden='true'
-                tabIndex={-1}
-              />
-              <span>{period}</span>
-            </Caption>
-            {location && (
-              <>
-                <span className='text-zinc-600 text-xs'>•</span>
-                <Caption className='flex items-center gap-1.5'>
-                  <MapPin
-                    size={iconSizes.xs}
-                    className={colors.text.muted}
-                    aria-hidden='true'
-                    tabIndex={-1}
-                  />
-                  <span>{location}</span>
-                </Caption>
-              </>
-            )}
-          </div>
+          <Caption className='flex items-center gap-1.5'>
+            <Calendar
+              size={iconSizes.xs}
+              className={colors.text.muted}
+              aria-hidden='true'
+              tabIndex={-1}
+            />
+            <span>{period}</span>
+          </Caption>
         </div>
 
         {/* Description */}
