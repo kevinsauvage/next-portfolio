@@ -38,10 +38,15 @@ const NavigationView = ({ navItems, activeSection, closeMenu }: NavigationViewPr
                   animations.timing.easeOut,
                   colors.text.hover.light,
                   'hover:scale-105 active:scale-95',
+                  // Base border (always present, transitions color)
+                  'border',
                   // States
                   isActive
-                    ? clsx(colors.text.light, 'bg-zinc-800/50 border border-zinc-700/50 shadow-sm')
-                    : clsx(colors.text.muted, 'hover:bg-zinc-800/50 hover:shadow-md')
+                    ? clsx(colors.text.light, 'bg-zinc-800/50 border-zinc-700/50 shadow-sm')
+                    : clsx(
+                        colors.text.muted,
+                        'border-transparent hover:bg-zinc-800/50 hover:shadow-md'
+                      )
                 )}
               >
                 {label}
