@@ -46,6 +46,7 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                     placeholder='ex: John Doe'
                     aria-required='true'
                     aria-invalid={fieldState.invalid}
+                    autoComplete='name'
                   />
                 </FormControl>
                 {fieldState.error && (
@@ -74,6 +75,7 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                     placeholder='ex: johndoe@gmail.com'
                     aria-required='true'
                     aria-invalid={fieldState.invalid}
+                    autoComplete='email'
                   />
                 </FormControl>
                 {fieldState.error && (
@@ -101,6 +103,7 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                     placeholder='Share your thoughts or ask a question'
                     aria-required='true'
                     aria-invalid={fieldState.invalid}
+                    autoComplete='off'
                   />
                 </FormControl>
                 {fieldState.error && (
