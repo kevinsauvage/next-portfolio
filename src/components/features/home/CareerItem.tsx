@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardIcon } from '@/components/ui/Card';
 import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
-import { BodySmall, Caption, H3, H4 } from '@/components/ui/Typography';
+import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { colors, iconSizes } from '@/design-system/tokens';
 
 import clsx from 'clsx';
