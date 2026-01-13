@@ -1,6 +1,6 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import { Tag } from '@/components/ui/Tag';
-import { BodySmall, Caption, H4 } from '@/components/ui/Typography';
+import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { colors, iconSizes } from '@/design-system/tokens';
 
@@ -65,15 +65,16 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
           </CardIcon>
 
           <div className='flex-1 min-w-0 space-y-1'>
-            <H4
+            <H3
               id={`cert-${index}`}
+              size='sm'
               className={clsx(
                 'transition-colors duration-300 leading-snug',
                 colors.brandColors.groupHover.primary400
               )}
             >
               {title}
-            </H4>
+            </H3>
 
             {/* Metadata row */}
             <div className='flex items-center gap-3 flex-wrap'>

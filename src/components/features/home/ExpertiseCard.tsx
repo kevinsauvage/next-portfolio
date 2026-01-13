@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/Card';
-import { BodySmall, H4 } from '@/components/ui/Typography';
+import { BodySmall, H3 } from '@/components/ui/Typography';
 import { colors } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -24,7 +24,9 @@ const ExpertiseCard: React.FC<ExpertiseCardProps> = ({ title, content, keyPoints
       <CardContent spacing='lg' className='relative z-10 h-full'>
         <div className='space-y-6'>
           <div className='space-y-3'>
-            <H4 className={clsx('transition-all duration-300')}>{title}</H4>
+            <H3 size='sm' className={clsx('transition-all duration-300')}>
+              {title}
+            </H3>
             <BodySmall className={clsx('transition-colors', colors.text.groupHover.secondary)}>
               {content}
             </BodySmall>

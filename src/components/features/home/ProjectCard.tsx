@@ -4,7 +4,7 @@ import Button from '@/components/ui/Button';
 import { Card, CardContent, CardImage } from '@/components/ui/Card';
 import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
-import { BodySmall, H4 } from '@/components/ui/Typography';
+import { BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { colors, iconSizes } from '@/design-system/tokens';
 
@@ -61,15 +61,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <div className='md:col-span-3 flex flex-col space-y-5'>
             {/* Title & Description */}
             <div className='space-y-3'>
-              <H4
+              <H3
                 id={`project-title-${index}`}
+                size='sm'
                 className={clsx(
                   'transition-colors duration-300',
                   colors.brandColors.groupHover.primary400
                 )}
               >
                 {title}
-              </H4>
+              </H3>
               <BodySmall
                 className={clsx(
                   'transition-colors leading-relaxed',

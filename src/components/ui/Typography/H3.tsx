@@ -1,6 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
-import { colors, getTypographyClasses } from '@/design-system/tokens';
+import { colors, typography } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 
@@ -9,6 +9,7 @@ type BaseTypographyProps = {
   className?: string;
   as?: ElementType;
   gradient?: boolean;
+  size?: 'default' | 'sm';
 };
 
 type TypographyProps = BaseTypographyProps & React.HTMLAttributes<HTMLElement>;
@@ -18,13 +19,18 @@ export const H3 = ({
   className,
   as: Component = 'h3',
   gradient,
+  size = 'default',
   ...props
 }: TypographyProps) => {
-  const classes = getTypographyClasses('h3');
+  const { fontSize: defaultFontSize, ...otherStyles } = typography.h3;
+  const fontSize = size === 'sm' ? 'text-xl md:text-2xl' : defaultFontSize;
   const textColor = gradient ? colors.brand.gradientText : colors.text.primary;
 
   return (
-    <Component className={clsx(classes, textColor, className)} {...props}>
+    <Component
+      className={clsx(fontSize, Object.values(otherStyles), textColor, className)}
+      {...props}
+    >
       {children}
     </Component>
   );
