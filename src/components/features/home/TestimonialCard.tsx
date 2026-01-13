@@ -19,12 +19,47 @@ type TestimonialCardProps = {
   totalCount?: number;
 };
 
-// Style constants to reduce duplication
+// Shared constants
 const ICON_HOVER = 'transition-transform group-hover:rotate-12 duration-300';
-const CAROUSEL_ICON_SIZE = 'md:w-3.5 md:h-3.5';
-const CAROUSEL_GAP = 'gap-1.5 md:gap-2';
-const DEFAULT_GAP = 'gap-2';
 const FLEX_CENTER = 'flex items-center';
+
+// Variant-specific style presets
+const variantStyles = {
+  default: {
+    cardSize: 'sm' as const,
+    contentClass: '',
+    headerClass: '',
+    quoteIconClass: '',
+    captionClass: '',
+    blockquoteClass: 'text-sm line-clamp-6 hover:line-clamp-none',
+    authorRowClass: '',
+    avatarClass: 'p-2',
+    userIconClass: '',
+    citeClass: 'text-base',
+    titleClass: '',
+    metaClass: 'text-sm',
+    gapClass: 'gap-2',
+    dotClass: 'w-1 h-1',
+    smallIconClass: '',
+  },
+  carousel: {
+    cardSize: 'md' as const,
+    contentClass: 'md:space-y-6',
+    headerClass: 'mb-4 md:mb-6',
+    quoteIconClass: 'w-5 h-5 md:w-6 md:h-6',
+    captionClass: 'text-xs md:text-sm font-semibold',
+    blockquoteClass: 'text-sm md:text-base lg:text-lg mb-4 md:mb-8',
+    authorRowClass: 'md:gap-md',
+    avatarClass: 'p-2 md:p-3',
+    userIconClass: 'md:w-4 md:h-4',
+    citeClass: 'text-base md:text-lg lg:text-xl mb-0.5 md:mb-1',
+    titleClass: 'text-sm md:text-base lg:text-lg',
+    metaClass: 'md:gap-sm text-xs md:text-sm lg:text-base',
+    gapClass: 'gap-1.5 md:gap-2',
+    dotClass: 'w-1 h-1 md:w-1.5 md:h-1.5',
+    smallIconClass: 'md:w-3.5 md:h-3.5',
+  },
+};
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
   author,
@@ -34,35 +69,28 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   variant = 'default',
   totalCount,
 }) => {
-  const isCarousel = variant === 'carousel';
-  const gapClass = isCarousel ? CAROUSEL_GAP : DEFAULT_GAP;
-  const indexDisplay = `${String(index + 1).padStart(2, '0')}${isCarousel && totalCount ? ` / ${String(totalCount).padStart(2, '0')}` : ''}`;
+  const styles = variant === 'carousel' ? variantStyles.carousel : variantStyles.default;
+  const indexDisplay = `${String(index + 1).padStart(2, '0')}${variant === 'carousel' && totalCount ? ` / ${String(totalCount).padStart(2, '0')}` : ''}`;
 
   return (
     <Card
       hover='standard'
-      size={isCarousel ? 'md' : 'sm'}
+      size={styles.cardSize}
       glow='secondary-accent'
       animationIndex={index}
       className='h-fit'
     >
-      <CardContent spacing='md' className={isCarousel ? 'md:space-y-6' : ''}>
-        <div className={clsx('flex items-start justify-between', isCarousel && 'mb-4 md:mb-6')}>
+      <CardContent spacing='md' className={styles.contentClass}>
+        <div className={clsx('flex items-start justify-between', styles.headerClass)}>
           <CardIcon variant='purple'>
             <Quote
-              className={clsx(
-                colors.brandColors.purple,
-                ICON_HOVER,
-                isCarousel && 'w-5 h-5 md:w-6 md:h-6'
-              )}
+              className={clsx(colors.brandColors.purple, ICON_HOVER, styles.quoteIconClass)}
               size={iconSizes.md}
               strokeWidth={1.5}
               aria-hidden='true'
             />
           </CardIcon>
-          <Caption
-            className={clsx(colors.status.info, isCarousel && 'text-xs md:text-sm font-semibold')}
-          >
+          <Caption className={clsx(colors.status.info, styles.captionClass)}>
             {indexDisplay}
           </Caption>
         </div>
@@ -71,9 +99,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           className={clsx(
             'flex-1 leading-relaxed italic',
             colors.text.secondary,
-            isCarousel
-              ? 'text-sm md:text-base lg:text-lg mb-4 md:mb-8'
-              : 'text-sm line-clamp-6 hover:line-clamp-none'
+            styles.blockquoteClass
           )}
         >
           &quot;{content}&quot;
@@ -81,16 +107,16 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
         <CardFooter>
           <div className={stackSpacing.xs}>
-            <div className={clsx(gapSpacing.xs, isCarousel && 'md:gap-md', FLEX_CENTER)}>
+            <div className={clsx(gapSpacing.xs, styles.authorRowClass, FLEX_CENTER)}>
               <div
                 className={clsx(
                   'bg-blue-500/10 rounded-full border border-blue-500/20 group-hover:border-blue-500/40 transition-colors',
-                  isCarousel ? 'p-2 md:p-3' : 'p-2'
+                  styles.avatarClass
                 )}
               >
                 <User
                   size={iconSizes.xs}
-                  className={clsx(colors.status.info, ICON_HOVER, isCarousel && 'md:w-4 md:h-4')}
+                  className={clsx(colors.status.info, ICON_HOVER, styles.userIconClass)}
                   aria-hidden='true'
                 />
               </div>
@@ -99,47 +125,37 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                   className={clsx(
                     'font-bold not-italic block',
                     colors.text.primary,
-                    isCarousel ? 'text-base md:text-lg lg:text-xl mb-0.5 md:mb-1' : 'text-base'
+                    styles.citeClass
                   )}
                 >
                   {author.name}
                 </cite>
-                <BodySmall className={isCarousel ? 'text-sm md:text-base lg:text-lg' : ''}>
-                  {author.title}
-                </BodySmall>
+                <BodySmall className={styles.titleClass}>{author.title}</BodySmall>
               </div>
             </div>
 
             <div
-              className={clsx(
-                gapSpacing.xs,
-                'flex flex-wrap',
-                colors.text.muted,
-                isCarousel ? 'md:gap-sm text-xs md:text-sm lg:text-base' : 'text-sm'
-              )}
+              className={clsx(gapSpacing.xs, 'flex flex-wrap', colors.text.muted, styles.metaClass)}
             >
-              <Caption className={clsx(FLEX_CENTER, gapClass)}>
+              <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
                 <Briefcase
                   size={iconSizes.xs - 2}
-                  className={clsx(ICON_HOVER, isCarousel && CAROUSEL_ICON_SIZE)}
+                  className={clsx(ICON_HOVER, styles.smallIconClass)}
                   aria-hidden='true'
                 />
                 <span>{author.company}</span>
               </Caption>
-              <Caption className={clsx(FLEX_CENTER, gapClass)}>
+              <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
                 <span
-                  className={clsx(
-                    'bg-zinc-600 rounded-full',
-                    isCarousel ? 'w-1 h-1 md:w-1.5 md:h-1.5' : 'w-1 h-1'
-                  )}
+                  className={clsx('bg-zinc-600 rounded-full', styles.dotClass)}
                   aria-hidden='true'
                 />
                 <span>{author.relationship}</span>
               </Caption>
-              <Caption className={clsx(FLEX_CENTER, gapClass)}>
+              <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
                 <Calendar
                   size={iconSizes.xs - 2}
-                  className={clsx(ICON_HOVER, isCarousel && CAROUSEL_ICON_SIZE)}
+                  className={clsx(ICON_HOVER, styles.smallIconClass)}
                   aria-hidden='true'
                 />
                 <time dateTime={date}>{date}</time>
