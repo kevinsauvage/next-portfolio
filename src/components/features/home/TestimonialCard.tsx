@@ -3,7 +3,7 @@ import { BodySmall, Caption } from '@/components/ui/Typography';
 import { colors, gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
-import { Briefcase, Calendar, Quote, User } from 'lucide-react';
+import { Briefcase, Calendar, ExternalLink, Quote, User } from 'lucide-react';
 
 type TestimonialCardProps = {
   author: {
@@ -31,7 +31,7 @@ const variantStyles = {
     headerClass: '',
     quoteIconClass: '',
     captionClass: '',
-    blockquoteClass: 'text-sm line-clamp-6 hover:line-clamp-none',
+    blockquoteClass: 'text-sm line-clamp-5',
     authorRowClass: '',
     avatarClass: 'p-2',
     userIconClass: '',
@@ -48,7 +48,7 @@ const variantStyles = {
     headerClass: 'mb-4 md:mb-6',
     quoteIconClass: 'w-5 h-5 md:w-6 md:h-6',
     captionClass: 'text-xs md:text-sm font-semibold',
-    blockquoteClass: 'text-sm md:text-base lg:text-lg mb-4 md:mb-8',
+    blockquoteClass: 'text-sm md:text-base lg:text-lg mb-4 md:mb-8 line-clamp-6',
     authorRowClass: 'md:gap-md',
     avatarClass: 'p-2 md:p-3',
     userIconClass: 'md:w-4 md:h-4',
@@ -98,15 +98,33 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           </Caption>
         </div>
 
-        <blockquote
-          className={clsx(
-            'flex-1 leading-relaxed italic',
-            colors.text.secondary,
-            styles.blockquoteClass
-          )}
-        >
-          &quot;{content}&quot;
-        </blockquote>
+        <div className='flex-1 space-y-3'>
+          <blockquote
+            className={clsx(
+              'leading-relaxed italic',
+              colors.text.secondary,
+              styles.blockquoteClass
+            )}
+          >
+            &quot;{content}&quot;
+          </blockquote>
+          <a
+            href='https://www.linkedin.com/in/kevin-sauvage/'
+            target='_blank'
+            rel='noopener noreferrer'
+            className={clsx(
+              'inline-flex items-center gap-1.5 text-xs font-medium',
+              'text-primary-400 hover:text-primary-300',
+              'transition-colors duration-200',
+              'underline-offset-4 hover:underline'
+            )}
+            data-umami-event='testimonial_see_more'
+            aria-label='See more testimonials on LinkedIn'
+          >
+            See more
+            <ExternalLink size={12} aria-hidden='true' />
+          </a>
+        </div>
 
         <CardFooter>
           <div className={stackSpacing.xs}>
