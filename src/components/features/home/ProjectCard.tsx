@@ -4,7 +4,7 @@ import Button from '@/components/ui/Button';
 import { Card, CardContent, CardImage } from '@/components/ui/Card';
 import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
-import { Body, H4 } from '@/components/ui/Typography';
+import { BodySmall, H4 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { colors, iconSizes } from '@/design-system/tokens';
 
@@ -70,7 +70,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
               >
                 {title}
               </H4>
-              <Body
+              <BodySmall
                 className={clsx(
                   'transition-colors leading-relaxed',
                   colors.text.secondary,
@@ -78,7 +78,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
                 )}
               >
                 {description}
-              </Body>
+              </BodySmall>
             </div>
 
             {/* Tech Stack Tags */}

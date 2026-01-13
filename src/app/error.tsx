@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 
 import Button from '@/components/ui/Button';
-import { Body, H4 } from '@/components/ui/Typography';
+import { BodySmall, H4 } from '@/components/ui/Typography';
 import { colors } from '@/design-system/tokens';
 import { trackEvent } from '@/lib/analytics';
 
@@ -34,9 +34,9 @@ const ErrorPage = ({ error, reset }: ErrorProps) => {
       <div className='max-w-md mx-auto text-center p-6'>
         <div className='mb-6'>
           <H4 className='mb-2'>Oops! Something went wrong</H4>
-          <Body className='mb-4'>
+          <BodySmall className='mb-4'>
             We encountered an unexpected error. Please try refreshing the page.
-          </Body>
+          </BodySmall>
         </div>
         <div className='flex flex-col gap-3 sm:flex-row sm:justify-center'>
           <Button label='Reload Page' onClick={handleReload} variant='primary' size='lg' />

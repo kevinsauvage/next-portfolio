@@ -1,5 +1,5 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
-import { Body, H4 } from '@/components/ui/Typography';
+import { BodySmall, H4 } from '@/components/ui/Typography';
 import { colors, iconSizes } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -30,9 +30,9 @@ const PassionCard: React.FC<PassionCardProps> = ({ icon: Icon, title, descriptio
           />
         </CardIcon>
         <H4 className={clsx('transition-all duration-300')}>{title}</H4>
-        <Body className={clsx(colors.text.groupHover.secondary, 'transition-colors')}>
+        <BodySmall className={clsx(colors.text.groupHover.secondary, 'transition-colors')}>
           {description}
-        </Body>
+        </BodySmall>
       </CardContent>
     </Card>
   );

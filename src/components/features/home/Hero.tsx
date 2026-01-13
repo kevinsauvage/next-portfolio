@@ -3,7 +3,7 @@ import Link from 'next/link';
 import ContactInfo from '@/components/shared/ContactInfo';
 import MeshGradient from '@/components/shared/MeshGradient';
 import Button from '@/components/ui/Button';
-import { BodyLarge, BodySmall, Display } from '@/components/ui/Typography';
+import { Body, BodySmall, Display } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { animations, colors, gapSpacing, iconSizes } from '@/design-system/tokens';
 
@@ -43,13 +43,13 @@ const Hero = () => {
               {sections.hero.title.secondLine}
             </span>
           </Display>
-          <BodyLarge
+          <Body
             id='hero-description'
             className='mb-8 max-w-2xl animate-fade-in-up opacity-0'
             style={{ animationDelay: animations.loadDelay.second, animationFillMode: 'both' }}
           >
             {sections.hero.description}
-          </BodyLarge>
+          </Body>
         </header>
 
         <div

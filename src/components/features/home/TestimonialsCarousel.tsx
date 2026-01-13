@@ -2,12 +2,11 @@
 
 import { useCallback, useState } from 'react';
 
-import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
-import { Body, Caption } from '@/components/ui/Typography';
+import TestimonialCard from '@/components/features/home/TestimonialCard';
 import { colors, gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
-import { Briefcase, Calendar, ChevronLeft, ChevronRight, Quote, User } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type Testimonial = {
   id: string;
@@ -160,108 +159,16 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
             !isAnimating && 'opacity-100 translate-x-0 scale-100'
           )}
         >
-          <Card
-            hover='standard'
-            size='md'
-            glow='secondary-accent'
-            animationIndex={currentIndex}
-            className='h-fit'
-          >
-            <CardContent spacing='md' className='md:space-y-6'>
-              <div className='flex items-start justify-between mb-4 md:mb-6'>
-                <CardIcon variant='purple'>
-                  <Quote
-                    className={clsx(
-                      colors.brandColors.purple,
-                      'transition-transform group-hover:rotate-12 duration-300 w-5 h-5 md:w-6 md:h-6'
-                    )}
-                    size={iconSizes.md}
-                    strokeWidth={1.5}
-                    aria-hidden='true'
-                  />
-                </CardIcon>
-                <Caption className={clsx(colors.status.info, 'text-xs md:text-sm font-semibold')}>
-                  {String(currentIndex + 1).padStart(2, '0')} /{' '}
-                  {String(testimonials.length).padStart(2, '0')}
-                </Caption>
-              </div>
-
-              <blockquote
-                className={clsx(
-                  'flex-1 leading-relaxed text-base md:text-lg lg:text-xl italic mb-4 md:mb-8',
-                  colors.text.secondary,
-                  'transition-opacity duration-300'
-                )}
-              >
-                &quot;{currentTestimonial?.content ?? ''}&quot;
-              </blockquote>
-
-              <CardFooter>
-                <div className={stackSpacing.sm}>
-                  <div className={clsx(gapSpacing.sm, 'md:gap-md flex items-center')}>
-                    <div className='p-2 md:p-3 bg-blue-500/10 rounded-full border border-blue-500/20 group-hover:border-blue-500/40 transition-colors'>
-                      <User
-                        size={iconSizes.xs}
-                        className={clsx(
-                          'md:w-4 md:h-4',
-                          colors.status.info,
-                          'transition-transform group-hover:rotate-12 duration-300'
-                        )}
-                        aria-hidden='true'
-                      />
-                    </div>
-                    <div>
-                      <cite
-                        className={clsx(
-                          'font-bold text-base md:text-lg lg:text-xl not-italic block mb-0.5 md:mb-1',
-                          colors.text.primary
-                        )}
-                      >
-                        {currentTestimonial?.author?.name ?? ''}
-                      </cite>
-                      <Body className='text-sm md:text-base lg:text-lg'>
-                        {currentTestimonial?.author?.title ?? ''}
-                      </Body>
-                    </div>
-                  </div>
-
-                  <div
-                    className={clsx(
-                      gapSpacing.xs,
-                      'md:gap-sm flex flex-wrap text-xs md:text-sm lg:text-base',
-                      colors.text.muted
-                    )}
-                  >
-                    <Caption className='flex items-center gap-1.5 md:gap-2'>
-                      <Briefcase
-                        size={iconSizes.xs - 2}
-                        className='md:w-3.5 md:h-3.5 transition-transform group-hover:rotate-12 duration-300'
-                        aria-hidden='true'
-                      />
-                      <span>{currentTestimonial?.author?.company ?? ''}</span>
-                    </Caption>
-                    <Caption className='flex items-center gap-1.5 md:gap-2'>
-                      <span
-                        className='w-1 h-1 md:w-1.5 md:h-1.5 bg-zinc-600 rounded-full'
-                        aria-hidden='true'
-                      />
-                      <span>{currentTestimonial?.author?.relationship ?? ''}</span>
-                    </Caption>
-                    <Caption className='flex items-center gap-1.5 md:gap-2'>
-                      <Calendar
-                        size={iconSizes.xs - 2}
-                        className='md:w-3.5 md:h-3.5 transition-transform group-hover:rotate-12 duration-300'
-                        aria-hidden='true'
-                      />
-                      <time dateTime={currentTestimonial?.date ?? ''}>
-                        {currentTestimonial?.date ?? ''}
-                      </time>
-                    </Caption>
-                  </div>
-                </div>
-              </CardFooter>
-            </CardContent>
-          </Card>
+          {currentTestimonial && (
+            <TestimonialCard
+              author={currentTestimonial.author}
+              content={currentTestimonial.content}
+              date={currentTestimonial.date}
+              index={displayedIndex}
+              variant='carousel'
+              totalCount={testimonials.length}
+            />
+          )}
         </div>
       </div>
 

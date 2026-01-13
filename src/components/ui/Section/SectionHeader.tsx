@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { BodyLarge, H2, Overline } from '@/components/ui/Typography';
+import { Body, H2, Overline } from '@/components/ui/Typography';
 import { stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -35,7 +35,7 @@ const SectionHeader = ({
         {title}
       </H2>
 
-      {description && <BodyLarge className='max-w-4xl mx-auto'>{description}</BodyLarge>}
+      {description && <Body className='max-w-4xl mx-auto'>{description}</Body>}
     </div>
   );
 };

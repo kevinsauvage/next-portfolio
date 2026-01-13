@@ -1,6 +1,6 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import { Tag } from '@/components/ui/Tag';
-import { Body, Caption, H4 } from '@/components/ui/Typography';
+import { BodySmall, Caption, H4 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { colors, iconSizes } from '@/design-system/tokens';
 
@@ -106,7 +106,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
         </div>
 
         {/* Description */}
-        <Body
+        <BodySmall
           className={clsx(
             'flex-1 mb-5 transition-colors leading-relaxed',
             colors.text.secondary,
@@ -114,7 +114,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
           )}
         >
           {description}
-        </Body>
+        </BodySmall>
 
         {/* Skills Tags */}
         <div className='flex flex-wrap gap-1.5 mb-4'>

@@ -1,5 +1,5 @@
 import Section from '@/components/ui/Section';
-import { BodyLarge, H2, H3, Overline } from '@/components/ui/Typography';
+import { Body, H2, H3, Overline } from '@/components/ui/Typography';
 import { passions, sections } from '@/config/content';
 import { gapSpacing, stackSpacing } from '@/design-system/tokens';
 
@@ -22,12 +22,12 @@ const AboutSection: React.FC = () => {
           >
             {sections.about.title}
           </H2>
-          <BodyLarge
+          <Body
             className='max-w-4xl animate-fade-in-up opacity-0'
             style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
           >
             {sections.about.description}
-          </BodyLarge>
+          </Body>
         </div>
 
         <div className={stackSpacing.md}>

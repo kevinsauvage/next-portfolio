@@ -112,13 +112,6 @@ export const typography = {
     fontFamily: 'font-heading',
   },
 
-  // Body Large - Lead paragraphs
-  bodyLarge: {
-    fontSize: 'text-xl md:text-2xl',
-    lineHeight: 'leading-relaxed',
-    fontWeight: 'font-light',
-  },
-
   // Body Regular - Standard body text
   body: {
     fontSize: 'text-base md:text-lg',

@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardIcon } from '@/components/ui/Card';
 import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
-import { Body, Caption, H4 } from '@/components/ui/Typography';
+import { BodySmall, Caption, H4 } from '@/components/ui/Typography';
 import { colors, iconSizes } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -101,7 +101,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
         </div>
 
         {/* Description */}
-        <Body
+        <BodySmall
           className={clsx(
             'flex-1 transition-colors',
             colors.text.secondary,
@@ -109,7 +109,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
           )}
         >
           {description}
-        </Body>
+        </BodySmall>
 
         {/* Skills Tags */}
         {skills && skills.length > 0 && (

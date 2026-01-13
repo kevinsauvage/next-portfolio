@@ -1,5 +1,4 @@
 export * from './Body';
-export * from './BodyLarge';
 export * from './BodySmall';
 export * from './Caption';
 export * from './Display';

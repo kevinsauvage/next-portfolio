@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { BodyLarge, Display } from '@/components/ui/Typography';
+import { Body, Display } from '@/components/ui/Typography';
 import { colors } from '@/design-system/tokens';
 
 import clsx from 'clsx';
@@ -11,9 +11,9 @@ const Custom404 = () => {
     <div className='flex flex-col-reverse justify-center p-4 md:grid md:grid-cols-2 gap-10 items-center min-h-dvh container m-auto lg:p-20'>
       <div className='col-span-1'>
         <Display className='mb-2 max-w-5xl'>Oops! Page Not Found</Display>
-        <BodyLarge className='mb-5 max-w-xl'>
+        <Body className='mb-5 max-w-xl'>
           The page you&apos;re looking for doesn&apos;t exist. Let&apos;s get you back on track.
-        </BodyLarge>
+        </Body>
         <Link
           href='/'
           className={clsx(
