@@ -99,7 +99,7 @@ const Hero = () => {
                 key={stat.label}
                 className='flex flex-col items-center group hover:scale-110 transition-transform duration-300'
               >
-                <div className='text-2xl md:text-3xl font-bold mb-1 flex items-center gap-1'>
+                <div className='text-2xl md:text-3xl font-bold mb-1 flex items-center gap-1 '>
                   {stat.value}
                   {stat.label === 'Years Experience' && (
                     <Sparkles
@@ -156,7 +156,10 @@ const Hero = () => {
                 )}
               </div>
               <BodySmall
-                className={clsx('font-light transition-colors', colors.text.groupHover.light)}
+                className={clsx(
+                  'font-light transition-colors text-center',
+                  colors.text.groupHover.light
+                )}
               >
                 {stat.label}
               </BodySmall>
