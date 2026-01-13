@@ -61,7 +61,7 @@ const Hero = () => {
         >
           <Button
             asChild
-            svg={<MoveDown strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
+            svg={<MoveDown strokeWidth={1.5} size={iconSizes.md} />}
             label='View my work'
             size='xl'
             variant='primary'
@@ -73,7 +73,7 @@ const Hero = () => {
           </Button>
           <Button
             asChild
-            svg={<Mail strokeWidth={1.5} size={iconSizes.md} aria-hidden='true' />}
+            svg={<Mail strokeWidth={1.5} size={iconSizes.md} />}
             label='Get in Touch'
             size='xl'
             variant='secondary'
@@ -106,6 +106,7 @@ const Hero = () => {
                       size={iconSizes.md}
                       className={clsx(colors.brandColors.yellow, 'group-hover:animate-spin')}
                       aria-hidden='true'
+                      tabIndex={-1}
                     />
                   )}
                 </div>

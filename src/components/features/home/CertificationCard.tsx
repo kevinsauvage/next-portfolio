@@ -1,5 +1,6 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
-import { Body, BodySmall, H3 } from '@/components/ui/Typography';
+import { Tag } from '@/components/ui/Tag';
+import { Body, Caption, H4 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { colors, iconSizes } from '@/design-system/tokens';
 
@@ -37,6 +38,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
       return undefined;
     }
   })();
+
   return (
     <Card
       hover='subtle'
@@ -47,83 +49,99 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
       className='group relative h-full'
     >
       <CardContent spacing='lg' className='relative z-10 h-full flex flex-col'>
-        <div className='flex items-start justify-between mb-0'>
-          <div className='flex items-start gap-4 flex-1'>
-            <CardIcon variant='primary' className='flex-shrink-0'>
-              <Award
-                size={iconSizes.xl}
-                className={clsx(
-                  colors.text.primary,
-                  'transition-transform group-hover:rotate-12 group-hover:scale-110'
-                )}
-                strokeWidth={1.5}
-                aria-hidden='true'
-              />
-            </CardIcon>
-            <div className='flex-1 min-w-0'>
-              <H3
-                id={`cert-${index}`}
-                className={clsx(
-                  colors.brandColors.groupHover.primary400,
-                  'transition-all duration-300 text-xl md:text-2xl leading-tight mb-1'
-                )}
-              >
-                {title}
-              </H3>
-              <div className='flex items-center gap-4 flex-wrap'>
-                <div className='flex items-center gap-2'>
-                  <Building2
-                    size={iconSizes.sm}
-                    className={clsx(
-                      colors.brandColors.purple,
-                      'transition-transform group-hover:rotate-12'
-                    )}
-                    strokeWidth={1.5}
-                    aria-hidden='true'
-                  />
-                  <Body className={clsx('transition-colors', colors.text.groupHover.secondary)}>
-                    {issuer}
-                  </Body>
-                </div>
-                <div className='flex items-center gap-2'>
-                  <Calendar size={iconSizes.sm} className={colors.text.muted} aria-hidden='true' />
-                  <BodySmall className='font-medium'>
-                    <time dateTime={date}>{date}</time>
-                  </BodySmall>
-                </div>
+        {/* Header */}
+        <div className='flex items-start gap-3 mb-4'>
+          <CardIcon variant='primary' className='flex-shrink-0 mt-0.5'>
+            <Award
+              size={iconSizes.lg}
+              className={clsx(
+                colors.text.primary,
+                'transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110'
+              )}
+              strokeWidth={1.5}
+              aria-hidden='true'
+              tabIndex={-1}
+            />
+          </CardIcon>
+
+          <div className='flex-1 min-w-0 space-y-1'>
+            <H4
+              id={`cert-${index}`}
+              className={clsx(
+                'transition-colors duration-300 leading-snug',
+                colors.brandColors.groupHover.primary400
+              )}
+            >
+              {title}
+            </H4>
+
+            {/* Metadata row */}
+            <div className='flex items-center gap-3 flex-wrap'>
+              <div className='flex items-center gap-1.5'>
+                <Building2
+                  size={iconSizes.xs}
+                  className={clsx(colors.brandColors.purple, 'flex-shrink-0')}
+                  strokeWidth={1.5}
+                  aria-hidden='true'
+                  tabIndex={-1}
+                />
+                <Caption className={clsx('transition-colors', colors.text.secondary)}>
+                  {issuer}
+                </Caption>
+              </div>
+              <span className='text-zinc-600 text-xs'>•</span>
+              <div className='flex items-center gap-1.5'>
+                <Calendar
+                  size={iconSizes.xs}
+                  className={clsx(colors.text.muted, 'flex-shrink-0')}
+                  aria-hidden='true'
+                  tabIndex={-1}
+                />
+                <Caption className={colors.text.muted}>
+                  <time dateTime={date}>{date}</time>
+                </Caption>
               </div>
             </div>
           </div>
         </div>
 
-        <div className='mb-6 flex-1'>
-          <Body
-            className={clsx('transition-colors leading-relaxed', colors.text.groupHover.secondary)}
-          >
-            {description}
-          </Body>
-        </div>
-        <div className='flex flex-wrap gap-2'>
+        {/* Description */}
+        <Body
+          className={clsx(
+            'flex-1 mb-5 transition-colors leading-relaxed',
+            colors.text.secondary,
+            colors.text.groupHover.secondary
+          )}
+        >
+          {description}
+        </Body>
+
+        {/* Skills Tags */}
+        <div className='flex flex-wrap gap-1.5 mb-4'>
           {skills.map(skill => (
-            <BodySmall key={skill}>{skill}</BodySmall>
+            <Tag key={skill}>{skill}</Tag>
           ))}
         </div>
 
+        {/* Credential Link */}
         {safeCredentialUrl && (
           <a
             href={safeCredentialUrl}
             target='_blank'
             rel='noopener noreferrer'
             className={clsx(
-              'inline-flex items-center gap-2 py-2 text-sm ml-auto font-medium rounded-lg transition-all duration-300 group/link',
+              'inline-flex items-center gap-1.5 mt-auto pt-3 text-xs font-medium',
+              'border-t border-zinc-800/50',
+              'transition-all duration-300 group/link',
               colors.brandColors.primary[300],
               colors.brandColors.hover.primary200
             )}
           >
             <ExternalLink
-              size={iconSizes.sm}
+              size={iconSizes.xs}
               className='transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5'
               aria-hidden='true'
+              tabIndex={-1}
             />
             <span>{sections.certifications.button}</span>
             <span className='sr-only'> for {title}</span>

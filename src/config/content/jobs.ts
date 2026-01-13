@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 type Job = {
   id: string;
   company: string;
@@ -7,13 +6,16 @@ type Job = {
   location: string;
   descriptionArray: string[];
   description: string;
+  skills: string[];
 };
+
+const position = 'Frontend Developer';
 
 export const jobs: Job[] = [
   {
     id: 'decathlon-international-2023',
     company: 'Decathlon International',
-    position: 'Frontend Developer',
+    position,
     period: 'October 2023 - Present',
     location: 'Remote',
     descriptionArray: [
@@ -25,11 +27,22 @@ export const jobs: Job[] = [
     ],
     description:
       'At Decathlon International, I build and maintain a Svelte component library used across e-commerce platforms in 15+ countries. I lead A/B testing for new features, implement comprehensive testing strategies, and work with international teams to deliver user-focused solutions.',
+    skills: [
+      'Svelte',
+      'JavaScript',
+      'Storybook',
+      'Jest',
+      'Cypress',
+      'Less',
+      'Tailwind',
+      'Performance',
+      'Accessibility',
+    ],
   },
   {
     id: 'decathlon-spain-2022',
     company: 'Decathlon Spain',
-    position: 'Frontend Developer',
+    position,
     period: 'May 2022 - October 2023',
     location: 'Barcelona, Spain',
     descriptionArray: [
@@ -41,11 +54,21 @@ export const jobs: Job[] = [
     ],
     description:
       'At Decathlon Spain, I improved the e-commerce platform performance by reducing load times by 1.5 seconds. I built reusable Svelte components, implemented WCAG 2.1 accessibility standards, and set up automated testing and documentation practices.',
+    skills: [
+      'Svelte',
+      'JavaScript',
+      'Jest',
+      'Express.js',
+      'Less',
+      'Tailwind',
+      'Performance',
+      'Accessibility',
+    ],
   },
   {
     id: 'subforce-2021',
     company: 'Subforce',
-    position: 'Frontend Developer',
+    position,
     period: 'June 2021 - May 2022',
     location: 'France (Remote)',
     descriptionArray: [
@@ -57,5 +80,6 @@ export const jobs: Job[] = [
     ],
     description:
       'At Subforce, I built full-stack web applications with React.js and Next.js. I implemented state management solutions, built secure authentication systems, modernized legacy code, and created intuitive user interfaces.',
+    skills: ['React', 'Next.js', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'JavaScript', 'Sass'],
   },
 ];

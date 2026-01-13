@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Josefin_Sans, League_Spartan } from 'next/font/google';
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
@@ -17,7 +17,7 @@ import '@/styles/globals.scss';
 import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 
-const LeagueSpartan = League_Spartan({
+const plusJakartaSans = Plus_Jakarta_Sans({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-heading',
@@ -27,7 +27,7 @@ const LeagueSpartan = League_Spartan({
   preload: false,
 });
 
-const JosefinSans = Josefin_Sans({
+const inter = Inter({
   display: 'swap',
   subsets: ['latin'],
   variable: '--font-base',
@@ -44,8 +44,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       lang='en'
       className={clsx(
         'bg-zinc-950 h-auto w-auto leading-tight',
-        JosefinSans.variable,
-        LeagueSpartan.variable
+        inter.variable,
+        plusJakartaSans.variable
       )}
     >
       <head>

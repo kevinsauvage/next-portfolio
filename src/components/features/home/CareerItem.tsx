@@ -1,6 +1,8 @@
 import { Card, CardContent, CardHeader, CardIcon } from '@/components/ui/Card';
-import { Body, Caption, H3, H4 } from '@/components/ui/Typography';
-import { colors, gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
+import { NumberBadge } from '@/components/ui/NumberBadge';
+import { Tag } from '@/components/ui/Tag';
+import { Body, Caption, H4 } from '@/components/ui/Typography';
+import { colors, iconSizes } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 import { Briefcase, Calendar, MapPin, TrendingUp } from 'lucide-react';
@@ -12,6 +14,7 @@ type CareerItemProps = {
   period: string;
   position: string;
   location?: string;
+  skills?: string[];
   index: number;
 };
 
@@ -21,6 +24,7 @@ const CareerItem: React.FC<CareerItemProps> = ({
   period,
   position,
   location,
+  skills,
   index,
 }) => {
   return (
@@ -30,8 +34,9 @@ const CareerItem: React.FC<CareerItemProps> = ({
       glow='primary-secondary'
       animationIndex={index}
       aria-labelledby={`career-${index}`}
+      className='group relative h-full'
     >
-      <CardContent spacing='lg'>
+      <CardContent spacing='lg' className='h-full flex flex-col'>
         <CardHeader withBorder>
           <CardIcon variant='blue'>
             <Briefcase
@@ -39,46 +44,81 @@ const CareerItem: React.FC<CareerItemProps> = ({
               className={clsx(colors.status.info, 'transition-transform group-hover:rotate-12')}
               strokeWidth={1.5}
               aria-hidden='true'
+              tabIndex={-1}
             />
           </CardIcon>
           <div className='flex-1'>
-            <H3 id={`career-${index}`} className={clsx('transition-colors')}>
+            <H4
+              id={`career-${index}`}
+              className={clsx('transition-colors', colors.brandColors.groupHover.primary400)}
+            >
               {company}
-            </H3>
+            </H4>
           </div>
-          <Caption className={clsx(colors.status.info, 'whitespace-nowrap')}>
-            {String(index + 1).padStart(2, '0')}
-          </Caption>
+          <NumberBadge number={index + 1} />
         </CardHeader>
 
-        <div className={stackSpacing.xs}>
-          <div className={clsx(gapSpacing.xs, 'flex items-center')}>
+        {/* Position & Meta */}
+        <div className='space-y-2'>
+          <div className='flex items-center gap-2'>
             <TrendingUp
               size={iconSizes.sm}
               className={clsx(
                 colors.brandColors.purple,
-                'transition-transform group-hover:rotate-12'
+                'transition-transform group-hover:rotate-12 flex-shrink-0'
               )}
               strokeWidth={1.5}
               aria-hidden='true'
+              tabIndex={-1}
             />
-            <H4>{position}</H4>
+            <Caption className={clsx('font-semibold', colors.text.primary)}>{position}</Caption>
           </div>
-          <div className={clsx(gapSpacing.sm, 'flex flex-wrap')}>
-            <Caption className='flex items-center gap-2'>
-              <Calendar size={iconSizes.xs} className={colors.text.muted} aria-hidden='true' />
+          <div className='flex flex-wrap gap-3'>
+            <Caption className='flex items-center gap-1.5'>
+              <Calendar
+                size={iconSizes.xs}
+                className={colors.text.muted}
+                aria-hidden='true'
+                tabIndex={-1}
+              />
               <span>{period}</span>
             </Caption>
             {location && (
-              <Caption className='flex items-center gap-2'>
-                <MapPin size={iconSizes.xs} className={colors.text.muted} aria-hidden='true' />
-                <span>{location}</span>
-              </Caption>
+              <>
+                <span className='text-zinc-600 text-xs'>•</span>
+                <Caption className='flex items-center gap-1.5'>
+                  <MapPin
+                    size={iconSizes.xs}
+                    className={colors.text.muted}
+                    aria-hidden='true'
+                    tabIndex={-1}
+                  />
+                  <span>{location}</span>
+                </Caption>
+              </>
             )}
           </div>
         </div>
 
-        <Body>{description}</Body>
+        {/* Description */}
+        <Body
+          className={clsx(
+            'flex-1 transition-colors',
+            colors.text.secondary,
+            colors.text.groupHover.secondary
+          )}
+        >
+          {description}
+        </Body>
+
+        {/* Skills Tags */}
+        {skills && skills.length > 0 && (
+          <div className='flex flex-wrap gap-1.5 pt-2 border-t border-zinc-800/50'>
+            {skills.map(skill => (
+              <Tag key={skill}>{skill}</Tag>
+            ))}
+          </div>
+        )}
       </CardContent>
     </Card>
   );
