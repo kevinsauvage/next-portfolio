@@ -6,13 +6,12 @@ import Button from '@/components/ui/Button';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/Form';
 import Input from '@/components/ui/Input';
 import TextArea from '@/components/ui/TextArea';
-import { BodySmall } from '@/components/ui/Typography';
 import { colors } from '@/design-system/tokens';
 
 import type { ContactFormValues } from './ContactForm';
 
 import clsx from 'clsx';
-import { LucideSend } from 'lucide-react';
+import { AlertCircle, LucideSend } from 'lucide-react';
 
 type ContactFormViewProps = {
   form: UseFormReturn<ContactFormValues>;
@@ -50,13 +49,14 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                   />
                 </FormControl>
                 {fieldState.error && (
-                  <BodySmall
+                  <div
                     id='fullName-error'
-                    className={clsx('text-sm', colors.status.error)}
                     role='alert'
+                    className={clsx('flex items-center gap-1.5 mt-1 text-sm', colors.status.error)}
                   >
-                    {fieldState.error.message}
-                  </BodySmall>
+                    <AlertCircle size={14} aria-hidden='true' className='flex-shrink-0' />
+                    <span>{fieldState.error.message}</span>
+                  </div>
                 )}
               </FormItem>
             )}
@@ -79,13 +79,14 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                   />
                 </FormControl>
                 {fieldState.error && (
-                  <BodySmall
+                  <div
                     id='email-error'
-                    className={clsx('text-sm', colors.status.error)}
                     role='alert'
+                    className={clsx('flex items-center gap-1.5 mt-1 text-sm', colors.status.error)}
                   >
-                    {fieldState.error.message}
-                  </BodySmall>
+                    <AlertCircle size={14} aria-hidden='true' className='flex-shrink-0' />
+                    <span>{fieldState.error.message}</span>
+                  </div>
                 )}
               </FormItem>
             )}
@@ -107,13 +108,14 @@ const ContactFormView = ({ form, isSubmitting, onSubmit }: ContactFormViewProps)
                   />
                 </FormControl>
                 {fieldState.error && (
-                  <BodySmall
+                  <div
                     id='message-error'
-                    className={clsx('text-sm', colors.status.error)}
                     role='alert'
+                    className={clsx('flex items-center gap-1.5 mt-1 text-sm', colors.status.error)}
                   >
-                    {fieldState.error.message}
-                  </BodySmall>
+                    <AlertCircle size={14} aria-hidden='true' className='flex-shrink-0' />
+                    <span>{fieldState.error.message}</span>
+                  </div>
                 )}
               </FormItem>
             )}
