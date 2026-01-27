@@ -4,13 +4,12 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cspDirectives, cspToString } from './csp.config.mjs';
 
-const __filename = fileURLToPath(import.meta.url); // get the resolved path to the file
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-// CSP directives and stringifier are extracted in ./csp.config.mjs
 
 const nextConfig = {
   compress: true,
+  turbopack: {},
   async headers() {
     return [
       {
