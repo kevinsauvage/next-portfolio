@@ -1,10 +1,47 @@
+import dynamic from 'next/dynamic';
+
 import AboutSection from '@/components/features/home/AboutSection';
-import CareerSection from '@/components/features/home/CareerSection';
-import CertificationsSection from '@/components/features/home/CertificationsSection';
 import ContactSection from '@/components/features/home/ContactSection';
 import Hero from '@/components/features/home/Hero';
-import PortfolioSection from '@/components/features/home/PortfolioSection';
-import TestimonialsSection from '@/components/features/home/TestimonialsSection';
+import SpinnerLoader from '@/components/shared/SpinnerLoader';
+
+const PortfolioSection = dynamic(() => import('@/components/features/home/PortfolioSection'), {
+  loading: () => (
+    <div className='flex justify-center items-center min-h-[400px]'>
+      <SpinnerLoader />
+    </div>
+  ),
+});
+
+const CareerSection = dynamic(() => import('@/components/features/home/CareerSection'), {
+  loading: () => (
+    <div className='flex justify-center items-center min-h-[400px]'>
+      <SpinnerLoader />
+    </div>
+  ),
+});
+
+const CertificationsSection = dynamic(
+  () => import('@/components/features/home/CertificationsSection'),
+  {
+    loading: () => (
+      <div className='flex justify-center items-center min-h-[400px]'>
+        <SpinnerLoader />
+      </div>
+    ),
+  }
+);
+
+const TestimonialsSection = dynamic(
+  () => import('@/components/features/home/TestimonialsSection'),
+  {
+    loading: () => (
+      <div className='flex justify-center items-center min-h-[400px]'>
+        <SpinnerLoader />
+      </div>
+    ),
+  }
+);
 
 const Home = () => {
   return (
