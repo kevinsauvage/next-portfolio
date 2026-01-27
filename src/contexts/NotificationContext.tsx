@@ -4,8 +4,6 @@ import type { ReactNode } from 'react';
 import { createContext, useCallback, useContext, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 
-import { v4 as uuidv4 } from 'uuid';
-
 type NotificationType = {
   displayed: boolean;
   id: string;
@@ -39,7 +37,7 @@ const NotificationProvider = ({ children }: NotificationProviderProperties) => {
   const enqueueNotification = (type: 'success' | 'warning' | 'info' | 'error', message: string) => {
     setNotificationQueue(previousQueue => [
       ...previousQueue,
-      { displayed: false, id: uuidv4(), message, type },
+      { displayed: false, id: crypto.randomUUID(), message, type },
     ]);
   };
 
