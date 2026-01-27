@@ -23,11 +23,11 @@ const ContactInfo = ({ size = 24, eventPrefix = 'footer', className }: ContactIn
             colors.status.hover.info,
             'transition-colors flex items-center justify-center gap-2 group min-w-[48px] min-h-[48px] p-3'
           )}
-          aria-label={`Visit ${item.text} profile`}
+          aria-label={item.ariaLabel}
+          title={item.ariaLabel}
           target='_blank'
           prefetch={false}
           rel='noopener noreferrer'
-          title={`${item.text} profile`}
           data-umami-event={`${eventPrefix}_social_click`}
           data-umami-event-label={item.text}
         >

@@ -120,6 +120,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
             )}
             data-umami-event='testimonial_see_more'
             aria-label='See more testimonials on LinkedIn'
+            title='See more testimonials on LinkedIn'
           >
             See more
             <ExternalLink size={12} aria-hidden='true' />
