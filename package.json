@@ -58,7 +58,6 @@
     "react-google-recaptcha-v3": "^1.11.0",
     "react-hook-form": "^7.71.0",
     "server-only": "^0.0.1",
-    "uuid": "^9.0.1",
     "web-vitals": "^5.1.0",
     "zod": "^4.3.5"
   },
