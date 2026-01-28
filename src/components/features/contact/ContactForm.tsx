@@ -51,10 +51,10 @@ const ContactForm = () => {
     sendMailAction,
     initialContactFormState
   );
-  console.log('🚀 ~ ContactForm ~ formState:', formState);
   const [isGettingCaptcha, setIsGettingCaptcha] = useState(false);
-  const isSubmitting = isPending || isGettingCaptcha;
   const formRef = useRef<HTMLFormElement | null>(null);
+
+  const isSubmitting = isPending || isGettingCaptcha;
 
   useEffect(() => {
     switch (formState.status) {
