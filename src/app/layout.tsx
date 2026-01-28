@@ -3,18 +3,18 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
-import BackToTopButton from '@/components/shared/BackToTopButton';
 import HeadLinks from '@/components/shared/HeadLinks';
 import StructuredData from '@/components/shared/StructuredData';
 import UmamiScript from '@/components/shared/UmamiScript';
-import { WebVitals } from '@/components/shared/WebVitals';
 import NotificationProvider from '@/contexts/NotificationContext';
 import { colors } from '@/design-system/tokens';
 import { getPublicEnv } from '@/lib/env';
 
+import BackToTopButtonDynamic from '../components/shared/BackToTopButtonDynamic';
+import WebVitalsDynamic from '../components/shared/WebVitalsDynamic';
+
 import '@/styles/globals.scss';
 
-import { Analytics } from '@vercel/analytics/react';
 import clsx from 'clsx';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -24,7 +24,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   weight: ['500', '600', '700'],
   fallback: ['system-ui', 'arial', 'sans-serif'],
   adjustFontFallback: true,
-  preload: false,
+  preload: true,
 });
 
 const inter = Inter({
@@ -76,10 +76,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
             {children}
           </main>
           <Footer />
-          <BackToTopButton />
         </NotificationProvider>
-        <WebVitals />
-        <Analytics />
+        <BackToTopButtonDynamic />
+        <WebVitalsDynamic />
       </body>
     </html>
   );
