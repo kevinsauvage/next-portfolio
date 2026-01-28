@@ -108,10 +108,10 @@ const TestimonialContent = ({
           'underline-offset-4 hover:underline'
         )}
         data-umami-event='testimonial_see_more'
-        aria-label='See more testimonials on LinkedIn'
-        title='See more testimonials on LinkedIn'
+        aria-label='See more testimonials'
+        title='See more testimonials'
       >
-        See more
+        See more testimonials
         <ExternalLink size={12} aria-hidden='true' />
       </a>
     </div>
