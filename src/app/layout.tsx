@@ -4,6 +4,7 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import HeadLinks from '@/components/shared/HeadLinks';
+import ReCaptchaScript from '@/components/shared/ReCaptchaScript';
 import StructuredData from '@/components/shared/StructuredData';
 import UmamiScript from '@/components/shared/UmamiScript';
 import NotificationProvider from '@/contexts/NotificationContext';
@@ -54,6 +55,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <body className={clsx('w-full h-full antialiased font-base font-light', colors.text.primary)}>
         <StructuredData />
         <UmamiScript umamiId={publicEnv.UMAMI_ID} />
+        <ReCaptchaScript />
         <NotificationProvider>
           <nav aria-label='Skip navigation'>
             <a
