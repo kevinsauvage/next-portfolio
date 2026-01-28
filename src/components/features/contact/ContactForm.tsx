@@ -1,20 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import type { FormEvent } from 'react';
+import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
 
-import { sendMail } from '@/actions/send-mail';
-import { useNotification } from '@/contexts/NotificationContext';
+import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
 
-import ContactFormView from './ContactFormView';
+import Button from '../../ui/Button';
+import { FormError, Input, Label, TextArea } from '../../ui/Form';
 
-// Client-side type (no Zod import needed)
+import { LucideSend } from 'lucide-react';
+import { toast } from 'sonner';
+
 export interface ContactFormValues {
   fullName: string;
   email: string;
   message: string;
 }
 
-// Extend Window interface for grecaptcha
 declare global {
   interface Window {
     grecaptcha?: {
@@ -24,88 +26,171 @@ declare global {
   }
 }
 
-const ContactForm = () => {
-  const notification = useNotification();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [formValues, setFormValues] = useState<ContactFormValues>({
-    fullName: '',
-    email: '',
-    message: '',
+export const initialContactFormState: ContactFormState = {
+  status: 'idle',
+  fieldErrors: {},
+};
+
+const getRecaptchaToken = async () => {
+  const recaptchaSiteKey = process.env['NEXT_PUBLIC_RECAPTCHA_SITE_KEY'];
+  if (typeof window === 'undefined' || !recaptchaSiteKey) return '';
+  const grecaptcha = window.grecaptcha;
+  if (!grecaptcha) return '';
+
+  await new Promise<void>(resolve => {
+    grecaptcha.ready(resolve);
   });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setErrors({});
+  return grecaptcha.execute(recaptchaSiteKey, {
+    action: 'contactMessage',
+  });
+};
 
-    const formData = new FormData(e.currentTarget);
-    const data: ContactFormValues = {
-      fullName: (formData.get('fullName') as string) || '',
-      email: (formData.get('email') as string) || '',
-      message: (formData.get('message') as string) || '',
-    };
+const ContactForm = () => {
+  const [formState, formAction, isPending] = useActionState<ContactFormState, FormData>(
+    sendMailAction,
+    initialContactFormState
+  );
+  console.log('🚀 ~ ContactForm ~ formState:', formState);
+  const [isGettingCaptcha, setIsGettingCaptcha] = useState(false);
+  const isSubmitting = isPending || isGettingCaptcha;
+  const formRef = useRef<HTMLFormElement | null>(null);
+
+  useEffect(() => {
+    switch (formState.status) {
+      case 'success': {
+        formRef.current?.reset();
+        if (formState.message) toast.success(formState.message);
+        break;
+      }
+      case 'error': {
+        if (formState.message) toast.error(formState.message);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
+    setIsGettingCaptcha(false);
+  }, [formState]);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsGettingCaptcha(true);
+
+    const formElement = event.currentTarget;
+    const formData = new FormData(formElement);
 
     try {
-      // Get ReCaptcha token
-      let captchaToken = '';
-      const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-      if (typeof window !== 'undefined' && window.grecaptcha && recaptchaSiteKey) {
-        await new Promise<void>(resolve => {
-          window.grecaptcha!.ready(() => {
-            resolve();
-          });
-        });
-        captchaToken = await window.grecaptcha.execute(recaptchaSiteKey, {
-          action: 'contactMessage',
-        });
-      }
+      const captchaToken = await getRecaptchaToken();
 
-      const result = await sendMail({
-        ...data,
-        captcha: captchaToken,
-      });
-
-      if (result.success) {
-        setFormValues({ fullName: '', email: '', message: '' });
-        e.currentTarget.reset();
-        notification.success(
-          "Your message has been sent successfully. I'll get back to you as soon as possible."
-        );
-      } else if (result.fieldErrors) {
-        setErrors(result.fieldErrors);
+      if (captchaToken) {
+        formData.set('captcha', captchaToken);
       } else {
-        notification.error('An error occurred while sending your message. Please try again later.');
+        toast.error('Failed to get recaptcha token');
+        setIsGettingCaptcha(false);
+        return;
       }
+
+      startTransition(() => {
+        formAction(formData);
+      });
     } catch (error) {
       console.error('Form submission error:', error);
-      notification.error('An error occurred while sending your message. Please try again later.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormValues(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[name];
-        return newErrors;
-      });
+      toast.error(
+        'An unexpected error occurred while sending your message. Please try again later.'
+      );
+      setIsGettingCaptcha(false);
     }
   };
 
   return (
-    <ContactFormView
-      formValues={formValues}
-      errors={errors}
-      isSubmitting={isSubmitting}
+    <form
+      ref={formRef}
       onSubmit={handleSubmit}
-      onChange={handleChange}
-    />
+      className='flex flex-col w-full bg-black/25 backdrop-blur-md border border-zinc-800 rounded-lg py-6 px-6 md:p-8 max-w-3xl mx-auto'
+      aria-label='Contact form'
+      noValidate
+    >
+      <output className='sr-only' aria-live='polite' aria-atomic='true'>
+        {isSubmitting ? 'Sending message...' : ''}
+      </output>
+      <div className='space-y-6'>
+        <div className='flex flex-col space-y-2'>
+          <Label htmlFor='fullName' required>
+            Full Name
+          </Label>
+          <Input
+            id='fullName'
+            name='fullName'
+            type='text'
+            placeholder='ex: John Doe'
+            required
+            minLength={2}
+            aria-required='true'
+            aria-invalid={!!formState.fieldErrors?.fullName}
+            aria-describedby={formState.fieldErrors?.fullName ? 'fullName-error' : undefined}
+            autoComplete='name'
+          />
+          {formState.fieldErrors?.fullName && (
+            <FormError id='fullName-error' message={formState.fieldErrors?.fullName} />
+          )}
+        </div>
+
+        <div className='flex flex-col space-y-2'>
+          <Label htmlFor='email' required>
+            Email
+          </Label>
+          <Input
+            id='email'
+            name='email'
+            type='email'
+            placeholder='ex: johndoe@gmail.com'
+            required
+            aria-required='true'
+            aria-invalid={!!formState.fieldErrors?.email}
+            aria-describedby={formState.fieldErrors?.email ? 'email-error' : undefined}
+            autoComplete='email'
+          />
+          {formState.fieldErrors?.email && (
+            <FormError id='email-error' message={formState.fieldErrors?.email} />
+          )}
+        </div>
+
+        <div className='flex flex-col space-y-2'>
+          <Label htmlFor='message' required>
+            Message
+          </Label>
+          <TextArea
+            id='message'
+            name='message'
+            placeholder='Share your thoughts or ask a question'
+            required
+            minLength={10}
+            aria-required='true'
+            aria-invalid={!!formState.fieldErrors?.message}
+            aria-describedby={formState.fieldErrors?.message ? 'message-error' : undefined}
+            autoComplete='off'
+          />
+          {formState.fieldErrors?.message && (
+            <FormError id='message-error' message={formState.fieldErrors?.message} />
+          )}
+        </div>
+
+        <Button
+          className='mt-2 w-full sm:w-auto'
+          svg={<LucideSend role='img' size={18} aria-hidden='true' />}
+          label={isSubmitting ? 'Sending...' : 'Send Message'}
+          type='submit'
+          title='Send Message'
+          disabled={isSubmitting}
+          variant='primary'
+          size='md'
+          eventName='contact_form_submit'
+          aria-live='polite'
+        />
+      </div>
+    </form>
   );
 };
 
