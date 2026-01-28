@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import { Tag } from '@/components/ui/Tag';
 import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
@@ -137,40 +135,44 @@ const CredentialLink = ({ credentialUrl, title }: { credentialUrl: string; title
   );
 };
 
-const CertificationCard: React.FC<CertificationCardProps> = memo(
-  ({ title, issuer, date, description, credentialUrl, skills, index }) => {
-    const safeCredentialUrl = (() => {
-      if (!credentialUrl) return undefined;
-      try {
-        const parsed = new URL(credentialUrl);
-        return parsed.protocol === 'http:' || parsed.protocol === 'https:'
-          ? credentialUrl
-          : undefined;
-      } catch {
-        return undefined;
-      }
-    })();
+const CertificationCard: React.FC<CertificationCardProps> = ({
+  title,
+  issuer,
+  date,
+  description,
+  credentialUrl,
+  skills,
+  index,
+}) => {
+  const safeCredentialUrl = (() => {
+    if (!credentialUrl) return undefined;
+    try {
+      const parsed = new URL(credentialUrl);
+      return parsed.protocol === 'http:' || parsed.protocol === 'https:'
+        ? credentialUrl
+        : undefined;
+    } catch {
+      return undefined;
+    }
+  })();
 
-    return (
-      <Card
-        hover='subtle'
-        size='md'
-        glow='secondary-accent'
-        animationIndex={index}
-        aria-labelledby={`cert-${index}`}
-        className='group relative h-full'
-      >
-        <CardContent spacing='lg' className='relative z-10 h-full flex flex-col'>
-          <CertificationHeader title={title} issuer={issuer} date={date} index={index} />
-          <CertificationDescription description={description} />
-          <CertificationSkills skills={skills} />
-          {safeCredentialUrl && <CredentialLink credentialUrl={safeCredentialUrl} title={title} />}
-        </CardContent>
-      </Card>
-    );
-  }
-);
-
-CertificationCard.displayName = 'CertificationCard';
+  return (
+    <Card
+      hover='subtle'
+      size='md'
+      glow='secondary-accent'
+      animationIndex={index}
+      aria-labelledby={`cert-${index}`}
+      className='group relative h-full'
+    >
+      <CardContent spacing='lg' className='relative z-10 h-full flex flex-col'>
+        <CertificationHeader title={title} issuer={issuer} date={date} index={index} />
+        <CertificationDescription description={description} />
+        <CertificationSkills skills={skills} />
+        {safeCredentialUrl && <CredentialLink credentialUrl={safeCredentialUrl} title={title} />}
+      </CardContent>
+    </Card>
+  );
+};
 
 export default CertificationCard;

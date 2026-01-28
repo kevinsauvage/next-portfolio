@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 import { Card, CardContent } from '@/components/ui/Card';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 import { colors } from '@/design-system/tokens';
@@ -14,7 +12,7 @@ type ExpertiseCardProps = {
   index: number;
 };
 
-const ExpertiseCard: React.FC<ExpertiseCardProps> = memo(({ title, content, keyPoints, index }) => {
+const ExpertiseCard: React.FC<ExpertiseCardProps> = ({ title, content, keyPoints, index }) => {
   return (
     <Card
       hover='subtle'
@@ -54,8 +52,6 @@ const ExpertiseCard: React.FC<ExpertiseCardProps> = memo(({ title, content, keyP
       </CardContent>
     </Card>
   );
-});
-
-ExpertiseCard.displayName = 'ExpertiseCard';
+};
 
 export default ExpertiseCard;

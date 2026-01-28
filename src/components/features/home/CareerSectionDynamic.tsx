@@ -2,8 +2,6 @@
 
 import dynamic from 'next/dynamic';
 
-const CareerSectionDynamic = dynamic(() => import('@/components/features/home/CareerSection'), {
-  ssr: false,
-});
+const CareerSectionDynamic = dynamic(() => import('@/components/features/home/CareerSection'));
 
 export default CareerSectionDynamic;

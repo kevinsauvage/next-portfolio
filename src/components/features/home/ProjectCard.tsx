@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import Link from 'next/link';
 
 import Button from '@/components/ui/Button';
@@ -135,7 +134,7 @@ const ProjectActionButtons = ({
   );
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const { title, description, technologies, images, websiteLink, githubLink } = project;
 
   return (
@@ -158,8 +157,6 @@ const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
       </CardContent>
     </Card>
   );
-});
-
-ProjectCard.displayName = 'ProjectCard';
+};
 
 export default ProjectCard;

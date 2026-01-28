@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 import { Card, CardContent, CardHeader, CardIcon } from '@/components/ui/Card';
 import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
@@ -72,48 +70,51 @@ const PositionAndPeriod = ({ position, period }: { position: string; period: str
   );
 };
 
-const CareerCard: React.FC<CareerCardProps> = memo(
-  ({ company, description, period, position, skills, index }) => {
-    return (
-      <Card
-        hover='subtle'
-        size='md'
-        glow='primary-secondary'
-        animationIndex={index}
-        aria-labelledby={`career-${index}`}
-        className='group relative h-full'
-      >
-        <CardContent spacing='lg' className='h-full flex flex-col'>
-          <CardHeader withBorder>
-            <CardIcon variant='blue'>
-              <Briefcase
-                size={iconSizes.md}
-                className={clsx(colors.status.info, 'transition-transform group-hover:rotate-12')}
-                strokeWidth={1.5}
-                aria-hidden='true'
-                tabIndex={-1}
-              />
-            </CardIcon>
-            <div className='flex-1'>
-              <H3
-                id={`career-${index}`}
-                size='sm'
-                className={clsx('transition-colors', colors.brandColors.groupHover.primary400)}
-              >
-                {company}
-              </H3>
-            </div>
-            <NumberBadge number={index + 1} />
-          </CardHeader>
-          <PositionAndPeriod position={position} period={period} />
-          <Description description={description ?? ''} />
-          <SkillsTags skills={skills ?? []} />
-        </CardContent>
-      </Card>
-    );
-  }
-);
-
-CareerCard.displayName = 'CareerCard';
+const CareerCard: React.FC<CareerCardProps> = ({
+  company,
+  description,
+  period,
+  position,
+  skills,
+  index,
+}) => {
+  return (
+    <Card
+      hover='subtle'
+      size='md'
+      glow='primary-secondary'
+      animationIndex={index}
+      aria-labelledby={`career-${index}`}
+      className='group relative h-full'
+    >
+      <CardContent spacing='lg' className='h-full flex flex-col'>
+        <CardHeader withBorder>
+          <CardIcon variant='blue'>
+            <Briefcase
+              size={iconSizes.md}
+              className={clsx(colors.status.info, 'transition-transform group-hover:rotate-12')}
+              strokeWidth={1.5}
+              aria-hidden='true'
+              tabIndex={-1}
+            />
+          </CardIcon>
+          <div className='flex-1'>
+            <H3
+              id={`career-${index}`}
+              size='sm'
+              className={clsx('transition-colors', colors.brandColors.groupHover.primary400)}
+            >
+              {company}
+            </H3>
+          </div>
+          <NumberBadge number={index + 1} />
+        </CardHeader>
+        <PositionAndPeriod position={position} period={period} />
+        <Description description={description ?? ''} />
+        <SkillsTags skills={skills ?? []} />
+      </CardContent>
+    </Card>
+  );
+};
 
 export default CareerCard;

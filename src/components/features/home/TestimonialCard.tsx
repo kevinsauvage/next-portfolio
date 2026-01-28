@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { BodySmall, Caption } from '@/components/ui/Typography';
 import { colors, gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
@@ -185,32 +183,35 @@ const TestimonialAuthor = ({
   );
 };
 
-const TestimonialCard: React.FC<TestimonialCardProps> = memo(
-  ({ author, content, date, index, variant = 'default', totalCount }) => {
-    const styles = variant === 'carousel' ? variantStyles.carousel : variantStyles.default;
-    const currentIndex = String(index + 1).padStart(2, '0');
-    const totalDisplay =
-      variant === 'carousel' && totalCount ? String(totalCount).padStart(2, '0') : '';
-    const indexDisplay = totalDisplay ? `${currentIndex} / ${totalDisplay}` : currentIndex;
+const TestimonialCard: React.FC<TestimonialCardProps> = ({
+  author,
+  content,
+  date,
+  index,
+  variant = 'default',
+  totalCount,
+}) => {
+  const styles = variant === 'carousel' ? variantStyles.carousel : variantStyles.default;
+  const currentIndex = String(index + 1).padStart(2, '0');
+  const totalDisplay =
+    variant === 'carousel' && totalCount ? String(totalCount).padStart(2, '0') : '';
+  const indexDisplay = totalDisplay ? `${currentIndex} / ${totalDisplay}` : currentIndex;
 
-    return (
-      <Card
-        hover='standard'
-        size={styles.cardSize}
-        glow='secondary-accent'
-        animationIndex={index}
-        className='h-fit'
-      >
-        <CardContent spacing='md' className={styles.contentClass}>
-          <TestimonialHeader indexDisplay={indexDisplay} styles={styles} />
-          <TestimonialContent content={content} styles={styles} />
-          <TestimonialAuthor author={author} date={date} styles={styles} />
-        </CardContent>
-      </Card>
-    );
-  }
-);
-
-TestimonialCard.displayName = 'TestimonialCard';
+  return (
+    <Card
+      hover='standard'
+      size={styles.cardSize}
+      glow='secondary-accent'
+      animationIndex={index}
+      className='h-fit'
+    >
+      <CardContent spacing='md' className={styles.contentClass}>
+        <TestimonialHeader indexDisplay={indexDisplay} styles={styles} />
+        <TestimonialContent content={content} styles={styles} />
+        <TestimonialAuthor author={author} date={date} styles={styles} />
+      </CardContent>
+    </Card>
+  );
+};
 
 export default TestimonialCard;
