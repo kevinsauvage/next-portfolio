@@ -1,64 +1,42 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 import { layout } from '@/config/content';
+import { animations, colors, getTypographyClasses, radius } from '@/design-system/tokens';
 
-import NavigationView from './NavigationView';
+import clsx from 'clsx';
 
-const navItems = layout.header.navigation.items;
-const sectionIds = navItems.map(item => item.href.substring(1));
-const defaultSection = 'home';
-
-const Navigation: React.FC = () => {
-  const [activeSection, setActiveSection] = useState(defaultSection);
-  const visibleSectionsRef = useRef<Set<string>>(new Set());
-
-  useEffect(() => {
-    const elements = sectionIds
-      .map(id => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
-
-    if (elements.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      entries => {
-        // Update visible sections based on intersection entries
-        entries.forEach(entry => {
-          const id = entry.target.id;
-          if (entry.isIntersecting) {
-            visibleSectionsRef.current.add(id);
-          } else {
-            visibleSectionsRef.current.delete(id);
-          }
-        });
-
-        // Find the last (bottom-most) visible section based on DOM order
-        for (let i = sectionIds.length - 1; i >= 0; i--) {
-          const id = sectionIds[i];
-          if (id && visibleSectionsRef.current.has(id)) {
-            setActiveSection(id);
-            return;
-          }
-        }
-
-        // Fallback to default if no sections are visible
-        if (visibleSectionsRef.current.size === 0) {
-          setActiveSection(defaultSection);
-        }
-      },
-      {
-        rootMargin: '-80px 0px -40% 0px',
-        threshold: [0, 0.25],
-      }
-    );
-
-    elements.forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  return <NavigationView navItems={navItems} activeSection={activeSection} />;
+const Navigation = () => {
+  return (
+    <nav className='flex items-center' role='navigation' aria-label='Main navigation'>
+      <ul className='hidden lg:flex items-center gap-0.5 xl:gap-1'>
+        {layout.header.navigation.items.map(({ label, href }) => (
+          <li key={label}>
+            <Link
+              href={href}
+              aria-label={`Go to ${label} section`}
+              data-umami-event='header_nav_click'
+              data-umami-event-label={label}
+              className={clsx(
+                getTypographyClasses('bodySmall'),
+                'px-3 py-2 xl:px-4',
+                radius.sm,
+                'transition-all',
+                animations.duration.fast,
+                animations.timing.easeOut,
+                colors.text.muted,
+                colors.text.hover.light,
+                'hover:scale-105 active:scale-95',
+                'border border-transparent',
+                'hover:bg-zinc-800/50 hover:shadow-md'
+              )}
+            >
+              {label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 };
 
 export default Navigation;
