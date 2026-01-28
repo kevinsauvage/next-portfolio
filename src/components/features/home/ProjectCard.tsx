@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import Link from 'next/link';
 
 import Button from '@/components/ui/Button';
@@ -25,7 +26,116 @@ type ProjectCardProps = {
   index: number;
 };
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
+const ProjectImage = ({
+  images,
+  index,
+}: {
+  images: { thumbnail: { src: string; alt: string } };
+  index: number;
+}) => {
+  return (
+    <div className='md:col-span-2 flex items-center justify-center'>
+      <div className='relative w-full'>
+        <div className='absolute -top-2 -left-2 z-10'>
+          <NumberBadge number={index + 1} />
+        </div>
+        <CardImage
+          src={images.thumbnail.src}
+          alt={images.thumbnail.alt}
+          aspectRatio='wide'
+          width={800}
+          height={500}
+          sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw'
+          priority={index < 3}
+          unoptimized={true}
+        />
+      </div>
+    </div>
+  );
+};
+
+const ProjectTitleAndDescription = ({
+  title,
+  description,
+  index,
+}: {
+  title: string;
+  description: string;
+  index: number;
+}) => {
+  return (
+    <div className='space-y-3'>
+      <H3
+        id={`project-title-${index}`}
+        size='sm'
+        className={clsx('transition-colors duration-300', colors.brandColors.groupHover.primary400)}
+      >
+        {title}
+      </H3>
+      <BodySmall
+        className={clsx(
+          'transition-colors leading-relaxed',
+          colors.text.secondary,
+          colors.text.groupHover.secondary
+        )}
+      >
+        {description}
+      </BodySmall>
+    </div>
+  );
+};
+
+const TechStackTags = ({ technologies }: { technologies: Array<{ name: string }> }) => {
+  return (
+    <div className='flex flex-wrap gap-1.5'>
+      {technologies.map(({ name }) => (
+        <Tag key={name}>{name}</Tag>
+      ))}
+    </div>
+  );
+};
+
+const ProjectActionButtons = ({
+  title,
+  websiteLink,
+  githubLink,
+}: {
+  title: string;
+  websiteLink: string;
+  githubLink: Array<string>;
+}) => {
+  return (
+    <div className='flex flex-wrap gap-3 pt-2 mt-auto'>
+      <Button
+        asChild
+        svg={<ExternalLink size={iconSizes.sm} aria-hidden='true' />}
+        label={sections.portfolio.buttons.viewLive}
+        size='sm'
+        variant='primary'
+        data-umami-event='project_live_click'
+        data-umami-event-project={title}
+        className='shadow-glow-sm hover:shadow-glow-md'
+      >
+        <Link href={websiteLink} target='_blank' rel='noopener noreferrer' />
+      </Button>
+      {githubLink.length > 0 && (
+        <Button
+          asChild
+          svg={<Github size={iconSizes.sm} aria-hidden='true' />}
+          label={sections.portfolio.buttons.sourceCode}
+          size='sm'
+          variant='secondary'
+          data-umami-event='project_github_click'
+          data-umami-event-project={title}
+        >
+          <Link href={githubLink[0] as string} target='_blank' rel='noopener noreferrer' />
+        </Button>
+      )}
+    </div>
+  );
+};
+
+const ProjectCard: React.FC<ProjectCardProps> = memo(({ project, index }) => {
   const { title, description, technologies, images, websiteLink, githubLink } = project;
 
   return (
@@ -38,91 +148,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
     >
       <CardContent spacing='lg' className='relative z-10 h-full'>
         <div className='grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 h-full'>
-          {/* Image Section */}
-          <div className='md:col-span-2 flex items-center justify-center'>
-            <div className='relative w-full'>
-              {/* Project Number Badge - Positioned on image */}
-              <div className='absolute -top-2 -left-2 z-10'>
-                <NumberBadge number={index + 1} />
-              </div>
-              <CardImage
-                src={images.thumbnail.src}
-                alt={images.thumbnail.alt}
-                aspectRatio='wide'
-                width={800}
-                height={500}
-                sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw'
-                priority={index < 3}
-                unoptimized={true}
-              />
-            </div>
-          </div>
-
-          {/* Content Section */}
+          <ProjectImage images={images} index={index} />
           <div className='md:col-span-3 flex flex-col space-y-5'>
-            {/* Title & Description */}
-            <div className='space-y-3'>
-              <H3
-                id={`project-title-${index}`}
-                size='sm'
-                className={clsx(
-                  'transition-colors duration-300',
-                  colors.brandColors.groupHover.primary400
-                )}
-              >
-                {title}
-              </H3>
-              <BodySmall
-                className={clsx(
-                  'transition-colors leading-relaxed',
-                  colors.text.secondary,
-                  colors.text.groupHover.secondary
-                )}
-              >
-                {description}
-              </BodySmall>
-            </div>
-
-            {/* Tech Stack Tags */}
-            <div className='flex flex-wrap gap-1.5'>
-              {technologies.map(({ name }) => (
-                <Tag key={name}>{name}</Tag>
-              ))}
-            </div>
-
-            {/* Action Buttons */}
-            <div className='flex flex-wrap gap-3 pt-2 mt-auto'>
-              <Button
-                asChild
-                svg={<ExternalLink size={iconSizes.sm} aria-hidden='true' />}
-                label={sections.portfolio.buttons.viewLive}
-                size='sm'
-                variant='primary'
-                data-umami-event='project_live_click'
-                data-umami-event-project={title}
-                className='shadow-glow-sm hover:shadow-glow-md'
-              >
-                <Link href={websiteLink} target='_blank' rel='noopener noreferrer' />
-              </Button>
-              {githubLink.length > 0 && (
-                <Button
-                  asChild
-                  svg={<Github size={iconSizes.sm} aria-hidden='true' />}
-                  label={sections.portfolio.buttons.sourceCode}
-                  size='sm'
-                  variant='secondary'
-                  data-umami-event='project_github_click'
-                  data-umami-event-project={title}
-                >
-                  <Link href={githubLink[0] as string} target='_blank' rel='noopener noreferrer' />
-                </Button>
-              )}
-            </div>
+            <ProjectTitleAndDescription title={title} description={description} index={index} />
+            <TechStackTags technologies={technologies} />
+            <ProjectActionButtons title={title} websiteLink={websiteLink} githubLink={githubLink} />
           </div>
         </div>
       </CardContent>
     </Card>
   );
-};
+});
+
+ProjectCard.displayName = 'ProjectCard';
 
 export default ProjectCard;

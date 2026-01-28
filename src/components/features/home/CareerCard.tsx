@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { Card, CardContent, CardHeader, CardIcon } from '@/components/ui/Card';
 import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
@@ -17,94 +19,101 @@ type CareerCardProps = {
   index: number;
 };
 
-const CareerCard: React.FC<CareerCardProps> = ({
-  company,
-  description,
-  period,
-  position,
-  skills,
-  index,
-}) => {
+const SkillsTags = ({ skills }: { skills: string[] }) => {
   return (
-    <Card
-      hover='subtle'
-      size='md'
-      glow='primary-secondary'
-      animationIndex={index}
-      aria-labelledby={`career-${index}`}
-      className='group relative h-full'
-    >
-      <CardContent spacing='lg' className='h-full flex flex-col'>
-        <CardHeader withBorder>
-          <CardIcon variant='blue'>
-            <Briefcase
-              size={iconSizes.md}
-              className={clsx(colors.status.info, 'transition-transform group-hover:rotate-12')}
-              strokeWidth={1.5}
-              aria-hidden='true'
-              tabIndex={-1}
-            />
-          </CardIcon>
-          <div className='flex-1'>
-            <H3
-              id={`career-${index}`}
-              size='sm'
-              className={clsx('transition-colors', colors.brandColors.groupHover.primary400)}
-            >
-              {company}
-            </H3>
-          </div>
-          <NumberBadge number={index + 1} />
-        </CardHeader>
-
-        {/* Position & Meta */}
-        <div className='space-y-2'>
-          <div className='flex items-center gap-2'>
-            <TrendingUp
-              size={iconSizes.sm}
-              className={clsx(
-                colors.brandColors.purple,
-                'transition-transform group-hover:rotate-12 flex-shrink-0'
-              )}
-              strokeWidth={1.5}
-              aria-hidden='true'
-              tabIndex={-1}
-            />
-            <Caption className={clsx('font-semibold', colors.text.primary)}>{position}</Caption>
-          </div>
-          <Caption className='flex items-center gap-1.5'>
-            <Calendar
-              size={iconSizes.xs}
-              className={colors.text.muted}
-              aria-hidden='true'
-              tabIndex={-1}
-            />
-            <span>{period}</span>
-          </Caption>
-        </div>
-
-        {/* Description */}
-        <BodySmall
-          className={clsx(
-            'flex-1 transition-colors',
-            colors.text.secondary,
-            colors.text.groupHover.secondary
-          )}
-        >
-          {description}
-        </BodySmall>
-
-        {/* Skills Tags */}
-        {skills && skills.length > 0 && (
-          <div className='flex flex-wrap gap-1.5 pt-2 border-zinc-800/50'>
-            {skills.map(skill => (
-              <Tag key={skill}>{skill}</Tag>
-            ))}
-          </div>
-        )}
-      </CardContent>
-    </Card>
+    <div className='flex flex-wrap gap-1.5 pt-2 border-zinc-800/50'>
+      {skills.map(skill => (
+        <Tag key={skill}>{skill}</Tag>
+      ))}
+    </div>
   );
 };
+
+const Description = ({ description }: { description: string }) => {
+  return (
+    <BodySmall
+      className={clsx(
+        'flex-1 transition-colors',
+        colors.text.secondary,
+        colors.text.groupHover.secondary
+      )}
+    >
+      {description}
+    </BodySmall>
+  );
+};
+
+const PositionAndPeriod = ({ position, period }: { position: string; period: string }) => {
+  return (
+    <div className='space-y-2'>
+      <div className='flex items-center gap-2'>
+        <TrendingUp
+          size={iconSizes.sm}
+          className={clsx(
+            colors.brandColors.purple,
+            'transition-transform group-hover:rotate-12 flex-shrink-0'
+          )}
+          strokeWidth={1.5}
+          aria-hidden='true'
+          tabIndex={-1}
+        />
+        <Caption className={clsx('font-semibold', colors.text.primary)}>{position}</Caption>
+      </div>
+      <Caption className='flex items-center gap-1.5'>
+        <Calendar
+          size={iconSizes.xs}
+          className={colors.text.muted}
+          aria-hidden='true'
+          tabIndex={-1}
+        />
+        <span>{period}</span>
+      </Caption>
+    </div>
+  );
+};
+
+const CareerCard: React.FC<CareerCardProps> = memo(
+  ({ company, description, period, position, skills, index }) => {
+    return (
+      <Card
+        hover='subtle'
+        size='md'
+        glow='primary-secondary'
+        animationIndex={index}
+        aria-labelledby={`career-${index}`}
+        className='group relative h-full'
+      >
+        <CardContent spacing='lg' className='h-full flex flex-col'>
+          <CardHeader withBorder>
+            <CardIcon variant='blue'>
+              <Briefcase
+                size={iconSizes.md}
+                className={clsx(colors.status.info, 'transition-transform group-hover:rotate-12')}
+                strokeWidth={1.5}
+                aria-hidden='true'
+                tabIndex={-1}
+              />
+            </CardIcon>
+            <div className='flex-1'>
+              <H3
+                id={`career-${index}`}
+                size='sm'
+                className={clsx('transition-colors', colors.brandColors.groupHover.primary400)}
+              >
+                {company}
+              </H3>
+            </div>
+            <NumberBadge number={index + 1} />
+          </CardHeader>
+          <PositionAndPeriod position={position} period={period} />
+          <Description description={description ?? ''} />
+          <SkillsTags skills={skills ?? []} />
+        </CardContent>
+      </Card>
+    );
+  }
+);
+
+CareerCard.displayName = 'CareerCard';
 
 export default CareerCard;

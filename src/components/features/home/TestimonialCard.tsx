@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { BodySmall, Caption } from '@/components/ui/Typography';
 import { colors, gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
@@ -61,133 +63,154 @@ const variantStyles = {
   },
 };
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
-  author,
-  content,
-  date,
-  index,
-  variant = 'default',
-  totalCount,
+const TestimonialHeader = ({
+  indexDisplay,
+  styles,
+}: {
+  indexDisplay: string;
+  styles: typeof variantStyles.default | typeof variantStyles.carousel;
 }) => {
-  const styles = variant === 'carousel' ? variantStyles.carousel : variantStyles.default;
-  const currentIndex = String(index + 1).padStart(2, '0');
-  const totalDisplay =
-    variant === 'carousel' && totalCount ? String(totalCount).padStart(2, '0') : '';
-  const indexDisplay = totalDisplay ? `${currentIndex} / ${totalDisplay}` : currentIndex;
-
   return (
-    <Card
-      hover='standard'
-      size={styles.cardSize}
-      glow='secondary-accent'
-      animationIndex={index}
-      className='h-fit'
-    >
-      <CardContent spacing='md' className={styles.contentClass}>
-        <div className={clsx('flex items-start justify-between', styles.headerClass)}>
-          <CardIcon variant='purple'>
-            <Quote
-              className={clsx(colors.brandColors.purple, ICON_HOVER, styles.quoteIconClass)}
-              size={iconSizes.md}
-              strokeWidth={1.5}
-              aria-hidden='true'
-            />
-          </CardIcon>
-          <Caption className={clsx(colors.status.info, styles.captionClass)}>
-            {indexDisplay}
-          </Caption>
-        </div>
-
-        <div className='flex-1 space-y-3'>
-          <blockquote
-            className={clsx(
-              'leading-relaxed italic',
-              colors.text.secondary,
-              styles.blockquoteClass
-            )}
-          >
-            &quot;{content}&quot;
-          </blockquote>
-          <a
-            href='https://www.linkedin.com/in/kevin-sauvage/'
-            target='_blank'
-            rel='noopener noreferrer'
-            className={clsx(
-              'inline-flex items-center gap-1.5 text-xs font-medium',
-              'text-primary-400 hover:text-primary-300',
-              'transition-colors duration-200',
-              'underline-offset-4 hover:underline'
-            )}
-            data-umami-event='testimonial_see_more'
-            aria-label='See more testimonials on LinkedIn'
-            title='See more testimonials on LinkedIn'
-          >
-            See more
-            <ExternalLink size={12} aria-hidden='true' />
-          </a>
-        </div>
-
-        <CardFooter>
-          <div className={stackSpacing.xs}>
-            <div className={clsx(gapSpacing.xs, styles.authorRowClass, FLEX_CENTER)}>
-              <div
-                className={clsx(
-                  'bg-blue-500/10 rounded-full border border-blue-500/20 group-hover:border-blue-500/40 transition-colors',
-                  styles.avatarClass
-                )}
-              >
-                <User
-                  size={iconSizes.xs}
-                  className={clsx(colors.status.info, ICON_HOVER, styles.userIconClass)}
-                  aria-hidden='true'
-                />
-              </div>
-              <div>
-                <cite
-                  className={clsx(
-                    'font-bold not-italic block',
-                    colors.text.primary,
-                    styles.citeClass
-                  )}
-                >
-                  {author.name}
-                </cite>
-                <BodySmall className={styles.titleClass}>{author.title}</BodySmall>
-              </div>
-            </div>
-
-            <div
-              className={clsx(gapSpacing.xs, 'flex flex-wrap', colors.text.muted, styles.metaClass)}
-            >
-              <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
-                <Briefcase
-                  size={iconSizes.xs - 2}
-                  className={clsx(ICON_HOVER, styles.smallIconClass)}
-                  aria-hidden='true'
-                />
-                <span>{author.company}</span>
-              </Caption>
-              <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
-                <span
-                  className={clsx('bg-zinc-600 rounded-full', styles.dotClass)}
-                  aria-hidden='true'
-                />
-                <span>{author.relationship}</span>
-              </Caption>
-              <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
-                <Calendar
-                  size={iconSizes.xs - 2}
-                  className={clsx(ICON_HOVER, styles.smallIconClass)}
-                  aria-hidden='true'
-                />
-                <time dateTime={date}>{date}</time>
-              </Caption>
-            </div>
-          </div>
-        </CardFooter>
-      </CardContent>
-    </Card>
+    <div className={clsx('flex items-start justify-between', styles.headerClass)}>
+      <CardIcon variant='purple'>
+        <Quote
+          className={clsx(colors.brandColors.purple, ICON_HOVER, styles.quoteIconClass)}
+          size={iconSizes.md}
+          strokeWidth={1.5}
+          aria-hidden='true'
+        />
+      </CardIcon>
+      <Caption className={clsx(colors.status.info, styles.captionClass)}>{indexDisplay}</Caption>
+    </div>
   );
 };
+
+const TestimonialContent = ({
+  content,
+  styles,
+}: {
+  content: string;
+  styles: typeof variantStyles.default | typeof variantStyles.carousel;
+}) => {
+  return (
+    <div className='flex-1 space-y-3'>
+      <blockquote
+        className={clsx('leading-relaxed italic', colors.text.secondary, styles.blockquoteClass)}
+      >
+        &quot;{content}&quot;
+      </blockquote>
+      <a
+        href='https://www.linkedin.com/in/kevin-sauvage/'
+        target='_blank'
+        rel='noopener noreferrer'
+        className={clsx(
+          'inline-flex items-center gap-1.5 text-xs font-medium',
+          'text-primary-400 hover:text-primary-300',
+          'transition-colors duration-200',
+          'underline-offset-4 hover:underline'
+        )}
+        data-umami-event='testimonial_see_more'
+        aria-label='See more testimonials on LinkedIn'
+        title='See more testimonials on LinkedIn'
+      >
+        See more
+        <ExternalLink size={12} aria-hidden='true' />
+      </a>
+    </div>
+  );
+};
+
+const TestimonialAuthor = ({
+  author,
+  date,
+  styles,
+}: {
+  author: { name: string; title: string; company: string; relationship: string };
+  date: string;
+  styles: typeof variantStyles.default | typeof variantStyles.carousel;
+}) => {
+  return (
+    <CardFooter>
+      <div className={stackSpacing.xs}>
+        <div className={clsx(gapSpacing.xs, styles.authorRowClass, FLEX_CENTER)}>
+          <div
+            className={clsx(
+              'bg-blue-500/10 rounded-full border border-blue-500/20 group-hover:border-blue-500/40 transition-colors',
+              styles.avatarClass
+            )}
+          >
+            <User
+              size={iconSizes.xs}
+              className={clsx(colors.status.info, ICON_HOVER, styles.userIconClass)}
+              aria-hidden='true'
+            />
+          </div>
+          <div>
+            <cite
+              className={clsx('font-bold not-italic block', colors.text.primary, styles.citeClass)}
+            >
+              {author.name}
+            </cite>
+            <BodySmall className={styles.titleClass}>{author.title}</BodySmall>
+          </div>
+        </div>
+
+        <div className={clsx(gapSpacing.xs, 'flex flex-wrap', colors.text.muted, styles.metaClass)}>
+          <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
+            <Briefcase
+              size={iconSizes.xs - 2}
+              className={clsx(ICON_HOVER, styles.smallIconClass)}
+              aria-hidden='true'
+            />
+            <span>{author.company}</span>
+          </Caption>
+          <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
+            <span
+              className={clsx('bg-zinc-600 rounded-full', styles.dotClass)}
+              aria-hidden='true'
+            />
+            <span>{author.relationship}</span>
+          </Caption>
+          <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
+            <Calendar
+              size={iconSizes.xs - 2}
+              className={clsx(ICON_HOVER, styles.smallIconClass)}
+              aria-hidden='true'
+            />
+            <time dateTime={date}>{date}</time>
+          </Caption>
+        </div>
+      </div>
+    </CardFooter>
+  );
+};
+
+const TestimonialCard: React.FC<TestimonialCardProps> = memo(
+  ({ author, content, date, index, variant = 'default', totalCount }) => {
+    const styles = variant === 'carousel' ? variantStyles.carousel : variantStyles.default;
+    const currentIndex = String(index + 1).padStart(2, '0');
+    const totalDisplay =
+      variant === 'carousel' && totalCount ? String(totalCount).padStart(2, '0') : '';
+    const indexDisplay = totalDisplay ? `${currentIndex} / ${totalDisplay}` : currentIndex;
+
+    return (
+      <Card
+        hover='standard'
+        size={styles.cardSize}
+        glow='secondary-accent'
+        animationIndex={index}
+        className='h-fit'
+      >
+        <CardContent spacing='md' className={styles.contentClass}>
+          <TestimonialHeader indexDisplay={indexDisplay} styles={styles} />
+          <TestimonialContent content={content} styles={styles} />
+          <TestimonialAuthor author={author} date={date} styles={styles} />
+        </CardContent>
+      </Card>
+    );
+  }
+);
+
+TestimonialCard.displayName = 'TestimonialCard';
 
 export default TestimonialCard;
