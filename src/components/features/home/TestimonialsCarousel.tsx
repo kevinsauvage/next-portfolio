@@ -36,9 +36,10 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
   const [isAnimating, setIsAnimating] = useState(false);
 
   const resetAnimation = useCallback(() => {
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       setIsAnimating(false);
     }, ANIMATION_RESET_DELAY);
+    return () => clearTimeout(timeoutId);
   }, []);
 
   const updateSlideIndex = useCallback(
@@ -55,39 +56,40 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
     if (index < 0 || index >= testimonials.length) return;
     setDirection(index > currentIndex ? 'right' : 'left');
     setIsAnimating(true);
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       updateSlideIndex(index);
     }, ANIMATION_DURATION);
+    return () => clearTimeout(timeoutId);
   };
 
   const goToPrevious = () => {
     if (isAnimating) return;
     setDirection('left');
     setIsAnimating(true);
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       const prevIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
       updateSlideIndex(prevIndex);
     }, ANIMATION_DURATION);
+    return () => clearTimeout(timeoutId);
   };
 
   const goToNext = () => {
     if (isAnimating) return;
     setDirection('right');
     setIsAnimating(true);
-    setTimeout(() => {
+    const timeoutId = setTimeout(() => {
       const nextIndex = (currentIndex + 1) % testimonials.length;
       updateSlideIndex(nextIndex);
     }, ANIMATION_DURATION);
+    return () => clearTimeout(timeoutId);
   };
 
   const currentTestimonial = useMemo(() => {
     if (displayedIndex < 0 || displayedIndex >= testimonials.length) {
       return null;
     }
-    // Safe: bounds checked above - direct O(1) array access
-    // Index is validated, so this is safe despite linter warning
-    const index = displayedIndex;
-    return testimonials[index] ?? null;
+
+    return testimonials.at(displayedIndex) ?? null;
   }, [testimonials, displayedIndex]);
 
   return (
