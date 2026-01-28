@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import TestimonialCard from '@/components/features/home/TestimonialCard';
 import { colors, gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
@@ -80,11 +80,15 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
     }, ANIMATION_DURATION);
   };
 
-  // Safe array access to avoid object injection warning
-  const currentTestimonial: Testimonial | null =
-    displayedIndex >= 0 && displayedIndex < testimonials.length
-      ? (testimonials.find((_, idx) => idx === displayedIndex) ?? null)
-      : null;
+  const currentTestimonial = useMemo(() => {
+    if (displayedIndex < 0 || displayedIndex >= testimonials.length) {
+      return null;
+    }
+    // Safe: bounds checked above - direct O(1) array access
+    // Index is validated, so this is safe despite linter warning
+    const index = displayedIndex;
+    return testimonials[index] ?? null;
+  }, [testimonials, displayedIndex]);
 
   return (
     <div className={stackSpacing.md}>
