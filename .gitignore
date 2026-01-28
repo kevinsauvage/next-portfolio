@@ -37,3 +37,6 @@ yarn-error.log*
 .vercel
 
 dist
+
+# Ts Build Info
+tsconfig.tsbuildinfo
