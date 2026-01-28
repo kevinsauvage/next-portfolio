@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import HeadLinks from '@/components/shared/HeadLinks';
 import ReCaptchaScript from '@/components/shared/ReCaptchaScript';
+import ScrollDetector from '@/components/shared/ScrollDetector';
 import StructuredData from '@/components/shared/StructuredData';
 import UmamiScript from '@/components/shared/UmamiScript';
 import NotificationProvider from '@/contexts/NotificationContext';
@@ -56,6 +57,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <StructuredData />
         <UmamiScript umamiId={publicEnv.UMAMI_ID} />
         <ReCaptchaScript />
+        <ScrollDetector />
         <NotificationProvider>
           <nav aria-label='Skip navigation'>
             <a

@@ -10,10 +10,7 @@ const navItems = layout.header.navigation.items;
 const sectionIds = navItems.map(item => item.href.substring(1));
 const defaultSection = 'home';
 
-const Navigation: React.FC<{
-  menuOpen: boolean;
-  closeMenu: () => void;
-}> = ({ closeMenu }) => {
+const Navigation: React.FC = () => {
   const [activeSection, setActiveSection] = useState(defaultSection);
   const visibleSectionsRef = useRef<Set<string>>(new Set());
 
@@ -61,7 +58,7 @@ const Navigation: React.FC<{
     return () => observer.disconnect();
   }, []);
 
-  return <NavigationView navItems={navItems} activeSection={activeSection} closeMenu={closeMenu} />;
+  return <NavigationView navItems={navItems} activeSection={activeSection} />;
 };
 
 export default Navigation;

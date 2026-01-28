@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 
 import { animations, colors, getTypographyClasses, radius } from '@/design-system/tokens';
@@ -11,10 +9,9 @@ type NavItem = { readonly label: string; readonly href: string };
 type NavigationViewProps = {
   navItems: readonly NavItem[];
   activeSection: string;
-  closeMenu: () => void;
 };
 
-const NavigationView = ({ navItems, activeSection, closeMenu }: NavigationViewProps) => {
+const NavigationView = ({ navItems, activeSection }: NavigationViewProps) => {
   return (
     <nav className='flex items-center' role='navigation' aria-label='Main navigation'>
       <ul className='hidden lg:flex items-center gap-0.5 xl:gap-1'>
@@ -24,7 +21,6 @@ const NavigationView = ({ navItems, activeSection, closeMenu }: NavigationViewPr
             <li key={label}>
               <Link
                 href={href}
-                onClick={closeMenu}
                 aria-label={`Go to ${label} section`}
                 data-umami-event='header_nav_click'
                 data-umami-event-label={label}
@@ -32,15 +28,12 @@ const NavigationView = ({ navItems, activeSection, closeMenu }: NavigationViewPr
                   getTypographyClasses('bodySmall'),
                   'px-3 py-2 xl:px-4',
                   radius.sm,
-                  // Motion tokens
                   'transition-all',
                   animations.duration.fast,
                   animations.timing.easeOut,
                   colors.text.hover.light,
                   'hover:scale-105 active:scale-95',
-                  // Base border (always present, transitions color)
                   'border',
-                  // States
                   isActive
                     ? clsx(colors.text.light, 'bg-zinc-800/50 border-zinc-700/50 shadow-sm')
                     : clsx(
