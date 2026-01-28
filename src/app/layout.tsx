@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
+import ClientOnlyWidgets from '@/components/shared/ClientOnlyWidgets';
 import HeadLinks from '@/components/shared/HeadLinks';
 import ReCaptchaScript from '@/components/shared/ReCaptchaScript';
 import ScrollDetector from '@/components/shared/ScrollDetector';
@@ -11,9 +12,6 @@ import UmamiScript from '@/components/shared/UmamiScript';
 import NotificationProvider from '@/contexts/NotificationContext';
 import { colors } from '@/design-system/tokens';
 import { getPublicEnv } from '@/lib/env';
-
-import BackToTopButtonDynamic from '../components/shared/BackToTopButtonDynamic';
-import WebVitalsDynamic from '../components/shared/WebVitalsDynamic';
 
 import '@/styles/globals.scss';
 
@@ -81,8 +79,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </main>
           <Footer />
         </NotificationProvider>
-        <BackToTopButtonDynamic />
-        <WebVitalsDynamic />
+        <ClientOnlyWidgets />
       </body>
     </html>
   );
