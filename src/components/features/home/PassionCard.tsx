@@ -1,8 +1,5 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import { BodySmall, H3 } from '@/components/ui/Typography';
-import { colors, iconSizes } from '@/design-system/tokens';
-
-import clsx from 'clsx';
 
 type PassionCardProps = {
   icon: React.ElementType;
@@ -23,18 +20,16 @@ const PassionCard: React.FC<PassionCardProps> = ({ icon: Icon, title, descriptio
       <CardContent spacing='md'>
         <CardIcon variant='primary'>
           <Icon
-            className={clsx(colors.text.primary, 'transition-transform group-hover:rotate-12')}
-            size={iconSizes.lg}
+            className='text-zinc-50 transition-transform group-hover:rotate-12'
+            size={24}
             strokeWidth={1.5}
             aria-hidden='true'
           />
         </CardIcon>
-        <H3 size='sm' className={clsx('transition-all duration-300')}>
+        <H3 size='sm' className='transition-all duration-300'>
           {title}
         </H3>
-        <BodySmall className={clsx(colors.text.groupHover.secondary, 'transition-colors')}>
-          {description}
-        </BodySmall>
+        <BodySmall className='group-hover:text-zinc-200 transition-colors'>{description}</BodySmall>
       </CardContent>
     </Card>
   );

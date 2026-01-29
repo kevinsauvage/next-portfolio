@@ -1,5 +1,3 @@
-import { containerSpacing, sectionSpacing } from '@/design-system/tokens';
-
 import clsx from 'clsx';
 
 type SectionProperties = {
@@ -17,28 +15,19 @@ const Section: React.FC<SectionProperties> = ({
   const spacingClass = (() => {
     switch (spacing) {
       case 'sm':
-        return sectionSpacing.sm;
+        return 'py-16 md:py-24';
       case 'md':
-        return sectionSpacing.md;
+        return 'py-20 md:py-32';
       case 'lg':
-        return sectionSpacing.lg;
+        return 'py-24 md:py-40';
       case 'xl':
-        return sectionSpacing.xl;
+        return 'py-32 md:py-48';
       default:
-        return sectionSpacing.md;
+        return 'py-20 md:py-32';
     }
   })();
   return (
-    <section
-      className={clsx(
-        containerSpacing.maxWidth,
-        containerSpacing.margin,
-        'w-full',
-        spacingClass,
-        className
-      )}
-      {...properties}
-    >
+    <section className={clsx('max-w-5xl m-auto w-full', spacingClass, className)} {...properties}>
       {children}
     </section>
   );

@@ -1,7 +1,5 @@
 'use client';
 
-import { colors } from '@/design-system/tokens';
-
 import clsx from 'clsx';
 import { ChevronUp } from 'lucide-react';
 
@@ -18,7 +16,7 @@ const BackToTopButtonView = ({ isVisible, onClick }: BackToTopButtonViewProps) =
         onClick={onClick}
         className={clsx(
           'fixed bottom-6 right-6 z-40 p-3 rounded-full bg-gradient-to-br from-secondary-600 to-primary-500 shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950',
-          colors.text.primary,
+          'text-zinc-50',
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         )}
         aria-label='Back to top'

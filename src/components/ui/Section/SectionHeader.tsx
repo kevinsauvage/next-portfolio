@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 
 import { Body, H2, Overline } from '@/components/ui/Typography';
-import { stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 
@@ -25,7 +24,7 @@ const SectionHeader = ({
   const alignmentClass = align === 'center' ? 'text-center' : 'text-left';
 
   return (
-    <div className={clsx(stackSpacing.md, alignmentClass, className)}>
+    <div className={clsx('space-y-8', alignmentClass, className)}>
       {overline && <Overline>{overline}</Overline>}
 
       <H2

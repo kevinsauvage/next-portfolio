@@ -9,7 +9,6 @@ import ScrollDetector from '@/components/shared/ScrollDetector';
 import SonnerToaster from '@/components/shared/SonnerToaster';
 import StructuredData from '@/components/shared/StructuredData';
 import UmamiScript from '@/components/shared/UmamiScript';
-import { colors } from '@/design-system/tokens';
 import { getPublicEnv } from '@/lib/env';
 
 import '@/styles/globals.scss';
@@ -50,7 +49,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <head>
         <HeadLinks />
       </head>
-      <body className={clsx('w-full h-full antialiased font-base font-light', colors.text.primary)}>
+      <body className='w-full h-full antialiased font-base font-light text-zinc-50'>
         <StructuredData />
         <UmamiScript umamiId={publicEnv.UMAMI_ID} />
         <ScrollDetector />
@@ -58,10 +57,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <nav aria-label='Skip navigation'>
           <a
             href='#main-content'
-            className={clsx(
-              'sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:rounded-md focus:shadow-lg',
-              colors.text.primary
-            )}
+            className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:rounded-md focus:shadow-lg text-zinc-50'
           >
             Skip to main content
           </a>

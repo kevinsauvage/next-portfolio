@@ -5,7 +5,6 @@ import MeshGradient from '@/components/shared/MeshGradient';
 import Button from '@/components/ui/Button';
 import { Body, BodySmall, Display } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
-import { animations, colors, gapSpacing, iconSizes } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 import { Mail, MoveDown, Sparkles } from 'lucide-react';
@@ -42,7 +41,7 @@ const Hero = () => {
             </span>{' '}
             <span
               className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-fade-in-up opacity-0'
-              style={{ animationDelay: animations.loadDelay.first, animationFillMode: 'both' }}
+              style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
             >
               {sections.hero.title.secondLine}
             </span>
@@ -50,22 +49,19 @@ const Hero = () => {
           <Body
             id='hero-description'
             className='mb-8 max-w-2xl animate-fade-in-up opacity-0'
-            style={{ animationDelay: animations.loadDelay.second, animationFillMode: 'both' }}
+            style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
           >
             {sections.hero.description}
           </Body>
         </header>
 
         <div
-          className={clsx(
-            'flex flex-col sm:flex-row mb-10 z-10 animate-fade-in-up opacity-0 w-full sm:w-auto',
-            gapSpacing.md
-          )}
-          style={{ animationDelay: animations.loadDelay.third, animationFillMode: 'both' }}
+          className='flex flex-col sm:flex-row mb-10 z-10 animate-fade-in-up opacity-0 w-full sm:w-auto gap-6'
+          style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
         >
           <Button
             asChild
-            svg={<MoveDown strokeWidth={1.5} size={iconSizes.md} />}
+            svg={<MoveDown strokeWidth={1.5} size={20} />}
             label='View my work'
             size='xl'
             variant='primary'
@@ -77,7 +73,7 @@ const Hero = () => {
           </Button>
           <Button
             asChild
-            svg={<Mail strokeWidth={1.5} size={iconSizes.md} />}
+            svg={<Mail strokeWidth={1.5} size={20} />}
             label='Get in Touch'
             size='xl'
             variant='secondary'
@@ -91,12 +87,8 @@ const Hero = () => {
         {/* Stats - Visible on desktop only, part of first fold */}
         <div className='hidden md:block w-full'>
           <div
-            className={clsx(
-              'grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0',
-              gapSpacing.sm,
-              'md:gap-8'
-            )}
-            style={{ animationDelay: animations.loadDelay.fourth, animationFillMode: 'both' }}
+            className='grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0 gap-4 md:gap-8'
+            style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
           >
             {stats.map(stat => (
               <div
@@ -107,19 +99,14 @@ const Hero = () => {
                   {stat.value}
                   {stat.label === 'Years Experience' && (
                     <Sparkles
-                      size={iconSizes.md}
-                      className={clsx(colors.brandColors.yellow, 'group-hover:animate-spin')}
+                      size={20}
+                      className='text-yellow-500 group-hover:animate-spin'
                       aria-hidden='true'
                       tabIndex={-1}
                     />
                   )}
                 </div>
-                <BodySmall
-                  className={clsx(
-                    'md:text-base font-light transition-colors',
-                    colors.text.groupHover.light
-                  )}
-                >
+                <BodySmall className='md:text-base font-light transition-colors group-hover:text-zinc-100'>
                   {stat.label}
                 </BodySmall>
               </div>
@@ -128,7 +115,7 @@ const Hero = () => {
 
           <div
             className='mt-8 animate-fade-in-up opacity-0'
-            style={{ animationDelay: animations.loadDelay.fourth, animationFillMode: 'both' }}
+            style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
           >
             <ContactInfo size={22} eventPrefix='hero' className='justify-center' />
           </div>
@@ -138,11 +125,8 @@ const Hero = () => {
       {/* Stats - Below the fold on mobile only */}
       <div className='block md:hidden relative z-10 px-6 pb-8'>
         <div
-          className={clsx(
-            'grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0',
-            gapSpacing.sm
-          )}
-          style={{ animationDelay: animations.loadDelay.fourth, animationFillMode: 'both' }}
+          className='grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0 gap-4'
+          style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
         >
           {stats.map(stat => (
             <div
@@ -153,18 +137,13 @@ const Hero = () => {
                 {stat.value}
                 {stat.label === 'Years Experience' && (
                   <Sparkles
-                    size={iconSizes.md}
-                    className={clsx(colors.brandColors.yellow, 'group-hover:animate-spin')}
+                    size={20}
+                    className='text-yellow-500 group-hover:animate-spin'
                     aria-hidden='true'
                   />
                 )}
               </div>
-              <BodySmall
-                className={clsx(
-                  'font-light transition-colors text-center',
-                  colors.text.groupHover.light
-                )}
-              >
+              <BodySmall className='font-light transition-colors text-center group-hover:text-zinc-100'>
                 {stat.label}
               </BodySmall>
             </div>
@@ -173,7 +152,7 @@ const Hero = () => {
 
         <div
           className='mt-8 animate-fade-in-up opacity-0'
-          style={{ animationDelay: animations.loadDelay.fourth, animationFillMode: 'both' }}
+          style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
         >
           <ContactInfo size={22} eventPrefix='hero' className='justify-center' />
         </div>

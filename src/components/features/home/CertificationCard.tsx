@@ -2,9 +2,7 @@ import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import { Tag } from '@/components/ui/Tag';
 import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
-import { colors, iconSizes } from '@/design-system/tokens';
 
-import clsx from 'clsx';
 import { Award, Building2, Calendar, ExternalLink } from 'lucide-react';
 
 type CertificationCardProps = {
@@ -33,11 +31,8 @@ const CertificationHeader = ({
     <div className='flex items-start gap-3 mb-4'>
       <CardIcon variant='primary' className='flex-shrink-0 mt-0.5'>
         <Award
-          size={iconSizes.lg}
-          className={clsx(
-            colors.text.primary,
-            'transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110'
-          )}
+          size={24}
+          className='text-zinc-50 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110'
           strokeWidth={1.5}
           aria-hidden='true'
           tabIndex={-1}
@@ -48,10 +43,7 @@ const CertificationHeader = ({
         <H3
           id={`cert-${index}`}
           size='sm'
-          className={clsx(
-            'transition-colors duration-300 leading-snug',
-            colors.brandColors.groupHover.primary400
-          )}
+          className='transition-colors duration-300 leading-snug group-hover:text-primary-400'
         >
           {title}
         </H3>
@@ -59,23 +51,23 @@ const CertificationHeader = ({
         <div className='flex items-center gap-3 flex-wrap'>
           <div className='flex items-center gap-1.5'>
             <Building2
-              size={iconSizes.xs}
-              className={clsx(colors.brandColors.purple, 'flex-shrink-0')}
+              size={14}
+              className='text-purple-400 flex-shrink-0'
               strokeWidth={1.5}
               aria-hidden='true'
               tabIndex={-1}
             />
-            <Caption className={clsx('transition-colors', colors.text.secondary)}>{issuer}</Caption>
+            <Caption className='transition-colors text-zinc-200'>{issuer}</Caption>
           </div>
           <span className='text-zinc-600 text-xs'>•</span>
           <div className='flex items-center gap-1.5'>
             <Calendar
-              size={iconSizes.xs}
-              className={clsx(colors.text.muted, 'flex-shrink-0')}
+              size={14}
+              className='text-zinc-400 flex-shrink-0'
               aria-hidden='true'
               tabIndex={-1}
             />
-            <Caption className={colors.text.muted}>
+            <Caption className='text-zinc-400'>
               <time dateTime={date}>{date}</time>
             </Caption>
           </div>
@@ -87,13 +79,7 @@ const CertificationHeader = ({
 
 const CertificationDescription = ({ description }: { description: string }) => {
   return (
-    <BodySmall
-      className={clsx(
-        'flex-1 mb-5 transition-colors leading-relaxed',
-        colors.text.secondary,
-        colors.text.groupHover.secondary
-      )}
-    >
+    <BodySmall className='flex-1 mb-5 transition-colors leading-relaxed text-zinc-200 group-hover:text-zinc-200'>
       {description}
     </BodySmall>
   );
@@ -115,16 +101,10 @@ const CredentialLink = ({ credentialUrl, title }: { credentialUrl: string; title
       href={credentialUrl}
       target='_blank'
       rel='noopener noreferrer'
-      className={clsx(
-        'inline-flex items-center gap-1.5 mt-auto pt-3 text-xs font-medium',
-        'border-t border-zinc-800/50',
-        'transition-all duration-300 group/link',
-        colors.brandColors.primary[300],
-        colors.brandColors.hover.primary200
-      )}
+      className='inline-flex items-center gap-1.5 mt-auto pt-3 text-xs font-medium border-t border-zinc-800/50 transition-all duration-300 group/link text-primary-300 hover:text-primary-200'
     >
       <ExternalLink
-        size={iconSizes.xs}
+        size={14}
         className='transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5'
         aria-hidden='true'
         tabIndex={-1}

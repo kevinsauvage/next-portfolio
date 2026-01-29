@@ -4,10 +4,7 @@ import { useEffect } from 'react';
 
 import Button from '@/components/ui/Button';
 import { BodySmall, H4 } from '@/components/ui/Typography';
-import { colors } from '@/design-system/tokens';
 import { trackEvent } from '@/lib/analytics';
-
-import clsx from 'clsx';
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -25,12 +22,7 @@ const ErrorPage = ({ error, reset }: ErrorProps) => {
   }, [error]);
 
   return (
-    <div
-      className={clsx(
-        'min-h-screen flex items-center justify-center bg-zinc-950',
-        colors.text.primary
-      )}
-    >
+    <div className='min-h-screen flex items-center justify-center bg-zinc-950 text-zinc-50'>
       <div className='max-w-md mx-auto text-center p-6'>
         <div className='mb-6'>
           <H4 className='mb-2'>Oops! Something went wrong</H4>

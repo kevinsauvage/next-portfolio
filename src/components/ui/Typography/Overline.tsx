@@ -1,7 +1,5 @@
 import type { ElementType, ReactNode } from 'react';
 
-import { colors, getTypographyClasses } from '@/design-system/tokens';
-
 import clsx from 'clsx';
 
 type BaseTypographyProps = {
@@ -18,10 +16,10 @@ export const Overline = ({
   as: Component = 'p',
   ...props
 }: TypographyProps) => {
-  const classes = getTypographyClasses('overline');
+  const classes = 'text-sm leading-normal font-medium tracking-wider uppercase text-zinc-200';
 
   return (
-    <Component className={clsx(classes, colors.text.secondary, className)} {...props}>
+    <Component className={clsx(classes, className)} {...props}>
       {children}
     </Component>
   );

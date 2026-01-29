@@ -1,7 +1,5 @@
 import type { ElementType, ReactNode } from 'react';
 
-import { colors, typography } from '@/design-system/tokens';
-
 import clsx from 'clsx';
 
 type BaseTypographyProps = {
@@ -22,15 +20,14 @@ export const H3 = ({
   size = 'default',
   ...props
 }: TypographyProps) => {
-  const { fontSize: defaultFontSize, ...otherStyles } = typography.h3;
-  const fontSize = size === 'sm' ? 'text-xl md:text-2xl' : defaultFontSize;
-  const textColor = gradient ? colors.brand.gradientText : colors.text.primary;
+  const fontSize = size === 'sm' ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl';
+  const otherStyles = 'leading-snug font-semibold font-heading';
+  const textColor = gradient
+    ? 'bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'
+    : 'text-zinc-50';
 
   return (
-    <Component
-      className={clsx(fontSize, Object.values(otherStyles), textColor, className)}
-      {...props}
-    >
+    <Component className={clsx(fontSize, otherStyles, textColor, className)} {...props}>
       {children}
     </Component>
   );

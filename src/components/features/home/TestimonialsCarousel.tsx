@@ -3,7 +3,6 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import TestimonialCard from '@/components/features/home/TestimonialCard';
-import { colors, gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -93,7 +92,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
   }, [testimonials, displayedIndex]);
 
   return (
-    <div className={stackSpacing.md}>
+    <div className='space-y-8'>
       <div className='relative px-0 md:px-12 lg:px-20'>
         {testimonials.length > 1 && (
           <>
@@ -114,12 +113,8 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               )}
             >
               <ChevronLeft
-                size={iconSizes.sm}
-                className={clsx(
-                  'md:w-5 md:h-5',
-                  colors.text.secondary,
-                  'group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300'
-                )}
+                size={16}
+                className='md:w-5 md:h-5 text-zinc-200 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300'
                 aria-hidden='true'
               />
             </button>
@@ -141,12 +136,8 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               )}
             >
               <ChevronRight
-                size={iconSizes.sm}
-                className={clsx(
-                  'md:w-5 md:h-5',
-                  colors.text.secondary,
-                  'group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300'
-                )}
+                size={16}
+                className='md:w-5 md:h-5 text-zinc-200 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300'
                 aria-hidden='true'
               />
             </button>
@@ -179,13 +170,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
       </div>
 
       {testimonials.length > 1 && (
-        <div
-          className={clsx(
-            'flex justify-center items-center',
-            gapSpacing.sm,
-            'md:gap-md mt-4 md:mt-6'
-          )}
-        >
+        <div className='flex justify-center items-center gap-4 md:gap-md mt-4 md:mt-6'>
           {testimonials.map((testimonial, index) => (
             <button
               key={testimonial?.id ?? `testimonial-${index}`}

@@ -6,9 +6,7 @@ import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
-import { colors, iconSizes } from '@/design-system/tokens';
 
-import clsx from 'clsx';
 import { ExternalLink, Github } from 'lucide-react';
 
 type ProjectType = {
@@ -67,17 +65,11 @@ const ProjectTitleAndDescription = ({
       <H3
         id={`project-title-${index}`}
         size='sm'
-        className={clsx('transition-colors duration-300', colors.brandColors.groupHover.primary400)}
+        className='transition-colors duration-300 group-hover:text-primary-400'
       >
         {title}
       </H3>
-      <BodySmall
-        className={clsx(
-          'transition-colors leading-relaxed',
-          colors.text.secondary,
-          colors.text.groupHover.secondary
-        )}
-      >
+      <BodySmall className='transition-colors leading-relaxed text-zinc-200 group-hover:text-zinc-200'>
         {description}
       </BodySmall>
     </div>
@@ -107,7 +99,7 @@ const ProjectActionButtons = ({
     <div className='flex flex-wrap gap-3 pt-2 mt-auto'>
       <Button
         asChild
-        svg={<ExternalLink size={iconSizes.sm} aria-hidden='true' />}
+        svg={<ExternalLink size={16} aria-hidden='true' />}
         label={sections.portfolio.buttons.viewLive}
         size='sm'
         variant='primary'
@@ -120,7 +112,7 @@ const ProjectActionButtons = ({
       {githubLink.length > 0 && (
         <Button
           asChild
-          svg={<Github size={iconSizes.sm} aria-hidden='true' />}
+          svg={<Github size={16} aria-hidden='true' />}
           label={sections.portfolio.buttons.sourceCode}
           size='sm'
           variant='secondary'

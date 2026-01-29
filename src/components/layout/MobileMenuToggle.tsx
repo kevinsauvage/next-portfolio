@@ -7,10 +7,8 @@ import Link from 'next/link';
 import ContactInfo from '@/components/shared/ContactInfo';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
-import { colors } from '@/design-system/tokens';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 
-import clsx from 'clsx';
 import { ChevronRight, MenuIcon, X } from 'lucide-react';
 
 const MobileMenuToggle = () => {
@@ -56,7 +54,7 @@ const MobileMenuToggle = () => {
               className='p-2 rounded-md hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center'
               aria-label='Close navigation menu'
             >
-              <X size={24} strokeWidth={1.5} className={colors.text.muted} aria-hidden='true' />
+              <X size={24} strokeWidth={1.5} className='text-zinc-400' aria-hidden='true' />
             </button>
           </div>
 
@@ -71,16 +69,10 @@ const MobileMenuToggle = () => {
                   data-umami-event-label={label}
                   className='flex items-center justify-between p-4 mb-2 rounded-lg bg-zinc-800/50 border border-zinc-700/50 hover:border-primary-500/50 hover:bg-zinc-800 active:bg-zinc-700 transition-all duration-200 group min-h-[56px]'
                 >
-                  <BodySmall className={clsx(colors.text.primary, 'font-medium text-lg')}>
-                    {label}
-                  </BodySmall>
+                  <BodySmall className='font-medium text-lg text-zinc-50'>{label}</BodySmall>
                   <ChevronRight
                     size={20}
-                    className={clsx(
-                      colors.text.muted,
-                      'group-hover:translate-x-1 transition-all',
-                      colors.status.hover.info.replace('hover:', 'group-hover:')
-                    )}
+                    className='text-zinc-400 group-hover:translate-x-1 transition-all group-hover:text-blue-400'
                     aria-hidden='true'
                   />
                 </Link>
@@ -95,10 +87,7 @@ const MobileMenuToggle = () => {
             <Link
               href='#contact'
               onClick={closeMenu}
-              className={clsx(
-                'flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-all duration-200',
-                colors.text.primary
-              )}
+              className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-all duration-200 text-zinc-50'
             >
               {layout.header.mobileMenu.ctaButton}
               <ChevronRight size={18} aria-hidden='true' />
@@ -120,14 +109,9 @@ const MobileMenuToggle = () => {
         aria-expanded={menuOpen}
       >
         {menuOpen ? (
-          <X size={28} strokeWidth={1.5} className={colors.text.secondary} aria-hidden='true' />
+          <X size={28} strokeWidth={1.5} className='text-zinc-200' aria-hidden='true' />
         ) : (
-          <MenuIcon
-            size={28}
-            strokeWidth={1.5}
-            className={colors.text.secondary}
-            aria-hidden='true'
-          />
+          <MenuIcon size={28} strokeWidth={1.5} className='text-zinc-200' aria-hidden='true' />
         )}
       </button>
 

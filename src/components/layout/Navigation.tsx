@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
 import { layout } from '@/config/content';
-import { animations, colors, getTypographyClasses, radius } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 
@@ -17,14 +16,11 @@ const Navigation = () => {
               data-umami-event='header_nav_click'
               data-umami-event-label={label}
               className={clsx(
-                getTypographyClasses('bodySmall'),
+                'text-sm md:text-base leading-normal font-normal',
                 'px-3 py-2 xl:px-4',
-                radius.sm,
-                'transition-all',
-                animations.duration.fast,
-                animations.timing.easeOut,
-                colors.text.muted,
-                colors.text.hover.light,
+                'rounded-md',
+                'transition-all duration-200 ease-out',
+                'text-zinc-400 hover:text-zinc-100',
                 'hover:scale-105 active:scale-95',
                 'border border-transparent',
                 'hover:bg-zinc-800/50 hover:shadow-md'

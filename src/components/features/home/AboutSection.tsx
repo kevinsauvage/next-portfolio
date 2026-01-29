@@ -1,18 +1,15 @@
 import Section from '@/components/ui/Section';
 import { Body, H2, H3, Overline } from '@/components/ui/Typography';
 import { passions, sections } from '@/config/content';
-import { gapSpacing, stackSpacing } from '@/design-system/tokens';
 
 import PassionCard from './PassionCard';
-
-import clsx from 'clsx';
 
 const AboutSection: React.FC = () => {
   return (
     <Section id='about'>
-      <div className={clsx(stackSpacing['2xl'])}>
+      <div className='space-y-24'>
         <div
-          className={clsx(stackSpacing.md, 'animate-fade-in-up opacity-0')}
+          className='space-y-8 animate-fade-in-up opacity-0'
           style={{ animationFillMode: 'both' }}
         >
           <Overline>{sections.about.overline}</Overline>
@@ -30,11 +27,11 @@ const AboutSection: React.FC = () => {
           </Body>
         </div>
 
-        <div className={stackSpacing.md}>
+        <div className='space-y-8'>
           <H3 className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
             My Philosophy
           </H3>
-          <div className={clsx('grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3', gapSpacing.lg)}>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {passions.map((passion, index) => (
               <PassionCard key={passion.slug} {...passion} index={index} />
             ))}

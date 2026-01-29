@@ -1,7 +1,5 @@
 import type { ElementType, ReactNode } from 'react';
 
-import { colors, getTypographyClasses } from '@/design-system/tokens';
-
 import clsx from 'clsx';
 
 type BaseTypographyProps = {
@@ -20,8 +18,10 @@ export const Display = ({
   gradient,
   ...props
 }: TypographyProps) => {
-  const classes = getTypographyClasses('display');
-  const textColor = gradient ? colors.brand.gradientText : colors.text.primary;
+  const classes = 'text-5xl md:text-6xl lg:text-7xl leading-tight font-bold font-heading';
+  const textColor = gradient
+    ? 'bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'
+    : 'text-zinc-50';
 
   return (
     <Component className={clsx(classes, textColor, className)} {...props}>

@@ -6,10 +6,7 @@ import MeshGradient from '@/components/shared/MeshGradient';
 import SpinnerLoader from '@/components/shared/SpinnerLoader';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { sections } from '@/config/content';
-import { stackSpacing } from '@/design-system/tokens';
 import { getPublicEnv } from '@/lib/env';
-
-import clsx from 'clsx';
 
 const ContactForm = dynamic(() => import('@/components/features/contact/ContactForm'), {
   loading: () => (
@@ -32,7 +29,7 @@ const ContactSection: React.FC = () => {
         spacing='md'
       >
         <GoogleReCaptchaProviderWrapper reCaptchaKey={recaptchaSiteKey}>
-          <div className={clsx('w-full relative z-10', stackSpacing.xl)}>
+          <div className='w-full relative z-10 space-y-16'>
             <SectionHeader
               overline={sections.contact.overline}
               title={sections.contact.title}

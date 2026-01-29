@@ -1,5 +1,3 @@
-import { colors } from '@/design-system/tokens';
-
 import RequiredIndicator from './RequiredIndicator';
 
 import clsx from 'clsx';
@@ -15,9 +13,8 @@ type Properties = {
 const Label = ({ children, className, missing, required, ...rest }: Properties) => (
   <label
     className={clsx(
-      'text-lg',
+      'text-lg text-zinc-300',
       missing ? 'flex flex-col w-full space-y-1' : 'flex',
-      colors.text.tertiary,
       className
     )}
     {...rest}

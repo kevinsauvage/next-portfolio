@@ -1,6 +1,5 @@
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { BodySmall, Caption } from '@/components/ui/Typography';
-import { colors, gapSpacing, iconSizes, stackSpacing } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 import { Briefcase, Calendar, ExternalLink, Quote, User } from 'lucide-react';
@@ -72,13 +71,13 @@ const TestimonialHeader = ({
     <div className={clsx('flex items-start justify-between', styles.headerClass)}>
       <CardIcon variant='purple'>
         <Quote
-          className={clsx(colors.brandColors.purple, ICON_HOVER, styles.quoteIconClass)}
-          size={iconSizes.md}
+          className={clsx('text-purple-400', ICON_HOVER, styles.quoteIconClass)}
+          size={20}
           strokeWidth={1.5}
           aria-hidden='true'
         />
       </CardIcon>
-      <Caption className={clsx(colors.status.info, styles.captionClass)}>{indexDisplay}</Caption>
+      <Caption className={clsx('text-blue-400', styles.captionClass)}>{indexDisplay}</Caption>
     </div>
   );
 };
@@ -92,9 +91,7 @@ const TestimonialContent = ({
 }) => {
   return (
     <div className='flex-1 space-y-3'>
-      <blockquote
-        className={clsx('leading-relaxed italic', colors.text.secondary, styles.blockquoteClass)}
-      >
+      <blockquote className={clsx('leading-relaxed italic text-zinc-200', styles.blockquoteClass)}>
         &quot;{content}&quot;
       </blockquote>
       <a
@@ -129,8 +126,8 @@ const TestimonialAuthor = ({
 }) => {
   return (
     <CardFooter>
-      <div className={stackSpacing.xs}>
-        <div className={clsx(gapSpacing.xs, styles.authorRowClass, FLEX_CENTER)}>
+      <div className='space-y-4'>
+        <div className={clsx('gap-2', styles.authorRowClass, FLEX_CENTER)}>
           <div
             className={clsx(
               'bg-blue-500/10 rounded-full border border-blue-500/20 group-hover:border-blue-500/40 transition-colors',
@@ -138,25 +135,23 @@ const TestimonialAuthor = ({
             )}
           >
             <User
-              size={iconSizes.xs}
-              className={clsx(colors.status.info, ICON_HOVER, styles.userIconClass)}
+              size={14}
+              className={clsx('text-blue-400', ICON_HOVER, styles.userIconClass)}
               aria-hidden='true'
             />
           </div>
           <div>
-            <cite
-              className={clsx('font-bold not-italic block', colors.text.primary, styles.citeClass)}
-            >
+            <cite className={clsx('font-bold not-italic block text-zinc-50', styles.citeClass)}>
               {author.name}
             </cite>
             <BodySmall className={styles.titleClass}>{author.title}</BodySmall>
           </div>
         </div>
 
-        <div className={clsx(gapSpacing.xs, 'flex flex-wrap', colors.text.muted, styles.metaClass)}>
+        <div className={clsx('gap-2 flex flex-wrap text-zinc-400', styles.metaClass)}>
           <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
             <Briefcase
-              size={iconSizes.xs - 2}
+              size={12}
               className={clsx(ICON_HOVER, styles.smallIconClass)}
               aria-hidden='true'
             />
@@ -171,7 +166,7 @@ const TestimonialAuthor = ({
           </Caption>
           <Caption className={clsx(FLEX_CENTER, styles.gapClass)}>
             <Calendar
-              size={iconSizes.xs - 2}
+              size={12}
               className={clsx(ICON_HOVER, styles.smallIconClass)}
               aria-hidden='true'
             />

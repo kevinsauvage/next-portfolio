@@ -1,7 +1,6 @@
 import type { ElementType, ReactNode } from 'react';
 
 import MeshGradient from '@/components/shared/MeshGradient';
-import { animations, getStaggerDelay } from '@/design-system/tokens';
 
 import clsx from 'clsx';
 
@@ -84,7 +83,7 @@ export const Card = ({
   const animationStyle =
     animationIndex !== undefined
       ? {
-          animationDelay: getStaggerDelay(animationIndex, animations.stagger.base),
+          animationDelay: `${Math.min(100 + animationIndex * 100, 800)}ms`,
         }
       : undefined;
 

@@ -1,5 +1,3 @@
-import { colors } from '@/design-system/tokens';
-
 import clsx from 'clsx';
 
 type RequiredIndicatorProps = {
@@ -8,9 +6,7 @@ type RequiredIndicatorProps = {
 
 const RequiredIndicator = ({ className }: RequiredIndicatorProps) => {
   return (
-    <span className={clsx('absolute -right-3 -top-1 text-2xl', colors.status.error, className)}>
-      *
-    </span>
+    <span className={clsx('absolute -right-3 -top-1 text-2xl text-rose-400', className)}>*</span>
   );
 };
 

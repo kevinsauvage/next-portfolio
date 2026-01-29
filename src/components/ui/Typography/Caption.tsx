@@ -1,7 +1,5 @@
 import type { ElementType, ReactNode } from 'react';
 
-import { colors, getTypographyClasses } from '@/design-system/tokens';
-
 import clsx from 'clsx';
 
 type BaseTypographyProps = {
@@ -18,10 +16,10 @@ export const Caption = ({
   as: Component = 'span',
   ...props
 }: TypographyProps) => {
-  const classes = getTypographyClasses('caption');
+  const classes = 'text-sm leading-normal font-medium text-zinc-300';
 
   return (
-    <Component className={clsx(classes, colors.text.tertiary, className)} {...props}>
+    <Component className={clsx(classes, className)} {...props}>
       {children}
     </Component>
   );

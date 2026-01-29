@@ -1,7 +1,5 @@
 import type { ElementType, ReactNode } from 'react';
 
-import { colors, getTypographyClasses } from '@/design-system/tokens';
-
 import clsx from 'clsx';
 
 type BaseTypographyProps = {
@@ -13,10 +11,10 @@ type BaseTypographyProps = {
 type TypographyProps = BaseTypographyProps & React.HTMLAttributes<HTMLElement>;
 
 export const Body = ({ children, className, as: Component = 'p', ...props }: TypographyProps) => {
-  const classes = getTypographyClasses('body');
+  const classes = 'text-base md:text-lg leading-relaxed font-light text-zinc-200';
 
   return (
-    <Component className={clsx(classes, colors.text.secondary, className)} {...props}>
+    <Component className={clsx(classes, className)} {...props}>
       {children}
     </Component>
   );
