@@ -5,7 +5,6 @@ import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import ClientOnlyWidgets from '@/components/shared/ClientOnlyWidgets';
 import HeadLinks from '@/components/shared/HeadLinks';
-import ReCaptchaScript from '@/components/shared/ReCaptchaScript';
 import ScrollDetector from '@/components/shared/ScrollDetector';
 import SonnerToaster from '@/components/shared/SonnerToaster';
 import StructuredData from '@/components/shared/StructuredData';
@@ -54,7 +53,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <body className={clsx('w-full h-full antialiased font-base font-light', colors.text.primary)}>
         <StructuredData />
         <UmamiScript umamiId={publicEnv.UMAMI_ID} />
-        <ReCaptchaScript />
         <ScrollDetector />
         <SonnerToaster />
         <nav aria-label='Skip navigation'>

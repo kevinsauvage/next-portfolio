@@ -2,6 +2,7 @@
 
 import type { FormEvent } from 'react';
 import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
 
@@ -17,33 +18,9 @@ export interface ContactFormValues {
   message: string;
 }
 
-declare global {
-  interface Window {
-    grecaptcha?: {
-      ready: (callback: () => void) => void;
-      execute: (siteKey: string, options: { action: string }) => Promise<string>;
-    };
-  }
-}
-
 export const initialContactFormState: ContactFormState = {
   status: 'idle',
   fieldErrors: {},
-};
-
-const getRecaptchaToken = async () => {
-  const recaptchaSiteKey = process.env['NEXT_PUBLIC_RECAPTCHA_SITE_KEY'];
-  if (typeof window === 'undefined' || !recaptchaSiteKey) return '';
-  const grecaptcha = window.grecaptcha;
-  if (!grecaptcha) return '';
-
-  await new Promise<void>(resolve => {
-    grecaptcha.ready(resolve);
-  });
-
-  return grecaptcha.execute(recaptchaSiteKey, {
-    action: 'contactMessage',
-  });
 };
 
 const ContactForm = () => {
@@ -53,6 +30,7 @@ const ContactForm = () => {
   );
   const [isGettingCaptcha, setIsGettingCaptcha] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const isSubmitting = isPending || isGettingCaptcha;
 
@@ -82,12 +60,18 @@ const ContactForm = () => {
     const formData = new FormData(formElement);
 
     try {
-      const captchaToken = await getRecaptchaToken();
+      if (!executeRecaptcha) {
+        toast.error('reCAPTCHA is not available. Please refresh the page and try again.');
+        setIsGettingCaptcha(false);
+        return;
+      }
+
+      const captchaToken = await executeRecaptcha('contactMessage');
 
       if (captchaToken) {
         formData.set('captcha', captchaToken);
       } else {
-        toast.error('Failed to get recaptcha token');
+        toast.error('Failed to get reCAPTCHA token');
         setIsGettingCaptcha(false);
         return;
       }
