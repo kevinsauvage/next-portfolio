@@ -1,10 +1,8 @@
-import Link from 'next/link';
-
 import Logo from '@/components/layout/Logo';
 import MobileMenuToggle from '@/components/layout/MobileMenuToggle';
 import Navigation from '@/components/layout/Navigation';
 import ContactInfo from '@/components/shared/ContactInfo';
-import Button from '@/components/ui/Button';
+import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { layout } from '@/config/content';
 
 import { Mail } from 'lucide-react';
@@ -25,17 +23,15 @@ const Header = () => {
           <div className='hidden xl:flex items-center gap-2'>
             <ContactInfo size={20} eventPrefix='header' className='mr-2' />
           </div>
-          <Button
-            asChild
+          <ButtonLink
+            href='#contact'
             svg={<Mail strokeWidth={1.5} size={18} />}
             label={layout.header.ctaButton}
             size='md'
             variant='primary'
-            data-umami-event='header_cta_contact'
+            eventName='header_cta_contact'
             className='hidden lg:block font-semibold whitespace-nowrap'
-          >
-            <Link href='#contact' />
-          </Button>
+          />
           <MobileMenuToggle />
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/Button/Button';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { trackEvent } from '@/lib/analytics';
 

@@ -1,8 +1,6 @@
-import Link from 'next/link';
-
 import ContactInfo from '@/components/shared/ContactInfo';
 import MeshGradient from '@/components/shared/MeshGradient';
-import Button from '@/components/ui/Button';
+import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Body, BodySmall, Display } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 
@@ -59,29 +57,25 @@ const Hero = () => {
           className='flex flex-col sm:flex-row mb-10 z-10 animate-fade-in-up opacity-0 w-full sm:w-auto gap-6'
           style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
         >
-          <Button
-            asChild
+          <ButtonLink
+            href='#portfolio'
             svg={<MoveDown strokeWidth={1.5} size={20} />}
             label='View my work'
             size='xl'
             variant='primary'
-            data-umami-event='hero_cta_click'
+            eventName='hero_cta_click'
             aria-describedby='hero-description'
             className='w-full sm:w-auto min-w-[220px] font-semibold shadow-glow-md hover:shadow-glow-lg'
-          >
-            <Link href='#portfolio' />
-          </Button>
-          <Button
-            asChild
+          />
+          <ButtonLink
+            href='#contact'
             svg={<Mail strokeWidth={1.5} size={20} />}
             label='Get in Touch'
             size='xl'
             variant='secondary'
-            data-umami-event='hero_contact_click'
+            eventName='hero_contact_click'
             className='w-full sm:w-auto min-w-[220px]'
-          >
-            <Link href='#contact' />
-          </Button>
+          />
         </div>
 
         {/* Stats - Visible on desktop only, part of first fold */}

@@ -5,9 +5,8 @@ import { startTransition, useActionState, useEffect, useRef, useState } from 're
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
-
-import Button from '../../ui/Button';
-import { FormError, Input, Label, TextArea } from '../../ui/Form';
+import Button from '@/components/ui/Button/Button';
+import { FormError, Input, Label, TextArea } from '@/components/ui/Form';
 
 import { LucideSend } from 'lucide-react';
 import { toast } from 'sonner';

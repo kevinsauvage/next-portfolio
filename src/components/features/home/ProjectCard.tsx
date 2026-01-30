@@ -1,6 +1,4 @@
-import Link from 'next/link';
-
-import Button from '@/components/ui/Button';
+import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Card, CardContent, CardImage } from '@/components/ui/Card';
 import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
@@ -97,30 +95,30 @@ const ProjectActionButtons = ({
 }) => {
   return (
     <div className='flex flex-wrap gap-3 pt-2 mt-auto'>
-      <Button
-        asChild
+      <ButtonLink
+        href={websiteLink}
         svg={<ExternalLink size={16} aria-hidden='true' />}
         label={sections.portfolio.buttons.viewLive}
         size='sm'
         variant='primary'
-        data-umami-event='project_live_click'
-        data-umami-event-project={title}
+        eventName='project_live_click'
+        eventProperties={{ project: title }}
         className='shadow-glow-sm hover:shadow-glow-md'
-      >
-        <Link href={websiteLink} target='_blank' rel='noopener noreferrer' />
-      </Button>
+        target='_blank'
+        rel='noopener noreferrer'
+      />
       {githubLink.length > 0 && (
-        <Button
-          asChild
+        <ButtonLink
+          href={githubLink[0] as string}
           svg={<Github size={16} aria-hidden='true' />}
           label={sections.portfolio.buttons.sourceCode}
           size='sm'
           variant='secondary'
-          data-umami-event='project_github_click'
-          data-umami-event-project={title}
-        >
-          <Link href={githubLink[0] as string} target='_blank' rel='noopener noreferrer' />
-        </Button>
+          eventName='project_github_click'
+          eventProperties={{ project: title }}
+          target='_blank'
+          rel='noopener noreferrer'
+        />
       )}
     </div>
   );
