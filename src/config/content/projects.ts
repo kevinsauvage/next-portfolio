@@ -21,7 +21,7 @@ const myEcommerceProject: Project = {
   images: {
     thumbnail: {
       alt: 'My Ecommerce Homepage Screenshot',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_700/v1746818453/portfolio/ecommerce-shadcn-tailwind/nextjs-shadcn-ecommerce.webp',
+      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1746818453/portfolio/ecommerce-shadcn-tailwind/nextjs-shadcn-ecommerce.webp',
     },
   },
   technologies: [
