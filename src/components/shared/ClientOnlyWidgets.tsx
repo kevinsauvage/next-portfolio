@@ -6,17 +6,8 @@ const BackToTopButton = dynamic(() => import('@/components/shared/BackToTopButto
   ssr: false,
 });
 
-const WebVitals = dynamic(() => import('@/components/shared/WebVitals'), {
-  ssr: false,
-});
-
 const ClientOnlyWidgets = () => {
-  return (
-    <>
-      <BackToTopButton />
-      <WebVitals />
-    </>
-  );
+  return <BackToTopButton />;
 };
 
 export default ClientOnlyWidgets;
