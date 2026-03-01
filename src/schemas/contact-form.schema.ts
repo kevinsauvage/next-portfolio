@@ -2,7 +2,6 @@ import 'server-only';
 
 import { z } from 'zod';
 
-// Server-side validation schema (not bundled to client)
 export const contactFormSchema = z.object({
   fullName: z.string().min(1, { message: 'Full name is required' }),
   email: z
