@@ -18,6 +18,7 @@ export const certifications: Certification[] = [
     date: '2020',
     description:
       '9-week intensive bootcamp covering full-stack development with Ruby on Rails, JavaScript, and modern web technologies. Built and deployed two production applications including an Airbnb clone.',
+    credentialUrl: '/fullstack-certificate-Kevin-sauvage.pdf',
     skills: [
       'Ruby on Rails',
       'JavaScript ES6',

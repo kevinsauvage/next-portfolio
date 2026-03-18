@@ -126,6 +126,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
 }) => {
   const safeCredentialUrl = (() => {
     if (!credentialUrl) return undefined;
+    if (credentialUrl.startsWith('/')) return credentialUrl;
     try {
       const parsed = new URL(credentialUrl);
       return parsed.protocol === 'http:' || parsed.protocol === 'https:'
