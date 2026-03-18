@@ -1,6 +1,6 @@
 export const SITE_URL = 'https://www.kevin-sauvage.com' as const;
 export const PERSON_NAME = 'Kévin Sauvage' as const;
-export const FRONTEND_DEVELOPER = 'Frontend Developer' as const;
+export const FRONTEND_DEVELOPER = 'Frontend Software Engineer' as const;
 export const SCHEMA_CONTEXT = 'https://schema.org' as const;
 
 export const personSchema = {
@@ -21,10 +21,10 @@ export const personSchema = {
   hasOccupation: {
     '@type': 'Occupation',
     name: FRONTEND_DEVELOPER,
-    description: `${FRONTEND_DEVELOPER} specializing in React, Next.js, and web accessibility`,
+    description: `${FRONTEND_DEVELOPER} specializing in React, Next.js, Svelte, and web accessibility`,
     occupationLocation: {
       '@type': 'Place',
-      name: 'Decathlon International',
+      name: 'Keolis Group',
     },
   },
   knowsAbout: [
@@ -32,16 +32,17 @@ export const personSchema = {
     'TypeScript',
     'React',
     'Next.js',
+    'Svelte',
     'Web Accessibility',
+    'WCAG 2.1',
     'Frontend Development',
     'Performance Optimization',
+    'Core Web Vitals',
     'HTML',
     'CSS',
-    'Sass',
     'Tailwind CSS',
-    'Responsive Design',
-    'Progressive Web Apps',
-    'Web Performance',
+    'Jest',
+    'Cypress',
     'Web Development',
     'Internationalization',
     'SEO',
@@ -63,7 +64,7 @@ export const websiteSchema = {
     '@type': 'Person',
     name: PERSON_NAME,
   },
-  description: `Portfolio website of ${PERSON_NAME}, Frontend Developer`,
+  description: `Portfolio website of ${PERSON_NAME}, Frontend Software Engineer`,
   inLanguage: 'en',
 } as const;
 

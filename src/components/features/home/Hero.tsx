@@ -8,8 +8,8 @@ import clsx from 'clsx';
 import { Mail, MoveDown, Sparkles } from 'lucide-react';
 
 const stats = [
-  { label: 'Products Scaled', value: '5+' },
-  { label: 'Pull Requests Merged', value: '400+' },
+  { label: 'Years Experience', value: '5+' },
+  { label: 'Countries Reached', value: '15+' },
   { label: 'Users Impacted', value: '1M+' },
 ];
 

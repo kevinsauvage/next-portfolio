@@ -13,9 +13,9 @@ type Certification = {
 export const certifications: Certification[] = [
   {
     id: 'le-wagon-full-stack-web-developer-2020',
-    title: 'Full-Stack Web Developer',
+    title: 'Full-Stack Web Developer Bootcamp',
     issuer: 'Le Wagon',
-    date: 'Aug 2020 - Oct 2020',
+    date: '2020',
     description:
       '9-week intensive bootcamp covering full-stack development with Ruby on Rails, JavaScript, and modern web technologies. Built and deployed two production applications including an Airbnb clone.',
     skills: [
@@ -31,13 +31,11 @@ export const certifications: Certification[] = [
       'Full-Stack Development',
     ],
   },
-
   {
     id: 'udemy-advanced-javascript-2021',
-    // NOSONAR: S7637 - Safe: React automatically escapes text content, preventing XSS. This is a static string, not user input.
-    title: 'JavaScript - The Advanced Concepts',
+    title: 'JavaScript — The Advanced Concepts',
     issuer: 'Udemy',
-    date: 'May 2021',
+    date: '2021',
     description:
       'Advanced JavaScript course covering closures, prototypes, async programming, and modern ES6+ features for complex applications.',
     credentialId: 'UC-833af855-7179-4c4e-903a-98172c7e4964',
@@ -45,15 +43,15 @@ export const certifications: Certification[] = [
     skills: ['JavaScript', 'Programming', 'Web Development', 'Frontend Development'],
   },
   {
-    id: 'linkedin-react-using-typescript-2023',
-    title: 'React: Using TypeScript',
-    issuer: 'LinkedIn Learning',
-    date: 'November 2023',
+    id: 'freecodecamp-javascript-algorithms-2021',
+    title: 'JavaScript Algorithms and Data Structures',
+    issuer: 'freeCodeCamp',
+    date: '2021',
     description:
-      'Advanced React course covering TypeScript integration, hooks, context, and performance optimization for scalable applications.',
+      'Certification covering fundamental JavaScript algorithms, data structures, and problem-solving techniques for web development.',
     credentialUrl:
-      'https://www.linkedin.com/learning/certificates/40fd79658af09c1bdbf16e99974debccb5b541758ce2d58f71bdb0dfc323722e',
-    skills: ['React Hooks', 'TypeScript', 'React.js', 'Web Development', 'Frontend Development'],
+      'https://www.freecodecamp.org/certification/kevinsauvage/javascript-algorithms-and-data-structures',
+    skills: ['JavaScript', 'Algorithms', 'Data Structures', 'Problem Solving'],
   },
   {
     id: 'ef-set-c1-english-certificate-2024',

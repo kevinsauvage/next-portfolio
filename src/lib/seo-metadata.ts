@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 
 const PERSON_NAME = 'Kévin Sauvage' as const;
-const PERSON_TITLE = `${PERSON_NAME} - Frontend Developer | React & Next.js Expert` as const;
+const PERSON_TITLE =
+  `${PERSON_NAME} - Frontend Software Engineer | React & Next.js Expert` as const;
 const SITE_DESCRIPTION =
-  'Experienced Frontend Developer specializing in React, Next.js, and accessibility-first design. Building scalable web applications for Decathlon International with 4+ years of expertise in performance optimization and user experience.' as const;
+  'Frontend Software Engineer with 5+ years of experience building scalable, high-performance web products used by millions across 15+ countries. Skilled in React, Next.js, Svelte, TypeScript, and accessibility-first design.' as const;
 
 // eslint-disable-next-line sonarjs/max-lines-per-function
 export function buildRootMetadata(baseUrl: string): Metadata {
