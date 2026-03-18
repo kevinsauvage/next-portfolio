@@ -1,0 +1,70 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+
+    <!-- Rich diagonal gradient: light purple → deep violet → orange -->
+    <linearGradient id="textGrad" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#d8b4fe"/>
+      <stop offset="35%"  stop-color="#9705e6"/>
+      <stop offset="70%"  stop-color="#e8680a"/>
+      <stop offset="100%" stop-color="#ffab5f"/>
+    </linearGradient>
+
+    <!-- Background radial: slightly lighter center -->
+    <radialGradient id="bgGrad" cx="40%" cy="40%" r="70%">
+      <stop offset="0%"   stop-color="#1a0a2e"/>
+      <stop offset="100%" stop-color="#0c0a09"/>
+    </radialGradient>
+
+    <!-- Glow for the text -->
+    <filter id="textGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <!-- Subtle inner shadow on bg -->
+    <filter id="innerGlow" x="0" y="0" width="100%" height="100%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+  </defs>
+
+  <!-- Background -->
+  <rect width="100" height="100" rx="22" fill="url(#bgGrad)"/>
+
+  <!-- Inner purple ambient glow (top-left) -->
+  <ellipse cx="30" cy="28" rx="38" ry="32" fill="#7c3aed" opacity="0.12"/>
+
+  <!-- Inner orange ambient glow (bottom-right) -->
+  <ellipse cx="72" cy="74" rx="32" ry="28" fill="#f18e31" opacity="0.10"/>
+
+  <!-- Border: crisp gradient stroke -->
+  <rect width="100" height="100" rx="22" fill="none" stroke="url(#textGrad)" stroke-width="1.2" opacity="0.3"/>
+
+  <!-- KS text — glow layer (blurred, behind) -->
+  <text
+    x="50" y="56"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="'Palatino Linotype', Palatino, 'Book Antiqua', serif"
+    font-size="56"
+    font-weight="900"
+    fill="url(#textGrad)"
+    opacity="0.5"
+    filter="url(#textGlow)"
+    letter-spacing="-3"
+  >KS</text>
+
+  <!-- KS text — crisp top layer -->
+  <text
+    x="50" y="56"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    font-family="'Palatino Linotype', Palatino, 'Book Antiqua', serif"
+    font-size="56"
+    font-weight="900"
+    fill="url(#textGrad)"
+    letter-spacing="-3"
+  >KS</text>
+
+</svg>
