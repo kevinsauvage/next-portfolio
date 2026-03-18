@@ -5,7 +5,7 @@ export const sections = {
       secondLine: 'Accessible Web Apps',
     },
     description:
-      'A Frontend Software Engineer who builds scalable, high-performance web products with React, Next.js and TypeScript. I focus on code quality, automated testing, and continuous delivery to create solutions that work well for users across 15+ countries.',
+      "Frontend Software Engineer shipping high-performance web products used by millions across 15+ countries — including Decathlon's e-commerce platforms. Specialised in React.js, Next.js, Svelte.js, and TypeScript, with deep expertise in accessibility, automated testing, and scalable component architecture.",
     availability: 'Available for new projects',
   },
   about: {
@@ -13,7 +13,7 @@ export const sections = {
     title: "Hi, I'm Kévin Sauvage",
     experience: '5+ Years Experience',
     description:
-      "I'm a Frontend Software Engineer with 5+ years of experience building scalable, high-performance web products used by millions across 15+ countries. Skilled in React.js, Next.js, TypeScript, and Node.js, I have a product engineering mindset centred on code quality, automated testing, and continuous delivery. I've shipped complex features in Agile teams, integrated third-party APIs, and driven measurable gains in performance and user experience. Barcelona-based, I'm fluent in English, French, and Spanish.",
+      "I'm a Frontend Software Engineer with 5+ years shipping high-performance web products used by millions across 15+ countries — including Decathlon's e-commerce platforms in Europe. I'm specialised in React.js, Next.js, Svelte.js, and TypeScript, with deep expertise in accessibility, automated testing, and scalable component architecture. I'm comfortable owning features end-to-end in fast-moving Agile teams. Barcelona-based, I'm fluent in English, French, and Spanish.",
   },
   expertise: {
     overline: 'Expertise',

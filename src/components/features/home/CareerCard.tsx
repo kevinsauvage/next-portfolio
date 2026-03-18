@@ -25,11 +25,26 @@ const SkillsTags = ({ skills }: { skills: string[] }) => {
   );
 };
 
-const Description = ({ description }: { description: string }) => {
+const Description = ({
+  description,
+  descriptionArray,
+}: {
+  description: string;
+  descriptionArray?: string[];
+}) => {
+  const items = descriptionArray?.length ? descriptionArray : [description];
+
   return (
-    <BodySmall className='flex-1 transition-colors text-zinc-200 group-hover:text-zinc-200'>
-      {description}
-    </BodySmall>
+    <ul className='flex-1 space-y-2 list-none pl-0'>
+      {items.map((item, i) => (
+        <li key={i} className='flex gap-3'>
+          <span className='mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-zinc-500' aria-hidden />
+          <BodySmall className='min-w-0 flex-1 transition-colors text-zinc-200 group-hover:text-zinc-200'>
+            {item}
+          </BodySmall>
+        </li>
+      ))}
+    </ul>
   );
 };
 
@@ -57,6 +72,7 @@ const PositionAndPeriod = ({ position, period }: { position: string; period: str
 const CareerCard: React.FC<CareerCardProps> = ({
   company,
   description,
+  descriptionArray,
   period,
   position,
   skills,
@@ -94,7 +110,10 @@ const CareerCard: React.FC<CareerCardProps> = ({
           <NumberBadge number={index + 1} />
         </CardHeader>
         <PositionAndPeriod position={position} period={period} />
-        <Description description={description ?? ''} />
+        <Description
+          description={description ?? ''}
+          {...(descriptionArray && { descriptionArray })}
+        />
         <SkillsTags skills={skills ?? []} />
       </CardContent>
     </Card>

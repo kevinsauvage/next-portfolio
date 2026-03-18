@@ -4,7 +4,7 @@ const PERSON_NAME = 'Kévin Sauvage' as const;
 const PERSON_TITLE =
   `${PERSON_NAME} - Frontend Software Engineer | React & Next.js Expert` as const;
 const SITE_DESCRIPTION =
-  'Frontend Software Engineer with 5+ years of experience building scalable, high-performance web products used by millions across 15+ countries. Skilled in React, Next.js, Svelte, TypeScript, and accessibility-first design.' as const;
+  "Frontend Software Engineer with 5+ years shipping high-performance web products used by millions across 15+ countries — including Decathlon's e-commerce platforms. Specialised in React, Next.js, Svelte, TypeScript, accessibility, and scalable component architecture." as const;
 
 // eslint-disable-next-line sonarjs/max-lines-per-function
 export function buildRootMetadata(baseUrl: string): Metadata {

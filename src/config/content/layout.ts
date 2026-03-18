@@ -60,6 +60,8 @@ export const layout = {
           'Git',
           'Figma',
           'Storybook',
+          'Cursor',
+          'Claude',
         ],
       },
       availability: {

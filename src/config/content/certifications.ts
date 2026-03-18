@@ -44,17 +44,6 @@ export const certifications: Certification[] = [
     skills: ['JavaScript', 'Programming', 'Web Development', 'Frontend Development'],
   },
   {
-    id: 'freecodecamp-javascript-algorithms-2021',
-    title: 'JavaScript Algorithms and Data Structures',
-    issuer: 'freeCodeCamp',
-    date: '2021',
-    description:
-      'Certification covering fundamental JavaScript algorithms, data structures, and problem-solving techniques for web development.',
-    credentialUrl:
-      'https://www.freecodecamp.org/certification/kevinsauvage/javascript-algorithms-and-data-structures',
-    skills: ['JavaScript', 'Algorithms', 'Data Structures', 'Problem Solving'],
-  },
-  {
     id: 'ef-set-c1-english-certificate-2024',
     title: 'C1 English Certificate',
     issuer: 'EF SET',
