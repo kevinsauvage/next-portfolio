@@ -100,7 +100,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               onClick={goToPrevious}
               disabled={isAnimating}
               aria-label='Previous testimonial'
-              tabIndex={-1}
               className={clsx(
                 'absolute left-0 -translate-x-1/2 md:-translate-x-0 top-1/2 -translate-y-1/2 z-20',
                 'p-2 md:p-3 lg:p-4 rounded-full',
@@ -123,7 +122,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               onClick={goToNext}
               disabled={isAnimating}
               aria-label='Next testimonial'
-              tabIndex={-1}
               className={clsx(
                 'absolute right-0 translate-x-1/2 md:translate-x-0 top-1/2 -translate-y-1/2 z-20',
                 'p-2 md:p-3 lg:p-4 rounded-full',

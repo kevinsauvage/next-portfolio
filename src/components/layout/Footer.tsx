@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
           <BodySmall className='max-w-sm'>{layout.footer.tagline}</BodySmall>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8'>
           <nav aria-label='Footer navigation'>
             <H4 className='mb-4'>{layout.footer.sections.quickLinks.title}</H4>
             <ul className='space-y-2'>
