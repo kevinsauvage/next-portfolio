@@ -34,7 +34,8 @@ export const certifications: Certification[] = [
   },
   {
     id: 'udemy-advanced-javascript-2021',
-    title: 'JavaScript — The Advanced Concepts',
+    // eslint-disable-next-line no-restricted-syntax
+    title: 'JavaScript: The Advanced Concepts',
     issuer: 'Udemy',
     date: '2021',
     description:

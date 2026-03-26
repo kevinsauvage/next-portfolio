@@ -25,7 +25,7 @@ export const layout = {
   footer: {
     name: 'Kévin Sauvage',
     tagline:
-      "Frontend Software Engineer building scalable, high-performance web products. Let's work together on your next project.",
+      "I build fast, accessible web products that people enjoy using. If you have a project in mind, let's talk.",
     sections: {
       quickLinks: {
         title: 'Quick Links',

@@ -5,7 +5,7 @@ export const sections = {
       secondLine: 'Accessible Web Apps',
     },
     description:
-      "Frontend Software Engineer shipping high-performance web products used by millions across 15+ countries — including Decathlon's e-commerce platforms. Specialised in React.js, Next.js, Svelte.js, and TypeScript, with deep expertise in accessibility, automated testing, and scalable component architecture.",
+      "I build fast, accessible web products used by millions across 15+ countries, including Decathlon's e-commerce platforms. My stack is React, Next.js, Svelte and TypeScript, with a strong focus on accessibility, testing and scalable component architecture.",
     availability: 'Available for new projects',
   },
   about: {
@@ -13,25 +13,25 @@ export const sections = {
     title: "Hi, I'm Kévin Sauvage",
     experience: '5+ Years Experience',
     description:
-      "I'm a Frontend Software Engineer with 5+ years shipping high-performance web products used by millions across 15+ countries — including Decathlon's e-commerce platforms in Europe. I'm specialised in React.js, Next.js, Svelte.js, and TypeScript, with deep expertise in accessibility, automated testing, and scalable component architecture. I'm comfortable owning features end-to-end in fast-moving Agile teams. Barcelona-based, I'm fluent in English, French, and Spanish.",
+      "I've spent 5+ years building web products used by millions across 15+ countries, including Decathlon's e-commerce platforms in Europe. I mostly work with React, Next.js, Svelte and TypeScript, and I care a lot about accessibility, testing and keeping codebases maintainable. I'm comfortable owning features from start to finish in fast-moving teams. Based in Barcelona, I work fluently in English, French and Spanish.",
   },
   expertise: {
     overline: 'Expertise',
     title: 'What I Do Best',
     description:
-      'Services to help your business online, from custom development to optimization and ongoing support. I work with modern technologies to build applications that are fast, accessible, and easy to use.',
+      'Whether you need something built from scratch or want to improve what you already have, I can help. I work with modern tools to build things that are fast, accessible and easy to use.',
   },
   career: {
     overline: 'Career',
     title: 'Professional Journey',
     description:
-      'Growing through roles focused on quality and creating better user experiences. From building component libraries to optimizing performance, each role has taught me something new about building great web applications.',
+      "Each role I've had has pushed me in a different direction. From building component libraries to tuning performance and accessibility, every step has made me a more well-rounded engineer.",
   },
   portfolio: {
     overline: 'Portfolio',
     title: 'Featured Projects',
     description:
-      'Modern web development in action. Each project focuses on speed, accessibility, and good user experience. These examples show how I approach real-world challenges and deliver working solutions.',
+      "Here are some projects I've worked on. Each one is focused on speed, accessibility and real usability, and reflects how I think through problems and build things that hold up in production.",
     buttons: {
       viewLive: 'View Live',
       sourceCode: 'Source Code',
@@ -40,22 +40,21 @@ export const sections = {
   testimonials: {
     overline: 'Testimonials',
     title: 'What Colleagues Say',
-    description:
-      'What colleagues and managers say about working with me. These testimonials reflect the collaborative approach and technical skills I bring to each project.',
+    description: 'A few words from colleagues and managers I have had the chance to work with.',
   },
   contact: {
     overline: 'Contact',
     title: "Let's build something great",
     description:
-      "Have a project or challenge? I'd love to hear about it. Let's discuss how we can work together to build something that meets your needs and exceeds your expectations.",
+      "Got a project or just want to chat? Tell me what you are working on and let's see if we would be a good fit.",
     features: {
       quickResponse: {
         title: 'Quick Response',
-        description: 'I typically respond within 24 hours during weekdays',
+        description: 'I typically reply within 24 hours on weekdays',
       },
       directContact: {
         title: 'Direct Contact',
-        description: "Fill out the form below and I'll get back to you soon",
+        description: "Fill out the form and I'll get back to you soon",
       },
     },
   },
@@ -63,7 +62,7 @@ export const sections = {
     overline: 'Continuous Learning',
     title: 'Certifications & Achievements',
     description:
-      'Staying current with industry practices and new technologies through continuous learning. These certifications and achievements show my commitment to growing as a developer and staying up-to-date with the latest tools and techniques.',
+      'I like keeping up with new tools and practices. These are a few certifications I have picked up along the way.',
     button: 'View Credential',
   },
 } as const;
