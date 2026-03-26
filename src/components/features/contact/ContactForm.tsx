@@ -7,6 +7,8 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
 import Button from '@/components/ui/Button/Button';
 import { FormError, Input, Label, TextArea } from '@/components/ui/Form';
+import { trackEvent } from '@/lib/analytics';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import { LucideSend } from 'lucide-react';
 import { toast } from 'sonner';
@@ -29,11 +31,23 @@ const ContactForm = () => {
   );
   const [isGettingCaptcha, setIsGettingCaptcha] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
+  const prevStatusRef = useRef<ContactFormState['status']>('idle');
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const isSubmitting = isPending || isGettingCaptcha;
 
   useEffect(() => {
+    const prev = prevStatusRef.current;
+    if (prev !== 'success' && formState.status === 'success') {
+      trackEvent(UMAMI_EVENTS.CONTACT_FORM_SUBMIT_SUCCESS);
+    }
+    if (prev !== 'error' && formState.status === 'error') {
+      trackEvent(UMAMI_EVENTS.CONTACT_FORM_SUBMIT_ERROR, {
+        message: formState.message ?? 'unknown',
+      });
+    }
+    prevStatusRef.current = formState.status;
+
     switch (formState.status) {
       case 'success': {
         formRef.current?.reset();
@@ -169,7 +183,7 @@ const ContactForm = () => {
           disabled={isSubmitting}
           variant='primary'
           size='md'
-          eventName='contact_form_submit'
+          eventName={UMAMI_EVENTS.CONTACT_FORM_SUBMIT_ATTEMPT}
           aria-live='polite'
         />
       </div>

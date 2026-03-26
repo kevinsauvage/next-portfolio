@@ -8,6 +8,7 @@ import ContactInfo from '@/components/shared/ContactInfo';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import { ChevronRight, MenuIcon, X } from 'lucide-react';
 
@@ -65,8 +66,9 @@ const MobileMenuToggle = () => {
                   href={href}
                   onClick={closeMenu}
                   aria-label={`Go to ${label} section`}
-                  data-umami-event='header_nav_click'
-                  data-umami-event-label={label}
+                  data-umami-event={UMAMI_EVENTS.NAV_SECTION_CLICK}
+                  data-umami-event-location='mobile'
+                  data-umami-event-section={label}
                   className='flex items-center justify-between p-4 mb-2 rounded-lg bg-zinc-800/50 border border-zinc-700/50 hover:border-primary-500/50 hover:bg-zinc-800 active:bg-zinc-700 transition-all duration-200 group min-h-[56px]'
                 >
                   <BodySmall className='font-medium text-lg text-zinc-50'>{label}</BodySmall>
@@ -89,7 +91,8 @@ const MobileMenuToggle = () => {
               target='_blank'
               rel='noopener noreferrer'
               onClick={closeMenu}
-              data-umami-event='mobile_menu_resume_click'
+              data-umami-event={UMAMI_EVENTS.CTA_RESUME_CLICK}
+              data-umami-event-location='mobile_menu'
               className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-all duration-200 text-zinc-50'
             >
               {layout.header.mobileMenu.ctaButton}

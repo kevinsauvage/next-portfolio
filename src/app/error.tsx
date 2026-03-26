@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import Button from '@/components/ui/Button/Button';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { trackEvent } from '@/lib/analytics';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -17,7 +18,10 @@ const handleReload = () => {
 
 const ErrorPage = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
-    trackEvent('app-error', { message: error.message, digest: error.digest });
+    trackEvent(UMAMI_EVENTS.APP_ERROR_BOUNDARY, {
+      message: error.message,
+      digest: error.digest ?? '',
+    });
     console.error('Application error:', error);
   }, [error]);
 
@@ -31,8 +35,20 @@ const ErrorPage = ({ error, reset }: ErrorProps) => {
           </BodySmall>
         </div>
         <div className='flex flex-col gap-3 sm:flex-row sm:justify-center'>
-          <Button label='Reload Page' onClick={handleReload} variant='primary' size='lg' />
-          <Button label='Try Again' onClick={reset} variant='secondary' size='lg' />
+          <Button
+            label='Reload Page'
+            onClick={handleReload}
+            variant='primary'
+            size='lg'
+            eventName={UMAMI_EVENTS.ERROR_BOUNDARY_RELOAD}
+          />
+          <Button
+            label='Try Again'
+            onClick={reset}
+            variant='secondary'
+            size='lg'
+            eventName={UMAMI_EVENTS.ERROR_BOUNDARY_RETRY}
+          />
         </div>
       </div>
     </div>

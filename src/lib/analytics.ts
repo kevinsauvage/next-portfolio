@@ -1,3 +1,5 @@
+export { UMAMI_EVENTS } from './analytics-events';
+
 declare global {
   interface Window {
     umami?: {

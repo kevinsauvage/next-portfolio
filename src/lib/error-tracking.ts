@@ -1,4 +1,5 @@
 import { trackEvent } from './analytics';
+import { UMAMI_EVENTS } from './analytics-events';
 
 interface ErrorLog {
   message: string;
@@ -18,7 +19,10 @@ export function logError(error: Error, context?: Record<string, unknown>) {
   };
 
   console.error('Error logged:', { ...errorLog, context });
-  trackEvent('error', { message: error.message, ...context });
+  trackEvent(UMAMI_EVENTS.ERROR_CLIENT, {
+    message: error.message,
+    ...context,
+  });
 
   return errorLog;
 }

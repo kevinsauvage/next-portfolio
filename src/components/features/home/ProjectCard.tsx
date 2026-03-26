@@ -4,10 +4,12 @@ import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import { ExternalLink, Github } from 'lucide-react';
 
 type ProjectType = {
+  slug: string;
   title: string;
   description: string;
   images: { thumbnail: { src: string; alt: string } };
@@ -85,11 +87,11 @@ const TechStackTags = ({ technologies }: { technologies: Array<{ name: string }>
 };
 
 const ProjectActionButtons = ({
-  title,
+  slug,
   websiteLink,
   githubLink,
 }: {
-  title: string;
+  slug: string;
   websiteLink: string;
   githubLink: Array<string>;
 }) => {
@@ -101,8 +103,8 @@ const ProjectActionButtons = ({
         label={sections.portfolio.buttons.viewLive}
         size='sm'
         variant='primary'
-        eventName='project_live_click'
-        eventProperties={{ project: title }}
+        eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+        eventProperties={{ link_type: 'live', project_slug: slug }}
         className='shadow-glow-sm hover:shadow-glow-md'
         target='_blank'
         rel='noopener noreferrer'
@@ -114,8 +116,8 @@ const ProjectActionButtons = ({
           label={sections.portfolio.buttons.sourceCode}
           size='sm'
           variant='secondary'
-          eventName='project_github_click'
-          eventProperties={{ project: title }}
+          eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+          eventProperties={{ link_type: 'github', project_slug: slug }}
           target='_blank'
           rel='noopener noreferrer'
         />
@@ -125,7 +127,7 @@ const ProjectActionButtons = ({
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
-  const { title, description, technologies, images, websiteLink, githubLink } = project;
+  const { slug, title, description, technologies, images, websiteLink, githubLink } = project;
 
   return (
     <Card
@@ -141,7 +143,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           <div className='md:col-span-3 flex flex-col space-y-5'>
             <ProjectTitleAndDescription title={title} description={description} index={index} />
             <TechStackTags technologies={technologies} />
-            <ProjectActionButtons title={title} websiteLink={websiteLink} githubLink={githubLink} />
+            <ProjectActionButtons slug={slug} websiteLink={websiteLink} githubLink={githubLink} />
           </div>
         </div>
       </CardContent>

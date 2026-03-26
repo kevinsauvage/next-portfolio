@@ -1,6 +1,7 @@
 import Link from 'next/link';
 
 import { layout } from '@/config/content';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 
@@ -13,8 +14,9 @@ const Navigation = () => {
             <Link
               href={href}
               aria-label={`Go to ${label} section`}
-              data-umami-event='header_nav_click'
-              data-umami-event-label={label}
+              data-umami-event={UMAMI_EVENTS.NAV_SECTION_CLICK}
+              data-umami-event-location='header'
+              data-umami-event-section={label}
               className={clsx(
                 'text-sm md:text-base leading-normal font-normal',
                 'px-3 py-2 xl:px-4',

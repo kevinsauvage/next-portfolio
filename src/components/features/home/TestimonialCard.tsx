@@ -1,5 +1,6 @@
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { BodySmall, Caption } from '@/components/ui/Typography';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 import { Briefcase, Calendar, ExternalLink, Quote, User } from 'lucide-react';
@@ -104,7 +105,7 @@ const TestimonialContent = ({
           'transition-colors duration-200',
           'underline-offset-4 hover:underline'
         )}
-        data-umami-event='testimonial_see_more'
+        data-umami-event={UMAMI_EVENTS.TESTIMONIAL_LINKEDIN_CLICK}
         aria-label='See more testimonials'
         title='See more testimonials'
       >

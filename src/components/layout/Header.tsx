@@ -4,6 +4,7 @@ import Navigation from '@/components/layout/Navigation';
 import ContactInfo from '@/components/shared/ContactInfo';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { layout } from '@/config/content';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import { FileText } from 'lucide-react';
 
@@ -31,7 +32,8 @@ const Header = () => {
             label={layout.header.ctaButton}
             size='md'
             variant='primary'
-            eventName='header_cta_resume'
+            eventName={UMAMI_EVENTS.CTA_RESUME_CLICK}
+            eventProperties={{ location: 'header' }}
             className='hidden lg:block font-semibold whitespace-nowrap'
           />
           <MobileMenuToggle />

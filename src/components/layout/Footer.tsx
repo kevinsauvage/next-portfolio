@@ -3,6 +3,7 @@ import Link from 'next/link';
 import ContactInfo from '@/components/shared/ContactInfo';
 import { BodySmall, H3, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import { Briefcase, CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
 
@@ -28,6 +29,9 @@ const Footer: React.FC = () => {
                   <Link
                     href={link.href}
                     className='hover:text-blue-400 transition-all duration-200 hover:translate-x-1 py-2 flex items-center min-h-[44px]'
+                    data-umami-event={UMAMI_EVENTS.NAV_SECTION_CLICK}
+                    data-umami-event-location='footer'
+                    data-umami-event-section={link.name}
                   >
                     <BodySmall className='text-zinc-200'>{link.name}</BodySmall>
                   </Link>

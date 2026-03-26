@@ -3,6 +3,8 @@
 import { useCallback, useMemo, useState } from 'react';
 
 import TestimonialCard from '@/components/features/home/TestimonialCard';
+import { trackEvent } from '@/lib/analytics';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -53,6 +55,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
   const goToSlide = (index: number) => {
     if (index === currentIndex || isAnimating) return;
     if (index < 0 || index >= testimonials.length) return;
+    trackEvent(UMAMI_EVENTS.TESTIMONIALS_CAROUSEL_DOT, { index: String(index) });
     setDirection(index > currentIndex ? 'right' : 'left');
     setIsAnimating(true);
     const timeoutId = setTimeout(() => {
@@ -63,6 +66,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
 
   const goToPrevious = () => {
     if (isAnimating) return;
+    trackEvent(UMAMI_EVENTS.TESTIMONIALS_CAROUSEL_ARROW, { direction: 'prev' });
     setDirection('left');
     setIsAnimating(true);
     const timeoutId = setTimeout(() => {
@@ -74,6 +78,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
 
   const goToNext = () => {
     if (isAnimating) return;
+    trackEvent(UMAMI_EVENTS.TESTIMONIALS_CAROUSEL_ARROW, { direction: 'next' });
     setDirection('right');
     setIsAnimating(true);
     const timeoutId = setTimeout(() => {

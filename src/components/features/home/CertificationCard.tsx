@@ -2,10 +2,12 @@ import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import { Tag } from '@/components/ui/Tag';
 import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
+import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import { Award, Building2, Calendar, ExternalLink } from 'lucide-react';
 
 type CertificationCardProps = {
+  id: string;
   title: string;
   issuer: string;
   date: string;
@@ -95,13 +97,23 @@ const CertificationSkills = ({ skills }: { skills: string[] }) => {
   );
 };
 
-const CredentialLink = ({ credentialUrl, title }: { credentialUrl: string; title: string }) => {
+const CredentialLink = ({
+  credentialUrl,
+  title,
+  certId,
+}: {
+  credentialUrl: string;
+  title: string;
+  certId: string;
+}) => {
   return (
     <a
       href={credentialUrl}
       target='_blank'
       rel='noopener noreferrer'
       className='inline-flex items-center gap-1.5 mt-auto pt-3 text-xs font-medium border-t border-zinc-800/50 transition-all duration-300 group/link text-primary-300 hover:text-primary-200'
+      data-umami-event={UMAMI_EVENTS.CERT_CREDENTIAL_CLICK}
+      data-umami-event-cert-id={certId}
     >
       <ExternalLink
         size={14}
@@ -116,6 +128,7 @@ const CredentialLink = ({ credentialUrl, title }: { credentialUrl: string; title
 };
 
 const CertificationCard: React.FC<CertificationCardProps> = ({
+  id,
   title,
   issuer,
   date,
@@ -150,7 +163,9 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
         <CertificationHeader title={title} issuer={issuer} date={date} index={index} />
         <CertificationDescription description={description} />
         <CertificationSkills skills={skills} />
-        {safeCredentialUrl && <CredentialLink credentialUrl={safeCredentialUrl} title={title} />}
+        {safeCredentialUrl && (
+          <CredentialLink credentialUrl={safeCredentialUrl} title={title} certId={id} />
+        )}
       </CardContent>
     </Card>
   );
