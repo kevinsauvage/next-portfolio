@@ -5,7 +5,7 @@ import ContactInfo from '@/components/shared/ContactInfo';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { layout } from '@/config/content';
 
-import { Mail } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 const Header = () => {
   return (
@@ -24,12 +24,14 @@ const Header = () => {
             <ContactInfo size={20} eventPrefix='header' className='mr-2' />
           </div>
           <ButtonLink
-            href='#contact'
-            svg={<Mail strokeWidth={1.5} size={18} />}
+            href={layout.header.resumeHref}
+            target='_blank'
+            rel='noopener noreferrer'
+            svg={<FileText strokeWidth={1.5} size={18} />}
             label={layout.header.ctaButton}
             size='md'
             variant='primary'
-            eventName='header_cta_contact'
+            eventName='header_cta_resume'
             className='hidden lg:block font-semibold whitespace-nowrap'
           />
           <MobileMenuToggle />

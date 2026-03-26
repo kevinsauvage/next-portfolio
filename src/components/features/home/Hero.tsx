@@ -2,10 +2,10 @@ import ContactInfo from '@/components/shared/ContactInfo';
 import MeshGradient from '@/components/shared/MeshGradient';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Body, BodySmall, Display } from '@/components/ui/Typography';
-import { sections } from '@/config/content';
+import { layout, sections } from '@/config/content';
 
 import clsx from 'clsx';
-import { Mail, MoveDown, Sparkles } from 'lucide-react';
+import { FileText, MoveDown, Sparkles } from 'lucide-react';
 
 const stats = [
   { label: 'Years Experience', value: '5+' },
@@ -68,12 +68,14 @@ const Hero = () => {
             className='w-full sm:w-auto min-w-[220px] font-semibold shadow-glow-md hover:shadow-glow-lg'
           />
           <ButtonLink
-            href='#contact'
-            svg={<Mail strokeWidth={1.5} size={20} />}
-            label='Get in Touch'
+            href={layout.header.resumeHref}
+            target='_blank'
+            rel='noopener noreferrer'
+            svg={<FileText strokeWidth={1.5} size={20} />}
+            label={layout.header.ctaButton}
             size='xl'
             variant='secondary'
-            eventName='hero_contact_click'
+            eventName='hero_resume_click'
             className='w-full sm:w-auto min-w-[220px]'
           />
         </div>

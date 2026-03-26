@@ -85,8 +85,11 @@ const MobileMenuToggle = () => {
               <ContactInfo size={22} eventPrefix='mobile_menu' />
             </div>
             <Link
-              href='#contact'
+              href={layout.header.resumeHref}
+              target='_blank'
+              rel='noopener noreferrer'
               onClick={closeMenu}
+              data-umami-event='mobile_menu_resume_click'
               className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-all duration-200 text-zinc-50'
             >
               {layout.header.mobileMenu.ctaButton}

@@ -1,12 +1,14 @@
 export const layout = {
   header: {
-    ctaButton: 'Get in touch',
+    /** Public path to PDF in `/public` */
+    resumeHref: '/kevin_sauvage_resume.pdf',
+    ctaButton: 'Resume',
     mobileMenu: {
       title: 'Navigation',
       subtitle: 'Explore my portfolio',
       closeButton: 'Close menu',
       openButton: 'Open menu',
-      ctaButton: 'Get in Touch',
+      ctaButton: 'Resume',
     },
     navigation: {
       items: [
