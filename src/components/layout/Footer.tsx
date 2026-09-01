@@ -11,9 +11,8 @@ const Footer: React.FC = () => {
   return (
     <footer
       className='border-t border-zinc-800 bg-zinc-950/50'
-      role='contentinfo'
       aria-label='Site footer'
-    >
+    > - from src/components/layout/Footer.tsx:10{
       <div className='container m-auto px-6 py-12'>
         <div className='mb-10 text-center md:text-left'>
           <H3 className='mb-2'>{layout.footer.name}</H3>
