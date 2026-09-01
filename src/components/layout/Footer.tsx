@@ -11,7 +11,6 @@ const Footer: React.FC = () => {
   return (
     <footer
       className='border-t border-zinc-800 bg-zinc-950/50'
-      role='contentinfo'
       aria-label='Site footer'
     >
       <div className='container m-auto px-6 py-12'>
