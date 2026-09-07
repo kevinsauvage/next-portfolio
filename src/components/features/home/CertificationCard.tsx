@@ -106,11 +106,13 @@ const CredentialLink = ({
   title: string;
   certId: string;
 }) => {
+  const newWindowDescId = `cert-link-desc-${certId}`;
   return (
     <a
       href={credentialUrl}
       target='_blank'
       rel='noopener noreferrer'
+      aria-describedby={newWindowDescId}
       className='inline-flex items-center gap-1.5 mt-auto pt-3 text-xs font-medium border-t border-zinc-800/50 transition-all duration-300 group/link text-primary-300 hover:text-primary-200'
       data-umami-event={UMAMI_EVENTS.CERT_CREDENTIAL_CLICK}
       data-umami-event-cert-id={certId}
@@ -120,9 +122,14 @@ const CredentialLink = ({
         className='transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5'
         aria-hidden='true'
         tabIndex={-1}
+        aria-hidden='true'
+        tabIndex={-1}
       />
       <span>{sections.certifications.button}</span>
       <span className='sr-only'> for {title}</span>
+      <span id={newWindowDescId} className='sr-only'>
+        (opens in a new window)
+      </span>
     </a>
   );
 };
