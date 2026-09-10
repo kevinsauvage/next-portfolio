@@ -24,6 +24,28 @@ const ContactInfo = ({ size = 24, eventPrefix = 'footer', className }: ContactIn
           target='_blank'
           prefetch={false}
           rel='noopener noreferrer'
+          aria-describedby={`new-window-warning-${item.text}`}
+        >
+          {cloneElement(item.icon, {
+            'aria-hidden': 'true',
+            size,
+            className: 'transition-transform duration-300 hover:rotate-12',
+          })}
+          <span
+            id={`new-window-warning-${item.text}`}
+            className='sr-only'
+          >
+            (opens in a new window)
+          </span>
+        </Link>
+      </li>
+    ))}
+  </ul>
+);
+
+export default ContactInfo;
+
+const _unused: any = (
           data-umami-event={UMAMI_EVENTS.SOCIAL_LINK_CLICK}
           data-umami-event-location={eventPrefix}
           data-umami-event-network={item.text}
