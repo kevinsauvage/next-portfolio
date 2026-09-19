@@ -72,7 +72,7 @@ const TestimonialHeader = ({
     <div className={clsx('flex items-start justify-between', styles.headerClass)}>
       <CardIcon variant='purple'>
         <Quote
-          className={clsx('text-purple-400', ICON_HOVER, styles.quoteIconClass)}
+          className={clsx('text-primary-400', ICON_HOVER, styles.quoteIconClass)}
           size={20}
           strokeWidth={1.5}
           aria-hidden='true'

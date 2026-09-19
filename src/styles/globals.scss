@@ -1,42 +1,42 @@
 @use 'tailwindcss' as *;
 
 @theme {
-  /* Colors */
-  --color-primary-50: #faf5ff;
-  --color-primary-100: #f3e8ff;
-  --color-primary-200: #e9d5ff;
-  --color-primary-300: #d8b4fe;
-  --color-primary-400: #c084fc;
-  --color-primary-500: #9705e6;
-  --color-primary-600: #8510ce;
-  --color-primary-700: #7c3aed;
-  --color-primary-800: #6b21a8;
-  --color-primary-900: #581c87;
-  --color-primary-950: #54007c;
+  /* Colors — Terminal Dark: emerald primary, cyan secondary, amber accent */
+  --color-primary-50: #f0fdf4;
+  --color-primary-100: #dcfce7;
+  --color-primary-200: #bbf7d0;
+  --color-primary-300: #86efac;
+  --color-primary-400: #4ade80;
+  --color-primary-500: #22c55e;
+  --color-primary-600: #16a34a;
+  --color-primary-700: #15803d;
+  --color-primary-800: #166534;
+  --color-primary-900: #14532d;
+  --color-primary-950: #052e16;
 
-  --color-secondary-50: #eef0ff;
-  --color-secondary-100: #d9dcff;
-  --color-secondary-200: #b4b7ff;
-  --color-secondary-300: #8a92ff;
-  --color-secondary-400: #646cf9;
-  --color-secondary-500: #4e5cf5;
-  --color-secondary-600: #6039e8;
-  --color-secondary-700: #7523db;
-  --color-secondary-800: #8510ce;
-  --color-secondary-900: #9705e6;
-  --color-secondary-950: #54007c;
+  --color-secondary-50: #ecfeff;
+  --color-secondary-100: #cffafe;
+  --color-secondary-200: #a5f3fc;
+  --color-secondary-300: #67e3f9;
+  --color-secondary-400: #22d3ee;
+  --color-secondary-500: #06b6d4;
+  --color-secondary-600: #0891b2;
+  --color-secondary-700: #0e7490;
+  --color-secondary-800: #155e75;
+  --color-secondary-900: #164e63;
+  --color-secondary-950: #083344;
 
-  --color-accent-50: #fff4e7;
-  --color-accent-100: #ffe4c2;
-  --color-accent-200: #ffc892;
-  --color-accent-300: #ffab5f;
-  --color-accent-400: #f18e31;
-  --color-accent-500: #d6750d;
-  --color-accent-600: #b25e08;
-  --color-accent-700: #8d4906;
-  --color-accent-800: #693604;
-  --color-accent-900: #442303;
-  --color-accent-950: #221101;
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+  --color-accent-950: #451a03;
 
   --color-neutral-50: #fafaf9;
   --color-neutral-100: #f5f5f4;
@@ -55,6 +55,7 @@
   /* Font Families */
   --font-heading: var(--font-heading);
   --font-sans: var(--font-base);
+  --font-mono: var(--font-code), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* Grid Template Columns */
   --grid-cols-auto-fit-100: repeat(auto-fit, minmax(100px, 1fr));
@@ -68,10 +69,26 @@
   --animate-gradient: gradient 4s ease infinite;
   --animate-mesh-slow: meshGradient 14s ease-in-out infinite alternate;
 
-  /* Box Shadows */
-  --shadow-glow-sm: 0 0 10px rgba(151, 5, 230, 0.45);
-  --shadow-glow-md: 0 0 20px rgba(151, 5, 230, 0.45);
-  --shadow-glow-lg: 0 0 35px rgba(151, 5, 230, 0.5);
+  /* Box Shadows — terminal glow */
+  --shadow-glow-sm: 0 0 10px rgba(34, 197, 94, 0.35);
+  --shadow-glow-md: 0 0 20px rgba(34, 197, 94, 0.35);
+  --shadow-glow-lg: 0 0 35px rgba(34, 197, 94, 0.4);
+}
+
+/* Scroll reveal (paired with <Reveal/>; no-JS and reduced-motion safe) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
 }
 
 @keyframes fadeInUp {
@@ -153,8 +170,13 @@ html {
 }
 
 *:focus-visible {
-  outline: 2px solid rgb(96 165 250);
+  outline: 2px solid rgb(74 222 128);
   outline-offset: 2px;
+}
+
+::selection {
+  background-color: rgb(34 197 94 / 0.35);
+  color: #f8fafc;
 }
 
 input:-webkit-autofill,
@@ -202,8 +224,14 @@ select:-webkit-autofill:focus {
 
 .bg-mesh-gradient {
   background-image:
-    radial-gradient(at 86.7% 17.7%, #9705e6 0px, transparent 50%),
-    radial-gradient(at 20.4% 32.5%, #4e5cf5 0px, transparent 50%),
-    radial-gradient(at 81.8% 74.7%, #00ebd7 0px, transparent 50%),
-    radial-gradient(at 30.8% 88.5%, #d6750d 0px, transparent 50%);
+    radial-gradient(at 86.7% 17.7%, #15803d 0px, transparent 50%),
+    radial-gradient(at 20.4% 32.5%, #0e7490 0px, transparent 50%),
+    radial-gradient(at 81.8% 74.7%, #065f46 0px, transparent 50%),
+    radial-gradient(at 30.8% 88.5%, #92400e 0px, transparent 50%);
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

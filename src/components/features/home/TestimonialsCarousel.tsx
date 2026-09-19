@@ -26,7 +26,7 @@ type TestimonialsCarouselProps = {
 };
 
 const FOCUS_RING_CLASSES =
-  'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-zinc-950';
+  'focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-black';
 const ANIMATION_DURATION = 400;
 const ANIMATION_RESET_DELAY = 50;
 

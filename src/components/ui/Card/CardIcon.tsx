@@ -11,11 +11,11 @@ type CardIconProps = {
 export const CardIcon = ({ children, className, variant = 'primary' }: CardIconProps) => {
   const variantClasses = {
     primary:
-      'bg-gradient-to-br from-primary-600 to-secondary-600 group-hover:from-primary-500 group-hover:to-secondary-500',
-    secondary: 'bg-purple-500/10 border border-purple-500/20',
-    accent: 'bg-blue-500/10 border border-blue-500/20',
-    purple: 'bg-purple-500/10 border border-purple-500/20',
-    blue: 'bg-blue-500/10 border border-blue-500/20',
+      'bg-gradient-to-br from-primary-600 to-secondary-600 group-hover:from-primary-500 group-hover:to-secondary-500 border border-transparent',
+    secondary: 'bg-secondary-500/10 border border-secondary-500/25',
+    accent: 'bg-accent-500/10 border border-accent-500/25',
+    purple: 'bg-primary-500/10 border border-primary-500/25',
+    blue: 'bg-secondary-500/10 border border-secondary-500/25',
   } as const;
 
   const variantClass = (() => {

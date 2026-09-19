@@ -16,20 +16,20 @@ export const getButtonVariantClasses = (variant: ButtonVariant): string => {
   return clsx(
     variant === 'primary' &&
       clsx(
-        'text-zinc-50',
-        'bg-gradient-to-br from-primary-800 to-primary-950 hover:from-primary-900 hover:to-primary-800 focus:ring-2 focus:outline-none focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 hover:shadow-glow-md relative overflow-hidden group'
+        'text-zinc-950 font-semibold',
+        'bg-primary-500 hover:bg-primary-400 focus:ring-2 focus:outline-none focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-black shadow-lg shadow-primary-500/25 hover:shadow-glow-md relative overflow-hidden group'
       ),
     variant === 'secondary' &&
       clsx(
-        'text-zinc-50',
-        'relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 hover:border-zinc-600 hover:border-secondary-500/30 focus:ring-2 focus:outline-none focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-zinc-950 shadow-md hover:shadow-lg group'
+        'text-zinc-100',
+        'relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 hover:border-primary-700/50 focus:ring-2 focus:outline-none focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-black shadow-md hover:shadow-lg group'
       )
   );
 };
 
 export const getButtonBaseClasses = (loading?: boolean, className?: string): string => {
   return clsx(
-    'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap rounded-md font-medium',
+    'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap rounded-md font-medium cursor-pointer',
     'transition-all duration-300 ease-out',
     'hover:scale-105 hover:shadow-xl active:scale-95',
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',

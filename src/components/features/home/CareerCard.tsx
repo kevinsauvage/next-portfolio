@@ -54,7 +54,7 @@ const PositionAndPeriod = ({ position, period }: { position: string; period: str
       <div className='flex items-center gap-2'>
         <TrendingUp
           size={16}
-          className='text-purple-400 transition-transform group-hover:rotate-12 flex-shrink-0'
+          className='text-primary-400 transition-transform group-hover:rotate-12 flex-shrink-0'
           strokeWidth={1.5}
           aria-hidden='true'
           tabIndex={-1}

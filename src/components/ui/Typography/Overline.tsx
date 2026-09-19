@@ -16,7 +16,8 @@ export const Overline = ({
   as: Component = 'p',
   ...props
 }: TypographyProps) => {
-  const classes = 'text-sm leading-normal font-medium tracking-wider uppercase text-zinc-200';
+  const classes =
+    'font-mono text-sm leading-normal font-medium tracking-[0.2em] uppercase text-primary-400 before:mr-2 before:text-primary-600 before:content-["_>_"]';
 
   return (
     <Component className={clsx(classes, className)} {...props}>

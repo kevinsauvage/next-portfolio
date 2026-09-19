@@ -26,7 +26,7 @@ const ErrorPage = ({ error, reset }: ErrorProps) => {
   }, [error]);
 
   return (
-    <div className='min-h-screen flex items-center justify-center bg-zinc-950 text-zinc-50'>
+    <div className='min-h-screen flex items-center justify-center bg-black text-zinc-50'>
       <div className='max-w-md mx-auto text-center p-6'>
         <div className='mb-6'>
           <H4 className='mb-2'>Oops! Something went wrong</H4>

@@ -1,15 +1,20 @@
+import Reveal from '@/components/shared/Reveal';
+
 import clsx from 'clsx';
 
 type SectionProperties = {
   children: React.ReactNode;
   className?: string;
   spacing?: 'sm' | 'md' | 'lg' | 'xl';
+  /** Set to false to opt out of the scroll-reveal entrance. */
+  reveal?: boolean;
 } & React.HTMLAttributes<HTMLElement>;
 
 const Section: React.FC<SectionProperties> = ({
   children,
   className,
   spacing = 'md',
+  reveal = true,
   ...properties
 }) => {
   const spacingClass = (() => {
@@ -28,7 +33,7 @@ const Section: React.FC<SectionProperties> = ({
   })();
   return (
     <section className={clsx('max-w-5xl m-auto w-full', spacingClass, className)} {...properties}>
-      {children}
+      {reveal ? <Reveal>{children}</Reveal> : children}
     </section>
   );
 };

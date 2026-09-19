@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
@@ -35,15 +35,25 @@ const inter = Inter({
   preload: true,
 });
 
+const jetBrainsMono = JetBrains_Mono({
+  display: 'swap',
+  subsets: ['latin'],
+  variable: '--font-code',
+  weight: ['400', '500', '600'],
+  fallback: ['ui-monospace', 'monospace'],
+  preload: false,
+});
+
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const publicEnv = getPublicEnv();
   return (
     <html
       lang='en'
       className={clsx(
-        'bg-zinc-950 h-auto w-auto leading-tight',
+        'bg-black h-auto w-auto leading-tight',
         inter.variable,
-        plusJakartaSans.variable
+        plusJakartaSans.variable,
+        jetBrainsMono.variable
       )}
     >
       <head>

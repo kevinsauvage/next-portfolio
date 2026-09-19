@@ -11,7 +11,7 @@ import { FileText } from 'lucide-react';
 const Header = () => {
   return (
     <header
-      className='w-full fixed top-0 z-40 transition-all duration-300 bg-transparent border-b border-transparent [.page-scrolled_&]:bg-zinc-950/80 [.page-scrolled_&]:backdrop-blur-md [.page-scrolled_&]:border-zinc-800/50'
+      className='w-full fixed top-0 z-40 transition-all duration-300 bg-transparent border-b border-transparent [.page-scrolled_&]:bg-black/80 [.page-scrolled_&]:backdrop-blur-md [.page-scrolled_&]:border-zinc-800/50'
       aria-label='Main navigation'
     >
       <div className='flex justify-between m-auto items-center xl:container px-6 py-4 gap-2 sm:gap-4'>

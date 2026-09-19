@@ -54,7 +54,7 @@ const CertificationHeader = ({
           <div className='flex items-center gap-1.5'>
             <Building2
               size={14}
-              className='text-purple-400 flex-shrink-0'
+              className='text-primary-400 flex-shrink-0'
               strokeWidth={1.5}
               aria-hidden='true'
               tabIndex={-1}

@@ -135,7 +135,7 @@ export const Card = ({
     <Component
       className={clsx(
         baseClasses,
-        'group border border-zinc-700 bg-zinc-900/50 rounded-lg',
+        'group border border-zinc-800 bg-zinc-950/70 rounded-xl hover:border-zinc-700',
         animationIndex !== undefined && 'card-fade-in',
         className
       )}

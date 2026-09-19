@@ -7,7 +7,10 @@ const HeadLinks = () => {
       <link rel='dns-prefetch' href='https://res.cloudinary.com' />
       <link rel='preconnect' href='https://www.google.com' crossOrigin='anonymous' />
       <link rel='dns-prefetch' href='https://www.google.com' />
-      <meta name='theme-color' content='#0ea5e9' />
+      <meta name='theme-color' content='#000000' />
+      <noscript>
+        <style>{'.reveal{opacity:1 !important;transform:none !important;}'}</style>
+      </noscript>
     </>
   );
 };

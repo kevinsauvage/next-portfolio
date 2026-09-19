@@ -34,6 +34,16 @@ const Hero = () => {
           className='z-10 mb-8 flex flex-col justify-center items-center animate-fade-in-up opacity-0'
           style={{ animationFillMode: 'both' }}
         >
+          <p
+            className='mb-6 inline-flex items-center gap-2.5 rounded-full border border-primary-800/60 bg-primary-950/40 px-4 py-1.5 font-mono text-xs font-medium tracking-[0.18em] uppercase text-primary-300'
+            aria-label={`Availability: ${sections.hero.availability}`}
+          >
+            <span className='relative flex h-2 w-2' aria-hidden='true'>
+              <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75' />
+              <span className='relative inline-flex rounded-full h-2 w-2 bg-primary-400' />
+            </span>
+            {sections.hero.availability}
+          </p>
           <Display id='hero-title' className='mb-6 max-w-5xl text-center md:flex md:flex-col'>
             <span className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
               {sections.hero.title.firstLine}
@@ -94,12 +104,12 @@ const Hero = () => {
                 key={stat.label}
                 className='flex flex-col items-center group hover:scale-110 transition-transform duration-300'
               >
-                <div className='text-2xl md:text-3xl font-bold mb-1 flex items-center gap-1 '>
+                <div className='text-2xl md:text-3xl font-bold mb-1 flex items-center gap-1 font-mono text-zinc-50'>
                   {stat.value}
                   {stat.label === 'Years Experience' && (
                     <Sparkles
                       size={20}
-                      className='text-yellow-500 group-hover:animate-spin'
+                      className='text-accent-400 group-hover:animate-spin'
                       aria-hidden='true'
                       tabIndex={-1}
                     />
@@ -132,12 +142,12 @@ const Hero = () => {
               key={stat.label}
               className='flex flex-col items-center group hover:scale-110 transition-transform duration-300'
             >
-              <div className='text-2xl font-bold mb-1 flex items-center gap-1'>
+              <div className='text-2xl font-bold mb-1 flex items-center gap-1 font-mono text-zinc-50'>
                 {stat.value}
                 {stat.label === 'Years Experience' && (
                   <Sparkles
                     size={20}
-                    className='text-yellow-500 group-hover:animate-spin'
+                    className='text-accent-400 group-hover:animate-spin'
                     aria-hidden='true'
                   />
                 )}
