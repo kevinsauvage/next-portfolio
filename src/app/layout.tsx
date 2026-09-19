@@ -51,7 +51,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       </head>
       <body className='w-full h-full antialiased font-base font-light text-zinc-50'>
         <StructuredData />
-        <UmamiScript umamiId={publicEnv.UMAMI_ID} />
+        <UmamiScript umamiId={publicEnv.UMAMI_ID} domains={publicEnv.UMAMI_DOMAINS} />
         <ScrollDetector />
         <SonnerToaster />
         <nav aria-label='Skip navigation'>

@@ -67,6 +67,9 @@ const ContactForm = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // Fires only on a real submit attempt (with captcha flow), unlike a
+    // button click handler which also fires when reCAPTCHA is unavailable.
+    trackEvent(UMAMI_EVENTS.CONTACT_FORM_SUBMIT_ATTEMPT);
     setIsGettingCaptcha(true);
 
     const formElement = event.currentTarget;
@@ -183,7 +186,6 @@ const ContactForm = () => {
           disabled={isSubmitting}
           variant='primary'
           size='md'
-          eventName={UMAMI_EVENTS.CONTACT_FORM_SUBMIT_ATTEMPT}
           aria-live='polite'
         />
       </div>

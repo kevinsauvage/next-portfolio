@@ -130,7 +130,7 @@ This project sets a strict CSP via `next.config.mjs` headers. Key directives:
 
 Notes and exceptions:
 
-- **Umami**: Loaded through a local rewrite to `/growth/...` that targets `https://cloud.umami.is/script.js`; `script-src`/`connect-src` allow the upstream host.
+- **Umami**: Tracker script proxied same-origin via `/growth/script.js` → `https://cloud.umami.is/script.js`, and collect calls via `/growth/api/send` → `https://gateway.umami.is/api/send` (Umami Cloud moved collection there on 2026-06-06). `data-host-url='/growth'` keeps tracking first-party; `script-src`/`connect-src` also allow the upstream hosts as fallback. Pageviews are auto-tracked (the tracker observes History API navigations — do not call `track()` manually for those). Custom events go through `trackEvent()` in `src/lib/analytics.ts`, which queues pre-load events, sanitizes payloads to Umami's event-data limits, respects DNT, and is disabled outside production unless `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV=true`. Optional `UMAMI_DOMAINS` env restricts the tracker to given domains.
 - **Structured Data (JSON-LD)**: Inline `<script type="application/ld+json">` requires `'unsafe-inline'`. To remove this, switch to a CSP nonce approach and set the nonce on those scripts.
 - **reCAPTCHA v3**: Requires `www.google.com` and `www.gstatic.com` in `script-src`, `connect-src`, and `frame-src`.
 - **Vercel Analytics**: If enabled, you may need to add Vercel domains (e.g., `https://va.vercel-scripts.com` in `script-src` and `https://vitals.vercel-insights.com` in `connect-src`).

@@ -14,6 +14,7 @@ const serverEnvSchema = z.object({
 const publicEnvSchema = z.object({
   NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().min(1),
   UMAMI_ID: z.string().optional(),
+  UMAMI_DOMAINS: z.string().optional(),
   GOOGLE_SITE_VERIFICATION: z.string().optional(),
 });
 

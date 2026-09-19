@@ -41,6 +41,9 @@ export const UMAMI_EVENTS = {
   /** Carousel dot pagination. Extra props: index (0-based) */
   TESTIMONIALS_CAROUSEL_DOT: 'testimonials_carousel_dot',
 
+  /** Generic outbound link clicks. Extra props: url, location */
+  OUTBOUND_LINK_CLICK: 'outbound_link_click',
+
   /** Non-fatal client logging (@/lib/error-tracking) */
   ERROR_CLIENT: 'error_client',
 

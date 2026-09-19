@@ -1,11 +1,18 @@
+'use client';
+
 import Script from 'next/script';
 
-import { getUmamiScriptProps } from '@/lib/analytics';
+import { flushUmamiQueue, getUmamiScriptProps } from '@/lib/analytics';
 
-const UmamiScript: React.FC<{ umamiId?: string | undefined }> = ({ umamiId }) => {
-  const props = getUmamiScriptProps(umamiId);
+interface UmamiScriptProps {
+  umamiId?: string | undefined;
+  domains?: string | undefined;
+}
+
+const UmamiScript: React.FC<UmamiScriptProps> = ({ umamiId, domains }) => {
+  const props = getUmamiScriptProps(umamiId, { domains });
   if (!props) return null;
-  return <Script strategy='lazyOnload' {...props} />;
+  return <Script strategy='afterInteractive' onLoad={flushUmamiQueue} {...props} />;
 };
 
 export default UmamiScript;
