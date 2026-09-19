@@ -20,7 +20,7 @@ export function trackEvent(eventName: string, data?: Record<string, unknown>): v
 
 export function getUmamiScriptProps(
   umamiId: string | undefined
-): { 'data-website-id': string; src: string } | null {
+): { 'data-website-id': string; 'data-host-url': string; src: string } | null {
   if (!umamiId) return null;
-  return { 'data-website-id': umamiId, src: '/growth/rewrites' };
+  return { 'data-website-id': umamiId, 'data-host-url': '/growth', src: '/growth/script.js' };
 }

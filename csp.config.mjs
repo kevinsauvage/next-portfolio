@@ -9,6 +9,7 @@ export const cspDirectives = {
     "'unsafe-inline'",
     "'unsafe-eval'",
     'https://cloud.umami.is',
+    'https://gateway.umami.is',
     'https://www.google.com',
     'https://www.gstatic.com',
     'https://va.vercel-scripts.com',
@@ -21,6 +22,7 @@ export const cspDirectives = {
   'connect-src': [
     "'self'",
     'https://cloud.umami.is',
+    'https://gateway.umami.is',
     'https://api-gateway.umami.dev',
     'https://www.google.com',
     'https://www.gstatic.com',
