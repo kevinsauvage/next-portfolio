@@ -1,4 +1,5 @@
 import ContactInfo from '@/components/shared/ContactInfo';
+import GridBackground from '@/components/shared/GridBackground';
 import MeshGradient from '@/components/shared/MeshGradient';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Body, BodySmall, Display } from '@/components/ui/Typography';
@@ -18,6 +19,7 @@ const Hero = () => {
   return (
     <div className='relative rounded-none border-0 border-t border-zinc-700'>
       <MeshGradient overlayOpacity={75} />
+      <GridBackground />
 
       {/* Hero Content - Full viewport on mobile */}
       <section
