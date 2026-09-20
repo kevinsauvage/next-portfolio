@@ -1,31 +1,36 @@
 name: Lighthouse Audit
 
 on:
-  workflow_run:
-    workflows: ['Deploy']
-    types:
-      - completed
+  # Vercel deploys on push to main, so this audit is decoupled from GitHub
+  # Actions workflows: run it on demand and on a weekly schedule.
+  workflow_dispatch:
+  schedule:
+    - cron: '0 4 * * 1'
 
 jobs:
   lighthouse:
-    if: ${{ github.event.workflow_run.conclusion == 'success' && vars.SITE_URL != '' }}
+    if: ${{ vars.SITE_URL != '' }}
+    name: Lighthouse CI
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Run Lighthouse CI
         uses: treosh/lighthouse-ci-action@03becbfc543944dd6e7534f7ff768abb8a296826 # v10
         with:
-          urls: |
-            ${{ vars.SITE_URL }}
-          configPath: ''
+          urls: ${{ vars.SITE_URL }}
+          configPath: ./lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
 
   skip-reason:
-    if: ${{ !(github.event.workflow_run.conclusion == 'success' && vars.SITE_URL != '') }}
+    if: ${{ vars.SITE_URL == '' }}
+    name: Skipped
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
-      - run: echo "Skipping Lighthouse. Either Deploy failed or SITE_URL is not set."
+      - run: echo "Skipping Lighthouse. SITE_URL repository variable is not set."
