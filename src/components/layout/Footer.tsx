@@ -23,12 +23,12 @@ const Footer: React.FC = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8'>
           <nav aria-label='Footer navigation'>
             <H4 className='mb-4'>{layout.footer.sections.quickLinks.title}</H4>
-            <ul className='space-y-2'>
+            <ul className='grid grid-cols-2 gap-x-4 gap-y-1'>
               {layout.footer.sections.quickLinks.links.map(link => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className='hover:text-blue-400 transition-all duration-200 hover:translate-x-1 py-2 flex items-center min-h-[44px]'
+                    className='hover:text-blue-400 transition-all duration-200 hover:translate-x-1 py-1 flex items-center min-h-[36px]'
                     data-umami-event={UMAMI_EVENTS.NAV_SECTION_CLICK}
                     data-umami-event-location='footer'
                     data-umami-event-section={link.name}

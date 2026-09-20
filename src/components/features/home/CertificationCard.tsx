@@ -4,6 +4,7 @@ import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
+import clsx from 'clsx';
 import { Award, Building2, Calendar, ExternalLink } from 'lucide-react';
 
 type CertificationCardProps = {
@@ -16,6 +17,7 @@ type CertificationCardProps = {
   credentialUrl?: string;
   skills: string[];
   index: number;
+  featured?: boolean;
 };
 
 const CertificationHeader = ({
@@ -136,6 +138,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
   credentialUrl,
   skills,
   index,
+  featured = false,
 }) => {
   const safeCredentialUrl = (() => {
     if (!credentialUrl) return undefined;
@@ -157,7 +160,7 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
       glow='secondary-accent'
       animationIndex={index}
       aria-labelledby={`cert-${index}`}
-      className='group relative h-full'
+      className={clsx('group relative h-full', featured && 'lg:col-span-2')}
     >
       <CardContent spacing='lg' className='relative z-10 h-full flex flex-col'>
         <CertificationHeader title={title} issuer={issuer} date={date} index={index} />

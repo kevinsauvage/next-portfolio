@@ -18,6 +18,7 @@ type Testimonial = {
     relationship: string;
   };
   content: string;
+  excerpt: string;
   date: string;
 };
 
@@ -161,8 +162,10 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
         >
           {currentTestimonial && (
             <TestimonialCard
+              key={currentTestimonial.id}
               author={currentTestimonial.author}
               content={currentTestimonial.content}
+              excerpt={currentTestimonial.excerpt}
               date={currentTestimonial.date}
               index={displayedIndex}
               variant='carousel'

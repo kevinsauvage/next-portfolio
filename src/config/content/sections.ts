@@ -1,25 +1,36 @@
 export const sections = {
   hero: {
     title: {
-      firstLine: 'Building Fast,',
-      secondLine: 'Accessible Web Apps',
+      firstLine: 'Frontend Engineer for',
+      secondLine: 'High-Traffic E-commerce',
     },
     description:
-      "I build fast, accessible web products used by millions across 15+ countries, including Decathlon's e-commerce platforms. My stack is React, Next.js, Svelte and TypeScript, with a strong focus on accessibility, testing and scalable component architecture.",
-    availability: 'Available for new projects',
+      'Working remotely at Keolis, previously Decathlon e-commerce across 15+ markets. I build accessible, high-performance storefronts and design systems with React, Next.js and Svelte.',
+    availability: 'Currently at Keolis Group',
   },
   about: {
     overline: 'About me',
     title: "Hi, I'm Kévin Sauvage",
     experience: '5+ Years Experience',
+    currently: 'Currently at Keolis Group (remote) — accessibility at scale, axe in CI',
     description:
-      "I've spent 5+ years building web products used by millions across 15+ countries, including Decathlon's e-commerce platforms in Europe. I mostly work with React, Next.js, Svelte and TypeScript, and I care a lot about accessibility, testing and keeping codebases maintainable. I'm comfortable owning features from start to finish in fast-moving teams. Based in Barcelona, I work fluently in English, French and Spanish.",
+      "Frontend Engineer at Keolis Group (remote), based in Barcelona, with 5+ years building web products used by millions across 15+ countries, including Decathlon's e-commerce platforms in Europe. I mostly work with React, Next.js, Svelte and TypeScript, and I care a lot about accessibility, testing and keeping codebases maintainable. I'm comfortable owning features from start to finish in fast-moving teams.",
+    languagesTitle: 'Languages',
+    languages: [
+      { language: 'French', level: 'Native' },
+      {
+        language: 'English',
+        level: 'C1 Certified',
+        credentialUrl: 'https://cert.efset.org/W8vpXL',
+      },
+      { language: 'Spanish', level: 'Fluent' },
+    ],
   },
   expertise: {
     overline: 'Expertise',
     title: 'What I Do Best',
     description:
-      'Whether you need something built from scratch or want to improve what you already have, I can help. I work with modern tools to build things that are fast, accessible and easy to use.',
+      'Where I am strongest in a product team: building from scratch or improving what already exists. I work with modern tools to build things that are fast, accessible and easy to use.',
   },
   career: {
     overline: 'Career',
@@ -44,9 +55,11 @@ export const sections = {
   },
   contact: {
     overline: 'Contact',
-    title: "Let's build something great",
+    title: "Let's connect",
     description:
-      "Got a project or just want to chat? Tell me what you are working on and let's see if we would be a good fit.",
+      'Based in Barcelona, working remotely at Keolis Group. Always open to interesting conversations and opportunities — feel free to reach out.',
+    email: 'kevinsauvage@outlook.com',
+    location: 'Barcelona, Spain — CET (UTC+1) · English, French, Spanish',
     features: {
       quickResponse: {
         title: 'Quick Response',
@@ -58,11 +71,17 @@ export const sections = {
       },
     },
   },
-  certifications: {
-    overline: 'Continuous Learning',
-    title: 'Certifications & Achievements',
+  faq: {
+    overline: 'FAQ',
+    title: 'Questions, Answered',
     description:
-      'I like keeping up with new tools and practices. These are a few certifications I have picked up along the way.',
+      'The things people usually ask before getting in touch — answered upfront so you don’t have to.',
+  },
+  certifications: {
+    overline: 'Credentials',
+    title: 'Continuous Learning',
+    description:
+      'Production work is my main credential — these formalize the rest. Right now that means accessibility depth, JavaScript fundamentals, and working across three languages.',
     button: 'View Credential',
   },
 } as const;

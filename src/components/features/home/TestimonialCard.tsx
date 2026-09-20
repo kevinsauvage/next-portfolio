@@ -1,9 +1,13 @@
+'use client';
+
+import { useState } from 'react';
+
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { BodySmall, Caption } from '@/components/ui/Typography';
 import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
-import { Briefcase, Calendar, ExternalLink, Quote, User } from 'lucide-react';
+import { Briefcase, Calendar, ChevronDown, ExternalLink, Quote } from 'lucide-react';
 
 type TestimonialCardProps = {
   author: {
@@ -13,10 +17,18 @@ type TestimonialCardProps = {
     relationship: string;
   };
   content: string;
+  excerpt: string;
   date: string;
   index: number;
   variant?: 'default' | 'carousel';
   totalCount?: number;
+};
+
+const getInitials = (name: string) => {
+  const parts = name.trim().split(/\s+/);
+  const first = parts.at(0)?.at(0) ?? '';
+  const last = parts.length > 1 ? (parts.at(-1)?.at(0) ?? '') : '';
+  return `${first}${last}`.toUpperCase();
 };
 
 // Shared constants
@@ -84,34 +96,61 @@ const TestimonialHeader = ({
 };
 
 const TestimonialContent = ({
+  authorName,
   content,
+  excerpt,
   styles,
 }: {
+  authorName: string;
   content: string;
+  excerpt: string;
   styles: typeof variantStyles.default | typeof variantStyles.carousel;
 }) => {
+  const [expanded, setExpanded] = useState(false);
+  const visibleText = expanded ? content : excerpt;
+
   return (
     <div className='flex-1 space-y-3'>
       <blockquote className={clsx('leading-relaxed italic text-zinc-200', styles.blockquoteClass)}>
-        &quot;{content}&quot;
+        &quot;{visibleText}&quot;
       </blockquote>
-      <a
-        href='https://www.linkedin.com/in/kevin-sauvage/'
-        target='_blank'
-        rel='noopener noreferrer'
-        className={clsx(
-          'inline-flex items-center gap-1.5 text-xs font-medium',
-          'text-primary-400 hover:text-primary-300',
-          'transition-colors duration-200',
-          'underline-offset-4 hover:underline'
-        )}
-        data-umami-event={UMAMI_EVENTS.TESTIMONIAL_LINKEDIN_CLICK}
-        aria-label='See more testimonials'
-        title='See more testimonials'
-      >
-        See more testimonials
-        <ExternalLink size={12} aria-hidden='true' />
-      </a>
+      <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>
+        <button
+          type='button'
+          onClick={() => setExpanded(previous => !previous)}
+          aria-expanded={expanded}
+          className={clsx(
+            'inline-flex items-center gap-1 text-xs font-medium',
+            'text-zinc-300 hover:text-zinc-100',
+            'transition-colors duration-200',
+            'underline-offset-4 hover:underline'
+          )}
+        >
+          {expanded ? 'Show less' : 'Read full'}
+          <ChevronDown
+            size={14}
+            aria-hidden='true'
+            className={clsx('transition-transform duration-300', expanded && 'rotate-180')}
+          />
+        </button>
+        <a
+          href='https://www.linkedin.com/in/kevin-sauvage/'
+          target='_blank'
+          rel='noopener noreferrer'
+          className={clsx(
+            'inline-flex items-center gap-1.5 text-xs font-medium',
+            'text-primary-400 hover:text-primary-300',
+            'transition-colors duration-200',
+            'underline-offset-4 hover:underline'
+          )}
+          data-umami-event={UMAMI_EVENTS.TESTIMONIAL_LINKEDIN_CLICK}
+          aria-label={`Read ${authorName}'s full recommendation on LinkedIn`}
+          title='Sourced from LinkedIn recommendations'
+        >
+          Via LinkedIn
+          <ExternalLink size={12} aria-hidden='true' />
+        </a>
+      </div>
     </div>
   );
 };
@@ -132,14 +171,14 @@ const TestimonialAuthor = ({
           <div
             className={clsx(
               'bg-blue-500/10 rounded-full border border-blue-500/20 group-hover:border-blue-500/40 transition-colors',
+              'flex items-center justify-center',
               styles.avatarClass
             )}
+            aria-hidden='true'
           >
-            <User
-              size={14}
-              className={clsx('text-blue-400', ICON_HOVER, styles.userIconClass)}
-              aria-hidden='true'
-            />
+            <span className='font-mono text-xs md:text-sm font-semibold text-blue-400 whitespace-nowrap'>
+              {getInitials(author.name)}
+            </span>
           </div>
           <div>
             <cite className={clsx('font-bold not-italic block text-zinc-50', styles.citeClass)}>
@@ -182,6 +221,7 @@ const TestimonialAuthor = ({
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
   author,
   content,
+  excerpt,
   date,
   index,
   variant = 'default',
@@ -203,7 +243,12 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     >
       <CardContent spacing='md' className={styles.contentClass}>
         <TestimonialHeader indexDisplay={indexDisplay} styles={styles} />
-        <TestimonialContent content={content} styles={styles} />
+        <TestimonialContent
+          authorName={author.name}
+          content={content}
+          excerpt={excerpt}
+          styles={styles}
+        />
         <TestimonialAuthor author={author} date={date} styles={styles} />
       </CardContent>
     </Card>

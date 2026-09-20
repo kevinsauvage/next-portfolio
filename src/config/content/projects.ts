@@ -35,8 +35,7 @@ const myEcommerceProject: Project = {
     { name: 'Zod' },
   ],
   title: 'Modern E-Commerce Platform',
-  websiteLink:
-    'https://nextjs-strapi-ecommerce-kevinsauvages-projects.vercel.app/?authorization=true',
+  websiteLink: 'https://nextjs-strapi-ecommerce-kevinsauvages-projects.vercel.app',
 };
 
 const projects = [myEcommerceProject];

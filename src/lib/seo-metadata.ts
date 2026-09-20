@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 
 const PERSON_NAME = 'Kévin Sauvage' as const;
 const PERSON_TITLE =
-  `${PERSON_NAME} - Frontend Software Engineer | React & Next.js Expert` as const;
+  `${PERSON_NAME} - Frontend Engineer | React, Next.js, Svelte — Accessible E-commerce at Scale` as const;
 const SITE_DESCRIPTION =
-  "Frontend Software Engineer with 5+ years shipping high-performance web products used by millions across 15+ countries — including Decathlon's e-commerce platforms. Specialised in React, Next.js, Svelte, TypeScript, accessibility, and scalable component architecture." as const;
+  "Frontend Engineer at Keolis Group with 5+ years shipping high-performance web products used by millions across 15+ countries — previously Decathlon's e-commerce platforms. Specialised in React, Next.js, Svelte, TypeScript, accessibility, and scalable component architecture." as const;
 
 // eslint-disable-next-line sonarjs/max-lines-per-function
 export function buildRootMetadata(baseUrl: string): Metadata {
@@ -18,7 +18,7 @@ export function buildRootMetadata(baseUrl: string): Metadata {
     description: SITE_DESCRIPTION,
     generator: 'Next.js',
     keywords:
-      'frontend developer, react expert, next.js developer, javascript developer, web accessibility, performance optimization, e-commerce development, user experience, typescript, tailwind css',
+      'frontend developer, react expert, next.js developer, svelte developer, javascript developer, web accessibility, wcag, performance optimization, core web vitals, e-commerce development, design systems, user experience, typescript, tailwind css, barcelona',
     metadataBase: new URL(baseUrl),
     openGraph: {
       description: SITE_DESCRIPTION,
@@ -54,10 +54,8 @@ export function buildRootMetadata(baseUrl: string): Metadata {
     },
     twitter: {
       card: 'summary_large_image',
-      creator: '@kevinsauvage',
       description: SITE_DESCRIPTION,
       images: ['/images/og-image.png'],
-      site: '@kevinsauvage',
       title: PERSON_TITLE,
     },
     verification: {

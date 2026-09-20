@@ -69,13 +69,13 @@ const Hero = () => {
           style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
         >
           <ButtonLink
-            href='#portfolio'
+            href='#career'
             svg={<MoveDown strokeWidth={1.5} size={20} />}
-            label='View my work'
+            label='See impact'
             size='xl'
             variant='primary'
-            eventName={UMAMI_EVENTS.CTA_PORTFOLIO_CLICK}
-            eventProperties={{ location: 'hero' }}
+            eventName={UMAMI_EVENTS.NAV_SECTION_CLICK}
+            eventProperties={{ location: 'hero', section: 'Career' }}
             aria-describedby='hero-description'
             className='w-full sm:w-auto min-w-[220px] font-semibold shadow-glow-md hover:shadow-glow-lg'
           />

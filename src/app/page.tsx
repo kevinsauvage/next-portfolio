@@ -2,6 +2,7 @@ import AboutSection from '@/components/features/home/AboutSection';
 import CareerSection from '@/components/features/home/CareerSection';
 import CertificationsSection from '@/components/features/home/CertificationsSection';
 import ContactSection from '@/components/features/home/ContactSection';
+import FaqSection from '@/components/features/home/FaqSection';
 import Hero from '@/components/features/home/Hero';
 import PortfolioSection from '@/components/features/home/PortfolioSection';
 import TestimonialsSection from '@/components/features/home/TestimonialsSection';
@@ -12,10 +13,11 @@ const Home = () => {
       <Hero />
       <div className='container m-auto px-6'>
         <AboutSection />
-        <PortfolioSection />
         <CareerSection />
-        <CertificationsSection />
         <TestimonialsSection />
+        <PortfolioSection />
+        <CertificationsSection />
+        <FaqSection />
       </div>
       <ContactSection />
     </div>

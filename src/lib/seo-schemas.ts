@@ -8,7 +8,7 @@ export const personSchema = {
   '@type': 'Person',
   name: PERSON_NAME,
   jobTitle: FRONTEND_DEVELOPER,
-  email: 'contact@kevin-sauvage.com',
+  email: 'kevinsauvage@outlook.com',
   url: SITE_URL,
   description: 'Developing performance-focused, inclusive web products that leave no one behind.',
   about:
@@ -16,7 +16,7 @@ export const personSchema = {
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'ES',
-    addressLocality: 'Spain',
+    addressLocality: 'Barcelona',
   },
   hasOccupation: {
     '@type': 'Occupation',
