@@ -10,17 +10,17 @@ export const layout = {
       openButton: 'Open menu',
       ctaButton: 'Resume',
     },
-      navigation: {
-        items: [
-          { href: '#home', label: 'Home' },
-          { href: '#about', label: 'About' },
-          { href: '#career', label: 'Career' },
-          { href: '#testimonials', label: 'Testimonials' },
-          { href: '#portfolio', label: 'Portfolio' },
-          { href: '#certifications', label: 'Certifications' },
-          { href: '#contact', label: 'Contact' },
-        ],
-      },
+    navigation: {
+      items: [
+        { href: '#home', label: 'Home' },
+        { href: '#about', label: 'About' },
+        { href: '#career', label: 'Career' },
+        { href: '#testimonials', label: 'Testimonials' },
+        { href: '#portfolio', label: 'Portfolio' },
+        { href: '#certifications', label: 'Certifications' },
+        { href: '#contact', label: 'Contact' },
+      ],
+    },
   },
   footer: {
     name: 'Kévin Sauvage',
@@ -29,15 +29,15 @@ export const layout = {
     sections: {
       quickLinks: {
         title: 'Quick Links',
-          links: [
-            { name: 'Home', href: '#home' },
-            { name: 'About', href: '#about' },
-            { name: 'Career', href: '#career' },
-            { name: 'Testimonials', href: '#testimonials' },
-            { name: 'Portfolio', href: '#portfolio' },
-            { name: 'Certifications', href: '#certifications' },
-            { name: 'Contact', href: '#contact' },
-          ],
+        links: [
+          { name: 'Home', href: '#home' },
+          { name: 'About', href: '#about' },
+          { name: 'Career', href: '#career' },
+          { name: 'Testimonials', href: '#testimonials' },
+          { name: 'Portfolio', href: '#portfolio' },
+          { name: 'Certifications', href: '#certifications' },
+          { name: 'Contact', href: '#contact' },
+        ],
       },
       techStack: {
         title: 'Tech Stack',

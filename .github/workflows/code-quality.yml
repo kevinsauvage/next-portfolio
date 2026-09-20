@@ -20,17 +20,13 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: |
-          npm ci || npm install
+        run: npm ci
 
       - name: ESLint
-        run: |
-          npm run lint --if-present
+        run: npm run lint
 
       - name: Type check
-        run: |
-          npm run type-check --if-present || npx -y typescript -v >/dev/null 2>&1 && npx tsc -p tsconfig.json --noEmit || echo "No type checking configured"
+        run: npm run type-check
 
       - name: Prettier check
-        run: |
-          npm run format:check --if-present || npx -y prettier -v >/dev/null 2>&1 && npx prettier --check . || echo "No prettier check configured"
+        run: npm run format:check

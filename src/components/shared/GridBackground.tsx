@@ -19,10 +19,8 @@ const GridBackground = ({ cellSize = 64, lineOpacity = 0.05, className }: GridBa
   const style: CSSProperties = {
     backgroundImage: `linear-gradient(to right, ${line} 1px, transparent 1px), linear-gradient(to bottom, ${line} 1px, transparent 1px)`,
     backgroundSize: `${cellSize}px ${cellSize}px`,
-    maskImage:
-      'radial-gradient(ellipse 90% 70% at 50% 35%, black 25%, transparent 78%)',
-    WebkitMaskImage:
-      'radial-gradient(ellipse 90% 70% at 50% 35%, black 25%, transparent 78%)',
+    maskImage: 'radial-gradient(ellipse 90% 70% at 50% 35%, black 25%, transparent 78%)',
+    WebkitMaskImage: 'radial-gradient(ellipse 90% 70% at 50% 35%, black 25%, transparent 78%)',
   };
 
   return (

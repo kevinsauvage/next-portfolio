@@ -11,22 +11,25 @@ This portfolio showcases professional work, skills, and experience through a res
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 - **Accessibility** - WCAG 2.1 compliant with proper heading hierarchy
 - **Performance** - Optimized images, lazy loading, and Core Web Vitals
-- **Contact Form** - EmailJS integration with reCAPTCHA protection
+- **Contact Form** - Server Action + EmailJS with reCAPTCHA v3 protection
 - **Animations** - Smooth transitions and micro-interactions
-- **SEO Ready** - Meta tags, sitemap, and robots.txt
+- **SEO Ready** - Meta tags, Open Graph, JSON-LD, sitemap, and robots.txt
 - **Type Safety** - Full TypeScript implementation
 - **Testing** - Vitest setup with React Testing Library
 - **Code Quality** - ESLint and Prettier configuration
+- **Analytics** - Umami (privacy-first), proxied same-origin
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 with App Router
+- **Framework**: Next.js 16 with App Router (React 19)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS with SCSS
+- **Styling**: Tailwind CSS v4 + SCSS global styles
 - **Icons**: Lucide React
-- **Forms**: React Hook Form with Zod validation
-- **Email**: EmailJS
-- **Analytics**: Vercel Analytics
+- **Forms**: React Server Actions with Zod validation
+- **Email**: EmailJS (`@emailjs/nodejs`, server-side)
+- **Spam protection**: Google reCAPTCHA v3
+- **Analytics**: Umami
+- **Notifications**: Sonner
 - **Testing**: Vitest + React Testing Library
 - **Linting**: ESLint + Prettier
 
@@ -51,23 +54,13 @@ npm install
 cp .env.example .env.local
 ```
 
-4. Configure your environment variables in `.env.local`:
-
-```env
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=your_service_id
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your_template_id
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_key
-```
+4. Fill in the values in `.env.local` (see [Configuration](#configuration)).
 
 ## Development
 
 This is a private portfolio project. For development purposes:
 
 ```bash
-# Install dependencies
-npm install
-
 # Start development server
 npm run dev
 ```
@@ -85,14 +78,37 @@ npm run build
 npm start
 
 # Code quality
-npm run check
-npm run check:fix
+npm run check        # type-check + lint
+npm run check:fix    # prettier + eslint --fix
+npm run lint
+npm run type-check
+npm run format
 
 # Testing
-npm run test
+npm run test         # watch mode
+npm run test:run     # single run
+npm run test:coverage
 ```
 
 ## Configuration
+
+### Environment Variables
+
+Variables are validated with Zod in `src/lib/env.ts`. See `.env.example` for the full list.
+
+| Variable                         | Scope  | Required | Purpose                                        |
+| -------------------------------- | ------ | -------- | ---------------------------------------------- |
+| `email_js_service_id`            | Server | Yes      | EmailJS service ID                             |
+| `email_js_public_key`            | Server | Yes      | EmailJS public key                             |
+| `email_js_private_key`           | Server | Yes      | EmailJS private key                            |
+| `email_js_template_id`           | Server | Yes      | EmailJS template ID                            |
+| `RECAPTCHA_SECRET_KEY`           | Server | Yes      | reCAPTCHA v3 verification secret               |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Public | Yes      | reCAPTCHA v3 site key                          |
+| `UMAMI_ID`                       | Public | No       | Umami website ID (analytics disabled if unset) |
+| `UMAMI_DOMAINS`                  | Public | No       | Restrict the tracker to these domains          |
+| `GOOGLE_SITE_VERIFICATION`       | Public | No       | Google Search Console verification token       |
+
+Server-only values must **not** be prefixed with `NEXT_PUBLIC_`, otherwise they are exposed to the browser. To enable Umami tracking during local development, set `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV=true`.
 
 ### Content Management
 
@@ -103,15 +119,14 @@ Update content in the `src/config/content/` directory:
 - `certifications.ts` - Education and certifications
 - `projects.ts` - Portfolio projects
 - `testimonials.ts` - Client testimonials
-- `passions.ts` - Personal values and approach
+- `passions.ts` / `expertises.ts` - Skills and approach
+- `faq.ts` - Frequently asked questions
 
 ### Styling
 
 - Design tokens: `src/design-system/tokens.ts`
 - Global styles: `src/styles/globals.scss`
 - Tailwind config: `tailwind.config.js`
-
-### Email Configuration
 
 ### Security: Content Security Policy (CSP)
 
@@ -120,7 +135,7 @@ This project sets a strict CSP via `next.config.mjs` headers. Key directives:
 - **default-src**: 'self'
 - **script-src**: 'self' plus Umami and Google (reCAPTCHA)
   - Allowed: `https://cloud.umami.is`, `https://www.google.com`, `https://www.gstatic.com`
-  - Includes `'unsafe-inline'` to permit inline JSON-LD scripts used in `src/components/shared/StructuredData/StructuredData.tsx`. For a stricter policy, replace with nonces or hashes and pass a nonce to inline scripts.
+  - Includes `'unsafe-inline'` to permit inline JSON-LD scripts used in `src/components/shared/StructuredData.tsx`. For a stricter policy, replace with nonces or hashes and pass a nonce to inline scripts.
 - **style-src**: 'self' and `'unsafe-inline'` plus `https://fonts.googleapis.com` (if Google Fonts stylesheet is used)
 - **font-src**: 'self', `https://fonts.gstatic.com`, and `data:` URIs
 - **connect-src**: 'self', Umami, and Google
@@ -133,17 +148,12 @@ Notes and exceptions:
 - **Umami**: Tracker script proxied same-origin via `/growth/script.js` → `https://cloud.umami.is/script.js`, and collect calls via `/growth/api/send` → `https://gateway.umami.is/api/send` (Umami Cloud moved collection there on 2026-06-06). `data-host-url='/growth'` keeps tracking first-party; `script-src`/`connect-src` also allow the upstream hosts as fallback. Pageviews are auto-tracked (the tracker observes History API navigations — do not call `track()` manually for those). Custom events go through `trackEvent()` in `src/lib/analytics.ts`, which queues pre-load events, sanitizes payloads to Umami's event-data limits, respects DNT, and is disabled outside production unless `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV=true`. Optional `UMAMI_DOMAINS` env restricts the tracker to given domains.
 - **Structured Data (JSON-LD)**: Inline `<script type="application/ld+json">` requires `'unsafe-inline'`. To remove this, switch to a CSP nonce approach and set the nonce on those scripts.
 - **reCAPTCHA v3**: Requires `www.google.com` and `www.gstatic.com` in `script-src`, `connect-src`, and `frame-src`.
-- **Vercel Analytics**: If enabled, you may need to add Vercel domains (e.g., `https://va.vercel-scripts.com` in `script-src` and `https://vitals.vercel-insights.com` in `connect-src`).
-
-1. Set up EmailJS account
-2. Create email template
-3. Add service credentials to environment variables
-4. Configure reCAPTCHA for spam protection
 
 ## Project Structure
 
 ```
 src/
+├── actions/                # Server Actions (contact form)
 ├── app/                    # Next.js App Router pages
 ├── components/
 │   ├── features/          # Feature-specific components
@@ -151,23 +161,18 @@ src/
 │   ├── shared/            # Reusable components
 │   └── ui/                # Base UI components
 ├── config/
-│   └── content/           # Content configuration
+│   ├── content/           # Content configuration
+│   └── ui/                # UI configuration (social links)
 ├── design-system/         # Design tokens and utilities
 ├── hooks/                 # Custom React hooks
 ├── lib/                   # Utility functions
+├── schemas/               # Zod schemas
 └── styles/                # Global styles
 ```
 
-## About This Project
+## Deployment
 
-This is a personal portfolio website showcasing frontend development skills and professional experience. The codebase demonstrates modern web development practices including:
-
-- Component-based architecture with React and Next.js
-- TypeScript for type safety
-- Tailwind CSS for styling
-- Accessibility best practices
-- Performance optimization
-- Modern development tooling
+Deployment is handled automatically by Vercel on every push to `main` — no manual steps required.
 
 ## License
 
@@ -175,11 +180,11 @@ This project is proprietary and confidential. All rights reserved. See the [LICE
 
 ## Contact
 
-**Kévin Sauvage** - Frontend Developer
+**Kévin Sauvage** - Frontend Engineer
 
 - Portfolio: [kevin-sauvage.com](https://www.kevin-sauvage.com/)
 - LinkedIn: [linkedin.com/in/kevin-sauvage](https://www.linkedin.com/in/kevin-sauvage/)
-- Email: [contact@kevin-sauvage.com](mailto:contact@kevin-sauvage.com)
+- Email: [kevinsauvage@outlook.com](mailto:kevinsauvage@outlook.com)
 
 ---
 

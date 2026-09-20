@@ -50,7 +50,9 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
         )}
       >
         <div className='overflow-hidden'>
-          <p className='px-6 pr-12 pb-6 pl-[52px] text-sm leading-relaxed text-zinc-300'>{answer}</p>
+          <p className='px-6 pr-12 pb-6 pl-[52px] text-sm leading-relaxed text-zinc-300'>
+            {answer}
+          </p>
         </div>
       </div>
     </div>

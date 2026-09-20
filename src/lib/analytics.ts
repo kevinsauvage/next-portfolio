@@ -258,7 +258,8 @@ export function getUmamiScriptProps(
 ): Record<string, string> | null {
   if (!umamiId) return null;
   const domains = options?.domains;
-  const joinedDomains = domains === undefined ? '' : Array.isArray(domains) ? domains.join(',') : domains;
+  const joinedDomains =
+    domains === undefined ? '' : Array.isArray(domains) ? domains.join(',') : domains;
   return {
     'data-website-id': umamiId,
     'data-host-url': '/growth',
