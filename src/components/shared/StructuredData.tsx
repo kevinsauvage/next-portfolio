@@ -1,7 +1,10 @@
+import { headers } from 'next/headers';
+
 import { layout as siteContent } from '@/config/content';
 import { personSchema, professionalServiceSchema, websiteSchema } from '@/lib/seo-schemas';
 
-const StructuredData = () => {
+const StructuredData = async () => {
+  const nonce = (await headers()).get('x-nonce') ?? undefined;
   const siteNavigation = {
     '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
@@ -13,18 +16,26 @@ const StructuredData = () => {
     <>
       <script
         type='application/ld+json'
+        nonce={nonce}
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
       <script
         type='application/ld+json'
+        nonce={nonce}
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <script
         type='application/ld+json'
+        nonce={nonce}
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(professionalServiceSchema) }}
       />
       <script
         type='application/ld+json'
+        nonce={nonce}
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(siteNavigation) }}
       />
     </>

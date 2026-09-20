@@ -1,20 +1,21 @@
 // @ts-check
 /** @typedef {import('./csp.config').CSPDirectives} CSPDirectives */
 
+/** Hosts allowed to run scripts (in addition to nonce'd inline scripts). */
+const SCRIPT_SRC_HOSTS = [
+  "'unsafe-eval'",
+  'https://cloud.umami.is',
+  'https://gateway.umami.is',
+  'https://www.google.com',
+  'https://www.gstatic.com',
+  'https://va.vercel-scripts.com',
+  'https://vercel.live',
+];
+
 /** @type {CSPDirectives} */
 export const cspDirectives = {
   'default-src': ["'self'"],
-  'script-src': [
-    "'self'",
-    "'unsafe-inline'",
-    "'unsafe-eval'",
-    'https://cloud.umami.is',
-    'https://gateway.umami.is',
-    'https://www.google.com',
-    'https://www.gstatic.com',
-    'https://va.vercel-scripts.com',
-    'https://vercel.live',
-  ],
+  'script-src': ["'self'", "'unsafe-inline'", ...SCRIPT_SRC_HOSTS],
   // Allow Web Workers created from same-origin and blob: URLs
   'worker-src': ["'self'", 'blob:'],
   // Legacy fallback for some browsers
@@ -37,6 +38,21 @@ export const cspDirectives = {
   'object-src': ['none'],
   other: ['upgrade-insecure-requests'],
 };
+
+/**
+ * Builds the CSP header value with a per-request nonce for inline scripts.
+ *
+ * When a nonce is provided, `'unsafe-inline'` is dropped from `script-src`
+ * (browsers ignore it when a nonce/hash is present anyway). Without a nonce
+ * the policy falls back to `'unsafe-inline'`.
+ *
+ * @param {string} [nonce]
+ * @returns {string}
+ */
+export function buildCsp(nonce) {
+  const scriptSrc = ["'self'", nonce ? `'nonce-${nonce}'` : "'unsafe-inline'", ...SCRIPT_SRC_HOSTS];
+  return cspToString({ ...cspDirectives, 'script-src': scriptSrc });
+}
 
 /**
  * @param {CSPDirectives} directives

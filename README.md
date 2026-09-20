@@ -130,12 +130,13 @@ Update content in the `src/config/content/` directory:
 
 ### Security: Content Security Policy (CSP)
 
-This project sets a strict CSP via `next.config.mjs` headers. Key directives:
+This project sets a strict CSP with a per-request **nonce**, generated in `src/proxy.ts` (Next 16's renamed middleware). Key directives:
 
 - **default-src**: 'self'
-- **script-src**: 'self' plus Umami and Google (reCAPTCHA)
-  - Allowed: `https://cloud.umami.is`, `https://www.google.com`, `https://www.gstatic.com`
-  - Includes `'unsafe-inline'` to permit inline JSON-LD scripts used in `src/components/shared/StructuredData.tsx`. For a stricter policy, replace with nonces or hashes and pass a nonce to inline scripts.
+- **script-src**: 'self' plus a per-request nonce and Umami/Google (reCAPTCHA)
+  - The nonce (`'nonce-<random>'`) replaces `'unsafe-inline'`. Next automatically attaches it to its own `<script>` tags, and inline JSON-LD in `src/components/shared/StructuredData.tsx` reads it from the `x-nonce` header.
+  - Allowed hosts: `https://cloud.umami.is`, `https://www.google.com`, `https://www.gstatic.com`
+  - `'unsafe-eval'` remains for development/React tooling.
 - **style-src**: 'self' and `'unsafe-inline'` plus `https://fonts.googleapis.com` (if Google Fonts stylesheet is used)
 - **font-src**: 'self', `https://fonts.gstatic.com`, and `data:` URIs
 - **connect-src**: 'self', Umami, and Google
@@ -146,8 +147,9 @@ This project sets a strict CSP via `next.config.mjs` headers. Key directives:
 Notes and exceptions:
 
 - **Umami**: Tracker script proxied same-origin via `/growth/script.js` → `https://cloud.umami.is/script.js`, and collect calls via `/growth/api/send` → `https://gateway.umami.is/api/send` (Umami Cloud moved collection there on 2026-06-06). `data-host-url='/growth'` keeps tracking first-party; `script-src`/`connect-src` also allow the upstream hosts as fallback. Pageviews are auto-tracked (the tracker observes History API navigations — do not call `track()` manually for those). Custom events go through `trackEvent()` in `src/lib/analytics.ts`, which queues pre-load events, sanitizes payloads to Umami's event-data limits, respects DNT, and is disabled outside production unless `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV=true`. Optional `UMAMI_DOMAINS` env restricts the tracker to given domains.
-- **Structured Data (JSON-LD)**: Inline `<script type="application/ld+json">` requires `'unsafe-inline'`. To remove this, switch to a CSP nonce approach and set the nonce on those scripts.
+- **Structured Data (JSON-LD)**: Inline `<script type="application/ld+json">` blocks receive the same per-request nonce, so no `'unsafe-inline'` is needed.
 - **reCAPTCHA v3**: Requires `www.google.com` and `www.gstatic.com` in `script-src`, `connect-src`, and `frame-src`.
+- **Trade-off**: reading the nonce via `headers()` makes pages dynamically rendered. If you prefer static HTML, switch to hash-based CSP for the known inline scripts.
 
 ## Project Structure
 

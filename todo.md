@@ -29,21 +29,27 @@ P2 = medium, P3 = nice-to-have. Tick items off as they ship.
       `/`. Add `/projects/[slug]` (or `#` anchors) with deep-dive content, then expand the sitemap.
   - Files: `src/app/`, `src/app/sitemap.tsx`, `src/config/content/projects.ts`
 
-- [ ] **P2-2. Make the sitemap dynamic.** `lastModified: new Date()` on every request and one
-      static URL. Generate from content config with real `lastModified` per project.
-  - Files: `src/app/sitemap.tsx`
+- [x] **P2-2. Make the sitemap dynamic.** Added `src/config/routes.ts` as the single source of
+      truth and a maintained `SITE_LAST_MODIFIED` constant (no more `new Date()` per request);
+      `sitemap.tsx` maps routes to entries and is ready for project detail URLs.
+  - Files: `src/app/sitemap.tsx`, `src/config/routes.ts`, `src/lib/seo-schemas.ts`
 
-- [ ] **P2-4. Replace `'unsafe-inline'` in `script-src` with a CSP nonce.** Inline JSON-LD
-      (`StructuredData.tsx`) forces `unsafe-inline` today. Move to nonce/hash and thread it through
-      `next.config.mjs` + the inline script.
-  - Files: `csp.config.mjs`, `next.config.mjs`, `src/components/shared/StructuredData.tsx`
+- [x] **P2-4. Replace `'unsafe-inline'` in `script-src` with a CSP nonce.** Added `src/proxy.ts`
+      (Next 16's `middleware`) that generates a per-request nonce, sets the CSP on request +
+      response, and exposes `x-nonce`; `StructuredData.tsx` reads it and nonces the JSON-LD.
+      `buildCsp()` in `csp.config.mjs` drops `'unsafe-inline'`. Verified via `next start` that all
+      scripts carry the nonce and the header has none.
+  - Files: `csp.config.mjs`, `csp.config.d.mts`, `src/proxy.ts`, `next.config.mjs`,
+    `src/components/shared/StructuredData.tsx`
 
-- [ ] **P2-5. Split the oversized page sections.** `page.tsx` renders 7 sections eagerly.
-      Lazy-load below-the-fold sections (`next/dynamic`) to cut initial JS and improve LCP.
+- [x] **P2-5. Split the oversized page sections.** Below-the-fold sections are now `next/dynamic`
+      imports in `page.tsx` (SSR preserved — verified all section content is still in the initial
+      HTML), deferring their client chunks.
   - Files: `src/app/page.tsx`
 
-- [ ] **P2-6. Add `npm audit` / dependency review to CI.** Dependabot config exists but no
-      audit gate. Add an audit step to `security.yml` and group Dependabot updates.
+- [x] **P2-6. Add `npm audit` / dependency review to CI.** Added an `npm-audit` job
+      (`npm audit --audit-level=high`) to `security.yml` and grouped minor/patch Dependabot
+      updates into single PRs for npm and GitHub Actions.
   - Files: `.github/workflows/security.yml`, `.github/dependabot.yml`
 
 ---
