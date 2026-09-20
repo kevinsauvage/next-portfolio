@@ -14,8 +14,6 @@
 - **Files:** `src/config/content/projects.ts` (add `proprietary?: boolean`, `role`, `timeline`, `outcomes: string[]`).
 - **Done when:** Portfolio shows 3 items (1 open + 2 proprietary), honestly labelled.
 
-### P1 — Do next (next 2 weeks). Builds credibility.
-
 #### P1-3. Add 1 number per job
 
 - [ ] **Problem:** Career bullets are specific but mostly unquantified (“raising coverage”, “reducing incidents”).
@@ -29,10 +27,3 @@
 - **Do this:** Build smallest useful version, deploy, add as project #4 with metrics.
 - **Files:** `src/config/content/projects.ts` + new demo URL.
 - **Done when:** Portfolio has 2 open + 2 proprietary items.
-
-#### P2-5. Move AI tools off footer into a Uses page
-
-- [ ] **Problem:** Cursor/Claude in footer polarises hiring managers with no context.
-- **Do this:** Create `/uses` with stack + workflow + AI usage honestly framed. Link from footer instead of pills.
-- **Files:** new `src/app/uses/page.tsx`, `src/config/content/layout.ts`.
-- **Done when:** Footer no longer lists AI tools; Uses page does with context.
