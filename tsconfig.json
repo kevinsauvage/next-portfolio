@@ -16,7 +16,6 @@
     "incremental": true,
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
