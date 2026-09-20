@@ -50,6 +50,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html
       lang='en'
+      data-scroll-behavior='smooth'
       className={clsx(
         'bg-black h-auto w-auto leading-tight',
         inter.variable,
