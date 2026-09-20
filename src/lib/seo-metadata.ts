@@ -6,7 +6,6 @@ const PERSON_TITLE =
 const SITE_DESCRIPTION =
   "Frontend Engineer at Keolis Group with 5+ years shipping high-performance web products used by millions across 15+ countries — previously Decathlon's e-commerce platforms. Specialised in React, Next.js, Svelte, TypeScript, accessibility, and scalable component architecture." as const;
 
-// eslint-disable-next-line sonarjs/max-lines-per-function
 export function buildRootMetadata(baseUrl: string): Metadata {
   return {
     alternates: {
@@ -22,14 +21,6 @@ export function buildRootMetadata(baseUrl: string): Metadata {
     metadataBase: new URL(baseUrl),
     openGraph: {
       description: SITE_DESCRIPTION,
-      images: [
-        {
-          alt: PERSON_TITLE,
-          height: 630,
-          url: '/images/og-image.png',
-          width: 1200,
-        },
-      ],
       locale: 'en_US',
       siteName: PERSON_TITLE,
       title: PERSON_TITLE,
@@ -55,7 +46,6 @@ export function buildRootMetadata(baseUrl: string): Metadata {
     twitter: {
       card: 'summary_large_image',
       description: SITE_DESCRIPTION,
-      images: ['/images/og-image.png'],
       title: PERSON_TITLE,
     },
     verification: {

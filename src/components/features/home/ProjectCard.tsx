@@ -1,25 +1,17 @@
+import { GitHubIcon } from '@/components/shared/BrandIcons';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Card, CardContent, CardImage } from '@/components/ui/Card';
 import { NumberBadge } from '@/components/ui/NumberBadge';
 import { Tag } from '@/components/ui/Tag';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
+import type { Project } from '@/config/content/projects';
 import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
-import { ExternalLink, Github } from 'lucide-react';
-
-type ProjectType = {
-  slug: string;
-  title: string;
-  description: string;
-  images: { thumbnail: { src: string; alt: string } };
-  technologies: Array<{ name: string }>;
-  websiteLink: string;
-  githubLink: Array<string>;
-};
+import { ExternalLink } from 'lucide-react';
 
 type ProjectCardProps = {
-  project: ProjectType;
+  project: Project;
   index: number;
 };
 
@@ -112,7 +104,7 @@ const ProjectActionButtons = ({
       {githubLink.length > 0 && (
         <ButtonLink
           href={githubLink[0] as string}
-          svg={<Github size={16} aria-hidden='true' />}
+          svg={<GitHubIcon size={16} />}
           label={sections.portfolio.buttons.sourceCode}
           size='sm'
           variant='secondary'

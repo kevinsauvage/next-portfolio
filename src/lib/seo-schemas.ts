@@ -1,3 +1,5 @@
+import { projects } from '@/config/content/projects';
+
 export const SITE_URL = 'https://www.kevin-sauvage.com' as const;
 // Bump this when site content changes so crawlers see a meaningful `lastModified`.
 export const SITE_LAST_MODIFIED = '2026-09-20' as const;
@@ -79,4 +81,40 @@ export const professionalServiceSchema = {
     'Professional frontend development services specializing in React, Next.js, and web accessibility',
   areaServed: 'Worldwide',
   serviceType: 'Frontend Development',
+} as const;
+
+/** Featured projects, described as schema.org `Project` items. */
+export const projectsSchema = {
+  '@context': SCHEMA_CONTEXT,
+  '@type': 'ItemList',
+  name: 'Featured projects',
+  itemListElement: projects.map((project, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Project',
+      name: project.title,
+      description: project.description,
+      url: project.websiteLink,
+      sameAs: project.githubLink,
+      keywords: project.technologies.map(technology => technology.name).join(', '),
+    },
+  })),
+} as const;
+
+/**
+ * Breadcrumb trail. Single entry today (the site is one page); project detail
+ * routes (P2-1) should append their own crumbs here.
+ */
+export const breadcrumbSchema = {
+  '@context': SCHEMA_CONTEXT,
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: SITE_URL,
+    },
+  ],
 } as const;

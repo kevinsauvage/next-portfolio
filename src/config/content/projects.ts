@@ -1,4 +1,4 @@
-type Project = {
+export type Project = {
   slug: string;
   description: string;
   githubLink: string[];
@@ -38,6 +38,6 @@ const myEcommerceProject: Project = {
   websiteLink: 'https://nextjs-strapi-ecommerce-kevinsauvages-projects.vercel.app',
 };
 
-const projects = [myEcommerceProject];
+export const projects: Project[] = [myEcommerceProject];
 
 export default projects;

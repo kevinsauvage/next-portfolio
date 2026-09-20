@@ -96,19 +96,23 @@ npm run test:coverage
 
 Variables are validated with Zod in `src/lib/env.ts`. See `.env.example` for the full list.
 
-| Variable                         | Scope  | Required | Purpose                                        |
-| -------------------------------- | ------ | -------- | ---------------------------------------------- |
-| `email_js_service_id`            | Server | Yes      | EmailJS service ID                             |
-| `email_js_public_key`            | Server | Yes      | EmailJS public key                             |
-| `email_js_private_key`           | Server | Yes      | EmailJS private key                            |
-| `email_js_template_id`           | Server | Yes      | EmailJS template ID                            |
-| `RECAPTCHA_SECRET_KEY`           | Server | Yes      | reCAPTCHA v3 verification secret               |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` | Public | Yes      | reCAPTCHA v3 site key                          |
-| `UMAMI_ID`                       | Public | No       | Umami website ID (analytics disabled if unset) |
-| `UMAMI_DOMAINS`                  | Public | No       | Restrict the tracker to these domains          |
-| `GOOGLE_SITE_VERIFICATION`       | Public | No       | Google Search Console verification token       |
+| Variable                          | Scope  | Used at | Required | Purpose                                        |
+| --------------------------------- | ------ | ------- | -------- | ---------------------------------------------- |
+| `email_js_service_id`             | Server | Runtime | Yes      | EmailJS service ID                             |
+| `email_js_public_key`             | Server | Runtime | Yes      | EmailJS public key                             |
+| `email_js_private_key`            | Server | Runtime | Yes      | EmailJS private key                            |
+| `email_js_template_id`            | Server | Runtime | Yes      | EmailJS template ID                            |
+| `RECAPTCHA_SECRET_KEY`            | Server | Runtime | Yes      | reCAPTCHA v3 verification secret               |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`  | Public | Build   | Yes      | reCAPTCHA v3 site key                          |
+| `UMAMI_ID`                        | Public | Runtime | No       | Umami website ID (analytics disabled if unset) |
+| `UMAMI_DOMAINS`                   | Public | Runtime | No       | Restrict the tracker to these domains          |
+| `GOOGLE_SITE_VERIFICATION`        | Server | Runtime | No       | Google Search Console verification token       |
+| `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV` | Public | Build   | No       | Enable Umami when running locally              |
+| `SENTRY_AUTH_TOKEN`               | Server | Build   | No       | Upload source maps at build/deploy (Vercel/CI) |
 
-Server-only values must **not** be prefixed with `NEXT_PUBLIC_`, otherwise they are exposed to the browser. To enable Umami tracking during local development, set `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV=true`.
+**Build-time vs runtime.** Anything prefixed `NEXT_PUBLIC_` (and `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV`) is inlined into the client bundle when you run `next build`, so changing it requires a rebuild — it is **not** read at runtime. Everything else is read from the environment when the server process runs, so you can change it without rebuilding. `SENTRY_AUTH_TOKEN` is build-only: set it in Vercel (and CI) so Sentry can upload source maps; it is never shipped.
+
+Server-only values must **not** be prefixed with `NEXT_PUBLIC_`, otherwise they are exposed to the browser.
 
 ### Content Management
 

@@ -21,6 +21,8 @@ export default defineConfig({
         'src/instrumentation.ts',
         'src/instrumentation-client.ts',
         'src/app/global-error.tsx',
+        'src/app/opengraph-image.tsx',
+        'src/app/twitter-image.tsx',
       ],
       thresholds: {
         branches: 50,
