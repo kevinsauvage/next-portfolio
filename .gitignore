@@ -49,3 +49,6 @@ tsconfig.tsbuildinfo
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
