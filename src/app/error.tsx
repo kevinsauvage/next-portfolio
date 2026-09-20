@@ -7,6 +7,8 @@ import { BodySmall, H4 } from '@/components/ui/Typography';
 import { trackEvent } from '@/lib/analytics';
 import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
+import * as Sentry from '@sentry/nextjs';
+
 interface ErrorProps {
   error: Error & { digest?: string };
   reset: () => void;
@@ -18,6 +20,7 @@ const handleReload = () => {
 
 const ErrorPage = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
+    Sentry.captureException(error);
     trackEvent(UMAMI_EVENTS.APP_ERROR_BOUNDARY, {
       message: error.message,
       digest: error.digest ?? '',

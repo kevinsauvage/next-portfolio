@@ -28,6 +28,8 @@ export const cspDirectives = {
     'https://www.google.com',
     'https://www.gstatic.com',
     'https://vitals.vercel-insights.com',
+    'https://o4505076388724736.ingest.us.sentry.io',
+    'https://*.ingest.us.sentry.io',
   ],
   'img-src': ["'self'", 'data:', 'blob:', 'https:'],
   'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],

@@ -46,6 +46,7 @@ const jetBrainsMono = JetBrains_Mono({
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const publicEnv = getPublicEnv();
+
   return (
     <html
       lang='en'

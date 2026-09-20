@@ -48,8 +48,16 @@ P2 = medium, P3 = nice-to-have. Tick items off as they ship.
       (flat + legacy). Confirm which is active and delete the dead one.
   - Files: `.eslintrc.json`, `eslint.config.mjs`
 
-- [ ] **P3-6. Add error tracking transport.** `error-tracking.ts` logs locally; connect a
-      provider (Sentry) for production visibility of contact-form/server errors.
+- [x] **P3-6. Add error tracking transport.** Sentry wired via the wizard
+      (`sentry.{server,edge}.config.ts`, `src/instrumentation*.ts`, `app/global-error.tsx`, and
+      `withSentryConfig`); additionally `logError` and `app/error.tsx` now call
+      `Sentry.captureException` so contact-form/server errors actually reach Sentry. CSP updated
+      for the ingest hosts and the `/monitoring` tunnel is excluded from the proxy matcher.
+      Note: set `SENTRY_AUTH_TOKEN` in Vercel for source-map uploads, and consider lowering
+      `tracesSampleRate` from `1` (100%) in production.
+  - Files: `sentry.server.config.ts`, `sentry.edge.config.ts`, `src/instrumentation.ts`,
+    `src/instrumentation-client.ts`, `src/app/global-error.tsx`, `src/app/error.tsx`,
+    `src/lib/error-tracking.ts`, `next.config.mjs`, `csp.config.mjs`, `src/proxy.ts`
 
 - [ ] **P3-7. Add a lightweight blog/notes route.** Optional SEO + authority play once the
       content backlog is clear.

@@ -29,7 +29,7 @@ export const config = {
         { key: 'purpose', type: 'header', value: 'prefetch' },
       ],
       source:
-        '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|woff|woff2|ttf|pdf|xml|txt)$).*)',
+        '/((?!monitoring|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|avif|ico|woff|woff2|ttf|pdf|xml|txt)$).*)',
     },
   ],
 };
