@@ -71,7 +71,7 @@ const Hero = () => {
           style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
         >
           <ButtonLink
-            href='#career'
+            href='/#career'
             svg={<MoveDown strokeWidth={1.5} size={20} />}
             label='See impact'
             size='xl'

@@ -6,6 +6,7 @@ import {
   personSchema,
   professionalServiceSchema,
   projectsSchema,
+  SITE_URL,
   websiteSchema,
 } from '@/lib/seo-schemas';
 
@@ -15,7 +16,7 @@ const StructuredData = async () => {
     '@context': 'https://schema.org',
     '@type': 'SiteNavigationElement',
     name: siteContent.header.navigation.items.map(i => i.label),
-    url: siteContent.header.navigation.items.map(i => `https://www.kevin-sauvage.com/${i.href}`),
+    url: siteContent.header.navigation.items.map(i => `${SITE_URL}${i.href}`),
   } as const;
 
   return (
