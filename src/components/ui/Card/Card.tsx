@@ -7,11 +7,7 @@ import clsx from 'clsx';
 type CardSize = 'sm' | 'md' | 'lg';
 type HoverEffect = 'none' | 'subtle' | 'standard' | 'pronounced';
 type GlowVariant =
-  | 'none'
-  | 'primary-secondary'
-  | 'secondary-accent'
-  | 'primary-only'
-  | 'secondary-only';
+  'none' | 'primary-secondary' | 'secondary-accent' | 'primary-only' | 'secondary-only';
 
 type CardProps = {
   children: ReactNode;
