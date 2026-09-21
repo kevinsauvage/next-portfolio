@@ -16,14 +16,12 @@ const Home = () => {
   return (
     <div className='h-full w-full grow flex flex-col justify-between m-auto'>
       <Hero />
-      <div className='container m-auto px-6'>
-        <AboutSection />
-        <CareerSection />
-        <TestimonialsSection />
-        <PortfolioSection />
-        <CertificationsSection />
-        <FaqSection />
-      </div>
+      <AboutSection />
+      <CareerSection />
+      <TestimonialsSection />
+      <PortfolioSection />
+      <CertificationsSection />
+      <FaqSection />
       <ContactSection />
     </div>
   );

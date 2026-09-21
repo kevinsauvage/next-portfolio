@@ -29,7 +29,7 @@ const ContactSection: React.FC = () => {
       <MeshGradient />
       <Section
         id='contact'
-        className='px-6 py-12 md:py-20 max-w-4xl min-h-dvh flex flex-col justify-center items-center scroll-m-0 relative'
+        className='py-12 md:py-20 max-w-4xl min-h-dvh flex flex-col justify-center items-center scroll-m-0 relative'
         spacing='md'
       >
         <GoogleReCaptchaProviderWrapper reCaptchaKey={recaptchaSiteKey}>

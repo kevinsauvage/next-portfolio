@@ -32,7 +32,10 @@ const Section: React.FC<SectionProperties> = ({
     }
   })();
   return (
-    <section className={clsx('max-w-5xl m-auto w-full', spacingClass, className)} {...properties}>
+    <section
+      className={clsx('max-w-5xl m-auto w-full px-6', spacingClass, className)}
+      {...properties}
+    >
       {reveal ? <Reveal>{children}</Reveal> : children}
     </section>
   );

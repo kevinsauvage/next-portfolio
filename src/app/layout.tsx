@@ -61,7 +61,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <head>
         <HeadLinks />
       </head>
-      <body className='w-full h-full antialiased font-base font-light text-zinc-50'>
+      <body className='w-full h-full antialiased font-base font-normal text-zinc-50'>
         <StructuredData />
         <UmamiScript umamiId={publicEnv.UMAMI_ID} domains={publicEnv.UMAMI_DOMAINS} />
         <ScrollDetector />

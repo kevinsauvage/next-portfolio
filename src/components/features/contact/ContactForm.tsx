@@ -7,6 +7,7 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
 import Button from '@/components/ui/Button/Button';
 import { FormError, Input, Label, TextArea } from '@/components/ui/Form';
+import { BodySmall, H3 } from '@/components/ui/Typography';
 import { trackEvent } from '@/lib/analytics';
 import { UMAMI_EVENTS } from '@/lib/analytics-events';
 import {
@@ -16,7 +17,7 @@ import {
   type ContactFieldValues,
 } from '@/schemas/contact-fields.schema';
 
-import { LucideSend } from 'lucide-react';
+import { CheckCircle2, LucideSend, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
 
 export const initialContactFormState: ContactFormState = {
@@ -38,7 +39,9 @@ const ContactForm = () => {
   const [isGettingCaptcha, setIsGettingCaptcha] = useState(false);
   const [clientErrors, setClientErrors] = useState<ContactFieldErrors>({});
   const [hasSubmitted, setHasSubmitted] = useState(false);
+  const [isSent, setIsSent] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
+  const successRef = useRef<HTMLDivElement | null>(null);
   const prevStatusRef = useRef<ContactFormState['status']>('idle');
   const { executeRecaptcha } = useGoogleReCaptcha();
 
@@ -78,6 +81,7 @@ const ContactForm = () => {
         formRef.current?.reset();
         setClientErrors({});
         setHasSubmitted(false);
+        setIsSent(true);
         if (formState.message) toast.success(formState.message);
         break;
       }
@@ -94,6 +98,17 @@ const ContactForm = () => {
     }
     setIsGettingCaptcha(false);
   }, [formState, focusFirstInvalidField]);
+
+  useEffect(() => {
+    if (isSent) successRef.current?.focus();
+  }, [isSent]);
+
+  const handleSendAnother = () => {
+    setIsSent(false);
+    setClientErrors({});
+    setHasSubmitted(false);
+    formRef.current?.reset();
+  };
 
   const handleFieldBlur = (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
@@ -173,6 +188,36 @@ const ContactForm = () => {
       setIsGettingCaptcha(false);
     }
   };
+
+  if (isSent) {
+    return (
+      <div
+        ref={successRef}
+        tabIndex={-1}
+        className='mx-auto flex w-full max-w-3xl flex-col items-center gap-6 rounded-lg border border-primary-800/50 bg-primary-950/20 px-6 py-12 text-center outline-none'
+      >
+        <span
+          className='inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary-500/15 text-primary-300'
+          aria-hidden='true'
+        >
+          <CheckCircle2 size={28} />
+        </span>
+        <div className='space-y-2'>
+          <H3 size='sm'>Message sent</H3>
+          <BodySmall className='text-zinc-300'>
+            {formState.message ?? "Thanks — I'll get back to you within 24 hours on weekdays."}
+          </BodySmall>
+        </div>
+        <Button
+          label='Send another message'
+          onClick={handleSendAnother}
+          svg={<RotateCcw size={16} aria-hidden='true' />}
+          variant='secondary'
+          size='md'
+        />
+      </div>
+    );
+  }
 
   return (
     <form

@@ -28,7 +28,7 @@ const Hero = () => {
       <section
         id='home'
         className={clsx(
-          'h-dvh md:min-h-dvh flex flex-col justify-center items-center text-center rounded-md md:justify-center relative z-10',
+          'min-h-dvh flex flex-col justify-center items-center text-center rounded-md relative z-10',
           'px-6 pb-6 pt-[calc(1.5rem+5rem)]', // Normal padding (p-6 = 1.5rem/24px) + header height (5rem/80px) = 104px
           'md:px-16 md:pb-16 md:pt-[calc(4rem+5rem)]' // Normal padding (md:p-16 = 4rem/64px) + header height (5rem/80px) = 144px
         )}

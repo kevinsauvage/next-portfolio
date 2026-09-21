@@ -18,7 +18,7 @@ const SectionHeader = ({
   title,
   description,
   className,
-  gradient = true,
+  gradient = false,
   align = 'center',
 }: SectionHeaderProps) => {
   const isCentered = align === 'center';
@@ -31,10 +31,7 @@ const SectionHeader = ({
         </div>
       )}
 
-      <H2
-        gradient={gradient}
-        className='animate-gradient bg-[length:200%_auto] text-4xl md:text-5xl lg:text-6xl'
-      >
+      <H2 gradient={gradient} className='text-4xl md:text-5xl lg:text-6xl'>
         {title}
       </H2>
 

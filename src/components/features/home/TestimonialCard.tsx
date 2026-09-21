@@ -111,7 +111,10 @@ const TestimonialContent = ({
 
   return (
     <div className='flex-1 space-y-3'>
-      <blockquote className={clsx('leading-relaxed italic text-zinc-200', styles.blockquoteClass)}>
+      <blockquote
+        aria-live='polite'
+        className={clsx('leading-relaxed italic text-zinc-200', styles.blockquoteClass)}
+      >
         &quot;{visibleText}&quot;
       </blockquote>
       <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>

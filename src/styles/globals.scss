@@ -114,13 +114,16 @@
   }
 }
 
-/* Card hover lift (cards carry a `--hover-transform` custom property). */
-.card-enter[style*='--hover-transform']:hover {
+/* Card hover lift (cards carry a `--hover-transform` custom property).
+   Mirrored on :focus-within so keyboard users get the same affordance. */
+.card-enter[style*='--hover-transform']:hover,
+.card-enter[style*='--hover-transform']:focus-within {
   transform: var(--hover-transform, none) !important;
 }
 
 @media (min-width: 768px) {
-  .card-enter[style*='--hover-transform']:hover {
+  .card-enter[style*='--hover-transform']:hover,
+  .card-enter[style*='--hover-transform']:focus-within {
     transform: var(--hover-transform-md, var(--hover-transform, none)) !important;
   }
 }

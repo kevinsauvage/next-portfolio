@@ -38,9 +38,9 @@ export const Card = ({
 
   const hoverClasses = {
     none: '',
-    subtle: 'hover:shadow-glow-sm',
-    standard: 'hover:shadow-glow-md ',
-    pronounced: 'hover:shadow-glow-lg',
+    subtle: 'hover:shadow-glow-sm focus-within:shadow-glow-sm',
+    standard: 'hover:shadow-glow-md focus-within:shadow-glow-md ',
+    pronounced: 'hover:shadow-glow-lg focus-within:shadow-glow-lg',
   };
 
   const hoverTransforms = {
@@ -126,7 +126,7 @@ export const Card = ({
     <Component
       className={clsx(
         baseClasses,
-        'group border border-zinc-800/80 bg-gradient-to-b from-zinc-900/50 to-zinc-950/80 rounded-xl ring-1 ring-inset ring-white/[0.04] hover:border-primary-700/40 hover:ring-primary-500/10',
+        'group border border-zinc-800/80 bg-gradient-to-b from-zinc-900/50 to-zinc-950/80 rounded-xl ring-1 ring-inset ring-white/[0.04] hover:border-primary-700/40 hover:ring-primary-500/10 focus-within:border-primary-700/40 focus-within:ring-primary-500/10',
         animationIndex !== undefined && 'card-enter',
         className
       )}
@@ -141,7 +141,7 @@ export const Card = ({
       {...props}
     >
       {glow !== 'none' && (
-        <div className='absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out z-0'>
+        <div className='absolute inset-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 ease-out z-0'>
           <MeshGradient overlayOpacity={85} />
         </div>
       )}

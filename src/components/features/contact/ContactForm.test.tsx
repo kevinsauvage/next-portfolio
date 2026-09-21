@@ -102,7 +102,7 @@ describe('ContactForm', () => {
     expect(screen.getByLabelText(/full name/i)).toHaveFocus();
   });
 
-  it('submits the form with a captcha token and resets on success', async () => {
+  it('submits the form with a captcha token and shows a success panel', async () => {
     render(<ContactForm />);
     fillForm(validValues);
 
@@ -119,6 +119,11 @@ describe('ContactForm', () => {
     await waitFor(() => {
       expect(mocks.toastSuccess).toHaveBeenCalled();
     });
+
+    expect(await screen.findByText('Message sent')).toBeInTheDocument();
+    const sendAnother = screen.getByRole('button', { name: /send another message/i });
+
+    fireEvent.click(sendAnother);
     expect(screen.getByLabelText(/full name/i)).toHaveValue('');
   });
 

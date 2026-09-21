@@ -97,8 +97,24 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
     return testimonials.at(displayedIndex) ?? null;
   }, [testimonials, displayedIndex]);
 
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      goToPrevious();
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      goToNext();
+    }
+  };
+
   return (
-    <div className='space-y-8'>
+    <div
+      className='space-y-8'
+      role='group'
+      aria-roledescription='carousel'
+      aria-label='Testimonials'
+      onKeyDown={handleKeyDown}
+    >
       <div className='relative px-0 md:px-12 lg:px-20'>
         {testimonials.length > 1 && (
           <>
@@ -149,6 +165,10 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
         )}
 
         <div
+          role='group'
+          aria-roledescription='slide'
+          aria-live='polite'
+          aria-atomic='true'
           className={clsx(
             'relative transition-all duration-500 ease-in-out',
             isAnimating &&

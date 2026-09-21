@@ -17,12 +17,7 @@ const AboutSection: React.FC = () => {
             <Overline>{sections.about.overline}</Overline>
           </Reveal>
           <Reveal>
-            <H2
-              gradient
-              className='animate-gradient bg-[length:200%_auto] text-4xl md:text-5xl lg:text-6xl'
-            >
-              {sections.about.title}
-            </H2>
+            <H2 className='text-4xl md:text-5xl lg:text-6xl'>{sections.about.title}</H2>
           </Reveal>
           <Reveal
             as='p'

@@ -113,6 +113,7 @@ const CredentialLink = ({
       href={credentialUrl}
       target='_blank'
       rel='noopener noreferrer'
+      aria-label={`${title} — ${sections.certifications.button}`}
       className='inline-flex min-h-11 items-center gap-1.5 mt-auto pt-3 text-xs font-medium border-t border-zinc-800/50 transition-all duration-300 group/link text-primary-300 hover:text-primary-200'
       data-umami-event={UMAMI_EVENTS.CERT_CREDENTIAL_CLICK}
       data-umami-event-cert-id={certId}
@@ -124,7 +125,6 @@ const CredentialLink = ({
         tabIndex={-1}
       />
       <span>{sections.certifications.button}</span>
-      <span className='sr-only'> for {title}</span>
     </a>
   );
 };

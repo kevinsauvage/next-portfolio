@@ -187,122 +187,110 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
         />
       </div>
 
-      <div className='container m-auto max-w-5xl px-6'>
-        <Section id='snapshot' spacing='sm'>
-          <FactGrid facts={facts} />
-        </Section>
+      <Section id='snapshot' spacing='sm'>
+        <FactGrid facts={facts} />
+      </Section>
 
-        <Section id='overview'>
-          <div className='space-y-10'>
-            <div className='space-y-6'>
-              <Overline>{sections.portfolio.caseStudy.overview}</Overline>
-              <H2 gradient className='animate-gradient bg-[length:200%_auto]'>
-                {sections.portfolio.caseStudy.overviewTitle}
-              </H2>
-              <div className='max-w-3xl space-y-4'>
-                {overview.map(paragraph => (
-                  <Body key={paragraph} className='text-zinc-300'>
-                    {paragraph}
-                  </Body>
-                ))}
+      <Section id='overview'>
+        <div className='space-y-10'>
+          <div className='space-y-6'>
+            <Overline>{sections.portfolio.caseStudy.overview}</Overline>
+            <H2>{sections.portfolio.caseStudy.overviewTitle}</H2>
+            <div className='max-w-3xl space-y-4'>
+              {overview.map(paragraph => (
+                <Body key={paragraph} className='text-zinc-300'>
+                  {paragraph}
+                </Body>
+              ))}
+            </div>
+          </div>
+
+          <div className='space-y-4'>
+            <H3>{sections.portfolio.caseStudy.responsibilities}</H3>
+            <CheckList items={responsibilities} />
+          </div>
+        </div>
+      </Section>
+
+      <Section id='features'>
+        <div className='space-y-10'>
+          <div className='space-y-6'>
+            <Overline>{sections.portfolio.caseStudy.featuresOverline}</Overline>
+            <H2>{sections.portfolio.caseStudy.featuresTitle}</H2>
+          </div>
+          <FeatureGrid features={features} />
+        </div>
+      </Section>
+
+      <Section id='engineering'>
+        <div className='space-y-10'>
+          <div className='space-y-6'>
+            <Overline>{sections.portfolio.caseStudy.engineeringOverline}</Overline>
+            <H2>{sections.portfolio.caseStudy.engineeringTitle}</H2>
+          </div>
+          <TechnicalGrid items={technical} />
+        </div>
+      </Section>
+
+      <Section id='quality'>
+        <div className='space-y-8'>
+          <div className='space-y-6'>
+            <Overline>{sections.portfolio.caseStudy.qualityOverline}</Overline>
+            <H2>{sections.portfolio.caseStudy.qualityTitle}</H2>
+          </div>
+          <Card hover='subtle' size='lg' glow='secondary-accent' className='group'>
+            <CardContent spacing='lg'>
+              <div className='flex items-center gap-3'>
+                <CardIcon variant='accent'>
+                  <ShieldCheck
+                    size={22}
+                    strokeWidth={1.5}
+                    aria-hidden='true'
+                    className='text-accent-400 transition-transform duration-300 group-hover:rotate-12'
+                  />
+                </CardIcon>
+                <Caption className='text-zinc-300'>
+                  {sections.portfolio.caseStudy.qualityCaption}
+                </Caption>
               </div>
-            </div>
+              <CheckList items={quality} />
+            </CardContent>
+          </Card>
+        </div>
+      </Section>
 
-            <div className='space-y-4'>
-              <H3>{sections.portfolio.caseStudy.responsibilities}</H3>
-              <CheckList items={responsibilities} />
-            </div>
+      <Section id='case-study-cta' spacing='md' className='pb-24'>
+        <div className='flex flex-col items-center gap-6 rounded-2xl border border-zinc-800/80 bg-zinc-950/60 px-6 py-12 text-center'>
+          <H2 className='text-3xl md:text-4xl'>{sections.portfolio.caseStudy.ctaTitle}</H2>
+          <Body className='max-w-2xl text-zinc-300'>
+            {sections.portfolio.caseStudy.ctaDescription}
+          </Body>
+          <div className='flex flex-col gap-4 sm:flex-row'>
+            <ButtonLink
+              href={websiteLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              svg={<ExternalLink size={18} aria-hidden='true' />}
+              label={sections.portfolio.buttons.viewLive}
+              size='lg'
+              variant='primary'
+              eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+              eventProperties={{ link_type: 'live', project_slug: slug }}
+              className='w-full sm:w-auto font-semibold'
+            />
+            <ButtonLink
+              href='/'
+              svg={<ArrowLeft size={18} aria-hidden='true' />}
+              label={sections.portfolio.caseStudy.backCta}
+              size='lg'
+              variant='secondary'
+              eventName={UMAMI_EVENTS.NAV_SECTION_CLICK}
+              eventProperties={{ location: 'case_study', section: 'Portfolio' }}
+              className='w-full sm:w-auto'
+            />
           </div>
-        </Section>
-
-        <Section id='features'>
-          <div className='space-y-10'>
-            <div className='space-y-6'>
-              <Overline>{sections.portfolio.caseStudy.featuresOverline}</Overline>
-              <H2 gradient className='animate-gradient bg-[length:200%_auto]'>
-                {sections.portfolio.caseStudy.featuresTitle}
-              </H2>
-            </div>
-            <FeatureGrid features={features} />
-          </div>
-        </Section>
-
-        <Section id='engineering'>
-          <div className='space-y-10'>
-            <div className='space-y-6'>
-              <Overline>{sections.portfolio.caseStudy.engineeringOverline}</Overline>
-              <H2 gradient className='animate-gradient bg-[length:200%_auto]'>
-                {sections.portfolio.caseStudy.engineeringTitle}
-              </H2>
-            </div>
-            <TechnicalGrid items={technical} />
-          </div>
-        </Section>
-
-        <Section id='quality'>
-          <div className='space-y-8'>
-            <div className='space-y-6'>
-              <Overline>{sections.portfolio.caseStudy.qualityOverline}</Overline>
-              <H2 gradient className='animate-gradient bg-[length:200%_auto]'>
-                {sections.portfolio.caseStudy.qualityTitle}
-              </H2>
-            </div>
-            <Card hover='subtle' size='lg' glow='secondary-accent' className='group'>
-              <CardContent spacing='lg'>
-                <div className='flex items-center gap-3'>
-                  <CardIcon variant='accent'>
-                    <ShieldCheck
-                      size={22}
-                      strokeWidth={1.5}
-                      aria-hidden='true'
-                      className='text-accent-400 transition-transform duration-300 group-hover:rotate-12'
-                    />
-                  </CardIcon>
-                  <Caption className='text-zinc-300'>
-                    {sections.portfolio.caseStudy.qualityCaption}
-                  </Caption>
-                </div>
-                <CheckList items={quality} />
-              </CardContent>
-            </Card>
-          </div>
-        </Section>
-
-        <Section id='case-study-cta' spacing='md' className='pb-24'>
-          <div className='flex flex-col items-center gap-6 rounded-2xl border border-zinc-800/80 bg-zinc-950/60 px-6 py-12 text-center'>
-            <H2 gradient className='animate-gradient bg-[length:200%_auto] text-3xl md:text-4xl'>
-              {sections.portfolio.caseStudy.ctaTitle}
-            </H2>
-            <Body className='max-w-2xl text-zinc-300'>
-              {sections.portfolio.caseStudy.ctaDescription}
-            </Body>
-            <div className='flex flex-col gap-4 sm:flex-row'>
-              <ButtonLink
-                href={websiteLink}
-                target='_blank'
-                rel='noopener noreferrer'
-                svg={<ExternalLink size={18} aria-hidden='true' />}
-                label={sections.portfolio.buttons.viewLive}
-                size='lg'
-                variant='primary'
-                eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
-                eventProperties={{ link_type: 'live', project_slug: slug }}
-                className='w-full sm:w-auto font-semibold'
-              />
-              <ButtonLink
-                href='/'
-                svg={<ArrowLeft size={18} aria-hidden='true' />}
-                label={sections.portfolio.caseStudy.backCta}
-                size='lg'
-                variant='secondary'
-                eventName={UMAMI_EVENTS.NAV_SECTION_CLICK}
-                eventProperties={{ location: 'case_study', section: 'Portfolio' }}
-                className='w-full sm:w-auto'
-              />
-            </div>
-          </div>
-        </Section>
-      </div>
+        </div>
+      </Section>
     </article>
   );
 };
