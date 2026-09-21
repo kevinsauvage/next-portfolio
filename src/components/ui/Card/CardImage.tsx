@@ -69,7 +69,7 @@ export const CardImage = ({
         height={height}
         quality={quality}
         className={clsx(
-          'w-full h-full transition-transform duration-500 group-hover:scale-110 group-focus-within:scale-110',
+          'w-full h-full transition-transform duration-500 group-hover:scale-105 group-focus-within:scale-105',
           objectFit === 'cover' && 'object-cover',
           objectFit === 'contain' && 'object-contain',
           objectFit === 'fill' && 'object-fill'

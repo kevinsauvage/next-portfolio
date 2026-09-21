@@ -23,20 +23,18 @@ const ProjectImage = ({
   index: number;
 }) => {
   return (
-    <div className='md:col-span-2 flex items-center justify-center'>
-      <div className='relative w-full'>
-        <div className='absolute -top-2 -left-2 z-10'>
-          <NumberBadge number={index + 1} />
-        </div>
-        <CardImage
-          src={images.thumbnail.src}
-          alt={images.thumbnail.alt}
-          aspectRatio='wide'
-          width={800}
-          height={500}
-          sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw'
-        />
+    <div className='relative w-full'>
+      <div className='absolute -left-2 -top-2 z-10'>
+        <NumberBadge number={index + 1} />
       </div>
+      <CardImage
+        src={images.thumbnail.src}
+        alt={images.thumbnail.alt}
+        aspectRatio='wide'
+        width={1200}
+        height={750}
+        sizes='(max-width: 1024px) 100vw, 1024px'
+      />
     </div>
   );
 };
@@ -64,7 +62,7 @@ const ProjectTitleAndDescription = ({
       >
         {title}
       </H3>
-      <BodySmall className='transition-colors leading-relaxed text-zinc-200 group-hover:text-zinc-200'>
+      <BodySmall className='max-w-3xl transition-colors leading-relaxed text-zinc-200 group-hover:text-zinc-200'>
         {description}
       </BodySmall>
     </div>
@@ -166,9 +164,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         className='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-500/60 to-transparent'
       />
       <CardContent spacing='lg' className='relative z-10 h-full pt-6'>
-        <div className='grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 h-full'>
+        <div className='space-y-6'>
           <ProjectImage images={images} index={index} />
-          <div className='md:col-span-3 flex flex-col space-y-5'>
+          <div className='flex flex-col space-y-5'>
             <ProjectTitleAndDescription
               title={title}
               description={description}
