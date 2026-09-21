@@ -60,6 +60,8 @@ export const sections = {
       qualityOverline: 'Quality',
       qualityTitle: 'Tested, typed and accessible',
       qualityCaption: 'Quality & delivery',
+      galleryOverline: 'Screens',
+      galleryTitle: 'Product walkthrough',
       ctaTitle: 'Want to see it live?',
       ctaDescription:
         'The full storefront is deployed and open to explore — browse the catalog, add to cart and sign in.',

@@ -13,7 +13,7 @@ describe('projects content', () => {
       expect(nonEmpty(project.title)).toBe(true);
       expect(nonEmpty(project.description)).toBe(true);
       expect(project.websiteLink).toMatch(/^https?:\/\//);
-      expect(project.images.thumbnail.src).toMatch(/^https?:\/\//);
+      expect(project.images.thumbnail.src).toMatch(/^(\/|https?:\/\/)/);
       expect(project.images.thumbnail.alt).not.toBe('');
       expect(project.technologies.length).toBeGreaterThan(0);
     }
@@ -43,6 +43,7 @@ describe('projects content', () => {
       expect(caseStudy.technical.length, `${title} technical`).toBeGreaterThan(0);
       expect(caseStudy.responsibilities.length, `${title} responsibilities`).toBeGreaterThan(0);
       expect(caseStudy.quality.length, `${title} quality`).toBeGreaterThan(0);
+      expect(caseStudy.gallery.length, `${title} gallery`).toBeGreaterThan(0);
 
       for (const fact of caseStudy.facts) {
         expect(nonEmpty(fact.label)).toBe(true);

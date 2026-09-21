@@ -89,7 +89,24 @@ npm run test         # watch mode
 npm run test:run     # single run
 npm run test:coverage
 npm run test:e2e     # Playwright
+
+# Assets
+npm run screenshots  # capture project screenshots into public/images/projects
 ```
+
+### Project screenshots
+
+Portfolio images are generated locally with Playwright and served from `public/` (no Cloudinary
+upload). Point it at the deployed demo and re-run when the project changes:
+
+```bash
+SCREENSHOT_BASE_URL=https://nextjs-shopify-storefront-demo.vercel.app npm run screenshots
+```
+
+It crawls the demo for the home, collections index, first collection and first product page, clears
+the cookie banner, and writes optimised JPEGs to `public/images/projects/<slug>/`. Flags:
+`--base <url>`, `--slug <slug>`, `--out <dir>`, `--full` (full-page). See
+`scripts/capture-project-screenshots.mjs`.
 
 ## Configuration
 

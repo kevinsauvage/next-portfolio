@@ -104,7 +104,8 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
 
   if (!caseStudy) return null;
 
-  const { tagline, overview, facts, features, technical, responsibilities, quality } = caseStudy;
+  const { tagline, overview, facts, features, technical, responsibilities, quality, gallery } =
+    caseStudy;
   const meta = [role, timeline].filter(Boolean).join(' · ');
   const repoUrl = githubLink.at(0);
 
@@ -219,6 +220,29 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
             <H2>{sections.portfolio.caseStudy.featuresTitle}</H2>
           </div>
           <FeatureGrid features={features} />
+        </div>
+      </Section>
+
+      <Section id='gallery'>
+        <div className='space-y-10'>
+          <div className='space-y-6'>
+            <Overline>{sections.portfolio.caseStudy.galleryOverline}</Overline>
+            <H2>{sections.portfolio.caseStudy.galleryTitle}</H2>
+          </div>
+          <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
+            {gallery.map((image, index) => (
+              <div key={image.src} className={index === 0 ? 'md:col-span-2' : undefined}>
+                <CardImage
+                  src={image.src}
+                  alt={image.alt}
+                  aspectRatio='wide'
+                  width={1440}
+                  height={900}
+                  sizes='(max-width: 768px) 100vw, 50vw'
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 

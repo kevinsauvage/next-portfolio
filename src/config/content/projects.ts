@@ -22,6 +22,8 @@ export type ProjectCaseStudy = {
   responsibilities: string[];
   /** Quality, testing and delivery practices. */
   quality: string[];
+  /** Product screenshots captured from the live demo. */
+  gallery: { src: string; alt: string }[];
 };
 
 export type Project = {
@@ -163,11 +165,25 @@ const myEcommerceProject: Project = {
       'Lighthouse accessibility and best-practices 100 on desktop and mobile',
       'Metadata, sitemap, robots and canonical URLs wired per route',
     ],
+    gallery: [
+      {
+        src: '/images/projects/modern-ecommerce-platform/collections.jpg',
+        alt: 'Collection index page with a paginated product grid',
+      },
+      {
+        src: '/images/projects/modern-ecommerce-platform/collection.jpg',
+        alt: 'A single collection page with filterable products',
+      },
+      {
+        src: '/images/projects/modern-ecommerce-platform/product.jpg',
+        alt: 'Product detail page with variants, pricing and specifications',
+      },
+    ],
   },
   images: {
     thumbnail: {
       alt: 'Screenshot of the Shopify storefront homepage',
-      src: 'https://res.cloudinary.com/kevincloudname/image/upload/w_500/v1746818453/portfolio/ecommerce-shadcn-tailwind/nextjs-shadcn-ecommerce.webp',
+      src: '/images/projects/modern-ecommerce-platform/home.jpg',
     },
   },
   technologies: [
