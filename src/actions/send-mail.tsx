@@ -1,8 +1,11 @@
 'use server';
 
+import { headers } from 'next/headers';
+
 import { getServerEnv } from '@/lib/env';
 import { logError } from '@/lib/error-tracking';
-import { contactFormSchema } from '@/schemas/contact-form.schema';
+import { checkRateLimit } from '@/lib/rate-limit';
+import { CONTACT_ERROR_CODES, contactFormSchema } from '@/schemas/contact-form.schema';
 
 import emailjs from '@emailjs/nodejs';
 
@@ -16,8 +19,9 @@ export type ContactFormState = {
   };
 };
 
+const MINIMUM_CAPTCHA_SCORE = 0.7;
+
 async function validateCaptcha(captchaToken: string, secretKey: string): Promise<boolean> {
-  const minimumCaptchaScore = 0.7;
   const data = new FormData();
   data.append('secret', secretKey);
   data.append('response', captchaToken);
@@ -25,8 +29,19 @@ async function validateCaptcha(captchaToken: string, secretKey: string): Promise
     body: data,
     method: 'POST',
   });
-  const response = await captchaResponse.json();
-  return response.score && response.score >= minimumCaptchaScore;
+  const response: unknown = await captchaResponse.json();
+  if (typeof response !== 'object' || response === null) return false;
+
+  const { success, score } = response as { success?: unknown; score?: unknown };
+  return success === true && typeof score === 'number' && score >= MINIMUM_CAPTCHA_SCORE;
+}
+
+/** Best-effort client key for rate limiting. */
+async function getClientKey(): Promise<string> {
+  const headerList = await headers();
+  const forwardedFor = headerList.get('x-forwarded-for');
+  const ip = forwardedFor?.split(',')[0]?.trim() || headerList.get('x-real-ip') || 'unknown';
+  return ip;
 }
 
 export async function sendMail(data: {
@@ -64,14 +79,31 @@ export async function sendMail(data: {
     await emailjs.send(
       env.email_js_service_id,
       env.email_js_template_id,
-      parsed.data,
+      {
+        email: parsed.data.email,
+        fullName: parsed.data.fullName,
+        message: parsed.data.message,
+      },
       keyParameters
     );
     return { success: true };
   } catch (error) {
-    logError(new Error('Failed to send email'), { error });
+    logError(
+      error instanceof Error ? error : new Error('Unknown email error'),
+      CONTACT_ERROR_CODES.PROVIDER_FAILED
+    );
     return { success: false, error: 'Failed to send email' };
   }
+}
+
+const CONTACT_FIELDS = ['fullName', 'email', 'message'] as const;
+
+function toFieldErrors(source: Record<string, string>): ContactFormState['fieldErrors'] {
+  const fieldErrors: ContactFormState['fieldErrors'] = {};
+  if (source['fullName']) fieldErrors.fullName = source['fullName'];
+  if (source['email']) fieldErrors.email = source['email'];
+  if (source['message']) fieldErrors.message = source['message'];
+  return fieldErrors;
 }
 
 export async function sendMailAction(
@@ -79,12 +111,20 @@ export async function sendMailAction(
   formData: FormData
 ): Promise<ContactFormState> {
   try {
-    const fullName = String(formData.get('fullName') ?? '');
-    const email = String(formData.get('email') ?? '');
-    const message = String(formData.get('message') ?? '');
-    const captcha = String(formData.get('captcha') ?? '');
+    const { allowed, retryAfterSeconds } = checkRateLimit(await getClientKey());
+    if (!allowed) {
+      return {
+        status: 'error',
+        message: `Too many messages sent. Please try again in ${retryAfterSeconds} seconds.`,
+        fieldErrors: {},
+      };
+    }
 
-    const result = await sendMail({ fullName, email, message, captcha });
+    const payload = Object.fromEntries(
+      [...CONTACT_FIELDS, 'captcha'].map(field => [field, String(formData.get(field) ?? '')])
+    ) as { fullName: string; email: string; message: string; captcha: string };
+
+    const result = await sendMail(payload);
 
     if (result.success) {
       return {
@@ -99,14 +139,7 @@ export async function sendMailAction(
       return {
         status: 'error',
         message: result.error ?? 'Please correct the errors in the form.',
-        fieldErrors: Object.fromEntries(
-          (['fullName', 'email', 'message'] as const)
-            .map(field => {
-              const value = result.fieldErrors?.[field];
-              return value ? [field, value] : null;
-            })
-            .filter((entry): entry is [string, string] => entry !== null)
-        ) as ContactFormState['fieldErrors'],
+        fieldErrors: toFieldErrors(result.fieldErrors),
       };
     }
 
@@ -117,7 +150,10 @@ export async function sendMailAction(
       fieldErrors: {},
     };
   } catch (error) {
-    logError(new Error('Failed to send email'), { error });
+    logError(
+      error instanceof Error ? error : new Error('Unknown contact form error'),
+      CONTACT_ERROR_CODES.UNEXPECTED
+    );
     return {
       status: 'error',
       message: 'An unexpected error occurred. Please try again later.',

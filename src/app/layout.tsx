@@ -78,7 +78,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <main
           id='main-content'
           className='min-h-dvh flex-1 h-full w-full flex flex-col'
-          role='main'
           aria-label='Main content'
         >
           {children}

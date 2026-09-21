@@ -1,17 +1,21 @@
 /* eslint-disable sonarjs/max-lines-per-function, sonarjs/no-duplicate-string */
+import { resetRateLimit } from '@/lib/rate-limit';
+
 import { sendMail, sendMailAction } from './send-mail';
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-const { getServerEnvMock, emailjsSendMock, logErrorMock } = vi.hoisted(() => ({
+const { getServerEnvMock, emailjsSendMock, logErrorMock, headersMock } = vi.hoisted(() => ({
   getServerEnvMock: vi.fn(),
   emailjsSendMock: vi.fn(),
   logErrorMock: vi.fn(),
+  headersMock: vi.fn(),
 }));
 
 vi.mock('@/lib/env', () => ({ getServerEnv: getServerEnvMock }));
 vi.mock('@/lib/error-tracking', () => ({ logError: logErrorMock }));
 vi.mock('@emailjs/nodejs', () => ({ default: { send: emailjsSendMock } }));
+vi.mock('next/headers', () => ({ headers: headersMock }));
 
 const fetchMock = vi.fn();
 
@@ -30,6 +34,7 @@ describe('sendMail', () => {
   beforeEach(() => {
     vi.clearAllMocks();
     vi.stubGlobal('fetch', fetchMock);
+    headersMock.mockResolvedValue(new Headers({ 'x-forwarded-for': '203.0.113.7' }));
     getServerEnvMock.mockReturnValue({
       email_js_service_id: 'service-id',
       email_js_public_key: 'public-key',
@@ -71,14 +76,52 @@ describe('sendMail', () => {
     expect(emailjsSendMock).not.toHaveBeenCalled();
   });
 
+  it('rejects when the captcha response is unsuccessful', async () => {
+    fetchMock.mockResolvedValue(captchaResponse({ success: false, score: 0.9 }));
+
+    const result = await sendMail(validPayload);
+
+    expect(result).toEqual({ success: false, error: 'Captcha validation failed' });
+    expect(emailjsSendMock).not.toHaveBeenCalled();
+  });
+
+  it('rejects when the captcha score is missing', async () => {
+    fetchMock.mockResolvedValue(captchaResponse({ success: true }));
+
+    const result = await sendMail(validPayload);
+
+    expect(result).toEqual({ success: false, error: 'Captcha validation failed' });
+    expect(emailjsSendMock).not.toHaveBeenCalled();
+  });
+
+  it('rejects payloads exceeding the field length caps', async () => {
+    const result = await sendMail({
+      ...validPayload,
+      message: 'x'.repeat(5001),
+    });
+
+    expect(result.success).toBe(false);
+    expect(result.error).toBe('Validation failed');
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it('sends the email when validation and captcha succeed', async () => {
     const result = await sendMail(validPayload);
 
     expect(result).toEqual({ success: true });
-    expect(emailjsSendMock).toHaveBeenCalledWith('service-id', 'template-id', validPayload, {
-      privateKey: 'private-key',
-      publicKey: 'public-key',
-    });
+    expect(emailjsSendMock).toHaveBeenCalledWith(
+      'service-id',
+      'template-id',
+      {
+        email: validPayload.email,
+        fullName: validPayload.fullName,
+        message: validPayload.message,
+      },
+      {
+        privateKey: 'private-key',
+        publicKey: 'public-key',
+      }
+    );
   });
 
   it('returns a generic error when the email provider fails', async () => {
@@ -88,13 +131,16 @@ describe('sendMail', () => {
 
     expect(result).toEqual({ success: false, error: 'Failed to send email' });
     expect(logErrorMock).toHaveBeenCalledTimes(1);
+    expect(logErrorMock).toHaveBeenCalledWith(expect.any(Error), 'contact_provider_failed');
   });
 });
 
 describe('sendMailAction', () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    resetRateLimit();
     vi.stubGlobal('fetch', fetchMock);
+    headersMock.mockResolvedValue(new Headers({ 'x-forwarded-for': '203.0.113.7' }));
     getServerEnvMock.mockReturnValue({
       email_js_service_id: 'service-id',
       email_js_public_key: 'public-key',
@@ -147,5 +193,21 @@ describe('sendMailAction', () => {
     expect(state.status).toBe('error');
     expect(state.message).toBe('Captcha validation failed');
     expect(state.fieldErrors).toEqual({});
+  });
+
+  it('blocks submissions after the rate limit is exceeded', async () => {
+    const submit = () =>
+      sendMailAction({ status: 'idle', fieldErrors: {} }, buildFormData(validPayload));
+
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      const state = await submit();
+      expect(state.status).toBe('success');
+    }
+
+    const blocked = await submit();
+
+    expect(blocked.status).toBe('error');
+    expect(blocked.message).toMatch(/too many messages/i);
+    expect(emailjsSendMock).toHaveBeenCalledTimes(5);
   });
 });

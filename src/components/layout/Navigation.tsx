@@ -7,7 +7,7 @@ import clsx from 'clsx';
 
 const Navigation = () => {
   return (
-    <nav className='flex items-center' role='navigation' aria-label='Main navigation'>
+    <nav className='flex items-center' aria-label='Primary'>
       <ul className='hidden lg:flex items-center gap-0.5 xl:gap-1'>
         {layout.header.navigation.items.map(({ label, href }) => (
           <li key={label}>
