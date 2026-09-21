@@ -46,6 +46,24 @@ export const sections = {
     buttons: {
       viewLive: 'View Live',
       sourceCode: 'Source Code',
+      caseStudy: 'Read case study',
+    },
+    caseStudy: {
+      overline: 'Case study',
+      overview: 'Overview',
+      overviewTitle: 'The problem & the approach',
+      responsibilities: 'What I owned',
+      featuresOverline: 'Product',
+      featuresTitle: 'What it does',
+      engineeringOverline: 'Engineering',
+      engineeringTitle: 'How it is built',
+      qualityOverline: 'Quality',
+      qualityTitle: 'Tested, typed and accessible',
+      qualityCaption: 'Quality & delivery',
+      ctaTitle: 'Want to see it live?',
+      ctaDescription:
+        'The full storefront is deployed and open to explore — browse the catalog, add to cart and sign in.',
+      backCta: 'Back to portfolio',
     },
   },
   testimonials: {

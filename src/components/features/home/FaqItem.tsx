@@ -50,6 +50,8 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
         id={panelId}
         role='region'
         aria-labelledby={buttonId}
+        aria-hidden={!open}
+        inert={!open}
         className={clsx(
           'grid transition-all duration-300 ease-out',
           open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'

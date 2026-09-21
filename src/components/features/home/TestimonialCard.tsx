@@ -120,7 +120,7 @@ const TestimonialContent = ({
           onClick={() => setExpanded(previous => !previous)}
           aria-expanded={expanded}
           className={clsx(
-            'inline-flex items-center gap-1 text-xs font-medium',
+            'inline-flex min-h-11 items-center gap-1 text-xs font-medium',
             'text-zinc-300 hover:text-zinc-100',
             'transition-colors duration-200',
             'underline-offset-4 hover:underline'
@@ -138,14 +138,13 @@ const TestimonialContent = ({
           target='_blank'
           rel='noopener noreferrer'
           className={clsx(
-            'inline-flex items-center gap-1.5 text-xs font-medium',
+            'inline-flex min-h-11 items-center gap-1.5 text-xs font-medium',
             'text-primary-400 hover:text-primary-300',
             'transition-colors duration-200',
             'underline-offset-4 hover:underline'
           )}
           data-umami-event={UMAMI_EVENTS.TESTIMONIAL_LINKEDIN_CLICK}
           aria-label={`Via LinkedIn — read ${authorName}'s full recommendation`}
-          title='Sourced from LinkedIn recommendations'
         >
           Via LinkedIn
           <ExternalLink size={12} aria-hidden='true' />

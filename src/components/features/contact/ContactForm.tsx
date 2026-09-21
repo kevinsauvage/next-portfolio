@@ -1,7 +1,7 @@
 'use client';
 
-import type { FormEvent } from 'react';
-import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
+import type { FocusEvent, FormEvent } from 'react';
+import { startTransition, useActionState, useCallback, useEffect, useRef, useState } from 'react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
@@ -9,6 +9,12 @@ import Button from '@/components/ui/Button/Button';
 import { FormError, Input, Label, TextArea } from '@/components/ui/Form';
 import { trackEvent } from '@/lib/analytics';
 import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import {
+  collectFieldErrors,
+  type ContactFieldErrors,
+  contactFieldsSchema,
+  type ContactFieldValues,
+} from '@/schemas/contact-fields.schema';
 
 import { LucideSend } from 'lucide-react';
 import { toast } from 'sonner';
@@ -18,17 +24,42 @@ export const initialContactFormState: ContactFormState = {
   fieldErrors: {},
 };
 
+const readValues = (data: FormData): ContactFieldValues => ({
+  fullName: String(data.get('fullName') ?? ''),
+  email: String(data.get('email') ?? ''),
+  message: String(data.get('message') ?? ''),
+});
+
 const ContactForm = () => {
   const [formState, formAction, isPending] = useActionState<ContactFormState, FormData>(
     sendMailAction,
     initialContactFormState
   );
   const [isGettingCaptcha, setIsGettingCaptcha] = useState(false);
+  const [clientErrors, setClientErrors] = useState<ContactFieldErrors>({});
+  const [hasSubmitted, setHasSubmitted] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const prevStatusRef = useRef<ContactFormState['status']>('idle');
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const isSubmitting = isPending || isGettingCaptcha;
+  const hasClientErrors = Object.keys(clientErrors).length > 0;
+  const fieldErrors = hasClientErrors ? clientErrors : formState.fieldErrors;
+  const firstErrorMessage = Object.values(fieldErrors).find(Boolean);
+  const fieldErrorAnnouncement = firstErrorMessage ? `Validation error: ${firstErrorMessage}` : '';
+
+  const focusFirstInvalidField = useCallback((errors: ContactFieldErrors) => {
+    const firstInvalidField = errors.fullName
+      ? 'fullName'
+      : errors.email
+        ? 'email'
+        : errors.message
+          ? 'message'
+          : undefined;
+    if (!firstInvalidField) return;
+    const element = formRef.current?.elements.namedItem(firstInvalidField);
+    if (element instanceof HTMLElement) element.focus();
+  }, []);
 
   useEffect(() => {
     const prev = prevStatusRef.current;
@@ -45,11 +76,16 @@ const ContactForm = () => {
     switch (formState.status) {
       case 'success': {
         formRef.current?.reset();
+        setClientErrors({});
+        setHasSubmitted(false);
         if (formState.message) toast.success(formState.message);
         break;
       }
       case 'error': {
         if (formState.message) toast.error(formState.message);
+        if (Object.keys(formState.fieldErrors ?? {}).length > 0) {
+          focusFirstInvalidField(formState.fieldErrors);
+        }
         break;
       }
       default: {
@@ -57,17 +93,57 @@ const ContactForm = () => {
       }
     }
     setIsGettingCaptcha(false);
-  }, [formState]);
+  }, [formState, focusFirstInvalidField]);
+
+  const handleFieldBlur = (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = event.target;
+    if (name !== 'fullName' && name !== 'email' && name !== 'message') return;
+    // Avoid shouting "required" before the user has attempted to submit.
+    if (!hasSubmitted && value.trim() === '') return;
+
+    const fieldSchema =
+      name === 'fullName'
+        ? contactFieldsSchema.shape.fullName
+        : name === 'email'
+          ? contactFieldsSchema.shape.email
+          : contactFieldsSchema.shape.message;
+    const result = fieldSchema.safeParse(value);
+    setClientErrors(previous => {
+      if (result.success) {
+        const next = { ...previous };
+        if (name === 'fullName') delete next.fullName;
+        else if (name === 'email') delete next.email;
+        else delete next.message;
+        return next;
+      }
+      const message = result.error.issues[0]?.message ?? 'Invalid value';
+      if (name === 'fullName') return { ...previous, fullName: message };
+      if (name === 'email') return { ...previous, email: message };
+      return { ...previous, message };
+    });
+  };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // Fires only on a real submit attempt (with captcha flow), unlike a
     // button click handler which also fires when reCAPTCHA is unavailable.
     trackEvent(UMAMI_EVENTS.CONTACT_FORM_SUBMIT_ATTEMPT);
-    setIsGettingCaptcha(true);
 
     const formElement = event.currentTarget;
     const formData = new FormData(formElement);
+
+    const parsed = contactFieldsSchema.safeParse(readValues(formData));
+    if (!parsed.success) {
+      const errors = collectFieldErrors(parsed.error.issues);
+      setClientErrors(errors);
+      setHasSubmitted(true);
+      focusFirstInvalidField(errors);
+      return;
+    }
+
+    setClientErrors({});
+    setHasSubmitted(true);
+    setIsGettingCaptcha(true);
 
     try {
       if (!executeRecaptcha) {
@@ -107,7 +183,7 @@ const ContactForm = () => {
       noValidate
     >
       <output className='sr-only' aria-live='polite' aria-atomic='true'>
-        {isSubmitting ? 'Sending message...' : ''}
+        {isSubmitting ? 'Sending message...' : fieldErrorAnnouncement}
       </output>
       <div className='space-y-6'>
         <div className='flex flex-col space-y-2'>
@@ -122,13 +198,12 @@ const ContactForm = () => {
             required
             minLength={2}
             aria-required='true'
-            aria-invalid={!!formState.fieldErrors?.fullName}
-            aria-describedby={formState.fieldErrors?.fullName ? 'fullName-error' : undefined}
+            aria-invalid={!!fieldErrors.fullName}
+            aria-describedby={fieldErrors.fullName ? 'fullName-error' : undefined}
             autoComplete='name'
+            onBlur={handleFieldBlur}
           />
-          {formState.fieldErrors?.fullName && (
-            <FormError id='fullName-error' message={formState.fieldErrors?.fullName} />
-          )}
+          {fieldErrors.fullName && <FormError id='fullName-error' message={fieldErrors.fullName} />}
         </div>
 
         <div className='flex flex-col space-y-2'>
@@ -142,13 +217,12 @@ const ContactForm = () => {
             placeholder='ex: johndoe@gmail.com'
             required
             aria-required='true'
-            aria-invalid={!!formState.fieldErrors?.email}
-            aria-describedby={formState.fieldErrors?.email ? 'email-error' : undefined}
+            aria-invalid={!!fieldErrors.email}
+            aria-describedby={fieldErrors.email ? 'email-error' : undefined}
             autoComplete='email'
+            onBlur={handleFieldBlur}
           />
-          {formState.fieldErrors?.email && (
-            <FormError id='email-error' message={formState.fieldErrors?.email} />
-          )}
+          {fieldErrors.email && <FormError id='email-error' message={fieldErrors.email} />}
         </div>
 
         <div className='flex flex-col space-y-2'>
@@ -162,13 +236,12 @@ const ContactForm = () => {
             required
             minLength={10}
             aria-required='true'
-            aria-invalid={!!formState.fieldErrors?.message}
-            aria-describedby={formState.fieldErrors?.message ? 'message-error' : undefined}
+            aria-invalid={!!fieldErrors.message}
+            aria-describedby={fieldErrors.message ? 'message-error' : undefined}
             autoComplete='off'
+            onBlur={handleFieldBlur}
           />
-          {formState.fieldErrors?.message && (
-            <FormError id='message-error' message={formState.fieldErrors?.message} />
-          )}
+          {fieldErrors.message && <FormError id='message-error' message={fieldErrors.message} />}
         </div>
 
         <Button
@@ -182,6 +255,28 @@ const ContactForm = () => {
           size='md'
           aria-live='polite'
         />
+
+        <p className='text-xs leading-relaxed text-zinc-500'>
+          This site is protected by reCAPTCHA and the Google{' '}
+          <a
+            href='https://policies.google.com/privacy'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-200'
+          >
+            Privacy Policy
+          </a>{' '}
+          and{' '}
+          <a
+            href='https://policies.google.com/terms'
+            target='_blank'
+            rel='noopener noreferrer'
+            className='text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-200'
+          >
+            Terms of Service
+          </a>{' '}
+          apply.
+        </p>
       </div>
     </form>
   );

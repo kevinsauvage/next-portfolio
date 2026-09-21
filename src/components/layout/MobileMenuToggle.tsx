@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 
@@ -15,7 +15,8 @@ import { ChevronRight, MenuIcon, X } from 'lucide-react';
 const MobileMenuToggle = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const mobileMenuRef = useFocusTrap(menuOpen);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const mobileMenuRef = useFocusTrap(menuOpen, closeMenu);
 
   useEffect(() => {
     setMounted(true);
@@ -26,8 +27,7 @@ const MobileMenuToggle = () => {
     document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
   }, [menuOpen]);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-  const closeMenu = () => setMenuOpen(false);
+  const toggleMenu = () => setMenuOpen(previous => !previous);
 
   const mobileMenuContent = menuOpen && (
     <div className='fixed inset-0 z-[45] lg:hidden'>

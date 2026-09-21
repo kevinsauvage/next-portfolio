@@ -5,10 +5,18 @@ import { useEffect, useRef } from 'react';
 /**
  * Custom hook to trap focus within a container element
  * Useful for modals, dialogs, and mobile menus for accessibility
+ *
+ * @param isActive - Whether the trap is currently active.
+ * @param onEscape - Optional handler invoked when Escape is pressed while active.
  */
-export const useFocusTrap = (isActive: boolean) => {
+export const useFocusTrap = (isActive: boolean, onEscape?: () => void) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const previousActiveElement = useRef<HTMLElement | null>(null);
+  const onEscapeRef = useRef(onEscape);
+
+  useEffect(() => {
+    onEscapeRef.current = onEscape;
+  }, [onEscape]);
 
   useEffect(() => {
     if (!isActive) return;
@@ -48,10 +56,8 @@ export const useFocusTrap = (isActive: boolean) => {
     };
 
     const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && container) {
-        // Close the trap by triggering a click on the container
-        // The parent component should handle this
-        container.dispatchEvent(new Event('escape', { bubbles: true }));
+      if (event.key === 'Escape') {
+        onEscapeRef.current?.();
       }
     };
 

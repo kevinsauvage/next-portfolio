@@ -2,7 +2,7 @@ import { projects } from '@/config/content/projects';
 
 export const SITE_URL = 'https://www.kevin-sauvage.com' as const;
 // Bump this when site content changes so crawlers see a meaningful `lastModified`.
-export const SITE_LAST_MODIFIED = '2026-09-20' as const;
+export const SITE_LAST_MODIFIED = '2026-09-21' as const;
 export const PERSON_NAME = 'Kévin Sauvage' as const;
 export const FRONTEND_DEVELOPER = 'Frontend Software Engineer' as const;
 export const SCHEMA_CONTEXT = 'https://schema.org' as const;

@@ -8,7 +8,7 @@ import { sections } from '@/config/content';
 import type { Project } from '@/config/content/projects';
 import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
-import { Check, ExternalLink } from 'lucide-react';
+import { BookOpen, Check, ExternalLink } from 'lucide-react';
 
 type ProjectCardProps = {
   project: Project;
@@ -35,7 +35,6 @@ const ProjectImage = ({
           width={800}
           height={500}
           sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw'
-          priority={index < 3}
         />
       </div>
     </div>
@@ -112,14 +111,23 @@ const ProjectActionButtons = ({
   return (
     <div className='flex flex-wrap gap-3 pt-2 mt-auto'>
       <ButtonLink
+        href={`/projects/${slug}`}
+        svg={<BookOpen size={16} aria-hidden='true' />}
+        label={sections.portfolio.buttons.caseStudy}
+        size='sm'
+        variant='primary'
+        eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+        eventProperties={{ link_type: 'case_study', project_slug: slug }}
+        className='shadow-glow-sm hover:shadow-glow-md'
+      />
+      <ButtonLink
         href={websiteLink}
         svg={<ExternalLink size={16} aria-hidden='true' />}
         label={sections.portfolio.buttons.viewLive}
         size='sm'
-        variant='primary'
+        variant='secondary'
         eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
         eventProperties={{ link_type: 'live', project_slug: slug }}
-        className='shadow-glow-sm hover:shadow-glow-md'
         target='_blank'
         rel='noopener noreferrer'
       />
@@ -157,7 +165,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
         aria-hidden='true'
         className='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-500/60 to-transparent'
       />
-      <CardContent spacing='lg' className='relative z-10 h-full'>
+      <CardContent spacing='lg' className='relative z-10 h-full pt-6'>
         <div className='grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 h-full'>
           <ProjectImage images={images} index={index} />
           <div className='md:col-span-3 flex flex-col space-y-5'>

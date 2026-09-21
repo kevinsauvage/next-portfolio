@@ -76,6 +76,7 @@ describe('ContactForm', () => {
   it('shows an error when reCAPTCHA is unavailable', async () => {
     recaptcha.current = undefined;
     render(<ContactForm />);
+    fillForm(validValues);
 
     submitForm();
 
@@ -85,6 +86,20 @@ describe('ContactForm', () => {
       );
     });
     expect(mocks.sendMailAction).not.toHaveBeenCalled();
+  });
+
+  it('blocks submit and surfaces inline errors when client validation fails', async () => {
+    render(<ContactForm />);
+
+    submitForm();
+
+    await waitFor(() => {
+      expect(screen.getByText('Full name is required')).toBeInTheDocument();
+    });
+    expect(screen.getByText('Email is required')).toBeInTheDocument();
+    expect(screen.getByText('Message is required')).toBeInTheDocument();
+    expect(mocks.sendMailAction).not.toHaveBeenCalled();
+    expect(screen.getByLabelText(/full name/i)).toHaveFocus();
   });
 
   it('submits the form with a captcha token and resets on success', async () => {
