@@ -1,6 +1,7 @@
 import ContactInfo from '@/components/shared/ContactInfo';
 import GridBackground from '@/components/shared/GridBackground';
 import MeshGradient from '@/components/shared/MeshGradient';
+import Reveal from '@/components/shared/Reveal';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Body, BodySmall, Display } from '@/components/ui/Typography';
 import { layout, sections } from '@/config/content';
@@ -9,8 +10,10 @@ import { UMAMI_EVENTS } from '@/lib/analytics-events';
 import clsx from 'clsx';
 import { FileText, MoveDown, Sparkles } from 'lucide-react';
 
+const YEARS_EXPERIENCE_LABEL = 'Years Experience';
+
 const stats = [
-  { label: 'Years Experience', value: '5+' },
+  { label: YEARS_EXPERIENCE_LABEL, value: '5+' },
   { label: 'Countries Reached', value: '15+' },
   { label: 'Users Impacted', value: '1M+' },
 ];
@@ -32,10 +35,7 @@ const Hero = () => {
         aria-labelledby='hero-title'
         aria-describedby='hero-description'
       >
-        <header
-          className='z-10 mb-8 flex flex-col justify-center items-center animate-fade-in-up opacity-0'
-          style={{ animationFillMode: 'both' }}
-        >
+        <Reveal as='header' className='z-10 mb-8 flex flex-col justify-center items-center'>
           <p
             className='mb-6 inline-flex items-center gap-2.5 rounded-full border border-primary-800/60 bg-primary-950/40 px-4 py-1.5 font-mono text-xs font-medium tracking-[0.18em] uppercase text-primary-300'
             aria-label={`Availability: ${sections.hero.availability}`}
@@ -47,29 +47,17 @@ const Hero = () => {
             {sections.hero.availability}
           </p>
           <Display id='hero-title' className='mb-6 max-w-5xl text-center md:flex md:flex-col'>
-            <span className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
-              {sections.hero.title.firstLine}
-            </span>{' '}
-            <span
-              className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text bg-[length:200%_auto] animate-fade-in-up opacity-0'
-              style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
-            >
+            <span>{sections.hero.title.firstLine}</span>{' '}
+            <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text bg-[length:200%_auto]'>
               {sections.hero.title.secondLine}
             </span>
           </Display>
-          <Body
-            id='hero-description'
-            className='mb-8 max-w-2xl animate-fade-in-up opacity-0'
-            style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
-          >
+          <Body id='hero-description' className='mb-8 max-w-2xl'>
             {sections.hero.description}
           </Body>
-        </header>
+        </Reveal>
 
-        <div
-          className='flex flex-col sm:flex-row mb-10 z-10 animate-fade-in-up opacity-0 w-full sm:w-auto gap-6'
-          style={{ animationDelay: '0.6s', animationFillMode: 'both' }}
-        >
+        <Reveal className='flex flex-col sm:flex-row mb-10 z-10 w-full sm:w-auto gap-6' delay={600}>
           <ButtonLink
             href='/#career'
             svg={<MoveDown strokeWidth={1.5} size={20} />}
@@ -93,14 +81,11 @@ const Hero = () => {
             eventProperties={{ location: 'hero' }}
             className='w-full sm:w-auto min-w-[220px]'
           />
-        </div>
+        </Reveal>
 
-        {/* Stats - Visible on desktop only, part of first fold */}
+        {/* Stats — first fold, so a one-shot entrance instead of scroll-reveal. */}
         <div className='hidden md:block w-full'>
-          <div
-            className='grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0 gap-4 md:gap-8'
-            style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
-          >
+          <div className='card-enter grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm gap-4 md:gap-8'>
             {stats.map(stat => (
               <div
                 key={stat.label}
@@ -108,7 +93,7 @@ const Hero = () => {
               >
                 <div className='text-2xl md:text-3xl font-bold mb-1 flex items-center gap-1 font-mono text-zinc-50'>
                   {stat.value}
-                  {stat.label === 'Years Experience' && (
+                  {stat.label === YEARS_EXPERIENCE_LABEL && (
                     <Sparkles
                       size={20}
                       className='text-accent-400 group-hover:animate-spin'
@@ -124,21 +109,15 @@ const Hero = () => {
             ))}
           </div>
 
-          <div
-            className='mt-8 animate-fade-in-up opacity-0'
-            style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
-          >
+          <div className='card-enter mt-8'>
             <ContactInfo size={22} eventPrefix='hero' className='justify-center' />
           </div>
         </div>
       </section>
 
-      {/* Stats - Below the fold on mobile only */}
+      {/* Stats — Below the fold on mobile only */}
       <div className='block md:hidden relative z-10 px-6 pb-8'>
-        <div
-          className='grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm animate-fade-in-up opacity-0 gap-4'
-          style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
-        >
+        <div className='card-enter grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm gap-4'>
           {stats.map(stat => (
             <div
               key={stat.label}
@@ -146,7 +125,7 @@ const Hero = () => {
             >
               <div className='text-2xl font-bold mb-1 flex items-center gap-1 font-mono text-zinc-50'>
                 {stat.value}
-                {stat.label === 'Years Experience' && (
+                {stat.label === YEARS_EXPERIENCE_LABEL && (
                   <Sparkles
                     size={20}
                     className='text-accent-400 group-hover:animate-spin'
@@ -161,10 +140,7 @@ const Hero = () => {
           ))}
         </div>
 
-        <div
-          className='mt-8 animate-fade-in-up opacity-0'
-          style={{ animationDelay: '0.8s', animationFillMode: 'both' }}
-        >
+        <div className='card-enter mt-8'>
           <ContactInfo size={22} eventPrefix='hero' className='justify-center' />
         </div>
       </div>

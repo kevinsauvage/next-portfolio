@@ -36,7 +36,6 @@ const ProjectImage = ({
           height={500}
           sizes='(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw'
           priority={index < 3}
-          unoptimized={true}
         />
       </div>
     </div>

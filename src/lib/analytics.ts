@@ -1,5 +1,3 @@
-import { UMAMI_EVENTS } from './analytics-events';
-
 export type { UmamiEventName } from './analytics-events';
 export { UMAMI_EVENTS } from './analytics-events';
 
@@ -9,13 +7,7 @@ export { UMAMI_EVENTS } from './analytics-events';
  * @see https://docs.umami.is/docs/tracker-functions
  */
 export interface UmamiTracker {
-  track(): void;
-  track(
-    payload: Record<string, unknown> | ((props: Record<string, unknown>) => Record<string, unknown>)
-  ): void;
   track(eventName: string, data?: Record<string, unknown>): void;
-  identify(uniqueId: string, data?: Record<string, unknown>): void;
-  identify(data: Record<string, unknown>): void;
 }
 
 declare global {
@@ -26,7 +18,7 @@ declare global {
 
 export type UmamiEventData = Record<string, unknown>;
 
-/** Result of a `track*` / `identify` call. */
+/** Result of a `track*` call. */
 export type TrackStatus = 'sent' | 'queued' | 'dropped';
 
 /** Mirrors Umami's documented event-data limits. */
@@ -34,14 +26,14 @@ const MAX_EVENT_DATA_PROPERTIES = 50;
 const MAX_STRING_LENGTH = 500;
 const MAX_QUEUE_SIZE = 50;
 
-type QueuedEntry =
-  | { kind: 'event'; eventName: string; data?: UmamiEventData | undefined }
-  | { kind: 'pageview'; url?: string | undefined; title?: string | undefined }
-  | { kind: 'identify'; uniqueId?: string | undefined; data?: UmamiEventData | undefined };
+type QueuedEvent = {
+  eventName: string;
+  data?: UmamiEventData | undefined;
+};
 
-const eventQueue: QueuedEntry[] = [];
+const eventQueue: QueuedEvent[] = [];
 
-export function isBrowser(): boolean {
+function isBrowser(): boolean {
   return typeof globalThis.window !== 'undefined';
 }
 
@@ -50,11 +42,11 @@ export function isBrowser(): boolean {
  * Note: the script uses `afterInteractive` loading, so events fired before
  * that are queued (see `flushUmamiQueue`) rather than dropped.
  */
-export function isUmamiAvailable(): boolean {
+function isUmamiAvailable(): boolean {
   return isBrowser() && typeof globalThis.window.umami?.track === 'function';
 }
 
-export function isDoNotTrackEnabled(): boolean {
+function isDoNotTrackEnabled(): boolean {
   if (!isBrowser()) return false;
   const nav = globalThis.window.navigator as Navigator & { doNotTrack?: unknown };
   const dnt =
@@ -66,7 +58,7 @@ export function isDoNotTrackEnabled(): boolean {
  * Guards against polluting production analytics from dev/test.
  * Set `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV=true` to opt in locally.
  */
-export function isUmamiEnabled(): boolean {
+function isUmamiEnabled(): boolean {
   if (process.env.NODE_ENV === 'production') return true;
   return process.env['NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV'] === 'true';
 }
@@ -114,22 +106,9 @@ export function sanitizeEventData(
   return Object.fromEntries(entries);
 }
 
-function enqueue(entry: QueuedEntry): TrackStatus {
-  if (eventQueue.length >= MAX_QUEUE_SIZE) {
-    eventQueue.shift();
-  }
-  eventQueue.push(entry);
-  return 'queued';
-}
-
-/** Number of events waiting for the tracker script to load. */
-export function getUmamiQueueSize(): number {
-  return eventQueue.length;
-}
-
-/** Discards queued events (e.g. on consent withdrawal). */
-export function clearUmamiQueue(): void {
-  eventQueue.length = 0;
+function sendEvent(eventName: string, data?: UmamiEventData): void {
+  const tracker = globalThis.window.umami as UmamiTracker;
+  tracker.track(eventName, sanitizeEventData(data));
 }
 
 /**
@@ -145,9 +124,9 @@ export function flushUmamiQueue(): number {
   if (!isUmamiAvailable()) return 0;
   let sent = 0;
   while (eventQueue.length > 0) {
-    const entry = eventQueue.shift() as QueuedEntry;
+    const entry = eventQueue.shift() as QueuedEvent;
     try {
-      sendEntry(entry);
+      sendEvent(entry.eventName, entry.data);
       sent += 1;
     } catch {
       // Tracker failed mid-flush: requeue and retry on next flush.
@@ -158,21 +137,12 @@ export function flushUmamiQueue(): number {
   return sent;
 }
 
-function sendEntry(entry: QueuedEntry): void {
-  const tracker = globalThis.window.umami as UmamiTracker;
-  if (entry.kind === 'event') {
-    tracker.track(entry.eventName, sanitizeEventData(entry.data));
-  } else if (entry.kind === 'pageview') {
-    tracker.track(props => ({
-      ...props,
-      ...(entry.url === undefined ? {} : { url: entry.url }),
-      ...(entry.title === undefined ? {} : { title: entry.title }),
-    }));
-  } else if (entry.uniqueId === undefined) {
-    tracker.identify(sanitizeEventData(entry.data));
-  } else {
-    tracker.identify(entry.uniqueId, sanitizeEventData(entry.data));
+function enqueue(entry: QueuedEvent): TrackStatus {
+  if (eventQueue.length >= MAX_QUEUE_SIZE) {
+    eventQueue.shift();
   }
+  eventQueue.push(entry);
+  return 'queued';
 }
 
 /**
@@ -185,71 +155,19 @@ export function trackEvent(eventName: string, data?: UmamiEventData): TrackStatu
   if (!isBrowser() || !isTrackingAllowed()) return 'dropped';
   if (!eventName) return 'dropped';
   if (!isUmamiAvailable()) {
-    return enqueue({ kind: 'event', eventName, data });
+    return enqueue({ eventName, data });
   }
   try {
-    sendEntry({ kind: 'event', eventName, data });
+    sendEvent(eventName, data);
     return 'sent';
   } catch {
-    return enqueue({ kind: 'event', eventName, data });
+    return enqueue({ eventName, data });
   }
-}
-
-/**
- * Manually tracks a pageview, preserving the tracker's default properties.
- * Only needed when `data-auto-pageview="false"` is set — otherwise the
- * tracker already observes History API navigations automatically.
- */
-export function trackPageview(url?: string, title?: string): TrackStatus {
-  if (!isBrowser() || !isTrackingAllowed()) return 'dropped';
-  if (!isUmamiAvailable()) {
-    return enqueue({ kind: 'pageview', url, title });
-  }
-  try {
-    sendEntry({ kind: 'pageview', url, title });
-    return 'sent';
-  } catch {
-    return enqueue({ kind: 'pageview', url, title });
-  }
-}
-
-/**
- * Assigns an ID and/or session data to the current visitor session.
- * Useful post-login or post-newsletter-signup (call with a stable,
- * non-PII ID — never raw emails).
- */
-export function identifyUmamiSession(
-  uniqueIdOrData: string | UmamiEventData,
-  data?: UmamiEventData
-): TrackStatus {
-  if (!isBrowser() || !isTrackingAllowed()) return 'dropped';
-  const entry: QueuedEntry =
-    typeof uniqueIdOrData === 'string'
-      ? { kind: 'identify', uniqueId: uniqueIdOrData, data }
-      : { kind: 'identify', data: uniqueIdOrData };
-  if (!isUmamiAvailable()) return enqueue(entry);
-  try {
-    sendEntry(entry);
-    return 'sent';
-  } catch {
-    return enqueue(entry);
-  }
-}
-
-/** Convenience wrapper for outbound clicks (defaults to OUTBOUND_LINK_CLICK). */
-export function trackOutboundLink(
-  url: string,
-  data?: UmamiEventData,
-  eventName: string = UMAMI_EVENTS.OUTBOUND_LINK_CLICK
-): TrackStatus {
-  return trackEvent(eventName, { url, ...data });
 }
 
 export interface UmamiScriptOptions {
   /** Restricts the tracker to these domains (comma-joined into data-domains). */
   domains?: string | string[] | undefined;
-  /** Pass `false` to take over pageview tracking via `trackPageview()`. */
-  autoTrack?: boolean | undefined;
 }
 
 export function getUmamiScriptProps(
@@ -266,6 +184,5 @@ export function getUmamiScriptProps(
     'data-do-not-track': 'true',
     src: '/growth/script.js',
     ...(joinedDomains.length > 0 ? { 'data-domains': joinedDomains } : {}),
-    ...(options?.autoTrack === false ? { 'data-auto-track': 'false' } : {}),
   };
 }

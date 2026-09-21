@@ -1,5 +1,4 @@
 export * from './certifications';
-export * from './expertises';
 export * from './jobs';
 export * from './layout';
 export * from './passions';

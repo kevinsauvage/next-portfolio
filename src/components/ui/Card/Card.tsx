@@ -76,12 +76,7 @@ export const Card = ({
     })()
   );
 
-  const animationStyle =
-    animationIndex !== undefined
-      ? {
-          animationDelay: `${Math.min(100 + animationIndex * 100, 800)}ms`,
-        }
-      : undefined;
+  const animationDelay = animationIndex !== undefined ? Math.min(animationIndex * 100, 800) : 0;
 
   const paddingClass = (() => {
     switch (size) {
@@ -132,12 +127,11 @@ export const Card = ({
       className={clsx(
         baseClasses,
         'group border border-zinc-800 bg-zinc-950/70 rounded-xl hover:border-zinc-700',
-        animationIndex !== undefined && 'card-fade-in',
+        animationIndex !== undefined && 'card-enter',
         className
       )}
       style={{
-        ...animationStyle,
-        ...(animationIndex !== undefined && { opacity: 0 }),
+        ...(animationDelay > 0 && { animationDelay: `${animationDelay}ms` }),
         ...(hover !== 'none' &&
           ({
             '--hover-transform': hoverTransform,

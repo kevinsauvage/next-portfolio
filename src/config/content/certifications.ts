@@ -7,7 +7,6 @@ type Certification = {
   credentialId?: string;
   credentialUrl?: string;
   skills: string[];
-  logo?: string;
   featured?: boolean;
 };
 

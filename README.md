@@ -23,7 +23,7 @@ This portfolio showcases professional work, skills, and experience through a res
 
 - **Framework**: Next.js 16 with App Router (React 19)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS v4 + SCSS global styles
+- **Styling**: Tailwind CSS v4 (tokens in CSS `@theme`) + SCSS global stylesheets
 - **Icons**: Lucide React
 - **Forms**: React Server Actions with Zod validation
 - **Email**: EmailJS (`@emailjs/nodejs`, server-side)
@@ -77,17 +77,18 @@ npm run dev
 npm run build
 npm start
 
-# Code quality
-npm run check        # type-check + lint
-npm run check:fix    # prettier + eslint --fix
+# Code quality & verification
+npm run check        # type-check + lint + prettier --check
+npm run check:fix    # prettier --write + eslint --fix
 npm run lint
 npm run type-check
-npm run format
+npm run format:check
 
 # Testing
 npm run test         # watch mode
 npm run test:run     # single run
 npm run test:coverage
+npm run test:e2e     # Playwright
 ```
 
 ## Configuration
@@ -96,19 +97,21 @@ npm run test:coverage
 
 Variables are validated with Zod in `src/lib/env.ts`. See `.env.example` for the full list.
 
-| Variable                          | Scope  | Used at | Required | Purpose                                        |
-| --------------------------------- | ------ | ------- | -------- | ---------------------------------------------- |
-| `email_js_service_id`             | Server | Runtime | Yes      | EmailJS service ID                             |
-| `email_js_public_key`             | Server | Runtime | Yes      | EmailJS public key                             |
-| `email_js_private_key`            | Server | Runtime | Yes      | EmailJS private key                            |
-| `email_js_template_id`            | Server | Runtime | Yes      | EmailJS template ID                            |
-| `RECAPTCHA_SECRET_KEY`            | Server | Runtime | Yes      | reCAPTCHA v3 verification secret               |
-| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`  | Public | Build   | Yes      | reCAPTCHA v3 site key                          |
-| `UMAMI_ID`                        | Public | Runtime | No       | Umami website ID (analytics disabled if unset) |
-| `UMAMI_DOMAINS`                   | Public | Runtime | No       | Restrict the tracker to these domains          |
-| `GOOGLE_SITE_VERIFICATION`        | Server | Runtime | No       | Google Search Console verification token       |
-| `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV` | Public | Build   | No       | Enable Umami when running locally              |
-| `SENTRY_AUTH_TOKEN`               | Server | Build   | No       | Upload source maps at build/deploy (Vercel/CI) |
+| Variable                                | Scope  | Used at | Required | Purpose                                              |
+| --------------------------------------- | ------ | ------- | -------- | ---------------------------------------------------- |
+| `email_js_service_id`                   | Server | Runtime | Yes      | EmailJS service ID                                   |
+| `email_js_public_key`                   | Server | Runtime | Yes      | EmailJS public key                                   |
+| `email_js_private_key`                  | Server | Runtime | Yes      | EmailJS private key                                  |
+| `email_js_template_id`                  | Server | Runtime | Yes      | EmailJS template ID                                  |
+| `RECAPTCHA_SECRET_KEY`                  | Server | Runtime | Yes      | reCAPTCHA v3 verification secret                     |
+| `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`        | Public | Build   | Yes      | reCAPTCHA v3 site key                                |
+| `UMAMI_ID`                              | Public | Runtime | No       | Umami website ID (analytics disabled if unset)       |
+| `UMAMI_DOMAINS`                         | Public | Runtime | No       | Restrict the tracker to these domains                |
+| `GOOGLE_SITE_VERIFICATION`              | Server | Runtime | No       | Google Search Console verification token             |
+| `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV`       | Public | Build   | No       | Enable Umami when running locally                    |
+| `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` | Public | Build   | No       | Sentry client trace sampling rate (default 0.1)      |
+| `SENTRY_TRACES_SAMPLE_RATE`             | Server | Runtime | No       | Sentry server/edge trace sampling rate (default 0.1) |
+| `SENTRY_AUTH_TOKEN`                     | Server | Build   | No       | Upload source maps at build/deploy (Vercel/CI)       |
 
 **Build-time vs runtime.** Anything prefixed `NEXT_PUBLIC_` (and `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV`) is inlined into the client bundle when you run `next build`, so changing it requires a rebuild — it is **not** read at runtime. Everything else is read from the environment when the server process runs, so you can change it without rebuilding. `SENTRY_AUTH_TOKEN` is build-only: set it in Vercel (and CI) so Sentry can upload source maps; it is never shipped.
 
@@ -141,7 +144,7 @@ This project sets a strict CSP with a per-request **nonce**, generated in `src/p
   - The nonce (`'nonce-<random>'`) replaces `'unsafe-inline'`. Next automatically attaches it to its own `<script>` tags, and inline JSON-LD in `src/components/shared/StructuredData.tsx` reads it from the `x-nonce` header.
   - Allowed hosts: `https://cloud.umami.is`, `https://www.google.com`, `https://www.gstatic.com`
   - `'unsafe-eval'` remains for development/React tooling.
-- **style-src**: 'self' and `'unsafe-inline'` plus `https://fonts.googleapis.com` (if Google Fonts stylesheet is used)
+- **style-src**: 'self' and `'unsafe-inline'` (no external font stylesheet — fonts are self-hosted via `next/font`)
 - **font-src**: 'self', `https://fonts.gstatic.com`, and `data:` URIs
 - **connect-src**: 'self', Umami, and Google
 - **img-src**: 'self', `data:`, `blob:`, and `https:`

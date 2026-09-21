@@ -1,15 +1,4 @@
-import {
-  clearUmamiQueue,
-  flushUmamiQueue,
-  getUmamiQueueSize,
-  getUmamiScriptProps,
-  identifyUmamiSession,
-  isUmamiAvailable,
-  sanitizeEventData,
-  trackEvent,
-  trackOutboundLink,
-  trackPageview,
-} from './analytics';
+import { flushUmamiQueue, getUmamiScriptProps, sanitizeEventData, trackEvent } from './analytics';
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -34,17 +23,17 @@ function setDoNotTrack(value: string | undefined) {
 
 function installTracker() {
   const track = vi.fn();
-  const identify = vi.fn();
-  globalThis.window.umami = { track, identify };
-  return { track, identify };
+  globalThis.window.umami = { track };
+  return { track };
 }
 
 beforeEach(() => {
-  clearUmamiQueue();
+  // Drain any events queued by a previous case.
+  delete globalThis.window.umami;
+  flushUmamiQueue();
   setNodeEnv('production');
   setDevOptIn(undefined);
   setDoNotTrack(undefined);
-  delete globalThis.window.umami;
 });
 
 afterEach(() => {
@@ -100,22 +89,22 @@ describe('trackEvent', () => {
 
   it('queues when the tracker has not loaded yet, then flushes on load', () => {
     expect(trackEvent('early_click')).toBe('queued');
-    expect(getUmamiQueueSize()).toBe(1);
     const { track } = installTracker();
     expect(flushUmamiQueue()).toBe(1);
     expect(track).toHaveBeenCalledWith('early_click', {});
-    expect(getUmamiQueueSize()).toBe(0);
   });
 
-  it('never throws when the tracker fails', () => {
+  it('never throws when the tracker fails and requeues the event', () => {
     globalThis.window.umami = {
       track: () => {
         throw new Error('tracker broken');
       },
-      identify: vi.fn(),
     };
     expect(() => trackEvent('boom')).not.toThrow();
-    expect(getUmamiQueueSize()).toBe(1);
+
+    const { track } = installTracker();
+    expect(flushUmamiQueue()).toBe(1);
+    expect(track).toHaveBeenCalledWith('boom', {});
   });
 
   it('drops events outside production without opt-in', () => {
@@ -136,33 +125,6 @@ describe('trackEvent', () => {
     setDoNotTrack('1');
     installTracker();
     expect(trackEvent('dnt_click')).toBe('dropped');
-    expect(getUmamiQueueSize()).toBe(0);
-  });
-});
-
-describe('trackPageview / identify / outbound', () => {
-  it('tracks pageviews preserving tracker defaults via functional payload', () => {
-    const { track } = installTracker();
-    expect(trackPageview('/work', 'Work')).toBe('sent');
-    const payloadFn = track.mock.calls[0]?.[0] as (
-      props: Record<string, unknown>
-    ) => Record<string, unknown>;
-    expect(payloadFn({ url: '/old', title: 'Old' })).toEqual({ url: '/work', title: 'Work' });
-  });
-
-  it('identifies a session with id and data', () => {
-    const { identify } = installTracker();
-    expect(identifyUmamiSession('user-123', { plan: 'pro' })).toBe('sent');
-    expect(identify).toHaveBeenCalledWith('user-123', { plan: 'pro' });
-  });
-
-  it('tracks outbound links with url first', () => {
-    const { track } = installTracker();
-    expect(trackOutboundLink('https://example.com', { location: 'footer' })).toBe('sent');
-    expect(track).toHaveBeenCalledWith('outbound_link_click', {
-      url: 'https://example.com',
-      location: 'footer',
-    });
   });
 });
 
@@ -187,11 +149,5 @@ describe('getUmamiScriptProps', () => {
       domains: ['kevin-sauvage.com', 'www.kevin-sauvage.com'],
     });
     expect(props?.['data-domains']).toBe('kevin-sauvage.com,www.kevin-sauvage.com');
-  });
-
-  it('reports tracker availability', () => {
-    expect(isUmamiAvailable()).toBe(false);
-    installTracker();
-    expect(isUmamiAvailable()).toBe(true);
   });
 });

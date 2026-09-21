@@ -1,13 +1,16 @@
 import type { MetadataRoute } from 'next';
 
-import { siteRoutes } from '@/config/routes';
-import { SITE_URL } from '@/lib/seo-schemas';
+import { SITE_LAST_MODIFIED, SITE_URL } from '@/lib/seo-schemas';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return siteRoutes.map(route => ({
-    changeFrequency: route.changeFrequency,
-    lastModified: new Date(route.lastModified),
-    priority: route.priority,
-    url: `${SITE_URL}${route.path === '/' ? '' : route.path}`,
-  }));
+  // Single-page site: one canonical URL. Add entries here if detail routes
+  // are introduced later.
+  return [
+    {
+      changeFrequency: 'monthly',
+      lastModified: new Date(SITE_LAST_MODIFIED),
+      priority: 1,
+      url: SITE_URL,
+    },
+  ];
 }

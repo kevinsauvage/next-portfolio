@@ -8,13 +8,11 @@ const PortfolioSection: React.FC = () => {
   return (
     <Section id='portfolio'>
       <div className='space-y-24'>
-        <div className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
-          <SectionHeader
-            overline={sections.portfolio.overline}
-            title={sections.portfolio.title}
-            description={sections.portfolio.description}
-          />
-        </div>
+        <SectionHeader
+          overline={sections.portfolio.overline}
+          title={sections.portfolio.title}
+          description={sections.portfolio.description}
+        />
 
         <div className='space-y-12'>
           {projects.map((project, index) => (

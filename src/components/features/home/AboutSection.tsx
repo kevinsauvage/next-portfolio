@@ -1,3 +1,4 @@
+import Reveal from '@/components/shared/Reveal';
 import Section from '@/components/ui/Section';
 import { Body, H2, H3, Overline } from '@/components/ui/Typography';
 import { passions, sections } from '@/config/content';
@@ -11,20 +12,22 @@ const AboutSection: React.FC = () => {
   return (
     <Section id='about'>
       <div className='space-y-24'>
-        <div
-          className='space-y-8 animate-fade-in-up opacity-0'
-          style={{ animationFillMode: 'both' }}
-        >
-          <Overline>{sections.about.overline}</Overline>
-          <H2
-            gradient
-            className='animate-gradient bg-[length:200%_auto] text-4xl md:text-5xl lg:text-6xl'
-          >
-            {sections.about.title}
-          </H2>
-          <p
-            className='inline-flex flex-wrap items-center gap-2.5 rounded-full border border-primary-800/60 bg-primary-950/40 px-4 py-1.5 font-mono text-xs font-medium tracking-wide text-primary-300 animate-fade-in-up opacity-0'
-            style={{ animationDelay: '0.15s', animationFillMode: 'both' }}
+        <div className='space-y-8'>
+          <Reveal>
+            <Overline>{sections.about.overline}</Overline>
+          </Reveal>
+          <Reveal>
+            <H2
+              gradient
+              className='animate-gradient bg-[length:200%_auto] text-4xl md:text-5xl lg:text-6xl'
+            >
+              {sections.about.title}
+            </H2>
+          </Reveal>
+          <Reveal
+            as='p'
+            delay={150}
+            className='inline-flex flex-wrap items-center gap-2.5 rounded-full border border-primary-800/60 bg-primary-950/40 px-4 py-1.5 font-mono text-xs font-medium tracking-wide text-primary-300'
             aria-label={`Current role: ${sections.about.currently}`}
           >
             <span className='relative flex h-2 w-2' aria-hidden='true'>
@@ -32,17 +35,11 @@ const AboutSection: React.FC = () => {
               <span className='relative inline-flex rounded-full h-2 w-2 bg-primary-400' />
             </span>
             {sections.about.currently}
-          </p>
-          <Body
-            className='max-w-4xl animate-fade-in-up opacity-0'
-            style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
-          >
-            {sections.about.description}
-          </Body>
-          <div
-            className='space-y-3 animate-fade-in-up opacity-0'
-            style={{ animationDelay: '0.45s', animationFillMode: 'both' }}
-          >
+          </Reveal>
+          <Reveal delay={300}>
+            <Body className='max-w-4xl'>{sections.about.description}</Body>
+          </Reveal>
+          <Reveal className='space-y-3' delay={450}>
             <p className='font-mono text-xs font-medium uppercase tracking-[0.18em] text-zinc-400'>
               {sections.about.languagesTitle}
             </p>
@@ -72,13 +69,13 @@ const AboutSection: React.FC = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         </div>
 
         <div className='space-y-8'>
-          <H3 className='animate-fade-in-up opacity-0' style={{ animationFillMode: 'both' }}>
-            My Philosophy
-          </H3>
+          <Reveal>
+            <H3>My Philosophy</H3>
+          </Reveal>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {passions.map((passion, index) => (
               <PassionCard key={passion.slug} {...passion} index={index} />

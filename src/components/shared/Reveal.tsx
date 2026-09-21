@@ -9,15 +9,20 @@ type RevealProps = {
   className?: string;
   /** Stagger delay in ms for sequential reveals. */
   delay?: number;
+  /** Render as a different element (defaults to `div`). */
+  as?: 'div' | 'section' | 'header' | 'p' | 'li' | 'span';
 };
 
 /**
  * Fades/slides content in the first time it enters the viewport.
- * Renders visible immediately when JS-driven motion is unavailable
- * (reduced-motion preference) or when IntersectionObserver is missing.
+ *
+ * This is the single entrance-animation primitive for the site. It renders
+ * visible immediately when JS-driven motion is unavailable (reduced-motion
+ * preference, no IntersectionObserver, or JS disabled), so content is never
+ * trapped at `opacity: 0`.
  */
-const Reveal = ({ children, className, delay = 0 }: RevealProps) => {
-  const ref = useRef<HTMLDivElement | null>(null);
+const Reveal = ({ children, className, delay = 0, as: Component = 'div' }: RevealProps) => {
+  const ref = useRef<HTMLElement | null>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -46,13 +51,13 @@ const Reveal = ({ children, className, delay = 0 }: RevealProps) => {
   }, []);
 
   return (
-    <div
-      ref={ref}
+    <Component
+      ref={ref as React.Ref<never>}
       style={delay > 0 ? { transitionDelay: `${delay}ms` } : undefined}
       className={clsx('reveal', isVisible && 'is-visible', className)}
     >
       {children}
-    </div>
+    </Component>
   );
 };
 

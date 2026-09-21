@@ -13,12 +13,6 @@ import { UMAMI_EVENTS } from '@/lib/analytics-events';
 import { LucideSend } from 'lucide-react';
 import { toast } from 'sonner';
 
-export interface ContactFormValues {
-  fullName: string;
-  email: string;
-  message: string;
-}
-
 export const initialContactFormState: ContactFormState = {
   status: 'idle',
   fieldErrors: {},
