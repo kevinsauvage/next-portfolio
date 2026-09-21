@@ -27,7 +27,13 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
         onClick={() => setOpen(previous => !previous)}
         className='flex min-h-[64px] w-full items-center gap-4 px-6 py-4 text-left transition-colors duration-200 hover:bg-zinc-900/60'
       >
-        <span aria-hidden='true' className='font-mono text-xs text-zinc-500'>
+        <span
+          aria-hidden='true'
+          className={clsx(
+            'font-mono text-xs text-zinc-400 transition-colors duration-200',
+            open && 'text-primary-400'
+          )}
+        >
           {String(index + 1).padStart(2, '0')}
         </span>
         <span className='flex-1 text-base font-medium text-zinc-100'>{question}</span>

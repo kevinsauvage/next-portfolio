@@ -108,9 +108,9 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               aria-label='Previous testimonial'
               className={clsx(
                 'absolute left-0 -translate-x-1/2 md:-translate-x-0 top-1/2 -translate-y-1/2 z-20',
-                'p-2 md:p-3 lg:p-4 rounded-full',
+                'p-2.5 md:p-3.5 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center',
                 'bg-zinc-900/95 backdrop-blur-md border border-zinc-700',
-                'hover:bg-zinc-800 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20',
+                'hover:bg-zinc-800 hover:border-secondary-500/60 hover:shadow-lg hover:shadow-secondary-500/20',
                 'active:scale-90',
                 'transition-all duration-300 ease-out',
                 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
@@ -119,7 +119,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
             >
               <ChevronLeft
                 size={16}
-                className='md:w-5 md:h-5 text-zinc-200 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300'
+                className='md:w-5 md:h-5 text-zinc-200 group-hover:text-secondary-400 group-hover:scale-110 transition-all duration-300'
                 aria-hidden='true'
               />
             </button>
@@ -130,9 +130,9 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               aria-label='Next testimonial'
               className={clsx(
                 'absolute right-0 translate-x-1/2 md:translate-x-0 top-1/2 -translate-y-1/2 z-20',
-                'p-2 md:p-3 lg:p-4 rounded-full',
+                'p-2.5 md:p-3.5 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center',
                 'bg-zinc-900/95 backdrop-blur-md border border-zinc-700',
-                'hover:bg-zinc-800 hover:border-blue-500/60 hover:shadow-lg hover:shadow-blue-500/20',
+                'hover:bg-zinc-800 hover:border-secondary-500/60 hover:shadow-lg hover:shadow-secondary-500/20',
                 'active:scale-90',
                 'transition-all duration-300 ease-out',
                 'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
@@ -141,7 +141,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
             >
               <ChevronRight
                 size={16}
-                className='md:w-5 md:h-5 text-zinc-200 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300'
+                className='md:w-5 md:h-5 text-zinc-200 group-hover:text-secondary-400 group-hover:scale-110 transition-all duration-300'
                 aria-hidden='true'
               />
             </button>
@@ -176,24 +176,34 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
       </div>
 
       {testimonials.length > 1 && (
-        <div className='flex justify-center items-center gap-4 md:gap-md mt-4 md:mt-6'>
-          {testimonials.map((testimonial, index) => (
-            <button
-              key={testimonial?.id ?? `testimonial-${index}`}
-              onClick={() => goToSlide(index)}
-              disabled={isAnimating}
-              aria-label={`Go to testimonial ${index + 1}`}
-              className={clsx(
-                'transition-all duration-300 rounded-full',
-                FOCUS_RING_CLASSES,
-                'disabled:opacity-50 disabled:cursor-not-allowed',
-                index === currentIndex
-                  ? 'w-8 h-2 md:w-10 md:h-2.5 bg-blue-500 shadow-lg shadow-blue-500/50'
-                  : 'w-2 h-2 md:w-2.5 md:h-2.5 bg-zinc-700 hover:bg-zinc-600 hover:w-6 md:hover:w-8 hover:h-2'
-              )}
-              aria-current={index === currentIndex ? 'true' : 'false'}
-            />
-          ))}
+        <div className='flex justify-center items-center gap-1 md:gap-2 mt-4 md:mt-6'>
+          {testimonials.map((testimonial, index) => {
+            const isActive = index === currentIndex;
+            return (
+              <button
+                key={testimonial?.id ?? `testimonial-${index}`}
+                onClick={() => goToSlide(index)}
+                disabled={isAnimating}
+                aria-label={`Go to testimonial ${index + 1}`}
+                aria-current={isActive ? 'true' : 'false'}
+                className={clsx(
+                  'flex h-11 w-11 items-center justify-center rounded-full transition-opacity duration-300',
+                  FOCUS_RING_CLASSES,
+                  'disabled:opacity-50 disabled:cursor-not-allowed'
+                )}
+              >
+                <span
+                  aria-hidden='true'
+                  className={clsx(
+                    'rounded-full transition-all duration-300',
+                    isActive
+                      ? 'h-2 w-8 md:h-2.5 md:w-10 bg-primary-500 shadow-lg shadow-primary-500/50'
+                      : 'h-2 w-2 md:h-2.5 md:w-2.5 bg-zinc-700 hover:bg-secondary-500/70'
+                  )}
+                />
+              </button>
+            );
+          })}
         </div>
       )}
     </div>

@@ -126,7 +126,7 @@ export const Card = ({
     <Component
       className={clsx(
         baseClasses,
-        'group border border-zinc-800 bg-zinc-950/70 rounded-xl hover:border-zinc-700',
+        'group border border-zinc-800/80 bg-gradient-to-b from-zinc-900/50 to-zinc-950/80 rounded-xl ring-1 ring-inset ring-white/[0.04] hover:border-primary-700/40 hover:ring-primary-500/10',
         animationIndex !== undefined && 'card-enter',
         className
       )}

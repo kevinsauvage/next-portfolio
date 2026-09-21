@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className='hover:text-blue-400 transition-all duration-200 hover:translate-x-1 py-1 flex items-center min-h-[36px]'
+                    className='hover:text-primary-400 transition-all duration-200 hover:translate-x-1 py-1 flex items-center min-h-[36px]'
                     data-umami-event={UMAMI_EVENTS.NAV_SECTION_CLICK}
                     data-umami-event-location='footer'
                     data-umami-event-section={link.name}
@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
               <div className='flex items-center gap-2'>
                 <CheckCircle2
                   size={18}
-                  className='text-green-400 transition-transform hover:rotate-12'
+                  className='text-primary-400 transition-transform hover:rotate-12'
                   aria-hidden='true'
                 />
                 <BodySmall className='text-sm'>
@@ -84,7 +84,7 @@ const Footer: React.FC = () => {
               <div className='flex items-center gap-2'>
                 <MapPin
                   size={18}
-                  className='text-blue-400 transition-transform hover:rotate-12'
+                  className='text-secondary-400 transition-transform hover:rotate-12'
                   aria-hidden='true'
                 />
                 <span className='text-sm'>{layout.footer.sections.availability.location}</span>

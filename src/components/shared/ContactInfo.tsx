@@ -18,7 +18,7 @@ const ContactInfo = ({ size = 24, eventPrefix = 'footer', className }: ContactIn
       <li key={item.href}>
         <Link
           href={item.href}
-          className='text-zinc-200 hover:text-blue-400 transition-colors flex items-center justify-center gap-2 group min-w-[48px] min-h-[48px] p-3'
+          className='text-zinc-200 hover:text-primary-400 transition-colors flex items-center justify-center gap-2 group min-w-[48px] min-h-[48px] p-3'
           aria-label={item.ariaLabel}
           title={item.ariaLabel}
           target='_blank'

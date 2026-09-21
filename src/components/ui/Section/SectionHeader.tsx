@@ -21,11 +21,15 @@ const SectionHeader = ({
   gradient = true,
   align = 'center',
 }: SectionHeaderProps) => {
-  const alignmentClass = align === 'center' ? 'text-center' : 'text-left';
+  const isCentered = align === 'center';
 
   return (
-    <div className={clsx('space-y-8', alignmentClass, className)}>
-      {overline && <Overline>{overline}</Overline>}
+    <div className={clsx('space-y-6', isCentered ? 'text-center' : 'text-left', className)}>
+      {overline && (
+        <div className={clsx(isCentered && 'flex justify-center')}>
+          <Overline>{overline}</Overline>
+        </div>
+      )}
 
       <H2
         gradient={gradient}
@@ -34,7 +38,9 @@ const SectionHeader = ({
         {title}
       </H2>
 
-      {description && <Body className='max-w-4xl mx-auto'>{description}</Body>}
+      {description && (
+        <Body className={clsx('max-w-4xl', isCentered && 'mx-auto')}>{description}</Body>
+      )}
     </div>
   );
 };

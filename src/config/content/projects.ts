@@ -2,6 +2,12 @@ export type Project = {
   slug: string;
   description: string;
   githubLink: string[];
+  /** Your role on the project (e.g. "Lead frontend"). Optional. */
+  role?: string;
+  /** Delivery window (e.g. "2024 — 2025"). Optional. */
+  timeline?: string;
+  /** Measurable outcomes, rendered as a bullet list. Optional. */
+  highlights?: string[];
   images: {
     thumbnail: {
       alt: string;

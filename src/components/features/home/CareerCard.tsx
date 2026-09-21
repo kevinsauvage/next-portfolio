@@ -92,7 +92,7 @@ const CareerCard: React.FC<CareerCardProps> = ({
           <CardIcon variant='blue'>
             <Briefcase
               size={20}
-              className='text-blue-400 transition-transform group-hover:rotate-12'
+              className='text-secondary-400 transition-transform group-hover:rotate-12'
               strokeWidth={1.5}
               aria-hidden='true'
               tabIndex={-1}

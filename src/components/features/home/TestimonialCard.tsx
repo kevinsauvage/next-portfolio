@@ -90,7 +90,7 @@ const TestimonialHeader = ({
           aria-hidden='true'
         />
       </CardIcon>
-      <Caption className={clsx('text-blue-400', styles.captionClass)}>{indexDisplay}</Caption>
+      <Caption className={clsx('text-secondary-400', styles.captionClass)}>{indexDisplay}</Caption>
     </div>
   );
 };
@@ -144,7 +144,7 @@ const TestimonialContent = ({
             'underline-offset-4 hover:underline'
           )}
           data-umami-event={UMAMI_EVENTS.TESTIMONIAL_LINKEDIN_CLICK}
-          aria-label={`Read ${authorName}'s full recommendation on LinkedIn`}
+          aria-label={`Via LinkedIn — read ${authorName}'s full recommendation`}
           title='Sourced from LinkedIn recommendations'
         >
           Via LinkedIn
@@ -170,13 +170,13 @@ const TestimonialAuthor = ({
         <div className={clsx('gap-2', styles.authorRowClass, FLEX_CENTER)}>
           <div
             className={clsx(
-              'bg-blue-500/10 rounded-full border border-blue-500/20 group-hover:border-blue-500/40 transition-colors',
+              'bg-primary-500/10 rounded-full border border-primary-500/20 group-hover:border-primary-500/40 transition-colors',
               'flex items-center justify-center',
               styles.avatarClass
             )}
             aria-hidden='true'
           >
-            <span className='font-mono text-xs md:text-sm font-semibold text-blue-400 whitespace-nowrap'>
+            <span className='font-mono text-xs md:text-sm font-semibold text-primary-300 whitespace-nowrap'>
               {getInitials(author.name)}
             </span>
           </div>

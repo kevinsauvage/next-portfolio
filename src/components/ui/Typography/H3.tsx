@@ -21,7 +21,7 @@ export const H3 = ({
   ...props
 }: TypographyProps) => {
   const fontSize = size === 'sm' ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl';
-  const otherStyles = 'leading-snug font-semibold font-heading';
+  const otherStyles = 'leading-snug font-semibold font-heading tracking-tight';
   const textColor = gradient
     ? 'bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'
     : 'text-zinc-50';

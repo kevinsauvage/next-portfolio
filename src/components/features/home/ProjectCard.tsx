@@ -8,7 +8,7 @@ import { sections } from '@/config/content';
 import type { Project } from '@/config/content/projects';
 import { UMAMI_EVENTS } from '@/lib/analytics-events';
 
-import { ExternalLink } from 'lucide-react';
+import { Check, ExternalLink } from 'lucide-react';
 
 type ProjectCardProps = {
   project: Project;
@@ -45,14 +45,19 @@ const ProjectImage = ({
 const ProjectTitleAndDescription = ({
   title,
   description,
+  meta,
   index,
 }: {
   title: string;
   description: string;
+  meta?: string;
   index: number;
 }) => {
   return (
     <div className='space-y-3'>
+      {meta && (
+        <p className='font-mono text-xs uppercase tracking-[0.18em] text-secondary-300'>{meta}</p>
+      )}
       <H3
         id={`project-title-${index}`}
         size='sm'
@@ -64,6 +69,24 @@ const ProjectTitleAndDescription = ({
         {description}
       </BodySmall>
     </div>
+  );
+};
+
+const ProjectHighlights = ({ highlights }: { highlights: string[] }) => {
+  return (
+    <ul className='grid gap-2 sm:grid-cols-2'>
+      {highlights.map(highlight => (
+        <li key={highlight} className='flex items-start gap-2'>
+          <Check
+            size={15}
+            strokeWidth={2}
+            className='mt-0.5 shrink-0 text-primary-400'
+            aria-hidden='true'
+          />
+          <BodySmall className='text-zinc-300'>{highlight}</BodySmall>
+        </li>
+      ))}
+    </ul>
   );
 };
 
@@ -119,6 +142,8 @@ const ProjectActionButtons = ({
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const { slug, title, description, technologies, images, websiteLink, githubLink } = project;
+  const { role, timeline, highlights } = project;
+  const meta = [role, timeline].filter(Boolean).join(' · ');
 
   return (
     <Card
@@ -128,11 +153,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       animationIndex={index}
       className='group relative h-full'
     >
+      <span
+        aria-hidden='true'
+        className='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-500/60 to-transparent'
+      />
       <CardContent spacing='lg' className='relative z-10 h-full'>
         <div className='grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-8 h-full'>
           <ProjectImage images={images} index={index} />
           <div className='md:col-span-3 flex flex-col space-y-5'>
-            <ProjectTitleAndDescription title={title} description={description} index={index} />
+            <ProjectTitleAndDescription
+              title={title}
+              description={description}
+              index={index}
+              {...(meta && { meta })}
+            />
+            {highlights && highlights.length > 0 && <ProjectHighlights highlights={highlights} />}
             <TechStackTags technologies={technologies} />
             <ProjectActionButtons slug={slug} websiteLink={websiteLink} githubLink={githubLink} />
           </div>

@@ -46,7 +46,7 @@ const EmailCopyButton = ({ email }: EmailCopyButtonProps) => {
       className='inline-flex min-h-[48px] min-w-[48px] items-center justify-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/60 px-4 py-3 text-sm text-zinc-300 transition-colors hover:border-primary-600 hover:text-zinc-100'
     >
       {copied ? (
-        <Check size={18} aria-hidden='true' className='text-green-400' />
+        <Check size={18} aria-hidden='true' className='text-primary-400' />
       ) : (
         <Copy size={18} aria-hidden='true' />
       )}

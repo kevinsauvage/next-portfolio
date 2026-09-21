@@ -11,7 +11,7 @@ type BaseTypographyProps = {
 type TypographyProps = BaseTypographyProps & React.HTMLAttributes<HTMLElement>;
 
 export const Body = ({ children, className, as: Component = 'p', ...props }: TypographyProps) => {
-  const classes = 'text-base md:text-lg leading-relaxed font-light text-zinc-200';
+  const classes = 'text-base md:text-lg leading-relaxed font-light text-zinc-200 text-pretty';
 
   return (
     <Component className={clsx(classes, className)} {...props}>

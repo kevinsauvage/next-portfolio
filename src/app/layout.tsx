@@ -69,7 +69,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <nav aria-label='Skip navigation'>
           <a
             href='#main-content'
-            className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:rounded-md focus:shadow-lg text-zinc-50'
+            className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:rounded-md focus:shadow-lg text-zinc-50'
           >
             Skip to main content
           </a>

@@ -74,7 +74,7 @@ const MobileMenuToggle = () => {
                   <BodySmall className='font-medium text-lg text-zinc-50'>{label}</BodySmall>
                   <ChevronRight
                     size={20}
-                    className='text-zinc-400 group-hover:translate-x-1 transition-all group-hover:text-blue-400'
+                    className='text-zinc-400 group-hover:translate-x-1 transition-all group-hover:text-secondary-400'
                     aria-hidden='true'
                   />
                 </Link>

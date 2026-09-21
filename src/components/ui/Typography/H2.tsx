@@ -18,7 +18,8 @@ export const H2 = ({
   gradient,
   ...props
 }: TypographyProps) => {
-  const classes = 'text-3xl md:text-5xl leading-snug font-bold font-heading';
+  const classes =
+    'text-3xl md:text-5xl leading-snug font-bold font-heading tracking-tight text-balance';
   const textColor = gradient
     ? 'bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'
     : 'text-zinc-50';
