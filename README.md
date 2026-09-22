@@ -145,12 +145,12 @@ Update content in the `src/config/content/` directory:
 - `certifications.ts` - Education and certifications
 - `projects.ts` - Portfolio projects
 - `testimonials.ts` - Client testimonials
-- `passions.ts` / `expertises.ts` - Skills and approach
+- `passions.ts` - Skills and approach
 - `faq.ts` - Frequently asked questions
 
 ### Styling
 
-- Design tokens: `src/design-system/tokens.ts`
+- Design tokens: defined with Tailwind CSS 4's `@theme` in `src/styles/globals.scss`
 - Global styles: `src/styles/globals.scss`
 - Tailwind config: `tailwind.config.js`
 
@@ -161,7 +161,7 @@ This project sets a strict CSP with a per-request **nonce**, generated in `src/p
 - **default-src**: 'self'
 - **script-src**: 'self' plus a per-request nonce and Umami/Google (reCAPTCHA)
   - The nonce (`'nonce-<random>'`) replaces `'unsafe-inline'`. Next automatically attaches it to its own `<script>` tags, and inline JSON-LD in `src/components/shared/StructuredData.tsx` reads it from the `x-nonce` header.
-  - Allowed hosts: `https://cloud.umami.is`, `https://www.google.com`, `https://www.gstatic.com`
+  - Allowed hosts: `https://cloud.umami.is`, `https://gateway.umami.is`, `https://www.google.com`, `https://www.gstatic.com`, `https://va.vercel-scripts.com`, `https://vercel.live`
   - `'unsafe-eval'` is added only outside production (React tooling/HMR); the production header does not include it.
 - **style-src**: 'self' and `'unsafe-inline'` (no external font stylesheet — fonts are self-hosted via `next/font`)
 - **font-src**: 'self', `https://fonts.gstatic.com`, and `data:` URIs
@@ -175,7 +175,7 @@ Notes and exceptions:
 - **Umami**: Tracker script proxied same-origin via `/growth/script.js` → `https://cloud.umami.is/script.js`, and collect calls via `/growth/api/send` → `https://gateway.umami.is/api/send` (Umami Cloud moved collection there on 2026-06-06). `data-host-url='/growth'` keeps tracking first-party; `script-src`/`connect-src` also allow the upstream hosts as fallback. Pageviews are auto-tracked (the tracker observes History API navigations — do not call `track()` manually for those). Custom events go through `trackEvent()` in `src/lib/analytics.ts`, which queues pre-load events, sanitizes payloads to Umami's event-data limits, respects DNT, and is disabled outside production unless `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV=true`. Optional `UMAMI_DOMAINS` env restricts the tracker to given domains.
 - **Structured Data (JSON-LD)**: Inline `<script type="application/ld+json">` blocks receive the same per-request nonce, so no `'unsafe-inline'` is needed.
 - **reCAPTCHA v3**: Requires `www.google.com` and `www.gstatic.com` in `script-src`, `connect-src`, and `frame-src`.
-- **Trade-off**: reading the nonce via `headers()` makes pages dynamically rendered. If you prefer static HTML, switch to hash-based CSP for the known inline scripts.
+- **Render trade-off (decided)**: reading the nonce via `headers()` opts every route into dynamic rendering, so `/` and `/projects/[slug]` are server-rendered rather than served as static HTML. This is an accepted trade-off: a nonce is the only CSP mechanism that keeps the inline Next.js bootstrap scripts strict without hashing every generated script, and Vercel's edge cache/SSR keeps the measured Lighthouse/LCP scores at the top of the range. Revisit if static export (with `'unsafe-inline'` or a post-build hash pipeline) becomes a requirement.
 
 ## Project Structure
 
@@ -191,7 +191,6 @@ src/
 ├── config/
 │   ├── content/           # Content configuration
 │   └── ui/                # UI configuration (social links)
-├── design-system/         # Design tokens and utilities
 ├── hooks/                 # Custom React hooks
 ├── lib/                   # Utility functions
 ├── schemas/               # Zod schemas

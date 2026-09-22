@@ -6,6 +6,13 @@ import { buildCsp } from '../csp.config.mjs';
 /**
  * Generates a per-request nonce and sets a nonce-based CSP for both the
  * request (so Next can attach the nonce to its own scripts) and the response.
+ *
+ * Trade-off (intentional): consuming the nonce in `StructuredData` /
+ * `layout` via `headers()` opts every route into dynamic rendering — `/` and
+ * `/projects/[slug]` are server-rendered rather than static HTML. A nonce is
+ * the only mechanism that keeps Next's generated inline bootstrap scripts
+ * strict without hashing every emitted script, so SSR is accepted here. See
+ * the CSP notes in README.md before changing this.
  */
 export function proxy(request: NextRequest) {
   const nonce = btoa(crypto.randomUUID());

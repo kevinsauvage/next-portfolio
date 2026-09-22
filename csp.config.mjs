@@ -31,7 +31,7 @@ export const cspDirectives = {
     'https://*.ingest.us.sentry.io',
   ],
   'img-src': ["'self'", 'data:', 'blob:', 'https:'],
-  'style-src': ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+  'style-src': ["'self'", "'unsafe-inline'"],
   'font-src': ["'self'", 'https://fonts.gstatic.com', 'data:'],
   'frame-src': ['https://www.google.com', 'https://vercel.live'],
   'base-uri': ["'self'"],

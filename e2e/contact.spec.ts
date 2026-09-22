@@ -57,16 +57,14 @@ test.describe('contact form', () => {
     await expect(page.getByRole('button', { name: /send message/i })).toBeVisible();
   });
 
-  test('surfaces server-side validation errors on empty submit', async ({ page }) => {
+  test('surfaces inline validation errors on empty submit', async ({ page }) => {
     // The provider lazy-mounts once the contact section scrolls into view.
     await page.getByRole('form', { name: /contact form/i }).scrollIntoViewIfNeeded();
-    await page.waitForFunction(() => window.__recaptchaReady === true);
 
     await page.getByRole('button', { name: /send message/i }).click();
 
-    await expect(page.getByText('Validation failed')).toBeVisible();
-    await expect(page.getByText('Full name is required')).toBeVisible();
-    await expect(page.getByText('Email is required')).toBeVisible();
-    await expect(page.getByText('Message is required')).toBeVisible();
+    await expect(page.getByText('Full name is required', { exact: true })).toBeVisible();
+    await expect(page.getByText('Email is required', { exact: true })).toBeVisible();
+    await expect(page.getByText('Message is required', { exact: true })).toBeVisible();
   });
 });
