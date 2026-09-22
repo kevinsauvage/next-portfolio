@@ -100,7 +100,7 @@ Portfolio images are generated locally with Playwright and served from `public/`
 upload). Point it at the deployed demo and re-run when the project changes:
 
 ```bash
-SCREENSHOT_BASE_URL=https://nextjs-shopify-storefront-demo.vercel.app npm run screenshots
+SCREENSHOT_BASE_URL=https://nextjs-shopify-storefront-demo-kevinsauvages-projects.vercel.app npm run screenshots
 ```
 
 It crawls the demo for the home, collections index, first collection and first product page, clears
