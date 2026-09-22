@@ -143,4 +143,21 @@ describe('ContactForm', () => {
     });
     expect(mocks.toastError).toHaveBeenCalledWith('Validation failed');
   });
+
+  it('renders a form-level captcha error', async () => {
+    mocks.sendMailAction.mockResolvedValue({
+      fieldErrors: { captcha: 'Captcha validation failed. Please try again.' },
+      message: 'Captcha validation failed',
+      status: 'error',
+    });
+    render(<ContactForm />);
+    fillForm(validValues);
+
+    submitForm();
+
+    await waitFor(() => {
+      expect(screen.getByText('Captcha validation failed. Please try again.')).toBeInTheDocument();
+    });
+    expect(mocks.toastError).toHaveBeenCalledWith('Captcha validation failed');
+  });
 });

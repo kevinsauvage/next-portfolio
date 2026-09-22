@@ -3,7 +3,6 @@
 
 /** Hosts allowed to run scripts (in addition to nonce'd inline scripts). */
 const SCRIPT_SRC_HOSTS = [
-  "'unsafe-eval'",
   'https://cloud.umami.is',
   'https://gateway.umami.is',
   'https://www.google.com',
@@ -15,7 +14,7 @@ const SCRIPT_SRC_HOSTS = [
 /** @type {CSPDirectives} */
 export const cspDirectives = {
   'default-src': ["'self'"],
-  'script-src': ["'self'", "'unsafe-inline'", ...SCRIPT_SRC_HOSTS],
+  'script-src': ["'self'", ...SCRIPT_SRC_HOSTS],
   // Allow Web Workers created from same-origin and blob: URLs
   'worker-src': ["'self'", 'blob:'],
   // Legacy fallback for some browsers
@@ -37,7 +36,7 @@ export const cspDirectives = {
   'frame-src': ['https://www.google.com', 'https://vercel.live'],
   'base-uri': ["'self'"],
   'form-action': ["'self'"],
-  'object-src': ['none'],
+  'object-src': ["'none'"],
   other: ['upgrade-insecure-requests'],
 };
 
@@ -48,11 +47,20 @@ export const cspDirectives = {
  * (browsers ignore it when a nonce/hash is present anyway). Without a nonce
  * the policy falls back to `'unsafe-inline'`.
  *
+ * `'unsafe-eval'` is only added outside production, where React tooling and
+ * HMR still need it; the production header must not carry it.
+ *
  * @param {string} [nonce]
  * @returns {string}
  */
 export function buildCsp(nonce) {
-  const scriptSrc = ["'self'", nonce ? `'nonce-${nonce}'` : "'unsafe-inline'", ...SCRIPT_SRC_HOSTS];
+  const devEval = process.env.NODE_ENV !== 'production' ? ["'unsafe-eval'"] : [];
+  const scriptSrc = [
+    "'self'",
+    nonce ? `'nonce-${nonce}'` : "'unsafe-inline'",
+    ...devEval,
+    ...SCRIPT_SRC_HOSTS,
+  ];
   return cspToString({ ...cspDirectives, 'script-src': scriptSrc });
 }
 

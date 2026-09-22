@@ -72,7 +72,8 @@ describe('sendMail', () => {
 
     const result = await sendMail(validPayload);
 
-    expect(result).toEqual({ success: false, error: 'Captcha validation failed' });
+    expect(result).toMatchObject({ success: false, error: 'Captcha validation failed' });
+    expect(result.fieldErrors?.['captcha']).toBeTruthy();
     expect(emailjsSendMock).not.toHaveBeenCalled();
   });
 
@@ -81,7 +82,8 @@ describe('sendMail', () => {
 
     const result = await sendMail(validPayload);
 
-    expect(result).toEqual({ success: false, error: 'Captcha validation failed' });
+    expect(result).toMatchObject({ success: false, error: 'Captcha validation failed' });
+    expect(result.fieldErrors?.['captcha']).toBeTruthy();
     expect(emailjsSendMock).not.toHaveBeenCalled();
   });
 
@@ -90,7 +92,8 @@ describe('sendMail', () => {
 
     const result = await sendMail(validPayload);
 
-    expect(result).toEqual({ success: false, error: 'Captcha validation failed' });
+    expect(result).toMatchObject({ success: false, error: 'Captcha validation failed' });
+    expect(result.fieldErrors?.['captcha']).toBeTruthy();
     expect(emailjsSendMock).not.toHaveBeenCalled();
   });
 
@@ -182,7 +185,7 @@ describe('sendMailAction', () => {
     expect(state.fieldErrors.message).toBeTruthy();
   });
 
-  it('maps a captcha failure to an error state without field errors', async () => {
+  it('maps a captcha failure to an error state with a form-level captcha error', async () => {
     fetchMock.mockResolvedValue(captchaResponse({ success: true, score: 0.1 }));
 
     const state = await sendMailAction(
@@ -192,22 +195,63 @@ describe('sendMailAction', () => {
 
     expect(state.status).toBe('error');
     expect(state.message).toBe('Captcha validation failed');
-    expect(state.fieldErrors).toEqual({});
+    expect(state.fieldErrors.captcha).toBeTruthy();
   });
 
-  it('blocks submissions after the rate limit is exceeded', async () => {
-    const submit = () =>
-      sendMailAction({ status: 'idle', fieldErrors: {} }, buildFormData(validPayload));
+  it('blocks submissions after the per-IP rate limit is exceeded', async () => {
+    const submit = (email: string) =>
+      sendMailAction(
+        { status: 'idle', fieldErrors: {} },
+        buildFormData({ ...validPayload, email })
+      );
 
     for (let attempt = 0; attempt < 5; attempt += 1) {
-      const state = await submit();
+      const state = await submit(`user${attempt}@example.com`);
       expect(state.status).toBe('success');
     }
 
-    const blocked = await submit();
+    const blocked = await submit('user-blocked@example.com');
 
     expect(blocked.status).toBe('error');
     expect(blocked.message).toMatch(/too many messages/i);
     expect(emailjsSendMock).toHaveBeenCalledTimes(5);
+  });
+
+  it('throttles a single address across different client IPs', async () => {
+    const submit = () =>
+      sendMailAction({ status: 'idle', fieldErrors: {} }, buildFormData(validPayload));
+
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      headersMock.mockResolvedValueOnce(
+        new Headers({ 'x-forwarded-for': `198.51.100.${attempt}` })
+      );
+      const state = await submit();
+      expect(state.status).toBe('success');
+    }
+
+    headersMock.mockResolvedValueOnce(new Headers({ 'x-forwarded-for': '198.51.100.99' }));
+    const blocked = await submit();
+
+    expect(blocked.status).toBe('error');
+    expect(blocked.message).toMatch(/too many messages sent from this address/i);
+    expect(emailjsSendMock).toHaveBeenCalledTimes(3);
+  });
+
+  it('fails closed in production when no client IP can be derived', async () => {
+    vi.stubEnv('NODE_ENV', 'production');
+    headersMock.mockResolvedValue(new Headers());
+
+    try {
+      const state = await sendMailAction(
+        { status: 'idle', fieldErrors: {} },
+        buildFormData(validPayload)
+      );
+
+      expect(state.status).toBe('error');
+      expect(state.message).toMatch(/could not verify/i);
+      expect(emailjsSendMock).not.toHaveBeenCalled();
+    } finally {
+      vi.unstubAllEnvs();
+    }
   });
 });

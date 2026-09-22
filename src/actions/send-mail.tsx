@@ -8,6 +8,7 @@ import { checkRateLimit } from '@/lib/rate-limit';
 import { CONTACT_ERROR_CODES, contactFormSchema } from '@/schemas/contact-form.schema';
 
 import emailjs from '@emailjs/nodejs';
+import { createHash } from 'node:crypto';
 
 export type ContactFormState = {
   status: 'idle' | 'success' | 'error';
@@ -16,10 +17,20 @@ export type ContactFormState = {
     fullName?: string;
     email?: string;
     message?: string;
+    captcha?: string;
   };
 };
 
 const MINIMUM_CAPTCHA_SCORE = 0.7;
+/** Secondary throttle so one address cannot be flooded from many client IPs. */
+const EMAIL_WINDOW_MS = 10 * 60_000;
+const MAX_EMAIL_REQUESTS_PER_WINDOW = 3;
+const CAPTCHA_FAILED_MESSAGE = 'Captcha validation failed. Please try again.';
+
+/** Hash the address so the rate-limit key carries no PII. */
+function hashEmail(email: string): string {
+  return createHash('sha256').update(email.trim().toLowerCase()).digest('hex').slice(0, 32);
+}
 
 async function validateCaptcha(captchaToken: string, secretKey: string): Promise<boolean> {
   const data = new FormData();
@@ -36,12 +47,31 @@ async function validateCaptcha(captchaToken: string, secretKey: string): Promise
   return success === true && typeof score === 'number' && score >= MINIMUM_CAPTCHA_SCORE;
 }
 
-/** Best-effort client key for rate limiting. */
-async function getClientKey(): Promise<string> {
+/** Client IP derived from proxy headers, or `null` when none is present. */
+async function getClientKey(): Promise<string | null> {
   const headerList = await headers();
   const forwardedFor = headerList.get('x-forwarded-for');
-  const ip = forwardedFor?.split(',')[0]?.trim() || headerList.get('x-real-ip') || 'unknown';
-  return ip;
+  const ip = forwardedFor?.split(',')[0]?.trim() || headerList.get('x-real-ip')?.trim();
+  return ip || null;
+}
+
+async function dispatchEmail(
+  env: ReturnType<typeof getServerEnv>,
+  data: { email: string; fullName: string; message: string }
+): Promise<void> {
+  await emailjs.send(
+    env.email_js_service_id,
+    env.email_js_template_id,
+    {
+      email: data.email,
+      fullName: data.fullName,
+      message: data.message,
+    },
+    {
+      privateKey: env.email_js_private_key,
+      publicKey: env.email_js_public_key,
+    }
+  );
 }
 
 export async function sendMail(data: {
@@ -69,23 +99,14 @@ export async function sendMail(data: {
     const env = getServerEnv();
     const valid = await validateCaptcha(parsed.data.captcha, env.RECAPTCHA_SECRET_KEY);
     if (!valid) {
-      return { success: false, error: 'Captcha validation failed' };
+      return {
+        success: false,
+        error: 'Captcha validation failed',
+        fieldErrors: { captcha: CAPTCHA_FAILED_MESSAGE },
+      };
     }
 
-    const keyParameters = {
-      privateKey: env.email_js_private_key,
-      publicKey: env.email_js_public_key,
-    };
-    await emailjs.send(
-      env.email_js_service_id,
-      env.email_js_template_id,
-      {
-        email: parsed.data.email,
-        fullName: parsed.data.fullName,
-        message: parsed.data.message,
-      },
-      keyParameters
-    );
+    await dispatchEmail(env, parsed.data);
     return { success: true };
   } catch (error) {
     logError(
@@ -103,7 +124,51 @@ function toFieldErrors(source: Record<string, string>): ContactFormState['fieldE
   if (source['fullName']) fieldErrors.fullName = source['fullName'];
   if (source['email']) fieldErrors.email = source['email'];
   if (source['message']) fieldErrors.message = source['message'];
+  if (source['captcha']) fieldErrors.captcha = source['captcha'];
   return fieldErrors;
+}
+
+/**
+ * Applies the per-IP and per-address throttles. Returns an error state when a
+ * limit is hit (or when no client IP can be derived in production), else null.
+ */
+async function enforceRateLimits(
+  clientKey: string | null,
+  email: string
+): Promise<ContactFormState | null> {
+  // Without a client IP every caller collapses into one shared bucket (and the
+  // key is trivially spoofable), so fail closed in production. Local dev has no
+  // proxy headers, so it falls back to a single local bucket.
+  if (!clientKey && process.env.NODE_ENV === 'production') {
+    return {
+      status: 'error',
+      message: 'We could not verify your request. Please try again later.',
+      fieldErrors: {},
+    };
+  }
+
+  const ipLimit = await checkRateLimit(`contact:ip:${clientKey ?? 'local'}`);
+  if (!ipLimit.allowed) {
+    return {
+      status: 'error',
+      message: `Too many messages sent. Please try again in ${ipLimit.retryAfterSeconds} seconds.`,
+      fieldErrors: {},
+    };
+  }
+
+  const emailLimit = await checkRateLimit(`contact:email:${hashEmail(email)}`, {
+    max: MAX_EMAIL_REQUESTS_PER_WINDOW,
+    windowMs: EMAIL_WINDOW_MS,
+  });
+  if (!emailLimit.allowed) {
+    return {
+      status: 'error',
+      message: `Too many messages sent from this address. Please try again in ${emailLimit.retryAfterSeconds} seconds.`,
+      fieldErrors: {},
+    };
+  }
+
+  return null;
 }
 
 export async function sendMailAction(
@@ -111,18 +176,12 @@ export async function sendMailAction(
   formData: FormData
 ): Promise<ContactFormState> {
   try {
-    const { allowed, retryAfterSeconds } = checkRateLimit(await getClientKey());
-    if (!allowed) {
-      return {
-        status: 'error',
-        message: `Too many messages sent. Please try again in ${retryAfterSeconds} seconds.`,
-        fieldErrors: {},
-      };
-    }
-
     const payload = Object.fromEntries(
       [...CONTACT_FIELDS, 'captcha'].map(field => [field, String(formData.get(field) ?? '')])
     ) as { fullName: string; email: string; message: string; captcha: string };
+
+    const limited = await enforceRateLimits(await getClientKey(), payload.email);
+    if (limited) return limited;
 
     const result = await sendMail(payload);
 

@@ -48,6 +48,8 @@ const ContactForm = () => {
   const isSubmitting = isPending || isGettingCaptcha;
   const hasClientErrors = Object.keys(clientErrors).length > 0;
   const fieldErrors = hasClientErrors ? clientErrors : formState.fieldErrors;
+  // Captcha failures have no input to attach to, so surface them form-level.
+  const captchaError = hasClientErrors ? undefined : formState.fieldErrors.captcha;
   const firstErrorMessage = Object.values(fieldErrors).find(Boolean);
   const fieldErrorAnnouncement = firstErrorMessage ? `Validation error: ${firstErrorMessage}` : '';
 
@@ -288,6 +290,10 @@ const ContactForm = () => {
           />
           {fieldErrors.message && <FormError id='message-error' message={fieldErrors.message} />}
         </div>
+
+        {captchaError && (
+          <FormError id='captcha-error' message={captchaError} className='justify-center' />
+        )}
 
         <Button
           className='mt-2 w-full sm:w-auto'
