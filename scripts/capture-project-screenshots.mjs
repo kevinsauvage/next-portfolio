@@ -34,6 +34,8 @@ const OUT_DIR = path.resolve(
 const FULL_PAGE = args.includes('--full');
 const VIEWPORT = { width: 1440, height: 900 };
 const NAV_TIMEOUT = 60_000;
+const SETTLE_TIMEOUT = 10_000;
+const RETRIES = 3;
 
 if (!BASE_URL) {
   console.error('Missing demo URL. Pass --base <url> or set SCREENSHOT_BASE_URL.');
@@ -66,32 +68,51 @@ const run = async () => {
   };
 
   const capture = async (name, url) => {
-    const response = await page
-      .goto(url, { timeout: NAV_TIMEOUT, waitUntil: 'networkidle' })
-      .catch(error => {
-        console.warn(`  ! ${name}: ${error.message}`);
-        return null;
-      });
+    const file = path.join(OUT_DIR, `${name}.jpg`);
 
-    if (response && response.status() >= 400) {
-      console.warn(`  ! ${name}: skipped (HTTP ${response.status()})`);
-      return;
+    for (let attempt = 1; attempt <= RETRIES; attempt++) {
+      try {
+        // `networkidle` never settles on storefronts that keep connections
+        // open (analytics, prefetch, polling), so wait for DOM only and treat
+        // network idle as a best-effort bonus below.
+        const response = await page.goto(url, {
+          timeout: NAV_TIMEOUT,
+          waitUntil: 'domcontentloaded',
+        });
+
+        if (response && response.status() >= 400) {
+          console.warn(`  ! ${name}: skipped (HTTP ${response.status()})`);
+          return;
+        }
+
+        await page.waitForLoadState('networkidle', { timeout: SETTLE_TIMEOUT }).catch(() => {});
+        await page.waitForTimeout(800);
+        await dismissConsent();
+
+        // Wait for the first image so we never capture a half-painted hero.
+        await page
+          .locator('img')
+          .first()
+          .waitFor({ state: 'visible', timeout: SETTLE_TIMEOUT })
+          .catch(() => {});
+        await page.waitForTimeout(400);
+
+        await page.screenshot({
+          animations: 'disabled',
+          fullPage: FULL_PAGE,
+          path: file,
+          quality: 82,
+          type: 'jpeg',
+        });
+        console.log(`  ✓ ${name} -> ${path.relative(process.cwd(), file)}`);
+        return;
+      } catch (error) {
+        console.warn(`  ! ${name}: attempt ${attempt}/${RETRIES} failed (${error.message})`);
+        await page.waitForTimeout(1000).catch(() => {});
+      }
     }
 
-    // Let client-side data settle, then clear any consent overlay.
-    await page.waitForTimeout(1200);
-    await dismissConsent();
-    await page.waitForTimeout(400);
-
-    const file = path.join(OUT_DIR, `${name}.jpg`);
-    await page.screenshot({
-      animations: 'disabled',
-      fullPage: FULL_PAGE,
-      path: file,
-      quality: 82,
-      type: 'jpeg',
-    });
-    console.log(`  ✓ ${name} -> ${path.relative(process.cwd(), file)}`);
+    console.warn(`  ✗ ${name}: giving up after ${RETRIES} attempts`);
   };
 
   const firstHref = selector =>
