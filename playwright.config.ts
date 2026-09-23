@@ -6,6 +6,10 @@ const baseURL = `http://localhost:${PORT}`;
 export default defineConfig({
   forbidOnly: !!process.env['CI'],
   fullyParallel: true,
+  // The dev server (Turbopack) compiles routes on demand; more than 2
+  // concurrent browser contexts starve it and `page.goto` hits the default
+  // 30s `load` timeout. Cap workers so `npm run test:e2e` stays reliable.
+  workers: 2,
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
   reporter: process.env['CI'] ? [['github'], ['html', { open: 'never' }]] : 'list',
   retries: process.env['CI'] ? 2 : 0,

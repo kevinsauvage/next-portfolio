@@ -26,7 +26,7 @@ test.describe('mobile menu', () => {
     await expect
       .poll(() =>
         page.evaluate(() => {
-          const container = document.querySelector('[role="dialog"]');
+          const container = document.querySelector('dialog');
           return !!container && container.contains(document.activeElement);
         })
       )
@@ -35,7 +35,7 @@ test.describe('mobile menu', () => {
     for (let step = 0; step < 8; step += 1) {
       await page.keyboard.press('Tab');
       const focusInside = await page.evaluate(() => {
-        const container = document.querySelector('[role="dialog"]');
+        const container = document.querySelector('dialog');
         return !!container && container.contains(document.activeElement);
       });
       expect(focusInside).toBe(true);
