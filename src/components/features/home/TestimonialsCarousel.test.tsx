@@ -40,7 +40,7 @@ describe('TestimonialsCarousel', () => {
 
   it('responds to ArrowRight and ArrowLeft keyboard navigation', () => {
     render(<TestimonialsCarousel testimonials={testimonials} />);
-    const carousel = screen.getByRole('group', { name: /testimonials/i });
+    const carousel = screen.getByRole('region', { name: /testimonials/i });
 
     fireEvent.keyDown(carousel, { key: 'ArrowRight' });
     settleAnimation();

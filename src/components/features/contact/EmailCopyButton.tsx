@@ -24,12 +24,7 @@ const EmailCopyButton = ({ email }: EmailCopyButtonProps) => {
     try {
       await navigator.clipboard.writeText(email);
     } catch {
-      const textarea = document.createElement('textarea');
-      textarea.value = email;
-      document.body.appendChild(textarea);
-      textarea.select();
-      document.execCommand('copy');
-      document.body.removeChild(textarea);
+      return;
     }
     setCopied(true);
     if (timeoutRef.current !== null) {

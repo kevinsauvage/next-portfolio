@@ -73,14 +73,15 @@ const run = async () => {
     await dismissConsent(page);
 
     // Wait until every visible image has decoded, so we never capture a
-    // half-painted page.
+    // half-painted page. Note: `every` on an empty list is already `true`,
+    // which is exactly the settled state we want when there are no images.
     await page
       .waitForFunction(
         () => {
           const images = [...document.querySelectorAll('img')].filter(
             img => img.offsetParent !== null
           );
-          return images.length === 0 || images.every(img => img.complete && img.naturalWidth > 0);
+          return images.every(img => img.complete && img.naturalWidth > 0);
         },
         { timeout: SETTLE_TIMEOUT }
       )
@@ -211,7 +212,9 @@ const run = async () => {
   }
 };
 
-run().catch(error => {
+try {
+  await run();
+} catch (error) {
   console.error(error);
   process.exit(1);
-});
+}

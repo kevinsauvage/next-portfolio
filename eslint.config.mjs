@@ -257,11 +257,11 @@ export default [
         {
           message:
             'Avoid using "javascript:" protocol handler. Use a different separator or format (e.g., "JavaScript -" instead of "JavaScript:").',
-          selector: String.raw`Literal[value=/javascript:/i]`,
+          selector: 'Literal[value=/javascript:/i]',
         },
         {
           message: 'Avoid using "javascript:" protocol handler in template literals.',
-          selector: String.raw`TemplateLiteral[quasis.0.value.raw=/javascript:/i]`,
+          selector: 'TemplateLiteral[quasis.0.value.raw=/javascript:/i]',
         },
       ],
     },

@@ -175,9 +175,13 @@ export async function sendMailAction(
   _prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
+  const getFieldString = (field: string): string => {
+    const value = formData.get(field);
+    return typeof value === 'string' ? value : '';
+  };
   try {
     const payload = Object.fromEntries(
-      [...CONTACT_FIELDS, 'captcha'].map(field => [field, String(formData.get(field) ?? '')])
+      [...CONTACT_FIELDS, 'captcha'].map(field => [field, getFieldString(field)])
     ) as { fullName: string; email: string; message: string; captcha: string };
 
     const limited = await enforceRateLimits(await getClientKey(), payload.email);

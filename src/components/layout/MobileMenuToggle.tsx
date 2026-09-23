@@ -43,11 +43,10 @@ const MobileMenuToggle = () => {
         onClick={closeMenu}
         aria-label='Close navigation menu'
       />
-      <div
-        className='fixed right-0 top-0 bottom-0 w-full max-w-sm bg-zinc-900 border-l border-zinc-800 animate-slide-in-left'
-        ref={mobileMenuRef as React.RefObject<HTMLDivElement>}
-        role='dialog'
-        aria-modal='true'
+      <dialog
+        open
+        className='fixed right-0 top-0 bottom-0 w-full max-w-sm bg-zinc-900 border-l border-zinc-800 animate-slide-in-left m-0 p-0 max-h-none'
+        ref={mobileMenuRef as React.RefObject<HTMLDialogElement>}
         aria-label='Navigation menu'
       >
         <div className='flex flex-col h-full'>
@@ -130,7 +129,7 @@ const MobileMenuToggle = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </dialog>
     </div>
   );
 

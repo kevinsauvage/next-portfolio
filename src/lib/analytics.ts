@@ -34,7 +34,7 @@ type QueuedEvent = {
 const eventQueue: QueuedEvent[] = [];
 
 function isBrowser(): boolean {
-  return typeof globalThis.window !== 'undefined';
+  return globalThis.window !== undefined;
 }
 
 /**
@@ -83,7 +83,13 @@ function sanitizeValue(value: unknown): string | number | boolean | undefined {
       return undefined;
     }
   }
-  return String(value).slice(0, MAX_STRING_LENGTH);
+  if (typeof value === 'bigint') {
+    return value.toString().slice(0, MAX_STRING_LENGTH);
+  }
+  if (typeof value === 'symbol') {
+    return value.description?.slice(0, MAX_STRING_LENGTH);
+  }
+  return undefined;
 }
 
 /**
@@ -176,8 +182,10 @@ export function getUmamiScriptProps(
 ): Record<string, string> | null {
   if (!umamiId) return null;
   const domains = options?.domains;
-  const joinedDomains =
-    domains === undefined ? '' : Array.isArray(domains) ? domains.join(',') : domains;
+  let joinedDomains = '';
+  if (domains !== undefined) {
+    joinedDomains = Array.isArray(domains) ? domains.join(',') : domains;
+  }
   return {
     'data-website-id': umamiId,
     'data-host-url': '/growth',

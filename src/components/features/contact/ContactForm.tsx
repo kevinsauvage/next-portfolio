@@ -25,11 +25,28 @@ export const initialContactFormState: ContactFormState = {
   fieldErrors: {},
 };
 
+const getFormString = (data: FormData, key: string): string => {
+  const value = data.get(key);
+  return typeof value === 'string' ? value : '';
+};
+
 const readValues = (data: FormData): ContactFieldValues => ({
-  fullName: String(data.get('fullName') ?? ''),
-  email: String(data.get('email') ?? ''),
-  message: String(data.get('message') ?? ''),
+  fullName: getFormString(data, 'fullName'),
+  email: getFormString(data, 'email'),
+  message: getFormString(data, 'message'),
 });
+
+type ContactFieldName = 'fullName' | 'email' | 'message';
+
+const getContactFieldSchema = (name: ContactFieldName) => {
+  if (name === 'fullName') {
+    return contactFieldsSchema.shape.fullName;
+  }
+  if (name === 'email') {
+    return contactFieldsSchema.shape.email;
+  }
+  return contactFieldsSchema.shape.message;
+};
 
 const ContactForm = () => {
   const [formState, formAction, isPending] = useActionState<ContactFormState, FormData>(
@@ -50,17 +67,20 @@ const ContactForm = () => {
   const fieldErrors = hasClientErrors ? clientErrors : formState.fieldErrors;
   // Captcha failures have no input to attach to, so surface them form-level.
   const captchaError = hasClientErrors ? undefined : formState.fieldErrors.captcha;
-  const firstErrorMessage = Object.values(fieldErrors).find(Boolean);
+  const firstErrorMessage = Object.values(fieldErrors).find(
+    (message): message is string => typeof message === 'string' && message.length > 0
+  );
   const fieldErrorAnnouncement = firstErrorMessage ? `Validation error: ${firstErrorMessage}` : '';
 
   const focusFirstInvalidField = useCallback((errors: ContactFieldErrors) => {
-    const firstInvalidField = errors.fullName
-      ? 'fullName'
-      : errors.email
-        ? 'email'
-        : errors.message
-          ? 'message'
-          : undefined;
+    let firstInvalidField: 'fullName' | 'email' | 'message' | undefined;
+    if (errors.fullName) {
+      firstInvalidField = 'fullName';
+    } else if (errors.email) {
+      firstInvalidField = 'email';
+    } else if (errors.message) {
+      firstInvalidField = 'message';
+    }
     if (!firstInvalidField) return;
     const element = formRef.current?.elements.namedItem(firstInvalidField);
     if (element instanceof HTMLElement) element.focus();
@@ -118,12 +138,7 @@ const ContactForm = () => {
     // Avoid shouting "required" before the user has attempted to submit.
     if (!hasSubmitted && value.trim() === '') return;
 
-    const fieldSchema =
-      name === 'fullName'
-        ? contactFieldsSchema.shape.fullName
-        : name === 'email'
-          ? contactFieldsSchema.shape.email
-          : contactFieldsSchema.shape.message;
+    const fieldSchema = getContactFieldSchema(name);
     const result = fieldSchema.safeParse(value);
     setClientErrors(previous => {
       if (result.success) {

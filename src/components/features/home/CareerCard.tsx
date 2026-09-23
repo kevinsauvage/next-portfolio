@@ -36,8 +36,8 @@ const Description = ({
 
   return (
     <ul className='flex-1 space-y-2 list-none pl-0'>
-      {items.map((item, i) => (
-        <li key={i} className='flex gap-3'>
+      {items.map(item => (
+        <li key={item} className='flex gap-3'>
           <span className='mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-zinc-500' aria-hidden />
           <BodySmall className='min-w-0 flex-1 transition-colors text-zinc-200 group-hover:text-zinc-200'>
             {item}

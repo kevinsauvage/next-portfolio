@@ -46,9 +46,8 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
           )}
         />
       </button>
-      <div
+      <section
         id={panelId}
-        role='region'
         aria-labelledby={buttonId}
         aria-hidden={!open}
         inert={!open}
@@ -62,7 +61,7 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
             {answer}
           </p>
         </div>
-      </div>
+      </section>
     </div>
   );
 };

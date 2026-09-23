@@ -97,7 +97,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
     return testimonials.at(displayedIndex) ?? null;
   }, [testimonials, displayedIndex]);
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
       goToPrevious();
@@ -108,11 +108,11 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
   };
 
   return (
-    <div
+    <section
       className='space-y-8'
-      role='group'
       aria-roledescription='carousel'
       aria-label='Testimonials'
+      tabIndex={0}
       onKeyDown={handleKeyDown}
     >
       <div className='relative px-0 md:px-12 lg:px-20'>
@@ -164,9 +164,9 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
           </>
         )}
 
-        <div
-          role='group'
+        <section
           aria-roledescription='slide'
+          aria-label={`Testimonial ${displayedIndex + 1} of ${testimonials.length}`}
           aria-live='polite'
           aria-atomic='true'
           className={clsx(
@@ -192,7 +192,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               totalCount={testimonials.length}
             />
           )}
-        </div>
+        </section>
       </div>
 
       {testimonials.length > 1 && (
@@ -205,7 +205,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
                 onClick={() => goToSlide(index)}
                 disabled={isAnimating}
                 aria-label={`Go to testimonial ${index + 1}`}
-                aria-current={isActive ? 'true' : 'false'}
+                aria-current={isActive ? 'true' : undefined}
                 className={clsx(
                   'flex h-11 w-11 items-center justify-center rounded-full transition-opacity duration-300',
                   FOCUS_RING_CLASSES,
@@ -226,7 +226,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
           })}
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

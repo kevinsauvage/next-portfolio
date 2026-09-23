@@ -10,7 +10,7 @@ import { useEffect, useRef } from 'react';
  * @param onEscape - Optional handler invoked when Escape is pressed while active.
  */
 export const useFocusTrap = (isActive: boolean, onEscape?: () => void) => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement>(null);
   const previousActiveElement = useRef<HTMLElement | null>(null);
   const onEscapeRef = useRef(onEscape);
 
