@@ -74,7 +74,7 @@
     "@vitest/coverage-v8": "^5.0.1",
     "autoprefixer": "^10.4.23",
     "axe-core": "^4.13.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.11.0",
     "eslint-config-next": "^16.1.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-alias": "^1.1.2",
