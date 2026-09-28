@@ -141,7 +141,11 @@ describe('ContactForm', () => {
     await waitFor(() => {
       expect(screen.getByText('Please enter a valid email address')).toBeInTheDocument();
     });
-    expect(mocks.toastError).toHaveBeenCalledWith('Validation failed');
+    // The toast fires from a passive effect after the error renders, so it
+    // must be awaited too — asserting it synchronously races the effect.
+    await waitFor(() => {
+      expect(mocks.toastError).toHaveBeenCalledWith('Validation failed');
+    });
   });
 
   it('renders a form-level captcha error', async () => {
@@ -158,6 +162,10 @@ describe('ContactForm', () => {
     await waitFor(() => {
       expect(screen.getByText('Captcha validation failed. Please try again.')).toBeInTheDocument();
     });
-    expect(mocks.toastError).toHaveBeenCalledWith('Captcha validation failed');
+    // The toast fires from a passive effect after the error renders, so it
+    // must be awaited too — asserting it synchronously races the effect.
+    await waitFor(() => {
+      expect(mocks.toastError).toHaveBeenCalledWith('Captcha validation failed');
+    });
   });
 });
