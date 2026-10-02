@@ -1,10 +1,6 @@
 # Next.js Portfolio
 
-A modern, accessible portfolio website built with Next.js 16, TypeScript, and Tailwind CSS. Features a clean design, smooth animations, and comprehensive developer experience tooling.
-
-## Overview
-
-This portfolio showcases professional work, skills, and experience through a responsive single-page application. Built with performance and accessibility in mind, it includes contact forms, project showcases, and a modern tech stack.
+The source of [kevin-sauvage.com](https://www.kevin-sauvage.com/), my portfolio. It's a single page built with Next.js 16, TypeScript and Tailwind CSS, with a contact form (Server Action, EmailJS, reCAPTCHA v3), a nonce-based Content Security Policy, and automated accessibility testing in CI.
 
 ## Features
 
@@ -57,8 +53,6 @@ cp .env.example .env.local
 4. Fill in the values in `.env.local` (see [Configuration](#configuration)).
 
 ## Development
-
-This is a private portfolio project. For development purposes:
 
 ```bash
 # Start development server
@@ -213,6 +207,3 @@ This project is proprietary and confidential. All rights reserved. See the [LICE
 - LinkedIn: [linkedin.com/in/kevin-sauvage](https://www.linkedin.com/in/kevin-sauvage/)
 - Email: [kevinsauvage@outlook.com](mailto:kevinsauvage@outlook.com)
 
----
-
-Built with ❤️ using Next.js, TypeScript, and Tailwind CSS
