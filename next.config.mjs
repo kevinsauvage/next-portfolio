@@ -48,11 +48,9 @@ const nextConfig = {
     ];
   },
   images: {
-    formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 31_536_000, // 1 year for static portfolio images
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    qualities: [25, 50, 75, 85, 100],
+    // Vercel's image optimizer is over quota (402 on /_next/image); the
+    // screenshots are already small JPEGs, so serve them from /public as-is.
+    unoptimized: true,
   },
   poweredByHeader: false,
   reactStrictMode: true,
