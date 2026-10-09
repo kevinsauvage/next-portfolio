@@ -64,7 +64,7 @@ export const sections = {
       galleryTitle: 'Product walkthrough',
       ctaTitle: 'Want to see it live?',
       ctaDescription:
-        'The full storefront is deployed and open to explore — browse the catalog, add to cart and sign in.',
+        'The store is live: browse the catalog, switch language and add to cart. The source code is private, so I am happy to walk through it on a call.',
       backCta: 'Back to portfolio',
     },
   },

@@ -91,10 +91,10 @@ npm run screenshots  # capture project screenshots into public/images/projects
 ### Project screenshots
 
 Portfolio images are generated locally with Playwright and served from `public/` (no Cloudinary
-upload). Point it at the deployed demo and re-run when the project changes:
+upload). Point it at the live site (with the locale prefix for i18n sites) and re-run when the project changes:
 
 ```bash
-SCREENSHOT_BASE_URL=https://nextjs-shopify-storefront-demo-kevinsauvages-projects.vercel.app npm run screenshots
+SCREENSHOT_BASE_URL=https://oruva.store/en npm run screenshots
 ```
 
 It crawls the demo for the home, collections index, first collection and first product page, clears

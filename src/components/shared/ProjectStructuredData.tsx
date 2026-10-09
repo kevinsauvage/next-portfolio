@@ -26,7 +26,7 @@ const ProjectStructuredData = async ({ project }: { project: Project }) => {
     url,
     author: { '@type': 'Person', name: PERSON_NAME, url: SITE_URL },
     keywords: project.technologies.map(({ name }) => name).join(', '),
-    sameAs: project.githubLink,
+    ...(project.githubLink.length > 0 ? { sameAs: project.githubLink } : {}),
     ...(project.caseStudy?.tagline ? { abstract: project.caseStudy.tagline } : {}),
   };
 

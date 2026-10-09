@@ -104,7 +104,7 @@ export const projectsSchema = {
       name: project.title,
       description: project.description,
       url: project.websiteLink,
-      sameAs: project.githubLink,
+      ...(project.githubLink.length > 0 ? { sameAs: project.githubLink } : {}),
       keywords: project.technologies.map(technology => technology.name).join(', '),
     },
   })),

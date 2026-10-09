@@ -10,7 +10,7 @@ vi.mock('@/lib/analytics', () => ({ trackEvent: vi.fn() }));
 const project = projects[0] as Project;
 
 describe('ProjectCard', () => {
-  it('links to the case study, live site and source', () => {
+  it('links to the case study and the live site', () => {
     render(<ProjectCard project={project} index={0} />);
 
     expect(screen.getByRole('link', { name: /read case study/i })).toHaveAttribute(
@@ -21,9 +21,23 @@ describe('ProjectCard', () => {
       'href',
       project.websiteLink
     );
+  });
+
+  it('shows a source link only when the repository is public', () => {
+    const { rerender } = render(<ProjectCard project={{ ...project, githubLink: [] }} index={0} />);
+
+    expect(screen.queryByRole('link', { name: /source code/i })).not.toBeInTheDocument();
+
+    rerender(
+      <ProjectCard
+        project={{ ...project, githubLink: ['https://github.com/example/repo'] }}
+        index={0}
+      />
+    );
+
     expect(screen.getByRole('link', { name: /source code/i })).toHaveAttribute(
       'href',
-      project.githubLink[0]
+      'https://github.com/example/repo'
     );
   });
 

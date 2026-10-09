@@ -13,7 +13,9 @@
  *   --full                         Capture full-page instead of viewport.
  *
  * The demo is crawled for the first collection and product link, so slugs can
- * change over time without needing to edit this file.
+ * change over time without needing to edit this file. Links may carry a locale
+ * prefix (`/en/collections/...`), so pass the localized base for i18n sites,
+ * e.g. `--base https://oruva.store/en`.
  */
 import { mkdir, rename, stat, unlink } from 'node:fs/promises';
 import path from 'node:path';
@@ -160,7 +162,7 @@ const run = async () => {
       });
       await page.waitForLoadState('networkidle', { timeout: SETTLE_TIMEOUT }).catch(() => {});
 
-      const collectionHref = await href('a[href^="/collections/"]:not([href*="/products/"])');
+      const collectionHref = await href('a[href*="/collections/"]:not([href*="/products/"])');
       if (!collectionHref) return { collectionHref: null, productHref: null };
 
       // A failure here only costs us the product shot — never the whole run.
