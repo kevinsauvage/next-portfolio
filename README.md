@@ -206,4 +206,3 @@ This project is proprietary and confidential. All rights reserved. See the [LICE
 - Portfolio: [kevin-sauvage.com](https://www.kevin-sauvage.com/)
 - LinkedIn: [linkedin.com/in/kevin-sauvage](https://www.linkedin.com/in/kevin-sauvage/)
 - Email: [kevinsauvage@outlook.com](mailto:kevinsauvage@outlook.com)
-
