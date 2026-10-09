@@ -219,6 +219,157 @@ const myEcommerceProject: Project = {
   githubLink: [],
 };
 
-export const projects: Project[] = [myEcommerceProject];
+const complyLoopProject: Project = {
+  slug: 'complyloop',
+  role: 'Design & development',
+  timeline: '2026',
+  description:
+    'ComplyLoop checks React and Next.js codebases for accessibility against RGAA 4 and WCAG 2.2. It scans the source, optionally audits the running site, opens fixes as draft pull requests, and keeps an evidence log of every step. It is aimed at French agencies that deliver RGAA-regulated sites for several clients.',
+  highlights: [
+    'Source scan (AST checks and jsx-a11y) plus runtime audits with Playwright and axe',
+    'A finding only closes once a re-run confirms the fix; AI never sets a status',
+    'Append-only evidence log, exportable as JSON, Markdown or HTML',
+    'Public repository, with CI, unit tests and Playwright end-to-end specs',
+  ],
+  caseStudy: {
+    tagline:
+      'A compliance tool built around one loop: find the problem, explain it, fix it, verify the fix and keep the proof.',
+    overview: [
+      'Most accessibility scanners stop at a list of findings. ComplyLoop is built around what happens next: each finding says what failed, where and why it matters, a fix is proposed as a draft pull request, and the finding is only closed once a new run confirms it.',
+      'It targets React, Next.js and TypeScript projects and the French RGAA 4 standard alongside WCAG 2.2. You connect a GitHub repository, it scans the source, and with a preview URL it also audits the rendered pages for what a source scan cannot see, such as contrast and reflow.',
+      'The product is in private preview: the landing page is public, while sign-in and the workspace stay behind a password because the workspace runs scans. The source is public to read.',
+    ],
+    facts: [
+      { label: 'Accessibility checks', value: '132' },
+      { label: 'Unit-test files', value: '244' },
+      { label: 'E2E specs', value: '10' },
+      { label: 'Standards', value: 'RGAA 4 · WCAG 2.2' },
+    ],
+    features: [
+      {
+        title: 'Source scan',
+        description:
+          'Custom AST checks together with eslint-plugin-jsx-a11y, over a shallow clone of the repository that is deleted when the job ends. Re-runs skip files that have not changed.',
+      },
+      {
+        title: 'Runtime audit',
+        description:
+          'With a preview URL, Playwright and axe audit the running pages for rules a source scan cannot decide, like colour contrast, landmarks and reflow.',
+      },
+      {
+        title: 'Findings you can act on',
+        description:
+          'Each finding gives what failed, why, where, the impact, a confidence level and which engine found it, so a developer can act without opening the standard.',
+      },
+      {
+        title: 'Fixes as draft pull requests',
+        description:
+          'Where a patch can be generated and verified, it is opened as a draft PR. Runtime findings get guidance for the call site instead of a generic attribute.',
+      },
+      {
+        title: 'Verification and evidence',
+        description:
+          'Only a re-run can mark a finding verified. Every assessment, fix and decision is appended to an evidence log that exports as JSON, Markdown or HTML.',
+      },
+      {
+        title: 'Continuous monitoring',
+        description:
+          'Pushes to the default branch trigger a new assessment through webhooks, using short-lived GitHub App tokens, so checks keep running with nobody signed in.',
+      },
+      {
+        title: 'Organisations and roles',
+        description:
+          'Owner, admin, member and viewer roles, invites by GitHub login, a personal organisation on first sign-in and an organisation switcher.',
+      },
+    ],
+    technical: [
+      {
+        title: 'Deterministic analysis, advisory AI',
+        description:
+          'Statuses come from checks, not from a model. AI can explain a finding or suggest a patch, but a patch has to pass the same checks before a PR is offered, and it never sets a requirement status.',
+      },
+      {
+        title: 'One registry for every check',
+        description:
+          'Each of the 132 checks is registered once, with its authority, the engines that can report it and the catalog control it backs. Coverage tests cross-check that registry against the AST checks, the rule maps and the catalog, so a check cannot ship without an engine or guidance.',
+      },
+      {
+        title: 'Assessments as durable jobs',
+        description:
+          'A run is queued in Postgres and picked up by a GitHub Actions worker, claimed with FOR UPDATE SKIP LOCKED. A 15-minute schedule picks up jobs whose dispatch failed or whose lease expired, so nothing needs a long-running server.',
+      },
+      {
+        title: 'A single write path',
+        description:
+          'Mutations go through write helpers that take a per-project lock and guard against stale writes. Server actions never touch the database directly, and ESLint enforces it.',
+      },
+      {
+        title: 'Evidence that cannot be edited',
+        description:
+          'The evidence log is append-only: a record can be superseded, never changed. GitHub tokens are encrypted at rest with AES-256-GCM.',
+      },
+      {
+        title: 'Boundaries enforced by lint',
+        description:
+          'The shared contract sits at the bottom, the app core imports only from it, and the AI module cannot import server code. ESLint fails the build when a layer reaches across.',
+      },
+      {
+        title: 'Delivery',
+        description:
+          'A per-request Content-Security-Policy with a nonce, a Basic-auth preview gate that fails closed, Sentry reporting through a tunnel route, and three GitHub workflows: CI, the assessment worker and a production configuration check.',
+      },
+    ],
+    responsibilities: [
+      'Defined the product scope: the loop from requirement to evidence, and who it is for',
+      'Designed the domain model, the module boundaries and the durable job architecture',
+      'Built the analysis engine, the GitHub App integration, the workspace UI and the evidence exports',
+      'Set up Postgres with Drizzle migrations, deployment on Vercel, CI and production checks',
+    ],
+    quality: [
+      '244 Vitest files, with a coverage gate and a Postgres persistence integration suite',
+      'Playwright end-to-end specs behind a gated harness that is never enabled on customer deployments',
+      'Strict TypeScript, ESLint layer rules and a single verify command that runs lint, typecheck, tests, build and a bundle check',
+      'Coverage tests that fail when a check is missing an engine, a catalog row or guidance',
+    ],
+    gallery: [
+      {
+        src: '/images/projects/complyloop/features.jpg',
+        alt: 'ComplyLoop feature cards: deterministic checks, engineer-native findings, human-approved remediation, GitHub workflow, continuous re-assessment and append-only evidence',
+      },
+      {
+        src: '/images/projects/complyloop/evidence.jpg',
+        alt: 'A sample evidence trail on the ComplyLoop landing page: assessment completed, finding detected, remediation verified',
+      },
+    ],
+  },
+  images: {
+    thumbnail: {
+      alt: 'ComplyLoop landing page: "From RGAA requirement to verified code and audit evidence" above the six steps of the compliance loop',
+      src: '/images/projects/complyloop/home.jpg',
+    },
+  },
+  technologies: [
+    { name: 'Next.js 16' },
+    { name: 'React 19' },
+    { name: 'TypeScript' },
+    { name: 'Postgres' },
+    { name: 'Drizzle ORM' },
+    { name: 'Auth.js' },
+    { name: 'GitHub App (Octokit)' },
+    { name: 'GitHub Actions' },
+    { name: 'Playwright' },
+    { name: 'axe-core' },
+    { name: 'Vercel AI SDK' },
+    { name: 'Zod' },
+    { name: 'Tailwind CSS 4' },
+    { name: 'Vitest' },
+    { name: 'Sentry' },
+  ],
+  title: 'ComplyLoop — Accessibility Compliance',
+  websiteLink: 'https://complyloop.vercel.app/',
+  githubLink: ['https://github.com/kevinsauvage/complyloop'],
+};
+
+export const projects: Project[] = [myEcommerceProject, complyLoopProject];
 
 export default projects;
