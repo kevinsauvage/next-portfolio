@@ -55,7 +55,7 @@ const myEcommerceProject: Project = {
   role: 'Design & development (solo)',
   timeline: '2026',
   description:
-    'ORUVA is a live pet-lifestyle store for dogs and cats, shipping European-made essentials to Spain and France. I designed and built the whole storefront on Next.js 16 and Shopify: a three-language catalog, persistent cart, customer accounts, wishlist and predictive search, with content managed in Shopify rather than in code.',
+    'ORUVA is a live European jewelry label selling everyday rings, necklaces, earrings and bracelets to shoppers in Spain and France. I designed and built the whole storefront on Next.js 16 and Shopify: a three-language catalog, persistent cart, customer accounts, wishlist and predictive search, with content managed in Shopify rather than in code.',
   highlights: [
     'Live at oruva.store, in English, Spanish and French',
     'Brand copy, menus, policies and page content editable in Shopify, no redeploy needed',
@@ -64,9 +64,9 @@ const myEcommerceProject: Project = {
   ],
   caseStudy: {
     tagline:
-      'A live pet shop for the Spanish and French market: a headless Shopify storefront built solo, from brand to deployment.',
+      'A live jewelry label for the Spanish and French market: a headless Shopify storefront built solo, from brand to deployment.',
     overview: [
-      'ORUVA started as a template storefront and became a real store: a premium European pet-lifestyle brand selling beds, carriers, feeders and toys for dogs and cats. The storefront is built on Next.js 16 (App Router, Cache Components) and the Shopify Storefront API, with checkout handled by Shopify.',
+      'ORUVA started as a template storefront and became a real store: a warm, modern European jewelry label selling gold-toned and silver pieces meant to be worn every day, not saved for later. The storefront is built on Next.js 16 (App Router, Cache Components) and the Shopify Storefront API, with checkout handled by Shopify.',
       'I owned it end to end: brand positioning, storefront design, the Shopify data model, the code, caching, deployment and monitoring. The store runs in English, Spanish and French, prices include VAT, and delivery is tracked to Spain and France.',
       'The source code is private now that it is a commercial project, so this page walks through the decisions instead. I am happy to go through the code on a call.',
     ],
@@ -176,7 +176,7 @@ const myEcommerceProject: Project = {
     gallery: [
       {
         src: '/images/projects/modern-ecommerce-platform/collections.jpg',
-        alt: 'ORUVA collections page with Cats, Dogs and All Products tiles',
+        alt: 'ORUVA collections page with All Products, Bracelets, Earrings and Gifts tiles',
       },
       {
         src: '/images/projects/modern-ecommerce-platform/collection.jpg',
@@ -184,13 +184,13 @@ const myEcommerceProject: Project = {
       },
       {
         src: '/images/projects/modern-ecommerce-platform/product.jpg',
-        alt: 'Product page for a teddy dog carrier bag with gallery, VAT-inclusive price and description',
+        alt: 'Product page for the Moonlit Doorknocker earrings with gallery, VAT-inclusive price and description',
       },
     ],
   },
   images: {
     thumbnail: {
-      alt: 'ORUVA homepage: "Better products for better everyday moments together" beside a cat on a grey cat tree',
+      alt: 'ORUVA homepage: "Jewelry made to be worn, not saved for later" beside a model wearing gold necklaces and earrings',
       src: '/images/projects/modern-ecommerce-platform/home.jpg',
     },
   },
@@ -213,7 +213,7 @@ const myEcommerceProject: Project = {
     { name: 'Playwright' },
     { name: 'Vercel' },
   ],
-  title: 'ORUVA — Pet Shop E-Commerce',
+  title: 'ORUVA — Jewelry E-Commerce',
   websiteLink: 'https://oruva.store/',
   // The repository is private, so there is no public source link.
   githubLink: [],

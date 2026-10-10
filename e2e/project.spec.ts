@@ -5,7 +5,7 @@ test.describe('project case study', () => {
     await page.goto('/projects/modern-ecommerce-platform');
 
     await expect(
-      page.getByRole('heading', { level: 1, name: 'Modern E-Commerce Platform' })
+      page.getByRole('heading', { level: 1, name: 'ORUVA — Jewelry E-Commerce' })
     ).toBeVisible();
     await expect(page.getByRole('link', { name: /back to portfolio/i }).first()).toBeVisible();
 
