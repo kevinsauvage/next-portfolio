@@ -3,7 +3,7 @@
 import { useCallback, useState } from 'react';
 
 import Button from '@/components/ui/Button/Button';
-import { BodySmall, Caption, H4 } from '@/components/ui/Typography';
+import { BodySmall, H4 } from '@/components/ui/Typography';
 import { type CookieCategoryName, cookies as copy } from '@/config/content';
 import {
   consentFromFormData,
@@ -81,9 +81,8 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
   if (!showBanner && !showPreferences) return null;
 
   return (
-    <div
+    <section
       className='fixed inset-x-0 bottom-0 z-50 border-t border-zinc-800 bg-zinc-950/95 backdrop-blur-sm'
-      role='region'
       aria-labelledby={showPreferences ? 'cookie-preferences-title' : 'cookie-banner-title'}
     >
       <div className='container m-auto px-6 py-5'>
@@ -108,7 +107,7 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
 
             <div className='mt-4 grid gap-3 sm:grid-cols-2'>
               {copy.preferences.categories.map(({ name, title, description, required }) => (
-                <label
+                <div
                   key={name}
                   className={clsx(
                     'flex gap-3 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 transition-colors',
@@ -118,24 +117,36 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
                   )}
                 >
                   <input
+                    id={`cookie-${name}`}
                     type='checkbox'
                     name={name}
                     defaultChecked={isCategoryChecked(stored, name, required)}
                     disabled={required}
+                    aria-describedby={`cookie-${name}-description`}
                     className='mt-1 size-4 shrink-0 accent-primary-500'
                   />
-                  <span>
-                    <Caption className='block text-zinc-100'>
+                  <div className='flex-1'>
+                    {/* The title is the control's accessible name, so it has to
+                        be the <label> itself; the explanation is a description. */}
+                    <label
+                      htmlFor={`cookie-${name}`}
+                      className={clsx(
+                        'block text-sm font-medium text-zinc-100',
+                        required ? 'cursor-not-allowed' : 'cursor-pointer'
+                      )}
+                    >
                       {title}
                       {required ? (
                         <span className='ml-2 text-xs text-zinc-500'>
                           {copy.preferences.required}
                         </span>
                       ) : null}
-                    </Caption>
-                    <BodySmall className='text-sm text-zinc-400'>{description}</BodySmall>
-                  </span>
-                </label>
+                    </label>
+                    <BodySmall id={`cookie-${name}-description`} className='text-sm text-zinc-400'>
+                      {description}
+                    </BodySmall>
+                  </div>
+                </div>
               ))}
             </div>
 
@@ -178,7 +189,7 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

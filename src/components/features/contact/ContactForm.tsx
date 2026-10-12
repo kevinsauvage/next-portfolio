@@ -312,7 +312,7 @@ const ContactForm = () => {
 
         <Button
           className='mt-2 w-full sm:w-auto'
-          svg={<LucideSend role='img' size={18} aria-hidden='true' />}
+          svg={<LucideSend size={18} aria-hidden='true' />}
           label={isSubmitting ? 'Sending...' : 'Send Message'}
           type='submit'
           title='Send Message'
