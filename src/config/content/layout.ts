@@ -37,6 +37,7 @@ export const layout = {
           { name: 'Portfolio', href: '/#portfolio' },
           { name: 'Certifications', href: '/#certifications' },
           { name: 'Contact', href: '/#contact' },
+          { name: 'Privacy', href: '/privacy' },
         ],
       },
       techStack: {

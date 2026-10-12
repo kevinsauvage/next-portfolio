@@ -16,6 +16,15 @@ describe('sitemap', () => {
     expect(Number.isNaN((home?.lastModified as Date).getTime())).toBe(false);
   });
 
+  it('lists the privacy policy route', () => {
+    const entries = sitemap();
+    const privacyEntry = entries.find(entry => entry.url.endsWith('/privacy'));
+
+    expect(privacyEntry?.url).toBe('https://www.kevin-sauvage.com/privacy');
+    expect(privacyEntry?.changeFrequency).toBe('yearly');
+    expect(privacyEntry?.priority).toBe(0.3);
+  });
+
   it('lists every project case study route', () => {
     const entries = sitemap();
     const projectUrls = entries.map(entry => entry.url).filter(url => url.includes('/projects/'));

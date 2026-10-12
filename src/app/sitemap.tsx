@@ -18,6 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       url: SITE_URL,
     },
+    {
+      changeFrequency: 'yearly',
+      lastModified: new Date(SITE_LAST_MODIFIED),
+      priority: 0.3,
+      url: `${SITE_URL}/privacy`,
+    },
     ...projectEntries,
   ];
 }
