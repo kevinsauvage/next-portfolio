@@ -47,24 +47,66 @@ if (!BASE_URL) {
 const browserContext = browser =>
   browser.newContext({ colorScheme: 'dark', deviceScaleFactor: 1, viewport: VIEWPORT });
 
+/**
+ * Runs `task` over `items` one at a time and resolves with the results, in order.
+ *
+ * Sequential on purpose: every capture drives the same demo, and parallel
+ * contexts starve it into half-painted screenshots. Written as a promise chain
+ * rather than `for … await` so no `await` sits inside a loop body — several
+ * static analysers (Sonar's `no-await-in-loop`) cannot tell an intentional
+ * sequence from a parallelisable one.
+ */
+const runSequentially = (items, task) =>
+  items.reduce(
+    (previous, item) => previous.then(async results => [...results, await task(item)]),
+    Promise.resolve([])
+  );
+
+/**
+ * Runs `task` until it resolves truthy, at most `attempts` times, and resolves
+ * with that outcome. Recursive rather than looped for the same reason as
+ * {@link runSequentially}; `task` receives the 1-based attempt number.
+ */
+const retry = async (attempts, task) => {
+  const attempt = async number => {
+    if (await task(number)) return true;
+    return number < attempts ? attempt(number + 1) : false;
+  };
+
+  return attempt(1);
+};
+
+/**
+ * Runs `task` until it resolves falsy, at most `passes` times. Used for consent
+ * overlays, which can re-render after the first click.
+ */
+const repeatWhileTrue = async (passes, task) => {
+  if (passes <= 0) return;
+  if (await task()) await repeatWhileTrue(passes - 1, task);
+};
+
 const run = async () => {
   await mkdir(OUT_DIR, { recursive: true });
 
   const browser = await chromium.launch();
 
   const dismissConsent = async page => {
-    const button = page.getByRole('button', {
-      name: /accept all|reject all|^accept$|got it|i agree|agree/i,
-    });
+    const clickConsentOnce = async () => {
+      const button = page.getByRole('button', {
+        name: /accept all|reject all|^accept$|got it|i agree|agree/i,
+      });
 
-    for (let pass = 0; pass < 3; pass++) {
-      if ((await button.count()) === 0) return;
+      if ((await button.count()) === 0) return false;
+
       await button
         .first()
         .click({ timeout: 3000 })
         .catch(() => {});
       await page.waitForTimeout(500);
-    }
+      return true;
+    };
+
+    await repeatWhileTrue(3, clickConsentOnce);
   };
 
   const settle = async page => {
@@ -101,7 +143,7 @@ const run = async () => {
     const file = path.join(OUT_DIR, `${name}.jpg`);
     const temp = `${file}.tmp`;
 
-    for (let attempt = 1; attempt <= RETRIES; attempt++) {
+    const attemptOnce = async attempt => {
       const context = await browserContext(browser);
       const page = await context.newPage();
 
@@ -135,13 +177,16 @@ const run = async () => {
         console.warn(`  ! ${name}: attempt ${attempt}/${RETRIES} failed (${error.message})`);
         await unlink(temp).catch(() => {});
         await page.waitForTimeout(1000).catch(() => {});
+        return false;
       } finally {
         await context.close().catch(() => {});
       }
-    }
+    };
 
-    console.warn(`  ✗ ${name}: giving up after ${RETRIES} attempts`);
-    return false;
+    const captured = await retry(RETRIES, attemptOnce);
+    if (!captured) console.warn(`  ✗ ${name}: giving up after ${RETRIES} attempts`);
+
+    return captured;
   };
 
   /** Finds the first collection link, then the first product link inside it. */
@@ -196,10 +241,10 @@ const run = async () => {
   if (productHref) targets.push(['product', productHref]);
   else console.warn('  ! no product link found in the first collection');
 
-  const results = [];
-  for (const [name, url] of targets) {
-    results.push([name, await capture(name, url)]);
-  }
+  const results = await runSequentially(targets, async ([name, url]) => [
+    name,
+    await capture(name, url),
+  ]);
 
   await browser.close();
 

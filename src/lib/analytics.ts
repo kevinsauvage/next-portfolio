@@ -110,7 +110,11 @@ export function sanitizeEventData(
 
 function pushToDataLayer(payload: Record<string, unknown>): void {
   if (!isBrowser()) return;
-  (globalThis.window.dataLayer ??= []).push(payload);
+
+  // The assignment gets its own statement: folding it into the `push` call
+  // hides a side effect inside a sub-expression.
+  globalThis.window.dataLayer ??= [];
+  globalThis.window.dataLayer.push(payload);
 }
 
 /**
