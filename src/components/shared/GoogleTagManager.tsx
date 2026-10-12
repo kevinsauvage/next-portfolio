@@ -3,24 +3,39 @@
 import { useEffect, useState } from 'react';
 import Script from 'next/script';
 
-import { applyConsentToGtag, normalizeGtmId } from '@/lib/analytics';
+import {
+  applyConsentToGtag,
+  normalizeGtmId,
+  normalizeMeasurementId,
+  pushGoogleTagBootstrap,
+} from '@/lib/analytics';
 import { CONSENT_UPDATED_EVENT, hasTagManagerConsent } from '@/lib/consent';
 
 type Properties = {
+  ga4MeasurementId?: string | undefined;
   gtmId?: string | undefined;
   nonce?: string | undefined;
 };
 
 /**
- * Loads the GTM container only once the visitor has granted analytics or
- * advertising consent, and re-asserts the choice on `gtag` first so the
- * container starts with the right signals rather than the denied defaults.
+ * Loads the analytics scripts only once the visitor has granted analytics or
+ * advertising consent, and re-asserts the stored choice on `gtag` first so
+ * they start with the right signals rather than the denied defaults.
  *
- * `lazyOnload` on purpose: GTM plus the GA4 tag it pulls is ~300 KB and a long
- * main-thread task. Events pushed before it arrives wait in `dataLayer`, and
- * refusing consent means the request is never made at all.
+ * The Google tag is loaded here rather than by the container's `Google Tag`
+ * tag: that path pulls gtag.js with `cx=c` and never issues the GA4
+ * configuration, so GA4 received nothing at all (no `/g/collect`, no `_ga`,
+ * Realtime stuck at zero). This is the documented install and it honours
+ * Consent Mode (`gcs=G111` on the hit once analytics storage is granted).
+ *
+ * The container still loads, and owns the GA4 event tags that forward the
+ * `dataLayer` events this site pushes — gtag.js alone does not forward those.
+ *
+ * `lazyOnload` on purpose: together they are ~900 KB and a long main-thread
+ * task. Requests are only made after consent is granted.
  */
-const GoogleTagManager = ({ gtmId, nonce }: Properties) => {
+const GoogleTagManager = ({ ga4MeasurementId, gtmId, nonce }: Properties) => {
+  const measurementId = normalizeMeasurementId(ga4MeasurementId);
   const containerId = normalizeGtmId(gtmId);
   const [hasConsent, setHasConsent] = useState(false);
 
@@ -36,15 +51,31 @@ const GoogleTagManager = ({ gtmId, nonce }: Properties) => {
     return () => window.removeEventListener(CONSENT_UPDATED_EVENT, sync);
   }, []);
 
-  if (!containerId || !hasConsent) return null;
+  useEffect(() => {
+    if (hasConsent && measurementId) pushGoogleTagBootstrap(measurementId);
+  }, [hasConsent, measurementId]);
+
+  if (!hasConsent) return null;
 
   return (
-    <Script
-      id='google-tag-manager'
-      strategy='lazyOnload'
-      src={`https://www.googletagmanager.com/gtm.js?id=${containerId}`}
-      nonce={nonce}
-    />
+    <>
+      {measurementId ? (
+        <Script
+          id='google-tag'
+          strategy='lazyOnload'
+          src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
+          nonce={nonce}
+        />
+      ) : null}
+      {containerId ? (
+        <Script
+          id='google-tag-manager'
+          strategy='lazyOnload'
+          src={`https://www.googletagmanager.com/gtm.js?id=${containerId}`}
+          nonce={nonce}
+        />
+      ) : null}
+    </>
   );
 };
 

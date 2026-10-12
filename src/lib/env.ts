@@ -13,6 +13,14 @@ const serverEnvSchema = z.object({
 
 const publicEnvSchema = z.object({
   NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().min(1),
+  // GA4 measurement id for the Google tag this site loads directly, read
+  // server-side and passed to the loader. Optional so a deployment without
+  // analytics still boots; a malformed value is rejected here and again in
+  // `normalizeMeasurementId` before it reaches the script URL.
+  GA4_MEASUREMENT_ID: z
+    .string()
+    .regex(/^G-[A-Z0-9]+$/, 'GA4_MEASUREMENT_ID must look like G-ABC1234')
+    .optional(),
   // Container id, read server-side and passed to the GTM loader. Optional so a
   // deployment without analytics still boots; a malformed value is rejected here
   // and again in `normalizeGtmId` before it reaches the script URL.

@@ -1,4 +1,11 @@
-import { applyConsentToGtag, normalizeGtmId, sanitizeEventData, trackEvent } from './analytics';
+import {
+  applyConsentToGtag,
+  normalizeGtmId,
+  normalizeMeasurementId,
+  pushGoogleTagBootstrap,
+  sanitizeEventData,
+  trackEvent,
+} from './analytics';
 import {
   CONSENT_COOKIE,
   type ConsentSettings,
@@ -16,6 +23,9 @@ const GRANTED: ConsentSettings = {
 };
 
 const REFUSED: ConsentSettings = { ...GRANTED, analytics_storage: false };
+
+const MEASUREMENT_ID = 'G-ABC1234';
+const CONTAINER_ID = 'GTM-ABC1234';
 
 const clearConsentCookie = () => {
   document.cookie = `${CONSENT_COOKIE}=; Path=/; Max-Age=0`;
@@ -150,13 +160,42 @@ describe('applyConsentToGtag', () => {
 
 describe('normalizeGtmId', () => {
   it('keeps a well-formed container id', () => {
-    expect(normalizeGtmId('GTM-ABC1234')).toBe('GTM-ABC1234');
+    expect(normalizeGtmId(CONTAINER_ID)).toBe(CONTAINER_ID);
   });
 
   it('rejects a malformed or missing id', () => {
     expect(normalizeGtmId('GTM-')).toBeUndefined();
     expect(normalizeGtmId('gtm-abc1234')).toBeUndefined();
-    expect(normalizeGtmId('G-ABC1234')).toBeUndefined();
+    expect(normalizeGtmId(MEASUREMENT_ID)).toBeUndefined();
     expect(normalizeGtmId(undefined)).toBeUndefined();
+  });
+});
+
+describe('normalizeMeasurementId', () => {
+  it('keeps a well-formed measurement id', () => {
+    expect(normalizeMeasurementId(MEASUREMENT_ID)).toBe(MEASUREMENT_ID);
+  });
+
+  it('rejects a malformed or missing id', () => {
+    expect(normalizeMeasurementId('G-')).toBeUndefined();
+    expect(normalizeMeasurementId('g-abc1234')).toBeUndefined();
+    expect(normalizeMeasurementId(CONTAINER_ID)).toBeUndefined();
+    expect(normalizeMeasurementId(undefined)).toBeUndefined();
+  });
+});
+
+describe('pushGoogleTagBootstrap', () => {
+  it('does nothing before the gtag stub exists', () => {
+    expect(() => pushGoogleTagBootstrap(MEASUREMENT_ID)).not.toThrow();
+  });
+
+  it('queues js and config for the measurement id', () => {
+    const gtag = vi.fn();
+    globalThis.window.gtag = gtag;
+
+    pushGoogleTagBootstrap(MEASUREMENT_ID);
+
+    expect(gtag).toHaveBeenNthCalledWith(1, 'js', expect.any(Date));
+    expect(gtag).toHaveBeenNthCalledWith(2, 'config', MEASUREMENT_ID);
   });
 });

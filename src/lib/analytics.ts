@@ -13,7 +13,8 @@ declare global {
     dataLayer?: Array<Record<string, unknown>>;
     gtag?: (
       command: 'config' | 'event' | 'consent' | 'set' | 'js',
-      target: string,
+      // `js` carries a Date, the others a target id or event name.
+      target: string | Date,
       params?: Record<string, unknown>
     ) => void;
   }
@@ -142,6 +143,7 @@ export function applyConsentToGtag(settings?: ConsentSettings | null): void {
 }
 
 const GTM_ID_PATTERN = /^GTM-[A-Z0-9]+$/;
+const MEASUREMENT_ID_PATTERN = /^G-[A-Z0-9]+$/;
 
 /**
  * A validated container id, or `undefined`. Keeps a malformed value out of the
@@ -149,4 +151,24 @@ const GTM_ID_PATTERN = /^GTM-[A-Z0-9]+$/;
  */
 export function normalizeGtmId(id: string | undefined): string | undefined {
   return id && GTM_ID_PATTERN.test(id) ? id : undefined;
+}
+
+/**
+ * A validated GA4 measurement id, or `undefined`. Same guard as
+ * {@link normalizeGtmId}: nothing interpolates into the `gtag/js` URL unchecked.
+ */
+export function normalizeMeasurementId(id: string | undefined): string | undefined {
+  return id && MEASUREMENT_ID_PATTERN.test(id) ? id : undefined;
+}
+
+/**
+ * Queues the Google tag bootstrap (`gtag('js')` + `gtag('config')`). The pushes
+ * land in the dataLayer and gtag.js replays them when it loads, so this runs
+ * before the script tag is fetched.
+ */
+export function pushGoogleTagBootstrap(measurementId: string): void {
+  if (!isBrowser() || typeof globalThis.window.gtag !== 'function') return;
+
+  globalThis.window.gtag('js', new Date());
+  globalThis.window.gtag('config', measurementId);
 }

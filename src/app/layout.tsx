@@ -71,7 +71,11 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
       </head>
       <body className='w-full h-full antialiased font-base font-normal text-zinc-50'>
         <StructuredData />
-        <GoogleTagManager gtmId={publicEnv.GTM_ID} nonce={nonce} />
+        <GoogleTagManager
+          ga4MeasurementId={publicEnv.GA4_MEASUREMENT_ID}
+          gtmId={publicEnv.GTM_ID}
+          nonce={nonce}
+        />
         <AnalyticsTracker />
         <ScrollDetector />
         <SonnerToaster />
