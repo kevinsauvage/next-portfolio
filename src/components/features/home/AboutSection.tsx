@@ -2,7 +2,7 @@ import Reveal from '@/components/shared/Reveal';
 import Section from '@/components/ui/Section';
 import { Body, H2, H3, Overline } from '@/components/ui/Typography';
 import { passions, sections } from '@/config/content';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import PassionCard from './PassionCard';
 
@@ -50,9 +50,9 @@ const AboutSection: React.FC = () => {
                       href={lang.credentialUrl}
                       target='_blank'
                       rel='noopener noreferrer'
-                      data-umami-event={UMAMI_EVENTS.OUTBOUND_LINK_CLICK}
-                      data-umami-event-url={lang.credentialUrl}
-                      data-umami-event-location='about'
+                      data-analytics-event={ANALYTICS_EVENTS.OUTBOUND_LINK_CLICK}
+                      data-analytics-url={lang.credentialUrl}
+                      data-analytics-location='about'
                       className='inline-flex items-center gap-1 font-mono text-xs text-primary-300 transition-colors hover:text-primary-200'
                     >
                       {lang.level}

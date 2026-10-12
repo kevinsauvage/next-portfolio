@@ -1,14 +1,18 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
+import { headers } from 'next/headers';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
+import AnalyticsTracker from '@/components/shared/AnalyticsTracker';
 import ClientOnlyWidgets from '@/components/shared/ClientOnlyWidgets';
+import ConsentModeDefaults from '@/components/shared/ConsentModeDefaults';
+import CookieBannerLoader from '@/components/shared/CookieBannerLoader';
+import GoogleTagManager from '@/components/shared/GoogleTagManager';
 import HeadLinks from '@/components/shared/HeadLinks';
 import ScrollDetector from '@/components/shared/ScrollDetector';
 import SonnerToaster from '@/components/shared/SonnerToaster';
 import StructuredData from '@/components/shared/StructuredData';
-import UmamiScript from '@/components/shared/UmamiScript';
 import { getPublicEnv } from '@/lib/env';
 
 import '@/styles/globals.scss';
@@ -44,8 +48,11 @@ const jetBrainsMono = JetBrains_Mono({
   preload: false,
 });
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = async ({ children }: { children: React.ReactNode }) => {
   const publicEnv = getPublicEnv();
+  // Same per-request nonce as StructuredData: GTM propagates it to the scripts
+  // it injects, which is what keeps the container working under the strict CSP.
+  const nonce = (await headers()).get('x-nonce') ?? undefined;
 
   return (
     <html
@@ -60,10 +67,12 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     >
       <head>
         <HeadLinks />
+        <ConsentModeDefaults />
       </head>
       <body className='w-full h-full antialiased font-base font-normal text-zinc-50'>
         <StructuredData />
-        <UmamiScript umamiId={publicEnv.UMAMI_ID} domains={publicEnv.UMAMI_DOMAINS} />
+        <GoogleTagManager gtmId={publicEnv.GTM_ID} nonce={nonce} />
+        <AnalyticsTracker />
         <ScrollDetector />
         <SonnerToaster />
         <nav aria-label='Skip navigation'>
@@ -84,6 +93,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         </main>
         <Footer />
         <ClientOnlyWidgets />
+        <CookieBannerLoader />
       </body>
     </html>
   );

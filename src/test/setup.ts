@@ -33,7 +33,7 @@ vi.mock('next/image', () => ({
 vi.mock('process', () => ({
   env: {
     NODE_ENV: 'test',
-    UMAMI_ID: 'test-id',
+    GTM_ID: 'GTM-TEST123',
   },
 }));
 

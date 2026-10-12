@@ -13,8 +13,13 @@ const serverEnvSchema = z.object({
 
 const publicEnvSchema = z.object({
   NEXT_PUBLIC_RECAPTCHA_SITE_KEY: z.string().min(1),
-  UMAMI_ID: z.string().optional(),
-  UMAMI_DOMAINS: z.string().optional(),
+  // Container id, read server-side and passed to the GTM loader. Optional so a
+  // deployment without analytics still boots; a malformed value is rejected here
+  // and again in `normalizeGtmId` before it reaches the script URL.
+  GTM_ID: z
+    .string()
+    .regex(/^GTM-[A-Z0-9]+$/, 'GTM_ID must look like GTM-ABC1234')
+    .optional(),
   GOOGLE_SITE_VERIFICATION: z.string().optional(),
 });
 

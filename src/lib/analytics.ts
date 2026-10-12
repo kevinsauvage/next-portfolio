@@ -1,70 +1,67 @@
-export type { UmamiEventName } from './analytics-events';
-export { UMAMI_EVENTS } from './analytics-events';
+export type { AnalyticsEventName } from './analytics-events';
+export { ANALYTICS_EVENTS } from './analytics-events';
 
-/**
- * Umami tracker API surface we rely on.
- *
- * @see https://docs.umami.is/docs/tracker-functions
- */
-export interface UmamiTracker {
-  track(eventName: string, data?: Record<string, unknown>): void;
-}
+import {
+  type ConsentSettings,
+  consentSignals,
+  hasAnalyticsConsent,
+  readStoredConsent,
+} from './consent';
 
 declare global {
   interface Window {
-    umami?: UmamiTracker;
+    dataLayer?: Array<Record<string, unknown>>;
+    gtag?: (
+      command: 'config' | 'event' | 'consent' | 'set' | 'js',
+      target: string,
+      params?: Record<string, unknown>
+    ) => void;
   }
 }
 
-export type UmamiEventData = Record<string, unknown>;
+export type AnalyticsEventData = Record<string, unknown>;
 
 /** Result of a `track*` call. */
-export type TrackStatus = 'sent' | 'queued' | 'dropped';
+export type TrackStatus = 'sent' | 'dropped';
 
-/** Mirrors Umami's documented event-data limits. */
-const MAX_EVENT_DATA_PROPERTIES = 50;
-const MAX_STRING_LENGTH = 500;
-const MAX_QUEUE_SIZE = 50;
-
-type QueuedEvent = {
-  eventName: string;
-  data?: UmamiEventData | undefined;
-};
-
-const eventQueue: QueuedEvent[] = [];
+/**
+ * Mirrors GA4's documented parameter limits, so a payload never reaches the
+ * dataLayer with values the tag would silently truncate or reject.
+ *
+ * @see https://support.google.com/analytics/answer/9267744
+ */
+const MAX_EVENT_DATA_PROPERTIES = 25;
+const MAX_STRING_LENGTH = 100;
 
 function isBrowser(): boolean {
   return globalThis.window !== undefined;
 }
 
-/**
- * `true` when the tracker script has loaded and exposed its API.
- * Note: the script uses `afterInteractive` loading, so events fired before
- * that are queued (see `flushUmamiQueue`) rather than dropped.
- */
-function isUmamiAvailable(): boolean {
-  return isBrowser() && typeof globalThis.window.umami?.track === 'function';
-}
-
 function isDoNotTrackEnabled(): boolean {
   if (!isBrowser()) return false;
-  const nav = globalThis.window.navigator as Navigator & { doNotTrack?: unknown };
-  const dnt =
-    nav.doNotTrack ?? (globalThis.window as unknown as Record<string, unknown>)['doNotTrack'];
-  return dnt === '1' || dnt === 'yes';
+  const navigator_ = globalThis.window.navigator as Navigator & { doNotTrack?: unknown };
+  const doNotTrack =
+    navigator_.doNotTrack ??
+    (globalThis.window as unknown as Record<string, unknown>)['doNotTrack'];
+  return doNotTrack === '1' || doNotTrack === 'yes';
 }
 
 /**
  * Guards against polluting production analytics from dev/test.
- * Set `NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV=true` to opt in locally.
+ * Set `NEXT_PUBLIC_ANALYTICS_ENABLE_IN_DEV=true` to opt in locally.
  */
-function isUmamiEnabled(): boolean {
+function isAnalyticsEnabled(): boolean {
   if (process.env.NODE_ENV === 'production') return true;
-  return process.env['NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV'] === 'true';
+  return process.env['NEXT_PUBLIC_ANALYTICS_ENABLE_IN_DEV'] === 'true';
 }
 
-function isTrackingAllowed(): boolean {
-  return isUmamiEnabled() && !isDoNotTrackEnabled();
+/**
+ * Every signal that gates a send: the browser has to exist, tracking has to be
+ * enabled for this environment, the visitor must not have opted out via DNT,
+ * and the banner must have granted analytics storage.
+ */
+function canTrack(): boolean {
+  return isBrowser() && isAnalyticsEnabled() && !isDoNotTrackEnabled() && hasAnalyticsConsent();
 }
 
 function sanitizeValue(value: unknown): string | number | boolean | undefined {
@@ -93,14 +90,12 @@ function sanitizeValue(value: unknown): string | number | boolean | undefined {
 }
 
 /**
- * Coerce arbitrary event data to Umami's documented limits:
- * strings ≤ 500 chars, numbers ≤ 4 decimal places, arrays stringified
- * (≤ 500 chars), objects ≤ 50 properties. Drops unserializable values.
- *
- * @see https://docs.umami.is/docs/tracker-functions#event-data-limits
+ * Coerces arbitrary event data to GA4's documented limits: strings ≤ 100 chars,
+ * numbers ≤ 4 decimal places, arrays stringified (≤ 100 chars), objects
+ * stringified (≤ 100 chars), at most 25 properties. Drops unserializable values.
  */
 export function sanitizeEventData(
-  data?: UmamiEventData
+  data?: AnalyticsEventData
 ): Record<string, string | number | boolean> {
   if (!data || typeof data !== 'object') return {};
   const entries: Array<[string, string | number | boolean]> = [];
@@ -112,85 +107,46 @@ export function sanitizeEventData(
   return Object.fromEntries(entries);
 }
 
-function sendEvent(eventName: string, data?: UmamiEventData): void {
-  const tracker = globalThis.window.umami as UmamiTracker;
-  tracker.track(eventName, sanitizeEventData(data));
+function pushToDataLayer(payload: Record<string, unknown>): void {
+  if (!isBrowser()) return;
+  (globalThis.window.dataLayer ??= []).push(payload);
 }
 
 /**
- * Sends queued events once the tracker is ready. Called automatically on
- * script `onLoad`; safe to call manually. Returns the number of events sent.
+ * Tracks a custom event through the GTM dataLayer. Never throws and never
+ * blocks the caller: returns `'sent'` when pushed, or `'dropped'` when tracking
+ * is disabled (SSR, dev without opt-in, DNT) or analytics consent is missing.
+ *
+ * There is no queue: the dataLayer *is* the queue, so events pushed before
+ * `gtm.js` loads are replayed by GTM. Events before consent are dropped on
+ * purpose — holding them would mean tracking a visitor who refused.
  */
-export function flushUmamiQueue(): number {
-  if (!isTrackingAllowed()) {
-    // Never send queued events after opt-out / in disabled envs.
-    eventQueue.length = 0;
-    return 0;
-  }
-  if (!isUmamiAvailable()) return 0;
-  let sent = 0;
-  while (eventQueue.length > 0) {
-    const entry = eventQueue.shift() as QueuedEvent;
-    try {
-      sendEvent(entry.eventName, entry.data);
-      sent += 1;
-    } catch {
-      // Tracker failed mid-flush: requeue and retry on next flush.
-      eventQueue.unshift(entry);
-      break;
-    }
-  }
-  return sent;
-}
+export function trackEvent(eventName: string, data?: AnalyticsEventData): TrackStatus {
+  if (!eventName || !canTrack()) return 'dropped';
 
-function enqueue(entry: QueuedEvent): TrackStatus {
-  if (eventQueue.length >= MAX_QUEUE_SIZE) {
-    eventQueue.shift();
-  }
-  eventQueue.push(entry);
-  return 'queued';
+  pushToDataLayer({ event: eventName, ...sanitizeEventData(data) });
+  return 'sent';
 }
 
 /**
- * Tracks a custom event. Never throws and never blocks the caller:
- * returns `'sent'` when delivered, `'queued'` when the tracker hasn't
- * loaded yet (flushed automatically on script load), or `'dropped'`
- * when tracking is disabled (dev without opt-in, DNT, or SSR).
+ * Re-asserts the stored choice on `gtag` before GTM loads. The inline default
+ * script starts every category at `denied`, so this is what actually grants them.
  */
-export function trackEvent(eventName: string, data?: UmamiEventData): TrackStatus {
-  if (!isBrowser() || !isTrackingAllowed()) return 'dropped';
-  if (!eventName) return 'dropped';
-  if (!isUmamiAvailable()) {
-    return enqueue({ eventName, data });
-  }
-  try {
-    sendEvent(eventName, data);
-    return 'sent';
-  } catch {
-    return enqueue({ eventName, data });
-  }
+export function applyConsentToGtag(settings?: ConsentSettings | null): void {
+  if (!isBrowser() || typeof globalThis.window.gtag !== 'function') return;
+
+  const consent = settings ?? readStoredConsent();
+  if (!consent) return;
+
+  globalThis.window.gtag('consent', 'update', consentSignals(consent));
 }
 
-export interface UmamiScriptOptions {
-  /** Restricts the tracker to these domains (comma-joined into data-domains). */
-  domains?: string | string[] | undefined;
-}
+const GTM_ID_PATTERN = /^GTM-[A-Z0-9]+$/;
 
-export function getUmamiScriptProps(
-  umamiId: string | undefined,
-  options?: UmamiScriptOptions | undefined
-): Record<string, string> | null {
-  if (!umamiId) return null;
-  const domains = options?.domains;
-  let joinedDomains = '';
-  if (domains !== undefined) {
-    joinedDomains = Array.isArray(domains) ? domains.join(',') : domains;
-  }
-  return {
-    'data-website-id': umamiId,
-    'data-host-url': '/growth',
-    'data-do-not-track': 'true',
-    src: '/growth/script.js',
-    ...(joinedDomains.length > 0 ? { 'data-domains': joinedDomains } : {}),
-  };
+/**
+ * A validated container id, or `undefined`. Keeps a malformed value out of the
+ * `gtm.js` URL even when env validation was skipped (e.g. a plain unit test).
+ */
+export function normalizeGtmId(id: string | undefined): string | undefined {
+  return id && GTM_ID_PATTERN.test(id) ? id : undefined;
 }

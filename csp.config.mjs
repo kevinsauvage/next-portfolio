@@ -3,8 +3,8 @@
 
 /** Hosts allowed to run scripts (in addition to nonce'd inline scripts). */
 const SCRIPT_SRC_HOSTS = [
-  'https://cloud.umami.is',
-  'https://gateway.umami.is',
+  'https://www.googletagmanager.com',
+  'https://www.google-analytics.com',
   'https://www.google.com',
   'https://www.gstatic.com',
   'https://va.vercel-scripts.com',
@@ -21,9 +21,10 @@ export const cspDirectives = {
   'child-src': ["'self'", 'blob:'],
   'connect-src': [
     "'self'",
-    'https://cloud.umami.is',
-    'https://gateway.umami.is',
-    'https://api-gateway.umami.dev',
+    'https://www.googletagmanager.com',
+    'https://www.google-analytics.com',
+    'https://*.google-analytics.com',
+    'https://*.analytics.google.com',
     'https://www.google.com',
     'https://www.gstatic.com',
     'https://vitals.vercel-insights.com',
@@ -33,7 +34,11 @@ export const cspDirectives = {
   'img-src': ["'self'", 'data:', 'blob:', 'https:'],
   'style-src': ["'self'", "'unsafe-inline'"],
   'font-src': ["'self'", 'https://fonts.gstatic.com', 'data:'],
-  'frame-src': ['https://www.google.com', 'https://vercel.live'],
+  'frame-src': [
+    'https://www.googletagmanager.com',
+    'https://www.google.com',
+    'https://vercel.live',
+  ],
   'base-uri': ["'self'"],
   'form-action': ["'self'"],
   'object-src': ["'none'"],

@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import Button from '@/components/ui/Button/Button';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { trackEvent } from '@/lib/analytics';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import * as Sentry from '@sentry/nextjs';
 
@@ -21,7 +21,7 @@ const handleReload = () => {
 const ErrorPage = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
     Sentry.captureException(error);
-    trackEvent(UMAMI_EVENTS.APP_ERROR_BOUNDARY, {
+    trackEvent(ANALYTICS_EVENTS.APP_ERROR_BOUNDARY, {
       message: error.message,
       digest: error.digest ?? '',
     });
@@ -43,14 +43,14 @@ const ErrorPage = ({ error, reset }: ErrorProps) => {
             onClick={handleReload}
             variant='primary'
             size='lg'
-            eventName={UMAMI_EVENTS.ERROR_BOUNDARY_RELOAD}
+            eventName={ANALYTICS_EVENTS.ERROR_BOUNDARY_RELOAD}
           />
           <Button
             label='Try Again'
             onClick={reset}
             variant='secondary'
             size='lg'
-            eventName={UMAMI_EVENTS.ERROR_BOUNDARY_RETRY}
+            eventName={ANALYTICS_EVENTS.ERROR_BOUNDARY_RETRY}
           />
         </div>
       </div>

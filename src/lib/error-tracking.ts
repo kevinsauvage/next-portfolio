@@ -1,5 +1,5 @@
 import { trackEvent } from './analytics';
-import { UMAMI_EVENTS } from './analytics-events';
+import { ANALYTICS_EVENTS } from './analytics-events';
 
 import * as Sentry from '@sentry/nextjs';
 
@@ -41,7 +41,7 @@ export function logError(error: Error, code: string, context?: ErrorContext) {
     extra: context ? { code, ...context } : { code },
   });
 
-  trackEvent(UMAMI_EVENTS.ERROR_CLIENT, { code });
+  trackEvent(ANALYTICS_EVENTS.ERROR_CLIENT, { code });
 
   return errorLog;
 }

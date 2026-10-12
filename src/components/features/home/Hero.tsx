@@ -5,7 +5,7 @@ import Reveal from '@/components/shared/Reveal';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Body, BodySmall, Display } from '@/components/ui/Typography';
 import { layout, sections } from '@/config/content';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 import { FileText, MoveDown, Sparkles } from 'lucide-react';
@@ -64,7 +64,7 @@ const Hero = () => {
             label='See impact'
             size='xl'
             variant='primary'
-            eventName={UMAMI_EVENTS.NAV_SECTION_CLICK}
+            eventName={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
             eventProperties={{ location: 'hero', section: 'Career' }}
             aria-describedby='hero-description'
             className='w-full sm:w-auto min-w-[220px] font-semibold shadow-glow-md hover:shadow-glow-lg'
@@ -77,7 +77,7 @@ const Hero = () => {
             label={layout.header.ctaButton}
             size='xl'
             variant='secondary'
-            eventName={UMAMI_EVENTS.CTA_RESUME_CLICK}
+            eventName={ANALYTICS_EVENTS.CTA_RESUME_CLICK}
             eventProperties={{ location: 'hero' }}
             className='w-full sm:w-auto min-w-[220px]'
           />

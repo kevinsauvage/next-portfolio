@@ -7,7 +7,7 @@ import MeshGradient from '@/components/shared/MeshGradient';
 import SpinnerLoader from '@/components/shared/SpinnerLoader';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { sections } from '@/config/content';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 import { getPublicEnv } from '@/lib/env';
 
 import { Mail, MapPin } from 'lucide-react';
@@ -45,9 +45,9 @@ const ContactSection: React.FC = () => {
               <div className='flex flex-wrap items-center justify-center gap-3'>
                 <a
                   href={`mailto:${sections.contact.email}`}
-                  data-umami-event={UMAMI_EVENTS.OUTBOUND_LINK_CLICK}
-                  data-umami-event-url={`mailto:${sections.contact.email}`}
-                  data-umami-event-location='contact'
+                  data-analytics-event={ANALYTICS_EVENTS.OUTBOUND_LINK_CLICK}
+                  data-analytics-url={`mailto:${sections.contact.email}`}
+                  data-analytics-location='contact'
                   className='inline-flex min-h-[48px] items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/60 px-5 py-3 font-mono text-sm text-zinc-100 transition-colors hover:border-primary-600 hover:text-primary-300'
                 >
                   <Mail size={18} aria-hidden='true' />

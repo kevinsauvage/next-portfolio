@@ -1,4 +1,5 @@
 export * from './certifications';
+export * from './cookies';
 export * from './jobs';
 export * from './layout';
 export * from './passions';

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { layout } from '@/config/content';
 import { useActiveSection } from '@/hooks/useActiveSection';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 
@@ -27,9 +27,9 @@ const Navigation = () => {
                 href={href}
                 aria-label={`Go to ${label} section`}
                 aria-current={isActive ? 'true' : undefined}
-                data-umami-event={UMAMI_EVENTS.NAV_SECTION_CLICK}
-                data-umami-event-location='header'
-                data-umami-event-section={label}
+                data-analytics-event={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
+                data-analytics-location='header'
+                data-analytics-section={label}
                 className={clsx(
                   'text-sm md:text-base leading-normal',
                   'px-3 py-2 xl:px-4',

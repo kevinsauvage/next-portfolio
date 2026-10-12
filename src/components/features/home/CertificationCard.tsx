@@ -2,7 +2,7 @@ import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import { Tag } from '@/components/ui/Tag';
 import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 import { Award, Building2, Calendar, ExternalLink } from 'lucide-react';
@@ -115,8 +115,8 @@ const CredentialLink = ({
       rel='noopener noreferrer'
       aria-label={`${title} — ${sections.certifications.button}`}
       className='inline-flex min-h-11 items-center gap-1.5 mt-auto pt-3 text-xs font-medium border-t border-zinc-800/50 transition-all duration-300 group/link text-primary-300 hover:text-primary-200'
-      data-umami-event={UMAMI_EVENTS.CERT_CREDENTIAL_CLICK}
-      data-umami-event-cert-id={certId}
+      data-analytics-event={ANALYTICS_EVENTS.CERT_CREDENTIAL_CLICK}
+      data-analytics-cert-id={certId}
     >
       <ExternalLink
         size={14}
