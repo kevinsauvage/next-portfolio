@@ -1,6 +1,6 @@
 'use client';
 
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 import { ChevronUp } from 'lucide-react';
@@ -23,7 +23,7 @@ const BackToTopButtonView = ({ isVisible, onClick }: BackToTopButtonViewProps) =
         )}
         aria-label='Back to top'
         title='Back to top'
-        data-umami-event={UMAMI_EVENTS.UI_BACK_TO_TOP_CLICK}
+        data-analytics-event={ANALYTICS_EVENTS.UI_BACK_TO_TOP_CLICK}
         disabled={!isVisible}
       >
         <ChevronUp size={24} strokeWidth={2} aria-hidden='true' />

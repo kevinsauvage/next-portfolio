@@ -54,25 +54,6 @@ const nextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
-  async rewrites() {
-    return [
-      {
-        destination: 'https://cloud.umami.is/script.js',
-        source: '/growth/script.js',
-      },
-      {
-        // Legacy path, kept so cached HTML still loads the tracker.
-        destination: 'https://cloud.umami.is/script.js',
-        source: '/growth/rewrites',
-      },
-      {
-        // Umami Cloud collect endpoint (moved to gateway.umami.is on 2026-06-06).
-        // Proxied same-origin via data-host-url so tracker POSTs to /growth/api/send.
-        destination: 'https://gateway.umami.is/api/send',
-        source: '/growth/api/send',
-      },
-    ];
-  },
   sassOptions: {
     // eslint-disable-next-line unicorn/prefer-module
     includePaths: [path.join(__dirname, './styles/')],

@@ -9,7 +9,7 @@ import { BodySmall, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 import { ChevronRight, MenuIcon, X } from 'lucide-react';
@@ -79,9 +79,9 @@ const MobileMenuToggle = () => {
                     onClick={closeMenu}
                     aria-label={`Go to ${label} section`}
                     aria-current={isActive ? 'true' : undefined}
-                    data-umami-event={UMAMI_EVENTS.NAV_SECTION_CLICK}
-                    data-umami-event-location='mobile'
-                    data-umami-event-section={label}
+                    data-analytics-event={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
+                    data-analytics-location='mobile'
+                    data-analytics-section={label}
                     className={clsx(
                       'flex items-center justify-between p-4 mb-2 rounded-lg border transition-all duration-200 group min-h-[56px]',
                       isActive
@@ -120,8 +120,8 @@ const MobileMenuToggle = () => {
               target='_blank'
               rel='noopener noreferrer'
               onClick={closeMenu}
-              data-umami-event={UMAMI_EVENTS.CTA_RESUME_CLICK}
-              data-umami-event-location='mobile_menu'
+              data-analytics-event={ANALYTICS_EVENTS.CTA_RESUME_CLICK}
+              data-analytics-location='mobile_menu'
               className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-all duration-200 text-zinc-50'
             >
               {layout.header.mobileMenu.ctaButton}

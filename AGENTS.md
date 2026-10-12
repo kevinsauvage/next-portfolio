@@ -19,7 +19,7 @@ Order checks from discriminating to broad: `npm run check` → focused test file
 
 ## WHAT — stack
 
-Next.js 16 App Router + React 19 + TypeScript strict + Tailwind CSS v4 (`@theme` tokens in `src/styles/globals.scss`) + SCSS. Forms: Server Actions (`src/actions/`) with Zod (`src/schemas/`), EmailJS server-side, reCAPTCHA v3. Analytics: Umami proxied same-origin. Error tracking: Sentry. Tests: Vitest + RTL + jsdom; E2E: Playwright (`e2e/`).
+Next.js 16 App Router + React 19 + TypeScript strict + Tailwind CSS v4 (`@theme` tokens in `src/styles/globals.scss`) + SCSS. Forms: Server Actions (`src/actions/`) with Zod (`src/schemas/`), EmailJS server-side, reCAPTCHA v3. Analytics: Google Tag Manager behind a cookie consent banner (Consent Mode v2). Error tracking: Sentry. Tests: Vitest + RTL + jsdom; E2E: Playwright (`e2e/`).
 
 Import alias `@/*` → `./src/*`. Env is validated with Zod in `src/lib/env.ts`; see `.env.example` for the full list (never read or print real `.env` values).
 
@@ -35,8 +35,8 @@ Import alias `@/*` → `./src/*`. Env is validated with Zod in `src/lib/env.ts`;
 ## HOW — non-obvious rules (read the file before touching the area)
 
 1. **CSP nonce:** `src/proxy.ts` + `csp.config.mjs`. Inline scripts need the per-request nonce from the `x-nonce` header (see `src/components/shared/StructuredData.tsx`). `headers()` opts routes into dynamic rendering — accepted trade-off, do not "fix" by removing the nonce.
-2. **Env:** `NEXT_PUBLIC_*` is inlined at `next build` time — changing it requires a rebuild. Server-only secrets must not have that prefix. Umami/Sentry sample rates are build-time; Redis/EmailJS keys are runtime.
-3. **Umami:** tracker proxied via `/growth/*` rewrites in `next.config.mjs`. Pageviews auto-track; custom events only via `trackEvent()` in `src/lib/analytics.ts`.
+2. **Env:** `NEXT_PUBLIC_*` is inlined at `next build` time — changing it requires a rebuild. Server-only secrets must not have that prefix. Analytics/Sentry sample rates are build-time; Redis/EmailJS keys are runtime.
+3. **Analytics:** GTM (`src/components/shared/GoogleTagManager.tsx`) loads only once `src/lib/consent.ts` reports a grant, and cookie consent is the single source of truth for both tags and custom events. Custom events only via `trackEvent()` in `src/lib/analytics.ts` (dataLayer); declarative clicks use `data-analytics-event` + `data-analytics-*`. Never fire a tag or push an event before consent.
 4. **Imports:** `simple-import-sort` groups are enforced (`react`/`next` → `@/` → relative → styles). Let `npm run lint:fix` order them; do not hand-sort.
 5. **Tests:** colocate as `*.test.{ts,tsx}` next to source; E2E in `e2e/`. Playwright webServer needs `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` (dummy value is set in `playwright.config.ts`).
 

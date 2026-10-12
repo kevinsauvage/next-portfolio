@@ -1,9 +1,10 @@
 import Link from 'next/link';
 
 import ContactInfo from '@/components/shared/ContactInfo';
+import CookieSettingsButton from '@/components/shared/CookieSettingsButton';
 import { BodySmall, H3, H4 } from '@/components/ui/Typography';
 import { layout } from '@/config/content';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import { Briefcase, CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
 
@@ -29,9 +30,9 @@ const Footer: React.FC = () => {
                   <Link
                     href={link.href}
                     className='hover:text-primary-400 transition-all duration-200 hover:translate-x-1 py-1 flex items-center min-h-11'
-                    data-umami-event={UMAMI_EVENTS.NAV_SECTION_CLICK}
-                    data-umami-event-location='footer'
-                    data-umami-event-section={link.name}
+                    data-analytics-event={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
+                    data-analytics-location='footer'
+                    data-analytics-section={link.name}
                   >
                     <BodySmall className='text-zinc-200'>{link.name}</BodySmall>
                   </Link>
@@ -104,10 +105,11 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className='pt-8 border-t border-zinc-800'>
-          <p className='text-sm text-center text-zinc-400'>
+        <div className='pt-8 border-t border-zinc-800 flex flex-col items-center gap-3 sm:flex-row sm:justify-between'>
+          <p className='text-sm text-zinc-400'>
             © {new Date().getFullYear()} {layout.footer.name}. {layout.footer.copyright}
           </p>
+          <CookieSettingsButton />
         </div>
       </div>
     </footer>

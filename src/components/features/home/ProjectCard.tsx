@@ -6,7 +6,7 @@ import { Tag } from '@/components/ui/Tag';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import type { Project } from '@/config/content/projects';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import { BookOpen, Check, ExternalLink } from 'lucide-react';
 
@@ -114,7 +114,7 @@ const ProjectActionButtons = ({
         label={sections.portfolio.buttons.caseStudy}
         size='sm'
         variant='primary'
-        eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+        eventName={ANALYTICS_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
         eventProperties={{ link_type: 'case_study', project_slug: slug }}
         className='shadow-glow-sm hover:shadow-glow-md'
       />
@@ -124,7 +124,7 @@ const ProjectActionButtons = ({
         label={sections.portfolio.buttons.viewLive}
         size='sm'
         variant='secondary'
-        eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+        eventName={ANALYTICS_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
         eventProperties={{ link_type: 'live', project_slug: slug }}
         target='_blank'
         rel='noopener noreferrer'
@@ -136,7 +136,7 @@ const ProjectActionButtons = ({
           label={sections.portfolio.buttons.sourceCode}
           size='sm'
           variant='secondary'
-          eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+          eventName={ANALYTICS_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
           eventProperties={{ link_type: 'github', project_slug: slug }}
           target='_blank'
           rel='noopener noreferrer'

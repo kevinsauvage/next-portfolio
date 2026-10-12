@@ -2,7 +2,7 @@ import { cloneElement } from 'react';
 import Link from 'next/link';
 
 import socialButton from '@/config/ui/social';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 
@@ -24,9 +24,9 @@ const ContactInfo = ({ size = 24, eventPrefix = 'footer', className }: ContactIn
           target='_blank'
           prefetch={false}
           rel='noopener noreferrer'
-          data-umami-event={UMAMI_EVENTS.SOCIAL_LINK_CLICK}
-          data-umami-event-location={eventPrefix}
-          data-umami-event-network={item.text}
+          data-analytics-event={ANALYTICS_EVENTS.SOCIAL_LINK_CLICK}
+          data-analytics-location={eventPrefix}
+          data-analytics-network={item.text}
         >
           {cloneElement(item.icon, {
             'aria-hidden': 'true',

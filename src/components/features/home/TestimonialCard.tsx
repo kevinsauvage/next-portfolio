@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { BodySmall, Caption } from '@/components/ui/Typography';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 import { Briefcase, Calendar, ChevronDown, ExternalLink, Quote } from 'lucide-react';
@@ -146,7 +146,7 @@ const TestimonialContent = ({
             'transition-colors duration-200',
             'underline-offset-4 hover:underline'
           )}
-          data-umami-event={UMAMI_EVENTS.TESTIMONIAL_LINKEDIN_CLICK}
+          data-analytics-event={ANALYTICS_EVENTS.TESTIMONIAL_LINKEDIN_CLICK}
           aria-label={`Via LinkedIn — read ${authorName}'s full recommendation`}
         >
           Via LinkedIn

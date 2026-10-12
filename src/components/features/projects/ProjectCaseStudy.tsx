@@ -11,7 +11,7 @@ import { Tag } from '@/components/ui/Tag';
 import { Body, BodySmall, Caption, H1, H2, H3, Overline } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import type { Project, ProjectFeature } from '@/config/content/projects';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import { ArrowLeft, Check, Code2, ExternalLink, ShieldCheck } from 'lucide-react';
 
@@ -153,7 +153,7 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
               label={sections.portfolio.buttons.viewLive}
               size='lg'
               variant='primary'
-              eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+              eventName={ANALYTICS_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
               eventProperties={{ link_type: 'live', project_slug: slug }}
               className='w-full sm:w-auto font-semibold shadow-glow-md hover:shadow-glow-lg'
             />
@@ -166,7 +166,7 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
                 label={sections.portfolio.buttons.sourceCode}
                 size='lg'
                 variant='secondary'
-                eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+                eventName={ANALYTICS_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
                 eventProperties={{ link_type: 'github', project_slug: slug }}
                 className='w-full sm:w-auto'
               />
@@ -298,7 +298,7 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
               label={sections.portfolio.buttons.viewLive}
               size='lg'
               variant='primary'
-              eventName={UMAMI_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
+              eventName={ANALYTICS_EVENTS.PORTFOLIO_PROJECT_LINK_CLICK}
               eventProperties={{ link_type: 'live', project_slug: slug }}
               className='w-full sm:w-auto font-semibold'
             />
@@ -308,7 +308,7 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
               label={sections.portfolio.caseStudy.backCta}
               size='lg'
               variant='secondary'
-              eventName={UMAMI_EVENTS.NAV_SECTION_CLICK}
+              eventName={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
               eventProperties={{ location: 'case_study', section: 'Portfolio' }}
               className='w-full sm:w-auto'
             />

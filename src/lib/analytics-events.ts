@@ -1,11 +1,12 @@
 /**
- * Umami custom event names (snake_case).
- * Use with `trackEvent()` or `data-umami-event` + `data-umami-event-*` props.
+ * Custom event names (snake_case) pushed to the Google Tag Manager dataLayer.
+ * Use with `trackEvent()` or the `data-analytics-event` + `data-analytics-*`
+ * attributes (the delegated listener in `AnalyticsTracker` reads those).
  *
- * @see https://umami.is/docs/track-events
+ * @see https://support.google.com/tagmanager/answer/6164391
  */
 
-export const UMAMI_EVENTS = {
+export const ANALYTICS_EVENTS = {
   /** Anchor navigation to #sections. Extra props: location, section */
   NAV_SECTION_CLICK: 'nav_section_click',
 
@@ -54,4 +55,4 @@ export const UMAMI_EVENTS = {
   ERROR_BOUNDARY_RETRY: 'error_boundary_retry',
 } as const;
 
-export type UmamiEventName = (typeof UMAMI_EVENTS)[keyof typeof UMAMI_EVENTS];
+export type AnalyticsEventName = (typeof ANALYTICS_EVENTS)[keyof typeof ANALYTICS_EVENTS];

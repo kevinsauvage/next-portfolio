@@ -1,18 +1,27 @@
-import { flushUmamiQueue, getUmamiScriptProps, sanitizeEventData, trackEvent } from './analytics';
+import { applyConsentToGtag, normalizeGtmId, sanitizeEventData, trackEvent } from './analytics';
+import {
+  CONSENT_COOKIE,
+  type ConsentSettings,
+  consentSignals,
+  writeStoredConsent,
+} from './consent';
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-function setNodeEnv(value: string) {
-  vi.stubEnv('NODE_ENV', value);
-}
+const GRANTED: ConsentSettings = {
+  ad_storage: false,
+  analytics_storage: true,
+  functionality_storage: true,
+  personalization_storage: false,
+};
 
-function setDevOptIn(value: string | undefined) {
-  if (value === undefined) {
-    vi.stubEnv('NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV', '');
-  } else {
-    vi.stubEnv('NEXT_PUBLIC_UMAMI_ENABLE_IN_DEV', value);
-  }
-}
+const REFUSED: ConsentSettings = { ...GRANTED, analytics_storage: false };
+
+const clearConsentCookie = () => {
+  document.cookie = `${CONSENT_COOKIE}=; Path=/; Max-Age=0`;
+};
+
+const pushedEvents = () => globalThis.window.dataLayer ?? [];
 
 function setDoNotTrack(value: string | undefined) {
   Object.defineProperty(globalThis.window.navigator, 'doNotTrack', {
@@ -21,24 +30,17 @@ function setDoNotTrack(value: string | undefined) {
   });
 }
 
-function installTracker() {
-  const track = vi.fn();
-  globalThis.window.umami = { track };
-  return { track };
-}
-
 beforeEach(() => {
-  // Drain any events queued by a previous case.
-  delete globalThis.window.umami;
-  flushUmamiQueue();
-  setNodeEnv('production');
-  setDevOptIn(undefined);
+  vi.stubEnv('NODE_ENV', 'production');
+  vi.stubEnv('NEXT_PUBLIC_ANALYTICS_ENABLE_IN_DEV', '');
+  clearConsentCookie();
+  delete globalThis.window.dataLayer;
+  delete globalThis.window.gtag;
   setDoNotTrack(undefined);
 });
 
 afterEach(() => {
   vi.unstubAllEnvs();
-  delete globalThis.window.umami;
 });
 
 describe('sanitizeEventData', () => {
@@ -46,9 +48,9 @@ describe('sanitizeEventData', () => {
     expect(sanitizeEventData()).toEqual({});
   });
 
-  it('truncates strings to 500 chars', () => {
-    const result = sanitizeEventData({ message: 'a'.repeat(600) });
-    expect(result['message']).toHaveLength(500);
+  it('truncates strings to GA4’s 100-char parameter limit', () => {
+    const result = sanitizeEventData({ message: 'a'.repeat(150) });
+    expect(result['message']).toHaveLength(100);
   });
 
   it('rounds numbers to 4 decimal places', () => {
@@ -72,82 +74,89 @@ describe('sanitizeEventData', () => {
     expect(result['meta']).toBe('{"plan":"pro"}');
   });
 
-  it('caps properties at 50', () => {
+  it('caps parameters at 25', () => {
     const data: Record<string, number> = {};
-    for (let index = 0; index < 60; index += 1) data[`k${index}`] = index;
-    expect(Object.keys(sanitizeEventData(data))).toHaveLength(50);
+    for (let index = 0; index < 40; index += 1) data[`k${index}`] = index;
+    expect(Object.keys(sanitizeEventData(data))).toHaveLength(25);
   });
 });
 
 describe('trackEvent', () => {
-  it('sends immediately when the tracker is loaded', () => {
-    const { track } = installTracker();
-    const status = trackEvent('cta_click', { location: 'hero' });
+  it('drops events until analytics consent is granted', () => {
+    writeStoredConsent(REFUSED);
+    expect(trackEvent('cta_click', { location: 'hero' })).toBe('dropped');
+    expect(pushedEvents()).toHaveLength(0);
+  });
+
+  it('pushes a sanitized event to the dataLayer once consent is stored', () => {
+    writeStoredConsent(GRANTED);
+    const status = trackEvent('cta_click', { location: 'hero', count: 3.141_592_65 });
+
     expect(status).toBe('sent');
-    expect(track).toHaveBeenCalledWith('cta_click', { location: 'hero' });
-  });
-
-  it('queues when the tracker has not loaded yet, then flushes on load', () => {
-    expect(trackEvent('early_click')).toBe('queued');
-    const { track } = installTracker();
-    expect(flushUmamiQueue()).toBe(1);
-    expect(track).toHaveBeenCalledWith('early_click', {});
-  });
-
-  it('never throws when the tracker fails and requeues the event', () => {
-    globalThis.window.umami = {
-      track: () => {
-        throw new Error('tracker broken');
-      },
-    };
-    expect(() => trackEvent('boom')).not.toThrow();
-
-    const { track } = installTracker();
-    expect(flushUmamiQueue()).toBe(1);
-    expect(track).toHaveBeenCalledWith('boom', {});
+    expect(pushedEvents()).toEqual([{ event: 'cta_click', location: 'hero', count: 3.1416 }]);
   });
 
   it('drops events outside production without opt-in', () => {
-    setNodeEnv('test');
-    installTracker();
+    writeStoredConsent(GRANTED);
+    vi.stubEnv('NODE_ENV', 'test');
     expect(trackEvent('dev_click')).toBe('dropped');
   });
 
   it('tracks in non-production with the opt-in flag', () => {
-    setNodeEnv('development');
-    setDevOptIn('true');
-    const { track } = installTracker();
+    writeStoredConsent(GRANTED);
+    vi.stubEnv('NODE_ENV', 'development');
+    vi.stubEnv('NEXT_PUBLIC_ANALYTICS_ENABLE_IN_DEV', 'true');
     expect(trackEvent('dev_click')).toBe('sent');
-    expect(track).toHaveBeenCalledTimes(1);
   });
 
   it('drops events when Do Not Track is enabled', () => {
+    writeStoredConsent(GRANTED);
     setDoNotTrack('1');
-    installTracker();
     expect(trackEvent('dnt_click')).toBe('dropped');
+  });
+
+  it('drops an empty event name', () => {
+    writeStoredConsent(GRANTED);
+    expect(trackEvent('')).toBe('dropped');
   });
 });
 
-describe('getUmamiScriptProps', () => {
-  const WEBSITE_ID = 'website-id';
-
-  it('returns null without a website id', () => {
-    expect(getUmamiScriptProps(undefined)).toBeNull();
+describe('applyConsentToGtag', () => {
+  it('does nothing before the gtag stub exists', () => {
+    writeStoredConsent(GRANTED);
+    expect(() => applyConsentToGtag()).not.toThrow();
+    expect(pushedEvents()).toHaveLength(0);
   });
 
-  it('proxies through same-origin with DNT support', () => {
-    expect(getUmamiScriptProps(WEBSITE_ID)).toMatchObject({
-      'data-website-id': WEBSITE_ID,
-      'data-host-url': '/growth',
-      'data-do-not-track': 'true',
-      src: '/growth/script.js',
-    });
+  it('re-asserts the stored choice as Consent Mode signals', () => {
+    writeStoredConsent(GRANTED);
+    const gtag = vi.fn();
+    globalThis.window.gtag = gtag;
+
+    applyConsentToGtag();
+
+    expect(gtag).toHaveBeenCalledWith('consent', 'update', consentSignals(GRANTED));
   });
 
-  it('supports domain allow-listing', () => {
-    const props = getUmamiScriptProps(WEBSITE_ID, {
-      domains: ['kevin-sauvage.com', 'www.kevin-sauvage.com'],
-    });
-    expect(props?.['data-domains']).toBe('kevin-sauvage.com,www.kevin-sauvage.com');
+  it('does nothing without a stored choice', () => {
+    const gtag = vi.fn();
+    globalThis.window.gtag = gtag;
+
+    applyConsentToGtag();
+
+    expect(gtag).not.toHaveBeenCalled();
+  });
+});
+
+describe('normalizeGtmId', () => {
+  it('keeps a well-formed container id', () => {
+    expect(normalizeGtmId('GTM-ABC1234')).toBe('GTM-ABC1234');
+  });
+
+  it('rejects a malformed or missing id', () => {
+    expect(normalizeGtmId('GTM-')).toBeUndefined();
+    expect(normalizeGtmId('gtm-abc1234')).toBeUndefined();
+    expect(normalizeGtmId('G-ABC1234')).toBeUndefined();
+    expect(normalizeGtmId(undefined)).toBeUndefined();
   });
 });

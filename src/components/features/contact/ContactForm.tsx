@@ -9,7 +9,7 @@ import Button from '@/components/ui/Button/Button';
 import { FormError, Input, Label, TextArea } from '@/components/ui/Form';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 import { trackEvent } from '@/lib/analytics';
-import { UMAMI_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 import {
   collectFieldErrors,
   type ContactFieldErrors,
@@ -89,10 +89,10 @@ const ContactForm = () => {
   useEffect(() => {
     const prev = prevStatusRef.current;
     if (prev !== 'success' && formState.status === 'success') {
-      trackEvent(UMAMI_EVENTS.CONTACT_FORM_SUBMIT_SUCCESS);
+      trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_SUBMIT_SUCCESS);
     }
     if (prev !== 'error' && formState.status === 'error') {
-      trackEvent(UMAMI_EVENTS.CONTACT_FORM_SUBMIT_ERROR, {
+      trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_SUBMIT_ERROR, {
         message: formState.message ?? 'unknown',
       });
     }
@@ -159,7 +159,7 @@ const ContactForm = () => {
     event.preventDefault();
     // Fires only on a real submit attempt (with captcha flow), unlike a
     // button click handler which also fires when reCAPTCHA is unavailable.
-    trackEvent(UMAMI_EVENTS.CONTACT_FORM_SUBMIT_ATTEMPT);
+    trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_SUBMIT_ATTEMPT);
 
     const formElement = event.currentTarget;
     const formData = new FormData(formElement);
