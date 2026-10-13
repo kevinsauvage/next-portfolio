@@ -57,7 +57,7 @@ const myEcommerceProject: Project = {
   description:
     'ORUVA is a live European jewelry label selling everyday rings, necklaces, earrings and bracelets to shoppers in Spain and France. I designed and built the whole storefront on Next.js 16 and Shopify: a three-language catalog, persistent cart, customer accounts, wishlist and predictive search, with content managed in Shopify rather than in code.',
   highlights: [
-    'Live at oruva.store, in English, Spanish and French',
+    'Live demo in English, Spanish and French',
     'Brand copy, menus, policies and page content editable in Shopify, no redeploy needed',
     'Storefront + Admin APIs typed end-to-end with GraphQL Code Generator',
     'Automated accessibility (axe, WCAG 2.1 AA) and add-to-cart smoke tests in Playwright',
@@ -214,7 +214,7 @@ const myEcommerceProject: Project = {
     { name: 'Vercel' },
   ],
   title: 'ORUVA — Jewelry E-Commerce',
-  websiteLink: 'https://oruva.store/',
+  websiteLink: 'https://develop.oruva.store/',
   // The repository is private, so there is no public source link.
   githubLink: [],
 };
