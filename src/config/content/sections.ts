@@ -12,9 +12,16 @@ export const sections = {
     overline: 'About me',
     title: "Hi, I'm Kévin Sauvage",
     experience: '5+ Years Experience',
-    currently: 'Currently at Keolis Group (remote) — accessibility at scale, axe in CI',
-    description:
-      "Frontend engineer with 5+ years building web products used by millions of people across 15+ countries. Most of my work is on accessibility, performance and shared component libraries. At Keolis I took ilévia, a French public transit platform, from 30% to 84% RGAA compliance and added accessibility checks (Jest-axe, Cypress-axe, ESLint jsx-a11y) to CI so regressions don't reach production. At Decathlon I built the Svelte component library behind the storefronts in 15+ countries and cut load time on the Spanish site by 1.5s through Core Web Vitals work. Stack: React, Next.js, TypeScript, Svelte, Jest, Cypress, Storybook. Based in Barcelona, fluent in English, French and Spanish.",
+    currently: 'Currently at Keolis Group (remote) — accessibility, axe in CI',
+    description: `Frontend engineer with 5+ years building web products used by millions of people across 15+ countries. Most of my work is on accessibility, performance and shared component libraries.
+
+At Keolis I took ilévia, a French public transit platform, from 30% to 84% RGAA compliance and added accessibility checks (Jest-axe, Cypress-axe, ESLint jsx-a11y) to CI so regressions don't reach production.
+
+At Decathlon I built the Svelte component library behind the storefronts in 15+ countries and cut load time on the Spanish site by 1.5s through Core Web Vitals work.
+
+Stack: React, Next.js, TypeScript, Svelte, Jest, Cypress, Storybook.
+
+Based in Barcelona, fluent in English, French and Spanish.`,
     languagesTitle: 'Languages',
     languages: [
       { language: 'French', level: 'Native' },

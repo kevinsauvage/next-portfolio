@@ -9,7 +9,7 @@ export const faqs: Faq[] = [
     id: 'availability',
     question: 'Are you available for new opportunities?',
     answer:
-      "I'm currently a Frontend Engineer at Keolis Group, working remotely from Barcelona — and I'm always open to connections and interesting conversations. The fastest way to reach me is the contact form or email below; I reply within 24 hours on weekdays.",
+      "I'm currently a Frontend Software Engineer at Keolis Group, working remotely from Barcelona — and I'm always open to connections and interesting conversations. The fastest way to reach me is the contact form or email below; I reply within 24 hours on weekdays.",
   },
   {
     id: 'freelance',
@@ -21,7 +21,7 @@ export const faqs: Faq[] = [
     id: 'stack',
     question: "What's your core stack?",
     answer:
-      'React, Next.js, Svelte, and TypeScript, with Tailwind CSS, Storybook, and testing built on Vitest, Cypress, and axe. My specialties are accessible e-commerce at scale, design systems, and Core Web Vitals performance.',
+      'React, Next.js, Svelte, and TypeScript, with Tailwind CSS, Storybook, and testing built on Jest, Cypress, and axe. My specialties are web accessibility, design systems, and Core Web Vitals performance.',
   },
   {
     id: 'closed-source',

@@ -31,8 +31,12 @@ const AboutSection: React.FC = () => {
             </span>
             {sections.about.currently}
           </Reveal>
-          <Reveal delay={300}>
-            <Body className='max-w-4xl'>{sections.about.description}</Body>
+          <Reveal delay={300} className='space-y-4'>
+            {sections.about.description.split('\n\n').map(paragraph => (
+              <Body key={paragraph} className='max-w-4xl'>
+                {paragraph}
+              </Body>
+            ))}
           </Reveal>
           <Reveal className='space-y-3' delay={450}>
             <p className='font-mono text-xs font-medium uppercase tracking-[0.18em] text-zinc-400'>
