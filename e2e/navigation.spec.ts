@@ -14,14 +14,19 @@ test.describe('header navigation', () => {
 
 test.describe('active section highlight', () => {
   test('does not freeze on the last section after visiting another page', async ({ page }) => {
-    // Fresh context: the consent banner is up, so clear it before using the footer.
-    await page.goto('/#contact');
+    // Fresh context: the consent banner is up, so clear it before navigating.
+    await page.goto('/');
     await page.getByRole('button', { name: 'Reject all' }).click();
 
     const nav = page.getByRole('navigation', { name: 'Primary' });
     const currentLink = nav.locator('a[aria-current="true"]');
     const contactLink = nav.getByRole('link', { name: 'Contact', exact: true });
 
+    // Reach the last section with an in-page hash navigation rather than a
+    // `/#contact` deep link: Next.js seeds its route cache with the initial
+    // URL's hash and restores it on later same-route navigations, which would
+    // leave a stale `#contact` in the address bar after the logo click below.
+    await contactLink.click();
     await expect(contactLink).toHaveAttribute('aria-current', 'true');
 
     // Client-side navigation away from the homepage sections…
