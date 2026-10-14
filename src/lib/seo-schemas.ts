@@ -13,7 +13,7 @@ export const SEARCH_TITLE =
 export const SITE_DESCRIPTION =
   'Frontend engineer in Barcelona. Accessible, fast web products used by millions in 15+ countries. React, Next.js, Svelte, TypeScript.' as const;
 export const SITE_KEYWORDS =
-  'frontend developer, react expert, next.js developer, svelte developer, javascript developer, web accessibility, wcag, performance optimization, core web vitals, e-commerce development, design systems, user experience, typescript, tailwind css, barcelona' as const;
+  'frontend software engineer, frontend developer, react developer, next.js developer, svelte developer, javascript developer, web accessibility, wcag, performance optimization, core web vitals, e-commerce development, design systems, user experience, typescript, tailwind css, barcelona' as const;
 
 export const personSchema = {
   '@context': SCHEMA_CONTEXT,
@@ -22,9 +22,9 @@ export const personSchema = {
   jobTitle: FRONTEND_DEVELOPER,
   email: 'kevinsauvage@outlook.com',
   url: SITE_URL,
-  description: 'Developing performance-focused, inclusive web products that leave no one behind.',
+  description: 'Frontend software engineer in Barcelona, building accessible, fast web products.',
   about:
-    'I specialize in building high-performance web applications with a focus on accessibility and inclusivity. Passionate about delivering seamless experiences to users of all abilities.',
+    'Frontend engineer with 5+ years building web products used by millions across 15+ countries, focused on accessibility, performance and shared component libraries.',
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'ES',
@@ -46,7 +46,7 @@ export const personSchema = {
     'Next.js',
     'Svelte',
     'Web Accessibility',
-    'WCAG 2.1',
+    'WCAG 2.2',
     'Frontend Development',
     'Performance Optimization',
     'Core Web Vitals',

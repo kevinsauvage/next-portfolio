@@ -25,7 +25,7 @@ export const layout = {
   footer: {
     name: 'Kévin Sauvage',
     tagline:
-      'Frontend Engineer at Keolis Group (remote), based in Barcelona. I build fast, accessible web products that people enjoy using.',
+      'Frontend Software Engineer at Keolis Group (remote), based in Barcelona. I build fast, accessible web products that people enjoy using.',
     sections: {
       quickLinks: {
         title: 'Quick Links',
@@ -49,10 +49,10 @@ export const layout = {
           'TypeScript',
           'Tailwind CSS',
           'Testing Library',
-          'Vitest',
+          'Jest',
           'Cypress',
           'axe',
-          'WCAG 2.1',
+          'WCAG 2.2',
           'Storybook',
           'Figma',
         ],
