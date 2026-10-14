@@ -22,6 +22,8 @@ export type ProjectCaseStudy = {
   responsibilities: string[];
   /** Quality, testing and delivery practices. */
   quality: string[];
+  /** Optional per-project closing call to action; falls back to the shared copy. */
+  cta?: string;
   /** Product screenshots captured from the live demo. */
   gallery: { src: string; alt: string }[];
 };
@@ -331,6 +333,7 @@ const complyLoopProject: Project = {
       'Strict TypeScript, ESLint layer rules and a single verify command that runs lint, typecheck, tests, build and a bundle check',
       'Coverage tests that fail when a check is missing an engine, a catalog row or guidance',
     ],
+    cta: 'ComplyLoop is in private preview: the landing page is public, while the workspace stays behind a password because it runs scans. The source is public to read.',
     gallery: [
       {
         src: '/images/projects/complyloop/features.jpg',

@@ -1,8 +1,8 @@
 export const sections = {
   hero: {
     title: {
-      firstLine: 'Frontend Engineer for',
-      secondLine: 'High-Traffic E-commerce',
+      firstLine: 'Frontend Software Engineer ·',
+      secondLine: 'Web Accessibility & Performance',
     },
     description:
       'Working remotely at Keolis, previously Decathlon e-commerce across 15+ markets. I build accessible, high-performance storefronts and design systems with React, Next.js and Svelte.',
@@ -14,7 +14,7 @@ export const sections = {
     experience: '5+ Years Experience',
     currently: 'Currently at Keolis Group (remote) — accessibility at scale, axe in CI',
     description:
-      "Frontend Engineer at Keolis Group (remote), based in Barcelona, with 5+ years building web products used by millions across 15+ countries, including Decathlon's e-commerce platforms in Europe. I mostly work with React, Next.js, Svelte and TypeScript, and I care a lot about accessibility, testing and keeping codebases maintainable. I'm comfortable owning features from start to finish in fast-moving teams.",
+      "Frontend engineer with 5+ years building web products used by millions of people across 15+ countries. Most of my work is on accessibility, performance and shared component libraries. At Keolis I took ilévia, a French public transit platform, from 30% to 84% RGAA compliance and added accessibility checks (Jest-axe, Cypress-axe, ESLint jsx-a11y) to CI so regressions don't reach production. At Decathlon I built the Svelte component library behind the storefronts in 15+ countries and cut load time on the Spanish site by 1.5s through Core Web Vitals work. Stack: React, Next.js, TypeScript, Svelte, Jest, Cypress, Storybook. Based in Barcelona, fluent in English, French and Spanish.",
     languagesTitle: 'Languages',
     languages: [
       { language: 'French', level: 'Native' },

@@ -2,16 +2,16 @@ import { projects } from '@/config/content/projects';
 
 export const SITE_URL = 'https://www.kevin-sauvage.com' as const;
 // Bump this when site content changes so crawlers see a meaningful `lastModified`.
-export const SITE_LAST_MODIFIED = '2026-10-12' as const;
+export const SITE_LAST_MODIFIED = '2026-10-14' as const;
 export const PERSON_NAME = 'Kévin Sauvage' as const;
 export const FRONTEND_DEVELOPER = 'Frontend Software Engineer' as const;
 export const SCHEMA_CONTEXT = 'https://schema.org' as const;
 
 /** Canonical metadata copy — single source of truth for head + JSON-LD. */
 export const SEARCH_TITLE =
-  `${PERSON_NAME} - Frontend Engineer | React, Next.js, Svelte — Accessible E-commerce at Scale` as const;
+  `${PERSON_NAME} - Frontend Software Engineer | Web Accessibility & Performance` as const;
 export const SITE_DESCRIPTION =
-  "Frontend Engineer at Keolis Group with 5+ years shipping high-performance web products used by millions across 15+ countries — previously Decathlon's e-commerce platforms. Specialised in React, Next.js, Svelte, TypeScript, accessibility, and scalable component architecture." as const;
+  'Frontend engineer in Barcelona. Accessible, fast web products used by millions in 15+ countries. React, Next.js, Svelte, TypeScript.' as const;
 export const SITE_KEYWORDS =
   'frontend developer, react expert, next.js developer, svelte developer, javascript developer, web accessibility, wcag, performance optimization, core web vitals, e-commerce development, design systems, user experience, typescript, tailwind css, barcelona' as const;
 

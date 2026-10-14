@@ -17,13 +17,13 @@ export const jobs: Job[] = [
     position,
     period: 'Feb 2026 – Present',
     descriptionArray: [
-      'Integrated Jest-axe and Cypress-axe into the CI/CD pipeline, preventing accessibility regressions from reaching production.',
-      'Enforced WCAG compliance at the source by configuring ESLint (jsx-a11y + custom rules) as a required gate on every pull request.',
-      'Refactored core UI components to enforce semantic HTML, ARIA, keyboard navigation, and screen reader standards.',
-      'Collaborated with product and design to make accessibility a first-class requirement from wireframe to release.',
+      'Took RGAA compliance on ilévia, a French public transit platform, from 30% to 84%. Audited the UI and reworked core components: semantic HTML, ARIA, keyboard navigation and screen reader support.',
+      'Added Jest-axe and Cypress-axe to the CI/CD pipeline so accessibility regressions get caught before production.',
+      'Set up ESLint (jsx-a11y plus custom rules) as a required check on every pull request.',
+      'Worked with product and design so accessibility is part of the job from wireframe to release.',
     ],
     description:
-      'At Keolis Group, I integrated Jest-axe and Cypress-axe into CI/CD, enforced WCAG via ESLint as a required gate, refactored core UI for semantic HTML and ARIA, and collaborated with product and design to make accessibility a first-class requirement.',
+      'At Keolis Group, I took RGAA compliance on ilévia, a French public transit platform, from 30% to 84%, added Jest-axe and Cypress-axe to CI so accessibility regressions get caught before production, and set up ESLint (jsx-a11y plus custom rules) as a required check on every pull request.',
     skills: [
       'Next.js',
       'React',
@@ -42,15 +42,16 @@ export const jobs: Job[] = [
     id: 'decathlon-international-2023',
     company: 'Decathlon Core',
     position,
-    period: 'Oct 2023 – Feb 2026',
+    period: 'Oct 2023 – Dec 2025',
     descriptionArray: [
-      'Architected a Svelte component library now powering e-commerce storefronts across 15+ countries, standardising UI at scale.',
-      'Drove A/B testing initiatives that produced measurable lifts in conversion and user adoption across international markets.',
-      'Worked closely with designers in Figma and Storybook to ship pixel-perfect, accessible components with high test coverage.',
-      'Owned the full test suite (Jest, Cypress), raising coverage and reducing the rate of production incidents significantly.',
+      'Built a Svelte component library that now runs e-commerce storefronts in 15+ countries.',
+      'Moved the checkout out of a monorepo into a versioned npm package (Lerna), with Strapi feature flags and per-country configuration.',
+      'Ran A/B tests on conversion and adoption across international markets.',
+      'Worked with designers in Figma and Storybook to ship accessible, well-tested components.',
+      'Owned the test suite (Jest, Cypress): more coverage, fewer production incidents.',
     ],
     description:
-      'At Decathlon Core, I architected a Svelte component library powering e-commerce storefronts in 15+ countries, drove A/B testing for conversion lifts, worked with designers in Figma and Storybook, and owned the full test suite (Jest, Cypress).',
+      'At Decathlon Core, I built a Svelte component library that runs e-commerce storefronts in 15+ countries, moved the checkout out of a monorepo into a versioned npm package (Lerna) with Strapi feature flags and per-country configuration, and owned the test suite in Jest and Cypress.',
     skills: [
       'Svelte',
       'JavaScript',
@@ -68,13 +69,13 @@ export const jobs: Job[] = [
     position,
     period: 'May 2022 – Oct 2023',
     descriptionArray: [
-      'Improved Core Web Vitals on the Decathlon Spain storefront, cutting average load time by 1.5s and lifting Lighthouse scores.',
-      'Built a modular Svelte component system that cut duplication and accelerated delivery of new product features.',
-      'Rolled out WCAG 2.1 accessibility standards across the platform, meaningfully improving the experience for all users.',
-      'Established internal documentation standards for components and technical decisions, improving team knowledge sharing.',
+      'Improved Core Web Vitals on the Spanish storefront: average load time down 1.5s, higher Lighthouse scores.',
+      'Built a modular Svelte component system that cut duplication and sped up new product features.',
+      'Rolled out WCAG 2.1 across the storefront.',
+      "Wrote the team's documentation standards for components and technical decisions.",
     ],
     description:
-      'At Decathlon Spain, I improved Core Web Vitals and Lighthouse scores, built a modular Svelte component system, rolled out WCAG 2.1, and established documentation standards for components and technical decisions.',
+      "At Decathlon Spain, I improved Core Web Vitals on the Spanish storefront (average load time down 1.5s, higher Lighthouse scores), built a modular Svelte component system, rolled out WCAG 2.1, and wrote the team's documentation standards for components and technical decisions.",
     skills: ['Svelte', 'JavaScript', 'Core Web Vitals', 'Tailwind', 'Performance', 'Accessibility'],
   },
   {
@@ -83,12 +84,12 @@ export const jobs: Job[] = [
     position,
     period: 'Jun 2021 – May 2022',
     descriptionArray: [
-      'Delivered full-stack features using React.js, Next.js, Node.js, and Express.js, including secure third-party API integrations.',
-      'Designed scalable state management patterns with Redux and Context API, improving data flow across complex UIs.',
-      'Modernised a legacy JavaScript codebase to ES6+ standards, cutting bug count and improving long-term maintainability.',
+      'Built full-stack features in React, Next.js, Node.js and Express.js, including third-party API integrations.',
+      'Designed state management with Redux and Context API for complex UIs.',
+      'Moved a legacy JavaScript codebase to ES6+, which cut bugs and made it easier to maintain.',
     ],
     description:
-      'At Subforce, I delivered full-stack features with React.js, Next.js, Node.js, and Express.js, designed state management with Redux and Context API, and modernised a legacy JavaScript codebase to ES6+.',
+      'At Subforce, I built full-stack features in React, Next.js, Node.js and Express.js including third-party API integrations, designed state management with Redux and Context API for complex UIs, and moved a legacy JavaScript codebase to ES6+.',
     skills: ['React', 'Next.js', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'JavaScript', 'Sass'],
   },
 ];

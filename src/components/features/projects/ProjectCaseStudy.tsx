@@ -287,7 +287,7 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
         <div className='flex flex-col items-center gap-6 rounded-2xl border border-zinc-800/80 bg-zinc-950/60 px-6 py-12 text-center'>
           <H2 className='text-3xl md:text-4xl'>{sections.portfolio.caseStudy.ctaTitle}</H2>
           <Body className='max-w-2xl text-zinc-300'>
-            {sections.portfolio.caseStudy.ctaDescription}
+            {caseStudy.cta ?? sections.portfolio.caseStudy.ctaDescription}
           </Body>
           <div className='flex flex-col gap-4 sm:flex-row'>
             <ButtonLink

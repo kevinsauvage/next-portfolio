@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'Kévin Sauvage — Frontend Engineer';
+export const alt = 'Kévin Sauvage — Frontend Software Engineer';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -28,7 +28,7 @@ const OgImage = () =>
           Kévin Sauvage
         </div>
         <div style={{ display: 'flex', fontSize: 40, color: '#818cf8' }}>
-          Frontend Engineer — Accessible E-commerce at Scale
+          Frontend Software Engineer — Web Accessibility & Performance
         </div>
       </div>
 

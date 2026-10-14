@@ -33,7 +33,7 @@ export const faqs: Faq[] = [
     id: 'location-languages',
     question: 'Where are you based, and which languages do you work in?',
     answer:
-      'Barcelona, Spain (CET, UTC+1), working remotely. I work in French (native), English (C1 certified), and Spanish (native) — comfortable in multicultural, distributed teams.',
+      'Barcelona, Spain (CET, UTC+1), working remotely. I work in French (native), English (C1, EF SET), and Spanish (fluent) — comfortable in multicultural, distributed teams.',
   },
 ];
 
