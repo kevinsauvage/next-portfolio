@@ -1,6 +1,7 @@
 import JsonLd from '@/components/shared/JsonLd';
 import { getProjectUrl, type Project } from '@/config/content/projects';
-import { PERSON_NAME, SCHEMA_CONTEXT, SITE_URL } from '@/lib/seo-schemas';
+import { PERSON_NAME, SITE_URL } from '@/config/site';
+import { SCHEMA_CONTEXT } from '@/lib/seo-schemas';
 
 const ProjectStructuredData = ({ project }: { project: Project }) => {
   const url = getProjectUrl(project.slug);

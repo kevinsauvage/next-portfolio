@@ -6,7 +6,7 @@ The source of [kevin-sauvage.com](https://www.kevin-sauvage.com/), my portfolio.
 
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 - **Accessibility** - WCAG 2.1 compliant with proper heading hierarchy
-- **Performance** - Optimized images, lazy loading, and Core Web Vitals
+- **Performance** - Lazy loading, pre-sized images served straight from `/public`, and Core Web Vitals
 - **Contact Form** - Server Action + EmailJS with reCAPTCHA v3 protection
 - **Animations** - Smooth transitions and micro-interactions
 - **SEO Ready** - Meta tags, Open Graph, JSON-LD, sitemap, and robots.txt
@@ -148,6 +148,12 @@ Update content in the `src/config/content/` directory:
 - Global styles: `src/styles/globals.scss`
 - Tailwind: v4, configured in CSS (`@theme` in `src/styles/globals.scss`), no JS config file
 
+### Images
+
+`next.config.mjs` sets `images.unoptimized: true`: Vercel's image optimizer is over quota (402 on
+`/_next/image`), and the project screenshots are already small JPEGs, so they are served as-is from
+`/public`. Re-enable the optimizer if the quota is lifted.
+
 ### Security: Content Security Policy (CSP)
 
 This project sets a strict CSP with a per-request **nonce**, generated in `src/proxy.ts` (Next 16's renamed middleware). Key directives:
@@ -186,8 +192,7 @@ src/
 │   ├── shared/            # Reusable components
 │   └── ui/                # Base UI components
 ├── config/
-│   ├── content/           # Content configuration
-│   └── ui/                # UI configuration (social links)
+│   └── content/           # Page copy + site data (sections, jobs, projects, social, cookies, privacy)
 ├── hooks/                 # Custom React hooks
 ├── lib/                   # Utility functions
 ├── schemas/               # Zod schemas

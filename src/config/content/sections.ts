@@ -1,5 +1,11 @@
 import { CONTACT_EMAIL, PERSON_NAME } from '@/config/site';
 
+type Language = {
+  language: string;
+  level: string;
+  credentialUrl?: string;
+};
+
 export const sections = {
   hero: {
     title: {
@@ -9,6 +15,7 @@ export const sections = {
     description:
       'Working remotely at Keolis, previously Decathlon e-commerce across 15+ markets. I build accessible, high-performance storefronts and design systems with React, Next.js and Svelte.',
     availability: 'Currently at Keolis Group',
+    primaryCta: 'See impact',
     stats: [
       { label: 'Years Experience', value: '5+', highlight: true },
       { label: 'Countries Reached', value: '15+' },
@@ -18,8 +25,8 @@ export const sections = {
   about: {
     overline: 'About me',
     title: `Hi, I'm ${PERSON_NAME}`,
-    experience: '5+ Years Experience',
     currently: 'Currently at Keolis Group (remote) — accessibility, axe in CI',
+    philosophyTitle: 'My Philosophy',
     paragraphs: [
       'Frontend engineer with 5+ years building web products used by millions of people across 15+ countries. Most of my work is on accessibility, performance and shared component libraries.',
       "At Keolis I took ilévia, a French public transit platform, from 30% to 84% RGAA compliance and added accessibility checks (Jest-axe, Cypress-axe, ESLint jsx-a11y) to CI so regressions don't reach production.",
@@ -36,13 +43,7 @@ export const sections = {
         credentialUrl: 'https://cert.efset.org/W8vpXL',
       },
       { language: 'Spanish', level: 'Fluent' },
-    ] as ReadonlyArray<{ language: string; level: string; credentialUrl?: string }>,
-  },
-  expertise: {
-    overline: 'Expertise',
-    title: 'What I Do Best',
-    description:
-      'Where I am strongest in a product team: building from scratch or improving what already exists. I work with modern tools to build things that are fast, accessible and easy to use.',
+    ] as ReadonlyArray<Language>,
   },
   career: {
     overline: 'Career',
@@ -84,6 +85,8 @@ export const sections = {
     overline: 'Testimonials',
     title: 'What Colleagues Say',
     description: 'A few words from colleagues and managers I have had the chance to work with.',
+    readMore: 'Read full',
+    showLess: 'Show less',
   },
   contact: {
     overline: 'Contact',
@@ -115,15 +118,13 @@ export const sections = {
         invalidValue: 'Invalid value',
       },
     },
-    features: {
-      quickResponse: {
-        title: 'Quick Response',
-        description: 'I typically reply within 24 hours on weekdays',
-      },
-      directContact: {
-        title: 'Direct Contact',
-        description: "Fill out the form and I'll get back to you soon",
-      },
+    socialLead: 'Or connect with me on social media',
+    emailCopy: {
+      label: 'Copy',
+      labelFor: 'Copy email address',
+      copied: 'Copied',
+      copiedFor: 'Email address copied',
+      error: 'Could not copy the email address. Please copy it manually.',
     },
   },
   faq: {

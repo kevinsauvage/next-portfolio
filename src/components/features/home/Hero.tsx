@@ -4,6 +4,7 @@ import MeshGradient from '@/components/shared/MeshGradient';
 import Reveal from '@/components/shared/Reveal';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Body, Display } from '@/components/ui/Typography';
+import { GRADIENT_TEXT } from '@/components/ui/Typography/typography';
 import { layout, sections } from '@/config/content';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
@@ -38,7 +39,7 @@ const Hero = () => {
           </p>
           <Display id='hero-title' className='mb-6 max-w-5xl text-center md:flex md:flex-col'>
             <span>{sections.hero.title.firstLine}</span>{' '}
-            <span className='bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text bg-[length:200%_auto]'>
+            <span className={clsx(GRADIENT_TEXT, 'bg-[length:200%_auto]')}>
               {sections.hero.title.secondLine}
             </span>
           </Display>
@@ -51,7 +52,7 @@ const Hero = () => {
           <ButtonLink
             href='/#career'
             svg={<MoveDown strokeWidth={1.5} size={20} />}
-            label='See impact'
+            label={sections.hero.primaryCta}
             size='xl'
             variant='primary'
             eventName={ANALYTICS_EVENTS.NAV_SECTION_CLICK}

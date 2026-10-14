@@ -32,6 +32,7 @@ export default [
       'test-results/**',
       '*.config.js',
       '*.config.mjs',
+      '*.config.mts',
       '*.config.ts',
       'next-env.d.ts',
       '.lintstagedrc.js',

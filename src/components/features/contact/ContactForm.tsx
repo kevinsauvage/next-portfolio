@@ -8,7 +8,7 @@ import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
 import Button from '@/components/ui/Button/Button';
 import { FormError, Input, Label, TextArea } from '@/components/ui/Form';
 import { BodySmall, H3 } from '@/components/ui/Typography';
-import { sections } from '@/config/content';
+import { sections } from '@/config/content/sections';
 import { trackEvent } from '@/lib/analytics';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 import {
@@ -18,8 +18,8 @@ import {
   CONTACT_FIELDS,
   type ContactFieldErrors,
   contactFieldsSchema,
-  type ContactFieldValues,
   isContactField,
+  readContactFields,
 } from '@/schemas/contact-fields.schema';
 
 import { CheckCircle2, LucideSend, RotateCcw } from 'lucide-react';
@@ -31,16 +31,6 @@ export const initialContactFormState: ContactFormState = {
   status: 'idle',
   fieldErrors: {},
 };
-
-const getFormString = (data: FormData, key: string): string => {
-  const value = data.get(key);
-  return typeof value === 'string' ? value : '';
-};
-
-const readValues = (data: FormData): ContactFieldValues =>
-  Object.fromEntries(
-    CONTACT_FIELDS.map(field => [field, getFormString(data, field)])
-  ) as ContactFieldValues;
 
 const ContactForm = () => {
   const [formState, formAction, isPending] = useActionState<ContactFormState, FormData>(
@@ -145,7 +135,7 @@ const ContactForm = () => {
     const formElement = event.currentTarget;
     const formData = new FormData(formElement);
 
-    const parsed = contactFieldsSchema.safeParse(readValues(formData));
+    const parsed = contactFieldsSchema.safeParse(readContactFields(formData));
     if (!parsed.success) {
       const errors = collectFieldErrors(parsed.error.issues);
       setClientErrors(errors);

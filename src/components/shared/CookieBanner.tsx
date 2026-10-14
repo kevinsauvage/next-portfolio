@@ -3,8 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Button from '@/components/ui/Button/Button';
+import { FOCUS_RING } from '@/components/ui/focusRing';
 import { BodySmall, H4 } from '@/components/ui/Typography';
-import { type CookieCategoryName, cookies as copy } from '@/config/content';
+import { type CookieCategoryName, cookies as copy } from '@/config/content/cookies';
 import {
   consentFromFormData,
   type ConsentSettings,
@@ -118,7 +119,10 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
                 type='button'
                 onClick={closePreferences}
                 aria-label='Close cookie preferences'
-                className='p-2 -m-2 rounded-md text-zinc-400 transition-colors hover:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-primary-300'
+                className={clsx(
+                  'p-2 -m-2 rounded-md text-zinc-400 transition-colors hover:text-zinc-100',
+                  FOCUS_RING
+                )}
               >
                 <X size={20} aria-hidden='true' />
               </button>

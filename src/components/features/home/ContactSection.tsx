@@ -66,7 +66,7 @@ const ContactSection = async () => {
           </GoogleReCaptchaProviderWrapper>
 
           <div className='mt-8 flex flex-col items-center gap-4'>
-            <p className='text-sm text-zinc-400'>Or connect with me on social media</p>
+            <p className='text-sm text-zinc-400'>{sections.contact.socialLead}</p>
             <ContactInfo size={24} eventPrefix='contact' />
           </div>
         </div>

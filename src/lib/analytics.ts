@@ -1,6 +1,7 @@
 export type { AnalyticsEventName } from './analytics-events';
 export { ANALYTICS_EVENTS } from './analytics-events';
 
+import { GA4_MEASUREMENT_ID_PATTERN, GTM_ID_PATTERN } from './analytics-ids';
 import {
   type ConsentSettings,
   consentSignals,
@@ -146,9 +147,6 @@ export function applyConsentToGtag(settings?: ConsentSettings | null): void {
   globalThis.window.gtag('consent', 'update', consentSignals(consent));
 }
 
-const GTM_ID_PATTERN = /^GTM-[A-Z0-9]+$/;
-const MEASUREMENT_ID_PATTERN = /^G-[A-Z0-9]+$/;
-
 /**
  * A validated container id, or `undefined`. Keeps a malformed value out of the
  * `gtm.js` URL even when env validation was skipped (e.g. a plain unit test).
@@ -162,7 +160,7 @@ export function normalizeGtmId(id: string | undefined): string | undefined {
  * {@link normalizeGtmId}: nothing interpolates into the `gtag/js` URL unchecked.
  */
 export function normalizeMeasurementId(id: string | undefined): string | undefined {
-  return id && MEASUREMENT_ID_PATTERN.test(id) ? id : undefined;
+  return id && GA4_MEASUREMENT_ID_PATTERN.test(id) ? id : undefined;
 }
 
 /**
@@ -175,4 +173,23 @@ export function pushGoogleTagBootstrap(measurementId: string): void {
 
   globalThis.window.gtag('js', new Date());
   globalThis.window.gtag('config', measurementId);
+}
+
+/**
+ * Reports a client-side route change to GA4 as a `page_view`.
+ *
+ * The initial pageview is sent by the GA4 `config` call; only App Router
+ * navigations (which never reload the document) reach this. `gtag` is the same
+ * function `ConsentModeDefaults` installs, so the event is not lost if it fires
+ * before gtag.js has loaded. Consent, DNT and the dev guard are all enforced by
+ * {@link canTrack}.
+ */
+export function trackPageView(): TrackStatus {
+  if (!canTrack() || typeof globalThis.window.gtag !== 'function') return 'dropped';
+
+  globalThis.window.gtag('event', 'page_view', {
+    page_location: globalThis.window.location.href,
+    page_title: globalThis.window.document.title,
+  });
+  return 'sent';
 }

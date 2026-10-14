@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import PrivacyPolicy from '@/components/features/legal/PrivacyPolicy';
 import { privacy } from '@/config/content';
-import { PERSON_NAME, SITE_URL } from '@/lib/seo-schemas';
+import { PERSON_NAME, SITE_URL } from '@/config/site';
 
 const url = `${SITE_URL}/privacy`;
 

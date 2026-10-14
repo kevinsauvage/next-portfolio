@@ -44,11 +44,27 @@ function pruneExpired(now: number): void {
   }
 }
 
-function checkInMemory(key: string, max: number, windowMs: number, now: number): RateLimitResult {
-  if (windows.size > MAX_TRACKED_KEYS) pruneExpired(now);
+/**
+ * Bounds memory before a new key is inserted. Expired windows are dropped
+ * first; if the map is still full (many live windows in the same minute), the
+ * oldest insertions are evicted, so the cost stays proportional to the eviction
+ * rather than a full scan on every request.
+ */
+function enforceCapacity(now: number): void {
+  if (windows.size < MAX_TRACKED_KEYS) return;
 
+  pruneExpired(now);
+  while (windows.size >= MAX_TRACKED_KEYS) {
+    const oldest = windows.keys().next().value;
+    if (oldest === undefined) break;
+    windows.delete(oldest);
+  }
+}
+
+function checkInMemory(key: string, max: number, windowMs: number, now: number): RateLimitResult {
   const existing = windows.get(key);
   if (!existing || existing.resetAt <= now) {
+    if (!existing) enforceCapacity(now);
     windows.set(key, { count: 1, resetAt: now + windowMs });
     return { allowed: true, retryAfterSeconds: 0 };
   }

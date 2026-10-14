@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { layout, NAVIGATION_SECTION_IDS, sectionIdFromHref } from '@/config/content';
+import { layout, NAVIGATION_SECTION_IDS, sectionIdFromHref } from '@/config/content/layout';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
@@ -21,7 +21,7 @@ const Navigation = () => {
             <li key={label}>
               <Link
                 href={href}
-                aria-current={isActive ? 'true' : undefined}
+                aria-current={isActive ? 'location' : undefined}
                 data-analytics-event={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
                 data-analytics-location='header'
                 data-analytics-section={label}

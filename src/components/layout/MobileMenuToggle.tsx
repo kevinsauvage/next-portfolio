@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import ContactInfo from '@/components/shared/ContactInfo';
 import { BodySmall, H4 } from '@/components/ui/Typography';
-import { layout, NAVIGATION_SECTION_IDS, sectionIdFromHref } from '@/config/content';
+import { layout, NAVIGATION_SECTION_IDS, sectionIdFromHref } from '@/config/content/layout';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
@@ -73,7 +73,7 @@ const MobileMenuToggle = () => {
             <button
               onClick={closeMenu}
               className='p-2 rounded-md hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center'
-              aria-label='Close navigation menu'
+              aria-label={layout.header.mobileMenu.closeDialogButton}
             >
               <X size={24} strokeWidth={1.5} className='text-zinc-400' aria-hidden='true' />
             </button>
@@ -93,7 +93,7 @@ const MobileMenuToggle = () => {
                     <Link
                       href={href}
                       onClick={closeMenu}
-                      aria-current={isActive ? 'true' : undefined}
+                      aria-current={isActive ? 'location' : undefined}
                       data-analytics-event={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
                       data-analytics-location='mobile'
                       data-analytics-section={label}

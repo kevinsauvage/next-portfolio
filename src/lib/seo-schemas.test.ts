@@ -1,6 +1,7 @@
 import { projects } from '@/config/content/projects';
+import { SITE_URL } from '@/config/site';
 
-import { breadcrumbSchema, projectsSchema, SITE_URL } from './seo-schemas';
+import { breadcrumbSchema, projectsSchema } from './seo-schemas';
 
 import { describe, expect, it } from 'vitest';
 

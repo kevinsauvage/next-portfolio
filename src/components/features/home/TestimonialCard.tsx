@@ -4,10 +4,12 @@ import { useState } from 'react';
 
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { BodySmall, Caption } from '@/components/ui/Typography';
+import { sections } from '@/config/content/sections';
 import type { Testimonial } from '@/config/content/testimonials';
 import { LINKEDIN_URL } from '@/config/site';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 import { toDateTime } from '@/lib/date';
+import { padIndex } from '@/lib/format';
 
 import clsx from 'clsx';
 import { Briefcase, Calendar, ChevronDown, ExternalLink, Quote } from 'lucide-react';
@@ -26,8 +28,6 @@ const getInitials = (name: string) => {
 
 const ICON_HOVER = 'transition-transform group-hover:rotate-12 duration-200';
 const META_ITEM = 'flex items-center gap-1.5 md:gap-2';
-
-const pad = (value: number) => String(value).padStart(2, '0');
 
 const TestimonialContent = ({
   authorName,
@@ -52,7 +52,7 @@ const TestimonialContent = ({
           aria-expanded={expanded}
           className='inline-flex min-h-11 items-center gap-1 text-xs font-medium text-zinc-300 hover:text-zinc-100 transition-colors duration-200 underline-offset-4 hover:underline'
         >
-          {expanded ? 'Show less' : 'Read full'}
+          {expanded ? sections.testimonials.showLess : sections.testimonials.readMore}
           <ChevronDown
             size={14}
             aria-hidden='true'
@@ -141,7 +141,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           />
         </CardIcon>
         <Caption className='text-secondary-400 text-xs md:text-sm font-semibold'>
-          {pad(index + 1)} / {pad(totalCount)}
+          {padIndex(index + 1)} / {padIndex(totalCount)}
         </Caption>
       </div>
       <TestimonialContent authorName={author.name} content={content} excerpt={excerpt} />

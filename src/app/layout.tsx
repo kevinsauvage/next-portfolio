@@ -9,6 +9,7 @@ import ConsentModeDefaults from '@/components/shared/ConsentModeDefaults';
 import CookieBannerLoader from '@/components/shared/CookieBannerLoader';
 import GoogleTagManager from '@/components/shared/GoogleTagManager';
 import HeadLinks from '@/components/shared/HeadLinks';
+import PageViewTracker from '@/components/shared/PageViewTracker';
 import ScrollDetector from '@/components/shared/ScrollDetector';
 import SonnerToaster from '@/components/shared/SonnerToaster';
 import StructuredData from '@/components/shared/StructuredData';
@@ -79,6 +80,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
           nonce={nonce}
         />
         <AnalyticsTracker />
+        <PageViewTracker />
         <ScrollDetector />
         <SonnerToaster />
         <nav aria-label='Skip navigation'>

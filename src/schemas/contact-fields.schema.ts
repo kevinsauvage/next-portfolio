@@ -48,6 +48,18 @@ export type ContactFieldName = (typeof CONTACT_FIELDS)[number];
 export const isContactField = (key: unknown): key is ContactFieldName =>
   CONTACT_FIELDS.some(field => field === key);
 
+/** A `FormData` value as a string; `''` for absent or non-string entries. */
+export const formDataString = (formData: FormData, field: string): string => {
+  const value = formData.get(field);
+  return typeof value === 'string' ? value : '';
+};
+
+/** Reads the three contact fields from a form submission, as raw strings. */
+export const readContactFields = (formData: FormData): ContactFieldValues =>
+  Object.fromEntries(
+    CONTACT_FIELDS.map(field => [field, formDataString(formData, field)])
+  ) as ContactFieldValues;
+
 export type ContactFieldValues = z.infer<typeof contactFieldsSchema>;
 
 export type ContactFieldErrors = Partial<Record<keyof ContactFieldValues, string>>;

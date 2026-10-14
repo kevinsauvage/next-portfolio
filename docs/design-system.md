@@ -12,13 +12,11 @@ the intent so new work stays consistent.
 All color ramps follow the `50 → 950` scale and are exposed as Tailwind color utilities
 (`bg-primary-500`, `text-secondary-300`, `border-accent-700`, …).
 
-| Token         | Hue   | Role                                                           |
-| ------------- | ----- | -------------------------------------------------------------- |
-| `primary-*`   | Green | Primary actions, active states, success, brand accent          |
-| `secondary-*` | Cyan  | Secondary accents, links, supporting highlights                |
-| `accent-*`    | Amber | Tertiary highlights, warning-ish emphasis                      |
-| `neutral-*`   | Stone | Neutral scale (warm grey) — used sparingly vs. Tailwind `zinc` |
-| `regal-blue`  | Blue  | One-off custom color (`--color-regal-blue`)                    |
+| Token         | Hue   | Role                                                  |
+| ------------- | ----- | ----------------------------------------------------- |
+| `primary-*`   | Green | Primary actions, active states, success, brand accent |
+| `secondary-*` | Cyan  | Secondary accents, links, supporting highlights       |
+| `accent-*`    | Amber | Tertiary highlights, warning-ish emphasis             |
 
 **Surface convention:** the page canvas is `bg-black`; cards/sections use translucent
 `zinc-900/50 → zinc-950/80` gradients over it, with `border-zinc-800/80` and
@@ -55,7 +53,6 @@ Type components (`src/components/ui/Typography`):
 | `H2`        | `h2`    | `text-3xl md:text-5xl`                               | bold     | Section titles (solid) |
 | `H3`        | `h3`    | `text-2xl md:text-3xl` (`sm`: `text-xl md:text-2xl`) | semibold | Card titles            |
 | `H4`        | `h4`    | `text-xl md:text-2xl`                                | semibold | Sub-sections           |
-| `H5`        | `h5`    | `text-lg md:text-xl`                                 | semibold | Minor headings         |
 | `Body`      | `p`     | `text-base md:text-lg`                               | normal   | Long-form copy         |
 | `BodySmall` | `p`     | `text-sm md:text-base`                               | normal   | Dense copy / card text |
 | `Caption`   | `span`  | `text-sm`                                            | medium   | Metadata               |
@@ -88,7 +85,7 @@ Type components (`src/components/ui/Typography`):
 | Radius      | `rounded-md` (controls), `rounded-lg` (media/inputs), `rounded-xl` (cards), `rounded-2xl` (panels), `rounded-full` (pills) |
 | Shadows     | `shadow-glow-sm/md/lg` — emerald glow (`rgba(34,197,94, …)`) for primary cards/CTAs                                        |
 | Durations   | `100ms` (press), `150–200ms` (hover/color/transform), `400ms` (carousel slide), `700ms` (reveal)                           |
-| Easing      | `--ease-out`, `--ease-in-out`, `--ease-drawer` in `@theme` — strong custom curves that override Tailwind's defaults        |
+| Easing      | `--ease-out` in `@theme` — a strong custom curve that overrides Tailwind's default                                         |
 
 **Motion policy**
 
@@ -120,7 +117,7 @@ Type components (`src/components/ui/Typography`):
 | Card        | `Card`, `CardContent`, `CardHeader`, `CardFooter`, `CardIcon`, `CardImage` | Content surfaces; `hover`/`glow` variants                                    |
 | Form        | `FormError`, `Input`, `Label`, `RequiredIndicator`, `TextArea`             | Accessible form fields (errors linked via `aria-describedby`)                |
 | Section     | `Section`, `SectionHeader`                                                 | Page width + rhythm + optional scroll reveal                                 |
-| Typography  | `Display`, `H1`–`H5`, `Body`, `BodySmall`, `Caption`, `Overline`           | Text scale                                                                   |
+| Typography  | `Display`, `H1`–`H4`, `Body`, `BodySmall`, `Caption`, `Overline`           | Text scale                                                                   |
 | NumberBadge | `NumberBadge`                                                              | Ordered index chips                                                          |
 | Tag         | `Tag`                                                                      | Tech/skill chips                                                             |
 

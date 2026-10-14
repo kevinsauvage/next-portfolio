@@ -118,7 +118,7 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
             className='mb-8 flex w-fit min-h-11 items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-primary-300'
           >
             <ArrowLeft size={16} aria-hidden='true' />
-            Back to portfolio
+            {sections.portfolio.caseStudy.backCta}
           </Link>
 
           <Overline>{sections.portfolio.caseStudy.overline}</Overline>

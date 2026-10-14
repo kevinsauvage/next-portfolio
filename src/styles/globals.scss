@@ -38,40 +38,17 @@
   --color-accent-900: #78350f;
   --color-accent-950: #451a03;
 
-  --color-neutral-50: #fafaf9;
-  --color-neutral-100: #f5f5f4;
-  --color-neutral-200: #e7e5e4;
-  --color-neutral-300: #d6d3d1;
-  --color-neutral-400: #a8a29e;
-  --color-neutral-500: #78716c;
-  --color-neutral-600: #57534e;
-  --color-neutral-700: #44403c;
-  --color-neutral-800: #292524;
-  --color-neutral-900: #1c1917;
-  --color-neutral-950: #0c0a09;
-
-  --color-regal-blue: #243c5a;
-
   /* Font Families */
   --font-heading: var(--font-heading);
   --font-sans: var(--font-base);
   --font-mono: var(--font-code), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-  /* Grid Template Columns */
-  --grid-cols-auto-fit-100: repeat(auto-fit, minmax(100px, 1fr));
-  --grid-cols-auto-fit-130: repeat(auto-fit, minmax(130px, 1fr));
-  --grid-cols-auto-fit-150: repeat(auto-fit, minmax(150px, 1fr));
-  --grid-cols-auto-fit-200: repeat(auto-fit, minmax(200px, 1fr));
-
   /* Easing — Tailwind maps the `ease-*` utilities onto these vars, so declaring
-     them here strengthens every `ease-out`/`ease-in-out` on the site. */
+     them here strengthens every `ease-out` on the site. */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
-  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 
   /* Animations */
   --animate-slide-in-left: slideInLeft 0.5s ease-out;
-  --animate-gradient: gradient 4s ease infinite;
   --animate-mesh-slow: meshGradient 14s ease-in-out infinite alternate;
 
   /* Box Shadows — terminal glow */
@@ -150,17 +127,6 @@
   100% {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-@keyframes gradient {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
   }
 }
 

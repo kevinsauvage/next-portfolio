@@ -2,7 +2,6 @@ import { faqs } from '@/config/content/faq';
 import { projects } from '@/config/content/projects';
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, PERSON_NAME, SITE_URL } from '@/config/site';
 
-export { PERSON_NAME, SITE_URL };
 // Bump this when site content changes so crawlers see a meaningful `lastModified`.
 export const SITE_LAST_MODIFIED = '2026-10-14' as const;
 export const FRONTEND_DEVELOPER = 'Frontend Software Engineer' as const;

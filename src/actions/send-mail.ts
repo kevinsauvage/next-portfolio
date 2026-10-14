@@ -8,7 +8,8 @@ import { checkRateLimit } from '@/lib/rate-limit';
 import {
   collectFieldErrors,
   CONTACT_CAPTCHA_ACTION,
-  CONTACT_FIELDS,
+  formDataString,
+  readContactFields,
 } from '@/schemas/contact-fields.schema';
 import { CONTACT_ERROR_CODES, contactFormSchema } from '@/schemas/contact-form.schema';
 
@@ -82,7 +83,9 @@ async function validateCaptcha(captchaToken: string, secretKey: string): Promise
   if (action !== CONTACT_CAPTCHA_ACTION) return false;
 
   const expectedHost = await getRequestHost();
-  return !expectedHost || typeof hostname !== 'string' || hostname.toLowerCase() === expectedHost;
+  // Fail closed: when a host is derivable, Google must report that same host.
+  if (!expectedHost) return true;
+  return typeof hostname === 'string' && hostname.toLowerCase() === expectedHost;
 }
 
 async function dispatchEmail(
@@ -160,28 +163,20 @@ async function sendMail(data: {
 }
 
 /**
- * Per-IP throttle. Returns an error state when the limit is hit (or when no
+ * Per-IP throttle. Returns the error message when the limit is hit (or when no
  * client IP can be derived in production), else null.
  */
-async function enforceIpLimit(clientKey: string | null): Promise<ContactFormState | null> {
+async function enforceIpLimit(clientKey: string | null): Promise<string | null> {
   // Without a client IP every caller collapses into one shared bucket (and the
   // key is trivially spoofable), so fail closed in production. Local dev has no
   // proxy headers, so it falls back to a single local bucket.
   if (!clientKey && process.env.NODE_ENV === 'production') {
-    return {
-      status: 'error',
-      message: 'We could not verify your request. Please try again later.',
-      fieldErrors: {},
-    };
+    return 'We could not verify your request. Please try again later.';
   }
 
   const ipLimit = await checkRateLimit(`contact:ip:${clientKey ?? 'local'}`);
   if (!ipLimit.allowed) {
-    return {
-      status: 'error',
-      message: `Too many messages sent. Please try again in ${ipLimit.retryAfterSeconds} seconds.`,
-      fieldErrors: {},
-    };
+    return `Too many messages sent. Please try again in ${ipLimit.retryAfterSeconds} seconds.`;
   }
 
   return null;
@@ -191,17 +186,16 @@ export async function sendMailAction(
   _prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
-  const getFieldString = (field: string): string => {
-    const value = formData.get(field);
-    return typeof value === 'string' ? value : '';
-  };
   try {
-    const payload = Object.fromEntries(
-      [...CONTACT_FIELDS, 'captcha'].map(field => [field, getFieldString(field)])
-    ) as { fullName: string; email: string; message: string; captcha: string };
+    const payload = {
+      ...readContactFields(formData),
+      captcha: formDataString(formData, 'captcha'),
+    };
 
-    const limited = await enforceIpLimit(await getClientKey());
-    if (limited) return limited;
+    const limitMessage = await enforceIpLimit(await getClientKey());
+    if (limitMessage) {
+      return { status: 'error', message: limitMessage, fieldErrors: {} };
+    }
 
     const result = await sendMail(payload);
 

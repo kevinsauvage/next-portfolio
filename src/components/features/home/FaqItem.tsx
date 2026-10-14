@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import { padIndex } from '@/lib/format';
+
 import clsx from 'clsx';
 import { Plus } from 'lucide-react';
 
@@ -34,7 +36,7 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
             open && 'text-primary-400'
           )}
         >
-          {String(index + 1).padStart(2, '0')}
+          {padIndex(index + 1)}
         </span>
         <span className='flex-1 text-base font-medium text-zinc-100'>{question}</span>
         <Plus

@@ -1,6 +1,6 @@
 'use client';
 
-import { cookies as copy } from '@/config/content';
+import { cookies as copy } from '@/config/content/cookies';
 import { openConsentSettings } from '@/lib/consent';
 
 /** Lets the visitor change their mind after the banner is gone. */

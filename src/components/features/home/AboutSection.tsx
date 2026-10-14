@@ -73,7 +73,7 @@ const AboutSection: React.FC = () => {
 
         <div className='space-y-8'>
           <Reveal>
-            <H3>My Philosophy</H3>
+            <H3>{sections.about.philosophyTitle}</H3>
           </Reveal>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {passions.map((passion, index) => (

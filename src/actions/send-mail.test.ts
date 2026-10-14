@@ -122,6 +122,16 @@ describe('sendMailAction: validation and captcha', () => {
     expect((await submit()).status).toBe('success');
   });
 
+  it('fails closed when the response omits a hostname but the request host is known', async () => {
+    headersMock.mockResolvedValue(new Headers({ host: 'www.kevin-sauvage.com' }));
+    fetchMock.mockResolvedValue(captchaResponse({ success: true, score: 0.9 }));
+
+    const state = await submit();
+
+    expect(state.fieldErrors.captcha).toBeTruthy();
+    expect(emailjsSendMock).not.toHaveBeenCalled();
+  });
+
   it('rejects when Google answers with an HTTP error', async () => {
     fetchMock.mockResolvedValue(captchaResponse({}, false));
 

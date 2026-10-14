@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import TestimonialCard from '@/components/features/home/TestimonialCard';
+import { FOCUS_RING_SECONDARY } from '@/components/ui/focusRing';
 import type { Testimonial } from '@/config/content/testimonials';
 import { trackEvent } from '@/lib/analytics';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
@@ -14,8 +15,6 @@ type TestimonialsCarouselProps = {
   testimonials: Testimonial[];
 };
 
-const FOCUS_RING_CLASSES =
-  'focus:outline-none focus:ring-2 focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-black';
 const ANIMATION_DURATION = 400;
 const ANIMATION_RESET_DELAY = 50;
 
@@ -226,7 +225,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
                 aria-current={isActive ? 'true' : undefined}
                 className={clsx(
                   'flex h-11 w-11 items-center justify-center rounded-full transition-opacity duration-300',
-                  FOCUS_RING_CLASSES,
+                  FOCUS_RING_SECONDARY,
                   'aria-disabled:opacity-50 aria-disabled:cursor-not-allowed'
                 )}
               >

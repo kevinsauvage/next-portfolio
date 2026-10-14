@@ -15,6 +15,7 @@ const close = vi.fn(function (this: HTMLDialogElement) {
 vi.mock('@/lib/analytics', () => ({ trackEvent: vi.fn() }));
 
 const OPEN_MENU = /open menu/i;
+const ARIA_EXPANDED = 'aria-expanded';
 
 describe('MobileMenuToggle', () => {
   beforeEach(() => {
@@ -27,14 +28,14 @@ describe('MobileMenuToggle', () => {
   it('opens the modal dialog and locks body scroll', () => {
     render(<MobileMenuToggle />);
     const toggle = screen.getByRole('button', { name: OPEN_MENU });
-    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    expect(toggle).toHaveAttribute(ARIA_EXPANDED, 'false');
 
     fireEvent.click(toggle);
 
     expect(showModal).toHaveBeenCalledTimes(1);
     expect(document.body.style.overflow).toBe('hidden');
     expect(screen.getByRole('button', { name: /close menu/i })).toHaveAttribute(
-      'aria-expanded',
+      ARIA_EXPANDED,
       'true'
     );
   });
@@ -47,10 +48,7 @@ describe('MobileMenuToggle', () => {
     fireEvent(dialog, new Event('close'));
 
     expect(document.body.style.overflow).toBe('');
-    expect(screen.getByRole('button', { name: OPEN_MENU })).toHaveAttribute(
-      'aria-expanded',
-      'false'
-    );
+    expect(screen.getByRole('button', { name: OPEN_MENU })).toHaveAttribute(ARIA_EXPANDED, 'false');
   });
 
   it('closes when the backdrop (the dialog element itself) is clicked', () => {

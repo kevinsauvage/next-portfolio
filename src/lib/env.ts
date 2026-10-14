@@ -1,5 +1,7 @@
 import 'server-only';
 
+import { GA4_MEASUREMENT_ID_PATTERN, GTM_ID_PATTERN } from './analytics-ids';
+
 import { z } from 'zod';
 
 const serverEnvSchema = z.object({
@@ -18,15 +20,12 @@ const publicEnvSchema = z.object({
   // `normalizeMeasurementId` before it reaches the script URL.
   GA4_MEASUREMENT_ID: z
     .string()
-    .regex(/^G-[A-Z0-9]+$/, 'GA4_MEASUREMENT_ID must look like G-ABC1234')
+    .regex(GA4_MEASUREMENT_ID_PATTERN, 'GA4_MEASUREMENT_ID must look like G-ABC1234')
     .optional(),
   // Container id, read server-side and passed to the GTM loader. Optional so a
   // deployment without analytics still boots; a malformed value is rejected here
   // and again in `normalizeGtmId` before it reaches the script URL.
-  GTM_ID: z
-    .string()
-    .regex(/^GTM-[A-Z0-9]+$/, 'GTM_ID must look like GTM-ABC1234')
-    .optional(),
+  GTM_ID: z.string().regex(GTM_ID_PATTERN, 'GTM_ID must look like GTM-ABC1234').optional(),
   GOOGLE_SITE_VERIFICATION: z.string().optional(),
 });
 

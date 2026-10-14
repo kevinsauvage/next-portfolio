@@ -28,6 +28,7 @@ export const layout = {
       title: 'Navigation',
       subtitle: 'Explore my portfolio',
       closeButton: 'Close menu',
+      closeDialogButton: 'Close navigation menu',
       openButton: 'Open menu',
       ctaButton: resumeLabel,
     },

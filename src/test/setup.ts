@@ -29,14 +29,6 @@ vi.mock('next/image', () => ({
   },
 }));
 
-// Mock environment variables
-vi.mock('process', () => ({
-  env: {
-    NODE_ENV: 'test',
-    GTM_ID: 'GTM-TEST123',
-  },
-}));
-
 // jsdom does not implement matchMedia or IntersectionObserver.
 Object.defineProperty(window, 'matchMedia', {
   writable: true,

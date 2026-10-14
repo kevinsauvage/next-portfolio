@@ -5,6 +5,7 @@ import {
   pushGoogleTagBootstrap,
   sanitizeEventData,
   trackEvent,
+  trackPageView,
 } from './analytics';
 import {
   CONSENT_COOKIE,
@@ -197,5 +198,35 @@ describe('pushGoogleTagBootstrap', () => {
 
     expect(gtag).toHaveBeenNthCalledWith(1, 'js', expect.any(Date));
     expect(gtag).toHaveBeenNthCalledWith(2, 'config', MEASUREMENT_ID);
+  });
+});
+
+describe('trackPageView', () => {
+  it('sends a page_view with the current URL and title once consent is granted', () => {
+    writeStoredConsent(GRANTED);
+    const gtag = vi.fn();
+    globalThis.window.gtag = gtag;
+
+    expect(trackPageView()).toBe('sent');
+    expect(gtag).toHaveBeenCalledWith('event', 'page_view', {
+      page_location: globalThis.window.location.href,
+      page_title: globalThis.window.document.title,
+    });
+  });
+
+  it('drops the pageview without analytics consent', () => {
+    writeStoredConsent(REFUSED);
+    const gtag = vi.fn();
+    globalThis.window.gtag = gtag;
+
+    expect(trackPageView()).toBe('dropped');
+    expect(gtag).not.toHaveBeenCalled();
+  });
+
+  it('drops the pageview before gtag exists', () => {
+    writeStoredConsent(GRANTED);
+    delete globalThis.window.gtag;
+
+    expect(trackPageView()).toBe('dropped');
   });
 });

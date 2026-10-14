@@ -1,3 +1,5 @@
+import { padIndex } from '@/lib/format';
+
 import clsx from 'clsx';
 
 type NumberBadgeProps = {
@@ -7,6 +9,7 @@ type NumberBadgeProps = {
 
 export const NumberBadge = ({ number, className }: NumberBadgeProps) => (
   <span
+    aria-hidden='true'
     className={clsx(
       'inline-flex items-center justify-center w-8 h-8 rounded-full text-xs font-bold',
       'bg-gradient-to-br from-primary-600 to-secondary-600',
@@ -16,7 +19,7 @@ export const NumberBadge = ({ number, className }: NumberBadgeProps) => (
       className
     )}
   >
-    {String(number).padStart(2, '0')}
+    {padIndex(number)}
   </span>
 );
 

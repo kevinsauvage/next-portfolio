@@ -46,6 +46,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.mts",
     "src/**/*.scss",
     "globals.d.ts",
     ".next/types/**/*.ts",

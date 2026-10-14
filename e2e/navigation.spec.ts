@@ -19,7 +19,7 @@ test.describe('active section highlight', () => {
     await page.getByRole('button', { name: 'Reject all' }).click();
 
     const nav = page.getByRole('navigation', { name: 'Primary' });
-    const currentLink = nav.locator('a[aria-current="true"]');
+    const currentLink = nav.locator('a[aria-current="location"]');
     const contactLink = nav.getByRole('link', { name: 'Contact', exact: true });
 
     // Reach the last section with an in-page hash navigation rather than a
@@ -27,7 +27,7 @@ test.describe('active section highlight', () => {
     // URL's hash and restores it on later same-route navigations, which would
     // leave a stale `#contact` in the address bar after the logo click below.
     await contactLink.click();
-    await expect(contactLink).toHaveAttribute('aria-current', 'true');
+    await expect(contactLink).toHaveAttribute('aria-current', 'location');
 
     // Client-side navigation away from the homepage sections…
     await page.locator('footer a[href="/privacy"]').first().click();
@@ -42,7 +42,7 @@ test.describe('active section highlight', () => {
     await expect(currentLink).toHaveCount(1);
     await expect(nav.getByRole('link', { name: 'Home', exact: true })).toHaveAttribute(
       'aria-current',
-      'true'
+      'location'
     );
   });
 });

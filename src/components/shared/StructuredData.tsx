@@ -1,12 +1,12 @@
 import JsonLd from '@/components/shared/JsonLd';
 import { layout as siteContent } from '@/config/content';
+import { SITE_URL } from '@/config/site';
 import {
   breadcrumbSchema,
   personSchema,
   professionalServiceSchema,
   projectsSchema,
   SCHEMA_CONTEXT,
-  SITE_URL,
   websiteSchema,
 } from '@/lib/seo-schemas';
 

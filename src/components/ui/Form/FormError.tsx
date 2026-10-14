@@ -11,7 +11,8 @@ const FormError = ({ id, message, className }: FormErrorProps) => {
   return (
     <div
       id={id}
-      role='alert'
+      // No `role="alert"`: the form owns a single polite live region that
+      // announces errors, so inline errors must not announce themselves again.
       className={clsx('flex items-center gap-1.5 mt-1 text-sm text-rose-400', className)}
     >
       <AlertCircle size={14} aria-hidden='true' className='flex-shrink-0' />
