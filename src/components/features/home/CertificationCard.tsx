@@ -5,7 +5,6 @@ import { sections } from '@/config/content';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 import { toDateTime } from '@/lib/date';
 
-import clsx from 'clsx';
 import { Award, Building2, Calendar, ExternalLink } from 'lucide-react';
 
 type CertificationCardProps = {
@@ -17,7 +16,6 @@ type CertificationCardProps = {
   credentialUrl?: string;
   skills: string[];
   index: number;
-  featured?: boolean;
 };
 
 const CertificationHeader = ({
@@ -130,16 +128,14 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
   credentialUrl,
   skills,
   index,
-  featured = false,
 }) => {
   return (
     <Card
       hover='subtle'
       size='md'
       glow='secondary-accent'
-      animationIndex={index}
       aria-labelledby={`cert-${index}`}
-      className={clsx('group relative h-full', featured && 'lg:col-span-2')}
+      className='group relative h-full'
     >
       <CardContent spacing='lg' className='relative z-10 h-full flex flex-col'>
         <CertificationHeader title={title} issuer={issuer} date={date} index={index} />

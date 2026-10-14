@@ -146,13 +146,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const meta = [role, timeline].filter(Boolean).join(' · ');
 
   return (
-    <Card
-      hover='standard'
-      size='md'
-      glow='primary-secondary'
-      animationIndex={index}
-      className='group relative h-full'
-    >
+    <Card hover='standard' size='md' glow='primary-secondary' className='group relative h-full'>
       <span
         aria-hidden='true'
         className='pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary-500/60 to-transparent'

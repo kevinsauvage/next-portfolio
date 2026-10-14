@@ -1,3 +1,4 @@
+import Reveal from '@/components/shared/Reveal';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { jobs, sections } from '@/config/content';
 
@@ -15,7 +16,9 @@ const CareerSection = () => {
 
         <div className='space-y-12'>
           {jobs.map((job, index) => (
-            <CareerCard key={job.id} {...job} index={index} />
+            <Reveal key={job.id} delay={index * 60} className='h-full'>
+              <CareerCard {...job} index={index} />
+            </Reveal>
           ))}
         </div>
       </div>

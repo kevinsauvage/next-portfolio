@@ -1,3 +1,4 @@
+import Reveal from '@/components/shared/Reveal';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { sections } from '@/config/content';
 import projects from '@/config/content/projects';
@@ -16,7 +17,9 @@ const PortfolioSection: React.FC = () => {
 
         <div className='space-y-12'>
           {projects.map((project, index) => (
-            <ProjectCard key={project.slug} project={project} index={index} />
+            <Reveal key={project.slug} delay={index * 60} className='h-full'>
+              <ProjectCard project={project} index={index} />
+            </Reveal>
           ))}
         </div>
       </div>

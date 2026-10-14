@@ -94,6 +94,12 @@ Type components (`src/components/ui/Typography`):
 
 - Entrance animation primitive: `<Reveal>` (IntersectionObserver) — renders visible when JS/reduced
   motion/IO unavailable, so content is never trapped at `opacity: 0`.
+- Card grids stagger with one `<Reveal delay={index * 60}>` per card, so a card animates when it
+  scrolls into view rather than at page load. `Card`'s `animationIndex` (`card-enter`) remains for
+  elements that are not part of a scroll-triggered grid: the hero stats, the mobile-menu items and
+  the testimonial card (which remounts per slide).
+- Grid placement for a wrapped card lives on the `<Reveal>` wrapper (e.g. the featured
+  certification's `lg:col-span-2`), because the wrapper is the grid item.
 - `prefers-reduced-motion: reduce` globally collapses durations to `0.01ms` and disables
   `card-enter`/`reveal` animations (`globals.scss`).
 - **Hover parity:** card lift (`--hover-transform`) and glow/zoom are mirrored on `:focus-within` so

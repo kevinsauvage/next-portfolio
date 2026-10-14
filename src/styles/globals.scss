@@ -96,8 +96,10 @@
   will-change: auto;
 }
 
-/* Cards fade/slide in once on mount. Uses `animation` (not `transition`) so it
-   always ends visible and never fights the hover-lift transform. */
+/* Mount-time fade/slide for elements that are on screen at load (hero stats) or
+   shown/re-created on demand (mobile-menu items, the testimonial card per slide).
+   Uses `animation` (not `transition`) so it always ends visible and never fights
+   the hover-lift transform. Card grids use <Reveal> instead — see AboutSection. */
 .card-enter {
   animation: cardEnter 0.6s var(--ease-out) both;
 }

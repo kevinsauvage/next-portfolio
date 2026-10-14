@@ -77,7 +77,9 @@ const AboutSection: React.FC = () => {
           </Reveal>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
             {passions.map((passion, index) => (
-              <PassionCard key={passion.slug} {...passion} index={index} />
+              <Reveal key={passion.slug} delay={index * 60} className='h-full'>
+                <PassionCard {...passion} />
+              </Reveal>
             ))}
           </div>
         </div>

@@ -68,7 +68,6 @@ const CareerCard: React.FC<CareerCardProps> = ({
       hover='subtle'
       size='md'
       glow='primary-secondary'
-      animationIndex={index}
       aria-labelledby={`career-${index}`}
       className='group relative h-full'
     >

@@ -1,22 +1,17 @@
+import type { ElementType } from 'react';
+
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 
 type PassionCardProps = {
-  icon: React.ElementType;
+  icon: ElementType;
   title: string;
   description: string;
-  index: number;
 };
 
-const PassionCard: React.FC<PassionCardProps> = ({ icon: Icon, title, description, index }) => {
+const PassionCard: React.FC<PassionCardProps> = ({ icon: Icon, title, description }) => {
   return (
-    <Card
-      hover='subtle'
-      size='md'
-      glow='secondary-accent'
-      animationIndex={index}
-      aria-label={title}
-    >
+    <Card hover='subtle' size='md' glow='secondary-accent' className='h-full' aria-label={title}>
       <CardContent spacing='md'>
         <CardIcon variant='primary'>
           <Icon

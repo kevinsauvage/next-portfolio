@@ -1,8 +1,11 @@
+import Reveal from '@/components/shared/Reveal';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { sections } from '@/config/content';
 import certifications from '@/config/content/certifications';
 
 import CertificationCard from './CertificationCard';
+
+import clsx from 'clsx';
 
 const CertificationsSection: React.FC = () => {
   return (
@@ -16,7 +19,13 @@ const CertificationsSection: React.FC = () => {
 
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12'>
           {certifications.map((cert, index) => (
-            <CertificationCard key={cert.id} {...cert} index={index} />
+            <Reveal
+              key={cert.id}
+              delay={index * 60}
+              className={clsx('h-full', cert.featured && 'lg:col-span-2')}
+            >
+              <CertificationCard {...cert} index={index} />
+            </Reveal>
           ))}
         </div>
       </div>
