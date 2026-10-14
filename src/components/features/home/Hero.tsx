@@ -63,6 +63,7 @@ const Hero = () => {
             href={layout.header.resumeHref}
             target='_blank'
             rel='noopener noreferrer'
+            prefetch={false}
             svg={<FileText strokeWidth={1.5} size={20} />}
             label={layout.header.ctaButton}
             size='xl'

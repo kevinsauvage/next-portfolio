@@ -17,7 +17,11 @@ export const sectionIdFromHref = (href: string): string => href.replace(/^\/#/, 
 
 export const layout = {
   header: {
-    /** Public path to PDF in `/public` */
+    /**
+     * Public path to PDF in `/public`. Not an app route: every link to it must
+     * set `prefetch={false}`, otherwise Next prefetches it as a route and the
+     * `?_rsc=` request 404s (`GET .../kevin_sauvage_resume.pdf?_rsc=...`).
+     */
     resumeHref: '/kevin_sauvage_resume.pdf',
     ctaButton: resumeLabel,
     mobileMenu: {

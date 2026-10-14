@@ -24,6 +24,7 @@ const Header = () => {
             href={layout.header.resumeHref}
             target='_blank'
             rel='noopener noreferrer'
+            prefetch={false}
             svg={<FileText strokeWidth={1.5} size={18} />}
             label={layout.header.ctaButton}
             size='md'

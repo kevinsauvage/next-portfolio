@@ -135,6 +135,7 @@ const MobileMenuToggle = () => {
               href={layout.header.resumeHref}
               target='_blank'
               rel='noopener noreferrer'
+              prefetch={false}
               onClick={closeMenu}
               data-analytics-event={ANALYTICS_EVENTS.CTA_RESUME_CLICK}
               data-analytics-location='mobile_menu'
