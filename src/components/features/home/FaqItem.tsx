@@ -41,7 +41,7 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
           size={18}
           aria-hidden='true'
           className={clsx(
-            'shrink-0 text-primary-400 transition-transform duration-300',
+            'shrink-0 text-primary-400 transition-transform duration-200',
             open && 'rotate-45'
           )}
         />
@@ -52,7 +52,7 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
         aria-labelledby={buttonId}
         inert={!open}
         className={clsx(
-          'grid transition-all duration-300 ease-out',
+          'grid transition-[grid-template-rows,opacity] duration-200 ease-out',
           open ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
         )}
       >

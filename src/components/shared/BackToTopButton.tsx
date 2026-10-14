@@ -20,7 +20,7 @@ const BackToTopButton: React.FC = () => (
     type='button'
     onClick={scrollToTop}
     className={clsx(
-      'fixed bottom-6 right-6 z-40 p-3 rounded-full bg-gradient-to-br from-secondary-600 to-primary-500 shadow-lg transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950',
+      'fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] right-[max(1.5rem,env(safe-area-inset-right))] z-40 p-3 rounded-full bg-gradient-to-br from-secondary-600 to-primary-500 shadow-lg transition-[transform,box-shadow,opacity] duration-200 ease-out hover:shadow-xl hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-zinc-950',
       'text-zinc-50',
       'invisible opacity-0 translate-y-4 [.page-scrolled-far_&]:visible [.page-scrolled-far_&]:opacity-100 [.page-scrolled-far_&]:translate-y-0'
     )}

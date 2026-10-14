@@ -42,8 +42,8 @@ const ArrowButton = ({ side, label, disabled, onClick }: ArrowButtonProps) => {
         'p-2.5 md:p-3.5 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center',
         'bg-zinc-900/95 backdrop-blur-md border border-zinc-700',
         'hover:bg-zinc-800 hover:border-secondary-500/60 hover:shadow-lg hover:shadow-secondary-500/20',
-        'active:scale-90',
-        'transition-all duration-300 ease-out',
+        'active:scale-90 active:duration-100',
+        'transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out',
         // `aria-disabled` (not `disabled`): the handlers already ignore input while
         // animating, and disabling a focused control would drop the keyboard focus
         // the arrow keys rely on.
@@ -53,7 +53,7 @@ const ArrowButton = ({ side, label, disabled, onClick }: ArrowButtonProps) => {
     >
       <Icon
         size={16}
-        className='md:w-5 md:h-5 text-zinc-200 group-hover:text-secondary-400 group-hover:scale-110 transition-all duration-300'
+        className='md:w-5 md:h-5 text-zinc-200 group-hover:text-secondary-400 group-hover:scale-110 transition-[transform,color] duration-200'
         aria-hidden='true'
       />
     </button>
@@ -189,7 +189,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
           aria-live='polite'
           aria-atomic='true'
           className={clsx(
-            'relative transition-all duration-500 ease-in-out',
+            'relative transition-[opacity,transform] duration-[400ms] ease-out',
             isAnimating &&
               direction === 'right' &&
               'opacity-0 translate-x-4 md:translate-x-8 scale-95',
@@ -233,7 +233,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
                 <span
                   aria-hidden='true'
                   className={clsx(
-                    'rounded-full transition-all duration-300',
+                    'rounded-full transition-[width,background-color,box-shadow] duration-200',
                     isActive
                       ? 'h-2 w-8 md:h-2.5 md:w-10 bg-primary-500 shadow-lg shadow-primary-500/50'
                       : 'h-2 w-2 md:h-2.5 md:w-2.5 bg-zinc-700 hover:bg-secondary-500/70'

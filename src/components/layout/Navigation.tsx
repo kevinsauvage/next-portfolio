@@ -29,7 +29,7 @@ const Navigation = () => {
                   'text-sm md:text-base leading-normal',
                   'px-3 py-2 xl:px-4',
                   'rounded-md',
-                  'transition-all duration-200 ease-out',
+                  'transition-[transform,background-color,border-color,color,box-shadow] duration-200 ease-out',
                   'border',
                   'active:scale-95',
                   isActive

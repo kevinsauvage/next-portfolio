@@ -98,7 +98,7 @@ const MobileMenuToggle = () => {
                       data-analytics-location='mobile'
                       data-analytics-section={label}
                       className={clsx(
-                        'flex items-center justify-between p-4 mb-2 rounded-lg border transition-all duration-200 group min-h-[56px]',
+                        'flex items-center justify-between p-4 mb-2 rounded-lg border transition-[background-color,border-color] duration-200 group min-h-[56px]',
                         isActive
                           ? 'border-primary-600/60 bg-primary-950/50'
                           : 'border-zinc-700/50 bg-zinc-800/50 hover:border-primary-500/50 hover:bg-zinc-800 active:bg-zinc-700'
@@ -115,7 +115,7 @@ const MobileMenuToggle = () => {
                       <ChevronRight
                         size={20}
                         className={clsx(
-                          'transition-all group-hover:translate-x-1 group-hover:text-secondary-400',
+                          'transition-[transform,color] group-hover:translate-x-1 group-hover:text-secondary-400',
                           isActive ? 'text-primary-300' : 'text-zinc-400'
                         )}
                         aria-hidden='true'
@@ -127,7 +127,7 @@ const MobileMenuToggle = () => {
             </ul>
           </nav>
 
-          <div className='p-6 border-t border-zinc-800 space-y-4'>
+          <div className='p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] border-t border-zinc-800 space-y-4'>
             <div className='flex justify-center'>
               <ContactInfo size={22} eventPrefix='mobile_menu' />
             </div>
@@ -138,7 +138,7 @@ const MobileMenuToggle = () => {
               onClick={closeMenu}
               data-analytics-event={ANALYTICS_EVENTS.CTA_RESUME_CLICK}
               data-analytics-location='mobile_menu'
-              className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-all duration-200 text-zinc-50'
+              className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-colors duration-200 text-zinc-50'
             >
               {layout.header.mobileMenu.ctaButton}
               <ChevronRight size={18} aria-hidden='true' />

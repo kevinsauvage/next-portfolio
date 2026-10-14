@@ -24,7 +24,7 @@ const getInitials = (name: string) => {
   return `${first}${last}`.toUpperCase();
 };
 
-const ICON_HOVER = 'transition-transform group-hover:rotate-12 duration-300';
+const ICON_HOVER = 'transition-transform group-hover:rotate-12 duration-200';
 const META_ITEM = 'flex items-center gap-1.5 md:gap-2';
 
 const pad = (value: number) => String(value).padStart(2, '0');
@@ -56,7 +56,7 @@ const TestimonialContent = ({
           <ChevronDown
             size={14}
             aria-hidden='true'
-            className={clsx('transition-transform duration-300', expanded && 'rotate-180')}
+            className={clsx('transition-transform duration-200', expanded && 'rotate-180')}
           />
         </button>
         <a

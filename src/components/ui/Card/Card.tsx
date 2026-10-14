@@ -61,7 +61,7 @@ export const Card = ({
   const animationDelay = animationIndex !== undefined ? Math.min(animationIndex * 100, 800) : 0;
   const baseClasses = clsx(
     'relative overflow-hidden',
-    hover !== 'none' && 'transition-all duration-300 ease-out',
+    hover !== 'none' && 'transition-[transform,box-shadow,border-color] duration-200 ease-out',
     HOVER_CLASSES[hover]
   );
   const contentClasses = clsx('h-full w-full relative z-10', PADDING_CLASSES[size]);
@@ -88,7 +88,7 @@ export const Card = ({
       {...props}
     >
       {glow !== 'none' && (
-        <div className='absolute inset-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 ease-out z-0'>
+        <div className='absolute inset-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 ease-out z-0'>
           <MeshGradient overlayOpacity={85} lightweight />
         </div>
       )}

@@ -87,8 +87,8 @@ Type components (`src/components/ui/Typography`):
 | ----------- | -------------------------------------------------------------------------------------------------------------------------- |
 | Radius      | `rounded-md` (controls), `rounded-lg` (media/inputs), `rounded-xl` (cards), `rounded-2xl` (panels), `rounded-full` (pills) |
 | Shadows     | `shadow-glow-sm/md/lg` — emerald glow (`rgba(34,197,94, …)`) for primary cards/CTAs                                        |
-| Durations   | `200ms` (hover/color), `300ms` (transforms/shadow), `500ms` (carousel), `700ms` (reveal)                                   |
-| Easing      | `ease-out` for entrances/lifts; `cubic-bezier(0.22, 1, 0.36, 1)` for reveal                                                |
+| Durations   | `100ms` (press), `150–200ms` (hover/color/transform), `400ms` (carousel slide), `700ms` (reveal)                           |
+| Easing      | `--ease-out`, `--ease-in-out`, `--ease-drawer` in `@theme` — strong custom curves that override Tailwind's defaults        |
 
 **Motion policy**
 
@@ -98,6 +98,13 @@ Type components (`src/components/ui/Typography`):
   `card-enter`/`reveal` animations (`globals.scss`).
 - **Hover parity:** card lift (`--hover-transform`) and glow/zoom are mirrored on `:focus-within` so
   keyboard users get the same affordance (see `globals.scss` + `Card`/`CardImage`).
+- **Hover capability:** Tailwind's `hover:` and `group-hover:` variants only apply behind
+  `@media (hover: hover)`, so utilities are safe on touch. Bare CSS hovers are not — wrap them
+  yourself (the card lift above does, see `@media (hover: hover) and (pointer: fine)`).
+- **Safe areas:** fixed chrome (header, back-to-top, mobile-menu footer) insets itself with
+  `env(safe-area-inset-*)` so nothing sits under the notch or home indicator.
+- **Motion properties:** animate `transform`/`opacity`/`box-shadow`/color only, listed explicitly —
+  avoid `transition-all`.
 
 ## 5. Component inventory (`src/components/ui`)
 

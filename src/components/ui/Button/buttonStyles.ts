@@ -30,8 +30,8 @@ const getButtonVariantClasses = (variant: ButtonVariant): string => {
 const getButtonBaseClasses = (className?: string): string => {
   return clsx(
     'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap font-medium cursor-pointer',
-    'transition-all duration-300 ease-out',
-    'hover:scale-105 hover:shadow-xl active:scale-95',
+    'transition-[transform,box-shadow,background-color,border-color,color] duration-200 ease-out',
+    'hover:scale-105 hover:shadow-xl active:scale-[0.97] active:duration-100',
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
     className
   );

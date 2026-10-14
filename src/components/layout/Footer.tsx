@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className='hover:text-primary-400 transition-all duration-200 hover:translate-x-1 py-1 flex items-center min-h-11'
+                    className='hover:text-primary-400 transition-[color,transform] duration-200 hover:translate-x-1 py-1 flex items-center min-h-11'
                     data-analytics-event={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
                     data-analytics-location='footer'
                     data-analytics-section={link.name}

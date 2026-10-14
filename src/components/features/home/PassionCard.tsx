@@ -26,7 +26,7 @@ const PassionCard: React.FC<PassionCardProps> = ({ icon: Icon, title, descriptio
             aria-hidden='true'
           />
         </CardIcon>
-        <H3 size='sm' className='transition-all duration-300'>
+        <H3 size='sm' className='transition-colors'>
           {title}
         </H3>
         <BodySmall className='transition-colors'>{description}</BodySmall>
