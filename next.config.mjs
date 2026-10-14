@@ -1,5 +1,4 @@
 import { withSentryConfig } from '@sentry/nextjs/config';
-/** @type {import('next').NextConfig} */
 
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -7,8 +6,8 @@ import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  compress: true,
   // Keep Turbopack scoped to this repo. Without this, a lockfile elsewhere
   // (e.g. ~/pnpm-lock.yaml) makes Next infer the wrong workspace root.
   turbopack: {
@@ -54,10 +53,6 @@ const nextConfig = {
   },
   poweredByHeader: false,
   reactStrictMode: true,
-  sassOptions: {
-    // eslint-disable-next-line unicorn/prefer-module
-    includePaths: [path.join(__dirname, './styles/')],
-  },
 };
 
 export default withSentryConfig(nextConfig, {
@@ -84,12 +79,6 @@ export default withSentryConfig(nextConfig, {
   tunnelRoute: '/monitoring',
 
   webpack: {
-    // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet work with App Router route handlers.)
-    // See the following for more information:
-    // https://docs.sentry.io/product/crons/
-    // https://vercel.com/docs/cron-jobs
-    automaticVercelMonitors: true,
-
     // Tree-shaking options for reducing bundle size
     treeshake: {
       // Automatically tree-shake Sentry logger statements to reduce bundle size

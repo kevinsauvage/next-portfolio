@@ -23,16 +23,16 @@ const AboutSection: React.FC = () => {
             as='p'
             delay={150}
             className='inline-flex flex-wrap items-center gap-2.5 rounded-full border border-primary-800/60 bg-primary-950/40 px-4 py-1.5 font-mono text-xs font-medium tracking-wide text-primary-300'
-            aria-label={`Current role: ${sections.about.currently}`}
           >
             <span className='relative flex h-2 w-2' aria-hidden='true'>
               <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75' />
               <span className='relative inline-flex rounded-full h-2 w-2 bg-primary-400' />
             </span>
+            <span className='sr-only'>Current role: </span>
             {sections.about.currently}
           </Reveal>
           <Reveal delay={300} className='space-y-4'>
-            {sections.about.description.split('\n\n').map(paragraph => (
+            {sections.about.paragraphs.map(paragraph => (
               <Body key={paragraph} className='max-w-4xl'>
                 {paragraph}
               </Body>
@@ -49,7 +49,7 @@ const AboutSection: React.FC = () => {
                   className='inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/40 px-4 py-2 text-sm'
                 >
                   <span className='text-zinc-100'>{lang.language}</span>
-                  {'credentialUrl' in lang && lang.credentialUrl ? (
+                  {lang.credentialUrl ? (
                     <a
                       href={lang.credentialUrl}
                       target='_blank'

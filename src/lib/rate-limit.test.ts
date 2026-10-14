@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/max-lines-per-function */
 import { checkRateLimit, resetRateLimit } from './rate-limit';
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -62,7 +63,7 @@ describe('checkRateLimit (Upstash)', () => {
   });
 
   const redisResponse = (count: number, ttlMs: number) => ({
-    json: async () => [{ result: 'OK' }, { result: count }, { result: ttlMs }],
+    json: async () => [{ result: count }, { result: 1 }, { result: ttlMs }],
     ok: true,
   });
 
@@ -73,7 +74,7 @@ describe('checkRateLimit (Upstash)', () => {
 
     expect(result).toEqual({ allowed: true, retryAfterSeconds: 0 });
     expect(fetchMock).toHaveBeenCalledWith(
-      'https://example.upstash.io/pipeline',
+      'https://example.upstash.io/multi-exec',
       expect.objectContaining({ method: 'POST' })
     );
   });
@@ -84,6 +85,45 @@ describe('checkRateLimit (Upstash)', () => {
     const result = await checkRateLimit('client');
 
     expect(result).toEqual({ allowed: false, retryAfterSeconds: 30 });
+  });
+
+  it('sends INCR + PEXPIRE NX + PTTL in one transaction', async () => {
+    fetchMock.mockResolvedValue(redisResponse(1, 59_000));
+
+    await checkRateLimit('client', { max: 5, windowMs: 60_000 });
+
+    const body = JSON.parse((fetchMock.mock.calls[0]?.[1] as RequestInit).body as string);
+    expect(body).toEqual([
+      ['INCR', 'client'],
+      ['PEXPIRE', 'client', 60_000, 'NX'],
+      ['PTTL', 'client'],
+    ]);
+  });
+
+  it('reports a full window when the key has no TTL (PTTL -1) instead of 0 seconds', async () => {
+    fetchMock.mockResolvedValue(redisResponse(9, -1));
+
+    const result = await checkRateLimit('client', { max: 5, windowMs: 60_000 });
+
+    expect(result).toEqual({ allowed: false, retryAfterSeconds: 60 });
+  });
+
+  it('falls back to memory when a Redis command reports an error', async () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    fetchMock.mockResolvedValue({
+      json: async () => [{ error: 'ERR wrong type' }, { result: 0 }, { result: -1 }],
+      ok: true,
+    });
+
+    try {
+      await expect(checkRateLimit('client')).resolves.toEqual({
+        allowed: true,
+        retryAfterSeconds: 0,
+      });
+      expect(consoleError).toHaveBeenCalled();
+    } finally {
+      consoleError.mockRestore();
+    }
   });
 
   it('falls back to the in-memory window when Redis is unreachable', async () => {

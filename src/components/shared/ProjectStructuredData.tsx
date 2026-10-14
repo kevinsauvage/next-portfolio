@@ -4,7 +4,7 @@ import { PERSON_NAME, SCHEMA_CONTEXT, SITE_URL } from '@/lib/seo-schemas';
 
 const ProjectStructuredData = ({ project }: { project: Project }) => {
   const url = getProjectUrl(project.slug);
-  const description = project.caseStudy?.tagline ?? project.description;
+  const description = project.caseStudy.tagline;
 
   const breadcrumbSchema = {
     '@context': SCHEMA_CONTEXT,
@@ -24,8 +24,8 @@ const ProjectStructuredData = ({ project }: { project: Project }) => {
     url,
     author: { '@type': 'Person', name: PERSON_NAME, url: SITE_URL },
     keywords: project.technologies.map(({ name }) => name).join(', '),
-    ...(project.githubLink.length > 0 ? { sameAs: project.githubLink } : {}),
-    ...(project.caseStudy?.tagline ? { abstract: project.caseStudy.tagline } : {}),
+    ...(project.githubUrl && { sameAs: [project.githubUrl] }),
+    abstract: description,
   };
 
   return <JsonLd data={[breadcrumbSchema, workSchema]} />;

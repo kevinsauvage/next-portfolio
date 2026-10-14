@@ -25,11 +25,11 @@ const Custom404 = () => {
       <Image
         src='/images/404.svg'
         alt=''
-        aria-hidden='true'
         width={400}
         height={400}
         className='col-span-1 h-auto w-full'
-        priority
+        loading='eager'
+        fetchPriority='high'
       />
     </div>
   );

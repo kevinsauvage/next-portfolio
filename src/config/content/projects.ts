@@ -33,16 +33,16 @@ export type ProjectCaseStudy = {
 export type Project = {
   slug: string;
   description: string;
-  /** Public repository links. Leave empty for private projects; the source button is then hidden. */
-  githubLink: string[];
+  /** Public repository URL. Omit for private projects; the source button is then hidden. */
+  githubUrl?: string;
   /** Your role on the project (e.g. "Lead frontend"). Optional. */
   role?: string;
   /** Delivery window (e.g. "2024 — 2025"). Optional. */
   timeline?: string;
   /** Measurable outcomes, rendered as a bullet list. Optional. */
   highlights?: string[];
-  /** Deep-dive content rendered on `/projects/[slug]`. Optional. */
-  caseStudy?: ProjectCaseStudy;
+  /** Deep-dive content rendered on `/projects/[slug]`. */
+  caseStudy: ProjectCaseStudy;
   images: {
     thumbnail: {
       alt: string;
@@ -220,7 +220,6 @@ const myEcommerceProject: Project = {
   title: 'ORUVA — Jewelry E-Commerce',
   websiteLink: 'https://develop.oruva.store/',
   // The repository is private, so there is no public source link.
-  githubLink: [],
 };
 
 const complyLoopProject: Project = {
@@ -372,7 +371,7 @@ const complyLoopProject: Project = {
   ],
   title: 'ComplyLoop — Accessibility Compliance',
   websiteLink: 'https://complyloop.vercel.app/',
-  githubLink: ['https://github.com/kevinsauvage/complyloop'],
+  githubUrl: 'https://github.com/kevinsauvage/complyloop',
 };
 
 export const projects: Project[] = [myEcommerceProject, complyLoopProject];

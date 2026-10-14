@@ -5,7 +5,11 @@ import { headers } from 'next/headers';
 import { getServerEnv } from '@/lib/env';
 import { logError } from '@/lib/error-tracking';
 import { checkRateLimit } from '@/lib/rate-limit';
-import { collectFieldErrors, CONTACT_FIELDS } from '@/schemas/contact-fields.schema';
+import {
+  collectFieldErrors,
+  CONTACT_CAPTCHA_ACTION,
+  CONTACT_FIELDS,
+} from '@/schemas/contact-fields.schema';
 import { CONTACT_ERROR_CODES, contactFormSchema } from '@/schemas/contact-form.schema';
 
 import emailjs from '@emailjs/nodejs';
@@ -22,7 +26,14 @@ export type ContactFormState = {
   };
 };
 
+type SendMailResult = {
+  success: boolean;
+  error?: string;
+  fieldErrors?: ContactFormState['fieldErrors'];
+};
+
 const MINIMUM_CAPTCHA_SCORE = 0.7;
+const CAPTCHA_TIMEOUT_MS = 5000;
 /** Secondary throttle so one address cannot be flooded from many client IPs. */
 const EMAIL_WINDOW_MS = 10 * 60_000;
 const MAX_EMAIL_REQUESTS_PER_WINDOW = 3;
@@ -33,6 +44,24 @@ function hashEmail(email: string): string {
   return createHash('sha256').update(email.trim().toLowerCase()).digest('hex').slice(0, 32);
 }
 
+/**
+ * Client IP, or `null` when none is present. `x-real-ip` is set by the platform
+ * proxy; the first `x-forwarded-for` entry is the fallback.
+ */
+async function getClientKey(): Promise<string | null> {
+  const headerList = await headers();
+  const ip =
+    headerList.get('x-real-ip')?.trim() || headerList.get('x-forwarded-for')?.split(',')[0]?.trim();
+  return ip || null;
+}
+
+/** Host the visitor reached us on (no port), used to pin the reCAPTCHA hostname. */
+async function getRequestHost(): Promise<string | null> {
+  const headerList = await headers();
+  const host = headerList.get('x-forwarded-host') ?? headerList.get('host');
+  return host?.split(':')[0]?.toLowerCase() || null;
+}
+
 async function validateCaptcha(captchaToken: string, secretKey: string): Promise<boolean> {
   const data = new FormData();
   data.append('secret', secretKey);
@@ -40,20 +69,20 @@ async function validateCaptcha(captchaToken: string, secretKey: string): Promise
   const captchaResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
     body: data,
     method: 'POST',
+    signal: AbortSignal.timeout(CAPTCHA_TIMEOUT_MS),
   });
+  if (!captchaResponse.ok) return false;
+
   const response: unknown = await captchaResponse.json();
   if (typeof response !== 'object' || response === null) return false;
 
-  const { success, score } = response as { success?: unknown; score?: unknown };
-  return success === true && typeof score === 'number' && score >= MINIMUM_CAPTCHA_SCORE;
-}
+  const { success, score, action, hostname } = response as Record<string, unknown>;
+  if (success !== true || typeof score !== 'number' || score < MINIMUM_CAPTCHA_SCORE) return false;
+  // A token minted for another action or site must not unlock this form.
+  if (action !== CONTACT_CAPTCHA_ACTION) return false;
 
-/** Client IP derived from proxy headers, or `null` when none is present. */
-async function getClientKey(): Promise<string | null> {
-  const headerList = await headers();
-  const forwardedFor = headerList.get('x-forwarded-for');
-  const ip = forwardedFor?.split(',')[0]?.trim() || headerList.get('x-real-ip')?.trim();
-  return ip || null;
+  const expectedHost = await getRequestHost();
+  return !expectedHost || typeof hostname !== 'string' || hostname.toLowerCase() === expectedHost;
 }
 
 async function dispatchEmail(
@@ -75,12 +104,23 @@ async function dispatchEmail(
   );
 }
 
-export async function sendMail(data: {
+/** Per-address throttle; only reached after the captcha passed so it cannot be abused to lock others out. */
+async function emailLimitMessage(email: string): Promise<string | null> {
+  const limit = await checkRateLimit(`contact:email:${hashEmail(email)}`, {
+    max: MAX_EMAIL_REQUESTS_PER_WINDOW,
+    windowMs: EMAIL_WINDOW_MS,
+  });
+  return limit.allowed
+    ? null
+    : `Too many messages sent from this address. Please try again in ${limit.retryAfterSeconds} seconds.`;
+}
+
+async function sendMail(data: {
   fullName: string;
   email: string;
   message: string;
   captcha: string;
-}): Promise<{ success: boolean; error?: string; fieldErrors?: ContactFormState['fieldErrors'] }> {
+}): Promise<SendMailResult> {
   try {
     const parsed = contactFormSchema.safeParse(data);
     if (!parsed.success) {
@@ -105,6 +145,9 @@ export async function sendMail(data: {
       };
     }
 
+    const throttled = await emailLimitMessage(parsed.data.email);
+    if (throttled) return { success: false, error: throttled };
+
     await dispatchEmail(env, parsed.data);
     return { success: true };
   } catch (error) {
@@ -117,13 +160,10 @@ export async function sendMail(data: {
 }
 
 /**
- * Applies the per-IP and per-address throttles. Returns an error state when a
- * limit is hit (or when no client IP can be derived in production), else null.
+ * Per-IP throttle. Returns an error state when the limit is hit (or when no
+ * client IP can be derived in production), else null.
  */
-async function enforceRateLimits(
-  clientKey: string | null,
-  email: string
-): Promise<ContactFormState | null> {
+async function enforceIpLimit(clientKey: string | null): Promise<ContactFormState | null> {
   // Without a client IP every caller collapses into one shared bucket (and the
   // key is trivially spoofable), so fail closed in production. Local dev has no
   // proxy headers, so it falls back to a single local bucket.
@@ -144,18 +184,6 @@ async function enforceRateLimits(
     };
   }
 
-  const emailLimit = await checkRateLimit(`contact:email:${hashEmail(email)}`, {
-    max: MAX_EMAIL_REQUESTS_PER_WINDOW,
-    windowMs: EMAIL_WINDOW_MS,
-  });
-  if (!emailLimit.allowed) {
-    return {
-      status: 'error',
-      message: `Too many messages sent from this address. Please try again in ${emailLimit.retryAfterSeconds} seconds.`,
-      fieldErrors: {},
-    };
-  }
-
   return null;
 }
 
@@ -172,7 +200,7 @@ export async function sendMailAction(
       [...CONTACT_FIELDS, 'captcha'].map(field => [field, getFieldString(field)])
     ) as { fullName: string; email: string; message: string; captcha: string };
 
-    const limited = await enforceRateLimits(await getClientKey(), payload.email);
+    const limited = await enforceIpLimit(await getClientKey());
     if (limited) return limited;
 
     const result = await sendMail(payload);
@@ -186,19 +214,14 @@ export async function sendMailAction(
       };
     }
 
-    if (result.fieldErrors) {
-      return {
-        status: 'error',
-        message: result.error ?? 'Please correct the errors in the form.',
-        fieldErrors: result.fieldErrors,
-      };
-    }
-
     return {
       status: 'error',
       message:
-        result.error ?? 'An error occurred while sending your message. Please try again later.',
-      fieldErrors: {},
+        result.error ??
+        (result.fieldErrors
+          ? 'Please correct the errors in the form.'
+          : 'An error occurred while sending your message. Please try again later.'),
+      fieldErrors: result.fieldErrors ?? {},
     };
   } catch (error) {
     logError(

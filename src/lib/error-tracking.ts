@@ -10,14 +10,6 @@ import * as Sentry from '@sentry/nextjs';
  */
 export type ErrorContext = Record<string, string | number | boolean | undefined>;
 
-interface ErrorLog {
-  message: string;
-  stack: string | undefined;
-  timestamp: number;
-  userAgent: string | undefined;
-  url: string | undefined;
-}
-
 /**
  * Reports an error to Sentry plus a coarse analytics event.
  *
@@ -25,16 +17,8 @@ interface ErrorLog {
  * error message is deliberately not sent to analytics, and `context` is
  * expected to be non-PII (it is attached to Sentry only).
  */
-export function logError(error: Error, code: string, context?: ErrorContext) {
-  const errorLog: ErrorLog = {
-    message: error.message,
-    stack: error.stack ?? undefined,
-    timestamp: Date.now(),
-    userAgent: globalThis.window === undefined ? undefined : globalThis.window.navigator.userAgent,
-    url: globalThis.window === undefined ? undefined : globalThis.window.location.href,
-  };
-
-  console.error('Error logged:', { code, ...errorLog });
+export function logError(error: Error, code: string, context?: ErrorContext): void {
+  console.error('Error logged:', { code, message: error.message, stack: error.stack });
 
   Sentry.captureException(error, {
     tags: { code },
@@ -42,6 +26,4 @@ export function logError(error: Error, code: string, context?: ErrorContext) {
   });
 
   trackEvent(ANALYTICS_EVENTS.ERROR_CLIENT, { code });
-
-  return errorLog;
 }

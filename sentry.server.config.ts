@@ -1,18 +1,8 @@
-// This file configures the initialization of Sentry on the server.
-// The config you add here will be used whenever the server handles a request.
+// Initializes Sentry on the server. Options are shared with the client/edge runtimes.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
+
+import { parseSampleRate, sentryOptions } from '@/lib/sentry-options';
 
 import * as Sentry from '@sentry/nextjs';
 
-Sentry.init({
-  dsn: 'https://e85e1a8bad8347f9b79451dca6ff441e@o4505076388724736.ingest.us.sentry.io/4505076396064768',
-
-  // Sample a fraction of transactions — low-traffic site, full-rate tracing wastes quota.
-  tracesSampleRate: Number(process.env['SENTRY_TRACES_SAMPLE_RATE'] ?? 0.1),
-
-  // Keep PII out of Sentry: no user identifiers and no request bodies.
-  dataCollection: {
-    userInfo: false,
-    httpBodies: [],
-  },
-});
+Sentry.init(sentryOptions(parseSampleRate(process.env['SENTRY_TRACES_SAMPLE_RATE'])));

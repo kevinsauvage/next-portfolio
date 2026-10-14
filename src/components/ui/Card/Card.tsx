@@ -89,7 +89,7 @@ export const Card = ({
     >
       {glow !== 'none' && (
         <div className='absolute inset-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 ease-out z-0'>
-          <MeshGradient overlayOpacity={85} />
+          <MeshGradient overlayOpacity={85} lightweight />
         </div>
       )}
       <div className={contentClasses}>

@@ -46,10 +46,10 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
           )}
         />
       </button>
-      <section
+      <div
         id={panelId}
+        role='group'
         aria-labelledby={buttonId}
-        aria-hidden={!open}
         inert={!open}
         className={clsx(
           'grid transition-all duration-300 ease-out',
@@ -61,7 +61,7 @@ const FaqItem = ({ id, index, question, answer }: FaqItemProps) => {
             {answer}
           </p>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

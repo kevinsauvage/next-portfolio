@@ -1,21 +1,17 @@
 import { GitHubIcon, LinkedInIcon } from '@/components/shared/BrandIcons';
 import { GITHUB_URL, LINKEDIN_URL } from '@/config/site';
 
-const socialButton = [
+export const socialLinks = [
   {
-    href: LINKEDIN_URL,
-    icon: <LinkedInIcon size={30} />,
     id: 'linkedin',
-    text: 'Visit my LinkedIn',
+    href: LINKEDIN_URL,
+    icon: LinkedInIcon,
     ariaLabel: 'Visit my LinkedIn profile',
   },
   {
-    href: GITHUB_URL,
-    icon: <GitHubIcon size={30} />,
     id: 'github',
-    text: 'Visit my GitHub',
+    href: GITHUB_URL,
+    icon: GitHubIcon,
     ariaLabel: 'Visit my GitHub profile',
   },
-];
-
-export default socialButton;
+] as const;

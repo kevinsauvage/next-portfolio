@@ -1,12 +1,15 @@
+import JsonLd from '@/components/shared/JsonLd';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { sections } from '@/config/content';
 import faqs from '@/config/content/faq';
+import { faqSchema } from '@/lib/seo-schemas';
 
 import FaqItem from './FaqItem';
 
 const FaqSection: React.FC = () => {
   return (
     <Section id='faq'>
+      <JsonLd data={[faqSchema]} />
       <div className='space-y-12 md:space-y-16'>
         <SectionHeader
           overline={sections.faq.overline}

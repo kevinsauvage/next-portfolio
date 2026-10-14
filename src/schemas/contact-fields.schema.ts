@@ -13,6 +13,9 @@ export const CONTACT_FIELD_LIMITS = {
   message: 5000,
 } as const;
 
+/** reCAPTCHA v3 action name; the server rejects tokens minted for any other action. */
+export const CONTACT_CAPTCHA_ACTION = 'contactMessage';
+
 export const contactFieldsSchema = z.object({
   fullName: z
     .string()

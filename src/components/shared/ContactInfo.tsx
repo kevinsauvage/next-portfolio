@@ -1,7 +1,4 @@
-import { cloneElement } from 'react';
-import Link from 'next/link';
-
-import socialButton from '@/config/ui/social';
+import { socialLinks } from '@/config/content/social';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
@@ -14,26 +11,21 @@ type ContactInfoProps = {
 
 const ContactInfo = ({ size = 24, eventPrefix = 'footer', className }: ContactInfoProps) => (
   <ul className={clsx('flex gap-3 flex-wrap', className)}>
-    {socialButton.map(item => (
-      <li key={item.href}>
-        <Link
-          href={item.href}
+    {socialLinks.map(({ id, href, icon: Icon, ariaLabel }) => (
+      <li key={id}>
+        <a
+          href={href}
           className='text-zinc-200 hover:text-primary-400 transition-colors flex items-center justify-center gap-2 group min-w-[48px] min-h-[48px] p-3'
-          aria-label={item.ariaLabel}
-          title={item.ariaLabel}
+          aria-label={ariaLabel}
+          title={ariaLabel}
           target='_blank'
-          prefetch={false}
           rel='noopener noreferrer'
           data-analytics-event={ANALYTICS_EVENTS.SOCIAL_LINK_CLICK}
           data-analytics-location={eventPrefix}
-          data-analytics-network={item.text}
+          data-analytics-network={id}
         >
-          {cloneElement(item.icon, {
-            'aria-hidden': 'true',
-            size,
-            className: 'transition-transform duration-300 hover:rotate-12',
-          })}
-        </Link>
+          <Icon size={size} className='transition-transform duration-300 hover:rotate-12' />
+        </a>
       </li>
     ))}
   </ul>

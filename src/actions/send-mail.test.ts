@@ -1,7 +1,7 @@
 /* eslint-disable sonarjs/max-lines-per-function, sonarjs/no-duplicate-string */
 import { resetRateLimit } from '@/lib/rate-limit';
 
-import { sendMail, sendMailAction } from './send-mail';
+import { type ContactFormState, sendMailAction } from './send-mail';
 
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -26,38 +26,45 @@ const validPayload = {
   captcha: 'captcha-token',
 };
 
-const captchaResponse = (body: Record<string, unknown>) => ({
-  json: async () => body,
+const idle: ContactFormState = { status: 'idle', fieldErrors: {} };
+
+const captchaResponse = (body: Record<string, unknown>, ok = true) => ({
+  ok,
+  json: async () => ({ action: 'contactMessage', ...body }),
 });
 
-describe('sendMail', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    vi.stubGlobal('fetch', fetchMock);
-    headersMock.mockResolvedValue(new Headers({ 'x-forwarded-for': '203.0.113.7' }));
-    getServerEnvMock.mockReturnValue({
-      email_js_service_id: 'service-id',
-      email_js_public_key: 'public-key',
-      email_js_private_key: 'private-key',
-      email_js_template_id: 'template-id',
-      RECAPTCHA_SECRET_KEY: 'recaptcha-secret',
-      NODE_ENV: 'test',
-    });
-    emailjsSendMock.mockResolvedValue({ status: 200, text: 'OK' });
-    fetchMock.mockResolvedValue(captchaResponse({ success: true, score: 0.9 }));
+const buildFormData = (values: Record<string, string>) => {
+  const formData = new FormData();
+  for (const [key, value] of Object.entries(values)) formData.set(key, value);
+  return formData;
+};
+
+const submit = (values: Record<string, string> = validPayload) =>
+  sendMailAction(idle, buildFormData(values));
+
+beforeEach(() => {
+  vi.clearAllMocks();
+  resetRateLimit();
+  vi.stubGlobal('fetch', fetchMock);
+  headersMock.mockResolvedValue(new Headers({ 'x-forwarded-for': '203.0.113.7' }));
+  getServerEnvMock.mockReturnValue({
+    email_js_service_id: 'service-id',
+    email_js_public_key: 'public-key',
+    email_js_private_key: 'private-key',
+    email_js_template_id: 'template-id',
+    RECAPTCHA_SECRET_KEY: 'recaptcha-secret',
   });
+  emailjsSendMock.mockResolvedValue({ status: 200, text: 'OK' });
+  fetchMock.mockResolvedValue(captchaResponse({ success: true, score: 0.9 }));
+});
 
+describe('sendMailAction: validation and captcha', () => {
   it('returns field errors when the payload is invalid', async () => {
-    const result = await sendMail({
-      fullName: '',
-      email: 'not-an-email',
-      message: '',
-      captcha: '',
-    });
+    const state = await submit({ fullName: '', email: 'not-an-email', message: '', captcha: '' });
 
-    expect(result.success).toBe(false);
-    expect(result.error).toBe('Validation failed');
-    expect(result.fieldErrors).toMatchObject({
+    expect(state.status).toBe('error');
+    expect(state.message).toBe('Validation failed');
+    expect(state.fieldErrors).toMatchObject({
       fullName: expect.any(String),
       email: expect.any(String),
       message: expect.any(String),
@@ -67,51 +74,85 @@ describe('sendMail', () => {
     expect(emailjsSendMock).not.toHaveBeenCalled();
   });
 
-  it('rejects when the captcha score is below the threshold', async () => {
-    fetchMock.mockResolvedValue(captchaResponse({ success: true, score: 0.3 }));
-
-    const result = await sendMail(validPayload);
-
-    expect(result).toMatchObject({ success: false, error: 'Captcha validation failed' });
-    expect(result.fieldErrors?.['captcha']).toBeTruthy();
-    expect(emailjsSendMock).not.toHaveBeenCalled();
-  });
-
-  it('rejects when the captcha response is unsuccessful', async () => {
-    fetchMock.mockResolvedValue(captchaResponse({ success: false, score: 0.9 }));
-
-    const result = await sendMail(validPayload);
-
-    expect(result).toMatchObject({ success: false, error: 'Captcha validation failed' });
-    expect(result.fieldErrors?.['captcha']).toBeTruthy();
-    expect(emailjsSendMock).not.toHaveBeenCalled();
-  });
-
-  it('rejects when the captcha score is missing', async () => {
-    fetchMock.mockResolvedValue(captchaResponse({ success: true }));
-
-    const result = await sendMail(validPayload);
-
-    expect(result).toMatchObject({ success: false, error: 'Captcha validation failed' });
-    expect(result.fieldErrors?.['captcha']).toBeTruthy();
-    expect(emailjsSendMock).not.toHaveBeenCalled();
-  });
-
   it('rejects payloads exceeding the field length caps', async () => {
-    const result = await sendMail({
-      ...validPayload,
-      message: 'x'.repeat(5001),
-    });
+    const state = await submit({ ...validPayload, message: 'x'.repeat(5001) });
 
-    expect(result.success).toBe(false);
-    expect(result.error).toBe('Validation failed');
+    expect(state.message).toBe('Validation failed');
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('sends the email when validation and captcha succeed', async () => {
-    const result = await sendMail(validPayload);
+  it.each([
+    ['score below the threshold', { success: true, score: 0.3 }],
+    ['unsuccessful response', { success: false, score: 0.9 }],
+    ['missing score', { success: true }],
+    ['mismatched action', { success: true, score: 0.9, action: 'login' }],
+  ])('rejects a captcha with a %s', async (_label, body) => {
+    fetchMock.mockResolvedValue(captchaResponse(body));
 
-    expect(result).toEqual({ success: true });
+    const state = await submit();
+
+    expect(state.status).toBe('error');
+    expect(state.message).toBe('Captcha validation failed');
+    expect(state.fieldErrors.captcha).toBeTruthy();
+    expect(emailjsSendMock).not.toHaveBeenCalled();
+  });
+
+  it('rejects a captcha verified for a different hostname', async () => {
+    headersMock.mockResolvedValue(
+      new Headers({ host: 'www.kevin-sauvage.com:443', 'x-forwarded-for': '203.0.113.7' })
+    );
+    fetchMock.mockResolvedValue(
+      captchaResponse({ success: true, score: 0.9, hostname: 'evil.example' })
+    );
+
+    const state = await submit();
+
+    expect(state.fieldErrors.captcha).toBeTruthy();
+    expect(emailjsSendMock).not.toHaveBeenCalled();
+  });
+
+  it('accepts a captcha verified for the request hostname', async () => {
+    headersMock.mockResolvedValue(
+      new Headers({ host: 'www.kevin-sauvage.com', 'x-forwarded-for': '203.0.113.7' })
+    );
+    fetchMock.mockResolvedValue(
+      captchaResponse({ success: true, score: 0.9, hostname: 'www.kevin-sauvage.com' })
+    );
+
+    expect((await submit()).status).toBe('success');
+  });
+
+  it('rejects when Google answers with an HTTP error', async () => {
+    fetchMock.mockResolvedValue(captchaResponse({}, false));
+
+    expect((await submit()).fieldErrors.captcha).toBeTruthy();
+  });
+
+  it('gives the verification call a timeout signal', async () => {
+    await submit();
+
+    const init = fetchMock.mock.calls[0]?.[1] as RequestInit;
+    expect(init.signal).toBeInstanceOf(AbortSignal);
+  });
+
+  it('fails with a generic error (not a hang) when verification times out', async () => {
+    fetchMock.mockRejectedValue(new DOMException('timeout', 'TimeoutError'));
+
+    const state = await submit();
+
+    expect(state.status).toBe('error');
+    expect(state.message).toBe('Failed to send email');
+    expect(emailjsSendMock).not.toHaveBeenCalled();
+  });
+});
+
+describe('sendMailAction: delivery', () => {
+  it('sends the email and returns a success state', async () => {
+    const state = await submit();
+
+    expect(state.status).toBe('success');
+    expect(state.fieldErrors).toEqual({});
+    expect(state.message).toContain('sent successfully');
     expect(emailjsSendMock).toHaveBeenCalledWith(
       'service-id',
       'template-id',
@@ -120,116 +161,58 @@ describe('sendMail', () => {
         fullName: validPayload.fullName,
         message: validPayload.message,
       },
-      {
-        privateKey: 'private-key',
-        publicKey: 'public-key',
-      }
+      { privateKey: 'private-key', publicKey: 'public-key' }
     );
   });
 
   it('returns a generic error when the email provider fails', async () => {
     emailjsSendMock.mockRejectedValue(new Error('provider down'));
 
-    const result = await sendMail(validPayload);
+    const state = await submit();
 
-    expect(result).toEqual({ success: false, error: 'Failed to send email' });
+    expect(state.status).toBe('error');
+    expect(state.message).toBe('Failed to send email');
     expect(logErrorMock).toHaveBeenCalledTimes(1);
     expect(logErrorMock).toHaveBeenCalledWith(expect.any(Error), 'contact_provider_failed');
   });
 });
 
-describe('sendMailAction', () => {
-  beforeEach(() => {
-    vi.clearAllMocks();
-    resetRateLimit();
-    vi.stubGlobal('fetch', fetchMock);
-    headersMock.mockResolvedValue(new Headers({ 'x-forwarded-for': '203.0.113.7' }));
-    getServerEnvMock.mockReturnValue({
-      email_js_service_id: 'service-id',
-      email_js_public_key: 'public-key',
-      email_js_private_key: 'private-key',
-      email_js_template_id: 'template-id',
-      RECAPTCHA_SECRET_KEY: 'recaptcha-secret',
-      NODE_ENV: 'test',
-    });
-    emailjsSendMock.mockResolvedValue({ status: 200, text: 'OK' });
-    fetchMock.mockResolvedValue(captchaResponse({ success: true, score: 0.9 }));
-  });
-
-  const buildFormData = (values: Record<string, string>) => {
-    const formData = new FormData();
-    for (const [key, value] of Object.entries(values)) formData.set(key, value);
-    return formData;
-  };
-
-  it('maps a successful submission to a success state', async () => {
-    const state = await sendMailAction(
-      { status: 'idle', fieldErrors: {} },
-      buildFormData(validPayload)
-    );
-
-    expect(state.status).toBe('success');
-    expect(state.fieldErrors).toEqual({});
-    expect(state.message).toContain('sent successfully');
-  });
-
-  it('maps validation failures to an error state with field errors', async () => {
-    const state = await sendMailAction(
-      { status: 'idle', fieldErrors: {} },
-      buildFormData({ fullName: '', email: '', message: '', captcha: '' })
-    );
-
-    expect(state.status).toBe('error');
-    expect(state.fieldErrors.fullName).toBeTruthy();
-    expect(state.fieldErrors.email).toBeTruthy();
-    expect(state.fieldErrors.message).toBeTruthy();
-  });
-
-  it('maps a captcha failure to an error state with a form-level captcha error', async () => {
-    fetchMock.mockResolvedValue(captchaResponse({ success: true, score: 0.1 }));
-
-    const state = await sendMailAction(
-      { status: 'idle', fieldErrors: {} },
-      buildFormData(validPayload)
-    );
-
-    expect(state.status).toBe('error');
-    expect(state.message).toBe('Captcha validation failed');
-    expect(state.fieldErrors.captcha).toBeTruthy();
-  });
-
+describe('sendMailAction: rate limits', () => {
   it('blocks submissions after the per-IP rate limit is exceeded', async () => {
-    const submit = (email: string) =>
-      sendMailAction(
-        { status: 'idle', fieldErrors: {} },
-        buildFormData({ ...validPayload, email })
-      );
-
     for (let attempt = 0; attempt < 5; attempt += 1) {
-      const state = await submit(`user${attempt}@example.com`);
+      const state = await submit({ ...validPayload, email: `user${attempt}@example.com` });
       expect(state.status).toBe('success');
     }
 
-    const blocked = await submit('user-blocked@example.com');
+    const blocked = await submit({ ...validPayload, email: 'user-blocked@example.com' });
 
     expect(blocked.status).toBe('error');
     expect(blocked.message).toMatch(/too many messages/i);
     expect(emailjsSendMock).toHaveBeenCalledTimes(5);
   });
 
-  it('throttles a single address across different client IPs', async () => {
-    const submit = () =>
-      sendMailAction({ status: 'idle', fieldErrors: {} }, buildFormData(validPayload));
-
-    for (let attempt = 0; attempt < 3; attempt += 1) {
-      headersMock.mockResolvedValueOnce(
-        new Headers({ 'x-forwarded-for': `198.51.100.${attempt}` })
-      );
-      const state = await submit();
-      expect(state.status).toBe('success');
+  it('prefers x-real-ip over x-forwarded-for', async () => {
+    headersMock.mockResolvedValue(
+      new Headers({ 'x-forwarded-for': '10.0.0.1, 10.0.0.2', 'x-real-ip': '203.0.113.50' })
+    );
+    for (let attempt = 0; attempt < 5; attempt += 1) {
+      await submit({ ...validPayload, email: `user${attempt}@example.com` });
     }
 
-    headersMock.mockResolvedValueOnce(new Headers({ 'x-forwarded-for': '198.51.100.99' }));
+    // Same forwarded chain, different real IP: a separate bucket, so still allowed.
+    headersMock.mockResolvedValue(
+      new Headers({ 'x-forwarded-for': '10.0.0.1, 10.0.0.2', 'x-real-ip': '203.0.113.51' })
+    );
+    expect((await submit({ ...validPayload, email: 'other@example.com' })).status).toBe('success');
+  });
+
+  it('throttles a single address across different client IPs', async () => {
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      headersMock.mockResolvedValue(new Headers({ 'x-forwarded-for': `198.51.100.${attempt}` }));
+      expect((await submit()).status).toBe('success');
+    }
+
+    headersMock.mockResolvedValue(new Headers({ 'x-forwarded-for': '198.51.100.99' }));
     const blocked = await submit();
 
     expect(blocked.status).toBe('error');
@@ -237,15 +220,25 @@ describe('sendMailAction', () => {
     expect(emailjsSendMock).toHaveBeenCalledTimes(3);
   });
 
+  it('does not use up an address allowance when the captcha fails', async () => {
+    fetchMock.mockResolvedValue(captchaResponse({ success: true, score: 0.1 }));
+    for (let attempt = 0; attempt < 4; attempt += 1) {
+      headersMock.mockResolvedValue(new Headers({ 'x-forwarded-for': `198.51.100.${attempt}` }));
+      await submit();
+    }
+
+    fetchMock.mockResolvedValue(captchaResponse({ success: true, score: 0.9 }));
+    headersMock.mockResolvedValue(new Headers({ 'x-forwarded-for': '198.51.100.200' }));
+
+    expect((await submit()).status).toBe('success');
+  });
+
   it('fails closed in production when no client IP can be derived', async () => {
     vi.stubEnv('NODE_ENV', 'production');
     headersMock.mockResolvedValue(new Headers());
 
     try {
-      const state = await sendMailAction(
-        { status: 'idle', fieldErrors: {} },
-        buildFormData(validPayload)
-      );
+      const state = await submit();
 
       expect(state.status).toBe('error');
       expect(state.message).toMatch(/could not verify/i);

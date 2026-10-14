@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 
 import Footer from '@/components/layout/Footer';
@@ -106,5 +106,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 };
 
 export default Layout;
+
+export const viewport: Viewport = { themeColor: '#000000' };
 
 export const generateMetadata = (): Metadata => buildRootMetadata(SITE_URL);

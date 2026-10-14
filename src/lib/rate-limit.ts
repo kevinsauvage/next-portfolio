@@ -12,6 +12,7 @@ import 'server-only';
 const WINDOW_MS = 60_000;
 const MAX_REQUESTS_PER_WINDOW = 5;
 const MAX_TRACKED_KEYS = 10_000;
+const REDIS_TIMEOUT_MS = 2000;
 
 type WindowEntry = {
   count: number;
@@ -70,8 +71,10 @@ function getRedisConfig(): RedisConfig | null {
 }
 
 /**
- * Atomic-enough fixed window: `SET ... NX` seeds the window, then `INCR` counts
- * and `PTTL` reports the remaining time — one round trip, no read-modify-write.
+ * Fixed window in one MULTI/EXEC round trip: `INCR` counts, `PEXPIRE ... NX`
+ * stamps the window only when the key has no expiry yet, `PTTL` reports the time
+ * left. Because the key can never exist without a TTL, a client cannot be
+ * blocked forever by an expiry landing between separate commands.
  */
 async function checkRedis(
   config: RedisConfig,
@@ -79,10 +82,10 @@ async function checkRedis(
   max: number,
   windowMs: number
 ): Promise<RateLimitResult> {
-  const response = await fetch(`${config.url}/pipeline`, {
+  const response = await fetch(`${config.url}/multi-exec`, {
     body: JSON.stringify([
-      ['SET', key, '0', 'PX', windowMs, 'NX'],
       ['INCR', key],
+      ['PEXPIRE', key, windowMs, 'NX'],
       ['PTTL', key],
     ]),
     cache: 'no-store',
@@ -91,14 +94,22 @@ async function checkRedis(
       'Content-Type': 'application/json',
     },
     method: 'POST',
+    signal: AbortSignal.timeout(REDIS_TIMEOUT_MS),
   });
   if (!response.ok) {
     throw new Error(`Upstash request failed with status ${response.status}`);
   }
 
   const results = (await response.json()) as RedisCommandResponse[];
-  const count = Number(results[1]?.result ?? 0);
-  const ttlMs = Number(results[2]?.result ?? windowMs);
+  const failed = results.find(entry => entry.error);
+  if (failed) throw new Error(`Upstash command failed: ${failed.error}`);
+
+  const count = Number(results[0]?.result);
+  if (!Number.isFinite(count)) throw new Error('Upstash returned no counter');
+
+  const ttl = Number(results[2]?.result);
+  // A negative TTL means "no expiry"; report a full window rather than 0.
+  const ttlMs = Number.isFinite(ttl) && ttl > 0 ? ttl : windowMs;
   if (count > max) {
     return {
       allowed: false,

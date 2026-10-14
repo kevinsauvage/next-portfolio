@@ -74,6 +74,4 @@ export const layout = {
   },
 } as const;
 
-export type LayoutConfig = typeof layout;
-
 export const NAVIGATION_SECTION_IDS = navigationItems.map(({ href }) => sectionIdFromHref(href));

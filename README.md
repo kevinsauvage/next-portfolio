@@ -146,7 +146,7 @@ Update content in the `src/config/content/` directory:
 
 - Design tokens: defined with Tailwind CSS 4's `@theme` in `src/styles/globals.scss`
 - Global styles: `src/styles/globals.scss`
-- Tailwind config: `tailwind.config.js`
+- Tailwind: v4, configured in CSS (`@theme` in `src/styles/globals.scss`), no JS config file
 
 ### Security: Content Security Policy (CSP)
 
@@ -154,14 +154,15 @@ This project sets a strict CSP with a per-request **nonce**, generated in `src/p
 
 - **default-src**: 'self'
 - **script-src**: 'self' plus a per-request nonce and Google Tag Manager / Analytics / reCAPTCHA
-  - The nonce (`'nonce-<random>'`) replaces `'unsafe-inline'`. Next automatically attaches it to its own `<script>` tags, and inline scripts in `src/components/shared/StructuredData.tsx` and `ConsentModeDefaults.tsx` read it from the `x-nonce` header. The GTM loader passes the same nonce to `gtm.js`, which propagates it to the scripts the container injects.
-  - Allowed hosts: `https://www.googletagmanager.com`, `https://www.google-analytics.com`, `https://www.google.com`, `https://www.gstatic.com`, `https://va.vercel-scripts.com`, `https://vercel.live`
+  - The nonce (`'nonce-<random>'`) replaces `'unsafe-inline'`. Next automatically attaches it to its own `<script>` tags, and inline scripts in `src/components/shared/JsonLd.tsx` and `ConsentModeDefaults.tsx` read it from the `x-nonce` header. The GTM loader passes the same nonce to `gtm.js`, which propagates it to the scripts the container injects.
+  - Allowed hosts: `https://www.googletagmanager.com`, `https://www.google-analytics.com`, `https://www.google.com`, `https://www.gstatic.com`; `https://vercel.live` is added only on Vercel preview deployments (`VERCEL_ENV=preview`)
   - `'unsafe-eval'` is added only outside production (React tooling/HMR); the production header does not include it.
 - **style-src**: 'self' and `'unsafe-inline'` (no external font stylesheet — fonts are self-hosted via `next/font`)
-- **font-src**: 'self', `https://fonts.gstatic.com`, and `data:` URIs
-- **connect-src**: 'self', Google Tag Manager, Google Analytics (`*.google-analytics.com`, `*.analytics.google.com`), Google (reCAPTCHA), Sentry, and Vercel vitals
+- **font-src**: 'self' and `data:` URIs
+- **connect-src**: 'self', Google Tag Manager, Google Analytics (`*.google-analytics.com`, `*.analytics.google.com`), and Google (reCAPTCHA). Sentry goes through the same-origin `/monitoring` tunnel
 - **img-src**: 'self', `data:`, `blob:`, and `https:`
 - **frame-src**: `https://www.googletagmanager.com` (GTM noscript iframe) and `https://www.google.com` (reCAPTCHA)
+- **frame-ancestors**: 'self'
 - **object-src**: 'none'; **base-uri**: 'self'; **form-action**: 'self'; `upgrade-insecure-requests`
 
 Notes and exceptions:

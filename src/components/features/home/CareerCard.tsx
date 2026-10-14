@@ -7,17 +7,16 @@ import { Briefcase, Calendar, TrendingUp } from 'lucide-react';
 
 type CareerCardProps = {
   company: string;
-  description?: string;
-  descriptionArray?: string[];
+  highlights: string[];
   period: string;
   position: string;
-  skills?: string[];
+  skills: string[];
   index: number;
 };
 
 const SkillsTags = ({ skills }: { skills: string[] }) => {
   return (
-    <div className='flex flex-wrap gap-1.5 pt-2 border-zinc-800/50'>
+    <div className='flex flex-wrap gap-1.5 pt-2'>
       {skills.map(skill => (
         <Tag key={skill}>{skill}</Tag>
       ))}
@@ -25,28 +24,16 @@ const SkillsTags = ({ skills }: { skills: string[] }) => {
   );
 };
 
-const Description = ({
-  description,
-  descriptionArray,
-}: {
-  description: string;
-  descriptionArray?: string[];
-}) => {
-  const items = descriptionArray?.length ? descriptionArray : [description];
-
-  return (
-    <ul className='flex-1 space-y-2 list-none pl-0'>
-      {items.map(item => (
-        <li key={item} className='flex gap-3'>
-          <span className='mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-zinc-500' aria-hidden />
-          <BodySmall className='min-w-0 flex-1 transition-colors text-zinc-200 group-hover:text-zinc-200'>
-            {item}
-          </BodySmall>
-        </li>
-      ))}
-    </ul>
-  );
-};
+const Highlights = ({ items }: { items: string[] }) => (
+  <ul className='flex-1 space-y-2 list-none pl-0'>
+    {items.map(item => (
+      <li key={item} className='flex gap-3'>
+        <span className='mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-zinc-500' aria-hidden />
+        <BodySmall className='min-w-0 flex-1 text-zinc-200'>{item}</BodySmall>
+      </li>
+    ))}
+  </ul>
+);
 
 const PositionAndPeriod = ({ position, period }: { position: string; period: string }) => {
   return (
@@ -57,12 +44,11 @@ const PositionAndPeriod = ({ position, period }: { position: string; period: str
           className='text-primary-400 transition-transform group-hover:rotate-12 flex-shrink-0'
           strokeWidth={1.5}
           aria-hidden='true'
-          tabIndex={-1}
         />
         <Caption className='font-semibold text-zinc-50'>{position}</Caption>
       </div>
       <Caption className='flex items-center gap-1.5'>
-        <Calendar size={14} className='text-zinc-400' aria-hidden='true' tabIndex={-1} />
+        <Calendar size={14} className='text-zinc-400' aria-hidden='true' />
         <span>{period}</span>
       </Caption>
     </div>
@@ -71,8 +57,7 @@ const PositionAndPeriod = ({ position, period }: { position: string; period: str
 
 const CareerCard: React.FC<CareerCardProps> = ({
   company,
-  description,
-  descriptionArray,
+  highlights,
   period,
   position,
   skills,
@@ -95,7 +80,6 @@ const CareerCard: React.FC<CareerCardProps> = ({
               className='text-secondary-400 transition-transform group-hover:rotate-12'
               strokeWidth={1.5}
               aria-hidden='true'
-              tabIndex={-1}
             />
           </CardIcon>
           <div className='flex-1'>
@@ -110,11 +94,8 @@ const CareerCard: React.FC<CareerCardProps> = ({
           <NumberBadge number={index + 1} />
         </CardHeader>
         <PositionAndPeriod position={position} period={period} />
-        <Description
-          description={description ?? ''}
-          {...(descriptionArray && { descriptionArray })}
-        />
-        <SkillsTags skills={skills ?? []} />
+        <Highlights items={highlights} />
+        <SkillsTags skills={skills} />
       </CardContent>
     </Card>
   );

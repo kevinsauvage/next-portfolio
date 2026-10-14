@@ -99,15 +99,12 @@ const CheckList = ({ items }: { items: string[] }) => (
 );
 
 const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
-  const { slug, title, technologies, websiteLink, githubLink, images, role, timeline, caseStudy } =
+  const { slug, title, technologies, websiteLink, githubUrl, images, role, timeline, caseStudy } =
     project;
-
-  if (!caseStudy) return null;
 
   const { tagline, overview, facts, features, technical, responsibilities, quality, gallery } =
     caseStudy;
   const meta = [role, timeline].filter(Boolean).join(' · ');
-  const repoUrl = githubLink.at(0);
 
   return (
     <article className='h-full w-full'>
@@ -157,9 +154,9 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
               eventProperties={{ link_type: 'live', project_slug: slug }}
               className='w-full sm:w-auto font-semibold shadow-glow-md hover:shadow-glow-lg'
             />
-            {repoUrl && (
+            {githubUrl && (
               <ButtonLink
-                href={repoUrl}
+                href={githubUrl}
                 target='_blank'
                 rel='noopener noreferrer'
                 svg={<GitHubIcon size={18} />}

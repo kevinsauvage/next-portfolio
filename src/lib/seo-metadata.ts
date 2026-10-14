@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { getPublicEnv } from '@/lib/env';
 import { PERSON_NAME, SEARCH_TITLE, SITE_DESCRIPTION, SITE_KEYWORDS } from '@/lib/seo-schemas';
 
 export function buildRootMetadata(baseUrl: string): Metadata {
@@ -11,7 +12,6 @@ export function buildRootMetadata(baseUrl: string): Metadata {
     category: 'Technology',
     creator: PERSON_NAME,
     description: SITE_DESCRIPTION,
-    generator: 'Next.js',
     keywords: SITE_KEYWORDS,
     metadataBase: new URL(baseUrl),
     openGraph: {
@@ -44,7 +44,7 @@ export function buildRootMetadata(baseUrl: string): Metadata {
       title: SEARCH_TITLE,
     },
     verification: {
-      google: process.env['GOOGLE_SITE_VERIFICATION'],
+      google: getPublicEnv().GOOGLE_SITE_VERIFICATION,
     },
   };
 }

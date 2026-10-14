@@ -15,13 +15,7 @@ type ProjectCardProps = {
   index: number;
 };
 
-const ProjectImage = ({
-  images,
-  index,
-}: {
-  images: { thumbnail: { src: string; alt: string } };
-  index: number;
-}) => {
+const ProjectImage = ({ images, index }: { images: Project['images']; index: number }) => {
   return (
     <div className='relative w-full'>
       <div className='absolute -left-2 -top-2 z-10'>
@@ -62,7 +56,7 @@ const ProjectTitleAndDescription = ({
       >
         {title}
       </H3>
-      <BodySmall className='max-w-3xl transition-colors leading-relaxed text-zinc-200 group-hover:text-zinc-200'>
+      <BodySmall className='max-w-3xl transition-colors leading-relaxed text-zinc-200'>
         {description}
       </BodySmall>
     </div>
@@ -100,11 +94,11 @@ const TechStackTags = ({ technologies }: { technologies: Array<{ name: string }>
 const ProjectActionButtons = ({
   slug,
   websiteLink,
-  githubLink,
+  githubUrl,
 }: {
   slug: string;
   websiteLink: string;
-  githubLink: Array<string>;
+  githubUrl: string | undefined;
 }) => {
   return (
     <div className='flex flex-wrap gap-3 pt-2 mt-auto'>
@@ -129,9 +123,9 @@ const ProjectActionButtons = ({
         target='_blank'
         rel='noopener noreferrer'
       />
-      {githubLink.length > 0 && (
+      {githubUrl && (
         <ButtonLink
-          href={githubLink[0] as string}
+          href={githubUrl}
           svg={<GitHubIcon size={16} />}
           label={sections.portfolio.buttons.sourceCode}
           size='sm'
@@ -147,7 +141,7 @@ const ProjectActionButtons = ({
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
-  const { slug, title, description, technologies, images, websiteLink, githubLink } = project;
+  const { slug, title, description, technologies, images, websiteLink, githubUrl } = project;
   const { role, timeline, highlights } = project;
   const meta = [role, timeline].filter(Boolean).join(' · ');
 
@@ -175,7 +169,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
             />
             {highlights && highlights.length > 0 && <ProjectHighlights highlights={highlights} />}
             <TechStackTags technologies={technologies} />
-            <ProjectActionButtons slug={slug} websiteLink={websiteLink} githubLink={githubLink} />
+            <ProjectActionButtons slug={slug} websiteLink={websiteLink} githubUrl={githubUrl} />
           </div>
         </div>
       </CardContent>

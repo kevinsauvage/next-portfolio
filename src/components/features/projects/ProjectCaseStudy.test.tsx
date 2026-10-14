@@ -31,11 +31,4 @@ describe('ProjectCaseStudy', () => {
       expect(link).toHaveAttribute('href', project.websiteLink);
     }
   });
-
-  it('renders nothing when the project has no case study', () => {
-    const { caseStudy: _caseStudy, ...withoutCaseStudy } = project;
-    const { container } = render(<ProjectCaseStudy project={withoutCaseStudy} />);
-
-    expect(container).toBeEmptyDOMElement();
-  });
 });

@@ -15,11 +15,6 @@ describe('Button', () => {
     expect(button.getAttribute('disabled')).toBe('');
   });
 
-  it('shows loading state', () => {
-    render(<Button label='Submit' loading />);
-    expect(screen.getByRole('button').getAttribute('disabled')).toBe('');
-  });
-
   it('applies variant classes', () => {
     render(<Button label='Primary' variant='primary' />);
     const button = screen.getByRole('button');

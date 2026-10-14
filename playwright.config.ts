@@ -6,7 +6,7 @@ const baseURL = `http://localhost:${PORT}`;
 export default defineConfig({
   forbidOnly: !!process.env['CI'],
   fullyParallel: true,
-  // The dev server (Turbopack) compiles routes on demand; more than 2
+  // Locally the dev server (Turbopack) compiles routes on demand; more than 2
   // concurrent browser contexts starve it and `page.goto` hits the default
   // 30s `load` timeout. Cap workers so `npm run test:e2e` stays reliable.
   workers: 2,
@@ -19,12 +19,15 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: `npm run dev -- --port ${PORT}`,
+    // CI exercises the production build (what actually ships); local runs use dev.
+    command: process.env['CI']
+      ? `npm run build && npm run start -- --port ${PORT}`
+      : `npm run dev -- --port ${PORT}`,
     env: {
       NEXT_PUBLIC_RECAPTCHA_SITE_KEY: 'playwright-test-site-key',
     },
     reuseExistingServer: !process.env['CI'],
-    timeout: 120_000,
+    timeout: process.env['CI'] ? 300_000 : 120_000,
     url: baseURL,
   },
 });

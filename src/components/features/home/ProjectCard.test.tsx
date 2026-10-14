@@ -24,13 +24,14 @@ describe('ProjectCard', () => {
   });
 
   it('shows a source link only when the repository is public', () => {
-    const { rerender } = render(<ProjectCard project={{ ...project, githubLink: [] }} index={0} />);
+    const { githubUrl: _omitted, ...privateProject } = project;
+    const { rerender } = render(<ProjectCard project={privateProject} index={0} />);
 
     expect(screen.queryByRole('link', { name: /source code/i })).not.toBeInTheDocument();
 
     rerender(
       <ProjectCard
-        project={{ ...project, githubLink: ['https://github.com/example/repo'] }}
+        project={{ ...project, githubUrl: 'https://github.com/example/repo' }}
         index={0}
       />
     );

@@ -20,15 +20,13 @@ export const sections = {
     title: `Hi, I'm ${PERSON_NAME}`,
     experience: '5+ Years Experience',
     currently: 'Currently at Keolis Group (remote) — accessibility, axe in CI',
-    description: `Frontend engineer with 5+ years building web products used by millions of people across 15+ countries. Most of my work is on accessibility, performance and shared component libraries.
-
-At Keolis I took ilévia, a French public transit platform, from 30% to 84% RGAA compliance and added accessibility checks (Jest-axe, Cypress-axe, ESLint jsx-a11y) to CI so regressions don't reach production.
-
-At Decathlon I built the Svelte component library behind the storefronts in 15+ countries and cut load time on the Spanish site by 1.5s through Core Web Vitals work.
-
-Stack: React, Next.js, TypeScript, Svelte, Jest, Cypress, Storybook.
-
-Based in Barcelona, fluent in English, French and Spanish.`,
+    paragraphs: [
+      'Frontend engineer with 5+ years building web products used by millions of people across 15+ countries. Most of my work is on accessibility, performance and shared component libraries.',
+      "At Keolis I took ilévia, a French public transit platform, from 30% to 84% RGAA compliance and added accessibility checks (Jest-axe, Cypress-axe, ESLint jsx-a11y) to CI so regressions don't reach production.",
+      'At Decathlon I built the Svelte component library behind the storefronts in 15+ countries and cut load time on the Spanish site by 1.5s through Core Web Vitals work.',
+      'Stack: React, Next.js, TypeScript, Svelte, Jest, Cypress, Storybook.',
+      'Based in Barcelona, fluent in English, French and Spanish.',
+    ],
     languagesTitle: 'Languages',
     languages: [
       { language: 'French', level: 'Native' },
@@ -38,7 +36,7 @@ Based in Barcelona, fluent in English, French and Spanish.`,
         credentialUrl: 'https://cert.efset.org/W8vpXL',
       },
       { language: 'Spanish', level: 'Fluent' },
-    ],
+    ] as ReadonlyArray<{ language: string; level: string; credentialUrl?: string }>,
   },
   expertise: {
     overline: 'Expertise',
@@ -94,6 +92,29 @@ Based in Barcelona, fluent in English, French and Spanish.`,
       'Based in Barcelona, working remotely at Keolis Group. Always open to interesting conversations and opportunities — feel free to reach out.',
     email: CONTACT_EMAIL,
     location: 'Barcelona, Spain — CET (UTC+1) · English, French, Spanish',
+    form: {
+      ariaLabel: 'Contact form',
+      labels: { fullName: 'Full Name', email: 'Email', message: 'Message' },
+      placeholders: {
+        fullName: 'ex: John Doe',
+        email: 'ex: johndoe@gmail.com',
+        message: 'Share your thoughts or ask a question',
+      },
+      submit: 'Send Message',
+      submitting: 'Sending...',
+      announceSubmitting: 'Sending message...',
+      sentTitle: 'Message sent',
+      sentFallback: "Thanks — I'll get back to you within 24 hours on weekdays.",
+      sendAnother: 'Send another message',
+      errors: {
+        recaptchaUnavailable:
+          'The security check is still loading. Please try again in a moment, or refresh the page.',
+        recaptchaToken: 'Failed to get reCAPTCHA token',
+        unexpected:
+          'An unexpected error occurred while sending your message. Please try again later.',
+        invalidValue: 'Invalid value',
+      },
+    },
     features: {
       quickResponse: {
         title: 'Quick Response',
@@ -119,5 +140,3 @@ Based in Barcelona, fluent in English, French and Spanish.`,
     button: 'View Credential',
   },
 } as const;
-
-export type SectionsConfig = typeof sections;

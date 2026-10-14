@@ -1,16 +1,11 @@
-import dynamic from 'next/dynamic';
-
+import AboutSection from '@/components/features/home/AboutSection';
+import CareerSection from '@/components/features/home/CareerSection';
+import CertificationsSection from '@/components/features/home/CertificationsSection';
+import ContactSection from '@/components/features/home/ContactSection';
+import FaqSection from '@/components/features/home/FaqSection';
 import Hero from '@/components/features/home/Hero';
-
-const AboutSection = dynamic(() => import('@/components/features/home/AboutSection'));
-const CareerSection = dynamic(() => import('@/components/features/home/CareerSection'));
-const TestimonialsSection = dynamic(() => import('@/components/features/home/TestimonialsSection'));
-const PortfolioSection = dynamic(() => import('@/components/features/home/PortfolioSection'));
-const CertificationsSection = dynamic(
-  () => import('@/components/features/home/CertificationsSection')
-);
-const FaqSection = dynamic(() => import('@/components/features/home/FaqSection'));
-const ContactSection = dynamic(() => import('@/components/features/home/ContactSection'));
+import PortfolioSection from '@/components/features/home/PortfolioSection';
+import TestimonialsSection from '@/components/features/home/TestimonialsSection';
 
 const Home = () => {
   return (

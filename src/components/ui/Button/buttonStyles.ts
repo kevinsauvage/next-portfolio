@@ -3,7 +3,7 @@ import clsx from 'clsx';
 export type ButtonVariant = 'primary' | 'secondary';
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 
-export const getButtonSizeClasses = (size: ButtonSize): string => {
+const getButtonSizeClasses = (size: ButtonSize): string => {
   return clsx(
     size === 'sm' && 'px-4 py-3 text-sm min-h-[48px] min-w-[48px]',
     size === 'md' && 'px-6 py-3.5 text-sm min-h-[48px] min-w-[48px]',
@@ -12,28 +12,27 @@ export const getButtonSizeClasses = (size: ButtonSize): string => {
   );
 };
 
-export const getButtonVariantClasses = (variant: ButtonVariant): string => {
+const getButtonVariantClasses = (variant: ButtonVariant): string => {
   return clsx(
     variant === 'primary' &&
       clsx(
-        'text-zinc-950 font-semibold',
-        'bg-primary-500 hover:bg-primary-400 focus:ring-2 focus:outline-none focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-black shadow-lg shadow-primary-500/25 hover:shadow-glow-md relative overflow-hidden group'
+        'text-zinc-950 font-semibold rounded-md',
+        'bg-primary-500 hover:bg-primary-400 focus:ring-2 focus:outline-none focus:ring-primary-300 focus:ring-offset-2 focus:ring-offset-black shadow-lg shadow-primary-500/25 hover:shadow-glow-md group'
       ),
     variant === 'secondary' &&
       clsx(
         'text-zinc-100',
-        'relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 hover:border-primary-700/50 focus:ring-2 focus:outline-none focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-black shadow-md hover:shadow-lg group'
+        'rounded-lg bg-zinc-900 border border-zinc-700 hover:bg-zinc-800 hover:border-primary-700/50 focus:ring-2 focus:outline-none focus:ring-secondary-400 focus:ring-offset-2 focus:ring-offset-black shadow-md hover:shadow-lg group'
       )
   );
 };
 
-export const getButtonBaseClasses = (loading?: boolean, className?: string): string => {
+const getButtonBaseClasses = (className?: string): string => {
   return clsx(
-    'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap rounded-md font-medium cursor-pointer',
+    'relative overflow-hidden flex items-center justify-center w-fit whitespace-nowrap font-medium cursor-pointer',
     'transition-all duration-300 ease-out',
     'hover:scale-105 hover:shadow-xl active:scale-95',
     'disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
-    loading && 'cursor-default',
     className
   );
 };
@@ -41,11 +40,10 @@ export const getButtonBaseClasses = (loading?: boolean, className?: string): str
 export const getButtonClasses = (
   variant: ButtonVariant,
   size: ButtonSize,
-  loading?: boolean,
   className?: string
 ): string => {
   return clsx(
-    getButtonBaseClasses(loading, className),
+    getButtonBaseClasses(className),
     getButtonSizeClasses(size),
     getButtonVariantClasses(variant)
   );

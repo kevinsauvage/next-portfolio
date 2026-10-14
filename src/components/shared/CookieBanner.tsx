@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import Button from '@/components/ui/Button/Button';
 import { BodySmall, H4 } from '@/components/ui/Typography';
@@ -47,13 +47,35 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
   const [showPreferences, setShowPreferences] = useState(openSettings);
   // Current choice, so a reopened panel shows what was agreed to.
   const [stored] = useState(readStoredConsent);
+  const panelRef = useRef<HTMLElement>(null);
+  const triggerRef = useRef<HTMLElement | null>(null);
 
-  const save = useCallback((settings: ConsentSettings) => {
-    writeStoredConsent(settings);
-    setShowBanner(false);
-    setShowPreferences(false);
-    dispatchConsentUpdated();
+  // Reopened from the footer: move focus into the panel, and hand it back to
+  // the trigger once the panel closes.
+  useEffect(() => {
+    if (!openSettings) return;
+    // `??=`: effects run twice in StrictMode, and the second pass would
+    // otherwise record the already-focused panel as the trigger.
+    triggerRef.current ??=
+      document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    panelRef.current?.focus();
+  }, [openSettings]);
+
+  const restoreFocus = useCallback(() => {
+    triggerRef.current?.focus();
+    triggerRef.current = null;
   }, []);
+
+  const save = useCallback(
+    (settings: ConsentSettings) => {
+      writeStoredConsent(settings);
+      setShowBanner(false);
+      setShowPreferences(false);
+      dispatchConsentUpdated();
+      restoreFocus();
+    },
+    [restoreFocus]
+  );
 
   const acceptAll = useCallback(() => save(GRANTED_CONSENT), [save]);
   const rejectAll = useCallback(() => save(DENIED_CONSENT), [save]);
@@ -62,7 +84,8 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
     setShowPreferences(false);
     // Never leave a visitor with neither banner nor panel.
     if (readStoredConsent() === null) setShowBanner(true);
-  }, []);
+    else restoreFocus();
+  }, [restoreFocus]);
 
   const handleSave = useCallback(
     (event: React.FormEvent<HTMLFormElement>) => {
@@ -76,7 +99,9 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
 
   return (
     <section
-      className='fixed inset-x-0 bottom-0 z-50 border-t border-zinc-800 bg-zinc-950/95 backdrop-blur-sm'
+      ref={panelRef}
+      tabIndex={-1}
+      className='fixed inset-x-0 bottom-0 z-50 outline-none border-t border-zinc-800 bg-zinc-950/95 backdrop-blur-sm'
       aria-labelledby={showPreferences ? 'cookie-preferences-title' : 'cookie-banner-title'}
     >
       <div className='container m-auto px-6 py-5'>
@@ -104,7 +129,7 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
                 <div
                   key={name}
                   className={clsx(
-                    'flex gap-3 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 transition-colors',
+                    'relative flex gap-3 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 transition-colors',
                     required
                       ? 'cursor-not-allowed opacity-70'
                       : 'cursor-pointer hover:border-zinc-700'
@@ -125,7 +150,8 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
                     <label
                       htmlFor={`cookie-${name}`}
                       className={clsx(
-                        'block text-sm font-medium text-zinc-100',
+                        // The pseudo-element stretches the label over the whole card.
+                        'block text-sm font-medium text-zinc-100 after:absolute after:inset-0 after:content-[""]',
                         required ? 'cursor-not-allowed' : 'cursor-pointer'
                       )}
                     >

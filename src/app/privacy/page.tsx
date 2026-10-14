@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     description: privacy.description,
-    title: privacy.title,
+    title: `${privacy.title} | ${PERSON_NAME}`,
   },
 };
 

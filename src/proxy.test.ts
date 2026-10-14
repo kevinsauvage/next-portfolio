@@ -42,4 +42,21 @@ describe('proxy CSP', () => {
 
     expect(first).not.toBe(second);
   });
+
+  it('forbids framing by other origins and drops unused third-party hosts', () => {
+    const csp = cspOf(buildRequest());
+
+    expect(csp).toContain("frame-ancestors 'self'");
+    expect(csp).not.toContain('vercel-scripts.com');
+    expect(csp).not.toContain('vitals.vercel-insights.com');
+    expect(csp).not.toContain('fonts.gstatic.com');
+    expect(csp).not.toContain('sentry.io');
+  });
+
+  it('allows the Vercel preview toolbar only on preview deployments', () => {
+    expect(cspOf(buildRequest())).not.toContain('vercel.live');
+
+    vi.stubEnv('VERCEL_ENV', 'preview');
+    expect(scriptSrcOf(cspOf(buildRequest()))).toContain('https://vercel.live');
+  });
 });

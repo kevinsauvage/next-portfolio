@@ -8,10 +8,12 @@ import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
 import Button from '@/components/ui/Button/Button';
 import { FormError, Input, Label, TextArea } from '@/components/ui/Form';
 import { BodySmall, H3 } from '@/components/ui/Typography';
+import { sections } from '@/config/content';
 import { trackEvent } from '@/lib/analytics';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 import {
   collectFieldErrors,
+  CONTACT_CAPTCHA_ACTION,
   CONTACT_FIELD_LIMITS,
   CONTACT_FIELDS,
   type ContactFieldErrors,
@@ -22,6 +24,8 @@ import {
 
 import { CheckCircle2, LucideSend, RotateCcw } from 'lucide-react';
 import { toast } from 'sonner';
+
+const copy = sections.contact.form;
 
 export const initialContactFormState: ContactFormState = {
   status: 'idle',
@@ -128,7 +132,7 @@ const ContactForm = () => {
       const { [name]: _removed, ...rest } = previous;
       return result.success
         ? rest
-        : { ...rest, [name]: result.error.issues[0]?.message ?? 'Invalid value' };
+        : { ...rest, [name]: result.error.issues[0]?.message ?? copy.errors.invalidValue };
     });
   };
 
@@ -156,17 +160,17 @@ const ContactForm = () => {
 
     try {
       if (!executeRecaptcha) {
-        toast.error('reCAPTCHA is not available. Please refresh the page and try again.');
+        toast.error(copy.errors.recaptchaUnavailable);
         setIsGettingCaptcha(false);
         return;
       }
 
-      const captchaToken = await executeRecaptcha('contactMessage');
+      const captchaToken = await executeRecaptcha(CONTACT_CAPTCHA_ACTION);
 
       if (captchaToken) {
         formData.set('captcha', captchaToken);
       } else {
-        toast.error('Failed to get reCAPTCHA token');
+        toast.error(copy.errors.recaptchaToken);
         setIsGettingCaptcha(false);
         return;
       }
@@ -176,9 +180,7 @@ const ContactForm = () => {
       });
     } catch (error) {
       console.error('Form submission error:', error);
-      toast.error(
-        'An unexpected error occurred while sending your message. Please try again later.'
-      );
+      toast.error(copy.errors.unexpected);
       setIsGettingCaptcha(false);
     }
   };
@@ -197,13 +199,11 @@ const ContactForm = () => {
           <CheckCircle2 size={28} />
         </span>
         <div className='space-y-2'>
-          <H3 size='sm'>Message sent</H3>
-          <BodySmall className='text-zinc-300'>
-            {formState.message ?? "Thanks — I'll get back to you within 24 hours on weekdays."}
-          </BodySmall>
+          <H3 size='sm'>{copy.sentTitle}</H3>
+          <BodySmall className='text-zinc-300'>{formState.message ?? copy.sentFallback}</BodySmall>
         </div>
         <Button
-          label='Send another message'
+          label={copy.sendAnother}
           onClick={handleSendAnother}
           svg={<RotateCcw size={16} aria-hidden='true' />}
           variant='secondary'
@@ -218,22 +218,22 @@ const ContactForm = () => {
       ref={formRef}
       onSubmit={handleSubmit}
       className='flex flex-col w-full bg-black/25 backdrop-blur-md border border-zinc-800 rounded-lg py-6 px-6 md:p-8 max-w-3xl mx-auto'
-      aria-label='Contact form'
+      aria-label={copy.ariaLabel}
       noValidate
     >
       <output className='sr-only' aria-live='polite' aria-atomic='true'>
-        {isSubmitting ? 'Sending message...' : fieldErrorAnnouncement}
+        {isSubmitting ? copy.announceSubmitting : fieldErrorAnnouncement}
       </output>
       <div className='space-y-6'>
         <div className='flex flex-col space-y-2'>
           <Label htmlFor='fullName' required>
-            Full Name
+            {copy.labels.fullName}
           </Label>
           <Input
             id='fullName'
             name='fullName'
             type='text'
-            placeholder='ex: John Doe'
+            placeholder={copy.placeholders.fullName}
             required
             minLength={2}
             maxLength={CONTACT_FIELD_LIMITS.fullName}
@@ -248,13 +248,13 @@ const ContactForm = () => {
 
         <div className='flex flex-col space-y-2'>
           <Label htmlFor='email' required>
-            Email
+            {copy.labels.email}
           </Label>
           <Input
             id='email'
             name='email'
             type='email'
-            placeholder='ex: johndoe@gmail.com'
+            placeholder={copy.placeholders.email}
             required
             maxLength={CONTACT_FIELD_LIMITS.email}
             aria-required='true'
@@ -268,12 +268,12 @@ const ContactForm = () => {
 
         <div className='flex flex-col space-y-2'>
           <Label htmlFor='message' required>
-            Message
+            {copy.labels.message}
           </Label>
           <TextArea
             id='message'
             name='message'
-            placeholder='Share your thoughts or ask a question'
+            placeholder={copy.placeholders.message}
             required
             maxLength={CONTACT_FIELD_LIMITS.message}
             aria-required='true'
@@ -292,9 +292,9 @@ const ContactForm = () => {
         <Button
           className='mt-2 w-full sm:w-auto'
           svg={<LucideSend size={18} aria-hidden='true' />}
-          label={isSubmitting ? 'Sending...' : 'Send Message'}
+          label={isSubmitting ? copy.submitting : copy.submit}
           type='submit'
-          title='Send Message'
+          title={copy.submit}
           disabled={isSubmitting}
           variant='primary'
           size='md'

@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import type { AnalyticsEventName } from '@/lib/analytics';
+
 import ButtonContent from './ButtonContent';
 import { type ButtonSize, type ButtonVariant, getButtonClasses } from './buttonStyles';
 
@@ -8,14 +10,14 @@ type ButtonLinkProps = {
   svg?: React.ReactNode;
   variant?: ButtonVariant;
   /** Analytics event name; sent by the delegated listener in `AnalyticsTracker`. */
-  eventName?: string;
+  eventName?: AnalyticsEventName;
   /** Extra event properties, emitted as `data-analytics-*` attributes. */
   eventProperties?: Record<string, string>;
   size?: ButtonSize;
 } & React.ComponentPropsWithoutRef<typeof Link>;
 
 const analyticsAttributes = (
-  eventName: string | undefined,
+  eventName: AnalyticsEventName | undefined,
   eventProperties: Record<string, string> | undefined
 ): Record<string, string> => {
   if (!eventName) return {};
@@ -38,7 +40,7 @@ const ButtonLink = ({
   ...rest
 }: ButtonLinkProps) => (
   <Link
-    className={getButtonClasses(variant, size, false, className)}
+    className={getButtonClasses(variant, size, className)}
     {...analyticsAttributes(eventName, eventProperties)}
     {...rest}
   >

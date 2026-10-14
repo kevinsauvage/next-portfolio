@@ -1,7 +1,6 @@
 'use client';
 
-import SpinnerLoader from '@/components/shared/SpinnerLoader';
-import { trackEvent } from '@/lib/analytics';
+import { type AnalyticsEventName, trackEvent } from '@/lib/analytics';
 
 import ButtonContent from './ButtonContent';
 import { type ButtonSize, type ButtonVariant, getButtonClasses } from './buttonStyles';
@@ -10,10 +9,9 @@ type Properties = {
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   label: string;
   svg?: React.ReactNode;
-  loading?: boolean;
   type?: 'button' | 'submit' | 'reset';
   variant?: ButtonVariant;
-  eventName?: string;
+  eventName?: AnalyticsEventName;
   eventProperties?: Record<string, string>;
   size?: ButtonSize;
   className?: string;
@@ -25,7 +23,6 @@ const Button = ({
   variant = 'primary',
   label,
   svg,
-  loading = false,
   size = 'md',
   className,
   disabled,
@@ -33,7 +30,7 @@ const Button = ({
   eventProperties,
   ...rest
 }: Properties) => {
-  const buttonClasses = getButtonClasses(variant, size, loading, className);
+  const buttonClasses = getButtonClasses(variant, size, className);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     onClick?.(event);
@@ -46,15 +43,10 @@ const Button = ({
     <button
       className={buttonClasses}
       onClick={handleClick}
-      disabled={disabled || loading}
+      disabled={disabled}
       type={rest.type || 'button'}
       {...rest}
     >
-      {loading && (
-        <div className='absolute flex items-center justify-center inset-0 bg-zinc-950'>
-          <SpinnerLoader />
-        </div>
-      )}
       <ButtonContent label={label} svg={svg} />
     </button>
   );

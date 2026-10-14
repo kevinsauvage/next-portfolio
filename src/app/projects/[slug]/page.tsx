@@ -18,7 +18,7 @@ export const generateMetadata = async ({ params }: ProjectPageProps): Promise<Me
   const project = getProjectBySlug(slug);
   if (!project) return {};
 
-  const description = project.caseStudy?.tagline ?? project.description;
+  const description = project.caseStudy.tagline;
   const url = getProjectUrl(project.slug);
 
   return {
@@ -35,6 +35,7 @@ export const generateMetadata = async ({ params }: ProjectPageProps): Promise<Me
     twitter: {
       card: 'summary_large_image',
       description,
+      images: [project.images.thumbnail.src],
       title: `${project.title} — case study`,
     },
   };

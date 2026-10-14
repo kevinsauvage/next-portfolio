@@ -15,5 +15,3 @@ export const CONTACT_ERROR_CODES = {
 export const contactFormSchema = contactFieldsSchema.extend({
   captcha: z.string().min(1, { message: 'Captcha is required' }),
 });
-
-export type ContactFormValues = z.infer<typeof contactFormSchema>;

@@ -3,6 +3,7 @@ import { Tag } from '@/components/ui/Tag';
 import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { toDateTime } from '@/lib/date';
 
 import clsx from 'clsx';
 import { Award, Building2, Calendar, ExternalLink } from 'lucide-react';
@@ -13,7 +14,6 @@ type CertificationCardProps = {
   issuer: string;
   date: string;
   description: string;
-  credentialId?: string;
   credentialUrl?: string;
   skills: string[];
   index: number;
@@ -39,7 +39,6 @@ const CertificationHeader = ({
           className='text-zinc-50 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110'
           strokeWidth={1.5}
           aria-hidden='true'
-          tabIndex={-1}
         />
       </CardIcon>
 
@@ -59,20 +58,14 @@ const CertificationHeader = ({
               className='text-primary-400 flex-shrink-0'
               strokeWidth={1.5}
               aria-hidden='true'
-              tabIndex={-1}
             />
             <Caption className='transition-colors text-zinc-200'>{issuer}</Caption>
           </div>
           <span className='text-zinc-600 text-xs'>•</span>
           <div className='flex items-center gap-1.5'>
-            <Calendar
-              size={14}
-              className='text-zinc-400 flex-shrink-0'
-              aria-hidden='true'
-              tabIndex={-1}
-            />
+            <Calendar size={14} className='text-zinc-400 flex-shrink-0' aria-hidden='true' />
             <Caption className='text-zinc-400'>
-              <time dateTime={date}>{date}</time>
+              <time dateTime={toDateTime(date)}>{date}</time>
             </Caption>
           </div>
         </div>
@@ -83,7 +76,7 @@ const CertificationHeader = ({
 
 const CertificationDescription = ({ description }: { description: string }) => {
   return (
-    <BodySmall className='flex-1 mb-5 transition-colors leading-relaxed text-zinc-200 group-hover:text-zinc-200'>
+    <BodySmall className='flex-1 mb-5 transition-colors leading-relaxed text-zinc-200'>
       {description}
     </BodySmall>
   );
@@ -122,7 +115,6 @@ const CredentialLink = ({
         size={14}
         className='transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5'
         aria-hidden='true'
-        tabIndex={-1}
       />
       <span>{sections.certifications.button}</span>
     </a>
@@ -140,19 +132,6 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
   index,
   featured = false,
 }) => {
-  const safeCredentialUrl = (() => {
-    if (!credentialUrl) return undefined;
-    if (credentialUrl.startsWith('/')) return credentialUrl;
-    try {
-      const parsed = new URL(credentialUrl);
-      return parsed.protocol === 'http:' || parsed.protocol === 'https:'
-        ? credentialUrl
-        : undefined;
-    } catch {
-      return undefined;
-    }
-  })();
-
   return (
     <Card
       hover='subtle'
@@ -166,8 +145,8 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
         <CertificationHeader title={title} issuer={issuer} date={date} index={index} />
         <CertificationDescription description={description} />
         <CertificationSkills skills={skills} />
-        {safeCredentialUrl && (
-          <CredentialLink credentialUrl={safeCredentialUrl} title={title} certId={id} />
+        {credentialUrl && (
+          <CredentialLink credentialUrl={credentialUrl} title={title} certId={id} />
         )}
       </CardContent>
     </Card>

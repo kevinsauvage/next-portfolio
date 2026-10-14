@@ -29,7 +29,7 @@ const PassionCard: React.FC<PassionCardProps> = ({ icon: Icon, title, descriptio
         <H3 size='sm' className='transition-all duration-300'>
           {title}
         </H3>
-        <BodySmall className='group-hover:text-zinc-200 transition-colors'>{description}</BodySmall>
+        <BodySmall className='transition-colors'>{description}</BodySmall>
       </CardContent>
     </Card>
   );

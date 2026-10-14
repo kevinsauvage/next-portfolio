@@ -7,14 +7,22 @@ const SCRIPT_SRC_HOSTS = [
   'https://www.google-analytics.com',
   'https://www.google.com',
   'https://www.gstatic.com',
-  'https://va.vercel-scripts.com',
-  'https://vercel.live',
 ];
 
-/** @type {CSPDirectives} */
+/** Vercel's preview toolbar; never needed (or allowed) on production. */
+const VERCEL_PREVIEW_HOST = 'https://vercel.live';
+
+const isVercelPreview = () => process.env.VERCEL_ENV === 'preview';
+
+/**
+ * Every directive except `script-src`, which depends on the per-request nonce
+ * and is built in {@link buildCsp}. Sentry traffic goes through the same-origin
+ * `/monitoring` tunnel, and fonts are self-hosted by `next/font`.
+ *
+ * @type {CSPDirectives}
+ */
 export const cspDirectives = {
   'default-src': ["'self'"],
-  'script-src': ["'self'", ...SCRIPT_SRC_HOSTS],
   // Allow Web Workers created from same-origin and blob: URLs
   'worker-src': ["'self'", 'blob:'],
   // Legacy fallback for some browsers
@@ -27,18 +35,12 @@ export const cspDirectives = {
     'https://*.analytics.google.com',
     'https://www.google.com',
     'https://www.gstatic.com',
-    'https://vitals.vercel-insights.com',
-    'https://o4505076388724736.ingest.us.sentry.io',
-    'https://*.ingest.us.sentry.io',
   ],
   'img-src': ["'self'", 'data:', 'blob:', 'https:'],
   'style-src': ["'self'", "'unsafe-inline'"],
-  'font-src': ["'self'", 'https://fonts.gstatic.com', 'data:'],
-  'frame-src': [
-    'https://www.googletagmanager.com',
-    'https://www.google.com',
-    'https://vercel.live',
-  ],
+  'font-src': ["'self'", 'data:'],
+  'frame-src': ['https://www.googletagmanager.com', 'https://www.google.com'],
+  'frame-ancestors': ["'self'"],
   'base-uri': ["'self'"],
   'form-action': ["'self'"],
   'object-src': ["'none'"],
@@ -65,8 +67,16 @@ export function buildCsp(nonce) {
     nonce ? `'nonce-${nonce}'` : "'unsafe-inline'",
     ...devEval,
     ...SCRIPT_SRC_HOSTS,
+    ...(isVercelPreview() ? [VERCEL_PREVIEW_HOST] : []),
   ];
-  return cspToString({ ...cspDirectives, 'script-src': scriptSrc });
+  const directives = isVercelPreview()
+    ? {
+        ...cspDirectives,
+        'frame-src': [...(cspDirectives['frame-src'] ?? []), VERCEL_PREVIEW_HOST],
+        'connect-src': [...(cspDirectives['connect-src'] ?? []), VERCEL_PREVIEW_HOST],
+      }
+    : cspDirectives;
+  return cspToString({ ...directives, 'script-src': scriptSrc });
 }
 
 /**

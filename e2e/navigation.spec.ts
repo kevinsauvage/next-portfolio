@@ -5,9 +5,9 @@ test.describe('header navigation', () => {
     await page.goto('/');
 
     const nav = page.getByRole('navigation', { name: 'Primary' });
-    await expect(nav.getByRole('link', { name: /go to portfolio section/i })).toBeVisible();
+    await expect(nav.getByRole('link', { name: 'Portfolio', exact: true })).toBeVisible();
 
-    await nav.getByRole('link', { name: /go to about section/i }).click();
+    await nav.getByRole('link', { name: 'About', exact: true }).click();
     await expect(page).toHaveURL(/#about$/);
   });
 });
@@ -20,7 +20,7 @@ test.describe('active section highlight', () => {
 
     const nav = page.getByRole('navigation', { name: 'Primary' });
     const currentLink = nav.locator('a[aria-current="true"]');
-    const contactLink = nav.getByRole('link', { name: /go to contact section/i });
+    const contactLink = nav.getByRole('link', { name: 'Contact', exact: true });
 
     await expect(contactLink).toHaveAttribute('aria-current', 'true');
 
@@ -35,7 +35,7 @@ test.describe('active section highlight', () => {
     await page.locator('header a[href="/"]').first().click();
     await expect(page).toHaveURL('/');
     await expect(currentLink).toHaveCount(1);
-    await expect(nav.getByRole('link', { name: /go to home section/i })).toHaveAttribute(
+    await expect(nav.getByRole('link', { name: 'Home', exact: true })).toHaveAttribute(
       'aria-current',
       'true'
     );

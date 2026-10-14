@@ -19,9 +19,6 @@ type CardImageProps = {
   sizes?: string;
   width?: number;
   height?: number;
-  unoptimized?: boolean;
-  /** Optional base64 data URL for a real blur-up preview. Omit to render empty (space is reserved by the aspect ratio). */
-  blurDataURL?: string;
 };
 
 export const CardImage = ({
@@ -34,8 +31,6 @@ export const CardImage = ({
   sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw',
   width = 800,
   height = 600,
-  unoptimized = false,
-  blurDataURL,
 }: CardImageProps) => {
   return (
     <div
@@ -58,9 +53,8 @@ export const CardImage = ({
           objectFit === 'fill' && 'object-fill'
         )}
         loading={priority ? 'eager' : 'lazy'}
+        {...(priority && { fetchPriority: 'high' as const })}
         sizes={sizes}
-        {...(blurDataURL ? { blurDataURL, placeholder: 'blur' as const } : {})}
-        unoptimized={unoptimized}
       />
       <div className='absolute inset-0 bg-gradient-to-t from-primary-600/20 to-transparent opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300' />
     </div>

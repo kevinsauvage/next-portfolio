@@ -1,3 +1,4 @@
+import { faqs } from '@/config/content/faq';
 import { projects } from '@/config/content/projects';
 import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, PERSON_NAME, SITE_URL } from '@/config/site';
 
@@ -100,16 +101,13 @@ export const projectsSchema = {
       name: project.title,
       description: project.description,
       url: project.websiteLink,
-      ...(project.githubLink.length > 0 ? { sameAs: project.githubLink } : {}),
+      ...(project.githubUrl && { sameAs: [project.githubUrl] }),
       keywords: project.technologies.map(technology => technology.name).join(', '),
     },
   })),
 } as const;
 
-/**
- * Breadcrumb trail. Single entry today (the site is one page); project detail
- * routes (P2-1) should append their own crumbs here.
- */
+/** Home-page breadcrumb; project pages build their own in `ProjectStructuredData`. */
 export const breadcrumbSchema = {
   '@context': SCHEMA_CONTEXT,
   '@type': 'BreadcrumbList',
@@ -121,4 +119,15 @@ export const breadcrumbSchema = {
       item: SITE_URL,
     },
   ],
+} as const;
+
+/** FAQ section as schema.org `FAQPage`. */
+export const faqSchema = {
+  '@context': SCHEMA_CONTEXT,
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
 } as const;

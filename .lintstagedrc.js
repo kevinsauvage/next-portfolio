@@ -1,27 +1,5 @@
 module.exports = {
-  '**/*.{js,jsx,ts,tsx}': filenames => {
-    // Filter out config files that are ignored by ESLint
-    const filtered = filenames.filter(file => {
-      // Handle both Unix and Windows paths
-      const fileName = file.split(/[/\\]/).pop() || file;
-      return (
-        !fileName.endsWith('.config.js') &&
-        !fileName.endsWith('.config.mjs') &&
-        !fileName.endsWith('.config.ts') &&
-        !fileName.endsWith('.lintstagedrc.js') &&
-        fileName !== '.lintstagedrc.js' &&
-        fileName !== 'next-env.d.ts'
-      );
-    });
-
-    if (filtered.length === 0) {
-      return [];
-    }
-
-    return [
-      `eslint --fix --max-warnings=3 ${filtered.map(f => `"${f}"`).join(' ')}`,
-      `prettier --write ${filtered.map(f => `"${f}"`).join(' ')}`,
-    ];
-  },
+  // Config files are ignored by ESLint; --no-warn-ignored keeps them from failing the run.
+  '**/*.{js,jsx,ts,tsx}': ['eslint --fix --no-warn-ignored', 'prettier --write'],
   '**/*.{json,md,yml,yaml}': ['prettier --write'],
 };

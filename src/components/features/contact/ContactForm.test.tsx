@@ -1,3 +1,6 @@
+import { trackEvent } from '@/lib/analytics';
+import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+
 import ContactForm from './ContactForm';
 
 /* eslint-disable sonarjs/max-lines-per-function */
@@ -82,7 +85,7 @@ describe('ContactForm', () => {
 
     await waitFor(() => {
       expect(mocks.toastError).toHaveBeenCalledWith(
-        expect.stringMatching(/reCAPTCHA is not available/i)
+        expect.stringMatching(/security check is still loading/i)
       );
     });
     expect(mocks.sendMailAction).not.toHaveBeenCalled();
@@ -167,5 +170,27 @@ describe('ContactForm', () => {
     await waitFor(() => {
       expect(mocks.toastError).toHaveBeenCalledWith('Captcha validation failed');
     });
+  });
+
+  it('tracks every successful submission, not just the first', async () => {
+    // A real server action returns a fresh object per call.
+    mocks.sendMailAction.mockImplementation(async () => ({
+      fieldErrors: {},
+      message: 'Your message has been sent successfully.',
+      status: 'success',
+    }));
+    render(<ContactForm />);
+
+    for (let attempt = 1; attempt <= 2; attempt += 1) {
+      fillForm(validValues);
+      submitForm();
+      await screen.findByText('Message sent');
+      fireEvent.click(screen.getByRole('button', { name: /send another message/i }));
+    }
+
+    const successCalls = vi
+      .mocked(trackEvent)
+      .mock.calls.filter(([name]) => name === ANALYTICS_EVENTS.CONTACT_FORM_SUBMIT_SUCCESS);
+    expect(successCalls).toHaveLength(2);
   });
 });

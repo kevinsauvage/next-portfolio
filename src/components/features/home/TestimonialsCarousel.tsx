@@ -207,7 +207,6 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               excerpt={currentTestimonial.excerpt}
               date={currentTestimonial.date}
               index={index}
-              variant='carousel'
               totalCount={testimonials.length}
             />
           )}

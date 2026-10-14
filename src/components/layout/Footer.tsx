@@ -10,11 +10,7 @@ import { Briefcase, CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer
-      className='border-t border-zinc-800 bg-zinc-950/50'
-      role='contentinfo'
-      aria-label='Site footer'
-    >
+    <footer className='border-t border-zinc-800 bg-zinc-950/50' aria-label='Site footer'>
       <div className='container m-auto px-6 py-12'>
         <div className='mb-10 text-center md:text-left'>
           <H3 className='mb-2'>{layout.footer.name}</H3>
@@ -45,7 +41,7 @@ const Footer: React.FC = () => {
             <H4 className='mb-4 flex items-center gap-2'>
               <Code2
                 size={20}
-                className='transition-transform hover:rotate-12'
+
                 aria-hidden='true'
               />
               {layout.footer.sections.techStack.title}
@@ -66,28 +62,20 @@ const Footer: React.FC = () => {
             <H4 className='mb-4 flex items-center gap-2'>
               <Briefcase
                 size={20}
-                className='transition-transform hover:rotate-12'
+
                 aria-hidden='true'
               />
               {layout.footer.sections.availability.title}
             </H4>
             <div className='space-y-3'>
               <div className='flex items-center gap-2'>
-                <CheckCircle2
-                  size={18}
-                  className='text-primary-400 transition-transform hover:rotate-12'
-                  aria-hidden='true'
-                />
+                <CheckCircle2 size={18} className='text-primary-400' aria-hidden='true' />
                 <BodySmall className='text-sm'>
                   {layout.footer.sections.availability.status}
                 </BodySmall>
               </div>
               <div className='flex items-center gap-2'>
-                <MapPin
-                  size={18}
-                  className='text-secondary-400 transition-transform hover:rotate-12'
-                  aria-hidden='true'
-                />
+                <MapPin size={18} className='text-secondary-400' aria-hidden='true' />
                 <span className='text-sm'>{layout.footer.sections.availability.location}</span>
               </div>
             </div>
@@ -95,7 +83,7 @@ const Footer: React.FC = () => {
 
           <div>
             <H4 className='mb-4 flex items-center gap-2'>
-              <Mail size={20} className='transition-transform hover:rotate-12' aria-hidden='true' />
+              <Mail size={20} aria-hidden='true' />
               {layout.footer.sections.contact.title}
             </H4>
             <BodySmall className='mb-4 max-w-40'>

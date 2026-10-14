@@ -8,7 +8,6 @@ const serverEnvSchema = z.object({
   email_js_private_key: z.string().min(1),
   email_js_template_id: z.string().min(1),
   RECAPTCHA_SECRET_KEY: z.string().min(1),
-  NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
 });
 
 const publicEnvSchema = z.object({
@@ -46,7 +45,7 @@ export function getServerEnv(): ServerEnv {
   const parsed = serverEnvSchema.safeParse(process.env);
   if (!parsed.success) {
     throw new Error(
-      `Invalid server environment variables: ${JSON.stringify(parsed.error.flatten().fieldErrors)}`
+      `Invalid server environment variables: ${JSON.stringify(z.flattenError(parsed.error).fieldErrors)}`
     );
   }
   cachedServerEnv = parsed.data;
@@ -58,7 +57,7 @@ export function getPublicEnv(): PublicEnv {
   const parsed = publicEnvSchema.safeParse(process.env);
   if (!parsed.success) {
     throw new Error(
-      `Invalid public environment variables: ${JSON.stringify(parsed.error.flatten().fieldErrors)}`
+      `Invalid public environment variables: ${JSON.stringify(z.flattenError(parsed.error).fieldErrors)}`
     );
   }
   cachedPublicEnv = parsed.data;

@@ -21,7 +21,6 @@ const Navigation = () => {
             <li key={label}>
               <Link
                 href={href}
-                aria-label={`Go to ${label} section`}
                 aria-current={isActive ? 'true' : undefined}
                 data-analytics-event={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
                 data-analytics-location='header'

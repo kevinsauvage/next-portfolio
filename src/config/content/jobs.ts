@@ -3,8 +3,7 @@ type Job = {
   company: string;
   position: string;
   period: string;
-  descriptionArray: string[];
-  description: string;
+  highlights: string[];
   skills: string[];
 };
 
@@ -16,14 +15,12 @@ export const jobs: Job[] = [
     company: 'Keolis Group',
     position,
     period: 'Feb 2026 – Present',
-    descriptionArray: [
+    highlights: [
       'Took RGAA compliance on ilévia, a French public transit platform, from 30% to 84%. Audited the UI and reworked core components: semantic HTML, ARIA, keyboard navigation and screen reader support.',
       'Added Jest-axe and Cypress-axe to the CI/CD pipeline so accessibility regressions get caught before production.',
       'Set up ESLint (jsx-a11y plus custom rules) as a required check on every pull request.',
       'Worked with product and design so accessibility is part of the job from wireframe to release.',
     ],
-    description:
-      'At Keolis Group, I took RGAA compliance on ilévia, a French public transit platform, from 30% to 84%, added Jest-axe and Cypress-axe to CI so accessibility regressions get caught before production, and set up ESLint (jsx-a11y plus custom rules) as a required check on every pull request.',
     skills: [
       'Next.js',
       'React',
@@ -43,15 +40,13 @@ export const jobs: Job[] = [
     company: 'Decathlon Core',
     position,
     period: 'Oct 2023 – Dec 2025',
-    descriptionArray: [
+    highlights: [
       'Built a Svelte component library that now runs e-commerce storefronts in 15+ countries.',
       'Moved the checkout out of a monorepo into a versioned npm package (Lerna), with Strapi feature flags and per-country configuration.',
       'Ran A/B tests on conversion and adoption across international markets.',
       'Worked with designers in Figma and Storybook to ship accessible, well-tested components.',
       'Owned the test suite (Jest, Cypress): more coverage, fewer production incidents.',
     ],
-    description:
-      'At Decathlon Core, I built a Svelte component library that runs e-commerce storefronts in 15+ countries, moved the checkout out of a monorepo into a versioned npm package (Lerna) with Strapi feature flags and per-country configuration, and owned the test suite in Jest and Cypress.',
     skills: [
       'Svelte',
       'JavaScript',
@@ -68,14 +63,12 @@ export const jobs: Job[] = [
     company: 'Decathlon Spain',
     position,
     period: 'May 2022 – Oct 2023',
-    descriptionArray: [
+    highlights: [
       'Improved Core Web Vitals on the Spanish storefront: average load time down 1.5s, higher Lighthouse scores.',
       'Built a modular Svelte component system that cut duplication and sped up new product features.',
       'Rolled out WCAG 2.1 across the storefront.',
       "Wrote the team's documentation standards for components and technical decisions.",
     ],
-    description:
-      "At Decathlon Spain, I improved Core Web Vitals on the Spanish storefront (average load time down 1.5s, higher Lighthouse scores), built a modular Svelte component system, rolled out WCAG 2.1, and wrote the team's documentation standards for components and technical decisions.",
     skills: ['Svelte', 'JavaScript', 'Core Web Vitals', 'Tailwind', 'Performance', 'Accessibility'],
   },
   {
@@ -83,13 +76,11 @@ export const jobs: Job[] = [
     company: 'Subforce',
     position,
     period: 'Jun 2021 – May 2022',
-    descriptionArray: [
+    highlights: [
       'Built full-stack features in React, Next.js, Node.js and Express.js, including third-party API integrations.',
       'Designed state management with Redux and Context API for complex UIs.',
       'Moved a legacy JavaScript codebase to ES6+, which cut bugs and made it easier to maintain.',
     ],
-    description:
-      'At Subforce, I built full-stack features in React, Next.js, Node.js and Express.js including third-party API integrations, designed state management with Redux and Context API for complex UIs, and moved a legacy JavaScript codebase to ES6+.',
     skills: ['React', 'Next.js', 'Redux', 'Node.js', 'Express.js', 'MongoDB', 'JavaScript', 'Sass'],
   },
 ];
