@@ -9,7 +9,6 @@ type CardImageProps = {
   aspectRatio?: 'square' | 'video' | 'wide' | 'auto';
   objectFit?: 'cover' | 'contain' | 'fill';
   priority?: boolean;
-  quality?: number;
   sizes?: string;
   width?: number;
   height?: number;
@@ -25,7 +24,6 @@ export const CardImage = ({
   aspectRatio = 'video',
   objectFit = 'cover',
   priority = false,
-  quality = 85,
   sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw',
   width = 800,
   height = 600,
@@ -67,7 +65,6 @@ export const CardImage = ({
         alt={alt}
         width={width}
         height={height}
-        quality={quality}
         className={clsx(
           'w-full h-full',
           objectFit === 'cover' && 'object-cover',
