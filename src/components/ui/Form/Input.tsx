@@ -1,16 +1,11 @@
+import { FIELD_CLASSES } from './fieldStyles';
+
 import clsx from 'clsx';
 
 type InputProperties = React.InputHTMLAttributes<HTMLInputElement>;
 
-const Input: React.FC<InputProperties> = ({ ...rest }) => (
-  <input
-    className={clsx(
-      'w-full rounded-lg border border-zinc-600/80 bg-zinc-900/70 px-4 py-3 text-base shadow-[0_0_0_1px_rgba(15,23,42,0.25)] transition-all hover:border-zinc-500 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-black',
-      'text-zinc-50 placeholder-zinc-400',
-      'aria-[invalid=true]:border-rose-400 aria-[invalid=true]:bg-rose-950/20 aria-[invalid=true]:text-rose-100 aria-[invalid=true]:placeholder-rose-300/70 aria-[invalid=true]:shadow-[0_0_0_1px_rgba(244,63,94,0.35)] aria-[invalid=true]:focus:border-rose-400 aria-[invalid=true]:focus:ring-rose-400 aria-[invalid=true]:focus:ring-offset-rose-200/10'
-    )}
-    {...rest}
-  />
+const Input: React.FC<InputProperties> = ({ className, ...rest }) => (
+  <input className={clsx(FIELD_CLASSES, className)} {...rest} />
 );
 
 export default Input;

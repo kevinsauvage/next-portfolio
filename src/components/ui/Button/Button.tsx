@@ -3,6 +3,7 @@
 import SpinnerLoader from '@/components/shared/SpinnerLoader';
 import { trackEvent } from '@/lib/analytics';
 
+import ButtonContent from './ButtonContent';
 import { type ButtonSize, type ButtonVariant, getButtonClasses } from './buttonStyles';
 
 type Properties = {
@@ -45,7 +46,6 @@ const Button = ({
     <button
       className={buttonClasses}
       onClick={handleClick}
-      aria-label={label}
       disabled={disabled || loading}
       type={rest.type || 'button'}
       {...rest}
@@ -55,12 +55,7 @@ const Button = ({
           <SpinnerLoader />
         </div>
       )}
-      <span className='w-full flex items-center justify-center gap-2 relative z-10'>
-        {label}
-        <span className='transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-6'>
-          {svg}
-        </span>
-      </span>
+      <ButtonContent label={label} svg={svg} />
     </button>
   );
 };

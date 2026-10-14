@@ -4,18 +4,17 @@ import { useState } from 'react';
 
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
 import { BodySmall, Caption } from '@/components/ui/Typography';
+import type { Testimonial } from '@/config/content/testimonials';
+import { LINKEDIN_URL } from '@/config/site';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 import { Briefcase, Calendar, ChevronDown, ExternalLink, Quote } from 'lucide-react';
 
+type TestimonialAuthorData = Testimonial['author'];
+
 type TestimonialCardProps = {
-  author: {
-    name: string;
-    title: string;
-    company: string;
-    relationship: string;
-  };
+  author: TestimonialAuthorData;
   content: string;
   excerpt: string;
   date: string;
@@ -137,7 +136,7 @@ const TestimonialContent = ({
           />
         </button>
         <a
-          href='https://www.linkedin.com/in/kevin-sauvage/'
+          href={LINKEDIN_URL}
           target='_blank'
           rel='noopener noreferrer'
           className={clsx(
@@ -162,7 +161,7 @@ const TestimonialAuthor = ({
   date,
   styles,
 }: {
-  author: { name: string; title: string; company: string; relationship: string };
+  author: TestimonialAuthorData;
   date: string;
   styles: typeof variantStyles.default | typeof variantStyles.carousel;
 }) => {

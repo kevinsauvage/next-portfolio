@@ -36,9 +36,7 @@ export const useFocusTrap = (isActive: boolean, onEscape?: () => void) => {
     const lastElement = focusableElements[focusableElements.length - 1];
 
     // Focus the first element when trap activates
-    if (firstElement) {
-      setTimeout(() => firstElement.focus(), 100);
-    }
+    const focusTimer = firstElement ? setTimeout(() => firstElement.focus(), 100) : undefined;
 
     const handleTabKey = (event: KeyboardEvent) => {
       if (event.key !== 'Tab') return;
@@ -65,6 +63,7 @@ export const useFocusTrap = (isActive: boolean, onEscape?: () => void) => {
     document.addEventListener('keydown', handleEscapeKey);
 
     return () => {
+      clearTimeout(focusTimer);
       document.removeEventListener('keydown', handleTabKey);
       document.removeEventListener('keydown', handleEscapeKey);
 

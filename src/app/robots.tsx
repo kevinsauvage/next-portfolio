@@ -1,6 +1,10 @@
-export default function robots() {
+import type { MetadataRoute } from 'next';
+
+import { SITE_URL } from '@/config/site';
+
+export default function robots(): MetadataRoute.Robots {
   return {
     rules: { allow: '/', userAgent: '*' },
-    sitemap: 'https://www.kevin-sauvage.com/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

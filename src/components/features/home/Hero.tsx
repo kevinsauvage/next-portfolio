@@ -1,22 +1,14 @@
-import ContactInfo from '@/components/shared/ContactInfo';
+import HeroStats from '@/components/features/home/HeroStats';
 import GridBackground from '@/components/shared/GridBackground';
 import MeshGradient from '@/components/shared/MeshGradient';
 import Reveal from '@/components/shared/Reveal';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
-import { Body, BodySmall, Display } from '@/components/ui/Typography';
+import { Body, Display } from '@/components/ui/Typography';
 import { layout, sections } from '@/config/content';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
-import { FileText, MoveDown, Sparkles } from 'lucide-react';
-
-const YEARS_EXPERIENCE_LABEL = 'Years Experience';
-
-const stats = [
-  { label: YEARS_EXPERIENCE_LABEL, value: '5+' },
-  { label: 'Countries Reached', value: '15+' },
-  { label: 'Users Impacted', value: '1M+' },
-];
+import { FileText, MoveDown } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -83,66 +75,14 @@ const Hero = () => {
           />
         </Reveal>
 
-        {/* Stats — first fold, so a one-shot entrance instead of scroll-reveal. */}
         <div className='hidden md:block w-full'>
-          <div className='card-enter grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm gap-4 md:gap-8'>
-            {stats.map(stat => (
-              <div
-                key={stat.label}
-                className='flex flex-col items-center group hover:scale-110 transition-transform duration-300'
-              >
-                <div className='text-2xl md:text-3xl font-bold mb-1 flex items-center gap-1 font-mono text-zinc-50'>
-                  {stat.value}
-                  {stat.label === YEARS_EXPERIENCE_LABEL && (
-                    <Sparkles
-                      size={20}
-                      className='text-accent-400 group-hover:animate-spin'
-                      aria-hidden='true'
-                      tabIndex={-1}
-                    />
-                  )}
-                </div>
-                <BodySmall className='md:text-base font-light transition-colors group-hover:text-zinc-100'>
-                  {stat.label}
-                </BodySmall>
-              </div>
-            ))}
-          </div>
-
-          <div className='card-enter mt-8'>
-            <ContactInfo size={22} eventPrefix='hero' className='justify-center' />
-          </div>
+          <HeroStats />
         </div>
       </section>
 
-      {/* Stats — Below the fold on mobile only */}
+      {/* Stats — below the fold on mobile only */}
       <div className='block md:hidden relative z-10 px-6 pb-8'>
-        <div className='card-enter grid grid-cols-3 max-w-2xl mx-auto pt-8 border-t border-zinc-800/50 backdrop-blur-sm gap-4'>
-          {stats.map(stat => (
-            <div
-              key={stat.label}
-              className='flex flex-col items-center group hover:scale-110 transition-transform duration-300'
-            >
-              <div className='text-2xl font-bold mb-1 flex items-center gap-1 font-mono text-zinc-50'>
-                {stat.value}
-                {stat.label === YEARS_EXPERIENCE_LABEL && (
-                  <Sparkles
-                    size={20}
-                    className='text-accent-400 group-hover:animate-spin'
-                    aria-hidden='true'
-                  />
-                )}
-              </div>
-              <BodySmall className='font-light transition-colors text-center group-hover:text-zinc-100'>
-                {stat.label}
-              </BodySmall>
-            </div>
-          ))}
-        </div>
-
-        <div className='card-enter mt-8'>
-          <ContactInfo size={22} eventPrefix='hero' className='justify-center' />
-        </div>
+        <HeroStats />
       </div>
     </div>
   );

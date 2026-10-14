@@ -10,6 +10,13 @@ type SectionProperties = {
   reveal?: boolean;
 } & React.HTMLAttributes<HTMLElement>;
 
+const SPACING_CLASSES = {
+  sm: 'py-16 md:py-24',
+  md: 'py-20 md:py-32',
+  lg: 'py-24 md:py-40',
+  xl: 'py-32 md:py-48',
+} as const;
+
 const Section: React.FC<SectionProperties> = ({
   children,
   className,
@@ -17,23 +24,10 @@ const Section: React.FC<SectionProperties> = ({
   reveal = true,
   ...properties
 }) => {
-  const spacingClass = (() => {
-    switch (spacing) {
-      case 'sm':
-        return 'py-16 md:py-24';
-      case 'md':
-        return 'py-20 md:py-32';
-      case 'lg':
-        return 'py-24 md:py-40';
-      case 'xl':
-        return 'py-32 md:py-48';
-      default:
-        return 'py-20 md:py-32';
-    }
-  })();
   return (
     <section
-      className={clsx('max-w-5xl m-auto w-full px-6', spacingClass, className)}
+      // eslint-disable-next-line security/detect-object-injection -- keyed by a typed union
+      className={clsx('max-w-5xl m-auto w-full px-6', SPACING_CLASSES[spacing], className)}
       {...properties}
     >
       {reveal ? <Reveal>{children}</Reveal> : children}

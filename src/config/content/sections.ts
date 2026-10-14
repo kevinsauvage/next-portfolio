@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL, PERSON_NAME } from '@/config/site';
+
 export const sections = {
   hero: {
     title: {
@@ -7,10 +9,15 @@ export const sections = {
     description:
       'Working remotely at Keolis, previously Decathlon e-commerce across 15+ markets. I build accessible, high-performance storefronts and design systems with React, Next.js and Svelte.',
     availability: 'Currently at Keolis Group',
+    stats: [
+      { label: 'Years Experience', value: '5+', highlight: true },
+      { label: 'Countries Reached', value: '15+' },
+      { label: 'Users Impacted', value: '1M+' },
+    ],
   },
   about: {
     overline: 'About me',
-    title: "Hi, I'm Kévin Sauvage",
+    title: `Hi, I'm ${PERSON_NAME}`,
     experience: '5+ Years Experience',
     currently: 'Currently at Keolis Group (remote) — accessibility, axe in CI',
     description: `Frontend engineer with 5+ years building web products used by millions of people across 15+ countries. Most of my work is on accessibility, performance and shared component libraries.
@@ -85,7 +92,7 @@ Based in Barcelona, fluent in English, French and Spanish.`,
     title: "Let's connect",
     description:
       'Based in Barcelona, working remotely at Keolis Group. Always open to interesting conversations and opportunities — feel free to reach out.',
-    email: 'kevinsauvage@outlook.com',
+    email: CONTACT_EMAIL,
     location: 'Barcelona, Spain — CET (UTC+1) · English, French, Spanish',
     features: {
       quickResponse: {

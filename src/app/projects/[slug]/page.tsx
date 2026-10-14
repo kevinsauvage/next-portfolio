@@ -3,8 +3,7 @@ import { notFound } from 'next/navigation';
 
 import ProjectCaseStudy from '@/components/features/projects/ProjectCaseStudy';
 import ProjectStructuredData from '@/components/shared/ProjectStructuredData';
-import { projects } from '@/config/content/projects';
-import { SITE_URL } from '@/lib/seo-schemas';
+import { getProjectBySlug, getProjectUrl, projects } from '@/config/content/projects';
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -16,11 +15,11 @@ export const generateStaticParams = () => projects.map(({ slug }) => ({ slug }))
 
 export const generateMetadata = async ({ params }: ProjectPageProps): Promise<Metadata> => {
   const { slug } = await params;
-  const project = projects.find(candidate => candidate.slug === slug);
+  const project = getProjectBySlug(slug);
   if (!project) return {};
 
   const description = project.caseStudy?.tagline ?? project.description;
-  const url = `${SITE_URL}/projects/${project.slug}`;
+  const url = getProjectUrl(project.slug);
 
   return {
     alternates: { canonical: url },
@@ -43,7 +42,7 @@ export const generateMetadata = async ({ params }: ProjectPageProps): Promise<Me
 
 const ProjectPage = async ({ params }: ProjectPageProps) => {
   const { slug } = await params;
-  const project = projects.find(candidate => candidate.slug === slug);
+  const project = getProjectBySlug(slug);
   if (!project) notFound();
 
   return (

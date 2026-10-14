@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google';
-import { headers } from 'next/headers';
 
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
@@ -13,7 +12,10 @@ import HeadLinks from '@/components/shared/HeadLinks';
 import ScrollDetector from '@/components/shared/ScrollDetector';
 import SonnerToaster from '@/components/shared/SonnerToaster';
 import StructuredData from '@/components/shared/StructuredData';
+import { SITE_URL } from '@/config/site';
+import { getNonce } from '@/lib/csp-nonce';
 import { getPublicEnv } from '@/lib/env';
+import { buildRootMetadata } from '@/lib/seo-metadata';
 
 import '@/styles/globals.scss';
 
@@ -52,7 +54,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
   const publicEnv = getPublicEnv();
   // Same per-request nonce as StructuredData: GTM propagates it to the scripts
   // it injects, which is what keeps the container working under the strict CSP.
-  const nonce = (await headers()).get('x-nonce') ?? undefined;
+  const nonce = await getNonce();
 
   return (
     <html
@@ -105,8 +107,4 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 
 export default Layout;
 
-export async function generateMetadata(): Promise<Metadata> {
-  const baseUrl = 'https://www.kevin-sauvage.com';
-  const { buildRootMetadata } = await import('@/lib/seo-metadata');
-  return buildRootMetadata(baseUrl);
-}
+export const generateMetadata = (): Metadata => buildRootMetadata(SITE_URL);

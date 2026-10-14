@@ -5,6 +5,7 @@ import { headers } from 'next/headers';
 import { getServerEnv } from '@/lib/env';
 import { logError } from '@/lib/error-tracking';
 import { checkRateLimit } from '@/lib/rate-limit';
+import { collectFieldErrors, CONTACT_FIELDS } from '@/schemas/contact-fields.schema';
 import { CONTACT_ERROR_CODES, contactFormSchema } from '@/schemas/contact-form.schema';
 
 import emailjs from '@emailjs/nodejs';
@@ -79,19 +80,17 @@ export async function sendMail(data: {
   email: string;
   message: string;
   captcha: string;
-}): Promise<{ success: boolean; error?: string; fieldErrors?: Record<string, string> }> {
+}): Promise<{ success: boolean; error?: string; fieldErrors?: ContactFormState['fieldErrors'] }> {
   try {
     const parsed = contactFormSchema.safeParse(data);
     if (!parsed.success) {
-      const formatted = parsed.error.format();
+      const captchaIssue = parsed.error.issues.find(issue => issue.path[0] === 'captcha');
       return {
         success: false,
         error: 'Validation failed',
         fieldErrors: {
-          fullName: formatted.fullName?._errors[0] ?? '',
-          email: formatted.email?._errors[0] ?? '',
-          message: formatted.message?._errors[0] ?? '',
-          captcha: formatted.captcha?._errors[0] ?? '',
+          ...collectFieldErrors(parsed.error.issues),
+          ...(captchaIssue && { captcha: captchaIssue.message }),
         },
       };
     }
@@ -115,17 +114,6 @@ export async function sendMail(data: {
     );
     return { success: false, error: 'Failed to send email' };
   }
-}
-
-const CONTACT_FIELDS = ['fullName', 'email', 'message'] as const;
-
-function toFieldErrors(source: Record<string, string>): ContactFormState['fieldErrors'] {
-  const fieldErrors: ContactFormState['fieldErrors'] = {};
-  if (source['fullName']) fieldErrors.fullName = source['fullName'];
-  if (source['email']) fieldErrors.email = source['email'];
-  if (source['message']) fieldErrors.message = source['message'];
-  if (source['captcha']) fieldErrors.captcha = source['captcha'];
-  return fieldErrors;
 }
 
 /**
@@ -202,7 +190,7 @@ export async function sendMailAction(
       return {
         status: 'error',
         message: result.error ?? 'Please correct the errors in the form.',
-        fieldErrors: toFieldErrors(result.fieldErrors),
+        fieldErrors: result.fieldErrors,
       };
     }
 

@@ -50,6 +50,14 @@ export const DENIED_CONSENT: ConsentSettings = {
   personalization_storage: false,
 };
 
+/** Every optional category accepted; necessary storage is always granted. */
+export const GRANTED_CONSENT: ConsentSettings = {
+  ad_storage: true,
+  analytics_storage: true,
+  functionality_storage: true,
+  personalization_storage: true,
+};
+
 const toStatus = (value: boolean): ConsentStatus => (value ? 'granted' : 'denied');
 
 /** The Consent Mode v2 signals for a choice; advertising drives the EEA pair. */

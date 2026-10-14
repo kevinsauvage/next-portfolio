@@ -1,26 +1,14 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import TestimonialCard from '@/components/features/home/TestimonialCard';
+import type { Testimonial } from '@/config/content/testimonials';
 import { trackEvent } from '@/lib/analytics';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-
-type Testimonial = {
-  id: string;
-  author: {
-    name: string;
-    title: string;
-    company: string;
-    relationship: string;
-  };
-  content: string;
-  excerpt: string;
-  date: string;
-};
 
 type TestimonialsCarouselProps = {
   testimonials: Testimonial[];
@@ -31,71 +19,111 @@ const FOCUS_RING_CLASSES =
 const ANIMATION_DURATION = 400;
 const ANIMATION_RESET_DELAY = 50;
 
+type ArrowButtonProps = {
+  side: 'left' | 'right';
+  label: string;
+  disabled: boolean;
+  onClick: () => void;
+};
+
+const ArrowButton = ({ side, label, disabled, onClick }: ArrowButtonProps) => {
+  const Icon = side === 'left' ? ChevronLeft : ChevronRight;
+
+  return (
+    <button
+      onClick={onClick}
+      aria-disabled={disabled}
+      aria-label={label}
+      className={clsx(
+        'absolute top-1/2 -translate-y-1/2 z-20',
+        side === 'left'
+          ? 'left-0 -translate-x-1/2 md:-translate-x-0'
+          : 'right-0 translate-x-1/2 md:translate-x-0',
+        'p-2.5 md:p-3.5 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center',
+        'bg-zinc-900/95 backdrop-blur-md border border-zinc-700',
+        'hover:bg-zinc-800 hover:border-secondary-500/60 hover:shadow-lg hover:shadow-secondary-500/20',
+        'active:scale-90',
+        'transition-all duration-300 ease-out',
+        // `aria-disabled` (not `disabled`): the handlers already ignore input while
+        // animating, and disabling a focused control would drop the keyboard focus
+        // the arrow keys rely on.
+        'aria-disabled:opacity-50 aria-disabled:cursor-not-allowed aria-disabled:hover:scale-100',
+        'group shadow-lg md:shadow-xl'
+      )}
+    >
+      <Icon
+        size={16}
+        className='md:w-5 md:h-5 text-zinc-200 group-hover:text-secondary-400 group-hover:scale-110 transition-all duration-300'
+        aria-hidden='true'
+      />
+    </button>
+  );
+};
+
 const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonials }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [displayedIndex, setDisplayedIndex] = useState(0);
+  const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<'left' | 'right'>('right');
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const resetAnimation = useCallback(() => {
-    const timeoutId = setTimeout(() => {
-      setIsAnimating(false);
-    }, ANIMATION_RESET_DELAY);
-    return () => clearTimeout(timeoutId);
+  const timers = useRef<Set<ReturnType<typeof setTimeout>>>(new Set());
+
+  const schedule = useCallback((callback: () => void, delay: number) => {
+    const id = setTimeout(() => {
+      timers.current.delete(id);
+      callback();
+    }, delay);
+    timers.current.add(id);
   }, []);
 
-  const updateSlideIndex = useCallback(
-    (newIndex: number) => {
-      setCurrentIndex(newIndex);
-      setDisplayedIndex(newIndex);
-      resetAnimation();
+  useEffect(() => {
+    const pending = timers.current;
+    return () => {
+      for (const id of pending) clearTimeout(id);
+      pending.clear();
+    };
+  }, []);
+
+  /** Fades the slide out, swaps the index, then fades back in. */
+  const navigate = useCallback(
+    (target: number, slideDirection: 'left' | 'right') => {
+      setDirection(slideDirection);
+      setIsAnimating(true);
+      schedule(() => {
+        setIndex(target);
+        schedule(() => setIsAnimating(false), ANIMATION_RESET_DELAY);
+      }, ANIMATION_DURATION);
     },
-    [resetAnimation]
+    [schedule]
   );
 
   const goToSlide = useCallback(
-    (index: number) => {
-      if (index === currentIndex || isAnimating) return;
-      if (index < 0 || index >= testimonials.length) return;
-      trackEvent(ANALYTICS_EVENTS.TESTIMONIALS_CAROUSEL_DOT, { index: String(index) });
-      setDirection(index > currentIndex ? 'right' : 'left');
-      setIsAnimating(true);
-      setTimeout(() => {
-        updateSlideIndex(index);
-      }, ANIMATION_DURATION);
+    (target: number) => {
+      if (target === index || isAnimating) return;
+      if (target < 0 || target >= testimonials.length) return;
+      trackEvent(ANALYTICS_EVENTS.TESTIMONIALS_CAROUSEL_DOT, { index: String(target) });
+      navigate(target, target > index ? 'right' : 'left');
     },
-    [currentIndex, isAnimating, testimonials.length, updateSlideIndex]
+    [index, isAnimating, navigate, testimonials.length]
   );
 
-  const goToPrevious = useCallback(() => {
-    if (isAnimating) return;
-    trackEvent(ANALYTICS_EVENTS.TESTIMONIALS_CAROUSEL_ARROW, { direction: 'prev' });
-    setDirection('left');
-    setIsAnimating(true);
-    setTimeout(() => {
-      const prevIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
-      updateSlideIndex(prevIndex);
-    }, ANIMATION_DURATION);
-  }, [currentIndex, isAnimating, testimonials.length, updateSlideIndex]);
+  const step = useCallback(
+    (offset: 1 | -1) => {
+      if (isAnimating) return;
+      trackEvent(ANALYTICS_EVENTS.TESTIMONIALS_CAROUSEL_ARROW, {
+        direction: offset === 1 ? 'next' : 'prev',
+      });
+      navigate(
+        (index + offset + testimonials.length) % testimonials.length,
+        offset === 1 ? 'right' : 'left'
+      );
+    },
+    [index, isAnimating, navigate, testimonials.length]
+  );
 
-  const goToNext = useCallback(() => {
-    if (isAnimating) return;
-    trackEvent(ANALYTICS_EVENTS.TESTIMONIALS_CAROUSEL_ARROW, { direction: 'next' });
-    setDirection('right');
-    setIsAnimating(true);
-    setTimeout(() => {
-      const nextIndex = (currentIndex + 1) % testimonials.length;
-      updateSlideIndex(nextIndex);
-    }, ANIMATION_DURATION);
-  }, [currentIndex, isAnimating, testimonials.length, updateSlideIndex]);
+  const goToPrevious = useCallback(() => step(-1), [step]);
+  const goToNext = useCallback(() => step(1), [step]);
 
-  const currentTestimonial = useMemo(() => {
-    if (displayedIndex < 0 || displayedIndex >= testimonials.length) {
-      return null;
-    }
-
-    return testimonials.at(displayedIndex) ?? null;
-  }, [testimonials, displayedIndex]);
+  const currentTestimonial = testimonials.at(index) ?? null;
 
   /**
    * Arrow keys move the carousel whenever focus is inside it: the event bubbles
@@ -140,58 +168,24 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
       <div className='relative px-0 md:px-12 lg:px-20'>
         {testimonials.length > 1 && (
           <>
-            <button
+            <ArrowButton
+              side='left'
+              label='Previous testimonial'
+              disabled={isAnimating}
               onClick={goToPrevious}
-              aria-disabled={isAnimating}
-              aria-label='Previous testimonial'
-              className={clsx(
-                'absolute left-0 -translate-x-1/2 md:-translate-x-0 top-1/2 -translate-y-1/2 z-20',
-                'p-2.5 md:p-3.5 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center',
-                'bg-zinc-900/95 backdrop-blur-md border border-zinc-700',
-                'hover:bg-zinc-800 hover:border-secondary-500/60 hover:shadow-lg hover:shadow-secondary-500/20',
-                'active:scale-90',
-                'transition-all duration-300 ease-out',
-                // `aria-disabled` (not `disabled`): the handlers already ignore
-                // input while animating, and disabling a focused control would
-                // drop the keyboard focus the arrow keys rely on.
-                'aria-disabled:opacity-50 aria-disabled:cursor-not-allowed aria-disabled:hover:scale-100',
-                'group shadow-lg md:shadow-xl'
-              )}
-            >
-              <ChevronLeft
-                size={16}
-                className='md:w-5 md:h-5 text-zinc-200 group-hover:text-secondary-400 group-hover:scale-110 transition-all duration-300'
-                aria-hidden='true'
-              />
-            </button>
-
-            <button
+            />
+            <ArrowButton
+              side='right'
+              label='Next testimonial'
+              disabled={isAnimating}
               onClick={goToNext}
-              aria-disabled={isAnimating}
-              aria-label='Next testimonial'
-              className={clsx(
-                'absolute right-0 translate-x-1/2 md:translate-x-0 top-1/2 -translate-y-1/2 z-20',
-                'p-2.5 md:p-3.5 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center',
-                'bg-zinc-900/95 backdrop-blur-md border border-zinc-700',
-                'hover:bg-zinc-800 hover:border-secondary-500/60 hover:shadow-lg hover:shadow-secondary-500/20',
-                'active:scale-90',
-                'transition-all duration-300 ease-out',
-                'aria-disabled:opacity-50 aria-disabled:cursor-not-allowed aria-disabled:hover:scale-100',
-                'group shadow-lg md:shadow-xl'
-              )}
-            >
-              <ChevronRight
-                size={16}
-                className='md:w-5 md:h-5 text-zinc-200 group-hover:text-secondary-400 group-hover:scale-110 transition-all duration-300'
-                aria-hidden='true'
-              />
-            </button>
+            />
           </>
         )}
 
         <section
           aria-roledescription='slide'
-          aria-label={`Testimonial ${displayedIndex + 1} of ${testimonials.length}`}
+          aria-label={`Testimonial ${index + 1} of ${testimonials.length}`}
           aria-live='polite'
           aria-atomic='true'
           className={clsx(
@@ -212,7 +206,7 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
               content={currentTestimonial.content}
               excerpt={currentTestimonial.excerpt}
               date={currentTestimonial.date}
-              index={displayedIndex}
+              index={index}
               variant='carousel'
               totalCount={testimonials.length}
             />
@@ -222,14 +216,14 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
 
       {testimonials.length > 1 && (
         <div className='flex justify-center items-center gap-1 md:gap-2 mt-4 md:mt-6'>
-          {testimonials.map((testimonial, index) => {
-            const isActive = index === currentIndex;
+          {testimonials.map((testimonial, slideIndex) => {
+            const isActive = slideIndex === index;
             return (
               <button
-                key={testimonial?.id ?? `testimonial-${index}`}
-                onClick={() => goToSlide(index)}
+                key={testimonial?.id ?? `testimonial-${slideIndex}`}
+                onClick={() => goToSlide(slideIndex)}
                 aria-disabled={isAnimating}
-                aria-label={`Go to testimonial ${index + 1}`}
+                aria-label={`Go to testimonial ${slideIndex + 1}`}
                 aria-current={isActive ? 'true' : undefined}
                 className={clsx(
                   'flex h-11 w-11 items-center justify-center rounded-full transition-opacity duration-300',

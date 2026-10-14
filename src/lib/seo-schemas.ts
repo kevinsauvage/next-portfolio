@@ -1,9 +1,9 @@
 import { projects } from '@/config/content/projects';
+import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, PERSON_NAME, SITE_URL } from '@/config/site';
 
-export const SITE_URL = 'https://www.kevin-sauvage.com' as const;
+export { PERSON_NAME, SITE_URL };
 // Bump this when site content changes so crawlers see a meaningful `lastModified`.
 export const SITE_LAST_MODIFIED = '2026-10-14' as const;
-export const PERSON_NAME = 'Kévin Sauvage' as const;
 export const FRONTEND_DEVELOPER = 'Frontend Software Engineer' as const;
 export const SCHEMA_CONTEXT = 'https://schema.org' as const;
 
@@ -20,7 +20,7 @@ export const personSchema = {
   '@type': 'Person',
   name: PERSON_NAME,
   jobTitle: FRONTEND_DEVELOPER,
-  email: 'kevinsauvage@outlook.com',
+  email: CONTACT_EMAIL,
   url: SITE_URL,
   description: 'Frontend software engineer in Barcelona, building accessible, fast web products.',
   about:
@@ -60,11 +60,7 @@ export const personSchema = {
     'SEO',
     'User Experience',
   ],
-  sameAs: [
-    'https://www.linkedin.com/in/kevin-sauvage',
-    'https://github.com/kevinsauvage',
-    SITE_URL,
-  ],
+  sameAs: [LINKEDIN_URL, GITHUB_URL, SITE_URL],
 } as const;
 
 export const websiteSchema = {

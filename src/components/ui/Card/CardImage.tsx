@@ -2,11 +2,18 @@ import Image from 'next/image';
 
 import clsx from 'clsx';
 
+const ASPECT_CLASSES = {
+  square: 'aspect-square',
+  video: 'aspect-video',
+  wide: 'aspect-[16/10]',
+  auto: '',
+} as const;
+
 type CardImageProps = {
   src: string;
   alt: string;
   className?: string;
-  aspectRatio?: 'square' | 'video' | 'wide' | 'auto';
+  aspectRatio?: keyof typeof ASPECT_CLASSES;
   objectFit?: 'cover' | 'contain' | 'fill';
   priority?: boolean;
   sizes?: string;
@@ -30,33 +37,12 @@ export const CardImage = ({
   unoptimized = false,
   blurDataURL,
 }: CardImageProps) => {
-  const aspectClasses = {
-    square: 'aspect-square',
-    video: 'aspect-video',
-    wide: 'aspect-[16/10]',
-    auto: '',
-  } as const;
-
-  const aspectClass = (() => {
-    switch (aspectRatio) {
-      case 'square':
-        return aspectClasses.square;
-      case 'video':
-        return aspectClasses.video;
-      case 'wide':
-        return aspectClasses.wide;
-      case 'auto':
-        return aspectClasses.auto;
-      default:
-        return aspectClasses.video;
-    }
-  })();
-
   return (
     <div
       className={clsx(
         'relative w-full rounded-lg overflow-hidden border border-zinc-800 group-hover:border-primary-500/50 group-focus-within:border-primary-500/50 transition-all duration-300 shadow-lg group-hover:shadow-glow-md group-focus-within:shadow-glow-md',
-        aspectClass,
+        // eslint-disable-next-line security/detect-object-injection -- keyed by a typed union
+        ASPECT_CLASSES[aspectRatio],
         className
       )}
     >

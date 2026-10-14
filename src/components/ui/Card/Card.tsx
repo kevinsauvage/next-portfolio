@@ -4,8 +4,36 @@ import MeshGradient from '@/components/shared/MeshGradient';
 
 import clsx from 'clsx';
 
-type CardSize = 'sm' | 'md' | 'lg';
-type HoverEffect = 'none' | 'subtle' | 'standard' | 'pronounced';
+const HOVER_TRANSFORM_SM = 'translateY(-4px) scale(1.01)';
+
+const PADDING_CLASSES = {
+  sm: 'p-4 sm:p-5',
+  md: 'p-6 sm:p-7 md:p-8',
+  lg: 'p-8 sm:p-10 md:p-12',
+} as const;
+
+const HOVER_CLASSES = {
+  none: '',
+  subtle: 'hover:shadow-glow-sm focus-within:shadow-glow-sm',
+  standard: 'hover:shadow-glow-md focus-within:shadow-glow-md',
+  pronounced: 'hover:shadow-glow-lg focus-within:shadow-glow-lg',
+} as const;
+
+const HOVER_TRANSFORMS = {
+  none: '',
+  subtle: HOVER_TRANSFORM_SM,
+  standard: HOVER_TRANSFORM_SM,
+  pronounced: 'translateY(-8px) scale(1.02)',
+} as const;
+
+const HOVER_TRANSFORMS_MD = {
+  ...HOVER_TRANSFORMS,
+  standard: 'translateY(-8px) scale(1.01)',
+  pronounced: 'translateY(-12px) scale(1.02)',
+} as const;
+
+type CardSize = keyof typeof PADDING_CLASSES;
+type HoverEffect = keyof typeof HOVER_CLASSES;
 type GlowVariant =
   'none' | 'primary-secondary' | 'secondary-accent' | 'primary-only' | 'secondary-only';
 
@@ -29,98 +57,17 @@ export const Card = ({
   as: Component = 'article',
   ...props
 }: CardProps) => {
-  const HOVER_TRANSFORM_SM = 'translateY(-4px) scale(1.01)';
-  const paddingClasses = {
-    sm: 'p-4 sm:p-5',
-    md: 'p-6 sm:p-7 md:p-8',
-    lg: 'p-8 sm:p-10 md:p-12',
-  };
-
-  const hoverClasses = {
-    none: '',
-    subtle: 'hover:shadow-glow-sm focus-within:shadow-glow-sm',
-    standard: 'hover:shadow-glow-md focus-within:shadow-glow-md ',
-    pronounced: 'hover:shadow-glow-lg focus-within:shadow-glow-lg',
-  };
-
-  const hoverTransforms = {
-    none: '',
-    subtle: HOVER_TRANSFORM_SM,
-    standard: HOVER_TRANSFORM_SM,
-    pronounced: 'translateY(-8px) scale(1.02)',
-  };
-
-  const hoverTransformsMd = {
-    none: '',
-    subtle: HOVER_TRANSFORM_SM,
-    standard: 'translateY(-8px) scale(1.01)',
-    pronounced: 'translateY(-12px) scale(1.02)',
-  };
-
+  /* eslint-disable security/detect-object-injection -- all keyed by typed unions */
+  const animationDelay = animationIndex !== undefined ? Math.min(animationIndex * 100, 800) : 0;
   const baseClasses = clsx(
     'relative overflow-hidden',
     hover !== 'none' && 'transition-all duration-300 ease-out',
-    (() => {
-      switch (hover) {
-        case 'none':
-          return hoverClasses.none;
-        case 'subtle':
-          return hoverClasses.subtle;
-        case 'standard':
-          return hoverClasses.standard;
-        case 'pronounced':
-          return hoverClasses.pronounced;
-        default:
-          return hoverClasses.standard;
-      }
-    })()
+    HOVER_CLASSES[hover]
   );
-
-  const animationDelay = animationIndex !== undefined ? Math.min(animationIndex * 100, 800) : 0;
-
-  const paddingClass = (() => {
-    switch (size) {
-      case 'sm':
-        return paddingClasses.sm;
-      case 'md':
-        return paddingClasses.md;
-      case 'lg':
-        return paddingClasses.lg;
-      default:
-        return paddingClasses.md;
-    }
-  })();
-
-  const hoverTransform = (() => {
-    switch (hover) {
-      case 'none':
-        return '';
-      case 'subtle':
-        return hoverTransforms.subtle;
-      case 'standard':
-        return hoverTransforms.standard;
-      case 'pronounced':
-        return hoverTransforms.pronounced;
-      default:
-        return hoverTransforms.standard;
-    }
-  })();
-  const hoverTransformMd = (() => {
-    switch (hover) {
-      case 'none':
-        return '';
-      case 'subtle':
-        return hoverTransformsMd.subtle;
-      case 'standard':
-        return hoverTransformsMd.standard;
-      case 'pronounced':
-        return hoverTransformsMd.pronounced;
-      default:
-        return hoverTransformsMd.standard;
-    }
-  })();
-
-  const contentClasses = clsx('h-full w-full relative z-10', paddingClass);
+  const contentClasses = clsx('h-full w-full relative z-10', PADDING_CLASSES[size]);
+  const hoverTransform = HOVER_TRANSFORMS[hover];
+  const hoverTransformMd = HOVER_TRANSFORMS_MD[hover];
+  /* eslint-enable security/detect-object-injection */
 
   return (
     <Component

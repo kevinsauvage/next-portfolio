@@ -5,28 +5,18 @@ import clsx from 'clsx';
 type CardContentProps = {
   children: ReactNode;
   className?: string;
-  spacing?: 'sm' | 'md' | 'lg';
+  spacing?: keyof typeof SPACING_CLASSES;
 };
 
-export const CardContent = ({ children, className, spacing = 'md' }: CardContentProps) => {
-  const spacingClasses = {
-    sm: 'space-y-3',
-    md: 'space-y-4',
-    lg: 'space-y-6',
-  } as const;
+const SPACING_CLASSES = {
+  sm: 'space-y-3',
+  md: 'space-y-4',
+  lg: 'space-y-6',
+} as const;
 
-  const spacingClass = (() => {
-    switch (spacing) {
-      case 'sm':
-        return spacingClasses.sm;
-      case 'md':
-        return spacingClasses.md;
-      case 'lg':
-        return spacingClasses.lg;
-    }
-  })();
-
-  return <div className={clsx(spacingClass, className)}>{children}</div>;
-};
+export const CardContent = ({ children, className, spacing = 'md' }: CardContentProps) => (
+  // eslint-disable-next-line security/detect-object-injection -- keyed by a typed union
+  <div className={clsx(SPACING_CLASSES[spacing], className)}>{children}</div>
+);
 
 export default CardContent;

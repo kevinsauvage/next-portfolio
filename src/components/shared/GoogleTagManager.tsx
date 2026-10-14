@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
 
 import {
@@ -38,6 +38,7 @@ const GoogleTagManager = ({ ga4MeasurementId, gtmId, nonce }: Properties) => {
   const measurementId = normalizeMeasurementId(ga4MeasurementId);
   const containerId = normalizeGtmId(gtmId);
   const [hasConsent, setHasConsent] = useState(false);
+  const bootstrapped = useRef(false);
 
   useEffect(() => {
     const sync = () => {
@@ -52,7 +53,10 @@ const GoogleTagManager = ({ ga4MeasurementId, gtmId, nonce }: Properties) => {
   }, []);
 
   useEffect(() => {
-    if (hasConsent && measurementId) pushGoogleTagBootstrap(measurementId);
+    // Once per page load: re-granting consent must not queue a second config/page_view.
+    if (!hasConsent || !measurementId || bootstrapped.current) return;
+    bootstrapped.current = true;
+    pushGoogleTagBootstrap(measurementId);
   }, [hasConsent, measurementId]);
 
   if (!hasConsent) return null;

@@ -1,11 +1,9 @@
-import { headers } from 'next/headers';
-
-import type { Project } from '@/config/content/projects';
+import JsonLd from '@/components/shared/JsonLd';
+import { getProjectUrl, type Project } from '@/config/content/projects';
 import { PERSON_NAME, SCHEMA_CONTEXT, SITE_URL } from '@/lib/seo-schemas';
 
-const ProjectStructuredData = async ({ project }: { project: Project }) => {
-  const nonce = (await headers()).get('x-nonce') ?? undefined;
-  const url = `${SITE_URL}/projects/${project.slug}`;
+const ProjectStructuredData = ({ project }: { project: Project }) => {
+  const url = getProjectUrl(project.slug);
   const description = project.caseStudy?.tagline ?? project.description;
 
   const breadcrumbSchema = {
@@ -30,22 +28,7 @@ const ProjectStructuredData = async ({ project }: { project: Project }) => {
     ...(project.caseStudy?.tagline ? { abstract: project.caseStudy.tagline } : {}),
   };
 
-  return (
-    <>
-      <script
-        type='application/ld+json'
-        nonce={nonce}
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type='application/ld+json'
-        nonce={nonce}
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(workSchema) }}
-      />
-    </>
-  );
+  return <JsonLd data={[breadcrumbSchema, workSchema]} />;
 };
 
 export default ProjectStructuredData;

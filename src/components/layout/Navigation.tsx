@@ -2,18 +2,14 @@
 
 import Link from 'next/link';
 
-import { layout } from '@/config/content';
+import { layout, NAVIGATION_SECTION_IDS, sectionIdFromHref } from '@/config/content';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import clsx from 'clsx';
 
-const sectionIdFromHref = (href: string) => href.replace(/^\/#/, '');
-
-const SECTION_IDS = layout.header.navigation.items.map(({ href }) => sectionIdFromHref(href));
-
 const Navigation = () => {
-  const activeId = useActiveSection(SECTION_IDS);
+  const activeId = useActiveSection(NAVIGATION_SECTION_IDS);
 
   return (
     <nav className='flex items-center' aria-label='Primary'>

@@ -12,9 +12,12 @@ import { trackEvent } from '@/lib/analytics';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 import {
   collectFieldErrors,
+  CONTACT_FIELD_LIMITS,
+  CONTACT_FIELDS,
   type ContactFieldErrors,
   contactFieldsSchema,
   type ContactFieldValues,
+  isContactField,
 } from '@/schemas/contact-fields.schema';
 
 import { CheckCircle2, LucideSend, RotateCcw } from 'lucide-react';
@@ -30,23 +33,10 @@ const getFormString = (data: FormData, key: string): string => {
   return typeof value === 'string' ? value : '';
 };
 
-const readValues = (data: FormData): ContactFieldValues => ({
-  fullName: getFormString(data, 'fullName'),
-  email: getFormString(data, 'email'),
-  message: getFormString(data, 'message'),
-});
-
-type ContactFieldName = 'fullName' | 'email' | 'message';
-
-const getContactFieldSchema = (name: ContactFieldName) => {
-  if (name === 'fullName') {
-    return contactFieldsSchema.shape.fullName;
-  }
-  if (name === 'email') {
-    return contactFieldsSchema.shape.email;
-  }
-  return contactFieldsSchema.shape.message;
-};
+const readValues = (data: FormData): ContactFieldValues =>
+  Object.fromEntries(
+    CONTACT_FIELDS.map(field => [field, getFormString(data, field)])
+  ) as ContactFieldValues;
 
 const ContactForm = () => {
   const [formState, formAction, isPending] = useActionState<ContactFormState, FormData>(
@@ -59,7 +49,7 @@ const ContactForm = () => {
   const [isSent, setIsSent] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const successRef = useRef<HTMLDivElement | null>(null);
-  const prevStatusRef = useRef<ContactFormState['status']>('idle');
+  const prevStateRef = useRef<ContactFormState>(initialContactFormState);
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const isSubmitting = isPending || isGettingCaptcha;
@@ -73,30 +63,24 @@ const ContactForm = () => {
   const fieldErrorAnnouncement = firstErrorMessage ? `Validation error: ${firstErrorMessage}` : '';
 
   const focusFirstInvalidField = useCallback((errors: ContactFieldErrors) => {
-    let firstInvalidField: 'fullName' | 'email' | 'message' | undefined;
-    if (errors.fullName) {
-      firstInvalidField = 'fullName';
-    } else if (errors.email) {
-      firstInvalidField = 'email';
-    } else if (errors.message) {
-      firstInvalidField = 'message';
-    }
+    // eslint-disable-next-line security/detect-object-injection -- key narrowed to ContactFieldName
+    const firstInvalidField = CONTACT_FIELDS.find(field => errors[field]);
     if (!firstInvalidField) return;
     const element = formRef.current?.elements.namedItem(firstInvalidField);
     if (element instanceof HTMLElement) element.focus();
   }, []);
 
   useEffect(() => {
-    const prev = prevStatusRef.current;
-    if (prev !== 'success' && formState.status === 'success') {
+    const isNewResult = prevStateRef.current !== formState;
+    prevStateRef.current = formState;
+    if (isNewResult && formState.status === 'success') {
       trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_SUBMIT_SUCCESS);
     }
-    if (prev !== 'error' && formState.status === 'error') {
+    if (isNewResult && formState.status === 'error') {
       trackEvent(ANALYTICS_EVENTS.CONTACT_FORM_SUBMIT_ERROR, {
         message: formState.message ?? 'unknown',
       });
     }
-    prevStatusRef.current = formState.status;
 
     switch (formState.status) {
       case 'success': {
@@ -134,24 +118,17 @@ const ContactForm = () => {
 
   const handleFieldBlur = (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
-    if (name !== 'fullName' && name !== 'email' && name !== 'message') return;
+    if (!isContactField(name)) return;
     // Avoid shouting "required" before the user has attempted to submit.
     if (!hasSubmitted && value.trim() === '') return;
 
-    const fieldSchema = getContactFieldSchema(name);
-    const result = fieldSchema.safeParse(value);
+    // eslint-disable-next-line security/detect-object-injection -- key narrowed to ContactFieldName
+    const result = contactFieldsSchema.shape[name].safeParse(value);
     setClientErrors(previous => {
-      if (result.success) {
-        const next = { ...previous };
-        if (name === 'fullName') delete next.fullName;
-        else if (name === 'email') delete next.email;
-        else delete next.message;
-        return next;
-      }
-      const message = result.error.issues[0]?.message ?? 'Invalid value';
-      if (name === 'fullName') return { ...previous, fullName: message };
-      if (name === 'email') return { ...previous, email: message };
-      return { ...previous, message };
+      const { [name]: _removed, ...rest } = previous;
+      return result.success
+        ? rest
+        : { ...rest, [name]: result.error.issues[0]?.message ?? 'Invalid value' };
     });
   };
 
@@ -259,6 +236,7 @@ const ContactForm = () => {
             placeholder='ex: John Doe'
             required
             minLength={2}
+            maxLength={CONTACT_FIELD_LIMITS.fullName}
             aria-required='true'
             aria-invalid={!!fieldErrors.fullName}
             aria-describedby={fieldErrors.fullName ? 'fullName-error' : undefined}
@@ -278,6 +256,7 @@ const ContactForm = () => {
             type='email'
             placeholder='ex: johndoe@gmail.com'
             required
+            maxLength={CONTACT_FIELD_LIMITS.email}
             aria-required='true'
             aria-invalid={!!fieldErrors.email}
             aria-describedby={fieldErrors.email ? 'email-error' : undefined}
@@ -296,7 +275,7 @@ const ContactForm = () => {
             name='message'
             placeholder='Share your thoughts or ask a question'
             required
-            minLength={10}
+            maxLength={CONTACT_FIELD_LIMITS.message}
             aria-required='true'
             aria-invalid={!!fieldErrors.message}
             aria-describedby={fieldErrors.message ? 'message-error' : undefined}
@@ -319,7 +298,6 @@ const ContactForm = () => {
           disabled={isSubmitting}
           variant='primary'
           size='md'
-          aria-live='polite'
         />
 
         <p className='text-xs leading-relaxed text-zinc-500'>

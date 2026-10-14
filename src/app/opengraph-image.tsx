@@ -1,6 +1,8 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'Kévin Sauvage — Frontend Software Engineer';
+import { PERSON_NAME, SITE_URL } from '@/config/site';
+
+export const alt = `${PERSON_NAME} — Frontend Software Engineer`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -20,12 +22,12 @@ const OgImage = () =>
       }}
     >
       <div style={{ display: 'flex', fontSize: 28, color: '#a1a1aa', letterSpacing: 2 }}>
-        kevin-sauvage.com
+        {new URL(SITE_URL).hostname.replace(/^www\./, '')}
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
         <div style={{ display: 'flex', fontSize: 78, fontWeight: 700, lineHeight: 1.05 }}>
-          Kévin Sauvage
+          {PERSON_NAME}
         </div>
         <div style={{ display: 'flex', fontSize: 40, color: '#818cf8' }}>
           Frontend Software Engineer — Web Accessibility & Performance

@@ -38,6 +38,13 @@ export const contactFieldsSchema = z.object({
     }),
 });
 
+export const CONTACT_FIELDS = ['fullName', 'email', 'message'] as const;
+
+export type ContactFieldName = (typeof CONTACT_FIELDS)[number];
+
+export const isContactField = (key: unknown): key is ContactFieldName =>
+  CONTACT_FIELDS.some(field => field === key);
+
 export type ContactFieldValues = z.infer<typeof contactFieldsSchema>;
 
 export type ContactFieldErrors = Partial<Record<keyof ContactFieldValues, string>>;
@@ -49,9 +56,8 @@ export const collectFieldErrors = (
   const errors: ContactFieldErrors = {};
   for (const issue of issues) {
     const key = issue.path[0];
-    if (key === 'fullName' && !errors.fullName) errors.fullName = issue.message;
-    else if (key === 'email' && !errors.email) errors.email = issue.message;
-    else if (key === 'message' && !errors.message) errors.message = issue.message;
+    // eslint-disable-next-line security/detect-object-injection -- key narrowed to ContactFieldName
+    if (isContactField(key) && !errors[key]) errors[key] = issue.message;
   }
   return errors;
 };

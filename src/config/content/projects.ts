@@ -1,3 +1,5 @@
+import { SITE_URL } from '@/config/site';
+
 export type ProjectFeature = {
   title: string;
   description: string;
@@ -374,5 +376,11 @@ const complyLoopProject: Project = {
 };
 
 export const projects: Project[] = [myEcommerceProject, complyLoopProject];
+
+export const getProjectBySlug = (slug: string): Project | undefined =>
+  projects.find(candidate => candidate.slug === slug);
+
+/** Absolute canonical URL of a project's case-study page. */
+export const getProjectUrl = (slug: string): string => `${SITE_URL}/projects/${slug}`;
 
 export default projects;

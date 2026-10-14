@@ -1,6 +1,5 @@
-import { headers } from 'next/headers';
-
 import { consentSignals, DENIED_CONSENT } from '@/lib/consent';
+import { getNonce } from '@/lib/csp-nonce';
 
 /**
  * Consent Mode v2 starting state: every optional category denied until the
@@ -16,7 +15,7 @@ const DEFAULT_CONSENT = { ...consentSignals(DENIED_CONSENT), wait_for_update: 50
  * inline safe here (see `src/proxy.ts`).
  */
 const ConsentModeDefaults = async () => {
-  const nonce = (await headers()).get('x-nonce') ?? undefined;
+  const nonce = await getNonce();
   const snippet = [
     'window.dataLayer=window.dataLayer||[];',
     'function gtag(){window.dataLayer.push(arguments);}',

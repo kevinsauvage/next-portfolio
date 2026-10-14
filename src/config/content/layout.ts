@@ -1,42 +1,45 @@
+import { PERSON_NAME } from '@/config/site';
+
+const navigationItems = [
+  { href: '/#home', label: 'Home' },
+  { href: '/#about', label: 'About' },
+  { href: '/#career', label: 'Career' },
+  { href: '/#testimonials', label: 'Testimonials' },
+  { href: '/#portfolio', label: 'Portfolio' },
+  { href: '/#certifications', label: 'Certifications' },
+  { href: '/#contact', label: 'Contact' },
+] as const;
+
+const resumeLabel = 'Resume';
+
+/** `'/#about'` → `'about'`. */
+export const sectionIdFromHref = (href: string): string => href.replace(/^\/#/, '');
+
 export const layout = {
   header: {
     /** Public path to PDF in `/public` */
     resumeHref: '/kevin_sauvage_resume.pdf',
-    ctaButton: 'Resume',
+    ctaButton: resumeLabel,
     mobileMenu: {
       title: 'Navigation',
       subtitle: 'Explore my portfolio',
       closeButton: 'Close menu',
       openButton: 'Open menu',
-      ctaButton: 'Resume',
+      ctaButton: resumeLabel,
     },
     navigation: {
-      items: [
-        { href: '/#home', label: 'Home' },
-        { href: '/#about', label: 'About' },
-        { href: '/#career', label: 'Career' },
-        { href: '/#testimonials', label: 'Testimonials' },
-        { href: '/#portfolio', label: 'Portfolio' },
-        { href: '/#certifications', label: 'Certifications' },
-        { href: '/#contact', label: 'Contact' },
-      ],
+      items: navigationItems,
     },
   },
   footer: {
-    name: 'Kévin Sauvage',
+    name: PERSON_NAME,
     tagline:
       'Frontend Software Engineer at Keolis Group (remote), based in Barcelona. I build fast, accessible web products that people enjoy using.',
     sections: {
       quickLinks: {
         title: 'Quick Links',
         links: [
-          { name: 'Home', href: '/#home' },
-          { name: 'About', href: '/#about' },
-          { name: 'Career', href: '/#career' },
-          { name: 'Testimonials', href: '/#testimonials' },
-          { name: 'Portfolio', href: '/#portfolio' },
-          { name: 'Certifications', href: '/#certifications' },
-          { name: 'Contact', href: '/#contact' },
+          ...navigationItems.map(({ href, label }) => ({ href, name: label })),
           { name: 'Privacy', href: '/privacy' },
         ],
       },
@@ -72,3 +75,5 @@ export const layout = {
 } as const;
 
 export type LayoutConfig = typeof layout;
+
+export const NAVIGATION_SECTION_IDS = navigationItems.map(({ href }) => sectionIdFromHref(href));

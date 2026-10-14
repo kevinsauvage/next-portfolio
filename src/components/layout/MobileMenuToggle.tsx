@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 import ContactInfo from '@/components/shared/ContactInfo';
 import { BodySmall, H4 } from '@/components/ui/Typography';
-import { layout } from '@/config/content';
+import { layout, NAVIGATION_SECTION_IDS, sectionIdFromHref } from '@/config/content';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
@@ -14,13 +14,10 @@ import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 import clsx from 'clsx';
 import { ChevronRight, MenuIcon, X } from 'lucide-react';
 
-const sectionIdFromHref = (href: string) => href.replace(/^\/#/, '');
-const SECTION_IDS = layout.header.navigation.items.map(({ href }) => sectionIdFromHref(href));
-
 const MobileMenuToggle = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const activeId = useActiveSection(SECTION_IDS);
+  const activeId = useActiveSection(NAVIGATION_SECTION_IDS);
   const closeMenu = useCallback(() => setMenuOpen(false), []);
   const mobileMenuRef = useFocusTrap(menuOpen, closeMenu);
 
@@ -30,7 +27,11 @@ const MobileMenuToggle = () => {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
+    if (!menuOpen) return;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [menuOpen]);
 
   const toggleMenu = () => setMenuOpen(previous => !previous);

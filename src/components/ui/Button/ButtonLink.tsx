@@ -1,22 +1,31 @@
-'use client';
-
 import Link from 'next/link';
 
-import { trackEvent } from '@/lib/analytics';
-
+import ButtonContent from './ButtonContent';
 import { type ButtonSize, type ButtonVariant, getButtonClasses } from './buttonStyles';
-
-import clsx from 'clsx';
 
 type ButtonLinkProps = {
   label: string;
   svg?: React.ReactNode;
   variant?: ButtonVariant;
+  /** Analytics event name; sent by the delegated listener in `AnalyticsTracker`. */
   eventName?: string;
+  /** Extra event properties, emitted as `data-analytics-*` attributes. */
   eventProperties?: Record<string, string>;
   size?: ButtonSize;
-  disabled?: boolean;
 } & React.ComponentPropsWithoutRef<typeof Link>;
+
+const analyticsAttributes = (
+  eventName: string | undefined,
+  eventProperties: Record<string, string> | undefined
+): Record<string, string> => {
+  if (!eventName) return {};
+
+  const attributes: Record<string, string> = { 'data-analytics-event': eventName };
+  for (const [key, value] of Object.entries(eventProperties ?? {})) {
+    attributes[`data-analytics-${key.replaceAll('_', '-')}`] = value;
+  }
+  return attributes;
+};
 
 const ButtonLink = ({
   variant = 'primary',
@@ -24,48 +33,17 @@ const ButtonLink = ({
   svg,
   size = 'md',
   className,
-  disabled,
   eventName,
   eventProperties,
-  onClick,
   ...rest
-}: ButtonLinkProps) => {
-  const buttonClasses = getButtonClasses(variant, size, false, className);
-
-  const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
-    if (disabled) {
-      event.preventDefault();
-      return;
-    }
-    onClick?.(event);
-    if (eventName) {
-      trackEvent(eventName, eventProperties);
-    }
-  };
-
-  const buttonContent = (
-    <span className='w-full flex items-center justify-center gap-2 relative z-10'>
-      {label}
-      <span className='transition-transform duration-300 group-hover:translate-x-1 group-hover:rotate-6'>
-        {svg}
-      </span>
-    </span>
-  );
-
-  return (
-    <Link
-      className={clsx(
-        buttonClasses,
-        disabled && 'pointer-events-none opacity-50 cursor-not-allowed'
-      )}
-      onClick={handleClick}
-      aria-label={label}
-      aria-disabled={disabled}
-      {...rest}
-    >
-      {buttonContent}
-    </Link>
-  );
-};
+}: ButtonLinkProps) => (
+  <Link
+    className={getButtonClasses(variant, size, false, className)}
+    {...analyticsAttributes(eventName, eventProperties)}
+    {...rest}
+  >
+    <ButtonContent label={label} svg={svg} />
+  </Link>
+);
 
 export default ButtonLink;

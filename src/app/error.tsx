@@ -22,7 +22,6 @@ const ErrorPage = ({ error, reset }: ErrorProps) => {
   useEffect(() => {
     Sentry.captureException(error);
     trackEvent(ANALYTICS_EVENTS.APP_ERROR_BOUNDARY, {
-      message: error.message,
       digest: error.digest ?? '',
     });
     console.error('Application error:', error);

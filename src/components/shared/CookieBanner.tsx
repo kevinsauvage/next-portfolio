@@ -8,21 +8,15 @@ import { type CookieCategoryName, cookies as copy } from '@/config/content';
 import {
   consentFromFormData,
   type ConsentSettings,
+  DENIED_CONSENT,
   dispatchConsentUpdated,
+  GRANTED_CONSENT,
   readStoredConsent,
   writeStoredConsent,
 } from '@/lib/consent';
 
 import clsx from 'clsx';
 import { X } from 'lucide-react';
-
-/** Accept or reject every optional category; necessary storage is always granted. */
-const allCategories = (granted: boolean): ConsentSettings => ({
-  ad_storage: granted,
-  analytics_storage: granted,
-  functionality_storage: true,
-  personalization_storage: granted,
-});
 
 /**
  * Pre-ticked boxes are not valid consent, so an optional category starts
@@ -61,8 +55,8 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
     dispatchConsentUpdated();
   }, []);
 
-  const acceptAll = useCallback(() => save(allCategories(true)), [save]);
-  const rejectAll = useCallback(() => save(allCategories(false)), [save]);
+  const acceptAll = useCallback(() => save(GRANTED_CONSENT), [save]);
+  const rejectAll = useCallback(() => save(DENIED_CONSENT), [save]);
 
   const closePreferences = useCallback(() => {
     setShowPreferences(false);

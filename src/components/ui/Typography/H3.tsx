@@ -1,16 +1,13 @@
-import type { ElementType, ReactNode } from 'react';
+import { headingColor, type HeadingProps } from './typography';
 
 import clsx from 'clsx';
 
-type BaseTypographyProps = {
-  children: ReactNode;
-  className?: string;
-  as?: ElementType;
-  gradient?: boolean;
-  size?: 'default' | 'sm';
-};
+type H3Props = HeadingProps & { size?: 'default' | 'sm' };
 
-type TypographyProps = BaseTypographyProps & React.HTMLAttributes<HTMLElement>;
+const SIZES = {
+  default: 'text-2xl md:text-3xl',
+  sm: 'text-xl md:text-2xl',
+} as const;
 
 export const H3 = ({
   children,
@@ -19,18 +16,19 @@ export const H3 = ({
   gradient,
   size = 'default',
   ...props
-}: TypographyProps) => {
-  const fontSize = size === 'sm' ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl';
-  const otherStyles = 'leading-snug font-semibold font-heading tracking-tight';
-  const textColor = gradient
-    ? 'bg-gradient-to-r from-primary-400 via-secondary-500 to-accent-500 text-transparent bg-clip-text'
-    : 'text-zinc-50';
-
-  return (
-    <Component className={clsx(fontSize, otherStyles, textColor, className)} {...props}>
-      {children}
-    </Component>
-  );
-};
+}: H3Props) => (
+  <Component
+    className={clsx(
+      // eslint-disable-next-line security/detect-object-injection -- keyed by the typed size union
+      SIZES[size],
+      'leading-snug font-semibold font-heading tracking-tight',
+      headingColor(gradient),
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </Component>
+);
 
 export default H3;
