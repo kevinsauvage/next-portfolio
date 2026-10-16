@@ -1,6 +1,6 @@
 import RevealObserver from './RevealObserver';
 
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const IS_VISIBLE = 'is-visible';
@@ -120,5 +120,20 @@ describe('RevealObserver intersection', () => {
     render(<RevealObserver />);
 
     expect(observer.observe).not.toHaveBeenCalled();
+  });
+
+  it('observes elements added after mount, such as those from a client-side navigation', async () => {
+    const observer = stubIntersectionObserver();
+    render(<RevealObserver />);
+
+    const added = document.createElement('div');
+    added.className = 'reveal';
+    document.body.append(added);
+
+    await waitFor(() => expect(observer.observe).toHaveBeenCalledWith(added));
+
+    observer.fireIntersection(added);
+
+    expect(added).toHaveClass(IS_VISIBLE);
   });
 });
