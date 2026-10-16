@@ -10,6 +10,7 @@ import CookieBannerLoader from '@/components/shared/CookieBannerLoader';
 import GoogleTagManager from '@/components/shared/GoogleTagManager';
 import HeadLinks from '@/components/shared/HeadLinks';
 import PageViewTracker from '@/components/shared/PageViewTracker';
+import RevealObserver from '@/components/shared/RevealObserver';
 import ScrollDetector from '@/components/shared/ScrollDetector';
 import SonnerToaster from '@/components/shared/SonnerToaster';
 import StructuredData from '@/components/shared/StructuredData';
@@ -73,7 +74,17 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
         <ConsentModeDefaults />
       </head>
       <body className='w-full h-full antialiased font-base font-normal text-zinc-50'>
+        {/* `.reveal` starts at opacity 0 and only `RevealObserver` un-hides it, so
+            without JS every revealed section would stay invisible. Inline styles
+            are already allowed by `style-src` (see csp.config.mjs); written with
+            innerHTML so React never tries to hydrate inside <noscript>. */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: '<style>.reveal{opacity:1!important;transform:none!important}</style>',
+          }}
+        />
         <StructuredData />
+        <RevealObserver />
         <GoogleTagManager
           ga4MeasurementId={publicEnv.GA4_MEASUREMENT_ID}
           gtmId={publicEnv.GTM_ID}
@@ -85,6 +96,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
         <SonnerToaster />
         <nav aria-label='Skip navigation'>
           <a
+            id='skip-link'
             href='#main-content'
             className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:rounded-md focus:shadow-lg text-zinc-50'
           >
@@ -94,7 +106,8 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
         <Header />
         <main
           id='main-content'
-          className='min-h-dvh flex-1 h-full w-full flex flex-col'
+          tabIndex={-1}
+          className='min-h-dvh flex-1 h-full w-full flex flex-col outline-none'
           aria-label='Main content'
         >
           {children}

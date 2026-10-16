@@ -1,7 +1,3 @@
-'use client';
-
-import { useEffect, useRef, useState } from 'react';
-
 import clsx from 'clsx';
 
 type RevealProps = {
@@ -16,45 +12,18 @@ type RevealProps = {
 /**
  * Fades/slides content in the first time it enters the viewport.
  *
- * This is the single entrance-animation primitive for the site. It renders
- * visible immediately when JS-driven motion is unavailable (reduced-motion
- * preference, no IntersectionObserver, or JS disabled), so content is never
- * trapped at `opacity: 0`.
+ * Deliberately a **server** component: it only emits markup with the `.reveal`
+ * class, and a single client-side observer (`RevealObserver`) flips
+ * `.is-visible`. When this was a client component, every subtree it wrapped was
+ * serialised a second time into the RSC flight payload — on the home page that
+ * was ~197 KB of the 388 KB document. It is also the reason `noscript` in the
+ * root layout un-hides `.reveal`: without JS nothing would add `.is-visible`.
  */
 const Reveal = ({ children, className, delay = 0, as: Component = 'div' }: RevealProps) => {
-  const ref = useRef<HTMLElement | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    if (
-      globalThis.window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
-      typeof IntersectionObserver === 'undefined'
-    ) {
-      setIsVisible(true);
-      return;
-    }
-    const element = ref.current;
-    if (!element) return;
-    const observer = new IntersectionObserver(
-      entries => {
-        if (entries[0]?.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
-    );
-    observer.observe(element);
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   return (
     <Component
-      ref={ref as React.Ref<never>}
       style={delay > 0 ? { transitionDelay: `${delay}ms` } : undefined}
-      className={clsx('reveal', isVisible && 'is-visible', className)}
+      className={clsx('reveal', className)}
     >
       {children}
     </Component>

@@ -3,10 +3,13 @@ import Link from 'next/link';
 import ContactInfo from '@/components/shared/ContactInfo';
 import CookieSettingsButton from '@/components/shared/CookieSettingsButton';
 import { BodySmall, H3, H4 } from '@/components/ui/Typography';
-import { layout } from '@/config/content';
+import { accessibilityFooterLabel, layout, siteMap } from '@/config/content';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
 import { Briefcase, CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
+
+const LEGAL_LINK_CLASSES =
+  'inline-flex min-h-11 items-center text-zinc-300 underline-offset-4 transition-colors hover:text-primary-400 hover:underline';
 
 const Footer: React.FC = () => {
   return (
@@ -97,7 +100,23 @@ const Footer: React.FC = () => {
           <p className='text-sm text-zinc-400'>
             © {new Date().getFullYear()} {layout.footer.name}. {layout.footer.copyright}
           </p>
-          <CookieSettingsButton />
+          <nav aria-label='Legal'>
+            <ul className='flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-sm'>
+              <li>
+                <Link href='/accessibility' className={LEGAL_LINK_CLASSES}>
+                  {accessibilityFooterLabel}
+                </Link>
+              </li>
+              <li>
+                <Link href='/site-map' className={LEGAL_LINK_CLASSES}>
+                  {siteMap.title}
+                </Link>
+              </li>
+              <li>
+                <CookieSettingsButton />
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </footer>

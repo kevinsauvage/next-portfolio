@@ -97,6 +97,7 @@ export const sections = {
     location: 'Barcelona, Spain — CET (UTC+1) · English, French, Spanish',
     form: {
       ariaLabel: 'Contact form',
+      requiredHint: 'Fields marked with an asterisk (*) are required.',
       labels: { fullName: 'Full Name', email: 'Email', message: 'Message' },
       placeholders: {
         fullName: 'ex: John Doe',

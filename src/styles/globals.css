@@ -50,6 +50,8 @@
   /* Animations */
   --animate-slide-in-left: slideInLeft 0.5s ease-out;
   --animate-mesh-slow: meshGradient 14s ease-in-out infinite alternate;
+  /* Always-visible backgrounds: one pass that ends within 5s (RGAA 13.8). */
+  --animate-mesh-once: meshGradient 5s ease-in-out 1;
 
   /* Box Shadows — terminal glow */
   --shadow-glow-sm: 0 0 10px rgba(34, 197, 94, 0.35);

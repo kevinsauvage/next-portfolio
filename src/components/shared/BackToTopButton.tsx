@@ -9,6 +9,9 @@ import { ChevronUp } from 'lucide-react';
 const scrollToTop = () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  // The button hides itself once back at the top: hand keyboard focus to the
+  // first element of the page instead of leaving it on an invisible control.
+  document.getElementById('skip-link')?.focus({ preventScroll: true });
 };
 
 /**

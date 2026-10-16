@@ -44,7 +44,7 @@ const ButtonLink = ({
     {...analyticsAttributes(eventName, eventProperties)}
     {...rest}
   >
-    <ButtonContent label={label} svg={svg} />
+    <ButtonContent label={label} svg={svg} newTab={rest.target === '_blank'} />
   </Link>
 );
 

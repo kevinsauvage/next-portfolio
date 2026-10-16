@@ -25,6 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
       url: `${SITE_URL}/privacy`,
     },
+    ...['accessibility', 'site-map'].map(path => ({
+      changeFrequency: 'yearly' as const,
+      lastModified: new Date(SITE_LAST_MODIFIED),
+      priority: 0.3,
+      url: `${SITE_URL}/${path}`,
+    })),
     ...projectEntries,
   ];
 }
