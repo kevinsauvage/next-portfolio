@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Shell(npm)",
+      "Shell(npx)",
+      "Shell(node)",
+      "Shell(git status)",
+      "Shell(git diff)",
+      "Shell(git log)",
+      "Shell(git show)",
+      "Shell(git branch)",
+      "Shell(git rev-parse)",
+      "Shell(git remote)",
+      "Shell(git stash)",
+      "Shell(git add)",
+      "Shell(git commit)",
+      "Write(src/**)",
+      "Write(e2e/**)",
+      "Write(docs/**)",
+      "Write(scripts/**)",
+      "Write(public/**)",
+      "Write(.github/**)",
+      "Write(*.md)",
+      "Write(*.json)",
+      "Write(*.ts)",
+      "Write(*.mts)",
+      "Write(*.mjs)",
+      "Write(*.css)"
+    ],
+    "deny": [
+      "Read(.env*)",
+      "Write(.env*)",
+      "Write(**/*.pem)",
+      "Write(**/*.key)",
+      "Write(package-lock.json)",
+      "Write(.vercel/**)"
+    ]
+  }
+}

@@ -4,13 +4,15 @@
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
     "ms-vscode.vscode-typescript-next",
+    "vitest.explorer",
+    "ms-playwright.playwright",
+    "eamodio.gitlens",
     "usernamehw.errorlens",
     "christian-kohler.path-intellisense",
     "formulahendry.auto-rename-tag",
     "ms-vscode.vscode-json",
     "streetsidesoftware.code-spell-checker",
-    "orta.vscode-jest",
-    "vitest.explorer",
-    "ms-playwright.playwright"
-  ]
+    "sonarsource.sonarlint-vscode"
+  ],
+  "unwantedRecommendations": ["orta.vscode-jest", "firsttris.vscode-jest-runner"]
 }
