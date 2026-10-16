@@ -1,7 +1,11 @@
+import AboutSection from '@/components/features/home/AboutSection';
+import CareerSection from '@/components/features/home/CareerSection';
 import CertificationsSection from '@/components/features/home/CertificationsSection';
 import FaqSection from '@/components/features/home/FaqSection';
+import HeroStats from '@/components/features/home/HeroStats';
 import PortfolioSection from '@/components/features/home/PortfolioSection';
 import TestimonialsCarousel from '@/components/features/home/TestimonialsCarousel';
+import TestimonialsSection from '@/components/features/home/TestimonialsSection';
 import Footer from '@/components/layout/Footer';
 import testimonials from '@/config/content/testimonials';
 
@@ -45,5 +49,21 @@ describe('accessibility (axe)', () => {
 
   it('Testimonials carousel has no violations', async () => {
     await expectNoViolations(<TestimonialsCarousel testimonials={testimonials} />);
+  });
+
+  it('About section has no violations', async () => {
+    await expectNoViolations(<AboutSection />);
+  });
+
+  it('Career section has no violations', async () => {
+    await expectNoViolations(<CareerSection />);
+  });
+
+  it('Testimonials section has no violations', async () => {
+    await expectNoViolations(<TestimonialsSection />);
+  });
+
+  it('Hero stats have no violations', async () => {
+    await expectNoViolations(<HeroStats />);
   });
 });
