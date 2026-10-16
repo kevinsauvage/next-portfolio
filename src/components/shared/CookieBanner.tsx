@@ -134,9 +134,7 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
                   key={name}
                   className={clsx(
                     'relative flex gap-3 rounded-lg border border-zinc-800 bg-zinc-900/50 p-3 transition-colors',
-                    required
-                      ? 'cursor-not-allowed opacity-70'
-                      : 'cursor-pointer hover:border-zinc-700'
+                    required ? 'cursor-not-allowed' : 'cursor-pointer hover:border-zinc-700'
                   )}
                 >
                   <input
@@ -161,7 +159,7 @@ const CookieBanner = ({ openSettings = false }: Properties) => {
                     >
                       {title}
                       {required ? (
-                        <span className='ml-2 text-xs text-zinc-500'>
+                        <span className='ml-2 text-xs text-zinc-400'>
                           {copy.preferences.required}
                         </span>
                       ) : null}

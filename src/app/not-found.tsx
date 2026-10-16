@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 
 import ButtonLink from '@/components/ui/Button/ButtonLink';
@@ -34,5 +35,7 @@ const Custom404 = () => {
     </div>
   );
 };
+
+export const metadata: Metadata = { title: 'Page not found' };
 
 export default Custom404;

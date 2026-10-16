@@ -25,6 +25,13 @@ describe('sitemap', () => {
     expect(privacyEntry?.priority).toBe(0.3);
   });
 
+  it('lists the accessibility statement and the HTML site map', () => {
+    const urls = sitemap().map(entry => entry.url);
+
+    expect(urls).toContain('https://www.kevin-sauvage.com/accessibility');
+    expect(urls).toContain('https://www.kevin-sauvage.com/site-map');
+  });
+
   it('lists every project case study route', () => {
     const entries = sitemap();
     const projectUrls = entries.map(entry => entry.url).filter(url => url.includes('/projects/'));

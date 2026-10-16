@@ -1,4 +1,5 @@
 import Reveal from '@/components/shared/Reveal';
+import { NEW_TAB_LABEL } from '@/components/ui/NewTabHint';
 import Section from '@/components/ui/Section';
 import { Body, H2, H3, Overline } from '@/components/ui/Typography';
 import { passions, sections } from '@/config/content';
@@ -25,7 +26,7 @@ const AboutSection: React.FC = () => {
             className='inline-flex flex-wrap items-center gap-2.5 rounded-full border border-primary-800/60 bg-primary-950/40 px-4 py-1.5 font-mono text-xs font-medium tracking-wide text-primary-300'
           >
             <span className='relative flex h-2 w-2' aria-hidden='true'>
-              <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75' />
+              <span className='animate-ping [animation-iteration-count:5] absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75' />
               <span className='relative inline-flex rounded-full h-2 w-2 bg-primary-400' />
             </span>
             <span className='sr-only'>Current role: </span>
@@ -60,6 +61,10 @@ const AboutSection: React.FC = () => {
                       className='inline-flex items-center gap-1 font-mono text-xs text-primary-300 transition-colors hover:text-primary-200'
                     >
                       {lang.level}
+                      <span className='sr-only'>
+                        {' '}
+                        — {lang.language} credential ({NEW_TAB_LABEL})
+                      </span>
                       <ExternalLink size={12} aria-hidden='true' />
                     </a>
                   ) : (

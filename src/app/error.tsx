@@ -3,7 +3,8 @@
 import { useEffect } from 'react';
 
 import Button from '@/components/ui/Button/Button';
-import { BodySmall, H4 } from '@/components/ui/Typography';
+import { BodySmall, H1 } from '@/components/ui/Typography';
+import { PERSON_NAME } from '@/config/site';
 import { trackEvent } from '@/lib/analytics';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
 
@@ -29,9 +30,10 @@ const ErrorPage = ({ error, reset }: ErrorProps) => {
 
   return (
     <div className='min-h-screen flex items-center justify-center bg-black text-zinc-50'>
+      <title>{`Something went wrong | ${PERSON_NAME}`}</title>
       <div className='max-w-md mx-auto text-center p-6'>
         <div className='mb-6'>
-          <H4 className='mb-2'>Oops! Something went wrong</H4>
+          <H1 className='mb-2 text-2xl md:text-3xl'>Oops! Something went wrong</H1>
           <BodySmall className='mb-4'>
             We encountered an unexpected error. Please try refreshing the page.
           </BodySmall>

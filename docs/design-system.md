@@ -99,6 +99,9 @@ Type components (`src/components/ui/Typography`):
   certification's `lg:col-span-2`), because the wrapper is the grid item.
 - `prefers-reduced-motion: reduce` globally collapses durations to `0.01ms` and disables
   `card-enter`/`reveal` animations (`globals.css`).
+- Nothing loops past 5s without user action (RGAA 13.8 / WCAG 2.2.2): always-visible
+  `MeshGradient` backgrounds use `animate-mesh-once` (single 5s pass), `animate-mesh-slow` is
+  hover/focus-only on cards, and status `animate-ping` dots are capped at 5 iterations.
 - **Hover parity:** card lift (`--hover-transform`) and glow/zoom are mirrored on `:focus-within` so
   keyboard users get the same affordance (see `globals.css` + `Card`/`CardImage`).
 - **Hover capability:** Tailwind's `hover:` and `group-hover:` variants only apply behind

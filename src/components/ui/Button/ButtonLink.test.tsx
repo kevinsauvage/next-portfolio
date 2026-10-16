@@ -29,4 +29,9 @@ describe('ButtonLink', () => {
     render(<ButtonLink href='/x' label='Go' eventProperties={{ a: 'b' }} />);
     expect(screen.getByRole('link', { name: 'Go' })).not.toHaveAttribute('data-analytics-event');
   });
+
+  it('warns screen-reader users when the link opens a new tab', () => {
+    render(<ButtonLink href='/x' label='Go' target='_blank' rel='noopener noreferrer' />);
+    expect(screen.getByRole('link', { name: 'Go (opens in a new tab)' })).toBeInTheDocument();
+  });
 });

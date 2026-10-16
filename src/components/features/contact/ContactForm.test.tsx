@@ -72,6 +72,8 @@ describe('ContactForm', () => {
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
     expect(screen.getByRole('textbox', { name: /message/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /send message/i })).toBeInTheDocument();
+    // RGAA 11.10: the asterisk convention is explained before the fields.
+    expect(screen.getByText(/marked with an asterisk \(\*\) are required/i)).toBeInTheDocument();
 
     expect(await axe(container)).toHaveNoViolations();
   });

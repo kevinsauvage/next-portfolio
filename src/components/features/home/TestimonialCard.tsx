@@ -3,6 +3,7 @@
 import { useState } from 'react';
 
 import { Card, CardContent, CardFooter, CardIcon } from '@/components/ui/Card';
+import { NEW_TAB_LABEL } from '@/components/ui/NewTabHint';
 import { BodySmall, Caption } from '@/components/ui/Typography';
 import { sections } from '@/config/content/sections';
 import type { Testimonial } from '@/config/content/testimonials';
@@ -65,7 +66,7 @@ const TestimonialContent = ({
           rel='noopener noreferrer'
           className='inline-flex min-h-11 items-center gap-1.5 text-xs font-medium text-primary-400 hover:text-primary-300 transition-colors duration-200 underline-offset-4 hover:underline'
           data-analytics-event={ANALYTICS_EVENTS.TESTIMONIAL_LINKEDIN_CLICK}
-          aria-label={`Via LinkedIn — read ${authorName}'s full recommendation`}
+          aria-label={`Via LinkedIn — read ${authorName}'s full recommendation (${NEW_TAB_LABEL})`}
         >
           Via LinkedIn
           <ExternalLink size={12} aria-hidden='true' />

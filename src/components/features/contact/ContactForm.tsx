@@ -7,6 +7,7 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
 import Button from '@/components/ui/Button/Button';
 import { FormError, Input, Label, TextArea } from '@/components/ui/Form';
+import NewTabHint from '@/components/ui/NewTabHint';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content/sections';
 import { trackEvent } from '@/lib/analytics';
@@ -215,6 +216,7 @@ const ContactForm = () => {
         {isSubmitting ? copy.announceSubmitting : fieldErrorAnnouncement}
       </output>
       <div className='space-y-6'>
+        <p className='text-sm text-zinc-400'>{copy.requiredHint}</p>
         <div className='flex flex-col space-y-2'>
           <Label htmlFor='fullName' required>
             {copy.labels.fullName}
@@ -284,13 +286,12 @@ const ContactForm = () => {
           svg={<LucideSend size={18} aria-hidden='true' />}
           label={isSubmitting ? copy.submitting : copy.submit}
           type='submit'
-          title={copy.submit}
           disabled={isSubmitting}
           variant='primary'
           size='md'
         />
 
-        <p className='text-xs leading-relaxed text-zinc-500'>
+        <p className='text-xs leading-relaxed text-zinc-400'>
           This site is protected by reCAPTCHA and the Google{' '}
           <a
             href='https://policies.google.com/privacy'
@@ -299,6 +300,7 @@ const ContactForm = () => {
             className='text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-200'
           >
             Privacy Policy
+            <NewTabHint />
           </a>{' '}
           and{' '}
           <a
@@ -308,6 +310,7 @@ const ContactForm = () => {
             className='text-zinc-400 underline underline-offset-2 transition-colors hover:text-zinc-200'
           >
             Terms of Service
+            <NewTabHint />
           </a>{' '}
           apply.
         </p>

@@ -1,3 +1,4 @@
+export * from './accessibility';
 export * from './certifications';
 export * from './cookies';
 export * from './jobs';
@@ -6,4 +7,5 @@ export * from './passions';
 export * from './privacy';
 export * from './projects';
 export * from './sections';
+export * from './site-map';
 export * from './testimonials';

@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
 import ContactInfo from '@/components/shared/ContactInfo';
+import NewTabHint from '@/components/ui/NewTabHint';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { layout, NAVIGATION_SECTION_IDS, sectionIdFromHref } from '@/config/content/layout';
 import { useActiveSection } from '@/hooks/useActiveSection';
@@ -141,7 +142,10 @@ const MobileMenuToggle = () => {
               data-analytics-location='mobile_menu'
               className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-colors duration-200 text-zinc-50'
             >
-              {layout.header.mobileMenu.ctaButton}
+              <span>
+                {layout.header.mobileMenu.ctaButton}
+                <NewTabHint />
+              </span>
               <ChevronRight size={18} aria-hidden='true' />
             </Link>
           </div>

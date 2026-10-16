@@ -1,4 +1,5 @@
 import { Card, CardContent, CardIcon } from '@/components/ui/Card';
+import { NEW_TAB_LABEL } from '@/components/ui/NewTabHint';
 import { Tag } from '@/components/ui/Tag';
 import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
@@ -59,7 +60,9 @@ const CertificationHeader = ({
             />
             <Caption className='transition-colors text-zinc-200'>{issuer}</Caption>
           </div>
-          <span className='text-zinc-600 text-xs'>•</span>
+          <span aria-hidden='true' className='text-zinc-600 text-xs'>
+            •
+          </span>
           <div className='flex items-center gap-1.5'>
             <Calendar size={14} className='text-zinc-400 flex-shrink-0' aria-hidden='true' />
             <Caption className='text-zinc-400'>
@@ -104,7 +107,7 @@ const CredentialLink = ({
       href={credentialUrl}
       target='_blank'
       rel='noopener noreferrer'
-      aria-label={`${title} — ${sections.certifications.button}`}
+      aria-label={`${sections.certifications.button} — ${title} (${NEW_TAB_LABEL})`}
       className='inline-flex min-h-11 items-center gap-1.5 mt-auto pt-3 text-xs font-medium border-t border-zinc-800/50 transition-colors duration-200 group/link text-primary-300 hover:text-primary-200'
       data-analytics-event={ANALYTICS_EVENTS.CERT_CREDENTIAL_CLICK}
       data-analytics-cert-id={certId}

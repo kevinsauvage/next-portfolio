@@ -85,6 +85,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
         <SonnerToaster />
         <nav aria-label='Skip navigation'>
           <a
+            id='skip-link'
             href='#main-content'
             className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:rounded-md focus:shadow-lg text-zinc-50'
           >
@@ -94,7 +95,8 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
         <Header />
         <main
           id='main-content'
-          className='min-h-dvh flex-1 h-full w-full flex flex-col'
+          tabIndex={-1}
+          className='min-h-dvh flex-1 h-full w-full flex flex-col outline-none'
           aria-label='Main content'
         >
           {children}
