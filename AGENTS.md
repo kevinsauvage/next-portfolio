@@ -19,7 +19,7 @@ Order checks from discriminating to broad: `npm run check` → focused test file
 
 ## WHAT — stack
 
-Next.js 16 App Router + React 19 + TypeScript strict + Tailwind CSS v4 (`@theme` tokens in `src/styles/globals.scss`) + SCSS. Forms: Server Actions (`src/actions/`) with Zod (`src/schemas/`), EmailJS server-side, reCAPTCHA v3. Analytics: Google Tag Manager behind a cookie consent banner (Consent Mode v2). Error tracking: Sentry. Tests: Vitest + RTL + jsdom; E2E: Playwright (`e2e/`).
+Next.js 16 App Router + React 19 + TypeScript strict + Tailwind CSS v4 (`@theme` tokens in `src/styles/globals.css`). Forms: Server Actions (`src/actions/`) with Zod (`src/schemas/`), EmailJS server-side, reCAPTCHA v3. Analytics: Google Tag Manager behind a cookie consent banner (Consent Mode v2). Error tracking: Sentry. Tests: Vitest + RTL + jsdom; E2E: Playwright (`e2e/`).
 
 Import alias `@/*` → `./src/*`. Env is validated with Zod in `src/lib/env.ts`; see `.env.example` for the full list (never read or print real `.env` values).
 
@@ -29,7 +29,7 @@ Import alias `@/*` → `./src/*`. Env is validated with Zod in `src/lib/env.ts`;
 - `src/components/{ui,shared,layout,features}/` — base → reusable → layout → feature. Prefer existing `ui/` primitives and `Typography` components.
 - `src/config/content/` — all page copy (sections, jobs, projects, faq). Content edits go here, not in components.
 - `src/lib/` — utilities (`env.ts`, `analytics.ts`, `rate-limit.ts`, `seo-*`). `src/hooks/` — client hooks.
-- Styling source of truth: `docs/design-system.md` + `src/styles/globals.scss`. Tokens once, Tailwind utilities everywhere.
+- Styling source of truth: `docs/design-system.md` + `src/styles/globals.css`. Tokens once, Tailwind utilities everywhere.
 - Human onboarding: `README.md` (includes the CSP trade-off notes and env table).
 
 ## HOW — non-obvious rules (read the file before touching the area)

@@ -1,13 +1,11 @@
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
-import cssModules from 'eslint-plugin-css-modules';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
 import prettier from 'eslint-plugin-prettier';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
-import sortKeys from 'eslint-plugin-sort-keys';
 import unicorn from 'eslint-plugin-unicorn';
 import nextPlugin from '@next/eslint-plugin-next';
 import sonarjs from 'eslint-plugin-sonarjs';
@@ -72,8 +70,6 @@ export default [
       'simple-import-sort': simpleImportSort,
       react,
       'react-hooks': reactHooks,
-      'css-modules': cssModules,
-      'sort-keys': sortKeys,
       prettier,
       import: importPlugin,
       'jsx-a11y': jsxA11y,
@@ -109,8 +105,6 @@ export default [
       'unicorn/no-anonymous-default-export': 'off',
 
       // Sort keys
-      'sort-keys': 'off',
-      'sort-keys/sort-keys-fix': 'off',
 
       // Import sorting
       'simple-import-sort/exports': 'error',
@@ -123,7 +117,7 @@ export default [
             [String.raw`^\u0000`],
             [String.raw`^\.\.(?!/?$)`, String.raw`^\.\./?$`],
             [String.raw`^\./(?=.*/)(?!/?$)`, String.raw`^\.(?!/?$)`, String.raw`^\.(?!/?$)`],
-            [String.raw`^.+\.?(css|scss)$`],
+            [String.raw`^.+\.?css$`],
           ],
         },
       ],

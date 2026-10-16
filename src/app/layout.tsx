@@ -18,7 +18,7 @@ import { getNonce } from '@/lib/csp-nonce';
 import { getPublicEnv } from '@/lib/env';
 import { buildRootMetadata } from '@/lib/seo-metadata';
 
-import '@/styles/globals.scss';
+import '@/styles/globals.css';
 
 import clsx from 'clsx';
 

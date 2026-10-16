@@ -19,7 +19,7 @@ The source of [kevin-sauvage.com](https://www.kevin-sauvage.com/), my portfolio.
 
 - **Framework**: Next.js 16 with App Router (React 19)
 - **Language**: TypeScript
-- **Styling**: Tailwind CSS v4 (tokens in CSS `@theme`) + SCSS global stylesheets
+- **Styling**: Tailwind CSS v4 (tokens in CSS `@theme`) + a single global CSS stylesheet
 - **Icons**: Lucide React
 - **Forms**: React Server Actions with Zod validation
 - **Email**: EmailJS (`@emailjs/nodejs`, server-side)
@@ -144,9 +144,9 @@ Update content in the `src/config/content/` directory:
 
 ### Styling
 
-- Design tokens: defined with Tailwind CSS 4's `@theme` in `src/styles/globals.scss`
-- Global styles: `src/styles/globals.scss`
-- Tailwind: v4, configured in CSS (`@theme` in `src/styles/globals.scss`), no JS config file
+- Design tokens: defined with Tailwind CSS 4's `@theme` in `src/styles/globals.css`
+- Global styles: `src/styles/globals.css`
+- Tailwind: v4, configured in CSS (`@theme` in `src/styles/globals.css`), no JS config file
 
 ### Images
 

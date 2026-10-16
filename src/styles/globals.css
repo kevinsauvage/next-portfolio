@@ -1,4 +1,4 @@
-@use 'tailwindcss' as *;
+@import 'tailwindcss';
 
 @theme {
   /* Colors — Terminal Dark: emerald primary, cyan secondary, amber accent */

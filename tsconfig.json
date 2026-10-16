@@ -47,8 +47,6 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.mts",
-    "src/**/*.scss",
-    "globals.d.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],

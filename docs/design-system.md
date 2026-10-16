@@ -1,10 +1,10 @@
 # Design System Reference
 
 Single source of truth for the visual language of `kevin-sauvage.com`. Tokens are defined once in
-`src/styles/globals.scss` (`@theme`) and consumed through Tailwind utilities; this document explains
+`src/styles/globals.css` (`@theme`) and consumed through Tailwind utilities; this document explains
 the intent so new work stays consistent.
 
-> Scope: this is a reference, not a runtime dependency. If a token changes in `globals.scss`, update
+> Scope: this is a reference, not a runtime dependency. If a token changes in `globals.css`, update
 > the table here.
 
 ## 1. Color tokens
@@ -98,9 +98,9 @@ Type components (`src/components/ui/Typography`):
 - Grid placement for a wrapped card lives on the `<Reveal>` wrapper (e.g. the featured
   certification's `lg:col-span-2`), because the wrapper is the grid item.
 - `prefers-reduced-motion: reduce` globally collapses durations to `0.01ms` and disables
-  `card-enter`/`reveal` animations (`globals.scss`).
+  `card-enter`/`reveal` animations (`globals.css`).
 - **Hover parity:** card lift (`--hover-transform`) and glow/zoom are mirrored on `:focus-within` so
-  keyboard users get the same affordance (see `globals.scss` + `Card`/`CardImage`).
+  keyboard users get the same affordance (see `globals.css` + `Card`/`CardImage`).
 - **Hover capability:** Tailwind's `hover:` and `group-hover:` variants only apply behind
   `@media (hover: hover)`, so utilities are safe on touch. Bare CSS hovers are not — wrap them
   yourself (the card lift above does, see `@media (hover: hover) and (pointer: fine)`).
