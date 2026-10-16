@@ -92,9 +92,7 @@ export const Card = ({
           <MeshGradient overlayOpacity={85} lightweight />
         </div>
       )}
-      <div className={contentClasses}>
-        <div className='relative z-10 h-full w-full'>{children}</div>
-      </div>
+      <div className={contentClasses}>{children}</div>
     </Component>
   );
 };

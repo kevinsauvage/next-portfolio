@@ -65,91 +65,96 @@ const MobileMenuToggle = () => {
         aria-label='Navigation menu'
         className='lg:hidden fixed top-0 right-0 bottom-0 left-auto m-0 p-0 h-dvh max-h-none w-full max-w-sm bg-zinc-900 border-l border-zinc-800 text-zinc-50 backdrop:bg-black/95 backdrop:backdrop-blur-lg animate-slide-in-left'
       >
-        <div className='flex flex-col h-full'>
-          <div className='p-6 border-b border-zinc-800 flex items-center justify-between'>
-            <div>
-              <H4 className='mb-0'>{layout.header.mobileMenu.title}</H4>
-              <BodySmall className='mt-1'>{layout.header.mobileMenu.subtitle}</BodySmall>
+        {/* Contents mount on open: the menu items use the `card-enter` animation,
+            which is meant to run when the drawer is shown. Keeping them mounted for
+            every visitor cost ~50 DOM nodes that render nothing at desktop widths. */}
+        {menuOpen && (
+          <div className='flex flex-col h-full'>
+            <div className='p-6 border-b border-zinc-800 flex items-center justify-between'>
+              <div>
+                <H4 className='mb-0'>{layout.header.mobileMenu.title}</H4>
+                <BodySmall className='mt-1'>{layout.header.mobileMenu.subtitle}</BodySmall>
+              </div>
+              <button
+                onClick={closeMenu}
+                className='p-2 rounded-md hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center'
+                aria-label={layout.header.mobileMenu.closeDialogButton}
+              >
+                <X size={24} strokeWidth={1.5} className='text-zinc-400' aria-hidden='true' />
+              </button>
             </div>
-            <button
-              onClick={closeMenu}
-              className='p-2 rounded-md hover:bg-zinc-800 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center'
-              aria-label={layout.header.mobileMenu.closeDialogButton}
-            >
-              <X size={24} strokeWidth={1.5} className='text-zinc-400' aria-hidden='true' />
-            </button>
-          </div>
 
-          <nav aria-label='Mobile' className='flex-1 overflow-y-auto p-4'>
-            <ul>
-              {layout.header.navigation.items.map(({ label, href }, index) => {
-                const isActive = activeId === sectionIdFromHref(href);
+            <nav aria-label='Mobile' className='flex-1 overflow-y-auto p-4'>
+              <ul>
+                {layout.header.navigation.items.map(({ label, href }, index) => {
+                  const isActive = activeId === sectionIdFromHref(href);
 
-                return (
-                  <li
-                    key={label}
-                    className='card-enter'
-                    style={{ animationDelay: `${index * 50}ms` }}
-                  >
-                    <Link
-                      href={href}
-                      onClick={closeMenu}
-                      aria-current={isActive ? 'location' : undefined}
-                      data-analytics-event={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
-                      data-analytics-location='mobile'
-                      data-analytics-section={label}
-                      className={clsx(
-                        'flex items-center justify-between p-4 mb-2 rounded-lg border transition-[background-color,border-color] duration-200 group min-h-[56px]',
-                        isActive
-                          ? 'border-primary-600/60 bg-primary-950/50'
-                          : 'border-zinc-700/50 bg-zinc-800/50 hover:border-primary-500/50 hover:bg-zinc-800 active:bg-zinc-700'
-                      )}
+                  return (
+                    <li
+                      key={label}
+                      className='card-enter'
+                      style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <BodySmall
+                      <Link
+                        href={href}
+                        onClick={closeMenu}
+                        aria-current={isActive ? 'location' : undefined}
+                        data-analytics-event={ANALYTICS_EVENTS.NAV_SECTION_CLICK}
+                        data-analytics-location='mobile'
+                        data-analytics-section={label}
                         className={clsx(
-                          'font-medium text-lg',
-                          isActive ? 'text-primary-200' : 'text-zinc-50'
+                          'flex items-center justify-between p-4 mb-2 rounded-lg border transition-[background-color,border-color] duration-200 group min-h-[56px]',
+                          isActive
+                            ? 'border-primary-600/60 bg-primary-950/50'
+                            : 'border-zinc-700/50 bg-zinc-800/50 hover:border-primary-500/50 hover:bg-zinc-800 active:bg-zinc-700'
                         )}
                       >
-                        {label}
-                      </BodySmall>
-                      <ChevronRight
-                        size={20}
-                        className={clsx(
-                          'transition-[transform,color] group-hover:translate-x-1 group-hover:text-secondary-400',
-                          isActive ? 'text-primary-300' : 'text-zinc-400'
-                        )}
-                        aria-hidden='true'
-                      />
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+                        <BodySmall
+                          className={clsx(
+                            'font-medium text-lg',
+                            isActive ? 'text-primary-200' : 'text-zinc-50'
+                          )}
+                        >
+                          {label}
+                        </BodySmall>
+                        <ChevronRight
+                          size={20}
+                          className={clsx(
+                            'transition-[transform,color] group-hover:translate-x-1 group-hover:text-secondary-400',
+                            isActive ? 'text-primary-300' : 'text-zinc-400'
+                          )}
+                          aria-hidden='true'
+                        />
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
 
-          <div className='p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] border-t border-zinc-800 space-y-4'>
-            <div className='flex justify-center'>
-              <ContactInfo size={22} eventPrefix='mobile_menu' />
+            <div className='p-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] border-t border-zinc-800 space-y-4'>
+              <div className='flex justify-center'>
+                <ContactInfo size={22} eventPrefix='mobile_menu' />
+              </div>
+              <Link
+                href={layout.header.resumeHref}
+                target='_blank'
+                rel='noopener noreferrer'
+                prefetch={false}
+                onClick={closeMenu}
+                data-analytics-event={ANALYTICS_EVENTS.CTA_RESUME_CLICK}
+                data-analytics-location='mobile_menu'
+                className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-colors duration-200 text-zinc-50'
+              >
+                <span>
+                  {layout.header.mobileMenu.ctaButton}
+                  <NewTabHint />
+                </span>
+                <ChevronRight size={18} aria-hidden='true' />
+              </Link>
             </div>
-            <Link
-              href={layout.header.resumeHref}
-              target='_blank'
-              rel='noopener noreferrer'
-              prefetch={false}
-              onClick={closeMenu}
-              data-analytics-event={ANALYTICS_EVENTS.CTA_RESUME_CLICK}
-              data-analytics-location='mobile_menu'
-              className='flex items-center justify-center gap-2 w-full py-4 px-4 min-h-[52px] bg-gradient-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 font-medium rounded-lg transition-colors duration-200 text-zinc-50'
-            >
-              <span>
-                {layout.header.mobileMenu.ctaButton}
-                <NewTabHint />
-              </span>
-              <ChevronRight size={18} aria-hidden='true' />
-            </Link>
           </div>
-        </div>
+        )}
       </dialog>
     </>
   );
