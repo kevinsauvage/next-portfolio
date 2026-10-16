@@ -34,8 +34,17 @@
     "**/.next": true,
     "**/out": true,
     "**/dist": true,
-    "**/.turbo": true
+    "**/.turbo": true,
+    "**/coverage": true,
+    "**/playwright-report": true,
+    "**/blob-report": true,
+    "**/test-results": true,
+    "**/graft": true,
+    "**/.vercel": true
   },
+  // Keep the file watcher off every regenerated tree. Without this, test/build
+  // runs (coverage, Playwright reports, Next's .next) fire thousands of watch
+  // events and stall the editor.
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
@@ -43,7 +52,15 @@
     "**/.next/**": true,
     "**/out/**": true,
     "**/dist/**": true,
-    "**/.turbo/**": true
+    "**/.turbo/**": true,
+    "**/coverage/**": true,
+    "**/playwright-report/**": true,
+    "**/blob-report/**": true,
+    "**/test-results/**": true,
+    "**/playwright/.cache/**": true,
+    "**/graft/**": true,
+    "**/.vercel/**": true,
+    "**/*.tsbuildinfo": true
   },
   "files.associations": {
     "*.css": "tailwindcss"
@@ -58,7 +75,9 @@
     "**/.turbo": true,
     "**/coverage": true,
     "**/playwright-report": true,
+    "**/blob-report": true,
     "**/test-results": true,
+    "**/playwright/.cache": true,
     "**/*.tsbuildinfo": true,
     "**/.vercel": true,
     "**/package-lock.json": true,
@@ -66,10 +85,13 @@
     "**/pnpm-lock.yaml": true,
     "**/.git": true
   },
+  "search.followSymlinks": false,
+  "search.useIgnoreFiles": true,
 
   // TypeScript Settings
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.disableAutomaticTypeAcquisition": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.suggest.autoImports": true,
   "typescript.preferences.importModuleSpecifier": "non-relative",
@@ -86,7 +108,9 @@
   "eslint.useFlatConfig": true,
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.codeActionsOnSave.mode": "all",
-  "eslint.run": "onType",
+  // onType re-lints every keystroke (typescript-eslint + sonarjs is heavy) and is
+  // the main source of input lag. Autosave + formatOnSave still fix on save.
+  "eslint.run": "onSave",
   "eslint.workingDirectories": ["."],
 
   // Prettier Settings

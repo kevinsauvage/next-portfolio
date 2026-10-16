@@ -6,13 +6,10 @@
     "ms-vscode.vscode-typescript-next",
     "vitest.explorer",
     "ms-playwright.playwright",
-    "eamodio.gitlens",
-    "usernamehw.errorlens",
     "christian-kohler.path-intellisense",
     "formulahendry.auto-rename-tag",
     "ms-vscode.vscode-json",
-    "streetsidesoftware.code-spell-checker",
-    "sonarsource.sonarlint-vscode"
+    "streetsidesoftware.code-spell-checker"
   ],
   "unwantedRecommendations": ["orta.vscode-jest", "firsttris.vscode-jest-runner"]
 }
