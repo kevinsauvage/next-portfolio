@@ -1,7 +1,6 @@
 import HeroStats from '@/components/features/home/HeroStats';
 import GridBackground from '@/components/shared/GridBackground';
 import MeshGradient from '@/components/shared/MeshGradient';
-import Reveal from '@/components/shared/Reveal';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Body, Display } from '@/components/ui/Typography';
 import { GRADIENT_TEXT } from '@/components/ui/Typography/typography';
@@ -28,7 +27,11 @@ const Hero = () => {
         aria-labelledby='hero-title'
         aria-describedby='hero-description'
       >
-        <Reveal as='header' className='z-10 mb-8 flex flex-col justify-center items-center'>
+        {/* Above the fold: uses the CSS `card-enter` animation rather than <Reveal>.
+            The reveal starts at `opacity: 0` and waits for hydration before the
+            observer un-hides it, which made the hero H1 — the LCP element — paint
+            only after the 0.7s transition. A CSS animation starts at first paint. */}
+        <header className='card-enter z-10 mb-8 flex flex-col justify-center items-center'>
           <p className='mb-6 inline-flex items-center gap-2.5 rounded-full border border-primary-800/60 bg-primary-950/40 px-4 py-1.5 font-mono text-xs font-medium tracking-[0.18em] uppercase text-primary-300'>
             <span className='relative flex h-2 w-2' aria-hidden='true'>
               <span className='animate-ping [animation-iteration-count:5] absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75' />
@@ -46,9 +49,12 @@ const Hero = () => {
           <Body id='hero-description' className='mb-8 max-w-2xl'>
             {sections.hero.description}
           </Body>
-        </Reveal>
+        </header>
 
-        <Reveal className='flex flex-col sm:flex-row mb-10 z-10 w-full sm:w-auto gap-6' delay={600}>
+        <div
+          className='card-enter flex flex-col sm:flex-row mb-10 z-10 w-full sm:w-auto gap-6'
+          style={{ animationDelay: '600ms' }}
+        >
           <ButtonLink
             href='/#career'
             svg={<MoveDown strokeWidth={1.5} size={20} />}
@@ -73,7 +79,7 @@ const Hero = () => {
             eventProperties={{ location: 'hero' }}
             className='w-full sm:w-auto min-w-[220px]'
           />
-        </Reveal>
+        </div>
 
         <div className='hidden md:block w-full'>
           <HeroStats />
