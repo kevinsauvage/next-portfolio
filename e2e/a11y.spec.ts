@@ -52,3 +52,45 @@ for (const route of ROUTES) {
     expect(summary).toEqual([]);
   });
 }
+
+/**
+ * Guards the "every field has a visible label" check on the contact form.
+ *
+ * Two things can hide the fields from a real browser while passing axe in jsdom
+ * (which has no layout): a `next/dynamic` boundary streams the form into a
+ * `<div hidden>`, and the scroll reveal leaves it at `opacity: 0` until the
+ * section is scrolled to. Axe also cannot see either, and the audits above run
+ * with reduced motion, which reveals everything immediately — so this runs
+ * without emulation, before any scrolling, and asserts computed styles.
+ */
+test('contact form fields are visible and labelled before any scrolling', async ({ page }) => {
+  await page.goto('/');
+
+  for (const id of ['fullName', 'email', 'message']) {
+    const labelText = (await page.locator(`label[for="${id}"]`).textContent())?.trim();
+    const hidingAncestors = await page.evaluate((fieldId: string) => {
+      const field = document.querySelector(`#${fieldId}`);
+      if (!field) return ['field missing'];
+      const problems: string[] = [];
+      let node: Element | null = field;
+      while (node) {
+        const style = getComputedStyle(node);
+        const hidden =
+          node.hasAttribute('hidden') ||
+          style.display === 'none' ||
+          style.opacity === '0' ||
+          style.visibility === 'hidden';
+        if (hidden) {
+          problems.push(
+            `<${node.tagName.toLowerCase()} class="${(node.className || '').toString()}">`
+          );
+        }
+        node = node.parentElement;
+      }
+      return problems;
+    }, id);
+
+    expect(labelText, `${id} must have a label with visible text`).toBeTruthy();
+    expect(hidingAncestors, `${id} must be visible at load`).toEqual([]);
+  }
+});
