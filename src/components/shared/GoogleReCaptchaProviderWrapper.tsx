@@ -1,7 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
+import dynamic from 'next/dynamic';
+
+const GoogleReCaptchaProviderLoader = dynamic(
+  () => import('@/components/shared/GoogleReCaptchaProviderLoader'),
+  { ssr: false }
+);
 
 type Properties = {
   children: React.ReactNode;
@@ -10,7 +15,10 @@ type Properties = {
 
 /**
  * Loads the reCAPTCHA script only once the wrapped form is about to scroll into
- * view. Wrap just the form: swapping in the provider remounts what it wraps.
+ * view. The provider itself is `next/dynamic`-imported, so the library stays out
+ * of the initial JS bundle until then — importing it here directly would ship it
+ * on every page load while its gate only deferred the *script*. Wrap just the
+ * form: swapping in the provider remounts what it wraps.
  */
 const GoogleReCaptchaProviderWrapper = ({ children, reCaptchaKey }: Properties) => {
   const [shouldLoad, setShouldLoad] = useState(false);
@@ -37,12 +45,9 @@ const GoogleReCaptchaProviderWrapper = ({ children, reCaptchaKey }: Properties) 
   return (
     <div ref={wrapperRef}>
       {shouldLoad ? (
-        <GoogleReCaptchaProvider
-          reCaptchaKey={reCaptchaKey}
-          scriptProps={{ appendTo: 'head', async: true, defer: true }}
-        >
+        <GoogleReCaptchaProviderLoader reCaptchaKey={reCaptchaKey}>
           {children}
-        </GoogleReCaptchaProvider>
+        </GoogleReCaptchaProviderLoader>
       ) : (
         children
       )}
