@@ -9,18 +9,9 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { axe } from 'vitest-axe';
 
 const mocks = vi.hoisted(() => ({
-  executeRecaptcha: vi.fn(),
   sendMailAction: vi.fn(),
   toastError: vi.fn(),
   toastSuccess: vi.fn(),
-}));
-
-const recaptcha = vi.hoisted(() => ({
-  current: undefined as ((action?: string) => Promise<string>) | undefined,
-}));
-
-vi.mock('react-google-recaptcha-v3', () => ({
-  useGoogleReCaptcha: () => ({ executeRecaptcha: recaptcha.current }),
 }));
 
 vi.mock('@/actions/send-mail', () => ({
@@ -53,11 +44,32 @@ const submitForm = () => {
   return form;
 };
 
+const RE_CAPTCHA_KEY = 'test-site-key';
+
+const renderForm = () => render(<ContactForm reCaptchaKey={RE_CAPTCHA_KEY} />);
+
+type GrecaptchaStub = {
+  ready: (callback: () => void) => void;
+  execute: (siteKey: string, options: { action: string }) => Promise<string>;
+};
+
+/** Mirrors what the provider's script exposes once it has loaded. */
+const setGrecaptcha = (captchaToken: string) => {
+  (globalThis as { grecaptcha?: GrecaptchaStub }).grecaptcha = {
+    ready: callback => callback(),
+    execute: () => Promise.resolve(captchaToken),
+  };
+};
+
+/** Simulates the script not having loaded yet. */
+const clearGrecaptcha = () => {
+  delete (globalThis as { grecaptcha?: GrecaptchaStub }).grecaptcha;
+};
+
 describe('ContactForm', () => {
   beforeEach(() => {
     vi.clearAllMocks();
-    recaptcha.current = mocks.executeRecaptcha;
-    mocks.executeRecaptcha.mockResolvedValue('captcha-token');
+    setGrecaptcha('captcha-token');
     mocks.sendMailAction.mockResolvedValue({
       fieldErrors: {},
       message: 'Your message has been sent successfully.',
@@ -66,7 +78,7 @@ describe('ContactForm', () => {
   });
 
   it('renders labeled fields without accessibility violations', async () => {
-    const { container } = render(<ContactForm />);
+    const { container } = renderForm();
 
     expect(screen.getByLabelText(/full name/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
@@ -79,8 +91,8 @@ describe('ContactForm', () => {
   });
 
   it('shows an error when reCAPTCHA is unavailable', async () => {
-    recaptcha.current = undefined;
-    render(<ContactForm />);
+    clearGrecaptcha();
+    renderForm();
     fillForm(validValues);
 
     submitForm();
@@ -93,8 +105,21 @@ describe('ContactForm', () => {
     expect(mocks.sendMailAction).not.toHaveBeenCalled();
   });
 
+  it('shows an error when the captcha token comes back empty', async () => {
+    setGrecaptcha('');
+    renderForm();
+    fillForm(validValues);
+
+    submitForm();
+
+    await waitFor(() => {
+      expect(mocks.toastError).toHaveBeenCalledWith('Failed to get reCAPTCHA token');
+    });
+    expect(mocks.sendMailAction).not.toHaveBeenCalled();
+  });
+
   it('blocks submit and surfaces inline errors when client validation fails', async () => {
-    render(<ContactForm />);
+    renderForm();
 
     submitForm();
 
@@ -108,7 +133,7 @@ describe('ContactForm', () => {
   });
 
   it('submits the form with a captcha token and shows a success panel', async () => {
-    render(<ContactForm />);
+    renderForm();
     fillForm(validValues);
 
     submitForm();
@@ -138,7 +163,7 @@ describe('ContactForm', () => {
       message: 'Validation failed',
       status: 'error',
     });
-    render(<ContactForm />);
+    renderForm();
     fillForm(validValues);
 
     submitForm();
@@ -159,7 +184,7 @@ describe('ContactForm', () => {
       message: 'Captcha validation failed',
       status: 'error',
     });
-    render(<ContactForm />);
+    renderForm();
     fillForm(validValues);
 
     submitForm();
@@ -181,7 +206,7 @@ describe('ContactForm', () => {
       message: 'Your message has been sent successfully.',
       status: 'success',
     }));
-    render(<ContactForm />);
+    renderForm();
 
     for (let attempt = 1; attempt <= 2; attempt += 1) {
       fillForm(validValues);

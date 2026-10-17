@@ -2,7 +2,6 @@
 
 import type { FocusEvent, FormEvent } from 'react';
 import { startTransition, useActionState, useCallback, useEffect, useRef, useState } from 'react';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 import { type ContactFormState, sendMailAction } from '@/actions/send-mail';
 import Button from '@/components/ui/Button/Button';
@@ -12,6 +11,8 @@ import { BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content/sections';
 import { trackEvent } from '@/lib/analytics';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { notifyError, notifySuccess } from '@/lib/notify';
+import { getRecaptchaToken, RecaptchaUnavailableError } from '@/lib/recaptcha';
 import {
   collectFieldErrors,
   CONTACT_CAPTCHA_ACTION,
@@ -24,7 +25,6 @@ import {
 } from '@/schemas/contact-fields.schema';
 
 import { CheckCircle2, LucideSend, RotateCcw } from 'lucide-react';
-import { toast } from 'sonner';
 
 const copy = sections.contact.form;
 
@@ -33,7 +33,12 @@ export const initialContactFormState: ContactFormState = {
   fieldErrors: {},
 };
 
-const ContactForm = () => {
+type ContactFormProps = {
+  /** Passed to `grecaptcha.execute`; the provider injects the matching script. */
+  reCaptchaKey: string;
+};
+
+const ContactForm = ({ reCaptchaKey }: ContactFormProps) => {
   const [formState, formAction, isPending] = useActionState<ContactFormState, FormData>(
     sendMailAction,
     initialContactFormState
@@ -45,7 +50,6 @@ const ContactForm = () => {
   const formRef = useRef<HTMLFormElement | null>(null);
   const successRef = useRef<HTMLDivElement | null>(null);
   const prevStateRef = useRef<ContactFormState>(initialContactFormState);
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const isSubmitting = isPending || isGettingCaptcha;
   const hasClientErrors = Object.keys(clientErrors).length > 0;
@@ -83,11 +87,11 @@ const ContactForm = () => {
         setClientErrors({});
         setHasSubmitted(false);
         setIsSent(true);
-        if (formState.message) toast.success(formState.message);
+        if (formState.message) notifySuccess(formState.message);
         break;
       }
       case 'error': {
-        if (formState.message) toast.error(formState.message);
+        if (formState.message) notifyError(formState.message);
         if (Object.keys(formState.fieldErrors ?? {}).length > 0) {
           focusFirstInvalidField(formState.fieldErrors);
         }
@@ -150,18 +154,12 @@ const ContactForm = () => {
     setIsGettingCaptcha(true);
 
     try {
-      if (!executeRecaptcha) {
-        toast.error(copy.errors.recaptchaUnavailable);
-        setIsGettingCaptcha(false);
-        return;
-      }
-
-      const captchaToken = await executeRecaptcha(CONTACT_CAPTCHA_ACTION);
+      const captchaToken = await getRecaptchaToken(reCaptchaKey, CONTACT_CAPTCHA_ACTION);
 
       if (captchaToken) {
         formData.set('captcha', captchaToken);
       } else {
-        toast.error(copy.errors.recaptchaToken);
+        notifyError(copy.errors.recaptchaToken);
         setIsGettingCaptcha(false);
         return;
       }
@@ -170,8 +168,12 @@ const ContactForm = () => {
         formAction(formData);
       });
     } catch (error) {
-      console.error('Form submission error:', error);
-      toast.error(copy.errors.unexpected);
+      if (error instanceof RecaptchaUnavailableError) {
+        notifyError(copy.errors.recaptchaUnavailable);
+      } else {
+        console.error('Form submission error:', error);
+        notifyError(copy.errors.unexpected);
+      }
       setIsGettingCaptcha(false);
     }
   };

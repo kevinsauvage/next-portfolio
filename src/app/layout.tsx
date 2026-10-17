@@ -12,7 +12,7 @@ import HeadLinks from '@/components/shared/HeadLinks';
 import PageViewTracker from '@/components/shared/PageViewTracker';
 import RevealObserver from '@/components/shared/RevealObserver';
 import ScrollDetector from '@/components/shared/ScrollDetector';
-import SonnerToaster from '@/components/shared/SonnerToaster';
+import SonnerToasterLoader from '@/components/shared/SonnerToasterLoader';
 import StructuredData from '@/components/shared/StructuredData';
 import { SITE_URL } from '@/config/site';
 import { getPublicEnv } from '@/lib/env';
@@ -88,7 +88,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <AnalyticsTracker />
         <PageViewTracker />
         <ScrollDetector />
-        <SonnerToaster />
+        <SonnerToasterLoader />
         <nav aria-label='Skip navigation'>
           <a
             id='skip-link'

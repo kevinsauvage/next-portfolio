@@ -60,7 +60,7 @@ const ContactSection = () => {
           </div>
 
           <GoogleReCaptchaProviderWrapper reCaptchaKey={recaptchaSiteKey}>
-            <ContactForm />
+            <ContactForm reCaptchaKey={recaptchaSiteKey} />
           </GoogleReCaptchaProviderWrapper>
 
           <div className='mt-8 flex flex-col items-center gap-4'>

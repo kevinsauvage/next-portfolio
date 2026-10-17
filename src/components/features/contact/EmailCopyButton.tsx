@@ -3,9 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { sections } from '@/config/content/sections';
+import { notifyError } from '@/lib/notify';
 
 import { Check, Copy } from 'lucide-react';
-import { toast } from 'sonner';
 
 const copy = sections.contact.emailCopy;
 
@@ -57,7 +57,7 @@ const EmailCopyButton = ({ email }: EmailCopyButtonProps) => {
 
   const handleCopy = useCallback(async () => {
     if (!(await copyToClipboard(email))) {
-      toast.error(copy.error);
+      notifyError(copy.error);
       return;
     }
 
