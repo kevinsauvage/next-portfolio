@@ -19,10 +19,9 @@ import {
   CONTACT_FIELD_LIMITS,
   CONTACT_FIELDS,
   type ContactFieldErrors,
-  contactFieldsSchema,
   isContactField,
   readContactFields,
-} from '@/schemas/contact-fields.schema';
+} from '@/schemas/contact-fields';
 
 import { CheckCircle2, LucideSend, RotateCcw } from 'lucide-react';
 
@@ -37,6 +36,13 @@ type ContactFormProps = {
   /** Passed to `grecaptcha.execute`; the provider injects the matching script. */
   reCaptchaKey: string;
 };
+
+/**
+ * Loads the zod schema on first use. Importing it eagerly would put zod (~33 KB
+ * gzip) in every page's initial bundle, because the form renders on first paint.
+ */
+const loadContactFieldsSchema = () =>
+  import('@/schemas/contact-fields.schema').then(module => module.contactFieldsSchema);
 
 const ContactForm = ({ reCaptchaKey }: ContactFormProps) => {
   const [formState, formAction, isPending] = useActionState<ContactFormState, FormData>(
@@ -115,12 +121,13 @@ const ContactForm = ({ reCaptchaKey }: ContactFormProps) => {
     formRef.current?.reset();
   };
 
-  const handleFieldBlur = (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleFieldBlur = async (event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
     if (!isContactField(name)) return;
     // Avoid shouting "required" before the user has attempted to submit.
     if (!hasSubmitted && value.trim() === '') return;
 
+    const contactFieldsSchema = await loadContactFieldsSchema();
     // eslint-disable-next-line security/detect-object-injection -- key narrowed to ContactFieldName
     const result = contactFieldsSchema.shape[name].safeParse(value);
     setClientErrors(previous => {
@@ -140,6 +147,7 @@ const ContactForm = ({ reCaptchaKey }: ContactFormProps) => {
     const formElement = event.currentTarget;
     const formData = new FormData(formElement);
 
+    const contactFieldsSchema = await loadContactFieldsSchema();
     const parsed = contactFieldsSchema.safeParse(readContactFields(formData));
     if (!parsed.success) {
       const errors = collectFieldErrors(parsed.error.issues);

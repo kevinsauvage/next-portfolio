@@ -2,7 +2,7 @@ import 'server-only';
 
 import { contactFieldsSchema } from './contact-fields.schema';
 
-export { CONTACT_FIELD_LIMITS } from './contact-fields.schema';
+export { CONTACT_FIELD_LIMITS } from './contact-fields';
 
 import { z } from 'zod';
 

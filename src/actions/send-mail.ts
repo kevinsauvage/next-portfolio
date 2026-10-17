@@ -10,7 +10,7 @@ import {
   CONTACT_CAPTCHA_ACTION,
   formDataString,
   readContactFields,
-} from '@/schemas/contact-fields.schema';
+} from '@/schemas/contact-fields';
 import { CONTACT_ERROR_CODES, contactFormSchema } from '@/schemas/contact-form.schema';
 
 import emailjs from '@emailjs/nodejs';
