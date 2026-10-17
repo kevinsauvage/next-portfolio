@@ -1,4 +1,6 @@
-import { expect, type Page, test } from '@playwright/test';
+import { expect, test } from './fixtures';
+
+import type { Page } from '@playwright/test';
 
 const ACCEPT_ALL = { name: 'Accept all' };
 const REJECT_ALL = { name: 'Reject all' };

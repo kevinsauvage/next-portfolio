@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('project case study', () => {
   test('renders the case study with structured data and a way back', async ({ page }) => {

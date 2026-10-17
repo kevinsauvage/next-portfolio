@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('privacy policy page', () => {
   test('is linked from the footer quick links', async ({ page }) => {

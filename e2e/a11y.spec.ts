@@ -1,4 +1,6 @@
-import { expect, type Page, test } from '@playwright/test';
+import { expect, test } from './fixtures';
+
+import type { Page } from '@playwright/test';
 import type { AxeResults, default as Axe } from 'axe-core';
 
 // RGAA 4.1 is built on WCAG 2.1 AA: run the automatable subset of those rules

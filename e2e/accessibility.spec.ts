@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('RGAA legal pages', () => {
   test('the footer shows the compliance status and links the statement and site map', async ({

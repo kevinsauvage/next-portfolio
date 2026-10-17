@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 
 test.describe('resume link', () => {
   test('does not prefetch the PDF as an RSC route', async ({ page }) => {
