@@ -14,7 +14,6 @@ import { CONSENT_UPDATED_EVENT, hasTagManagerConsent } from '@/lib/consent';
 type Properties = {
   ga4MeasurementId?: string | undefined;
   gtmId?: string | undefined;
-  nonce?: string | undefined;
 };
 
 /**
@@ -34,7 +33,7 @@ type Properties = {
  * `lazyOnload` on purpose: together they are ~900 KB and a long main-thread
  * task. Requests are only made after consent is granted.
  */
-const GoogleTagManager = ({ ga4MeasurementId, gtmId, nonce }: Properties) => {
+const GoogleTagManager = ({ ga4MeasurementId, gtmId }: Properties) => {
   const measurementId = normalizeMeasurementId(ga4MeasurementId);
   const containerId = normalizeGtmId(gtmId);
   const [hasConsent, setHasConsent] = useState(false);
@@ -68,7 +67,6 @@ const GoogleTagManager = ({ ga4MeasurementId, gtmId, nonce }: Properties) => {
           id='google-tag'
           strategy='lazyOnload'
           src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-          nonce={nonce}
         />
       ) : null}
       {containerId ? (
@@ -76,7 +74,6 @@ const GoogleTagManager = ({ ga4MeasurementId, gtmId, nonce }: Properties) => {
           id='google-tag-manager'
           strategy='lazyOnload'
           src={`https://www.googletagmanager.com/gtm.js?id=${containerId}`}
-          nonce={nonce}
         />
       ) : null}
     </>

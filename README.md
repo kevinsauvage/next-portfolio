@@ -1,6 +1,6 @@
 # Next.js Portfolio
 
-The source of [kevin-sauvage.com](https://www.kevin-sauvage.com/), my portfolio. It's a single page built with Next.js 16, TypeScript and Tailwind CSS, with a contact form (Server Action, EmailJS, reCAPTCHA v3), a nonce-based Content Security Policy, and automated accessibility testing in CI.
+The source of [kevin-sauvage.com](https://www.kevin-sauvage.com/), my portfolio. It's a single page built with Next.js 16, TypeScript and Tailwind CSS, with a contact form (Server Action, EmailJS, reCAPTCHA v3), a statically prerendered Content Security Policy, and automated accessibility testing in CI.
 
 ## Features
 
@@ -156,11 +156,11 @@ Update content in the `src/config/content/` directory:
 
 ### Security: Content Security Policy (CSP)
 
-This project sets a strict CSP with a per-request **nonce**, generated in `src/proxy.ts` (Next 16's renamed middleware). Key directives:
+This project sets a CSP as a **static header**, built by `csp.config.mjs` and applied in `next.config.mjs`. Key directives:
 
 - **default-src**: 'self'
-- **script-src**: 'self' plus a per-request nonce and Google Tag Manager / Analytics / reCAPTCHA
-  - The nonce (`'nonce-<random>'`) replaces `'unsafe-inline'`. Next automatically attaches it to its own `<script>` tags, and inline scripts in `src/components/shared/JsonLd.tsx` and `ConsentModeDefaults.tsx` read it from the `x-nonce` header. The GTM loader passes the same nonce to `gtm.js`, which propagates it to the scripts the container injects.
+- **script-src**: 'self' and `'unsafe-inline'`, plus Google Tag Manager / Analytics / reCAPTCHA
+  - Inline scripts are allowed with `'unsafe-inline'` rather than a per-request nonce. A nonce can only be attached during server-side rendering, which pins every route to dynamic rendering; every page here is prerendered instead. This is a deliberate trade — see the render note below for what it gives up.
   - Allowed hosts: `https://www.googletagmanager.com`, `https://www.google-analytics.com`, `https://www.google.com`, `https://www.gstatic.com`; `https://vercel.live` is added only on Vercel preview deployments (`VERCEL_ENV=preview`)
   - `'unsafe-eval'` is added only outside production (React tooling/HMR); the production header does not include it.
 - **style-src**: 'self' and `'unsafe-inline'` (no external font stylesheet — fonts are self-hosted via `next/font`)
@@ -175,10 +175,10 @@ Notes and exceptions:
 
 - **Analytics & consent**: the site's own Google tag (`GA4_MEASUREMENT_ID`) and the GTM container (`GTM_ID`) both load only after the visitor grants analytics or advertising consent (`GoogleTagManager.tsx`). Consent Mode v2 starts every optional category as `denied` from an inline script in `<head>` (`ConsentModeDefaults.tsx`), and the stored choice is re-applied on `gtag` before either script is fetched. The Google tag is loaded here rather than by the container's `Google Tag` tag: that path pulls gtag.js with `cx=c` and never issues the GA4 configuration, so GA4 received zero hits. The container still runs and owns the GA4 event tags that forward the `dataLayer` events below — gtag.js alone does not forward those. Do not also configure a `Google Tag` tag for the same measurement id, or page views double-count. The banner (`CookieBannerLoader` → `CookieBanner`) writes a `localConsent` cookie — six-month lifetime, versioned — and the footer's **Cookie settings** button reopens it. State and signals live in `src/lib/consent.ts`, so the banner, the loader and `trackEvent` all read one source of truth.
 - **Custom events**: `trackEvent()` in `src/lib/analytics.ts` pushes to the GTM `dataLayer`, sanitizing payloads to GA4's limits, respecting DNT, and dropping every event until analytics consent exists. Server components tag elements declaratively with `data-analytics-event` + `data-analytics-*`; the delegated listener in `AnalyticsTracker.tsx` turns them into events. Pageviews are left to the GA4 configuration tag in the container.
-- **Structured Data (JSON-LD)**: Inline `<script type="application/ld+json">` blocks receive the same per-request nonce, so no `'unsafe-inline'` is needed.
+- **Structured Data (JSON-LD)**: Inline `<script type="application/ld+json">` blocks are covered by `script-src 'unsafe-inline'`.
 - **reCAPTCHA v3**: Requires `www.google.com` and `www.gstatic.com` in `script-src`, `connect-src`, and `frame-src`.
 - **No GTM preconnect**: A hint to `googletagmanager.com` would reach Google before consent, so the loader warms the connection only at request time.
-- **Render trade-off (decided)**: reading the nonce via `headers()` opts every route into dynamic rendering, so `/` and `/projects/[slug]` are server-rendered rather than served as static HTML. This is an accepted trade-off: a nonce is the only CSP mechanism that keeps the inline Next.js bootstrap scripts strict without hashing every generated script, and Vercel's edge cache/SSR keeps the measured Lighthouse/LCP scores at the top of the range. Revisit if static export (with `'unsafe-inline'` or a post-build hash pipeline) becomes a requirement.
+- **Render trade-off (decided)**: every route is statically prerendered (`○`) so the HTML is served from the CDN edge. That requires dropping the nonce — Next.js can only attach a nonce during SSR, and it has no hash-based CSP path for inline scripts (its experimental SRI support only adds `integrity` attributes to external files). The cost is the loss of CSP protection against inline-script injection, since `script-src` carries `'unsafe-inline'`; the site renders no user input as HTML, so the practical surface is small. Reintroducing the nonce means going back to dynamic rendering.
 
 ## Project Structure
 

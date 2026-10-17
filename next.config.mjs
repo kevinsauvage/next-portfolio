@@ -3,6 +3,8 @@ import { withSentryConfig } from '@sentry/nextjs/config';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { buildCsp } from './csp.config.mjs';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -21,6 +23,10 @@ const nextConfig = {
     return [
       {
         headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: buildCsp(),
+          },
           {
             key: 'X-Content-Type-Options',
             value: 'nosniff',

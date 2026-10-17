@@ -1,7 +1,7 @@
 // @ts-check
 /** @typedef {import('./csp.config').CSPDirectives} CSPDirectives */
 
-/** Hosts allowed to run scripts (in addition to nonce'd inline scripts). */
+/** Hosts allowed to run scripts (in addition to inline scripts). */
 const SCRIPT_SRC_HOSTS = [
   'https://www.googletagmanager.com',
   'https://www.google-analytics.com',
@@ -15,9 +15,9 @@ const VERCEL_PREVIEW_HOST = 'https://vercel.live';
 const isVercelPreview = () => process.env.VERCEL_ENV === 'preview';
 
 /**
- * Every directive except `script-src`, which depends on the per-request nonce
- * and is built in {@link buildCsp}. Sentry traffic goes through the same-origin
- * `/monitoring` tunnel, and fonts are self-hosted by `next/font`.
+ * Every directive except `script-src`, which is built in {@link buildCsp}.
+ * Sentry traffic goes through the same-origin `/monitoring` tunnel, and fonts
+ * are self-hosted by `next/font`.
  *
  * @type {CSPDirectives}
  */
@@ -48,23 +48,23 @@ export const cspDirectives = {
 };
 
 /**
- * Builds the CSP header value with a per-request nonce for inline scripts.
+ * Builds the CSP header value. Applied as a static header in `next.config.mjs`.
  *
- * When a nonce is provided, `'unsafe-inline'` is dropped from `script-src`
- * (browsers ignore it when a nonce/hash is present anyway). Without a nonce
- * the policy falls back to `'unsafe-inline'`.
+ * Inline scripts are allowed via `'unsafe-inline'` instead of a per-request
+ * nonce. A nonce can only be attached during server-side rendering, which pins
+ * every route to dynamic rendering — and this site is fully prerendered. See
+ * the CSP notes in README.md for what that gives up.
  *
  * `'unsafe-eval'` is only added outside production, where React tooling and
  * HMR still need it; the production header must not carry it.
  *
- * @param {string} [nonce]
  * @returns {string}
  */
-export function buildCsp(nonce) {
+export function buildCsp() {
   const devEval = process.env.NODE_ENV !== 'production' ? ["'unsafe-eval'"] : [];
   const scriptSrc = [
     "'self'",
-    nonce ? `'nonce-${nonce}'` : "'unsafe-inline'",
+    "'unsafe-inline'",
     ...devEval,
     ...SCRIPT_SRC_HOSTS,
     ...(isVercelPreview() ? [VERCEL_PREVIEW_HOST] : []),

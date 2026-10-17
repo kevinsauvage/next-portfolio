@@ -6,14 +6,13 @@ import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 type Properties = {
   children: React.ReactNode;
   reCaptchaKey: string;
-  nonce?: string | undefined;
 };
 
 /**
  * Loads the reCAPTCHA script only once the wrapped form is about to scroll into
  * view. Wrap just the form: swapping in the provider remounts what it wraps.
  */
-const GoogleReCaptchaProviderWrapper = ({ children, reCaptchaKey, nonce }: Properties) => {
+const GoogleReCaptchaProviderWrapper = ({ children, reCaptchaKey }: Properties) => {
   const [shouldLoad, setShouldLoad] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -40,7 +39,7 @@ const GoogleReCaptchaProviderWrapper = ({ children, reCaptchaKey, nonce }: Prope
       {shouldLoad ? (
         <GoogleReCaptchaProvider
           reCaptchaKey={reCaptchaKey}
-          scriptProps={{ appendTo: 'head', async: true, defer: true, ...(nonce && { nonce }) }}
+          scriptProps={{ appendTo: 'head', async: true, defer: true }}
         >
           {children}
         </GoogleReCaptchaProvider>

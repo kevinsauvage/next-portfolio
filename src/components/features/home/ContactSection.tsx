@@ -8,7 +8,6 @@ import SpinnerLoader from '@/components/shared/SpinnerLoader';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { sections } from '@/config/content';
 import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
-import { getNonce } from '@/lib/csp-nonce';
 import { getPublicEnv } from '@/lib/env';
 
 import { Mail, MapPin } from 'lucide-react';
@@ -21,9 +20,8 @@ const ContactForm = dynamic(() => import('@/components/features/contact/ContactF
   ),
 });
 
-const ContactSection = async () => {
+const ContactSection = () => {
   const recaptchaSiteKey = getPublicEnv().NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
-  const nonce = await getNonce();
 
   return (
     <div className='relative rounded-none border-0 border-t border-zinc-700 text-center'>
@@ -61,7 +59,7 @@ const ContactSection = async () => {
             </p>
           </div>
 
-          <GoogleReCaptchaProviderWrapper reCaptchaKey={recaptchaSiteKey} nonce={nonce}>
+          <GoogleReCaptchaProviderWrapper reCaptchaKey={recaptchaSiteKey}>
             <ContactForm />
           </GoogleReCaptchaProviderWrapper>
 

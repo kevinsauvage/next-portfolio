@@ -4,14 +4,12 @@ import JsonLd from './JsonLd';
 import ProjectStructuredData from './ProjectStructuredData';
 
 import { render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
-
-vi.mock('@/lib/csp-nonce', () => ({ getNonce: async () => 'test-nonce' }));
+import { describe, expect, it } from 'vitest';
 
 type Schema = Record<string, unknown>;
 
 const renderSchemas = async (project: Project) => {
-  const { container } = render(await JsonLd(ProjectStructuredData({ project }).props));
+  const { container } = render(JsonLd(ProjectStructuredData({ project }).props));
   const scripts = [...container.querySelectorAll('script[type="application/ld+json"]')];
   const [breadcrumb, work] = scripts.map(script => JSON.parse(script.textContent ?? '') as Schema);
   return { breadcrumb, work };

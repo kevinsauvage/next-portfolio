@@ -25,7 +25,7 @@ Import alias `@/*` → `./src/*`. Env is validated with Zod in `src/lib/env.ts`;
 
 ## WHY — architecture pointers
 
-- `src/app/` — routes (`page.tsx`, `layout.tsx`, `projects/[slug]`). `src/proxy.ts` is the middleware (Next 16 rename) and owns the CSP nonce — see below.
+- `src/app/` — routes (`page.tsx`, `layout.tsx`, `projects/[slug]`). There is no middleware: the CSP is a static header (see below).
 - `src/components/{ui,shared,layout,features}/` — base → reusable → layout → feature. Prefer existing `ui/` primitives and `Typography` components.
 - `src/config/content/` — all page copy (sections, jobs, projects, faq). Content edits go here, not in components.
 - `src/lib/` — utilities (`env.ts`, `analytics.ts`, `rate-limit.ts`, `seo-*`). `src/hooks/` — client hooks.
@@ -34,7 +34,7 @@ Import alias `@/*` → `./src/*`. Env is validated with Zod in `src/lib/env.ts`;
 
 ## HOW — non-obvious rules (read the file before touching the area)
 
-1. **CSP nonce:** `src/proxy.ts` + `csp.config.mjs`. Inline scripts need the per-request nonce from the `x-nonce` header (see `src/components/shared/StructuredData.tsx`). `headers()` opts routes into dynamic rendering — accepted trade-off, do not "fix" by removing the nonce.
+1. **CSP:** built by `csp.config.mjs` and applied as a static header in `next.config.mjs`; there is no middleware and no nonce. `script-src` carries `'unsafe-inline'` on purpose — a nonce can only be attached during SSR, and every route must stay statically prerendered (`○`). Do not reintroduce a nonce (or `headers()` in a render path) without accepting dynamic rendering.
 2. **Env:** `NEXT_PUBLIC_*` is inlined at `next build` time — changing it requires a rebuild. Server-only secrets must not have that prefix. Analytics/Sentry sample rates are build-time; Redis/EmailJS keys are runtime.
 3. **Analytics:** `GoogleTagManager.tsx` loads the site's Google tag (`GA4_MEASUREMENT_ID`) _and_ the container (`GTM_ID`) only once `src/lib/consent.ts` reports a grant; cookie consent is the single source of truth for both tags and custom events. The Google tag is loaded by the site on purpose — the container's `Google Tag` tag loads gtag.js with `cx=c` and never configures GA4, so it must not be used for the same measurement id. Custom events only via `trackEvent()` in `src/lib/analytics.ts` (dataLayer); declarative clicks use `data-analytics-event` + `data-analytics-*`. Never fire a tag or push an event before consent.
 4. **Imports:** `simple-import-sort` groups are enforced (`react`/`next` → `@/` → relative → styles). Let `npm run lint:fix` order them; do not hand-sort.
@@ -54,7 +54,7 @@ Style (Prettier + ESLint) is enforced mechanically — do not restate it here; r
 ### Ask first
 
 - Before adding/removing a dependency in `package.json`.
-- Before changing auth, CSP (`csp.config.mjs`, `src/proxy.ts`), rate limiting, env validation, CI workflows, or public URLs/SEO (`sitemap.tsx`, `robots.tsx`, rewrites).
+- Before changing auth, CSP (`csp.config.mjs`, `next.config.mjs`), rate limiting, env validation, CI workflows, or public URLs/SEO (`sitemap.tsx`, `robots.tsx`, rewrites).
 - Before touching `src/instrumentation*.ts` or Sentry tunnel route (`/monitoring`).
 
 ### Never do

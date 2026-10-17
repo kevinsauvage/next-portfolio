@@ -15,7 +15,6 @@ import ScrollDetector from '@/components/shared/ScrollDetector';
 import SonnerToaster from '@/components/shared/SonnerToaster';
 import StructuredData from '@/components/shared/StructuredData';
 import { SITE_URL } from '@/config/site';
-import { getNonce } from '@/lib/csp-nonce';
 import { getPublicEnv } from '@/lib/env';
 import { buildRootMetadata } from '@/lib/seo-metadata';
 
@@ -52,11 +51,8 @@ const jetBrainsMono = JetBrains_Mono({
   preload: false,
 });
 
-const Layout = async ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const publicEnv = getPublicEnv();
-  // Same per-request nonce as StructuredData: GTM propagates it to the scripts
-  // it injects, which is what keeps the container working under the strict CSP.
-  const nonce = await getNonce();
 
   return (
     <html
@@ -88,7 +84,6 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
         <GoogleTagManager
           ga4MeasurementId={publicEnv.GA4_MEASUREMENT_ID}
           gtmId={publicEnv.GTM_ID}
-          nonce={nonce}
         />
         <AnalyticsTracker />
         <PageViewTracker />

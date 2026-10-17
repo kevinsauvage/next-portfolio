@@ -1,24 +1,23 @@
 import ConsentModeDefaults from './ConsentModeDefaults';
 
 import { render } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
-vi.mock('@/lib/csp-nonce', () => ({ getNonce: async () => 'test-nonce' }));
-
-const renderSnippet = async () => {
-  const { container } = render(await ConsentModeDefaults());
+const renderSnippet = () => {
+  const { container } = render(ConsentModeDefaults());
   return container.querySelector('script');
 };
 
 describe('ConsentModeDefaults', () => {
-  it('renders an inline script carrying the request nonce', async () => {
-    const script = await renderSnippet();
+  it('renders an inline consent-default script', () => {
+    const script = renderSnippet();
 
-    expect(script?.getAttribute('nonce')).toBe('test-nonce');
+    expect(script).not.toBeNull();
+    expect(script?.textContent).toContain("gtag('consent','default'");
   });
 
-  it('defaults every optional category to denied before any tag can fire', async () => {
-    const script = await renderSnippet();
+  it('defaults every optional category to denied before any tag can fire', () => {
+    const script = renderSnippet();
     const dataLayer: unknown[][] = [];
     const sandbox = { dataLayer } as unknown as Window;
 
