@@ -188,13 +188,13 @@ const myEcommerceProject: Project = {
       },
       {
         src: '/images/projects/modern-ecommerce-platform/product.jpg',
-        alt: 'Product page for the Moonlit Doorknocker earrings with gallery, VAT-inclusive price and description',
+        alt: 'Product page for Moonlit Doorknocker earrings with gallery and price',
       },
     ],
   },
   images: {
     thumbnail: {
-      alt: 'ORUVA homepage: "Jewelry made to be worn, not saved for later" beside a model wearing gold necklaces and earrings',
+      alt: 'ORUVA homepage: hero slogan beside a model wearing gold jewelry',
       src: '/images/projects/modern-ecommerce-platform/home.jpg',
     },
   },
@@ -338,17 +338,17 @@ const complyLoopProject: Project = {
     gallery: [
       {
         src: '/images/projects/complyloop/features.jpg',
-        alt: 'ComplyLoop feature cards: deterministic checks, engineer-native findings, human-approved remediation, GitHub workflow, continuous re-assessment and append-only evidence',
+        alt: 'ComplyLoop feature cards: deterministic checks, remediation and evidence',
       },
       {
         src: '/images/projects/complyloop/evidence.jpg',
-        alt: 'A sample evidence trail on the ComplyLoop landing page: assessment completed, finding detected, remediation verified',
+        alt: 'Evidence trail on the ComplyLoop landing page: assessed, fixed, verified',
       },
     ],
   },
   images: {
     thumbnail: {
-      alt: 'ComplyLoop landing page: "From RGAA requirement to verified code and audit evidence" above the six steps of the compliance loop',
+      alt: 'ComplyLoop landing page: hero slogan above the six steps of the loop',
       src: '/images/projects/complyloop/home.jpg',
     },
   },

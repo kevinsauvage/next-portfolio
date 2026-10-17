@@ -31,4 +31,16 @@ describe('ProjectCaseStudy', () => {
       expect(link).toHaveAttribute('href', project.websiteLink);
     }
   });
+
+  it('keeps the hero overline and meta on an explicit dark background', () => {
+    render(<ProjectCaseStudy project={project} />);
+
+    // Contrast checkers only read ancestor background-color values, not the
+    // absolutely positioned <MeshGradient> sibling painted behind them — an
+    // explicit opaque background keeps the accent-coloured 12px text readable
+    // for those tools instead of falling back to white.
+    const hero = screen.getByText(caseStudySections.overline).closest('header');
+    expect(hero).toHaveClass('bg-black');
+    expect(screen.getByText(`${project.role} · ${project.timeline}`)).toBeInTheDocument();
+  });
 });

@@ -109,7 +109,7 @@ const ProjectCaseStudy = ({ project }: ProjectCaseStudyProps) => {
   return (
     <article className='h-full w-full'>
       {/* Hero */}
-      <header className='relative border-b border-zinc-800/60'>
+      <header className='relative border-b border-zinc-800/60 bg-black'>
         <MeshGradient overlayOpacity={78} />
         <GridBackground />
         <div className='container relative z-10 m-auto max-w-5xl px-6 pb-16 pt-32 md:pb-24 md:pt-40'>
