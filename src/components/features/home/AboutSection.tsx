@@ -58,7 +58,7 @@ const AboutSection: React.FC = () => {
                       data-analytics-event={ANALYTICS_EVENTS.OUTBOUND_LINK_CLICK}
                       data-analytics-url={lang.credentialUrl}
                       data-analytics-location='about'
-                      className='inline-flex items-center gap-1 font-mono text-xs text-primary-300 transition-colors hover:text-primary-200'
+                      className='inline-flex min-h-6 items-center gap-1 font-mono text-xs text-primary-300 transition-colors hover:text-primary-200'
                     >
                       {lang.level}
                       <span className='sr-only'>

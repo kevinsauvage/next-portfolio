@@ -4,16 +4,17 @@ import type { Page } from '@playwright/test';
 import type { AxeResults, default as Axe } from 'axe-core';
 
 // RGAA 4.1 is built on WCAG 2.1 AA: run the automatable subset of those rules
-// on every route against the real rendered page (colors, landmarks, names…).
+// (plus WCAG 2.2 AA and axe best practices) on every route against the real
+// rendered page (colors, landmarks, names…).
 const AXE_PATH = require.resolve('axe-core/axe.min.js');
-const WCAG_AA_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'];
+const WCAG_AA_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice'];
 
 const ROUTES = [
   '/',
   '/privacy',
-  '/accessibility',
   '/site-map',
   '/projects/complyloop',
+  '/projects/modern-ecommerce-platform',
   '/this-page-does-not-exist',
 ];
 
@@ -37,7 +38,7 @@ declare global {
 test.use({ bypassCSP: true });
 
 for (const route of ROUTES) {
-  test(`${route} has no WCAG 2.1 AA violations`, async ({ page }) => {
+  test(`${route} has no WCAG 2.2 AA violations`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto(route);
     await page.waitForLoadState('networkidle');
@@ -93,4 +94,19 @@ test('contact form fields are visible and labelled before any scrolling', async 
     expect(labelText, `${id} must have a label with visible text`).toBeTruthy();
     expect(hidingAncestors, `${id} must be visible at load`).toEqual([]);
   }
+});
+
+// WCAG 1.4.10 (RGAA 10.11): content reflows at 320 CSS px, and any region that
+// still scrolls sideways (the cookie table) stays reachable from the keyboard.
+test('/privacy reflows at 320px without violations', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/privacy');
+  await page.waitForLoadState('networkidle');
+
+  const overflowsPage = await page.evaluate(
+    () => document.documentElement.scrollWidth > document.documentElement.clientWidth
+  );
+  expect(overflowsPage).toBe(false);
+  expect(await runAxe(page)).toEqual([]);
 });

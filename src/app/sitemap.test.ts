@@ -25,10 +25,9 @@ describe('sitemap', () => {
     expect(privacyEntry?.priority).toBe(0.3);
   });
 
-  it('lists the accessibility statement and the HTML site map', () => {
+  it('lists the HTML site map', () => {
     const urls = sitemap().map(entry => entry.url);
 
-    expect(urls).toContain('https://www.kevin-sauvage.com/accessibility');
     expect(urls).toContain('https://www.kevin-sauvage.com/site-map');
   });
 

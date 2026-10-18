@@ -15,10 +15,6 @@ describe('SiteMap', () => {
     for (const { slug } of projects) {
       expect(nav.querySelector(`a[href="/projects/${slug}"]`)).not.toBeNull();
     }
-    expect(screen.getByRole('link', { name: 'Accessibility statement' })).toHaveAttribute(
-      'href',
-      '/accessibility'
-    );
     expect(screen.getByRole('link', { name: 'Site map' })).toHaveAttribute('aria-current', 'page');
 
     expect(await axe(container)).toHaveNoViolations();

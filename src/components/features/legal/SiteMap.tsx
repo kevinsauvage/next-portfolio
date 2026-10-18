@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import Section from '@/components/ui/Section';
 import { Body, H1, H3, Overline } from '@/components/ui/Typography';
-import { accessibility, layout, privacy, projects, siteMap } from '@/config/content';
+import { layout, privacy, projects, siteMap } from '@/config/content';
 
 const LINK_CLASSES =
   'inline-flex min-h-11 items-center text-zinc-200 underline-offset-4 transition-colors hover:text-primary-300 hover:underline';
@@ -56,11 +56,6 @@ const SiteMap: React.FC = () => (
           <li>
             <Link href='/privacy' className={LINK_CLASSES}>
               {privacy.title}
-            </Link>
-          </li>
-          <li>
-            <Link href='/accessibility' className={LINK_CLASSES}>
-              {accessibility.title}
             </Link>
           </li>
           <li>

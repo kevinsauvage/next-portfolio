@@ -1,4 +1,3 @@
-export * from './accessibility';
 export * from './certifications';
 export * from './cookies';
 export * from './jobs';

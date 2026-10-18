@@ -26,7 +26,12 @@ const EmailLink = () => (
  * can never appear in the banner without showing up in the policy.
  */
 const CookieCategoryTable = () => (
-  <div className='overflow-x-auto rounded-xl border border-zinc-800'>
+  <div
+    role='region'
+    aria-label={privacy.cookieTableCaption}
+    tabIndex={0}
+    className='overflow-x-auto rounded-xl border border-zinc-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-300'
+  >
     <table className='w-full border-collapse text-left'>
       <caption className='sr-only'>{privacy.cookieTableCaption}</caption>
       <thead>

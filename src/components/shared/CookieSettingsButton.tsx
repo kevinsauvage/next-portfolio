@@ -9,7 +9,7 @@ const CookieSettingsButton = () => {
     <button
       type='button'
       onClick={openConsentSettings}
-      className='text-zinc-300 underline-offset-4 transition-colors hover:text-primary-400 hover:underline focus:outline-none focus:ring-2 focus:ring-primary-300 rounded-md'
+      className='inline-flex min-h-11 items-center text-zinc-300 underline-offset-4 transition-colors hover:text-primary-400 hover:underline focus:outline-none focus:ring-2 focus:ring-primary-300 rounded-md'
     >
       {copy.settingsTrigger}
     </button>
