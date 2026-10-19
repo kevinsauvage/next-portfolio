@@ -3,7 +3,7 @@ import { NEW_TAB_LABEL } from '@/components/ui/NewTabHint';
 import Section from '@/components/ui/Section';
 import { Body, H2, H3, Overline } from '@/components/ui/Typography';
 import { passions, sections } from '@/config/content';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import PassionCard from './PassionCard';
 

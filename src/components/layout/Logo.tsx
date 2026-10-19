@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { PERSON_NAME } from '@/config/site';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 const Logo = () => (
   <Link

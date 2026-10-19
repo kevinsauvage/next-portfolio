@@ -1,4 +1,11 @@
 import {
+  CONSENT_COOKIE,
+  type ConsentSettings,
+  consentSignals,
+  writeStoredConsent,
+} from '../consent';
+
+import {
   applyConsentToGtag,
   normalizeGtmId,
   normalizeMeasurementId,
@@ -6,13 +13,7 @@ import {
   sanitizeEventData,
   trackEvent,
   trackPageView,
-} from './analytics';
-import {
-  CONSENT_COOKIE,
-  type ConsentSettings,
-  consentSignals,
-  writeStoredConsent,
-} from './consent';
+} from './index';
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 

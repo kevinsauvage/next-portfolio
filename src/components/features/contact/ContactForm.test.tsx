@@ -1,5 +1,5 @@
 import { trackEvent } from '@/lib/analytics';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import ContactForm from './ContactForm';
 

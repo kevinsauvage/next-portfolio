@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { layout, NAVIGATION_SECTION_IDS, sectionIdFromHref } from '@/config/content/layout';
 import { useActiveSection } from '@/hooks/useActiveSection';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import clsx from 'clsx';
 

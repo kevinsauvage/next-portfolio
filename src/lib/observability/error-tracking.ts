@@ -1,5 +1,5 @@
-import { trackEvent } from './analytics';
-import { ANALYTICS_EVENTS } from './analytics-events';
+import { trackEvent } from '../analytics';
+import { ANALYTICS_EVENTS } from '../analytics/events';
 
 import * as Sentry from '@sentry/nextjs';
 

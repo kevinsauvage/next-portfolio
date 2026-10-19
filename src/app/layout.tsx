@@ -16,7 +16,7 @@ import SonnerToasterLoader from '@/components/shared/SonnerToasterLoader';
 import StructuredData from '@/components/shared/StructuredData';
 import { SITE_URL } from '@/config/site';
 import { getPublicEnv } from '@/lib/env';
-import { buildRootMetadata } from '@/lib/seo-metadata';
+import { buildRootMetadata } from '@/lib/seo/metadata';
 
 import '@/styles/globals.css';
 

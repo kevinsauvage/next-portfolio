@@ -45,7 +45,7 @@ export const ANALYTICS_EVENTS = {
   /** Generic outbound link clicks. Extra props: url, location */
   OUTBOUND_LINK_CLICK: 'outbound_link_click',
 
-  /** Non-fatal client logging (@/lib/error-tracking) */
+  /** Non-fatal client logging (@/lib/observability/error-tracking) */
   ERROR_CLIENT: 'error_client',
 
   /** React error boundary (app/error.tsx) */

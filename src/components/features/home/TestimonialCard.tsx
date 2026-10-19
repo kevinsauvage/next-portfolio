@@ -8,9 +8,9 @@ import { BodySmall, Caption } from '@/components/ui/Typography';
 import { sections } from '@/config/content/sections';
 import type { Testimonial } from '@/config/content/testimonials';
 import { LINKEDIN_URL } from '@/config/site';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
-import { toDateTime } from '@/lib/date';
-import { padIndex } from '@/lib/format';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
+import { toDateTime } from '@/lib/utils/date';
+import { padIndex } from '@/lib/utils/format';
 
 import clsx from 'clsx';
 import { Briefcase, Calendar, ChevronDown, ExternalLink, Quote } from 'lucide-react';

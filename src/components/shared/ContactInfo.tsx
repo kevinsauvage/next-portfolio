@@ -1,6 +1,6 @@
 import { NEW_TAB_LABEL } from '@/components/ui/NewTabHint';
 import { socialLinks } from '@/config/content/social';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import clsx from 'clsx';
 

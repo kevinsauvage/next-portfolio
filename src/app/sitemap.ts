@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next';
 
 import { getProjectUrl, projects } from '@/config/content/projects';
 import { SITE_URL } from '@/config/site';
-import { SITE_LAST_MODIFIED } from '@/lib/seo-schemas';
+import { SITE_LAST_MODIFIED } from '@/lib/seo/schemas';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const projectEntries: MetadataRoute.Sitemap = projects.map(({ slug }) => ({

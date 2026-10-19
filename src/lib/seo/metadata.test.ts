@@ -4,7 +4,7 @@ const BASE_URL = 'https://example.com';
 
 const load = async () => {
   vi.resetModules();
-  return (await import('./seo-metadata')).buildRootMetadata;
+  return (await import('./metadata')).buildRootMetadata;
 };
 
 describe('buildRootMetadata', () => {

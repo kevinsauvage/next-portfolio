@@ -21,14 +21,14 @@ Order checks from discriminating to broad: `npm run check` → focused test file
 
 Next.js 16 App Router + React 19 + TypeScript strict + Tailwind CSS v4 (`@theme` tokens in `src/styles/globals.css`). Forms: Server Actions (`src/actions/`) with Zod (`src/schemas/`), EmailJS server-side, reCAPTCHA v3. Analytics: Google Tag Manager behind a cookie consent banner (Consent Mode v2). Error tracking: Sentry. Tests: Vitest + RTL + jsdom; E2E: Playwright (`e2e/`).
 
-Import alias `@/*` → `./src/*`. Env is validated with Zod in `src/lib/env.ts`; see `.env.example` for the full list (never read or print real `.env` values).
+Import alias `@/*` → `./src/*`. Env is validated with Zod in `src/lib/env/index.ts`; see `.env.example` for the full list (never read or print real `.env` values).
 
 ## WHY — architecture pointers
 
 - `src/app/` — routes (`page.tsx`, `layout.tsx`, `projects/[slug]`). There is no middleware: the CSP is a static header (see below).
 - `src/components/{ui,shared,layout,features}/` — base → reusable → layout → feature. Prefer existing `ui/` primitives and `Typography` components.
 - `src/config/content/` — all page copy (sections, jobs, projects, faq). Content edits go here, not in components.
-- `src/lib/` — utilities (`env.ts`, `analytics.ts`, `rate-limit.ts`, `seo-*`). `src/hooks/` — client hooks.
+- `src/lib/` — one folder per domain: `analytics/` (tracking, events, ids), `consent/`, `env/`, `seo/` (metadata, schemas), `security/` (rate limit, reCAPTCHA), `observability/` (Sentry, error tracking), `notify/`, `utils/` (date, format). `src/hooks/` — client hooks.
 - Styling source of truth: `docs/design-system.md` + `src/styles/globals.css`. Tokens once, Tailwind utilities everywhere.
 - Human onboarding: `README.md` (includes the CSP trade-off notes and env table).
 
@@ -36,7 +36,7 @@ Import alias `@/*` → `./src/*`. Env is validated with Zod in `src/lib/env.ts`;
 
 1. **CSP:** built by `csp.config.mjs` and applied as a static header in `next.config.mjs`; there is no middleware and no nonce. `script-src` carries `'unsafe-inline'` on purpose — a nonce can only be attached during SSR, and every route must stay statically prerendered (`○`). Do not reintroduce a nonce (or `headers()` in a render path) without accepting dynamic rendering.
 2. **Env:** `NEXT_PUBLIC_*` is inlined at `next build` time — changing it requires a rebuild. Server-only secrets must not have that prefix. Analytics/Sentry sample rates are build-time; Redis/EmailJS keys are runtime.
-3. **Analytics:** `GoogleTagManager.tsx` loads the site's Google tag (`GA4_MEASUREMENT_ID`) _and_ the container (`GTM_ID`) only once `src/lib/consent.ts` reports a grant; cookie consent is the single source of truth for both tags and custom events. The Google tag is loaded by the site on purpose — the container's `Google Tag` tag loads gtag.js with `cx=c` and never configures GA4, so it must not be used for the same measurement id. Custom events only via `trackEvent()` in `src/lib/analytics.ts` (dataLayer); declarative clicks use `data-analytics-event` + `data-analytics-*`. Never fire a tag or push an event before consent.
+3. **Analytics:** `GoogleTagManager.tsx` loads the site's Google tag (`GA4_MEASUREMENT_ID`) _and_ the container (`GTM_ID`) only once `src/lib/consent/index.ts` reports a grant; cookie consent is the single source of truth for both tags and custom events. The Google tag is loaded by the site on purpose — the container's `Google Tag` tag loads gtag.js with `cx=c` and never configures GA4, so it must not be used for the same measurement id. Custom events only via `trackEvent()` in `src/lib/analytics/index.ts` (dataLayer); declarative clicks use `data-analytics-event` + `data-analytics-*`. Never fire a tag or push an event before consent.
 4. **Imports:** `simple-import-sort` groups are enforced (`react`/`next` → `@/` → relative → styles). Let `npm run lint:fix` order them; do not hand-sort.
 5. **Tests:** colocate as `*.test.{ts,tsx}` next to source; E2E in `e2e/`. Playwright webServer needs `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` (dummy value is set in `playwright.config.ts`).
 

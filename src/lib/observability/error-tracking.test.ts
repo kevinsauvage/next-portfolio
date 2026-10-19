@@ -4,9 +4,9 @@ import * as Sentry from '@sentry/nextjs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 vi.mock('@sentry/nextjs', () => ({ captureException: vi.fn() }));
-vi.mock('./analytics', () => ({ trackEvent: vi.fn() }));
+vi.mock('../analytics', () => ({ trackEvent: vi.fn() }));
 
-import { trackEvent } from './analytics';
+import { trackEvent } from '../analytics';
 
 describe('logError', () => {
   beforeEach(() => {

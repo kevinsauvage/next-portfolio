@@ -9,7 +9,7 @@ import {
   hasTagManagerConsent,
   readStoredConsent,
   writeStoredConsent,
-} from './consent';
+} from './index';
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
 

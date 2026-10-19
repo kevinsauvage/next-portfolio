@@ -3,8 +3,8 @@ import { NEW_TAB_LABEL } from '@/components/ui/NewTabHint';
 import { Tag } from '@/components/ui/Tag';
 import { BodySmall, Caption, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
-import { toDateTime } from '@/lib/date';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
+import { toDateTime } from '@/lib/utils/date';
 
 import { Award, Building2, Calendar, ExternalLink } from 'lucide-react';
 

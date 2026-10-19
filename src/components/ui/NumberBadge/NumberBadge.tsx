@@ -1,4 +1,4 @@
-import { padIndex } from '@/lib/format';
+import { padIndex } from '@/lib/utils/format';
 
 import clsx from 'clsx';
 

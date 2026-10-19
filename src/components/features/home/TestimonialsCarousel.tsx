@@ -6,7 +6,7 @@ import TestimonialCard from '@/components/features/home/TestimonialCard';
 import { FOCUS_RING_SECONDARY } from '@/components/ui/focusRing';
 import type { Testimonial } from '@/config/content/testimonials';
 import { trackEvent } from '@/lib/analytics';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import clsx from 'clsx';
 import { ChevronLeft, ChevronRight } from 'lucide-react';

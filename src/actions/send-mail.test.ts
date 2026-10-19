@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/max-lines-per-function, sonarjs/no-duplicate-string */
-import { resetRateLimit } from '@/lib/rate-limit';
+import { resetRateLimit } from '@/lib/security/rate-limit';
 
 import { type ContactFormState, sendMailAction } from './send-mail';
 
@@ -13,7 +13,7 @@ const { getServerEnvMock, emailjsSendMock, logErrorMock, headersMock } = vi.hois
 }));
 
 vi.mock('@/lib/env', () => ({ getServerEnv: getServerEnvMock }));
-vi.mock('@/lib/error-tracking', () => ({ logError: logErrorMock }));
+vi.mock('@/lib/observability/error-tracking', () => ({ logError: logErrorMock }));
 vi.mock('@emailjs/nodejs', () => ({ default: { send: emailjsSendMock } }));
 vi.mock('next/headers', () => ({ headers: headersMock }));
 

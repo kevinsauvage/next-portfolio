@@ -2,7 +2,7 @@ import JsonLd from '@/components/shared/JsonLd';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { sections } from '@/config/content';
 import faqs from '@/config/content/faq';
-import { faqSchema } from '@/lib/seo-schemas';
+import { faqSchema } from '@/lib/seo/schemas';
 
 import FaqItem from './FaqItem';
 

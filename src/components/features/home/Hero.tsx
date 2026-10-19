@@ -5,7 +5,7 @@ import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { Body, Display } from '@/components/ui/Typography';
 import { GRADIENT_TEXT } from '@/components/ui/Typography/typography';
 import { layout, sections } from '@/config/content';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import clsx from 'clsx';
 import { FileText, MoveDown } from 'lucide-react';

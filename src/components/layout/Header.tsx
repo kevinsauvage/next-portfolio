@@ -4,7 +4,7 @@ import Navigation from '@/components/layout/Navigation';
 import ContactInfo from '@/components/shared/ContactInfo';
 import ButtonLink from '@/components/ui/Button/ButtonLink';
 import { layout } from '@/config/content';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import { FileText } from 'lucide-react';
 

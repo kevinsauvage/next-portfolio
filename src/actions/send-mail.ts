@@ -3,8 +3,8 @@
 import { headers } from 'next/headers';
 
 import { getServerEnv } from '@/lib/env';
-import { logError } from '@/lib/error-tracking';
-import { checkRateLimit } from '@/lib/rate-limit';
+import { logError } from '@/lib/observability/error-tracking';
+import { checkRateLimit } from '@/lib/security/rate-limit';
 import {
   collectFieldErrors,
   CONTACT_CAPTCHA_ACTION,

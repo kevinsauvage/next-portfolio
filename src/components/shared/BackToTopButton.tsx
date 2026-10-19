@@ -1,7 +1,7 @@
 'use client';
 
 import { FOCUS_RING } from '@/components/ui/focusRing';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import clsx from 'clsx';
 import { ChevronUp } from 'lucide-react';

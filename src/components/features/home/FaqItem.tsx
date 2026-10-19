@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { padIndex } from '@/lib/format';
+import { padIndex } from '@/lib/utils/format';
 
 import clsx from 'clsx';
 import { Plus } from 'lucide-react';

@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { GA4_MEASUREMENT_ID_PATTERN, GTM_ID_PATTERN } from './analytics-ids';
+import { GA4_MEASUREMENT_ID_PATTERN, GTM_ID_PATTERN } from '../analytics/ids';
 
 import { z } from 'zod';
 

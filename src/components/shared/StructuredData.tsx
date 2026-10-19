@@ -8,7 +8,7 @@ import {
   projectsSchema,
   SCHEMA_CONTEXT,
   websiteSchema,
-} from '@/lib/seo-schemas';
+} from '@/lib/seo/schemas';
 
 const siteNavigation = {
   '@context': SCHEMA_CONTEXT,

@@ -4,7 +4,7 @@ import ContactInfo from '@/components/shared/ContactInfo';
 import CookieSettingsButton from '@/components/shared/CookieSettingsButton';
 import { BodySmall, H3, H4 } from '@/components/ui/Typography';
 import { layout, siteMap } from '@/config/content';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import { Briefcase, CheckCircle2, Code2, Mail, MapPin } from 'lucide-react';
 

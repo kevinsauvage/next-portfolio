@@ -6,7 +6,7 @@ import { Tag } from '@/components/ui/Tag';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import type { Project } from '@/config/content/projects';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import { BookOpen, Check, ExternalLink } from 'lucide-react';
 

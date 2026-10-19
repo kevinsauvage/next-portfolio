@@ -1,13 +1,14 @@
-export type { AnalyticsEventName } from './analytics-events';
-export { ANALYTICS_EVENTS } from './analytics-events';
+export type { AnalyticsEventName } from './events';
+export { ANALYTICS_EVENTS } from './events';
 
-import { GA4_MEASUREMENT_ID_PATTERN, GTM_ID_PATTERN } from './analytics-ids';
 import {
   type ConsentSettings,
   consentSignals,
   hasAnalyticsConsent,
   readStoredConsent,
-} from './consent';
+} from '../consent';
+
+import { GA4_MEASUREMENT_ID_PATTERN, GTM_ID_PATTERN } from './ids';
 
 declare global {
   interface Window {

@@ -2,7 +2,7 @@ import CookieSettingsButton from '@/components/shared/CookieSettingsButton';
 import Section from '@/components/ui/Section';
 import { Body, BodySmall, Caption, H1, H3, Overline } from '@/components/ui/Typography';
 import { cookies, privacy, sections } from '@/config/content';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import { Mail } from 'lucide-react';
 

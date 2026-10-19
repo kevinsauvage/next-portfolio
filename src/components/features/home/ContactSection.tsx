@@ -6,7 +6,7 @@ import MeshGradient from '@/components/shared/MeshGradient';
 import Reveal from '@/components/shared/Reveal';
 import Section, { SectionHeader } from '@/components/ui/Section';
 import { sections } from '@/config/content';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 import { getPublicEnv } from '@/lib/env';
 
 import { Mail, MapPin } from 'lucide-react';

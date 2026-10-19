@@ -6,7 +6,7 @@ import Button from '@/components/ui/Button/Button';
 import { BodySmall, H1 } from '@/components/ui/Typography';
 import { PERSON_NAME } from '@/config/site';
 import { trackEvent } from '@/lib/analytics';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import * as Sentry from '@sentry/nextjs';
 

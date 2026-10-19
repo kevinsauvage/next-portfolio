@@ -1,4 +1,4 @@
-import { toDateTime } from '@/lib/date';
+import { toDateTime } from '@/lib/utils/date';
 
 import { certifications } from './certifications';
 import testimonials from './testimonials';

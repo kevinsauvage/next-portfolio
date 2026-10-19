@@ -10,9 +10,9 @@ import NewTabHint from '@/components/ui/NewTabHint';
 import { BodySmall, H3 } from '@/components/ui/Typography';
 import { sections } from '@/config/content/sections';
 import { trackEvent } from '@/lib/analytics';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 import { notifyError, notifySuccess } from '@/lib/notify';
-import { getRecaptchaToken, RecaptchaUnavailableError } from '@/lib/recaptcha';
+import { getRecaptchaToken, RecaptchaUnavailableError } from '@/lib/security/recaptcha';
 import {
   collectFieldErrors,
   CONTACT_CAPTCHA_ACTION,

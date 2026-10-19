@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const loadEnv = async () => {
   vi.resetModules();
-  return import('./env');
+  return import('./index');
 };
 
 describe('getPublicEnv', () => {

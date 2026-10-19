@@ -1,4 +1,4 @@
-import { notifyError, notifySuccess } from './notify';
+import { notifyError, notifySuccess } from './index';
 
 import { waitFor } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';

@@ -8,7 +8,7 @@ import NewTabHint from '@/components/ui/NewTabHint';
 import { BodySmall, H4 } from '@/components/ui/Typography';
 import { layout, NAVIGATION_SECTION_IDS, sectionIdFromHref } from '@/config/content/layout';
 import { useActiveSection } from '@/hooks/useActiveSection';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import clsx from 'clsx';
 import { ChevronRight, MenuIcon, X } from 'lucide-react';

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { PERSON_NAME } from '@/config/site';
 import { getPublicEnv } from '@/lib/env';
-import { SEARCH_TITLE, SITE_DESCRIPTION, SITE_KEYWORDS } from '@/lib/seo-schemas';
+import { SEARCH_TITLE, SITE_DESCRIPTION, SITE_KEYWORDS } from '@/lib/seo/schemas';
 
 export function buildRootMetadata(baseUrl: string): Metadata {
   return {

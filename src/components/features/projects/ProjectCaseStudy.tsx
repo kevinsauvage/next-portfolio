@@ -11,7 +11,7 @@ import { Tag } from '@/components/ui/Tag';
 import { Body, BodySmall, Caption, H1, H2, H3, Overline } from '@/components/ui/Typography';
 import { sections } from '@/config/content';
 import type { Project, ProjectFeature } from '@/config/content/projects';
-import { ANALYTICS_EVENTS } from '@/lib/analytics-events';
+import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 
 import { ArrowLeft, Check, Code2, ExternalLink, ShieldCheck } from 'lucide-react';
 
