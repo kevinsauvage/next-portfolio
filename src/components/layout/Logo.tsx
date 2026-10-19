@@ -6,7 +6,7 @@ import { ANALYTICS_EVENTS } from '@/lib/analytics/events';
 const Logo = () => (
   <Link
     href='/'
-    title={`${PERSON_NAME} - Home`}
+    aria-label={`${PERSON_NAME} - Home`}
     data-analytics-event={ANALYTICS_EVENTS.NAV_LOGO_CLICK}
     className='inline-flex min-h-11 items-center'
   >

@@ -28,6 +28,15 @@ describe('TestimonialCard', () => {
     );
   });
 
+  it('clamps the excerpt but never the expanded text', () => {
+    render(<TestimonialCard {...props} />);
+    const quote = () => screen.getByText(/Short excerpt\.|The full recommendation text\./);
+
+    expect(quote()).toHaveClass('line-clamp-6');
+    fireEvent.click(screen.getByRole('button', { name: /read full/i }));
+    expect(quote()).not.toHaveClass('line-clamp-6');
+  });
+
   it('shows the position out of the total and a valid machine-readable date', () => {
     const { container } = render(<TestimonialCard {...props} />);
 

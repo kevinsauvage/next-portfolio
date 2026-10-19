@@ -28,6 +28,18 @@ describe('TestimonialsCarousel', () => {
     vi.useRealTimers();
   });
 
+  it('keeps the pagination dots visible in forced-colors mode', () => {
+    render(<TestimonialsCarousel testimonials={testimonials} />);
+
+    // A dot is only a background color, which forced colors removes: each one
+    // needs a border (jsdom cannot evaluate the media query, so assert the class).
+    const dots = screen.getAllByRole('button', { name: /go to testimonial/i });
+    expect(dots.length).toBeGreaterThan(1);
+    for (const dot of dots) {
+      expect(dot.firstElementChild).toHaveClass('forced-colors:border');
+    }
+  });
+
   it('advances to the next testimonial with the arrow button', () => {
     render(<TestimonialsCarousel testimonials={testimonials} />);
     expect(screen.getByText(excerptText(first.excerpt))).toBeInTheDocument();

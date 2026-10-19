@@ -12,5 +12,8 @@ describe('Logo', () => {
     expect(link).toHaveAttribute('href', '/');
     expect(link).toHaveAttribute('data-analytics-event', 'nav_logo_click');
     expect(link.textContent).toContain('Kévin Sauvage');
+    // The destination is part of the accessible name, not a hover-only title.
+    expect(link).toHaveAccessibleName('Kévin Sauvage - Home');
+    expect(link).not.toHaveAttribute('title');
   });
 });

@@ -43,7 +43,14 @@ const TestimonialContent = ({
 
   return (
     <div className='flex-1 space-y-3'>
-      <blockquote className='leading-relaxed italic text-zinc-200 text-sm md:text-base lg:text-lg mb-4 md:mb-8 line-clamp-6'>
+      <blockquote
+        className={clsx(
+          'leading-relaxed italic text-zinc-200 text-sm md:text-base lg:text-lg mb-4 md:mb-8',
+          // The clamp only previews the excerpt: once expanded it would keep
+          // cutting the full text off at six lines (and at 200% text size).
+          !expanded && 'line-clamp-6'
+        )}
+      >
         &quot;{expanded ? content : excerpt}&quot;
       </blockquote>
       <div className='flex flex-wrap items-center gap-x-4 gap-y-2'>

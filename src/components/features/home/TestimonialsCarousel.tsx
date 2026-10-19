@@ -233,8 +233,12 @@ const TestimonialsCarousel: React.FC<TestimonialsCarouselProps> = ({ testimonial
                   aria-hidden='true'
                   className={clsx(
                     'rounded-full transition-[width,background-color,box-shadow] duration-200',
+                    // Windows High Contrast drops background colors, which would
+                    // leave a dot with nothing to see: outline it, and fill the
+                    // active one with the system highlight.
+                    'forced-colors:border forced-colors:border-[ButtonText]',
                     isActive
-                      ? 'h-2 w-8 md:h-2.5 md:w-10 bg-primary-500 shadow-lg shadow-primary-500/50'
+                      ? 'h-2 w-8 md:h-2.5 md:w-10 bg-primary-500 shadow-lg shadow-primary-500/50 forced-colors:forced-color-adjust-none forced-colors:border-[Highlight] forced-colors:bg-[Highlight]'
                       : 'h-2 w-2 md:h-2.5 md:w-2.5 bg-zinc-700 hover:bg-secondary-500/70'
                   )}
                 />
