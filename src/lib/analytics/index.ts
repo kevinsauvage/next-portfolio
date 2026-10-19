@@ -15,7 +15,6 @@ declare global {
     dataLayer?: Array<Record<string, unknown>>;
     gtag?: (
       command: 'config' | 'event' | 'consent' | 'set' | 'js',
-      // `js` carries a Date, the others a target id or event name.
       target: string | Date,
       params?: Record<string, unknown>
     ) => void;
