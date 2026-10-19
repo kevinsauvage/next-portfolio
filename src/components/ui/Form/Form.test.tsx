@@ -20,6 +20,14 @@ describe('Form primitives', () => {
     expect(screen.getByLabelText('Message')).toHaveAttribute('rows', '4');
   });
 
+  it('outlines empty fields with a border that keeps 3:1 (zinc-500, not a faded zinc-600)', () => {
+    render(<Input id='name' name='name' aria-label='Name' />);
+
+    const input = screen.getByLabelText('Name');
+    expect(input).toHaveClass('border-zinc-500');
+    expect(input).not.toHaveClass('border-zinc-600/80');
+  });
+
   it('marks required labels with a decorative asterisk only', () => {
     render(
       <Label htmlFor='email' required>

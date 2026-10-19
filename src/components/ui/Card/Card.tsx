@@ -64,7 +64,13 @@ export const Card = ({
     hover !== 'none' && 'transition-[transform,box-shadow,border-color] duration-200 ease-out',
     HOVER_CLASSES[hover]
   );
-  const contentClasses = clsx('h-full w-full relative z-10', PADDING_CLASSES[size]);
+  // `anywhere` (not `break-word`) also shrinks min-content, so a long heading wraps
+  // inside its flex/grid cell at 200% text size instead of being clipped by the
+  // card's `overflow-hidden` (WCAG 1.4.4 / RGAA 10.4).
+  const contentClasses = clsx(
+    'h-full w-full relative z-10 [overflow-wrap:anywhere]',
+    PADDING_CLASSES[size]
+  );
   const hoverTransform = HOVER_TRANSFORMS[hover];
   const hoverTransformMd = HOVER_TRANSFORMS_MD[hover];
   /* eslint-enable security/detect-object-injection */

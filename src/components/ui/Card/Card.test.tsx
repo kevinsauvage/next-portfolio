@@ -17,6 +17,13 @@ describe('Card', () => {
     expect(card.style.animationDelay).toBe('200ms');
   });
 
+  it('lets long words wrap inside the card instead of being clipped at 200% text', () => {
+    render(<Card data-testid='card'>Body</Card>);
+
+    // The card clips its overflow, so its content must be allowed to wrap anywhere.
+    expect(screen.getByTestId('card').lastElementChild).toHaveClass('[overflow-wrap:anywhere]');
+  });
+
   it('omits the entrance animation without an index', () => {
     render(<Card data-testid='card'>Body</Card>);
 
