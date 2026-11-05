@@ -9,7 +9,7 @@ export const faqs: Faq[] = [
     id: 'availability',
     question: 'Are you available for new opportunities?',
     answer:
-      "I'm currently a Frontend Software Engineer at Keolis Group, working remotely from Barcelona — and I'm always open to connections and interesting conversations. The fastest way to reach me is the contact form or email below; I reply within 24 hours on weekdays.",
+      "I'm currently a frontend developer at Keolis Group, working remotely from Barcelona, and I'm happy to chat. The fastest way to reach me is the contact form or email below; I reply within 24 hours on weekdays.",
   },
   {
     id: 'freelance',

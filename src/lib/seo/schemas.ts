@@ -4,12 +4,12 @@ import { CONTACT_EMAIL, GITHUB_URL, LINKEDIN_URL, PERSON_NAME, SITE_URL } from '
 
 // Bump this when site content changes so crawlers see a meaningful `lastModified`.
 export const SITE_LAST_MODIFIED = '2026-10-14' as const;
-export const FRONTEND_DEVELOPER = 'Frontend Software Engineer' as const;
+export const FRONTEND_DEVELOPER = 'Frontend Developer' as const;
 export const SCHEMA_CONTEXT = 'https://schema.org' as const;
 
 /** Canonical metadata copy — single source of truth for head + JSON-LD. */
 export const SEARCH_TITLE =
-  `${PERSON_NAME} - Frontend Software Engineer | Web Accessibility & Performance` as const;
+  `${PERSON_NAME} - Frontend Developer | Web Accessibility & Performance` as const;
 export const SITE_DESCRIPTION =
   'Frontend engineer in Barcelona. Accessible, fast web products used by millions in 15+ countries. React, Next.js, Svelte, TypeScript.' as const;
 export const SITE_KEYWORDS =
@@ -22,7 +22,7 @@ export const personSchema = {
   jobTitle: FRONTEND_DEVELOPER,
   email: CONTACT_EMAIL,
   url: SITE_URL,
-  description: 'Frontend software engineer in Barcelona, building accessible, fast web products.',
+  description: 'Frontend developer in Barcelona.',
   about:
     'Frontend engineer with 5+ years building web products used by millions across 15+ countries, focused on accessibility, performance and shared component libraries.',
   address: {

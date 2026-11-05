@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 import { PERSON_NAME, SITE_URL } from '@/config/site';
 
-export const alt = `${PERSON_NAME} — Frontend Software Engineer`;
+export const alt = `${PERSON_NAME} — Frontend Developer`;
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -30,7 +30,7 @@ const OgImage = () =>
           {PERSON_NAME}
         </div>
         <div style={{ display: 'flex', fontSize: 40, color: '#818cf8' }}>
-          Frontend Software Engineer — Web Accessibility & Performance
+          Frontend Developer — Web Accessibility & Performance
         </div>
       </div>
 

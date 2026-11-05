@@ -17,7 +17,7 @@ export const certifications: Certification[] = [
     issuer: 'Self-directed · In Progress',
     date: '2026',
     description:
-      'Going deeper on WCAG 2.2, ARIA authoring practices, and screen-reader testing — applied directly to Keolis delivery and axe-gated CI pipelines.',
+      'Learning more about WCAG 2.2, ARIA authoring practices and screen reader testing, and using it in my work at Keolis.',
     skills: ['WCAG 2.2', 'ARIA', 'Screen Readers'],
     featured: true,
   },
