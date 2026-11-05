@@ -9,30 +9,30 @@ type Language = {
 export const sections = {
   hero: {
     title: {
-      firstLine: 'Frontend Software Engineer ·',
+      firstLine: 'Frontend Developer ·',
       secondLine: 'Web Accessibility & Performance',
     },
     description:
-      'Working remotely at Keolis, previously Decathlon e-commerce across 15+ markets. I build accessible, high-performance storefronts and design systems with React, Next.js and Svelte.',
+      'I work on accessibility and frontend at Keolis, remotely from Barcelona. Before that I spent almost four years at Decathlon, building storefronts with Svelte.',
     availability: 'Currently at Keolis Group',
-    primaryCta: 'See impact',
+    primaryCta: 'See my experience',
     stats: [
       { label: 'Years Experience', value: '5+', highlight: true },
       { label: 'Countries Reached', value: '15+' },
-      { label: 'Users Impacted', value: '1M+' },
+      { label: 'RGAA on ilévia, up from 30%', value: '84%' },
     ],
   },
   about: {
     overline: 'About me',
     title: `Hi, I'm ${PERSON_NAME}`,
-    currently: 'Currently at Keolis Group (remote) — accessibility, axe in CI',
-    philosophyTitle: 'My Philosophy',
+    currently: 'Currently at Keolis Group (remote)',
+    philosophyTitle: 'What I care about',
     paragraphs: [
-      'Frontend engineer with 5+ years building web products used by millions of people across 15+ countries. Most of my work is on accessibility, performance and shared component libraries.',
-      "At Keolis I took ilévia, a French public transit platform, from 30% to 84% RGAA compliance and added accessibility checks (Jest-axe, Cypress-axe, ESLint jsx-a11y) to CI so regressions don't reach production.",
-      'At Decathlon I built the Svelte component library behind the storefronts in 15+ countries and cut load time on the Spanish site by 1.5s through Core Web Vitals work.',
-      'Stack: React, Next.js, TypeScript, Svelte, Jest, Cypress, Storybook.',
-      'Based in Barcelona, fluent in English, French and Spanish.',
+      "I'm a frontend developer in Barcelona, working mostly with React, Next.js, Svelte and TypeScript.",
+      'I got into this during the 2020 lockdown. I was bored, so I spent the time learning to code, then did the Le Wagon bootcamp and got my first developer job in 2021. Before that I spent seven years in very different jobs: customer service at Avis, managing a small business, and the front desk at Soho House.',
+      "At Keolis I started as the accessibility specialist and only developer on ilévia, a French public transit platform. RGAA compliance went from 30% to 84%, and I added accessibility checks to CI so problems get caught earlier. Now that's in place, my work has become more general frontend development.",
+      'Before Keolis I spent almost four years at Decathlon, where I built a Svelte component library used by storefronts in more than 15 countries and worked on page speed for the Spanish site.',
+      'What I enjoy most is a difficult problem with a simple solution, and keeping a codebase clean.',
     ],
     languagesTitle: 'Languages',
     languages: [
@@ -49,13 +49,12 @@ export const sections = {
     overline: 'Career',
     title: 'Professional Journey',
     description:
-      "Each role I've had has pushed me in a different direction. From building component libraries to tuning performance and accessibility, every step has made me a more well-rounded engineer.",
+      "Where I've worked and what I did there, from component libraries to performance and accessibility.",
   },
   portfolio: {
     overline: 'Portfolio',
     title: 'Featured Projects',
-    description:
-      "Here are some projects I've worked on. Each one is focused on speed, accessibility and real usability, and reflects how I think through problems and build things that hold up in production.",
+    description: "Some things I've built outside my day job.",
     buttons: {
       viewLive: 'View Live',
       sourceCode: 'Source Code',
@@ -91,8 +90,7 @@ export const sections = {
   contact: {
     overline: 'Contact',
     title: "Let's connect",
-    description:
-      'Based in Barcelona, working remotely at Keolis Group. Always open to interesting conversations and opportunities — feel free to reach out.',
+    description: 'Based in Barcelona, working remotely at Keolis Group. Feel free to get in touch.',
     email: CONTACT_EMAIL,
     location: 'Barcelona, Spain — CET (UTC+1) · English, French, Spanish',
     form: {
@@ -137,8 +135,7 @@ export const sections = {
   certifications: {
     overline: 'Credentials',
     title: 'Continuous Learning',
-    description:
-      'Production work is my main credential — these formalize the rest. Right now that means accessibility depth, JavaScript fundamentals, and working across three languages.',
+    description: 'A few courses and certificates, plus what I am learning at the moment.',
     button: 'View Credential',
   },
 } as const;

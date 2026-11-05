@@ -165,7 +165,7 @@ const myEcommerceProject: Project = {
     ],
     responsibilities: [
       'Defined the brand positioning and designed the storefront UI',
-      'Architected the App Router structure, caching and revalidation strategy',
+      'Set up the App Router structure, caching and revalidation',
       'Modelled the Shopify data contract (metaobjects, menus, policies) and built the tooling to seed and sync it',
       'Integrated the Storefront, Admin and Customer Account APIs',
       'Set up deployment on Vercel, environment validation, error monitoring and SEO plumbing',

@@ -38,8 +38,7 @@ export const layout = {
   },
   footer: {
     name: PERSON_NAME,
-    tagline:
-      'Frontend Software Engineer at Keolis Group (remote), based in Barcelona. I build fast, accessible web products that people enjoy using.',
+    tagline: 'Frontend developer at Keolis Group (remote), based in Barcelona.',
     sections: {
       quickLinks: {
         title: 'Quick Links',
@@ -67,7 +66,7 @@ export const layout = {
       },
       availability: {
         title: 'Availability',
-        status: 'Currently at Keolis Group — open to connections',
+        status: 'Currently at Keolis Group',
         location: 'Barcelona, Spain',
       },
       contact: {

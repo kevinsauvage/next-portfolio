@@ -9,7 +9,10 @@ describe('Hero', () => {
   it('links the primary CTA to the career section', () => {
     render(<Hero />);
 
-    expect(screen.getByRole('link', { name: /see impact/i })).toHaveAttribute('href', '/#career');
+    expect(screen.getByRole('link', { name: /see my experience/i })).toHaveAttribute(
+      'href',
+      '/#career'
+    );
   });
 
   it('opens the resume in a new tab', () => {
