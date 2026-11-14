@@ -69,7 +69,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <HeadLinks />
         <ConsentModeDefaults />
       </head>
-      <body className='w-full h-full antialiased font-base font-normal text-zinc-50'>
+      <body className='w-full h-full bg-black antialiased font-base font-normal text-zinc-50'>
         {/* `.reveal` starts at opacity 0 and only `RevealObserver` un-hides it, so
             without JS every revealed section would stay invisible. Inline styles
             are already allowed by `style-src` (see csp.config.mjs); written with
