@@ -16,8 +16,3 @@ Open work only; shipped work lives in `git log`. Last reviewed 2026-11-15.
       78 requires ESLint 10, and the other plugins' peers stop at 9. Remove the ignore entries when they accept it.
 - [ ] **`minimatch` moderate advisory** through `@typescript-eslint` and `eslint-plugin-sonarjs` (dev only,
       Dependabot alert #141). No safe fix yet; the production audit is clean.
-
-## Housekeeping
-
-- [ ] **Delete the bot branches:** seven `snyk-*` (2023–2025) and seven `complyloop/fix-*` (2026-09), each one
-      unmerged commit ahead of `main`. Check nothing in them is wanted first.
