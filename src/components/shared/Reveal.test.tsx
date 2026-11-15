@@ -15,7 +15,8 @@ describe('Reveal', () => {
   it('applies the stagger delay', () => {
     render(<Reveal delay={300}>content</Reveal>);
 
-    expect(screen.getByText('content')).toHaveStyle({ transitionDelay: '300ms' });
+    // Read the inline style: jsdom 31 no longer resolves `transition-delay` through getComputedStyle.
+    expect(screen.getByText('content').getAttribute('style')).toContain('transition-delay: 300ms');
   });
 
   it('renders as the requested element', () => {
