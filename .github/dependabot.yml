@@ -12,6 +12,12 @@ updates:
         update-types:
           - 'minor'
           - 'patch'
+    # ESLint 10 fails the lint job (plugin peers stop at 9); lift when they accept it.
+    ignore:
+      - dependency-name: 'eslint'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'eslint-plugin-unicorn'
+        update-types: ['version-update:semver-major']
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
