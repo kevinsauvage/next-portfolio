@@ -1,14 +1,14 @@
 # AGENTS.md
 
 > Canonical agent instructions for this repo (2026 format: short index, not a manual).
-> `CLAUDE.md`, `GEMINI.md`, and `.github/copilot-instructions.md` all point here — edit this file only.
+> `CLAUDE.md` imports this file and `opencode.json` loads it — edit this file only.
 
 ## Commands
 
 Run from repo root. Node `>=24` (see `.nvmrc`); package manager is **npm** (lockfile: `package-lock.json`).
 
 - `npm run dev` — dev server (Turbopack, port 3000)
-- `npm run build` — production build (must pass before any PR)
+- `npm run build` — production build (must pass before pushing)
 - `npm run check` — `type-check` + `lint` + `format:check` (fast gate, run first)
 - `npm run test:run` — Vitest single run (unit, colocated `src/**/*.test.{ts,tsx}`)
 - `npm run test:coverage` — Vitest with V8 coverage (thresholds in `vitest.config.ts`)
@@ -54,13 +54,13 @@ Style (Prettier + ESLint) is enforced mechanically — do not restate it here; r
 ### Ask first
 
 - Before adding/removing a dependency in `package.json`.
-- Before changing auth, CSP (`csp.config.mjs`, `next.config.mjs`), rate limiting, env validation, CI workflows, or public URLs/SEO (`sitemap.tsx`, `robots.tsx`, rewrites).
+- Before changing auth, CSP (`csp.config.mjs`, `next.config.mjs`), rate limiting, env validation, CI workflows, or public URLs/SEO (`sitemap.ts`, `robots.ts`, rewrites).
 - Before touching `src/instrumentation*.ts` or Sentry tunnel route (`/monitoring`).
 
 ### Never do
 
 - Never commit or print secrets (`.env`, `.env.local`, `SENTRY_AUTH_TOKEN`, EmailJS keys, reCAPTCHA secrets).
-- Never push directly to `main` — Vercel deploys on push to `main`; use a branch + PR.
+- Never push to `main` with a failing gate: a push to `main` deploys to production on Vercel. Run `npm run check`, `npm run test:run` and `npm run build` first.
 - Never weaken CSP, ESLint, coverage thresholds, or types to make a build pass; fix the code.
 - Never delete/skip a failing test without explicit approval; never edit `node_modules/`, `.next/`, `coverage/`, `test-results/`.
 

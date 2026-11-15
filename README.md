@@ -38,10 +38,10 @@ git clone https://github.com/kevinsauvage/next-portfolio.git
 cd next-portfolio
 ```
 
-2. Install dependencies:
+2. Install dependencies (Node 24, see `.nvmrc`):
 
 ```bash
-npm install
+npm ci
 ```
 
 3. Set up environment variables:
@@ -137,10 +137,12 @@ Update content in the `src/config/content/` directory:
 - `sections.ts` - Page section titles and descriptions
 - `jobs.ts` - Professional experience
 - `certifications.ts` - Education and certifications
-- `projects.ts` - Portfolio projects
+- `projects.ts` - Portfolio projects (each gets a `/projects/[slug]` page)
 - `testimonials.ts` - Client testimonials
 - `passions.ts` - Skills and approach
 - `faq.ts` - Frequently asked questions
+- `social.ts`, `layout.ts`, `site-map.ts` - Social links, header/footer navigation, site map page
+- `cookies.ts`, `privacy.ts` - Cookie banner copy and the privacy policy
 
 ### Styling
 
@@ -185,7 +187,7 @@ Notes and exceptions:
 ```
 src/
 ├── actions/                # Server Actions (contact form)
-├── app/                    # Next.js App Router pages
+├── app/                    # App Router: home, projects/[slug], privacy, site-map, sitemap.ts, robots.ts
 ├── components/
 │   ├── features/          # Feature-specific components
 │   ├── layout/            # Layout components (Header, Footer)
@@ -194,14 +196,30 @@ src/
 ├── config/
 │   └── content/           # Page copy + site data (sections, jobs, projects, social, cookies, privacy)
 ├── hooks/                 # Custom React hooks
-├── lib/                   # Utility functions
+├── lib/                   # One folder per domain: analytics, consent, env, seo, security, observability
 ├── schemas/               # Zod schemas
-└── styles/                # Global styles
+└── styles/                # Global styles and design tokens
+e2e/                        # Playwright specs (navigation, contact, consent, a11y, ...)
+docs/design-system.md       # Tokens, typography and component rules
+scripts/                    # Project screenshot capture
 ```
+
+## Quality gates
+
+- **Pre-commit**: Husky runs `lint-staged` (ESLint and Prettier on staged files).
+- **CI** (`.github/workflows/ci.yml`): lint, type-check, format check, unit tests with coverage thresholds,
+  production build, then Playwright end-to-end tests.
+- **Security** (`security.yml`): `npm audit` on production dependencies, failing on high severity.
+- **Lighthouse** (`lighthouse.yml`): runs against the live site when the `SITE_URL` repository variable is set.
+
+AI coding agents follow [`AGENTS.md`](AGENTS.md); the design rules are in
+[`docs/design-system.md`](docs/design-system.md).
 
 ## Deployment
 
-Deployment is handled automatically by Vercel on every push to `main` — no manual steps required.
+Vercel deploys every push to `main` to production, so run `npm run check`, `npm run test:run` and
+`npm run build` before pushing. Set the environment variables from the table above in the Vercel project;
+`NEXT_PUBLIC_*` values need a redeploy to change.
 
 ## License
 
