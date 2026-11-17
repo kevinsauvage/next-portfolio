@@ -4,9 +4,6 @@ Open work only; shipped work lives in `git log`. Last reviewed 2026-11-15.
 
 ## Security (owner)
 
-- [ ] **Rotate the email credentials** (`EMAIL_ADDRESS`, `EMAIL_PASSWORD`) that are readable in the history of
-      branches `develop` and `update/update-sass`, then delete both branches. **Why:** the repository is public;
-      neither branch is used (407 and 310 commits off `main`).
 - [ ] **Mark `RECAPTCHA_SECRET_KEY` and `email_js_private_key` as Sensitive on Vercel** and remove them from
       the Development environment. **Why:** they are stored as plain, readable values.
 
