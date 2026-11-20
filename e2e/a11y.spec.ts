@@ -14,7 +14,7 @@ const ROUTES = [
   '/privacy',
   '/site-map',
   '/projects/complyloop',
-  '/projects/modern-ecommerce-platform',
+  '/projects/oruva',
   '/this-page-does-not-exist',
 ];
 

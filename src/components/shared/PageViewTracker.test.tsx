@@ -29,7 +29,7 @@ describe('PageViewTracker', () => {
   it('reports each subsequent navigation once', () => {
     const { rerender } = render(<PageViewTracker />);
 
-    pathname = '/projects/modern-ecommerce-platform';
+    pathname = '/projects/oruva';
     rerender(<PageViewTracker />);
     expect(trackPageView).toHaveBeenCalledTimes(1);
 

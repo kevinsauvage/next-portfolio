@@ -55,7 +55,7 @@ export type Project = {
 };
 
 const myEcommerceProject: Project = {
-  slug: 'modern-ecommerce-platform',
+  slug: 'oruva',
   role: 'Design & development (solo)',
   timeline: '2026',
   description:
@@ -179,15 +179,15 @@ const myEcommerceProject: Project = {
     ],
     gallery: [
       {
-        src: '/images/projects/modern-ecommerce-platform/collections.jpg',
+        src: '/images/projects/oruva/collections.jpg',
         alt: 'ORUVA collections page with All Products, Bracelets, Earrings and Gifts tiles',
       },
       {
-        src: '/images/projects/modern-ecommerce-platform/collection.jpg',
+        src: '/images/projects/oruva/collection.jpg',
         alt: 'The All Products collection with sorting and filter controls',
       },
       {
-        src: '/images/projects/modern-ecommerce-platform/product.jpg',
+        src: '/images/projects/oruva/product.jpg',
         alt: 'Product page for Moonlit Doorknocker earrings with gallery and price',
       },
     ],
@@ -195,7 +195,7 @@ const myEcommerceProject: Project = {
   images: {
     thumbnail: {
       alt: 'ORUVA homepage: hero slogan beside a model wearing gold jewelry',
-      src: '/images/projects/modern-ecommerce-platform/home.jpg',
+      src: '/images/projects/oruva/home.jpg',
     },
   },
   technologies: [

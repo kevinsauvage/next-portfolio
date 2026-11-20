@@ -2,7 +2,7 @@ import { expect, test } from './fixtures';
 
 test.describe('project case study', () => {
   test('renders the case study with structured data and a way back', async ({ page }) => {
-    await page.goto('/projects/modern-ecommerce-platform');
+    await page.goto('/projects/oruva');
 
     await expect(
       page.getByRole('heading', { level: 1, name: 'ORUVA — Jewelry E-Commerce' })

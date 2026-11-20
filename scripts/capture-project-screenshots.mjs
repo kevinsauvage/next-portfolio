@@ -9,7 +9,7 @@
  * Env / flags:
  *   SCREENSHOT_BASE_URL / --base   Base URL of the deployed demo (required).
  *   SCREENSHOT_OUT_DIR  / --out    Output dir (default: public/images/projects/<slug>).
- *   SCREENSHOT_SLUG     / --slug   Project slug (default: modern-ecommerce-platform).
+ *   SCREENSHOT_SLUG     / --slug   Project slug (default: oruva).
  *   --full                         Capture full-page instead of viewport.
  *
  * The demo is crawled for the first collection and product link, so slugs can
@@ -28,7 +28,7 @@ const flag = name => {
   return index === -1 ? undefined : args[index + 1];
 };
 
-const SLUG = flag('--slug') ?? process.env.SCREENSHOT_SLUG ?? 'modern-ecommerce-platform';
+const SLUG = flag('--slug') ?? process.env.SCREENSHOT_SLUG ?? 'oruva';
 const BASE_URL = (flag('--base') ?? process.env.SCREENSHOT_BASE_URL ?? '').replace(/\/$/, '');
 const OUT_DIR = path.resolve(
   flag('--out') ?? process.env.SCREENSHOT_OUT_DIR ?? path.join('public', 'images', 'projects', SLUG)
