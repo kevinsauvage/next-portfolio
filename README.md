@@ -34,8 +34,8 @@ The source of [kevin-sauvage.com](https://www.kevin-sauvage.com/), my portfolio.
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/kevinsauvage/next-portfolio.git
-cd next-portfolio
+git clone https://github.com/kevinsauvage/portfolio.git
+cd portfolio
 ```
 
 2. Install dependencies (Node 24, see `.nvmrc`):
