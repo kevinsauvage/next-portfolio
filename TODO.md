@@ -1,6 +1,13 @@
 # TODO
 
-Open work only; shipped work lives in `git log`. Last reviewed 2026-11-19.
+Open work only; shipped work lives in `git log`. Last reviewed 2026-11-21.
+
+## Codebase review
+
+- [ ] **Simplicity:** [TODO-SIMPLICITY.md](TODO-SIMPLICITY.md)
+- [ ] **Architecture:** [TODO-ARCHITECTURE.md](TODO-ARCHITECTURE.md)
+- [ ] **Performance:** [TODO-PERFORMANCE.md](TODO-PERFORMANCE.md)
+- [ ] **Production readiness:** [TODO-PRODUCTION-READINESS.md](TODO-PRODUCTION-READINESS.md)
 
 ## Content
 
